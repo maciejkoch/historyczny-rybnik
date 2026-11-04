@@ -1,6 +1,6 @@
 # MVP.1 — propozycje kolorystyki i UX/UI
 
-Data: 4 listopada 2026. Status: trzy propozycje do wyboru; brak zatwierdzonego kierunku.
+Data: 4 listopada 2026. Status: **zatwierdzony kierunek — jasna mapa wektorowa, ciemnozielone akcenty i jeden panel treści**. Wcześniejsze propozycje poniżej stanowią zapis prac projektowych.
 
 ## Materiał do porównania
 
@@ -36,7 +36,7 @@ Sprawdzono wyświetlenie rastra i skanu w przeglądarce, wszystkie trzy warianty
 
 ## Następne decyzje
 
-1. Wybrać kierunek lub połączenie palety i układu z różnych propozycji.
+1. Kierunek wybrany: jasna mapa wektorowa i jeden panel. Pozostałe warianty są materiałem porównawczym.
 2. Dopracować widok startowy, wyniki wyszukiwania, miejsce bez pozycji, logowanie i wskazywanie lokalizacji.
 3. Przygotować właściwe logo oraz finalne tokeny kolorów i typografii.
 
@@ -53,7 +53,7 @@ Po uwadze właściciela o zlewaniu się treści z rastrem przygotowano nowy podg
 - Docelowy podkład wektorowy pozwoli osobno dobrać kolory i widoczność dróg, budynków, wody, zieleni oraz etykiet. Dostawca danych, styl i biblioteka pozostają decyzją etapu technicznego.
 - Zachowano atrybucję OSM oraz źródła historyczne. Zgodność współrzędnych nie usuwa błędów oryginalnej georeferencji planu.
 
-Ten podgląd zastępuje wcześniejsze ograniczenie prototypów do samego rastra historycznego. Wybór kolorystyki i układu wciąż nie jest zatwierdzony.
+Ten podgląd zastąpił wcześniejsze ograniczenie do samego rastra historycznego. Ostateczny wybór kierunku zapisano na końcu dokumentu.
 
 Dokumentacja możliwości stylowania: https://maplibre.org/maplibre-style-spec/layers/ oraz przezroczystości kafelków: https://leafletjs.com/reference#tilelayer-opacity.
 
@@ -71,4 +71,17 @@ Porównano dwa układy na tej samej mapie i trzech przykładowych miejscach:
 
 Rekomendacja dla minimalistycznego MVP.1: **jeden panel**, z jednym miejscem na treść i większą mapą. Dwóch jednoczesnych paneli nie dodajemy jako zatwierdzonego wymagania. Wybrany wynik ma własny adres URL; przejście wstecz przywraca kontekst wyszukiwania. Na telefonie wyszukiwarka pozostaje nad mapą, a lista i szczegóły korzystają z jednego obszaru poniżej mapy albo panelu od dołu — szczegóły zachowania wymagają dopracowania.
 
-W podglądzie sprawdzono wektorowy podkład, wybór miejsca z listy, zastąpienie listy szczegółami, powrót oraz drugi wariant z dwoma panelami. Wybór właściciela pozostaje otwarty.
+W podglądzie sprawdzono wektorowy podkład, wybór miejsca z listy, zastąpienie listy szczegółami, powrót oraz drugi wariant z dwoma panelami. Właściciel zaakceptował kierunek; decyzję zapisano poniżej.
+
+
+## Zatwierdzony kierunek — 4 listopada 2026
+
+Po obejrzeniu mapy wektorowej i porównania paneli właściciel zaakceptował propozycję. Przyjmujemy:
+
+- Jasny, spokojny podkład wektorowy w palecie opisanej wyżej: szarozielone budynki, delikatna zieleń, przygaszona woda, białe drogi i ciemnozielone punkty.
+- Nieprzezroczyste powierzchnie treści, wyraźnie oddzielone od mapy.
+- Jeden panel po lewej na desktopie: wyszukiwarka pozostaje na górze; lista i karta miejsca są kolejnymi stanami tego samego obszaru. Powrót do wyników zachowuje zapytanie i pozycję listy.
+- Na telefonie jeden obszar na listę lub kartę, z łatwo dostępną wyszukiwarką. Szczegóły wysokości i zwijania panelu dopracujemy w kolejnych ekranach.
+- Plan z 1932 r. pozostaje opcjonalną nakładką z regulacją krycia; 35% to punkt wyjścia z podglądu, nie ostateczna decyzja o ustawieniu startowym aplikacji.
+
+Zatwierdzenie dotyczy kierunku kolorystycznego oraz układu jednego panelu. Finalne logo, typografia, pozostałe stany ekranów i technologia mapy pozostają do dopracowania.

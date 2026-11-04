@@ -4,7 +4,7 @@ Nazwa aplikacji: **Historyczny Rybnik**. Domena główna: **`historyczny.rybnik.
 
 Data rozpoczęcia: 4 listopada 2026.
 
-Status: **etap 1 — ustalenie funkcjonalności; część zakresu zatwierdzona**.
+Status: **etap 2 — UX/UI; zatwierdzono kierunek kolorystyczny mapy wektorowej i układ z jednym panelem**.
 
 MVP.1 powstanie od zera w nowym repozytorium po ustaleniu nazwy. Obecne MVP.0 jest materiałem referencyjnym i źródłem danych do przeglądu. Ten dokument nie uruchamia implementacji ani migracji danych.
 
@@ -189,7 +189,7 @@ Kryteria dla widoku historii, cofania i konfliktów edycji uzupełnimy po uzgodn
 
 ## 8. Backlog etapu 2 — UX/UI, marka i domena
 
-Przygotowano [trzy propozycje kolorystyki i układu](ux-ui.md) z planem Rybnika z 1932 r., w wersjach mobilnych i desktopowych. Kierunek pozostaje do wyboru.
+Wybrano [jasny podkład wektorowy i jeden panel treści](ux-ui.md), z ciemnozielonymi akcentami oraz opcjonalną nakładką planu z 1932 r. Dokument UX/UI zawiera decyzję i wcześniejsze propozycje porównawcze.
 
 Wybrano **Historyczny Rybnik** / `historyczny.rybnik.pl`. Zapis decyzji, wcześniejsze propozycje i ceny: [Nazwa i domena](nazwa-i-domena.md). Zakup domeny pozostaje do wykonania osobno.
 
