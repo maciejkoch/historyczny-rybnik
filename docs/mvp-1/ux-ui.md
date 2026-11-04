@@ -105,3 +105,12 @@ Propozycje pól: dokładność „Miejsce przybliżone” (domyślnie) lub „Ws
 Przycisk zapisu informuje o natychmiastowej publikacji. Docelowo powstaje wpis historii autora, czasu, starej i nowej pozycji. Prototyp zmienia tylko stan makiety i jawnie informuje, że nie zapisuje do bazy. Sprawdzono wskazanie na mapie, aktywację zapisu oraz powrót do karty ze zmienioną pozycją i statusem.
 
 Do dopracowania: mobilne wskazywanie z podglądem, obsługa błędu zapisu i konfliktów oraz dostępne klawiaturą alternatywy dla kliknięcia na mapie.
+
+
+## Akceptacja marki i ekranu lokalizacji — 4 listopada 2026
+
+Właściciel zaakceptował proponowany kierunek **Spokojny atlas**: monogram HR w ciemnozielonym kole, Lora dla nazwy i tytułów oraz Source Sans 3 dla interfejsu i opisów. Druga propozycja pozostaje materiałem porównawczym.
+
+Przyjęto kierunek ekranu edycji w jednym panelu: dotychczasowa i nowa pozycja, wskazanie na mapie, określenie dokładności, opcjonalne uzasadnienie oraz jawny zapis publiczny lub anulowanie. Przed wskazaniem pozycji zapis jest nieaktywny.
+
+Finalizacja plików logo i favicon, kontrola małych rozmiarów, mobilne zachowanie edycji oraz szczegółowa semantyka statusów pozostają zadaniami do wykonania. Akceptacja kierunku nie oznacza, że te elementy są już zaimplementowane.

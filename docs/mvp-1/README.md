@@ -4,9 +4,9 @@ Nazwa aplikacji: **Historyczny Rybnik**. Domena główna: **`historyczny.rybnik.
 
 Data rozpoczęcia: 4 listopada 2026.
 
-Status: **etap 2 — UX/UI; zatwierdzono kierunek kolorystyczny mapy wektorowej i układ z jednym panelem**.
+Status: **etap 3 — plan techniczny; zaakceptowano kierunek UX/UI, marki i typografii**.
 
-MVP.1 powstanie od zera w nowym repozytorium po ustaleniu nazwy. Obecne MVP.0 jest materiałem referencyjnym i źródłem danych do przeglądu. Ten dokument nie uruchamia implementacji ani migracji danych.
+MVP.1 powstaje od zera w osobnym repozytorium `maciejkoch/historyczny-rybnik`, utworzonym po wyborze nazwy. Obecne MVP.0 jest materiałem referencyjnym i źródłem danych do przeglądu. Ten dokument nie uruchamia implementacji ani migracji danych.
 
 ## 1. Cel i zasady
 
@@ -203,6 +203,8 @@ Wybrano **Historyczny Rybnik** / `historyczny.rybnik.pl`. Zapis decyzji, wcześn
 - Dostępności i cen nie uznawać za potwierdzone bez aktualnego sprawdzenia. Decyzja o nazwie poprzedza utworzenie repozytorium.
 
 ## 9. Backlog etapu 3 — technika
+
+Przygotowano [wstępny plan techniczny](technika.md), z aktualnymi wersjami, rekomendacjami i decyzjami otwartymi. Nie jest to jeszcze zatwierdzona architektura ani szczegółowy schemat bazy.
 
 Założenia użytkownika: Firebase, najnowszy Angular, Tailwind z konfiguracją brandingu, pliki w Storage, rekordy punktów w bazie, backend i API z App Check.
 
