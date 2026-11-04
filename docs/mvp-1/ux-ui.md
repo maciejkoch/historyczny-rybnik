@@ -56,3 +56,19 @@ Po uwadze właściciela o zlewaniu się treści z rastrem przygotowano nowy podg
 Ten podgląd zastępuje wcześniejsze ograniczenie prototypów do samego rastra historycznego. Wybór kolorystyki i układu wciąż nie jest zatwierdzony.
 
 Dokumentacja możliwości stylowania: https://maplibre.org/maplibre-style-spec/layers/ oraz przezroczystości kafelków: https://leafletjs.com/reference#tilelayer-opacity.
+
+
+## Rewizja — paleta mapy wektorowej i miejsce na wyniki
+
+Przygotowano podgląd rzeczywistej geometrii OpenStreetMap (lokalny wycinek XML z MVP.0, pochodzący z API OSM), renderowanej wektorowo, bez nakładki z 1932 r. Poszczególne rodzaje obiektów mają własne kolory; nie jest to filtr rastra. Render w podglądzie wykorzystuje SVG i D3, nie przesądza o docelowym silniku mapy.
+
+Proponowane tokeny: tło `#F0F1EC`, budynki `#DADFD7`, zieleń `#DDE8D8`, woda `#B5CDD0`, drogi `#FFFFFF` z obrysem `#CDD3C9`, podpisy `#65736A`, punkty `#245947`. Ciemne punkty katalogu mają wyróżniać się na spokojnym podkładzie; warstwy nie konkurują kolorem z treścią.
+
+Porównano dwa układy na tej samej mapie i trzech przykładowych miejscach:
+
+1. **Jeden panel**: wyszukiwarka stale u góry lewego panelu. Wybór wyniku zastępuje listę kartą. Powrót odtwarza listę z zachowanym zapytaniem; docelowo również z pozycją przewinięcia. Kliknięcie znacznika otwiera tę samą kartę.
+2. **Lista i szczegóły**: lista z wyszukiwarką po lewej, karta po prawej, mapa pomiędzy. Ułatwia przełączanie między wynikami, ale odbiera mapie szerokość. Na telefonie lista i szczegóły nadal muszą być kolejnymi stanami jednej sekcji.
+
+Rekomendacja dla minimalistycznego MVP.1: **jeden panel**, z jednym miejscem na treść i większą mapą. Dwóch jednoczesnych paneli nie dodajemy jako zatwierdzonego wymagania. Wybrany wynik ma własny adres URL; przejście wstecz przywraca kontekst wyszukiwania. Na telefonie wyszukiwarka pozostaje nad mapą, a lista i szczegóły korzystają z jednego obszaru poniżej mapy albo panelu od dołu — szczegóły zachowania wymagają dopracowania.
+
+W podglądzie sprawdzono wektorowy podkład, wybór miejsca z listy, zastąpienie listy szczegółami, powrót oraz drugi wariant z dwoma panelami. Wybór właściciela pozostaje otwarty.
