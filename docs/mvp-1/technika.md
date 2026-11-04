@@ -32,7 +32,7 @@ Angular 22.2.4 deklaruje Node `^22.22.3 || ^24.15.0 || >=26.0.0`. Linię Node do
 - Tailwind 4: tokeny w CSS, wspólna konfiguracja kolorów, typografii, odstępów i promieni. Bez kopiowania przypadkowych wartości pomiędzy komponentami.
 - daisyUI 5 jako zestaw bazowych kontrolek i motywu. Zachowanie wyszukiwarki, zarządzanie fokusem i panel mapy realizuje Angular; sama biblioteka CSS nie zapewnia kompletnego zachowania dostępności.
 - Wybrana typografia: Lora dla nazwy i tytułów, Source Sans 3 dla opisów i kontrolek. Docelowo pliki fontów serwowane z aplikacji, z polskimi znakami i właściwymi licencjami.
-- Wybrany kierunek logo: „Ryba na mapie” — symbol ryby połączony z układem ulic, w zielonej kolorystyce i z nazwą obok. Zastępuje wcześniejszy monogram HR. Finalne SVG i favicon wymagają przygotowania oraz sprawdzenia w małym rozmiarze.
+- Wybrany kierunek logo: „Ryba na mapie” — symbol ryby połączony z układem ulic, w zielonej kolorystyce i z nazwą obok. Zastępuje wcześniejszy monogram HR. [Plansza koncepcyjna i status plików logo](assets/logo/README.md). Finalne SVG i favicon wymagają przygotowania oraz sprawdzenia w małym rozmiarze.
 - Jeden panel: lista i karta są kolejnymi stanami; zapytanie i przewinięcie wyników są odtwarzane przy powrocie.
 
 Źródła: [Tailwind — theme variables](https://tailwindcss.com/docs/theme), [daisyUI dla Angulara](https://daisyui.com/docs/install/angular/). Instrukcje instalacji traktujemy jako punkt odniesienia; ewentualnych konfliktów zależności nie ukrywamy wymuszoną instalacją.
