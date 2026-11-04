@@ -39,3 +39,20 @@ Sprawdzono wyświetlenie rastra i skanu w przeglądarce, wszystkie trzy warianty
 1. Wybrać kierunek lub połączenie palety i układu z różnych propozycji.
 2. Dopracować widok startowy, wyniki wyszukiwania, miejsce bez pozycji, logowanie i wskazywanie lokalizacji.
 3. Przygotować właściwe logo oraz finalne tokeny kolorów i typografii.
+
+
+## Rewizja — oddzielenie treści od mapy i nakładka historyczna
+
+Po uwadze właściciela o zlewaniu się treści z rastrem przygotowano nowy podgląd:
+
+- Desktop: osobny, nieprzezroczysty panel treści po lewej, oddzielony od obszaru mapy.
+- Mobile: obszar mapy i panel treści są osobnymi sekcjami, bez przenikania podkładu przez tekst.
+- Podstawa to rzeczywiste kafelki współczesnej mapy OpenStreetMap centrum Rybnika.
+- Nad nimi leży plan z 1932 r., z regulacją krycia 0–100%, domyślnie 35%, i możliwością wyłączenia. Obie warstwy korzystają z identycznego zakresu kafelków Web Mercator.
+- Podgląd pokazuje trzy warianty przetworzenia kolorów rastra OSM: oryginalny, stonowany i czarno-biały. To filtry całego obrazu; nie jest to finalny styl wektorowy.
+- Docelowy podkład wektorowy pozwoli osobno dobrać kolory i widoczność dróg, budynków, wody, zieleni oraz etykiet. Dostawca danych, styl i biblioteka pozostają decyzją etapu technicznego.
+- Zachowano atrybucję OSM oraz źródła historyczne. Zgodność współrzędnych nie usuwa błędów oryginalnej georeferencji planu.
+
+Ten podgląd zastępuje wcześniejsze ograniczenie prototypów do samego rastra historycznego. Wybór kolorystyki i układu wciąż nie jest zatwierdzony.
+
+Dokumentacja możliwości stylowania: https://maplibre.org/maplibre-style-spec/layers/ oraz przezroczystości kafelków: https://leafletjs.com/reference#tilelayer-opacity.
