@@ -1,6 +1,6 @@
 # Renderowanie — SSR + Cloud Run a prerender + Functions
 
-Data: 4 listopada 2026. Status: **porównanie i aktualizacja rekomendacji; właściciel nie zatwierdził jeszcze wyboru**.
+Data: 4 listopada 2026. Status: **wybrano SSG + Firebase Hosting + Functions dla MVP.1; SSR pozostaje wariantem przyszłego rozwoju**.
 
 ## Wniosek dla MVP.1
 
@@ -86,4 +86,4 @@ Moderacja dostarcza kontrolowanego momentu publikacji, więc nadal pasuje do SSG
 
 Przy SSG zatwierdzanie treści nie aktualizuje samoistnie wygenerowanych plików HTML. Możemy uruchamiać pipeline po decyzji redaktora, łączyć wiele decyzji w jeden build i osobno pokazywać status publikacji. Akceptacja redaktora nie powinna zgłaszać zakończonej publikacji HTML, jeśli build dopiero czeka albo zakończył się błędem.
 
-Do uzgodnienia: które materiały muszą być indeksowalne bez JS, czy akceptujemy opóźnienie publikacji HTML do zakończenia builda oraz jak często redaktor będzie zatwierdzać zmiany. Jeśli wszystkie zatwierdzone treści mają od razu trafiać do HTML i metadanych, SSR staje się mocniejszym kandydatem; nadal trzeba uwzględnić cache. Wybór renderowania pozostaje otwarty.
+Do uzgodnienia: które materiały muszą być indeksowalne bez JS, czy akceptujemy opóźnienie publikacji HTML do zakończenia builda oraz jak często redaktor będzie zatwierdzać zmiany. Jeśli wszystkie zatwierdzone treści mają od razu trafiać do HTML i metadanych, SSR staje się mocniejszym kandydatem; nadal trzeba uwzględnić cache. Dla MVP.1 wybrano SSG; ewentualny powrót do SSR będzie osobną decyzją.

@@ -84,7 +84,7 @@ Wymagania z sekcji 1 są zatwierdzone przez właściciela produktu. Pozostałe s
 - Wejście bezpośrednio w adres karty i odświeżenie strony działają bez wcześniejszego odwiedzenia strony głównej. Wstecz/Dalej w przeglądarce odtwarza właściwy widok.
 - Opis miejsca i referencje mają być dostępne dla wyszukiwarek jako treść HTML, bez konieczności interakcji z mapą lub logowania. Sama mapa nie zastępuje indeksowalnej treści.
 - Strona główna i każda karta mają odpowiednie tytuły, opisy, nagłówki, adres kanoniczny i metadane udostępniania. Linki do kart są zwykłymi odnośnikami, dostępnymi również poza znacznikami mapy.
-- Plan techniczny określi sposób renderowania treści publicznej, mapę witryny i reguły indeksowania. Stan mapy, zapytania wyszukiwania i tryb edycji nie powinny tworzyć konkurencyjnych kopii tej samej karty w indeksie.
+- Plan techniczny przyjmuje SSG dla publicznej treści, Firebase Hosting i Functions jako API; mapa działa w przeglądarce. Określa też mapę witryny i reguły indeksowania. Stan mapy, zapytania wyszukiwania i tryb edycji nie powinny tworzyć konkurencyjnych kopii tej samej karty w indeksie.
 - Nieistniejące adresy zwracają prawidłowy status 404. Zmiany adresów opublikowanych miejsc wymagają trwałych przekierowań.
 - Struktura routingu przewiduje osobne strony informacyjne, np. `/o-mnie` i `/wspolpraca`. Teraz nie publikujemy pustych stron ani linków do nieistniejących podstron.
 
@@ -230,6 +230,6 @@ Do rozstrzygnięcia i udokumentowania:
 - Sposób redakcji, importu i walidacji danych bez budowania panelu administratora.
 - Środowiska, hosting, konfiguracja domeny, monitoring, kopie danych i przewidywane koszty.
 - Plan budowy od zera oraz kontrolowany import wybranych danych MVP.0.
-- Routing i SEO: strategia renderowania publicznej treści (SSR/prerender lub inne uzasadnione rozwiązanie), działanie mapy przy wybranym renderowaniu, trwałe adresy i slugi, canonical, metadane, sitemap, robots, statusy HTTP i przekierowania. Zapewnić możliwość dodawania stron informacyjnych poza widokiem mapy.
+- Routing i SEO: prerender (SSG) publicznej treści i mapa działająca w przeglądarce, trwałe adresy i slugi, canonical, metadane, sitemap, robots, statusy HTTP i przekierowania. Zapewnić możliwość dodawania stron informacyjnych poza widokiem mapy.
 
 Nie wybrano jeszcze szczegółowej architektury ani bibliotek. Te decyzje podejmiemy po funkcjonalności i UX/UI.

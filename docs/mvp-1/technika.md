@@ -1,12 +1,12 @@
-# MVP.1 — wstępny plan techniczny
+# MVP.1 — plan techniczny
 
-Data weryfikacji: 4 listopada 2026. Status: **propozycja do omówienia; bez wdrażania usług i implementacji aplikacji**.
+Data weryfikacji: 4 listopada 2026. Status: **ustalony kierunek: SSG + Firebase Hosting + Functions; szczegóły do dopracowania przed implementacją**.
 
-**Aktualizacja rekomendacji renderowania:** po porównaniu dla MVP.1 preferujemy prerender Angulara na Firebase Hosting i Functions 2nd gen jako API, z bieżącymi współrzędnymi pobieranymi niezależnie od statycznego HTML. [Pełne porównanie z SSR i Cloud Run](renderowanie-porownanie.md). Wybór wymaga jeszcze potwierdzenia właściciela; poniższe fragmenty SSR opisują pierwotny wariant.
+**Architektura MVP.1:** Angular prerender (SSG) dla publicznej treści, Firebase Hosting dla statycznych plików i Cloud Functions 2nd gen dla API. Mapa działa wyłącznie w przeglądarce. SSR jest opcją przyszłego rozwoju, a osobna usługa Cloud Run nie jest częścią planu MVP.1. [Uzasadnienie i porównanie wariantów](renderowanie-porownanie.md).
 
 ## 1. Rekomendowany kierunek
 
-Angular z SSR dla publicznych kart, Tailwind z tokenami marki, daisyUI dla podstawowych kontrolek, MapLibre GL JS dla mapy wektorowej, Firebase Authentication dla Google Sign-In, Firestore dla danych i Cloud Storage dla plików. Zmiany lokalizacji przechodzą przez backend, który sprawdza zalogowanie i App Check oraz zapisuje historię razem ze zmianą.
+Angular z prerenderem (SSG) dla publicznych kart, Tailwind z tokenami marki, daisyUI dla podstawowych kontrolek, MapLibre GL JS dla mapy wektorowej, Firebase Authentication dla Google Sign-In, Firestore dla danych i Cloud Storage dla plików. Zmiany lokalizacji przechodzą przez backend, który sprawdza zalogowanie i App Check oraz zapisuje historię razem ze zmianą.
 
 To rekomendacja projektowa. Projekt Firebase `historyczny-rybnik` został wybrany i utworzony. Wybór edycji i instancji Firestore, schemat dokumentów, dostawca kafelków oraz konfiguracja środowisk pozostają otwarte.
 
@@ -32,7 +32,7 @@ Angular 22.2.4 deklaruje Node `^22.22.3 || ^24.15.0 || >=26.0.0`. Linię Node do
 - Tailwind 4: tokeny w CSS, wspólna konfiguracja kolorów, typografii, odstępów i promieni. Bez kopiowania przypadkowych wartości pomiędzy komponentami.
 - daisyUI 5 jako zestaw bazowych kontrolek i motywu. Zachowanie wyszukiwarki, zarządzanie fokusem i panel mapy realizuje Angular; sama biblioteka CSS nie zapewnia kompletnego zachowania dostępności.
 - Wybrana typografia: Lora dla nazwy i tytułów, Source Sans 3 dla opisów i kontrolek. Docelowo pliki fontów serwowane z aplikacji, z polskimi znakami i właściwymi licencjami.
-- Wybrany znak: monogram HR w ciemnozielonym kole i nazwa obok. Finalne SVG i favicon wymagają przygotowania oraz sprawdzenia w małym rozmiarze.
+- Wybrany kierunek logo: „Ryba na mapie” — symbol ryby połączony z układem ulic, w zielonej kolorystyce i z nazwą obok. Zastępuje wcześniejszy monogram HR. Finalne SVG i favicon wymagają przygotowania oraz sprawdzenia w małym rozmiarze.
 - Jeden panel: lista i karta są kolejnymi stanami; zapytanie i przewinięcie wyników są odtwarzane przy powrocie.
 
 Źródła: [Tailwind — theme variables](https://tailwindcss.com/docs/theme), [daisyUI dla Angulara](https://daisyui.com/docs/install/angular/). Instrukcje instalacji traktujemy jako punkt odniesienia; ewentualnych konfliktów zależności nie ukrywamy wymuszoną instalacją.
@@ -41,7 +41,10 @@ Angular 22.2.4 deklaruje Node `^22.22.3 || ^24.15.0 || >=26.0.0`. Linię Node do
 
 - `/` — mapa, z publicznym tekstowym kontekstem aplikacji i zwykłymi odnośnikami do miejsc.
 - `/miejsca/:slug` — publiczna karta miejsca, także przy braku współrzędnych. Slug jest oddzielony od trwałego identyfikatora rekordu; zmiana sluga wymaga przekierowania.
-- SSR publicznego opisu, referencji, metadanych, canonical i nagłówków. Mapa uruchamiana dopiero w przeglądarce, bez dostępu do DOM/WebGL podczas SSR.
+- SSG publicznego opisu, referencji, metadanych, canonical i nagłówków dla wszystkich opublikowanych kart. Lista slugów jest ustalana podczas builda.
+- Mapa, znaczniki, plan historyczny i edycja pozycji uruchamiają się wyłącznie w przeglądarce. Build nie inicjalizuje DOM/WebGL mapy.
+- Strona główna ma statyczny szkielet i tekstowy kontekst; mapa i bieżące dane są ładowane w przeglądarce.
+- Statyczny build nie wymaga procesu SSR ani fallbacku serwerowego. Nieznane adresy nie mogą być przepisywane globalnie na `index.html` ze statusem 200.
 - Zachowanie jednego panelu i adresu karty jest spójne przy wejściu bezpośrednim, odświeżeniu, nawigacji aplikacji oraz Wstecz/Dalej.
 - Zapytanie i kadr mogą być stanem nawigacji; ich warianty nie tworzą osobnych indeksowalnych kopii karty.
 - Nieistniejący slug zwraca rzeczywisty HTTP 404. Sitemap obejmuje opublikowane karty; brak pustych stron „O mnie” i „Współpraca”.
@@ -85,29 +88,36 @@ Zmiana pozycji i wpis historii muszą być atomowe. Konflikt z nowszą zmianą z
 - Użytkownik niezalogowany nie może zapisać zmiany nawet przez bezpośrednie wywołanie API.
 - Administrator jest wskazany trwałym UID; początkowo jest nim właściciel. Zakres cofania i naprawy danych dopracujemy bez budowania panelu zarządzania rolami.
 - App Check potwierdza pochodzenie żądania z aplikacji; autoryzację użytkownika sprawdzamy oddzielnie.
-- Publiczne SSR odczytuje opublikowane dane przez kontrolowaną ścieżkę serwerową. Publiczne strony nie wymagają tokenu przeglądarki. Interaktywne API aplikacji ma własne egzekwowanie App Check.
+- Build SSG odczytuje wyłącznie opublikowane dane przez kontrolowaną ścieżkę z uprawnieniami środowiska CI. Dane uwierzytelniające nie trafiają do plików frontendu. Publiczny statyczny HTML nie wymaga tokenu przeglądarki. Interaktywne API aplikacji ma własne egzekwowanie App Check.
 - Bezpośredni zapis danych z przeglądarki do bazy ma być zamknięty; zapis biznesowy realizuje backend. Reguły i testy emulatora przygotujemy po wyborze instancji oraz schematu.
 
 Źródła: [egzekwowanie App Check w callable Functions](https://firebase.google.com/docs/app-check/cloud-functions), [weryfikacja App Check w custom backendzie](https://firebase.google.com/docs/app-check/custom-resource-backend).
 
-## 8. Pierwotny wariant SSR i środowiska
+## 8. Budowanie, publikacja i środowiska
 
-Wstępna rekomendacja przy wymaganiu najnowszego Angulara: Firebase Hosting dla zasobów i domeny, z przekierowaniem tras SSR do własnej usługi Cloud Run. Zapisy lokalizacji pozostają w Functions. Taką ścieżkę należy potwierdzić małym testem budowania i routingu przed implementacją reszty aplikacji.
+- Angular generuje statyczne HTML dla `/` i wszystkich opublikowanych `/miejsca/:slug`, wraz z metadanymi i sitemapą. Wynik builda jest wdrażany na klasyczny Firebase Hosting, który serwuje także JavaScript, CSS i fonty.
+- Cloud Functions 2nd gen obsługują API odczytu bieżących danych i zapisu lokalizacji. W MVP.1 nie renderują stron HTML. Nie wdrażamy osobnej usługi Cloud Run ani Firebase App Hosting.
+- Mapa pobiera aktualne współrzędne niezależnie od wersji HTML. Zapis lokalizacji i historii nie uruchamia builda ani deploymentu frontendu.
+- Zmiana opisu, źródeł, metadanych lub zestawu publicznych adresów wymaga builda i deploymentu statycznej treści. Proces publikacji może być automatyczny i łączyć wiele zmian redakcyjnych. Nowe karty publikujemy wraz z ich stronami.
+- Przy przyszłej moderacji oddzielamy zatwierdzenie materiału od zakończenia publikacji HTML. Błąd builda nie może być prezentowany jako udana publikacja. Materiały pobierane z API mogą pojawić się wcześniej niż zaktualizowany HTML.
+- CI sprawdza build, indeksowalną treść, metadane, bezpośrednie wejścia, rzeczywiste 404 i przekierowania. Proces publikacji ma zachowywać możliwość powrotu do poprzedniej wersji.
 
-**Powód:** tabela wsparcia Firebase App Hosting odczytana 4 listopada 2026 oznacza Angular 19.2 jako active i zastrzega brak oficjalnego wsparcia wersji poza tabelą. Nie zakładamy, że deklaracja „Angular 18.2 i nowsze” jest gwarancją aktywnego wsparcia Angulara 22. App Hosting można ponownie ocenić, gdy konkretna aktualna wersja będzie objęta wsparciem.
+Docelowo: oddzielna konfiguracja development i production, lokalne emulatory dla zapisów oraz CI dla testów i budowania. Regiony, billing oraz koszty infrastruktury, buildów i mapy wymagają ustalenia. Konfiguracja domeny i aktualny stan usług są opisane w [dokumencie domeny](domena-konfiguracja.md); sam plan nie oznacza wdrożenia aplikacji, bazy ani backendu.
 
-Alternatywą jest prerender publicznych kart na klasycznym Hostingu, ale wymagałby ustalenia odświeżania HTML po zmianach danych. SSR lepiej odpowiada bieżącej edycji punktów, choć dodaje środowisko serwerowe.
+### Możliwa późniejsza migracja do SSR
 
-Źródła: [App Hosting — tabela wsparcia](https://firebase.google.com/docs/app-hosting/frameworks-tooling), [Hosting i usługi serverless](https://firebase.google.com/docs/hosting/serverless-overview), [Angular SSR na Cloud Run](https://docs.cloud.google.com/run/docs/quickstarts/frameworks/deploy-angular-ssr-service).
+Jeśli częstotliwość publikacji lub rozmiar katalogu uzasadnią SSR, możemy przełączyć generowanie stron miejsc na renderowanie na żądanie. Mapa nadal pozostaje w przeglądarce; zachowujemy adresy i dane Firebase. SSR może działać jako HTTP Function 2nd gen — osobna usługa Cloud Run nie jest warunkiem migracji.
 
-Docelowo: oddzielna konfiguracja development i production, lokalne emulatory dla zapisów, CI dla testów i budowania. Dobór projektu, regionów, billing oraz koszty infrastruktury i mapy wymagają osobnego ustalenia. Utworzono wyłącznie osobny projekt Firebase. Nie utworzono bazy, Storage ani backendu i nie podłączono rozliczeń w ramach tej czynności.
+Od początku rozdzielamy odczyt publicznej treści od logowania i API zapisu, a kod mapy od renderowania HTML. Decyzja o przyszłym SSR wymaga wtedy osobnego sprawdzenia kosztów, cache, routingu i wdrożenia.
+
+Źródła: [Angular — prerender i renderowanie hybrydowe](https://angular.dev/guide/ssr), [Firebase Hosting — konfiguracja tras i 404](https://firebase.google.com/docs/hosting/full-config), [Functions 2nd gen](https://firebase.google.com/docs/functions/version-comparison).
 
 ## 9. Następne decyzje i kolejność
 
 1. Projekt Firebase wybrany i utworzony: `historyczny-rybnik`. Następnie ustalić instancję/edycję Firestore i regiony.
 2. Uzgodnić szczegółowy schemat punktu, referencji, publikacji, datowania, pliku i historii zmian.
 3. Wybrać dostawcę podkładu i potwierdzić warunki wykorzystania mapy historycznej.
-4. Potwierdzić ścieżkę SSR testem minimalnej aplikacji oraz oszacować koszt dla oczekiwanej skali ruchu.
+4. Potwierdzić statyczny build SSG, routing Firebase Hosting i integrację Functions API na minimalnym szkielecie; oszacować koszt dla oczekiwanego ruchu i częstości publikacji.
 5. Dopiero potem przygotować właściwy szkielet od zera i wdrażać kolejne funkcje.
 
 Weryfikacja implementacji obejmie realne 404 i przekierowania, indeksowalny HTML bez JS, nawigację panelu, dostępność bez mapy, zapisy bez Auth/App Check, konflikty edycji, atomową historię oraz rozróżnienie miejsc bez pozycji i przybliżonych.
