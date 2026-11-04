@@ -68,13 +68,13 @@ Rekomendacja: bezpośrednia integracja MapLibre GL JS w komponencie Angulara, be
 
 ## 6. Dane, wyszukiwanie i pliki — decyzje przed schematem
 
-Wybrano i utworzono osobny projekt Firebase `historyczny-rybnik` (Historyczny Rybnik). Nie wybrano jeszcze instancji ani edycji Firestore. Przed konkretnym schematem i regułami należy ustalić te parametry, lokalizację oraz zgodność z backendem. Obecnej bazy MVP.0 nie traktujemy automatycznie jako produkcyjnej bazy nowej aplikacji.
+Wybrano i utworzono osobny projekt Firebase `historyczny-rybnik` (Historyczny Rybnik). Przygotowano [propozycję modelu danych](model-danych.md): miejsca, instytucje, źródła, referencje, datowanie, pliki, historia lokalizacji i publikacje SSG. Propozycja dotyczy Firestore Enterprise w trybie Native i regionu `europe-central2` (Warszawa), z porównaniem alternatywy Standard i regionu Belgia. Edycja i region wymagają jeszcze zatwierdzenia przed utworzeniem bazy. Odczyt listy instancji zwrócił 403 z powodu niewłączonego Firestore API; nie potwierdzono istniejącej instancji. Obecnej bazy MVP.0 nie traktujemy automatycznie jako produkcyjnej bazy nowej aplikacji.
 
 Porównanie Standard/Enterprise obejmie wymagane operacje, transakcje, indeksy i koszty. Enterprise ma obecnie własne wyszukiwanie tekstowe; nie zakładamy więc ogólnie, że Firestore nie obsługuje full text. [Firestore Enterprise — text search](https://firebase.google.com/docs/firestore/enterprise/text-search).
 
 Dla obecnego katalogu około 200 miejsc proponuję na początek mały publiczny indeks nazw, aliasów i adresów, filtrowany w przeglądarce, bez pobierania opisów i wszystkich skanów przy wpisywaniu każdej litery. Format, odświeżanie i wersjonowanie indeksu ustalimy razem z modelem danych. Wzrost katalogu może uzasadnić wyszukiwanie serwerowe.
 
-W schemacie zachowamy reguły z planu funkcjonalnego: osobne rekordy punktów, powiązania referencji, różne rodzaje dat, stopień dokładności lokalizacji, historię zmian i powiązania instytucji z wieloma siedzibami. Szczegółowy schemat jest następnym krokiem po wyborze bazy.
+W schemacie zachowamy reguły z planu funkcjonalnego: osobne rekordy punktów, powiązania referencji, różne rodzaje dat, stopień dokładności lokalizacji, historię zmian i powiązania instytucji z wieloma siedzibami. Szczegółowa propozycja pól, relacji i walidacji znajduje się w [modelu danych](model-danych.md). Nie wdrożono jeszcze schematu ani reguł.
 
 Cloud Storage przechowuje pliki i miniatury, z metadanymi wskazującymi oryginalne źródło i podstawę użycia. Karty pobierają obrazy na żądanie. Zwykły użytkownik zmienia pozycję; nie otrzymuje przez to uprawnień do podmieniania skanów ani treści źródeł.
 
@@ -115,7 +115,7 @@ Od początku rozdzielamy odczyt publicznej treści od logowania i API zapisu, a 
 ## 9. Następne decyzje i kolejność
 
 1. Projekt Firebase wybrany i utworzony: `historyczny-rybnik`. Następnie ustalić instancję/edycję Firestore i regiony.
-2. Uzgodnić szczegółowy schemat punktu, referencji, publikacji, datowania, pliku i historii zmian.
+2. Przejrzeć i uzgodnić [propozycję modelu danych](model-danych.md), w tym osobną kartę każdej siedziby i uprawnienie do usuwania pozycji.
 3. Wybrać dostawcę podkładu i potwierdzić warunki wykorzystania mapy historycznej.
 4. Potwierdzić statyczny build SSG, routing Firebase Hosting i integrację Functions API na minimalnym szkielecie; oszacować koszt dla oczekiwanego ruchu i częstości publikacji.
 5. Dopiero potem przygotować właściwy szkielet od zera i wdrażać kolejne funkcje.

@@ -210,7 +210,7 @@ Wybrano **Historyczny Rybnik** / `historyczny.rybnik.pl`. Zapis decyzji, wcześn
 
 ## 9. Backlog etapu 3 — technika
 
-Przygotowano [wstępny plan techniczny](technika.md), z aktualnymi wersjami, rekomendacjami i decyzjami otwartymi. Nie jest to jeszcze zatwierdzona architektura ani szczegółowy schemat bazy.
+Przygotowano [plan techniczny](technika.md) oraz [propozycję modelu danych](model-danych.md). Ustalono SSG + Firebase Hosting + Functions. Szczegóły schematu, edycja Firestore i region pozostają do przeglądu przed implementacją.
 
 Założenia użytkownika: Firebase, najnowszy Angular, Tailwind z konfiguracją brandingu, pliki w Storage, rekordy punktów w bazie, backend i API z App Check.
 
@@ -232,4 +232,4 @@ Do rozstrzygnięcia i udokumentowania:
 - Plan budowy od zera oraz kontrolowany import wybranych danych MVP.0.
 - Routing i SEO: prerender (SSG) publicznej treści i mapa działająca w przeglądarce, trwałe adresy i slugi, canonical, metadane, sitemap, robots, statusy HTTP i przekierowania. Zapewnić możliwość dodawania stron informacyjnych poza widokiem mapy.
 
-Nie wybrano jeszcze szczegółowej architektury ani bibliotek. Te decyzje podejmiemy po funkcjonalności i UX/UI.
+Kierunek architektury i bibliotek opisuje plan techniczny; model danych zawiera propozycje do zatwierdzenia. Uszczegółowienie API, dostawcy mapy i konfiguracji usług poprzedza implementację.
