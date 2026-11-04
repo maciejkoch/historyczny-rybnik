@@ -2,6 +2,8 @@
 
 Data weryfikacji: 4 listopada 2026. Status: **propozycja do omówienia; bez wdrażania usług i implementacji aplikacji**.
 
+**Aktualizacja rekomendacji renderowania:** po porównaniu dla MVP.1 preferujemy prerender Angulara na Firebase Hosting i Functions 2nd gen jako API, z bieżącymi współrzędnymi pobieranymi niezależnie od statycznego HTML. [Pełne porównanie z SSR i Cloud Run](renderowanie-porownanie.md). Wybór wymaga jeszcze potwierdzenia właściciela; poniższe fragmenty SSR opisują pierwotny wariant.
+
 ## 1. Rekomendowany kierunek
 
 Angular z SSR dla publicznych kart, Tailwind z tokenami marki, daisyUI dla podstawowych kontrolek, MapLibre GL JS dla mapy wektorowej, Firebase Authentication dla Google Sign-In, Firestore dla danych i Cloud Storage dla plików. Zmiany lokalizacji przechodzą przez backend, który sprawdza zalogowanie i App Check oraz zapisuje historię razem ze zmianą.
@@ -88,7 +90,7 @@ Zmiana pozycji i wpis historii muszą być atomowe. Konflikt z nowszą zmianą z
 
 Źródła: [egzekwowanie App Check w callable Functions](https://firebase.google.com/docs/app-check/cloud-functions), [weryfikacja App Check w custom backendzie](https://firebase.google.com/docs/app-check/custom-resource-backend).
 
-## 8. Hosting i środowiska
+## 8. Pierwotny wariant SSR i środowiska
 
 Wstępna rekomendacja przy wymaganiu najnowszego Angulara: Firebase Hosting dla zasobów i domeny, z przekierowaniem tras SSR do własnej usługi Cloud Run. Zapisy lokalizacji pozostają w Functions. Taką ścieżkę należy potwierdzić małym testem budowania i routingu przed implementacją reszty aplikacji.
 
