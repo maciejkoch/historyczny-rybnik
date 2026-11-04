@@ -138,6 +138,12 @@ Otwarte zagadnienie: co jest jednym punktem, gdy instytucja zmieniała adres? Pr
 - Rejestracja przez e-mail, hasła, dodatkowi dostawcy logowania i rozbudowane zarządzanie kontami oraz rolami. Rozwój kont planujemy na Firebase Authentication w kolejnych wersjach.
 - Strony „O mnie”, „Współpraca” i inne strony informacyjne. Routing ma pozwalać na dodanie ich później.
 
+## Kolejne wersje — materiały od użytkowników
+
+Właściciel planuje możliwość dodawania przez użytkowników komentarzy, źródeł i zdjęć. Wszystkie te materiały wymagają weryfikacji redaktora przed publikacją. Funkcje te pozostają poza MVP.1, ale architektura powinna umożliwiać ich dodanie.
+
+Zgłoszenia i pliki oczekujące nie są publicznymi materiałami miejsca. Odczyt publiczny, indeks wyszukiwarki i generowanie HTML korzystają wyłącznie z zatwierdzonej treści. Uprawnienia redaktora są osobne od zwykłego zalogowanego użytkownika. Ta decyzja dotyczy nowych materiałów; wcześniej uzgodniony zapis lokalizacji w MVP.1 jest publikowany bez moderacji.
+
 ## 6. Kryteria odbioru etapu implementacji
 
 | Scenariusz | Oczekiwany rezultat |

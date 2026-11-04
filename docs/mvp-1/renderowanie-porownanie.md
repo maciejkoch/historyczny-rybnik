@@ -70,3 +70,20 @@ Nie opieramy nowego projektu na wycofanym dla nowych uczestników eksperymencie 
 - [Firebase Hosting — cache](https://firebase.google.com/docs/hosting/manage-cache).
 - [Firebase Hosting — kolejność routingu, pliki i 404](https://firebase.google.com/docs/hosting/full-config).
 - [Status eksperymentu framework-aware Hosting dla Angulara](https://firebase.google.com/docs/hosting/frameworks/angular).
+
+
+## Przyszłe materiały od użytkowników i moderacja
+
+Komentarze, źródła i zdjęcia mają przechodzić przez redaktora. Architektura wymaga odseparowania zgłoszeń i prywatnych plików oczekujących od zatwierdzonej treści publicznej. Status publikacji egzekwuje backend i dostęp do plików, a nie wyłącznie ukrywanie elementów interfejsu. Nie projektujemy jeszcze szczegółowego schematu bazy ani panelu redakcyjnego.
+
+Moderacja dostarcza kontrolowanego momentu publikacji, więc nadal pasuje do SSG. Wpływ zatwierdzenia zależy od sposobu wyświetlania materiału:
+
+| Materiał | Widoczność po zatwierdzeniu | Potrzeba builda/deployu |
+| --- | --- | --- |
+| Komentarz ładowany z API | Może pojawić się publicznie po odświeżeniu danych | Nie; jeśli ma też wejść do statycznego HTML, dopiero jego odświeżenie wymaga publikacji |
+| Źródło lub zdjęcie ładowane z API | Może pojawić się po odświeżeniu danych | Nie dla widoku dynamicznego; tak dla aktualizacji prerenderowanego HTML |
+| Opis, źródła, metadane i materiały osadzone w HTML karty | Po nowym buildzie i publikacji statycznych plików | Tak, może to być automatyczny proces |
+
+Przy SSG zatwierdzanie treści nie aktualizuje samoistnie wygenerowanych plików HTML. Możemy uruchamiać pipeline po decyzji redaktora, łączyć wiele decyzji w jeden build i osobno pokazywać status publikacji. Akceptacja redaktora nie powinna zgłaszać zakończonej publikacji HTML, jeśli build dopiero czeka albo zakończył się błędem.
+
+Do uzgodnienia: które materiały muszą być indeksowalne bez JS, czy akceptujemy opóźnienie publikacji HTML do zakończenia builda oraz jak często redaktor będzie zatwierdzać zmiany. Jeśli wszystkie zatwierdzone treści mają od razu trafiać do HTML i metadanych, SSR staje się mocniejszym kandydatem; nadal trzeba uwzględnić cache. Wybór renderowania pozostaje otwarty.

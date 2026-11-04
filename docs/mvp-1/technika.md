@@ -121,3 +121,8 @@ Weryfikacja implementacji obejmie realne 404 i przekierowania, indeksowalny HTML
 - [Konsola Firebase](https://console.firebase.google.com/project/historyczny-rybnik/overview).
 - Repozytorium ma własny `.firebaserc` wskazujący ten projekt i pusty `firebase.json`; nie skonfigurowano jeszcze produktów do wdrożenia.
 - Projekt MVP.0 pozostaje odrębny: `maciejkoch-project-1`.
+
+
+## Rozwój po MVP.1 — moderowane materiały
+
+Uwzględnić przyszłe komentarze, źródła i zdjęcia zgłaszane przez użytkowników, wszystkie z weryfikacją redaktora przed publikacją. Rozdzielić prywatną ścieżkę zgłoszeń i plików od publicznej treści oraz generowania HTML. Zatwierdzenie może automatycznie uruchamiać publikację SSG; treści pobierane z API mogą być dostępne wcześniej. [Wpływ na renderowanie i deployment](renderowanie-porownanie.md#przyszłe-materiały-od-użytkowników-i-moderacja).
