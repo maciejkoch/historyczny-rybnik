@@ -85,3 +85,23 @@ Po obejrzeniu mapy wektorowej i porównania paneli właściciel zaakceptował pr
 - Plan z 1932 r. pozostaje opcjonalną nakładką z regulacją krycia; 35% to punkt wyjścia z podglądu, nie ostateczna decyzja o ustawieniu startowym aplikacji.
 
 Zatwierdzenie dotyczy kierunku kolorystycznego oraz układu jednego panelu. Finalne logo, typografia, pozostałe stany ekranów i technologia mapy pozostają do dopracowania.
+
+
+## Propozycje — typografia, znak i edycja lokalizacji
+
+Przygotowano dwa kierunki do wyboru, zachowujące zatwierdzoną paletę:
+
+- **Spokojny atlas** (rekomendacja): Lora dla nazwy i tytułów, Source Sans 3 dla opisów oraz interfejsu. Znak: jasny monogram HR w ciemnozielonym kole; pełna nazwa obok.
+- **Archiwum miejskie**: Newsreader dla nazwy i tytułów, Inter dla opisów oraz interfejsu. Znak: monogram HR w cienkiej kwadratowej ramce.
+
+To propozycje, nie zatwierdzone finalne logo. Podglądy pokazują znak w większym rozmiarze i w nagłówku aplikacji, wraz z tytułem miejsca i tekstem z polskimi znakami. Ostateczne pliki logo, favicon oraz kontrolę czytelności w małych rozmiarach przygotujemy po wyborze kierunku.
+
+### Ekran ustawiania lokalizacji
+
+Prototyp przedstawia stan zalogowanego użytkownika i wykorzystuje ten sam lewy panel co karta miejsca. Sekwencja: „Zmień lokalizację” → wskazanie punktu na mapie → podgląd nowej pozycji i dokładności → „Zapisz publicznie” albo „Anuluj”. Przed wskazaniem pozycji zapis jest nieaktywny. Dotychczasowa i nowa pozycja są rozróżnione.
+
+Propozycje pól: dokładność „Miejsce przybliżone” (domyślnie) lub „Wskazany budynek” oraz opcjonalne uzasadnienie/źródło. „Wskazany budynek” nie oznacza automatycznego potwierdzenia historycznej funkcji. Szczegółową semantykę statusów ustalimy przed schematem bazy.
+
+Przycisk zapisu informuje o natychmiastowej publikacji. Docelowo powstaje wpis historii autora, czasu, starej i nowej pozycji. Prototyp zmienia tylko stan makiety i jawnie informuje, że nie zapisuje do bazy. Sprawdzono wskazanie na mapie, aktywację zapisu oraz powrót do karty ze zmienioną pozycją i statusem.
+
+Do dopracowania: mobilne wskazywanie z podglądem, obsługa błędu zapisu i konfliktów oraz dostępne klawiaturą alternatywy dla kliknięcia na mapie.
