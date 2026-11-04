@@ -189,6 +189,8 @@ Kryteria dla widoku historii, cofania i konfliktów edycji uzupełnimy po uzgodn
 
 ## 8. Backlog etapu 2 — UX/UI, marka i domena
 
+Przygotowano [trzy propozycje kolorystyki i układu](ux-ui.md) z planem Rybnika z 1932 r., w wersjach mobilnych i desktopowych. Kierunek pozostaje do wyboru.
+
 Wybrano **Historyczny Rybnik** / `historyczny.rybnik.pl`. Zapis decyzji, wcześniejsze propozycje i ceny: [Nazwa i domena](nazwa-i-domena.md). Zakup domeny pozostaje do wykonania osobno.
 
 - Przygotować propozycje kolorystyki i kierunków wizualnych.
