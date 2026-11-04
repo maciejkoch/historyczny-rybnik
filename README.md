@@ -2,7 +2,7 @@
 
 Historyczne miejsca Rybnika na mapie, z opisami i materiałami źródłowymi.
 
-Domena docelowa: `historyczny.rybnik.pl` (wybrana, jeszcze niezarejestrowana).
+Domena: `historyczny.rybnik.pl` — zarejestrowana w Hostido. [Konfiguracja DNS i Firebase Hosting](docs/mvp-1/domena-konfiguracja.md).
 
 Firebase: [`historyczny-rybnik`](https://console.firebase.google.com/project/historyczny-rybnik/overview). Osobny projekt dla MVP.1; produkty nie są jeszcze skonfigurowane.
 

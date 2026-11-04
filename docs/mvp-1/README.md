@@ -1,6 +1,6 @@
 # MVP.1 — plan produktu
 
-Nazwa aplikacji: **Historyczny Rybnik**. Domena główna: **`historyczny.rybnik.pl`**. Wybór zatwierdzony 4 listopada 2026; domena nie została jeszcze kupiona.
+Nazwa aplikacji: **Historyczny Rybnik**. Domena główna: **`historyczny.rybnik.pl`**. Wybór zatwierdzony 4 listopada 2026; domena kupiona przez właściciela w Hostido.
 
 Data rozpoczęcia: 4 listopada 2026.
 
@@ -191,7 +191,7 @@ Kryteria dla widoku historii, cofania i konfliktów edycji uzupełnimy po uzgodn
 
 Wybrano [jasny podkład wektorowy i jeden panel treści](ux-ui.md), z ciemnozielonymi akcentami oraz opcjonalną nakładką planu z 1932 r. Dokument UX/UI zawiera decyzję i wcześniejsze propozycje porównawcze.
 
-Wybrano **Historyczny Rybnik** / `historyczny.rybnik.pl`. Zapis decyzji, wcześniejsze propozycje i ceny: [Nazwa i domena](nazwa-i-domena.md). Zakup domeny pozostaje do wykonania osobno.
+Wybrano **Historyczny Rybnik** / `historyczny.rybnik.pl`. Zapis decyzji, wcześniejsze propozycje i ceny: [Nazwa i domena](nazwa-i-domena.md). Domena została zarejestrowana w Hostido; [stan konfiguracji](domena-konfiguracja.md).
 
 - Przygotować propozycje kolorystyki i kierunków wizualnych.
 - Pokazać porównywalne propozycje mapy, wyszukiwarki i karty miejsca na telefonie i desktopie.

@@ -1,6 +1,6 @@
 # MVP.1 — nazwa i domena
 
-Data sprawdzenia i wyboru: 4 listopada 2026. Status: **wybrano Historyczny Rybnik / `historyczny.rybnik.pl`**. Domena nie została kupiona ani zarezerwowana.
+Data sprawdzenia i wyboru: 4 listopada 2026. Status: **wybrano Historyczny Rybnik / `historyczny.rybnik.pl`**. Domena została kupiona przez właściciela w Hostido; potwierdzono status „Zarejestrowana” w panelu klienta.
 
 ## Decyzja
 
@@ -65,4 +65,4 @@ To koszt samej domeny, bez kosztów aplikacji i Firebase. Nie przyjmujemy, że c
 
 ## Kolejne kroki
 
-Utworzyć nowe repozytorium, a następnie ustalić kolorystykę i propozycje UX/UI. Zakup domeny pozostaje osobną czynnością wymagającą dyspozycji właściciela.
+Repozytorium utworzono, kierunek UX/UI wybrano, domenę kupiono w Hostido. Trwa [konfiguracja połączenia z Firebase Hosting](domena-konfiguracja.md).
