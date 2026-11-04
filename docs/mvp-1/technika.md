@@ -6,7 +6,7 @@ Data weryfikacji: 4 listopada 2026. Status: **propozycja do omówienia; bez wdra
 
 Angular z SSR dla publicznych kart, Tailwind z tokenami marki, daisyUI dla podstawowych kontrolek, MapLibre GL JS dla mapy wektorowej, Firebase Authentication dla Google Sign-In, Firestore dla danych i Cloud Storage dla plików. Zmiany lokalizacji przechodzą przez backend, który sprawdza zalogowanie i App Check oraz zapisuje historię razem ze zmianą.
 
-To rekomendacja projektowa. Wybór edycji i instancji Firestore, schemat dokumentów, dostawca kafelków oraz konfiguracja środowisk pozostają otwarte.
+To rekomendacja projektowa. Projekt Firebase `historyczny-rybnik` został wybrany i utworzony. Wybór edycji i instancji Firestore, schemat dokumentów, dostawca kafelków oraz konfiguracja środowisk pozostają otwarte.
 
 ## 2. Wersje sprawdzone w rejestrze npm
 
@@ -63,7 +63,7 @@ Rekomendacja: bezpośrednia integracja MapLibre GL JS w komponencie Angulara, be
 
 ## 6. Dane, wyszukiwanie i pliki — decyzje przed schematem
 
-Nie wybrano jeszcze docelowego projektu Firebase, instancji ani edycji Firestore. Przed konkretnym schematem i regułami należy ustalić te parametry, lokalizację oraz zgodność z backendem. Obecnej bazy MVP.0 nie traktujemy automatycznie jako produkcyjnej bazy nowej aplikacji.
+Wybrano i utworzono osobny projekt Firebase `historyczny-rybnik` (Historyczny Rybnik). Nie wybrano jeszcze instancji ani edycji Firestore. Przed konkretnym schematem i regułami należy ustalić te parametry, lokalizację oraz zgodność z backendem. Obecnej bazy MVP.0 nie traktujemy automatycznie jako produkcyjnej bazy nowej aplikacji.
 
 Porównanie Standard/Enterprise obejmie wymagane operacje, transakcje, indeksy i koszty. Enterprise ma obecnie własne wyszukiwanie tekstowe; nie zakładamy więc ogólnie, że Firestore nie obsługuje full text. [Firestore Enterprise — text search](https://firebase.google.com/docs/firestore/enterprise/text-search).
 
@@ -98,14 +98,24 @@ Alternatywą jest prerender publicznych kart na klasycznym Hostingu, ale wymaga�
 
 Źródła: [App Hosting — tabela wsparcia](https://firebase.google.com/docs/app-hosting/frameworks-tooling), [Hosting i usługi serverless](https://firebase.google.com/docs/hosting/serverless-overview), [Angular SSR na Cloud Run](https://docs.cloud.google.com/run/docs/quickstarts/frameworks/deploy-angular-ssr-service).
 
-Docelowo: oddzielna konfiguracja development i production, lokalne emulatory dla zapisów, CI dla testów i budowania. Dobór projektu, regionów, billing oraz koszty infrastruktury i mapy wymagają osobnego ustalenia. Nie utworzono usług ani nie włączono płatnego planu w ramach tego dokumentu.
+Docelowo: oddzielna konfiguracja development i production, lokalne emulatory dla zapisów, CI dla testów i budowania. Dobór projektu, regionów, billing oraz koszty infrastruktury i mapy wymagają osobnego ustalenia. Utworzono wyłącznie osobny projekt Firebase. Nie utworzono bazy, Storage ani backendu i nie podłączono rozliczeń w ramach tej czynności.
 
 ## 9. Następne decyzje i kolejność
 
-1. Wybrać projekt Firebase, docelową instancję/edycję Firestore i regiony.
+1. Projekt Firebase wybrany i utworzony: `historyczny-rybnik`. Następnie ustalić instancję/edycję Firestore i regiony.
 2. Uzgodnić szczegółowy schemat punktu, referencji, publikacji, datowania, pliku i historii zmian.
 3. Wybrać dostawcę podkładu i potwierdzić warunki wykorzystania mapy historycznej.
 4. Potwierdzić ścieżkę SSR testem minimalnej aplikacji oraz oszacować koszt dla oczekiwanej skali ruchu.
 5. Dopiero potem przygotować właściwy szkielet od zera i wdrażać kolejne funkcje.
 
 Weryfikacja implementacji obejmie realne 404 i przekierowania, indeksowalny HTML bez JS, nawigację panelu, dostępność bez mapy, zapisy bez Auth/App Check, konflikty edycji, atomową historię oraz rozróżnienie miejsc bez pozycji i przybliżonych.
+
+
+## Utworzony projekt — 4 listopada 2026
+
+- Nazwa: **Historyczny Rybnik**.
+- Project ID: `historyczny-rybnik`.
+- Numer projektu: `301143182490`.
+- [Konsola Firebase](https://console.firebase.google.com/project/historyczny-rybnik/overview).
+- Repozytorium ma własny `.firebaserc` wskazujący ten projekt i pusty `firebase.json`; nie skonfigurowano jeszcze produktów do wdrożenia.
+- Projekt MVP.0 pozostaje odrębny: `maciejkoch-project-1`.
