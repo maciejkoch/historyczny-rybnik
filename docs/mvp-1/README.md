@@ -210,7 +210,7 @@ Wybrano **Historyczny Rybnik** / `historyczny.rybnik.pl`. Zapis decyzji, wcześn
 
 ## 9. Backlog etapu 3 — technika
 
-Przygotowano [podział wdrożenia na pięć faz](fazy-wdrozenia.md). Każda kończy się działającym deploymentem i odbiorem; szczegółowy plan prac powstanie na tej podstawie.
+Przygotowano [podział wdrożenia na sześć faz](fazy-wdrozenia.md). Każda kończy się działającym deploymentem i odbiorem; szczegółowy plan prac powstanie na tej podstawie.
 
 Przygotowano [plan techniczny](technika.md) oraz [propozycję modelu danych](model-danych.md). Ustalono SSG + Firebase Hosting + Functions. Szczegóły schematu, edycja Firestore i region pozostają do przeglądu przed implementacją.
 
