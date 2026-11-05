@@ -36,9 +36,9 @@ export const PLACES: readonly Place[] = [
         "page": null,
         "publicationDate": null,
         "historicalDate": {
+          "from": "1903",
           "to": "1907",
-          "approximate": false,
-          "from": "1903"
+          "approximate": false
         },
         "accessedAt": "2026-11-05T12:00:00Z",
         "excerpt": "Parafia podaje rozpoczęcie budowy w 1903 roku oraz poświęcenie kościoła 29 września 1907 roku.",
@@ -65,9 +65,9 @@ export const PLACES: readonly Place[] = [
         "url": "https://commons.wikimedia.org/wiki/File:Rybnik_-_Antoniuskirche._1919_(70651365).jpg",
         "page": null,
         "publicationDate": {
+          "from": "1919",
           "to": null,
-          "approximate": true,
-          "from": "1919"
+          "approximate": true
         },
         "historicalDate": null,
         "accessedAt": "2026-11-05T12:26:30Z",
@@ -81,6 +81,8 @@ export const PLACES: readonly Place[] = [
             "alt": "Kolorowana pocztówka: dwuwieżowa fasada i boczna elewacja kościoła św. Antoniego w Rybniku, datowanie 1919.",
             "credit": "Autor nieznany · Biblioteka Narodowa / Polona · Wikimedia Commons",
             "rights": "Domena publiczna — oznaczenie Public Domain Mark 1.0 w Wikimedia Commons.",
+            "sha256": "6cd2b79894d7085850655146707d9ddd233abfbc3e596748d34af58ad9ea2473",
+            "thumbnailSha256": "6e85b4c6a2fcef8e19c1834f1040be9c0f13bd58ccb0cdbb07f6100e85583823",
             "provenance": {
               "title": "Rybnik - Antoniuskirche. 1919 (70651365)",
               "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rybnik_-_Antoniuskirche._1919_(70651365).jpg",
@@ -94,9 +96,7 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-05",
               "transformations": "Complete postcard, resized to 1800px and 640px long edge; JPEG compression, no crop, retouching or recolouring."
-            },
-            "sha256": "6cd2b79894d7085850655146707d9ddd233abfbc3e596748d34af58ad9ea2473",
-            "thumbnailSha256": "6e85b4c6a2fcef8e19c1834f1040be9c0f13bd58ccb0cdbb07f6100e85583823"
+            }
           }
         ]
       }

@@ -60,13 +60,20 @@ export class Atlas {
   private readonly lastSelectedSlug = signal<string | null>(
     this.route.snapshot.data['slug'] ?? null,
   );
-  readonly places = computed(() =>
+  readonly places = computed<readonly Place[]>(() =>
     PLACES.map((place) => {
       const current = this.locations.current().find((value) => value.id === place.id);
       return current
         ? { ...place, ...current }
         : this.locations.status() === 'ready'
-          ? { ...place, location: { ...place.location, coordinates: null } }
+          ? {
+              ...place,
+              location: {
+                coordinates: null,
+                precision: 'unknown',
+                explanation: place.location.explanation,
+              },
+            }
           : place;
     }),
   );
