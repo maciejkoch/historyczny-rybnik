@@ -25,6 +25,22 @@ export interface PlaceReference {
     readonly alt: string;
     readonly credit: string;
     readonly rights: string;
+    readonly sha256: string;
+    readonly thumbnailSha256: string;
+    readonly provenance: {
+      readonly title: string;
+      readonly sourcePageUrl: string;
+      readonly originalCollectionUrl: string;
+      readonly originalImageUrl: string;
+      readonly originalSha256: string;
+      readonly author: string;
+      readonly dateNote: string;
+      readonly license: string;
+      readonly licenseUrl: string;
+      readonly copyrighted: boolean;
+      readonly rightsCheckedAt: string;
+      readonly transformations: string;
+    };
   }[];
 }
 export interface Place {

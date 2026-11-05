@@ -159,7 +159,49 @@ export function validatePlace(place) {
     check(['quote', 'transcription', 'summary'].includes(ref.excerptType), 'Invalid excerpt type');
     text(ref.note, 2000, true);
     list(ref.images, 10, (image) => {
-      object(image, ['storagePath', 'thumbnailPath', 'alt', 'credit', 'rights']);
+      object(image, [
+        'storagePath',
+        'thumbnailPath',
+        'alt',
+        'credit',
+        'rights',
+        'provenance',
+        'sha256',
+        'thumbnailSha256',
+      ]);
+      const provenance = image.provenance;
+      object(provenance, [
+        'title',
+        'sourcePageUrl',
+        'originalCollectionUrl',
+        'originalImageUrl',
+        'originalSha256',
+        'author',
+        'dateNote',
+        'license',
+        'licenseUrl',
+        'copyrighted',
+        'rightsCheckedAt',
+        'transformations',
+      ]);
+      for (const key of [
+        'sourcePageUrl',
+        'originalCollectionUrl',
+        'originalImageUrl',
+        'licenseUrl',
+      ])
+        url(provenance[key]);
+      for (const key of ['title', 'author', 'dateNote', 'license']) text(provenance[key], 500);
+      text(provenance.transformations, 2000);
+      check(typeof provenance.copyrighted === 'boolean', 'Invalid copyright status');
+      check(
+        typeof provenance.rightsCheckedAt === 'string' &&
+          /^\d{4}-\d{2}-\d{2}$/.test(provenance.rightsCheckedAt),
+        'Invalid rights check date',
+      );
+      dateBounds(provenance.rightsCheckedAt);
+      for (const hash of [image.sha256, image.thumbnailSha256, provenance.originalSha256])
+        check(typeof hash === 'string' && /^[a-f0-9]{64}$/.test(hash), 'Invalid SHA-256');
       for (const key of ['storagePath', 'thumbnailPath']) {
         text(image[key], 500);
         check(

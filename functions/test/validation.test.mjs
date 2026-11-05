@@ -10,6 +10,26 @@ import {
 } from '../src/validation.mjs';
 const seed = JSON.parse(readFileSync(new URL('../../data/places.seed.json', import.meta.url)));
 test('reviewed single church validates', () => assert.equal(validateCatalog(seed).length, 1));
+test('image provenance rejects invalid URLs, hashes, rights dates and unknown fields', () => {
+  const mutations = [
+    (image) => (image.provenance.sourcePageUrl = 'http://example.org/source'),
+    (image) => (image.provenance.licenseUrl = 'javascript:alert(1)'),
+    (image) => (image.provenance.originalSha256 = 'not-a-hash'),
+    (image) => (image.sha256 = 'a'.repeat(63)),
+    (image) => (image.thumbnailSha256 = 'g'.repeat(64)),
+    (image) => (image.provenance.rightsCheckedAt = '2026-02-30'),
+    (image) => (image.provenance.rightsCheckedAt = '2026-11'),
+    (image) => (image.provenance.copyrighted = 'False'),
+    (image) => (image.provenance.privateNote = 'secret'),
+    (image) => delete image.provenance,
+  ];
+  for (const mutate of mutations) {
+    const data = structuredClone(seed);
+    const image = data[0].references.find((ref) => ref.images.length).images[0];
+    mutate(image);
+    assert.throws(() => validateCatalog(data));
+  }
+});
 test('calendar and partial dates retain precision', () => {
   for (const from of ['1932', '1932-02', '1932-02-29'])
     partialDate({ from, to: null, approximate: false });

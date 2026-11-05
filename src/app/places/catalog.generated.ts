@@ -80,7 +80,23 @@ export const PLACES: readonly Place[] = [
             "thumbnailPath": "public/places/place_sw_antoni/polona_1919/antoni-1919-thumb-v1.jpg",
             "alt": "Kolorowana pocztówka: dwuwieżowa fasada i boczna elewacja kościoła św. Antoniego w Rybniku, datowanie 1919.",
             "credit": "Autor nieznany · Biblioteka Narodowa / Polona · Wikimedia Commons",
-            "rights": "Domena publiczna — oznaczenie Public Domain Mark 1.0 w Wikimedia Commons."
+            "rights": "Domena publiczna — oznaczenie Public Domain Mark 1.0 w Wikimedia Commons.",
+            "provenance": {
+              "title": "Rybnik - Antoniuskirche. 1919 (70651365)",
+              "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rybnik_-_Antoniuskirche._1919_(70651365).jpg",
+              "originalCollectionUrl": "https://polona.pl/item/rybnik-antoniuskirche,NzA0MjAxODc/",
+              "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Rybnik_-_Antoniuskirche._1919_%2870651365%29.jpg",
+              "originalSha256": "450081e7475780f1d319e2642305683b49b5a4cac28637736db7ccd8d1103943",
+              "author": "Unknown",
+              "dateNote": "1919; year from correspondence, date of photograph unknown",
+              "license": "Public domain",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-05",
+              "transformations": "Complete postcard, resized to 1800px and 640px long edge; JPEG compression, no crop, retouching or recolouring."
+            },
+            "sha256": "6cd2b79894d7085850655146707d9ddd233abfbc3e596748d34af58ad9ea2473",
+            "thumbnailSha256": "6e85b4c6a2fcef8e19c1834f1040be9c0f13bd58ccb0cdbb07f6100e85583823"
           }
         ]
       }

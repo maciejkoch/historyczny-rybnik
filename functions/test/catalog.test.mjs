@@ -3,6 +3,13 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { publicCatalog } from '../../scripts/places/catalog.mjs';
 const seed = JSON.parse(readFileSync(new URL('../../data/places.seed.json', import.meta.url)));
+test('SSG preserves image provenance and variant hashes from the place document', () => {
+  const result = publicCatalog(seed);
+  const image = result[0].references.find((ref) => ref.images.length).images[0];
+  assert.deepEqual(image, seed[0].references.find((ref) => ref.images.length).images[0]);
+  assert.equal(image.provenance.rightsCheckedAt, '2026-11-05');
+  assert.match(image.sha256, /^[a-f0-9]{64}$/);
+});
 test('SSG excludes drafts and rejects unexpected fields', () => {
   const draft = structuredClone(seed[0]);
   draft.id = 'draft';

@@ -1,6 +1,6 @@
 # Odbiór fazy 3
 
-Data: 5 listopada 2026. Środowisko: stały dev, https://historyczny-rybnik-dev.web.app/. Gałąź `codex/mvp-phase-3`, PR do `codex/mvp-phase-2`. Commit aplikacji wdrożonej na dev: `3d3c930cea23476cef534b9a4314f89faf01fb57`. Późniejszy commit dokumentacji/testów nie zmienia artefaktów aplikacji.
+Data: 5 listopada 2026. Środowisko: stały dev, https://historyczny-rybnik-dev.web.app/. Gałąź `codex/mvp-phase-3`, PR do `main` (po scaleniu fazy 2). Commit aplikacji wdrożonej na dev: `3d3c930cea23476cef534b9a4314f89faf01fb57`. Późniejszy commit dokumentacji/testów nie zmienia artefaktów aplikacji.
 
 ## Zakres
 
@@ -23,3 +23,17 @@ Dokładnie jeden rekord w bazie i katalogu: `place_sw_antoni` / `/miejsca/bazyli
 Nie opublikowano produkcyjnego Hostingu. Produkcja w fazie 5 wymaga własnej bazy/bucketa/Functions i konfiguracji frontendowej; Authentication pozostaje wspólne zgodnie z decyzją właściciela. Interfejs logowania i edycji należy do fazy 4.
 
 Uzupełnienie na zlecenie właściciela, 5 listopada 2026: do dev Storage i karty dodano kolorowaną pocztówkę bazyliki datowaną na 1919 r., oznaczoną jako domena publiczna. [Źródło, prawa, ścieżki i odbiór Storage](zdjecie-bazyliki-1919.md). Import zachował pozycję i wersję 1; aplikację z obrazem ponownie opublikowano poleceniem `npm run deploy:dev`.
+
+
+Uzupełnienie po review, 5 listopada 2026: pełne metadane pocztówki są w
+`places/place_sw_antoni`, przy `references[id=polona_1919].images[0]`.
+Dodano `provenance` (źródła, prawa, data weryfikacji, hash oryginału i opis
+przekształceń) oraz SHA-256 obu publikowanych wariantów. Usunięto JPG,
+osobny JSON metadanych i manifest assetów z repozytorium. Uploader przyjmuje
+`--directory` i weryfikuje pliki względem katalogu miejsc lub snapshotu Firestore.
+
+Walidacja rozszerzenia: 9 testów walidacji/SSG i 7 testów emulatorów — PASS;
+build i publikacja dev ze snapshotu — PASS. Ponowny odczyt Firestore potwierdził
+zgodność metadanych z wejściem importu oraz zachowanie `locationVersion: 1`
+i `updatedAt`. Oba obrazy w dev Storage zwracają HTTP 200 i zgodne SHA-256.
+Strona główna i karta serwują aktualny bundle i zachowują noindex.

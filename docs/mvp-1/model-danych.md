@@ -59,11 +59,27 @@ Przykład jest fikcyjny. `placeId` to trwały identyfikator dokumentu, niezależ
       "note": null,
       "images": [
         {
-          "storagePath": "places/place_example/ref_01/wycinek-v1.webp",
-          "thumbnailPath": "places/place_example/ref_01/miniatura-v1.webp",
+          "storagePath": "public/places/place_example/ref_01/wycinek-v1.webp",
+          "thumbnailPath": "public/places/place_example/ref_01/miniatura-v1.webp",
           "alt": "Wycinek spisu z wpisem dotyczącym szkoły",
           "credit": "Nazwa archiwum lub autora",
-          "rights": "Informacja o licencji lub innej podstawie publikacji"
+          "rights": "Domena publiczna",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "thumbnailSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "provenance": {
+            "title": "Tytuł skanu",
+            "sourcePageUrl": "https://example.org/skan/17",
+            "originalCollectionUrl": "https://example.org/kolekcja/1",
+            "originalImageUrl": "https://example.org/oryginal.jpg",
+            "originalSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "author": "Autor nieznany",
+            "dateNote": "Rok wydania 1932; data fotografii nieustalona",
+            "license": "Public domain",
+            "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+            "copyrighted": false,
+            "rightsCheckedAt": "2026-11-05",
+            "transformations": "Zmniejszenie i kompresja; bez retuszu"
+          }
         }
       ]
     }
@@ -123,7 +139,11 @@ Brak daty oznacza `null`; samego roku nie zamieniamy na 1 stycznia. Daty wydania
 
 ## 6. Pliki w Storage
 
-Wycinki i miniatury przechowujemy np. pod `places/{placeId}/{referenceId}/...`. Ich ścieżki, podpisy, tekst alternatywny i podstawa wykorzystania są zapisane bezpośrednio w referencji.
+Wycinki i miniatury przechowujemy pod `public/places/{placeId}/{referenceId}/...` w Storage. Ich ścieżki, podpisy, tekst alternatywny i podstawa wykorzystania są zapisane w `references[].images[]` dokumentu miejsca.
+
+Każdy obraz zawiera `sha256` i `thumbnailSha256` publikowanych wariantów oraz obiekt `provenance`: tytuł, stronę źródłową, kolekcję oryginału, URL i SHA-256 oryginału, autora, wyjaśnienie datowania, nazwę i URL licencji lub oznaczenia praw, status `copyrighted`, datę sprawdzenia `rightsCheckedAt` (`YYYY-MM-DD`) i opis przekształceń `transformations`. Nieznanego autora lub datowania nie uzupełniamy domysłem — niepewność opisujemy tekstowo. Wszystkie te pola są publiczne.
+
+Dane te zapisujemy w Firestore przez importer; lokalny seed jest wejściem do importu i buildów CI. Nie utrzymujemy osobnego manifestu assetów ani pliku JSON z metadanymi źródła. Pliki binarne są w Storage, poza repozytorium. Do ponownego uploadu operator dostarcza lokalne kopie; skrypt sprawdza ich sumy względem dokumentu miejsca.
 
 - Nie zapisujemy obrazów jako base64 w Firestore.
 - Referencja może mieć sam opis i link, bez plików.
