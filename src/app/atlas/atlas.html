@@ -1,17 +1,21 @@
-<a class="skip-link btn btn-primary" href="#tresc">Przejdź do treści</a>
+<a class="skip-link btn btn-primary" [href]="screen() === 'search' ? '#tresc' : '#mapa'"
+  >Przejdź do treści</a
+>
 <div
   class="atlas-shell"
   appPanelLayout
   #searchLayout="panelLayout"
-  [split]="!!selected()"
-  [class.mobile-details]="mobileView() === 'details'"
-  [class.has-details]="!!selected()"
-  [style.--details-width]="selected() ? detailsLayout.panelWidth() + 'px' : '0px'"
-  [style.--details-separator-width]="selected() && !detailsLayout.isCollapsed() ? '8px' : '0px'"
+  [split]="hasDetails()"
+  [class.screen-map]="screen() === 'map'"
+  [class.screen-search]="screen() === 'search'"
+  [class.screen-place]="screen() === 'place'"
+  [class.has-details]="hasDetails()"
+  [style.--details-width]="hasDetails() ? detailsLayout.panelWidth() + 'px' : '0px'"
+  [style.--details-separator-width]="hasDetails() && !detailsLayout.isCollapsed() ? '8px' : '0px'"
 >
   <div class="sidebar">
     <header class="brand-header">
-      <a class="brand" href="/" aria-label="Historyczny Rybnik — strona główna">
+      <a class="brand" routerLink="/" aria-label="Historyczny Rybnik — strona główna">
         <img src="/brand/ryba-na-mapie.svg" width="76" height="54" alt="" />
         <span [hidden]="searchLayout.isCollapsed()">Historyczny<br />Rybnik</span>
       </a>
@@ -39,10 +43,11 @@
     >
       <app-place-search-panel
         [query]="query()"
+        [mobilePage]="screen() === 'search'"
         [results]="results()"
         [selectedId]="selected()?.id"
-        (queryChanged)="query.set($event)"
-        (placeSelected)="select($event, 'search')"
+        (queryChanged)="updateQuery($event)"
+        (placeSelected)="select($event)"
       />
       @if (locations.status() === 'error') {
         <p role="status" class="muted">
@@ -84,13 +89,18 @@
     szerokość. Escape anuluje przeciąganie.
   </p>
   <section #mapRegion id="mapa" class="map-region" aria-label="Mapa Rybnika" tabindex="-1">
-    <app-atlas-map [places]="places()" [selected]="selected()" (placeSelected)="select($event)" />
-    @if (selected()) {
+    <app-atlas-map
+      [places]="places()"
+      [selected]="selected()"
+      [focusSelected]="hasDetails()"
+      (placeSelected)="select($event)"
+    />
+    @if (hasDetails()) {
       <button
         class="btn btn-primary details-jump"
         type="button"
         aria-controls="szczegoly"
-        (click)="showDetails(true)"
+        (click)="showDetails()"
       >
         Szczegóły ↓
       </button>
@@ -102,7 +112,7 @@
     #detailsLayout="panelLayout"
     side="right"
     [split]="true"
-    [hidden]="!selected()"
+    [hidden]="!hasDetails()"
     aria-label="Szczegóły miejsca"
   >
     <div
@@ -165,13 +175,7 @@
     </section>
   </aside>
 </div>
-<app-mobile-navigation
-  [view]="mobileView()"
-  [hasPlace]="!!selected()"
-  (searchRequested)="showSearch()"
-  (mapRequested)="showMap()"
-  (detailsRequested)="showDetails()"
-/>
+<app-mobile-navigation [view]="screen()" [query]="query()" />
 <dialog
   #scanDialog
   class="scan-dialog"

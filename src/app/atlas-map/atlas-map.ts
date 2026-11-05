@@ -26,6 +26,7 @@ import { HISTORY_CORNERS } from './history-extent';
 export class AtlasMap {
   readonly places = input<readonly Place[]>([]);
   readonly selected = input<Place | null>(null);
+  readonly focusSelected = input(true);
   readonly placeSelected = output<Place>();
   readonly state = signal<'loading' | 'ready' | 'error'>('loading');
   readonly historyEnabled = signal(false);
@@ -49,6 +50,7 @@ export class AtlasMap {
     });
     afterRenderEffect(() => {
       const selected = this.selected();
+      const focusSelected = this.focusSelected();
       this.state();
       this.markers.forEach((marker, i) =>
         marker
@@ -58,7 +60,7 @@ export class AtlasMap {
             String(marker.getElement().dataset['placeId'] === selected?.id),
           ),
       );
-      if (selected?.location.coordinates && this.map) {
+      if (focusSelected && selected?.location.coordinates && this.map) {
         // Panel selection changes the available map width in the same render.
         this.map.resize();
         this.map.easeTo({

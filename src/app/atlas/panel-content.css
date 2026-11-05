@@ -126,3 +126,13 @@ h3 {
   background: var(--color-base-200);
   color: var(--color-primary);
 }
+
+@media (max-width: 1099px) {
+  :host(.mobile-page) .search-intro,
+  :host(.mobile-page) .section-number {
+    display: none;
+  }
+  :host(.mobile-page) h2 {
+    margin-top: 0;
+  }
+}

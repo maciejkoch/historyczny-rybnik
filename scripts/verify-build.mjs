@@ -6,10 +6,18 @@ const root = 'dist/historyczny-rybnik/browser';
 copyFileSync(`${root}/404/index.html`, `${root}/404.html`);
 const home = readFileSync(`${root}/index.html`, 'utf8');
 assert.match(home, /Miasto zapisane/);
+assert.match(home, /screen-map/);
+const search = readFileSync(`${root}/szukaj/index.html`, 'utf8');
+assert.match(search, /screen-search/);
+assert.match(search, /Znajdź miejsce/);
+assert.match(search, /noindex/);
+assert.ok(search.includes('https://historyczny-rybnik-dev.web.app/szukaj'));
+
 assert.doesNotMatch(home, /Dane przykładowe/);
 const catalogue = JSON.parse(readFileSync('data/places.seed.json', 'utf8'));
 for (const place of catalogue) {
   const html = readFileSync(`${root}/miejsca/${place.slug}/index.html`, 'utf8');
+  assert.match(html, /screen-place/);
   assert.ok(html.includes(place.name)); assert.ok(html.includes(place.description));
   assert.match(html, /rel="canonical"/); assert.match(html, /og:title/);
   for (const ref of place.references) assert.ok(html.includes(ref.title));

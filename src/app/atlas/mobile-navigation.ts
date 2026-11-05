@@ -1,15 +1,14 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-mobile-navigation',
+  imports: [RouterLink],
   templateUrl: './mobile-navigation.html',
   styleUrl: './mobile-navigation.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MobileNavigation {
-  readonly view = input<'search' | 'details'>('search');
-  readonly hasPlace = input(false);
-  readonly searchRequested = output<void>();
-  readonly mapRequested = output<void>();
-  readonly detailsRequested = output<void>();
+  readonly view = input<'map' | 'search' | 'place'>('map');
+  readonly query = input('');
 }

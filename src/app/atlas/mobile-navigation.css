@@ -17,10 +17,10 @@
     max-width: 38rem;
     margin: auto;
   }
-  button {
+  a {
     flex: 1;
   }
-  button[aria-current] {
+  a[aria-current] {
     background: var(--color-primary);
     color: var(--color-primary-content);
   }

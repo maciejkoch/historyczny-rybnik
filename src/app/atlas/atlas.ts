@@ -10,7 +10,13 @@ import {
   viewChild,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  NavigationStart,
+  Router,
+  RouterLink,
+} from '@angular/router';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { Meta, Title } from '@angular/platform-browser';
 import { PanelLayout } from './panel-layout';
@@ -23,7 +29,14 @@ import { PlaceDetailsPanel } from './place-details-panel';
 import { MobileNavigation } from './mobile-navigation';
 @Component({
   selector: 'app-atlas',
-  imports: [AtlasMap, PanelLayout, PlaceSearchPanel, PlaceDetailsPanel, MobileNavigation],
+  imports: [
+    RouterLink,
+    AtlasMap,
+    PanelLayout,
+    PlaceSearchPanel,
+    PlaceDetailsPanel,
+    MobileNavigation,
+  ],
   templateUrl: './atlas.html',
   styleUrl: './atlas.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -36,7 +49,12 @@ export class Atlas {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   readonly locations = inject(Locations);
-  readonly query = signal('');
+  readonly query = signal(this.route.snapshot.queryParamMap.get('q') ?? '');
+  readonly screen = computed<'map' | 'search' | 'place'>(() => this.params()['screen'] ?? 'map');
+  readonly hasDetails = computed(() => this.screen() === 'place');
+  private readonly lastSelectedSlug = signal<string | null>(
+    this.route.snapshot.data['slug'] ?? null,
+  );
   readonly places = computed(() =>
     PLACES.map((place) => {
       const current = this.locations.current().find((value) => value.id === place.id);
@@ -48,7 +66,10 @@ export class Atlas {
     }),
   );
   readonly selected = computed(
-    () => this.places().find((place) => place.slug === this.params()['slug']) ?? null,
+    () =>
+      this.places().find(
+        (place) => place.slug === (this.params()['slug'] ?? this.lastSelectedSlug()),
+      ) ?? null,
   );
   readonly results = computed(() => {
     const words = normalizeSearch(this.query()).trim().split(/\s+/);
@@ -65,29 +86,32 @@ export class Atlas {
     });
   });
   readonly enlarged = signal<{ url: string; alt: string } | null>(null);
-  readonly mobileView = signal<'search' | 'details'>(
-    this.route.snapshot.data['slug'] ? 'details' : 'search',
-  );
   private readonly searchPanel = viewChild<ElementRef<HTMLElement>>('searchPanel');
   private readonly detailsPanel = viewChild<ElementRef<HTMLElement>>('detailsPanel');
   private readonly mapRegion = viewChild<ElementRef<HTMLElement>>('mapRegion');
   private readonly searchLayout = viewChild<PanelLayout>('searchLayout');
   private readonly detailsLayout = viewChild<PanelLayout>('detailsLayout');
   private readonly scanDialog = viewChild<ElementRef<HTMLDialogElement>>('scanDialog');
-  private previousSlug: string | undefined = this.route.snapshot.data['slug'];
-  private selectionSource: 'map' | 'search' | null = null;
-  private readonly mobileScroll = { search: 0, details: 0 };
+  private currentPath = '/' + this.route.snapshot.url.map((segment) => segment.path).join('/');
+  private restoringHistory = false;
+  private readonly scrollPositions = new Map<string, number>();
+  private readonly navigation = signal<{ path: string; top: number } | null>(null);
+  private handledNavigation: object | null = null;
   constructor() {
     this.route.data.pipe(takeUntilDestroyed()).subscribe((data) => {
       const place = PLACES.find((p) => p.slug === data['slug']);
+      if (place) this.lastSelectedSlug.set(place.slug);
       const title = place
         ? `${place.name} — Historyczny Rybnik`
-        : 'Historyczny Rybnik — miejsca i ich historie';
+        : data['screen'] === 'search'
+          ? 'Znajdź miejsce — Historyczny Rybnik'
+          : 'Historyczny Rybnik — miejsca i ich historie';
       const description =
         place?.description ??
         'Odkrywaj miejsca Rybnika, ich historię i źródła na mapie współczesnej oraz planie z 1932 roku.';
       const url =
-        'https://historyczny-rybnik-dev.web.app' + (place ? '/miejsca/' + place.slug : '/');
+        'https://historyczny-rybnik-dev.web.app' +
+        (place ? '/miejsca/' + place.slug : data['screen'] === 'search' ? '/szukaj' : '/');
       this.title.setTitle(title);
       this.meta.updateTag({ name: 'description', content: description });
       for (const [property, content] of Object.entries({
@@ -106,30 +130,48 @@ export class Atlas {
       canonical.href = url;
     });
     afterNextRender(() => void this.locations.refresh());
-    afterRenderEffect(() => {
-      const slug: string | undefined = this.params()['slug'];
-      if (slug === this.previousSlug) return;
-      this.previousSlug = slug;
-      if (slug) {
-        this.rememberMobileScroll();
-        this.mobileScroll.details = 0;
-        this.mobileView.set('details');
-        this.detailsLayout()?.expand();
-        const scrollToDetails = this.selectionSource !== 'map';
-        requestAnimationFrame(() => {
-          this.detailsPanel()?.nativeElement.scrollTo({ top: 0 });
-          if (this.isDesktop() || scrollToDetails) this.focusDetails(scrollToDetails);
+    this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
+      if (typeof window === 'undefined') return;
+      if (event instanceof NavigationStart) {
+        this.scrollPositions.set(this.currentPath, window.scrollY);
+        this.restoringHistory = event.navigationTrigger === 'popstate';
+      }
+      if (event instanceof NavigationEnd) {
+        if (this.route.snapshot.data['screen'] === 'search') {
+          this.query.set(this.route.snapshot.queryParamMap.get('q') ?? '');
+        }
+        const path = event.urlAfterRedirects.split(/[?#]/)[0];
+        if (path === this.currentPath) return; // Typing changes q without moving the page or focus.
+        this.currentPath = path;
+        this.navigation.set({
+          path,
+          top:
+            this.restoringHistory || path === '/szukaj' ? (this.scrollPositions.get(path) ?? 0) : 0,
         });
-      } else {
-        this.mobileView.set('search');
-        requestAnimationFrame(() => {
-          if (!this.isDesktop()) this.restoreMobileScroll('search');
+      }
+    });
+    afterRenderEffect(() => {
+      const navigation = this.navigation();
+      if (!navigation || navigation === this.handledNavigation) return;
+      this.handledNavigation = navigation;
+      const screen = this.screen();
+      if (screen === 'place') this.detailsLayout()?.expand();
+      if (screen === 'search') this.searchLayout()?.expand();
+      requestAnimationFrame(() => {
+        if (!this.isDesktop()) {
+          window.scrollTo({ top: navigation.top, behavior: 'instant' });
+          (screen === 'search' ? this.searchPanel() : this.mapRegion())?.nativeElement.focus({
+            preventScroll: true,
+          });
+        } else if (screen === 'place') {
+          this.detailsPanel()?.nativeElement.scrollTo({ top: 0 });
+          this.focusDetails();
+        } else if (screen === 'search') {
           this.searchPanel()
             ?.nativeElement.querySelector<HTMLElement>('#place-search')
             ?.focus({ preventScroll: true });
-        });
-      }
-      this.selectionSource = null;
+        }
+      });
     });
     afterRenderEffect(() => {
       const dialog = this.scanDialog()?.nativeElement;
@@ -141,78 +183,45 @@ export class Atlas {
     return window.matchMedia('(min-width: 1100px)').matches;
   }
 
-  private rememberMobileScroll(): void {
-    if (this.isDesktop()) return;
-    const view = this.mobileView();
-    const panel = view === 'search' ? this.searchPanel() : this.detailsPanel();
-    if (!panel) return;
-    const top = panel.nativeElement.getBoundingClientRect().top + window.scrollY;
-    if (window.scrollY >= top - 2) this.mobileScroll[view] = Math.max(0, window.scrollY - top);
-  }
-
-  private restoreMobileScroll(view: 'search' | 'details', reset = false): void {
-    const panel = view === 'search' ? this.searchPanel() : this.detailsPanel();
-    if (!panel) return;
-    const top = panel.nativeElement.getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({ top: top + (reset ? 0 : this.mobileScroll[view]), behavior: 'instant' });
-  }
-
-  private focusDetails(scroll: boolean): void {
-    if (!this.isDesktop() && scroll) this.restoreMobileScroll('details', true);
+  private focusDetails(): void {
     this.detailsPanel()
       ?.nativeElement.querySelector<HTMLElement>('#place-title')
       ?.focus({ preventScroll: true });
   }
 
-  select(place: Place, source: 'map' | 'search' = 'map'): void {
-    this.rememberMobileScroll();
-    if (this.selected()?.id === place.id) {
+  select(place: Place): void {
+    const path = '/miejsca/' + place.slug;
+    if (this.currentPath === path) {
       this.detailsLayout()?.expand();
-      this.mobileView.set('details');
-      if (source === 'search' || this.isDesktop())
-        requestAnimationFrame(() => this.focusDetails(true));
+      if (this.isDesktop()) this.focusDetails();
+      else window.scrollTo({ top: 0, behavior: 'instant' });
       return;
     }
-    this.selectionSource = source;
     void this.router.navigate(['/miejsca', place.slug]);
   }
 
-  showSearch(): void {
-    this.rememberMobileScroll();
-    this.mobileView.set('search');
-    this.searchLayout()?.expand();
-    requestAnimationFrame(() => {
-      if (!this.isDesktop()) this.restoreMobileScroll('search');
-      this.searchPanel()?.nativeElement.focus({ preventScroll: true });
-    });
+  updateQuery(value: string): void {
+    this.query.set(value);
+    // Desktop keeps its current three-panel route; the mobile search page owns q.
+    if (this.screen() === 'search') {
+      void this.router.navigate(['/szukaj'], {
+        queryParams: { q: value || null },
+        replaceUrl: true,
+      });
+    }
   }
 
-  showDetails(fromMap = false): void {
-    if (!this.selected()) return;
-    this.rememberMobileScroll();
-    this.mobileView.set('details');
-    this.detailsLayout()?.expand();
-    requestAnimationFrame(() => {
-      if (!this.isDesktop()) this.restoreMobileScroll('details', fromMap);
-      this.detailsPanel()
-        ?.nativeElement.querySelector<HTMLElement>('#place-title')
-        ?.focus({ preventScroll: true });
-    });
-  }
-
-  showMap(): void {
-    this.rememberMobileScroll();
-    this.mapRegion()?.nativeElement.scrollIntoView({
+  showDetails(): void {
+    this.detailsPanel()?.nativeElement.scrollIntoView({
       behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
         ? 'instant'
         : 'smooth',
       block: 'start',
     });
-    this.mapRegion()?.nativeElement.focus({ preventScroll: true });
+    this.focusDetails();
   }
 
   close(): void {
-    this.rememberMobileScroll();
     this.searchLayout()?.expand();
     void this.router.navigate(['/']);
   }

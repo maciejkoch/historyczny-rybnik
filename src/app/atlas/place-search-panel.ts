@@ -5,9 +5,11 @@ import { Place } from '../places/place';
   selector: 'app-place-search-panel',
   templateUrl: './place-search-panel.html',
   styleUrl: './panel-content.css',
+  host: { '[class.mobile-page]': 'mobilePage()' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlaceSearchPanel {
+  readonly mobilePage = input(false);
   readonly query = input('');
   readonly results = input<readonly Place[]>([]);
   readonly selectedId = input<string>();

@@ -42,6 +42,7 @@
   --color-marker: #245947;
 }
 html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+@media (max-width: 1099px) { html { scrollbar-gutter: auto; } }
 body { margin: 0; font-family: var(--font-sans); background: var(--color-base-100); color: var(--color-base-content); }
 h1, h2 { font-family: var(--font-display); font-weight: 500; }
 .eyebrow { font-size: .72rem; text-transform: uppercase; letter-spacing: .16em; color: var(--color-muted); }
