@@ -7,7 +7,9 @@
     "build": "ng build && node scripts/verify-build.mjs",
     "watch": "ng build --watch --configuration development",
     "preview": "npm run build && firebase hosting:channel:deploy faza-1 --project historyczny-rybnik --expires 30d",
-    "emulate": "firebase emulators:start --only hosting --project historyczny-rybnik"
+    "emulate": "firebase emulators:start --only hosting --project historyczny-rybnik",
+    "deploy:dev": "npm run build && firebase deploy --only hosting --config firebase.dev.json --project historyczny-rybnik",
+    "deploy:prod": "npm run build && firebase deploy --only hosting --config firebase.json --project historyczny-rybnik"
   },
   "private": true,
   "packageManager": "npm@12.0.2",
