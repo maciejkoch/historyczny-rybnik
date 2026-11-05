@@ -48,6 +48,8 @@ publicznych, transakcje i konflikt `aborted` pozostają sprawdzane niezależnie.
   kafli — PASS. Początkowa paczka 463,08 kB, bez ostrzeżenia budżetu.
 - `PLACES_USE_FIREBASE_CLI=1 npm run deploy:dev`: świeży snapshot bazy dev,
   build i publikacja Hosting — PASS. Snapshot zachowuje wersję lokalizacji 1.
+- `npm run deploy:backend:dev`: paczka Functions 41,81 kB, aktualizacja
+  `placesDevRead` i `placesDevUpdate` w `europe-central2` — PASS.
 - Przeglądarka na dev: mapa, lista i karta bazyliki pokazują wersję pozycji 1,
   źródła i ilustrację; brak błędów i ostrzeżeń konsoli.
 
