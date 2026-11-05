@@ -6,11 +6,7 @@
     "previousSlugs": [],
     "description": "Neogotycki kościół zaprojektowany przez Ludwiga Schneidera. Budowę rozpoczęto w 1903 roku, a świątynię poświęcono 29 września 1907 roku. Od 1993 roku ma tytuł bazyliki mniejszej.",
     "category": "religion",
-    "aliases": [
-      "Kościół świętego Antoniego",
-      "Bazylika św. Antoniego",
-      "Rybnicka katedra"
-    ],
+    "aliases": ["Kościół świętego Antoniego", "Bazylika św. Antoniego", "Rybnicka katedra"],
     "addresses": [
       {
         "type": "current",
@@ -56,6 +52,31 @@
         "excerptType": "summary",
         "note": null,
         "images": []
+      },
+      {
+        "id": "polona_1919",
+        "title": "Rybnik: Antoniuskirche — pocztówka, 1919",
+        "url": "https://commons.wikimedia.org/wiki/File:Rybnik_-_Antoniuskirche._1919_(70651365).jpg",
+        "page": null,
+        "publicationDate": {
+          "to": null,
+          "approximate": true,
+          "from": "1919"
+        },
+        "historicalDate": null,
+        "accessedAt": "2026-11-05T12:26:30Z",
+        "excerpt": "Kolorowana pocztówka przedstawia kościół św. Antoniego z dwiema wieżami i boczną elewacją.",
+        "excerptType": "summary",
+        "note": "Datowanie 1919 według korespondencji na pocztówce. Dokładna data wykonania fotografii oraz autor są nieustalone. Oryginał: Biblioteka Narodowa / Polona, obiekt 70420187; kopia cyfrowa udostępniona w Wikimedia Commons.",
+        "images": [
+          {
+            "storagePath": "public/places/place_sw_antoni/polona_1919/antoni-1919-v1.jpg",
+            "thumbnailPath": "public/places/place_sw_antoni/polona_1919/antoni-1919-thumb-v1.jpg",
+            "alt": "Kolorowana pocztówka: dwuwieżowa fasada i boczna elewacja kościoła św. Antoniego w Rybniku, datowanie 1919.",
+            "credit": "Autor nieznany · Biblioteka Narodowa / Polona · Wikimedia Commons",
+            "rights": "Domena publiczna — oznaczenie Public Domain Mark 1.0 w Wikimedia Commons."
+          }
+        ]
       }
     ],
     "published": true,

@@ -8,6 +8,9 @@ test('SSG excludes drafts and rejects unexpected fields', () => {
   draft.id = 'draft';
   draft.slug = 'draft';
   draft.published = false;
+  draft.references.forEach((ref) => {
+    ref.images = [];
+  });
   const result = publicCatalog([...seed, draft]);
   assert.equal(result.length, 1);
   assert.equal(result[0].published, undefined);

@@ -21,3 +21,5 @@ Dokładnie jeden rekord w bazie i katalogu: `place_sw_antoni` / `/miejsca/bazyli
 - Rozliczenia: konto wskazane i zatwierdzone przez właściciela, alert 10 PLN/miesiąc na projekt, progi 50/90/100%; automatyczne sprzątanie obrazów Functions po 1 dniu. Alert nie jest limitem blokującym koszty.
 
 Nie opublikowano produkcyjnego Hostingu. Produkcja w fazie 5 wymaga własnej bazy/bucketa/Functions i konfiguracji frontendowej; Authentication pozostaje wspólne zgodnie z decyzją właściciela. Interfejs logowania i edycji należy do fazy 4.
+
+Uzupełnienie na zlecenie właściciela, 5 listopada 2026: do dev Storage i karty dodano kolorowaną pocztówkę bazyliki datowaną na 1919 r., oznaczoną jako domena publiczna. [Źródło, prawa, ścieżki i odbiór Storage](zdjecie-bazyliki-1919.md). Import zachował pozycję i wersję 1; aplikację z obrazem ponownie opublikowano poleceniem `npm run deploy:dev`.

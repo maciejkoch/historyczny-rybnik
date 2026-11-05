@@ -223,3 +223,28 @@ h3 {
   display: block;
   max-width: 100%;
 }
+.reference-image {
+  margin: 1.25rem 0;
+}
+.reference-image button {
+  display: block;
+  width: 100%;
+  cursor: zoom-in;
+  text-align: left;
+}
+.reference-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.reference-image button span {
+  display: block;
+  margin-top: 0.4rem;
+  text-decoration: underline;
+}
+.reference-image figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}

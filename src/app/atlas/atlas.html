@@ -58,13 +58,14 @@
             <a [href]="ref.url" target="_blank" rel="noopener noreferrer">Otwórz źródło ↗</a>
           }
           @for (image of ref.images; track image.storagePath) {
-            <figure>
+            <figure class="reference-image">
               <button
                 type="button"
                 (click)="enlarged.set({ url: imageUrl(image.storagePath), alt: image.alt })"
                 [attr.aria-label]="'Powiększ: ' + image.alt"
               >
                 <img loading="lazy" [src]="imageUrl(image.thumbnailPath)" [alt]="image.alt" />
+                <span aria-hidden="true">Powiększ obraz ↗</span>
               </button>
               <figcaption>{{ image.credit }} · {{ image.rights }}</figcaption>
             </figure>

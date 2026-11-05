@@ -12,7 +12,7 @@ Callable `placesDevUpdate({placeId,expectedLocationVersion,location})` wymaga Go
 
 ## Dane i build
 
-Jedyny rekord faz 3–5: `place_sw_antoni`, bazylika św. Antoniego Padewskiego. `data/places.seed.json` jest wejściem importera i powtarzalnego builda offline. Opis to własne streszczenie informacji parafii. Adres i orientacyjny punkt 50.098064, 18.549650 pochodzą z karty Śląskiej Organizacji Turystycznej (osadzony `trackPoiList`, obiekt 3273). Dokładność: `approximate`, bez udawania pomiaru budynku. Nie kopiujemy cudzych zdjęć ani skanów: `images: []`.
+Jedyny rekord faz 3–5: `place_sw_antoni`, bazylika św. Antoniego Padewskiego. `data/places.seed.json` jest wejściem importera i powtarzalnego builda offline. Opis to własne streszczenie informacji parafii. Adres i orientacyjny punkt 50.098064, 18.549650 pochodzą z karty Śląskiej Organizacji Turystycznej (osadzony `trackPoiList`, obiekt 3273). Dokładność: `approximate`, bez udawania pomiaru budynku. Pierwotny odbiór miał `images: []`. Na późniejsze zlecenie właściciela dodano jedną pocztówkę oznaczoną domeną publiczną, z miniaturą i powiększeniem w Storage. [Źródło, prawa i test Storage](zdjecie-bazyliki-1919.md).
 
 - https://www.bazylika.rybnik.pl/historia.html
 - https://www.silesia.travel/culturalheritage/3273

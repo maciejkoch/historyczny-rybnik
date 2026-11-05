@@ -15,7 +15,8 @@
     "places:snapshot": "node scripts/places/snapshot.mjs",
     "test": "npm --prefix functions test",
     "test:emulator": "firebase emulators:exec --config firebase.backend.dev.json --project demo-historyczny-rybnik --only firestore,storage \"npm --prefix functions run test:emulator\"",
-    "deploy:backend:dev": "firebase deploy --config firebase.backend.dev.json --project historyczny-rybnik --only functions:places-dev,firestore:places-dev,storage:places-dev,auth"
+    "deploy:backend:dev": "firebase deploy --config firebase.backend.dev.json --project historyczny-rybnik --only functions:places-dev,firestore:places-dev,storage:places-dev,auth",
+    "places:upload-assets": "node scripts/places/upload-assets.mjs"
   },
   "private": true,
   "packageManager": "npm@12.0.2",
