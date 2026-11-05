@@ -1,0 +1,13 @@
+import { copyFileSync, readFileSync, existsSync } from 'node:fs';
+import assert from 'node:assert/strict';
+const root = 'dist/historyczny-rybnik/browser';
+copyFileSync(`${root}/404/index.html`, `${root}/404.html`);
+const home = readFileSync(`${root}/index.html`, 'utf8');
+assert.match(home, /Miasto zapisane/);
+assert.match(home, /noindex/);
+assert.match(home, /lang="pl"/);
+assert.match(readFileSync(`${root}/404.html`, 'utf8'), /Nie ma takiej strony/);
+assert.ok(existsSync(`${root}/brand/ryba-na-mapie.svg`));
+const hosting = JSON.parse(readFileSync('firebase.json', 'utf8')).hosting;
+assert.ok(!hosting.rewrites?.length, 'Static hosting must preserve real HTTP 404');
+console.log('Verified prerendered home, custom 404, brand and preview indexing policy.');
