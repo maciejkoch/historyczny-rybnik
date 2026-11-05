@@ -13,6 +13,7 @@ import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { Meta, Title } from '@angular/platform-browser';
+import { PanelLayout } from './panel-layout';
 import { AtlasMap } from '../atlas-map/atlas-map';
 import { PLACES } from '../places/catalog.generated';
 import { Locations } from '../places/locations';
@@ -20,7 +21,7 @@ import { normalizeSearch, PartialDate, Place } from '../places/place';
 import { FIREBASE_DEV } from '../places/runtime-config';
 @Component({
   selector: 'app-atlas',
-  imports: [AtlasMap, RouterLink],
+  imports: [AtlasMap, RouterLink, PanelLayout],
   templateUrl: './atlas.html',
   styleUrl: './atlas.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -64,6 +65,8 @@ export class Atlas {
   readonly enlarged = signal<{ url: string; alt: string } | null>(null);
   private readonly panel = viewChild<ElementRef<HTMLElement>>('panel');
   private listScroll = 0;
+  private collapsedScroll = 0;
+  private readonly panelLayout = viewChild(PanelLayout);
   private previousSlug: string | undefined;
   private readonly scanDialog = viewChild<ElementRef<HTMLDialogElement>>('scanDialog');
   constructor() {
@@ -99,13 +102,13 @@ export class Atlas {
       const slug: string | undefined = this.params()['slug'];
       if (slug === this.previousSlug) return;
       if (slug) {
-        this.listScroll = window.scrollY;
-        window.scrollTo({ top: 0 });
+        this.listScroll = this.currentScroll();
+        this.scrollPanel(0);
         this.panel()
           ?.nativeElement.querySelector<HTMLElement>('#place-title')
           ?.focus({ preventScroll: true });
       } else {
-        window.scrollTo({ top: this.listScroll });
+        this.scrollPanel(this.listScroll);
       }
       this.previousSlug = slug;
     });
@@ -115,20 +118,40 @@ export class Atlas {
       else if (!this.enlarged() && dialog?.open) dialog.close();
     });
   }
+  togglePanel(): void {
+    this.panelLayout()?.toggle();
+  }
+  panelToggled(collapsed: boolean): void {
+    if (collapsed) this.collapsedScroll = this.currentScroll();
+    else requestAnimationFrame(() => this.scrollPanel(this.collapsedScroll));
+  }
+  private currentScroll(): number {
+    return window.matchMedia('(min-width: 741px)').matches
+      ? (this.panel()?.nativeElement.scrollTop ?? 0)
+      : window.scrollY;
+  }
+  private scrollPanel(top: number): void {
+    if (window.matchMedia('(min-width: 741px)').matches)
+      this.panel()?.nativeElement.scrollTo({ top });
+    else window.scrollTo({ top });
+  }
   select(place: Place): void {
-    if (!this.selected()) this.listScroll = window.scrollY;
-    void this.router
-      .navigate(['/miejsca', place.slug])
-      .then(() =>
+    this.panelLayout()?.expand();
+    if (!this.selected()) this.listScroll = this.currentScroll();
+    void this.router.navigate(['/miejsca', place.slug]).then(() => {
+      requestAnimationFrame(() => {
+        this.scrollPanel(0);
         this.panel()
           ?.nativeElement.querySelector<HTMLElement>('#place-title')
-          ?.focus({ preventScroll: true }),
-      );
+          ?.focus({ preventScroll: true });
+      });
+    });
   }
+
   close(): void {
     const id = this.selected()?.id;
     void this.router.navigate(['/']).then(() => {
-      window.scrollTo({ top: this.listScroll });
+      this.scrollPanel(this.listScroll);
       this.panel()
         ?.nativeElement.querySelector<HTMLElement>(`[data-place="${id}"]`)
         ?.focus({ preventScroll: true });

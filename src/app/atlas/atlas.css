@@ -248,3 +248,135 @@ h3 {
   color: var(--color-muted);
   line-height: 1.5;
 }
+
+/* Sidebar sizing is controlled by PanelLayout; the map keeps its existing instance. */
+@media (min-width: 741px) {
+  .atlas-shell {
+    grid-template-columns: var(--panel-width, 410px) var(--separator-width, 8px) minmax(0, 1fr);
+    grid-template-rows: 1fr;
+    height: 100svh;
+    min-height: 0;
+  }
+  .sidebar {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .brand-header {
+    position: relative;
+    flex: 0 0 auto;
+    padding: 1.5rem 1.4rem 1rem;
+    border-right: 0;
+  }
+  .brand {
+    padding-right: 1.8rem;
+    font-size: 1.4rem;
+  }
+  .brand img {
+    width: 60px;
+    height: auto;
+  }
+  .preview-badge {
+    margin-top: 1rem;
+  }
+  .content-panel {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    overscroll-behavior: contain;
+    padding: 1rem 1.4rem 2rem;
+    border-right: 0;
+    overflow-wrap: anywhere;
+  }
+  .panel-footer {
+    flex: 0 0 auto;
+    padding: 1rem 1.4rem;
+    border-right: 0;
+  }
+  .map-region {
+    grid-column: 3;
+    grid-row: 1;
+    position: relative;
+  }
+  .panel-toggle {
+    position: absolute;
+    top: 1.5rem;
+    right: 0.4rem;
+    width: 2rem;
+    min-height: 2rem;
+    height: 2rem;
+    font-size: 1.8rem;
+  }
+  .panel-separator {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    place-items: center;
+    height: 100svh;
+    cursor: col-resize;
+    touch-action: none;
+    background: var(--color-base-200);
+    border-inline: 1px solid var(--color-line);
+    z-index: 2;
+  }
+  .panel-separator span {
+    width: 2px;
+    height: 2.5rem;
+    border-radius: 2px;
+    background: var(--color-muted);
+  }
+  .panel-separator:hover,
+  .panel-separator:focus-visible,
+  .panel-resizing .panel-separator {
+    background: var(--color-line);
+  }
+  .panel-separator:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+  }
+  .panel-resizing {
+    cursor: col-resize;
+    user-select: none;
+  }
+  .panel-resizing .map-region {
+    pointer-events: none;
+  }
+  .panel-collapsed .brand-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0.4rem;
+  }
+  .panel-collapsed .brand {
+    padding: 0;
+  }
+  .panel-collapsed .brand img {
+    width: 40px;
+  }
+  .panel-collapsed .panel-toggle {
+    position: static;
+  }
+}
+.sidebar [hidden],
+.panel-separator[hidden] {
+  display: none;
+}
+@media (max-width: 740px) {
+  .sidebar {
+    display: contents;
+  }
+  .panel-toggle,
+  .panel-separator,
+  .panel-resize-help {
+    display: none;
+  }
+}
+
+.panel-collapsed .panel-resize-help {
+  display: none;
+}
