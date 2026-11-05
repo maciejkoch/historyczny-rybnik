@@ -14,7 +14,7 @@ Gałąź: `codex/mvp-phase-2`, oparta o `codex/mvp-phase-1` (PR #1). PR fazy 2 m
 - Trzy jawnie przykładowe punkty w lokalnym pliku TypeScript. Wybór przyciskiem listy lub znacznikiem, wyróżnienie oraz karta w jednym panelu; zamknięcie zachowuje kadr i przywraca fokus. Nie zaimportowano katalogu i nie ma backendu.
 - Stany ładowania, błędu oraz ponowienia; lista i karty niezależne od dostępności podkładu. Komunikat bez JavaScript poza obszarem hydratacji.
 
-[Źródła, prawa, koszty, georeferencja i odtwarzanie kafelków](mapy-zrodla.md). W szczególności: status domeny publicznej pochodzi z konkretnego rekordu biblioteki; nie wykorzystujemy serwera kafelków Stare Plany Miast.
+[Źródła, prawa, koszty, georeferencja i odtwarzanie kafelków](mapy-zrodla.md). W szczególności: status domeny publicznej pochodzi z konkretnego rekordu biblioteki; aplikacja nie pobiera obrazów z serwera Stare Plany Miast. Ich georeferencję wykorzystano do późniejszej korekty współrzędnych (opis poniżej).
 
 ## Sprawdzenie lokalne
 
@@ -27,7 +27,7 @@ Gałąź: `codex/mvp-phase-2`, oparta o `codex/mvp-phase-1` (PR #1). PR fazy 2 m
 - Kontrolowana niedostępność lokalnego stylu podkładu: komunikat błędu, działająca karta z listy, powrót mapy po przywróceniu źródła i ponowieniu. Nie wymuszano osobno wyłączenia GPU/WebGL w ustawieniach urządzenia.
 - Wykryte i poprawione przed publikacją: różnica parsowania `noscript` przy hydratacji oraz kodowanie nawiasów klamrowych w adresach kafelków.
 
-Dokładność: pięć rozpoznawalnych budynków użyto jako kontroli dopasowania. RMS reszt 18,6 m nie jest niezależną oceną dokładności całego arkusza. Dopasowanie jest orientacyjne, szczególnie poza centrum; nie identyfikuje pewnych granic posesji. Pełny audyt czytnikiem ekranu i fizyczne urządzenia mobilne nie były częścią tej kontroli.
+Dokładność pierwszej wersji (zastąpiona korektą opisaną niżej): pięć rozpoznawalnych budynków użyto jako kontroli dopasowania. RMS reszt 18,6 m nie jest niezależną oceną dokładności całego arkusza. Dopasowanie jest orientacyjne, szczególnie poza centrum; nie identyfikuje pewnych granic posesji. Pełny audyt czytnikiem ekranu i fizyczne urządzenia mobilne nie były częścią tej kontroli.
 
 ## Publikacja
 
@@ -45,3 +45,15 @@ Wynik kontroli wdrożenia:
 PR: https://github.com/maciejkoch/historyczny-rybnik/pull/2 — baza `codex/mvp-phase-1` z PR #1.
 
 Otwarte usterki blokujące odbiór: brak. Ograniczenia dokładności historycznego planu i zakres kontroli urządzeń opisano wyżej.
+
+## Korekta georeferencji po uwagach właściciela
+
+Pierwotny odbiór nie wykrył błędu skali i przekoszenia poza centrum. Zastąpiono centralne dopasowanie transformacją projekcyjną skanu MBC do georeferencji odniesienia Starych Planów Miast. Nie publikujemy ich obrazów. 189 przestrzennie rozłożonych kontroli dopasowania oraz 68 kontroli w odłożonych komórkach. Mediana rozbieżności względem odniesienia spadła z 86,96 m do 1,67 m; percentyl 90 wynosi 3,17 m, maksimum 4,51 m. Nie jest to pomiar dokładności terenowej. [Metoda i ograniczenia](mapy-zrodla.md).
+
+Weryfikacja korekty:
+
+- Trzy testy offline georeferencji przeszły; dodano je również do CI.
+- Build statyczny i kontrola stylu przeszły. Nowy zestaw zawiera 1045 kafelków (7 176 472 bajty); manifest obejmuje dokładnie pliki publikowane, bez starych kafelków.
+- Porównano rzeczywiste wyrenderowane kafelki z odniesieniem i osiami OSM: Gliwicka, Raciborska i Mikołowska. Poprawiona nakładka jest wizualnie zgodna z odniesieniem; przebudowy ulic nadal pozostają widoczne.
+- `npm run deploy:dev` opublikował poprawkę na `historyczny-rybnik-dev` (1076 plików wydania). Manifest pobrany przez HTTPS jest identyczny z lokalnym; trzy kafelki z centrum, zachodu i wschodu mają zgodne SHA-256. Nagłówek `Cache-Control: no-cache` jest obecny.
+- Przeglądarka na dev: nakładka widoczna, przybliżanie działa, krycie 0%, 35% i 100% działa; brak błędów i ostrzeżeń konsoli w kontrolowanej sesji.

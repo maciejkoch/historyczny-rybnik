@@ -20,17 +20,27 @@ Znaleziono niezależny [rekord Mazowieckiej Biblioteki Cyfrowej, wydanie 113717]
 
 Decyzja implementacyjna: korzystamy ze skanu udostępnionego przez MBC i jego jawnego oznaczenia praw, zachowujemy informację o źródle i autorstwie. Nie opieramy publikacji wyłącznie na wieku mapy. Nie przypisujemy bibliotece zatwierdzenia naszego dopasowania. Jest to udokumentowana podstawa użycia konkretnego skanu, a nie ogólna opinia o statusie całego zbioru MAPSTER.
 
-**Nie wykorzystujemy ani nie hotlinkujemy kafelków Stare Plany Miast.** Opis projektu nie zawierał potwierdzenia licencji na ich użycie w tej aplikacji. Nie publikujemy też pobranego do porównania skanu MAPSTER. Własna nakładka pochodzi wyłącznie z PDF MBC.
+**Nie publikujemy ani nie hotlinkujemy obrazów kafelków Stare Plany Miast w aplikacji.** Opis projektu nie zawierał potwierdzenia licencji na ich publikację. Na zlecenie właściciela pobrano próbki do porównania oraz użyto ich georeferencji jako odniesienia współrzędnych; szczegóły poniżej. Nie publikujemy też pobranego do porównania skanu MAPSTER. Własna nakładka pochodzi wyłącznie z PDF MBC.
 
 ## Własna georeferencja i kafelki
 
 Źródłowy PDF: [Plan miasta Rybnika, Kart.BD-190](https://cyfrowemazowsze.pl/Content/113717/00117267_Miejski-Urzad-Budowlany_Plan-miasta-Rybnika_Kart-BD-190.pdf). Trzecia strona zawiera arkusz w rozdzielczości 18 327 × 12 835. Wyodrębniono oryginalny JPEG, bez ponownego rasteryzowania PDF.
 
-`scripts/maps/history-controls.json` zapisuje źródło, SHA-256 obrazu i pięć punktów kontrolnych odczytanych na skanie: kościół Matki Bożej Bolesnej, bazylika św. Antoniego, Stary Ratusz, Magistrat i Zamek. Współczesne współrzędne referencyjne pochodzą z konkretnych obiektów OSM wskazanych w pliku. Posłużyły wyłącznie przygotowaniu georeferencji; nie są importem katalogu miejsc do aplikacji.
+### Korekta dopasowania po porównaniu ze Starymi Planami Miast
 
-`scripts/maps/prepare_history.py` dopasowuje metodą najmniejszych kwadratów transformację afiniczną do EPSG:3857, przelicza piksele na XYZ i zapisuje WebP 256 × 256 dla zoomów 10–16. Nie zmienia kolorów, nie usuwa oznaczeń i zachowuje cały arkusz. Wyższe zoomy skalują poziom 16. Ładowane są tylko kafelki widoczne w bieżącym kadrze. Gotowe zasoby są częścią statycznego builda i pochodzą z tej samej domeny co aplikacja.
+Pierwsza wersja opierała się na pięciu przybliżonych symbolach budynków skupionych w centrum. RMS 18,6 m opisywał reszty na tych samych punktach, nie dokładność całego arkusza. Porównanie ujawniło narastający błąd skali i przekoszenia. Te punkty zachowano w `previousCentralControls` jako zapis poprzedniej metody, ale nie sterują już generowaniem.
 
-Wynik: 943 kafelki, 7 066 002 bajty. Manifest zawiera SHA-256 każdego kafelka, macierz transformacji, zasięg oraz odchylenia na kontrolach. RMS dopasowania: 18,6 m, maksymalna reszta na kontrolach: 27,8 m. **To miara dopasowania na użytych kontrolach, nie niezależnie zmierzona dokładność mapy.** Punkty skupiają się w centrum; na obrzeżach zniekształcenia mogą być większe. Oryginalny plan nie służy do rozstrzygania granic posesji. Interfejs jawnie opisuje dopasowanie jako przybliżone.
+Punktem odniesienia jest georeferencja [planu ze Starych Planów Miast](https://stareplanymiast.pl/plan-miasta-rybnika-z-1932r/). Zgodne szczegóły obu skanów rozpoznano metodą SIFT/FLANN; RANSAC odrzucił niezgodne pary (2767 zgodnych z 2994 kandydatów). Użyto 319 lokalnie zapisanych kafelków odniesienia z poziomu 16. Ich adresy i sumy SHA-256 zapisano w `scripts/maps/history-reference.json`; nie są częścią publicznej nakładki. Skrypt audytowy `register_scans.py` odczytuje lokalne pliki, nie pobiera ani nie publikuje obrazów odniesienia. Ponowna detekcja cech może dać nieco inną selekcję zależnie od wersji OpenCV; wejściem reprodukowalnego generatora są zatwierdzone współrzędne w `history-controls.json`.
+
+Aby las na wschodzie nie dominował dopasowania, podzielono skan na komórki 2000 × 2000 pikseli i wybrano najwyżej osiem rozłożonych punktów z każdej. Wybrano **189 punktów dopasowania i 68 punktów walidacyjnych w rozłącznych komórkach**. Szczegóły zajmują 36 komórek, od x≈2285 do 16660 i y≈1081 do 10708 pikseli. Marginesy bez rozpoznawalnych szczegółów pozostają ekstrapolacją.
+
+Porównano transformację afiniczną i projekcyjną: na punktach walidacyjnych mediana rozbieżności względem odniesienia wynosiła odpowiednio 2,14 m i 1,67 m. Wybrano jedną transformację projekcyjną całego arkusza, bez lokalnego wyginania historycznych ulic do współczesnych dróg. Znormalizowane DLT wyznacza macierz piksele → EPSG:3857. Dla 68 punktów niewykorzystanych do dopasowania: **mediana 1,67 m, percentyl 90: 3,17 m, maksimum 4,51 m**. Poprzednia metoda na tych samych punktach miała medianę 86,96 m.
+
+**To zgodność z georeferencją odniesienia, nie niezależnie zmierzona dokładność względem terenu.** Błędy Starych Planów Miast i oryginalnego planu mogą pozostać. Kontrola wizualna zachowanych osi ulic Gliwickiej, Raciborskiej i Mikołowskiej z OSM jest osobną kontrolą rozsądności; przebudowane skrzyżowania, m.in. Rudzkiej, nie są ścisłymi kontrolami metrycznymi. Plan nie służy do rozstrzygania granic posesji. Interfejs nadal opisuje dopasowanie jako przybliżone.
+
+`scripts/maps/prepare_history.py` przelicza odwrotną transformacją projekcyjną piksele kafelków XYZ na skan MBC i zapisuje WebP 256 × 256 dla zoomów 10–16. Nie zmienia kolorów, nie usuwa oznaczeń i zachowuje cały arkusz. Wyższe zoomy skalują poziom 16. Ładowane są tylko kafelki widoczne w bieżącym kadrze. Zasoby są częścią statycznego builda i pochodzą z tej samej domeny co aplikacja. Zestaw po korekcie: 1045 kafelków, 7 176 472 bajty. Manifest zawiera macierz, zasięg, walidację i SHA-256 każdego kafelka; generator usuwa stare kafelki, które wyszły z nowego zasięgu.
+
+Kontrola offline: `python -m unittest discover -s scripts/maps` sprawdza transformację projekcyjną i odwrotną, rozdzielenie przestrzenne kontroli, porównanie z poprzednią metodą oraz odrzucenie błędnej walidacji. Generator blokuje publikację przy percentylu 90 powyżej 4 m lub maksimum powyżej 8 m względem odniesienia. Zwykły build npm sprawdza integralność całego zestawu.
 
 Odtworzenie zasobów (po pobraniu źródłowego PDF):
 

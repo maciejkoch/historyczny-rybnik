@@ -1,4 +1,4 @@
-import { copyFileSync, readFileSync, existsSync } from 'node:fs';
+import { copyFileSync, readFileSync, existsSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { validateStyleMin } from '@maplibre/maplibre-gl-style-spec';
 import assert from 'node:assert/strict';
@@ -20,6 +20,12 @@ console.log('Verified prerendered home, custom 404, brand and preview indexing p
 const style = JSON.parse(readFileSync(`${root}/maps/rybnik-style.json`, 'utf8'));
 assert.deepEqual(validateStyleMin(style), [], 'MapLibre style must be valid');
 const manifest = JSON.parse(readFileSync(`${root}/maps/rybnik-1932/manifest.json`, 'utf8'));
+assert.deepEqual(
+  readdirSync(`${root}/maps/rybnik-1932`, { recursive: true }).filter(path => path.endsWith('.webp')).sort(),
+  Object.keys(manifest.tiles).sort(),
+  'Published tiles must exactly match the manifest (no stale tiles)',
+);
+assert.ok(manifest.validation.p90Meters <= 4 && manifest.validation.maxMeters <= 8, 'Historical reference validation failed');
 for (const [path, digest] of Object.entries(manifest.tiles)) {
   assert.equal(createHash('sha256').update(readFileSync(`${root}/maps/rybnik-1932/${path}`)).digest('hex'), digest, path);
 }

@@ -49,3 +49,7 @@ __screenshots__/
 Thumbs.db
 
 .firebase/
+
+# Offline map preparation
+__pycache__/
+*.pyc

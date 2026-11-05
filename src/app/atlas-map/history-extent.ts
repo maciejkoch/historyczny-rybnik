@@ -1,3 +1,3 @@
-// Generated from our affine georeference; see scripts/maps/prepare_history.py.
-export const HISTORY_BOUNDS: [number, number, number, number] = [18.485508539177754, 50.0571969059779, 18.65342822666813, 50.13416017408707];
-export const HISTORY_CORNERS: [number, number][] = [[18.489948306680006, 50.13092576635242], [18.65342822666813, 50.13416017408707], [18.64898845916587, 50.06043629439744], [18.485508539177754, 50.0571969059779]];
+// Generated from our projective georeference; see scripts/maps/prepare_history.py.
+export const HISTORY_BOUNDS: [number, number, number, number] = [18.485708389178395, 50.05649496280163, 18.654032523623982, 50.1347382158621];
+export const HISTORY_CORNERS: [number, number][] = [[18.485708389178395, 50.13038943243786], [18.651773470850184, 50.1347382158621], [18.654032523623982, 50.06068699261547], [18.487829053045093, 50.05649496280163]];

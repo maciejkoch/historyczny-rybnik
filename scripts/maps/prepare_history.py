@@ -27,30 +27,71 @@ def lonlat(x, y):
     return [math.degrees(x / RADIUS), math.degrees(2 * math.atan(math.exp(y / RADIUS)) - math.pi / 2)]
 
 
+def project(points, matrix):
+    homogeneous = np.column_stack([points, np.ones(len(points))]) @ matrix.T
+    return homogeneous[:, :2] / homogeneous[:, 2:]
+
+
+def fit_projective(pixel, target):
+    # Normalized DLT avoids ill-conditioning of full-resolution pixels / Mercator meters.
+    def normalize(points):
+        center = points.mean(axis=0)
+        scale = math.sqrt(2) / np.linalg.norm(points - center, axis=1).mean()
+        matrix = np.array([[scale, 0, -scale * center[0]], [0, scale, -scale * center[1]], [0, 0, 1]])
+        return project(points, matrix), matrix
+
+    pixel, source_normalization = normalize(pixel)
+    target, target_normalization = normalize(target)
+    equations = []
+    for (x, y), (u, v) in zip(pixel, target):
+        equations.extend([[-x, -y, -1, 0, 0, 0, u*x, u*y, u], [0, 0, 0, -x, -y, -1, v*x, v*y, v]])
+    _, _, vectors = np.linalg.svd(equations, full_matrices=False)
+    matrix = np.linalg.inv(target_normalization) @ vectors[-1].reshape(3, 3) @ source_normalization
+    return matrix / matrix[2, 2]
+
+
+def errors(controls, matrix):
+    actual = np.array([mercator(*c['coordinates']) for c in controls])
+    predicted = project(np.array([c['pixel'] for c in controls]), matrix)
+    return np.linalg.norm(predicted - actual, axis=1) * math.cos(math.radians(50.1))
+
+
+def georeference(config):
+    controls = config['controls']
+    matrix = fit_projective(np.array([c['pixel'] for c in controls]), np.array([mercator(*c['coordinates']) for c in controls]))
+    validation = errors(config['validationControls'], matrix)
+    # These limits guard agreement with the reference, not absolute map accuracy.
+    if np.percentile(validation, 90) > 4 or validation.max() > 8:
+        raise ValueError('Georeference fails held-out reference checks; inspect controls before publishing.')
+    return matrix, validation
+
+
 def main():
     path = Path(sys.argv[1])
     config = json.loads((ROOT / 'scripts/maps/history-controls.json').read_text())
     source_hash = hashlib.sha256(path.read_bytes()).hexdigest()
     if source_hash != config['sourceImageSha256']:
         raise ValueError('Source checksum differs; re-inspect the scan and its control points.')
-    controls = config['controls']
-    pixel = np.array([[*c['pixel'], 1] for c in controls])
-    target = np.array([mercator(*c['coordinates']) for c in controls])
-    matrix = np.linalg.lstsq(pixel, target, rcond=None)[0]
-    residuals = np.linalg.norm(pixel @ matrix - target, axis=1) * math.cos(math.radians(50.1))
-    inverse = np.linalg.inv(np.vstack([matrix.T, [0, 0, 1]]))
+    matrix, validation = georeference(config)
+    residuals = errors(config['controls'], matrix)
+    inverse = np.linalg.inv(matrix)
     image = Image.open(path)
+    if list(image.size) != config['imageSize']:
+        raise ValueError('Unexpected source dimensions.')
     original_width, original_height = image.size
     image.draft('RGB', (8192, 8192))
     image.thumbnail((8192, 8192), Image.Resampling.LANCZOS)
     image = image.convert('RGBA')
     factor_x, factor_y = image.width / original_width, image.height / original_height
-    corners = np.array([[0, 0, 1], [original_width, 0, 1], [original_width, original_height, 1], [0, original_height, 1]]) @ matrix
+    corners = project(np.array([[0, 0], [original_width, 0], [original_width, original_height], [0, original_height]]), matrix)
     west, south = corners.min(axis=0)
     east, north = corners.max(axis=0)
     bounds = [*lonlat(west, south), *lonlat(east, north)]
     output = ROOT / 'public/maps/rybnik-1932'
     output.mkdir(parents=True, exist_ok=True)
+    # Remove obsolete generated tiles when a changed extent no longer covers them.
+    for stale in output.glob('*/*/*.webp'):
+        stale.unlink()
     manifest = {}
     for z in range(10, 17):
         tile_meters = 2 * HALF_WORLD / 2 ** z
@@ -64,15 +105,25 @@ def main():
                 transform = inverse @ world
                 transform[0] *= factor_x
                 transform[1] *= factor_y
-                tile = image.transform((256, 256), Image.Transform.AFFINE, tuple(transform[:2].ravel()), Image.Resampling.BICUBIC, fillcolor=(0, 0, 0, 0))
+                transform /= transform[2, 2]
+                tile = image.transform((256, 256), Image.Transform.PERSPECTIVE, tuple(transform.ravel()[:8]), Image.Resampling.BICUBIC, fillcolor=(0, 0, 0, 0))
                 rel = f'{z}/{x}/{y}.webp'
                 file = output / rel
                 file.parent.mkdir(parents=True, exist_ok=True)
                 tile.save(file, 'WEBP', quality=85, method=6)
                 manifest[rel] = hashlib.sha256(file.read_bytes()).hexdigest()
         print(f'Prepared zoom {z}', flush=True)
-    report = {'bounds': bounds, 'corners': [lonlat(*p) for p in corners], 'minzoom': 10, 'maxzoom': 16, 'sourceImageSha256': source_hash, 'affinePixelToMercator': matrix.tolist(), 'controlResidualsMeters': {c['name']: round(float(r), 1) for c, r in zip(controls, residuals)}, 'fitRmsMeters': round(float(np.sqrt(np.mean(residuals ** 2))), 1), 'tiles': manifest}
-    (ROOT / 'src/app/atlas-map/history-extent.ts').write_text('// Generated from our affine georeference; see scripts/maps/prepare_history.py.\nexport const HISTORY_BOUNDS: [number, number, number, number] = ' + json.dumps(bounds) + ';\nexport const HISTORY_CORNERS: [number, number][] = ' + json.dumps(report['corners']) + ';\n')
+    report = {
+        'bounds': bounds, 'corners': [lonlat(*p) for p in corners], 'minzoom': 10, 'maxzoom': 16,
+        'sourceImageSha256': source_hash, 'projectivePixelToMercator': matrix.tolist(),
+        'reference': config['reference'], 'controlCount': len(config['controls']),
+        'fitRmsMeters': round(float(np.sqrt(np.mean(residuals ** 2))), 2),
+        'validation': {'count': len(validation), 'medianMeters': round(float(np.median(validation)), 2),
+                       'p90Meters': round(float(np.percentile(validation, 90)), 2), 'maxMeters': round(float(validation.max()), 2),
+                       'note': config['accuracyNote']},
+        'tiles': manifest,
+    }
+    (ROOT / 'src/app/atlas-map/history-extent.ts').write_text('// Generated from our projective georeference; see scripts/maps/prepare_history.py.\nexport const HISTORY_BOUNDS: [number, number, number, number] = ' + json.dumps(bounds) + ';\nexport const HISTORY_CORNERS: [number, number][] = ' + json.dumps(report['corners']) + ';\n')
     (output / 'manifest.json').write_text(json.dumps(report, indent=2) + '\n')
     print(f'{len(manifest)} tiles; RMS {report["fitRmsMeters"]} m; bounds {bounds}', flush=True)
 
