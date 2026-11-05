@@ -1,6 +1,6 @@
 # Odbiór fazy 3
 
-Data: 5 listopada 2026. Środowisko: stały dev, https://historyczny-rybnik-dev.web.app/. Gałąź `codex/mvp-phase-3`, PR do `codex/mvp-phase-2`. Commit wdrożenia wskazany w PR; zapis odbioru jest częścią tego commita.
+Data: 5 listopada 2026. Środowisko: stały dev, https://historyczny-rybnik-dev.web.app/. Gałąź `codex/mvp-phase-3`, PR do `codex/mvp-phase-2`. Commit aplikacji wdrożonej na dev: `3d3c930cea23476cef534b9a4314f89faf01fb57`. Późniejszy commit dokumentacji/testów nie zmienia artefaktów aplikacji.
 
 ## Zakres
 
@@ -11,7 +11,7 @@ Dokładnie jeden rekord w bazie i katalogu: `place_sw_antoni` / `/miejsca/bazyli
 ## Wyniki
 
 - `npm test`: 7 testów walidacji/SSG, w tym daty kalendarzowe, slugi, nieznane pola, DTO, draft, brak pozycji i brak skanu — PASS.
-- `npm run test:emulator`: 6 testów API i reguł na Firestore/Storage — PASS. Brak App Check/Auth, inny provider, draft/brak dokumentu, niedozwolone pola i usuwanie są odrzucane. Z dwóch równoczesnych zapisów przechodzi jeden; drugi dostaje `aborted`. Reguły blokują bezpośredni odczyt/listę/zapis/usunięcie Firestore, także z Auth i deklaracją admina; prywatne pliki są niedostępne.
+- `npm run test:emulator`: 7 testów API i reguł na Firestore/Storage — PASS. Brak App Check/Auth, inny provider, draft/brak dokumentu, niedozwolone pola i usuwanie są odrzucane. Z dwóch równoczesnych zapisów przechodzi jeden; drugi dostaje `aborted`. Reguły blokują bezpośredni odczyt/listę/zapis/usunięcie Firestore, także z Auth i deklaracją admina, osobno dla nazwanej bazy `places-dev`; prywatne pliki są niedostępne.
 - Build Angular: trzy statyczne strony, bez WebGL na serwerze; kontrola surowego HTML karty, referencji, canonical, Open Graph, sitemap, 404, noindex, stylu mapy i 1045 kafelków — PASS.
 - Wdrożenie usług: baza Standard `places-dev`, bucket dev, Functions w Warszawie; Google Auth, reCAPTCHA Enterprise App Check, osobne konta API/import/build. Serwerowy import i snapshot przez impersonację zatwierdzonych kont — PASS.
 - Wdrożone callable: brak App Check i błędny token → 401; prawidłowy App Check → 200 i dokładnie jeden publiczny rekord; brak Auth przy zapisie → 401 — PASS.
