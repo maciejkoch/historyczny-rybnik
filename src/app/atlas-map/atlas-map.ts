@@ -27,7 +27,9 @@ export class AtlasMap {
   readonly places = input<readonly Place[]>([]);
   readonly selected = input<Place | null>(null);
   readonly focusSelected = input(true);
+  readonly layoutAnimating = input(false);
   readonly placeSelected = output<Place>();
+  readonly backgroundClicked = output<void>();
   readonly state = signal<'loading' | 'ready' | 'error'>('loading');
   readonly historyEnabled = signal(false);
   readonly opacity = signal(35);
@@ -41,6 +43,7 @@ export class AtlasMap {
   private markers: Marker[] = [];
   private resizeObserver?: ResizeObserver;
   private loadingTimeout?: ReturnType<typeof setTimeout>;
+  private backgroundClickTimeout?: ReturnType<typeof setTimeout>;
   private generation = 0;
 
   constructor() {
@@ -51,6 +54,7 @@ export class AtlasMap {
     afterRenderEffect(() => {
       const selected = this.selected();
       const focusSelected = this.focusSelected();
+      const layoutAnimating = this.layoutAnimating();
       this.state();
       this.markers.forEach((marker, i) =>
         marker
@@ -65,8 +69,9 @@ export class AtlasMap {
         this.map.resize();
         this.map.easeTo({
           center: [selected.location.coordinates.lng, selected.location.coordinates.lat],
-          duration: this.motionDuration(),
+          duration: layoutAnimating ? 0 : this.motionDuration(),
         });
+        this.map.redraw();
       }
     });
     effect(() => {
@@ -103,6 +108,8 @@ export class AtlasMap {
         attributionControl: false,
         dragRotate: false,
         pitchWithRotate: false,
+        // Our observer renders every resize before paint, including panel transitions.
+        trackResize: false,
         canvasContextAttributes: { preserveDrawingBuffer: false },
       });
       this.map = map;
@@ -115,7 +122,11 @@ export class AtlasMap {
           'Mapa Rybnika. Strzałki przesuwają mapę, plus i minus zmieniają przybliżenie. Punkty można również wybrać z listy.',
         );
       map.touchZoomRotate.disableRotation();
-      this.resizeObserver = new ResizeObserver(() => map.resize());
+      this.resizeObserver = new ResizeObserver(([entry]) => {
+        if (!entry || entry.contentRect.width === 0 || entry.contentRect.height === 0) return;
+        // Resizing clears WebGL's drawing buffer; redraw synchronously to avoid a blank frame.
+        map.resize().redraw();
+      });
       this.resizeObserver.observe(this.container().nativeElement);
       this.loadingTimeout = setTimeout(() => {
         if (generation === this.generation && this.state() === 'loading') this.state.set('error');
@@ -132,6 +143,17 @@ export class AtlasMap {
         void this.renderMarkers();
       });
       map.on('moveend', () => this.updateCoverage());
+      const cancelBackgroundClick = () => clearTimeout(this.backgroundClickTimeout);
+      map.on('click', (event) => {
+        if (event.originalEvent.target !== map.getCanvas()) return;
+        cancelBackgroundClick();
+        // Distinguish a single tap from double-click/tap zoom, not animation timing.
+        this.backgroundClickTimeout = setTimeout(() => this.backgroundClicked.emit(), 300);
+      });
+      map.on('dblclick', cancelBackgroundClick);
+      map.on('movestart', cancelBackgroundClick);
+      map.on('zoomstart', cancelBackgroundClick);
+      map.on('dragstart', cancelBackgroundClick);
     } catch {
       if (!this.destroyRef.destroyed && generation === this.generation) this.state.set('error');
     }
@@ -157,7 +179,11 @@ export class AtlasMap {
         `${place.name} — ${place.location.precision === 'approximate' ? 'pozycja przybliżona' : 'budynek'}`,
       );
       button.setAttribute('aria-pressed', String(this.selected()?.id === place.id));
-      button.addEventListener('click', () => this.placeSelected.emit(place));
+      button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        clearTimeout(this.backgroundClickTimeout);
+        this.placeSelected.emit(place);
+      });
       this.markers.push(
         new Marker({ element: button }).setLngLat([point.lng, point.lat]).addTo(map),
       );
@@ -297,6 +323,7 @@ export class AtlasMap {
   }
   private cleanup(): void {
     clearTimeout(this.loadingTimeout);
+    clearTimeout(this.backgroundClickTimeout);
     this.resizeObserver?.disconnect();
     this.markers.forEach((marker) => marker.remove());
     this.markers = [];

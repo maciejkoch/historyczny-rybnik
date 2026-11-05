@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  DestroyRef,
   ElementRef,
   inject,
   signal,
@@ -38,7 +39,7 @@ import { MobileNavigation } from './mobile-navigation';
     MobileNavigation,
   ],
   templateUrl: './atlas.html',
-  styleUrl: './atlas.css',
+  styleUrls: ['./atlas.css', './atlas-mobile.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Atlas {
@@ -46,12 +47,16 @@ export class Atlas {
   private readonly router = inject(Router);
   private readonly params = toSignal(this.route.data, { initialValue: this.route.snapshot.data });
   private readonly document = inject(DOCUMENT);
+  private readonly destroyRef = inject(DestroyRef);
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   readonly locations = inject(Locations);
   readonly query = signal(this.route.snapshot.queryParamMap.get('q') ?? '');
   readonly screen = computed<'map' | 'search' | 'place'>(() => this.params()['screen'] ?? 'map');
   readonly hasDetails = computed(() => this.screen() === 'place');
+  readonly sheetOpen = signal(this.route.snapshot.data['screen'] === 'place');
+  readonly sheetAnimating = signal(false);
+  readonly headerHeight = signal(74);
   private readonly lastSelectedSlug = signal<string | null>(
     this.route.snapshot.data['slug'] ?? null,
   );
@@ -89,11 +94,13 @@ export class Atlas {
   private readonly searchPanel = viewChild<ElementRef<HTMLElement>>('searchPanel');
   private readonly detailsPanel = viewChild<ElementRef<HTMLElement>>('detailsPanel');
   private readonly mapRegion = viewChild<ElementRef<HTMLElement>>('mapRegion');
+  private readonly brandHeader = viewChild<ElementRef<HTMLElement>>('brandHeader');
   private readonly searchLayout = viewChild<PanelLayout>('searchLayout');
   private readonly detailsLayout = viewChild<PanelLayout>('detailsLayout');
   private readonly scanDialog = viewChild<ElementRef<HTMLDialogElement>>('scanDialog');
   private currentPath = '/' + this.route.snapshot.url.map((segment) => segment.path).join('/');
   private restoringHistory = false;
+  private animateNextNavigation = false;
   private readonly scrollPositions = new Map<string, number>();
   private readonly navigation = signal<{ path: string; top: number } | null>(null);
   private handledNavigation: object | null = null;
@@ -129,12 +136,38 @@ export class Atlas {
       }
       canonical.href = url;
     });
-    afterNextRender(() => void this.locations.refresh());
+    afterNextRender(() => {
+      void this.locations.refresh();
+      const header = this.brandHeader()?.nativeElement;
+      const observer = new ResizeObserver(() => {
+        if (header) this.headerHeight.set(header.getBoundingClientRect().height);
+      });
+      if (header) observer.observe(header);
+      const desktop = window.matchMedia('(min-width: 1100px)');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const settle = () => {
+        this.sheetAnimating.set(false);
+        this.sheetOpen.set(this.hasDetails());
+      };
+      desktop.addEventListener('change', settle);
+      reducedMotion.addEventListener('change', settle);
+      this.destroyRef.onDestroy(() => {
+        observer.disconnect();
+        desktop.removeEventListener('change', settle);
+        reducedMotion.removeEventListener('change', settle);
+      });
+    });
     this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
       if (typeof window === 'undefined') return;
       if (event instanceof NavigationStart) {
         this.scrollPositions.set(this.currentPath, window.scrollY);
         this.restoringHistory = event.navigationTrigger === 'popstate';
+        const target = event.url.split(/[?#]/)[0];
+        this.animateNextNavigation =
+          !this.isDesktop() &&
+          !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+          ((this.screen() === 'map' && target.startsWith('/miejsca/')) ||
+            (this.screen() === 'place' && target === '/'));
       }
       if (event instanceof NavigationEnd) {
         if (this.route.snapshot.data['screen'] === 'search') {
@@ -143,6 +176,8 @@ export class Atlas {
         const path = event.urlAfterRedirects.split(/[?#]/)[0];
         if (path === this.currentPath) return; // Typing changes q without moving the page or focus.
         this.currentPath = path;
+        this.sheetAnimating.set(this.animateNextNavigation);
+        if (!this.animateNextNavigation) this.sheetOpen.set(this.hasDetails());
         this.navigation.set({
           path,
           top:
@@ -158,6 +193,13 @@ export class Atlas {
       if (screen === 'place') this.detailsLayout()?.expand();
       if (screen === 'search') this.searchLayout()?.expand();
       requestAnimationFrame(() => {
+        if (this.destroyRef.destroyed || this.navigation() !== navigation) return;
+        if (this.sheetAnimating()) {
+          // Commit the previous layout before transitioning to the URL's new state.
+          this.mapRegion()?.nativeElement.getBoundingClientRect();
+          if (this.sheetOpen() === this.hasDetails()) this.sheetAnimating.set(false);
+          this.sheetOpen.set(this.hasDetails());
+        }
         if (!this.isDesktop()) {
           window.scrollTo({ top: navigation.top, behavior: 'instant' });
           (screen === 'search' ? this.searchPanel() : this.mapRegion())?.nativeElement.focus({
@@ -181,6 +223,19 @@ export class Atlas {
   }
   private isDesktop(): boolean {
     return window.matchMedia('(min-width: 1100px)').matches;
+  }
+
+  finishSheetTransition(event: TransitionEvent): void {
+    if (
+      event.target === event.currentTarget &&
+      (event.propertyName === 'height' || event.propertyName === 'grid-template-rows')
+    ) {
+      this.sheetAnimating.set(false);
+    }
+  }
+
+  closeFromMap(): void {
+    if (!this.isDesktop() && this.hasDetails()) void this.router.navigate(['/']);
   }
 
   private focusDetails(): void {
