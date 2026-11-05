@@ -4,7 +4,7 @@
 .brand { display: flex; align-items: center; gap: .85rem; text-decoration: none; font-family: var(--font-display); font-size: 1.55rem; line-height: 1.05; font-weight: 600; }
 .brand img { flex: 0 0 auto; }
 .preview-badge { margin-top: 1.6rem; font-size: .72rem; border-color: var(--color-line); color: var(--color-muted); }
-.contents { padding: 1.4rem 2.2rem 2.5rem; border-right: 1px solid var(--color-line); }
+.content-panel { padding: 1.4rem 2.2rem 2.5rem; border-right: 1px solid var(--color-line); }
 h1 { margin: 1rem 0 1.25rem; font-size: clamp(2.3rem, 3vw, 3rem); line-height: 1.13; letter-spacing: -.045em; }
 p { margin: 1rem 0; line-height: 1.6; }
 .intro { font-size: 1.125rem; }
@@ -29,6 +29,6 @@ h2 { font-size: 1.5rem; margin-top: .7rem; }
  .map-region { grid-column: 1; grid-row: 2; min-height: 340px; padding: 1rem 1.4rem; border-block: 1px solid var(--color-line); }
  .map-placeholder { padding: 2.25rem 0; } .map-symbol { width: 105px; height: auto; margin-bottom: 1.25rem; }
  .map-placeholder .eyebrow { font-size: .6rem; } .map-placeholder h2 { font-size: 2rem; margin: .5rem 0; }
- .contents { padding: 2rem 1.4rem; border: 0; } h1 { font-size: 2.5rem; }
+ .content-panel { padding: 2rem 1.4rem; border: 0; } h1 { font-size: 2.5rem; }
  .map-link { display: none; } .panel-footer { padding: 1rem 1.4rem; border-right: 0; }
 }
