@@ -8,7 +8,7 @@ Firebase: [`historyczny-rybnik`](https://console.firebase.google.com/project/his
 
 ## Status
 
-Implementacja MVP.1, budowanego od zera. Faza 1 dostarcza statyczny szkielet Angulara z marką i konfiguracją Hosting preview. Ustalono zakres, nazwę i domenę, kierunek UX/UI oraz architekturę SSG + Firebase Hosting + Functions. Przygotowano propozycję modelu danych do przeglądu.
+Implementacja MVP.1, budowanego od zera. Faza 1 dostarcza statyczny szkielet Angulara z marką; faza 2 dodaje mapę wektorową, nakładkę planu z 1932 r. i przykładowe punkty. Bieżący frontend jest publikowany na stałym dev. Ustalono zakres, nazwę i domenę, kierunek UX/UI oraz architekturę SSG + Firebase Hosting + Functions. Przygotowano propozycję modelu danych do przeglądu.
 
 - [Plan MVP.1](docs/mvp-1/README.md)
 - [Nazwa i domena](docs/mvp-1/nazwa-i-domena.md)
@@ -59,3 +59,9 @@ CI wykonuje `npm ci`, build i zapisuje artefakt Hosting. Nie ma uprawnień do de
 [Zapis odbioru fazy 1](docs/mvp-1/odbior-fazy-1.md).
 
 Szczegóły: [środowiska dev i produkcja](docs/mvp-1/srodowiska.md).
+
+## Mapa — faza 2
+
+MapLibre uruchamia się po stronie przeglądarki, po hydratacji; SSG generuje tekst i panel bez inicjalizacji WebGL. Własny styl wykorzystuje OpenFreeMap. Plan z 1932 r. pochodzi z domeny publicznej w Mazowieckiej Bibliotece Cyfrowej; własne kafelki są serwowane lokalnie. Przełącznik i suwak 0–100% zachowują kadr oraz wybór. Trzy pozycje są jawnie przykładowymi danymi do odbioru interfejsu, bez backendu i importu katalogu.
+
+[Źródła, prawa, koszt i odtwarzanie kafelków](docs/mvp-1/mapy-zrodla.md). [Odbiór fazy 2](docs/mvp-1/odbior-fazy-2.md).

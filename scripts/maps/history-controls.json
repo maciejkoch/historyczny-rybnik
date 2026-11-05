@@ -1,0 +1,74 @@
+{
+  "source": "https://cyfrowemazowsze.pl/Content/113717/00117267_Miejski-Urzad-Budowlany_Plan-miasta-Rybnika_Kart-BD-190.pdf",
+  "catalog": "https://cyfrowemazowsze.pl/dlibra/publication/117267/edition/113717",
+  "pdfPage": 3,
+  "sourceImageSha256": "cb575fafbb7fefe567cf445591c63d07da74f507b77cc192709608200cb52ccc",
+  "imageSize": [
+    18327,
+    12835
+  ],
+  "coordinatesSource": "OpenStreetMap, reference positions from MVP.0; not imported into the public places catalogue",
+  "controls": [
+    {
+      "name": "Kościół Matki Bożej Bolesnej",
+      "pixel": [
+        6115.0,
+        6005.0
+      ],
+      "coordinates": [
+        18.5420896,
+        50.097533
+      ],
+      "reference": "https://www.openstreetmap.org/way/236882053"
+    },
+    {
+      "name": "Bazylika św. Antoniego",
+      "pixel": [
+        6937.5,
+        5942.5
+      ],
+      "coordinates": [
+        18.549873,
+        50.0980261
+      ],
+      "reference": "https://www.openstreetmap.org/way/288916800"
+    },
+    {
+      "name": "Stary Ratusz",
+      "pixel": [
+        5985.0,
+        6280.0
+      ],
+      "coordinates": [
+        18.5415527,
+        50.0959137
+      ],
+      "reference": "https://www.openstreetmap.org/node/423200594"
+    },
+    {
+      "name": "Magistrat",
+      "pixel": [
+        6157.5,
+        6700.0
+      ],
+      "coordinates": [
+        18.5423086,
+        50.0935495
+      ],
+      "reference": "https://www.openstreetmap.org/way/260502088"
+    },
+    {
+      "name": "Zamek",
+      "pixel": [
+        5912.5,
+        6795.0
+      ],
+      "coordinates": [
+        18.5404286,
+        50.092946
+      ],
+      "reference": "https://www.openstreetmap.org/way/105738665"
+    }
+  ],
+  "accuracyNote": "Approximate affine fit. Residuals describe fit at selected controls only, not independently measured absolute accuracy. Deformation increases away from central controls."
+}

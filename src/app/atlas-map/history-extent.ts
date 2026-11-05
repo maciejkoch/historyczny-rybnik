@@ -1,0 +1,3 @@
+// Generated from our affine georeference; see scripts/maps/prepare_history.py.
+export const HISTORY_BOUNDS: [number, number, number, number] = [18.485508539177754, 50.0571969059779, 18.65342822666813, 50.13416017408707];
+export const HISTORY_CORNERS: [number, number][] = [[18.489948306680006, 50.13092576635242], [18.65342822666813, 50.13416017408707], [18.64898845916587, 50.06043629439744], [18.485508539177754, 50.0571969059779]];

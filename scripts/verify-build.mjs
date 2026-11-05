@@ -1,9 +1,14 @@
 import { copyFileSync, readFileSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { validateStyleMin } from '@maplibre/maplibre-gl-style-spec';
 import assert from 'node:assert/strict';
 const root = 'dist/historyczny-rybnik/browser';
 copyFileSync(`${root}/404/index.html`, `${root}/404.html`);
 const home = readFileSync(`${root}/index.html`, 'utf8');
 assert.match(home, /Miasto zapisane/);
+assert.match(home, /Dane przykładowe/);
+assert.ok(existsSync(`${root}/maplibre/maplibre-gl-worker.mjs`));
+assert.ok(existsSync(`${root}/maps/rybnik-style.json`));
 assert.match(home, /noindex/);
 assert.match(home, /lang="pl"/);
 assert.match(readFileSync(`${root}/404.html`, 'utf8'), /Nie ma takiej strony/);
@@ -11,3 +16,11 @@ assert.ok(existsSync(`${root}/brand/ryba-na-mapie.svg`));
 const hosting = JSON.parse(readFileSync('firebase.json', 'utf8')).hosting;
 assert.ok(!hosting.rewrites?.length, 'Static hosting must preserve real HTTP 404');
 console.log('Verified prerendered home, custom 404, brand and preview indexing policy.');
+
+const style = JSON.parse(readFileSync(`${root}/maps/rybnik-style.json`, 'utf8'));
+assert.deepEqual(validateStyleMin(style), [], 'MapLibre style must be valid');
+const manifest = JSON.parse(readFileSync(`${root}/maps/rybnik-1932/manifest.json`, 'utf8'));
+for (const [path, digest] of Object.entries(manifest.tiles)) {
+  assert.equal(createHash('sha256').update(readFileSync(`${root}/maps/rybnik-1932/${path}`)).digest('hex'), digest, path);
+}
+console.log(`Verified vector style and ${Object.keys(manifest.tiles).length} historical tiles.`);
