@@ -1,26 +1,34 @@
 import { createRequire } from 'node:module';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { basename, resolve } from 'node:path';
 import { validateCatalog } from '../../functions/src/validation.mjs';
 const require = createRequire(new URL('../../functions/package.json', import.meta.url));
 const { GoogleAuth, OAuth2Client } = require('google-auth-library');
 const bucket = 'historyczny-rybnik-dev-files';
-const assets = JSON.parse(readFileSync('data/place-assets.json', 'utf8'));
-const places = validateCatalog(JSON.parse(readFileSync('data/places.seed.json', 'utf8')));
-const allowed = new Set(
-  places
-    .filter((p) => p.published)
-    .flatMap((p) =>
-      p.references.flatMap((r) => r.images.flatMap((i) => [i.storagePath, i.thumbnailPath])),
+const directory = process.argv.find((arg) => arg.startsWith('--directory='))?.slice(12);
+if (!directory) throw new Error('Specify --directory=/path/to/reviewed-images');
+const input = process.env['PLACES_SNAPSHOT'] || 'data/places.test-data.json';
+const places = validateCatalog(JSON.parse(readFileSync(input, 'utf8')));
+// The place document is the single manifest for paths, hashes and provenance.
+const assets = places
+  .filter((p) => p.published)
+  .flatMap((p) =>
+    p.references.flatMap((ref) =>
+      ref.images.flatMap((image) => [
+        { storagePath: image.storagePath, sha256: image.sha256, image },
+        { storagePath: image.thumbnailPath, sha256: image.thumbnailSha256, image },
+      ]),
     ),
-);
-for (const asset of assets) {
-  if (
-    !allowed.has(asset.storagePath) ||
-    !/^data\/assets\/[a-z0-9-]+\.jpg$/.test(asset.file) ||
-    asset.contentType !== 'image/jpeg'
   )
-    throw new Error('Asset is outside the reviewed catalogue');
+  .map((asset) => ({
+    ...asset,
+    file: resolve(directory, basename(asset.storagePath)),
+    contentType: 'image/jpeg',
+  }));
+for (const asset of assets) {
+  if (!asset.storagePath.endsWith('.jpg'))
+    throw new Error('This uploader supports reviewed JPEG images only');
   const bytes = readFileSync(asset.file);
   if (bytes.length > 3000000 || createHash('sha256').update(bytes).digest('hex') !== asset.sha256)
     throw new Error('Asset hash or size mismatch');
@@ -58,8 +66,8 @@ for (const asset of assets) {
     cacheControl: 'public, max-age=31536000, immutable',
     metadata: {
       sha256: asset.sha256,
-      rights: 'Public domain; Public Domain Mark 1.0',
-      source: 'https://commons.wikimedia.org/w/index.php?curid=95284888',
+      rights: asset.image.rights,
+      source: asset.image.provenance.sourcePageUrl,
     },
   };
   const body = Buffer.concat([
