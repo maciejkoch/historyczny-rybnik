@@ -1,5 +1,6 @@
 @import '@fontsource-variable/lora';
 @import '@fontsource-variable/source-sans-3';
+@import 'maplibre-gl/dist/maplibre-gl.css';
 @import 'tailwindcss';
 @plugin 'daisyui' { themes: false; logs: false; }
 @plugin 'daisyui/theme' {
@@ -40,7 +41,7 @@
   --color-muted: #59695F;
   --color-marker: #245947;
 }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scrollbar-gutter: stable; }
 body { margin: 0; font-family: var(--font-sans); background: var(--color-base-100); color: var(--color-base-content); }
 h1, h2 { font-family: var(--font-display); font-weight: 500; }
 .eyebrow { font-size: .72rem; text-transform: uppercase; letter-spacing: .16em; color: var(--color-muted); }
@@ -49,3 +50,8 @@ h1, h2 { font-family: var(--font-display); font-weight: 500; }
 .skip-link:focus { transform: translateY(0); }
 .btn { min-height: 44px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.place-marker { width: 40px; height: 40px; border-radius: 50%; border: 3px solid #FAF8F2; background: #245947; color: #FAF8F2; font: 600 16px var(--font-sans); cursor: pointer; box-shadow: 0 2px 8px #203b3233; }
+.place-marker[aria-pressed="true"] { background: #FAF8F2; color: #245947; border-color: #245947; box-shadow: 0 0 0 5px #24594733; }
+.maplibregl-ctrl-attrib { font-family: var(--font-sans); font-size: 11px; }
+.maplibregl-ctrl button { min-width: 44px; min-height: 44px; }
