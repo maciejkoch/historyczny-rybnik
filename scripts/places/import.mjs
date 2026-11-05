@@ -1,0 +1,45 @@
+import { readFileSync } from 'node:fs';
+import { validateCatalog } from '../../functions/src/validation.mjs';
+const input = process.argv.find((arg) => arg.endsWith('.json')) || 'data/places.seed.json';
+const places = validateCatalog(JSON.parse(readFileSync(input, 'utf8')));
+if (places.length !== 1 || places[0].id !== 'place_sw_antoni' || !places[0].published)
+  throw new Error('Dev import requires exactly the reviewed public church');
+console.log(
+  JSON.stringify(
+    places.map(({ id, slug, references }) => ({ id, slug, references: references.length })),
+    null,
+    2,
+  ),
+);
+if (!process.argv.includes('--apply')) {
+  console.log('Dry run. Add --apply with explicit GCLOUD_PROJECT and ADC to write.');
+  process.exit(0);
+}
+const { database, GeoPoint, Timestamp } = await import('./firestore.mjs');
+const db = await database('import');
+await db.runTransaction(async (tx) => {
+  const existing = await tx.get(db.collection('places'));
+  if (existing.docs.some((doc) => doc.id !== places[0].id))
+    throw new Error('Unexpected documents: refusing to change catalogue');
+  for (const { id, ...place } of places) {
+    const current = existing.docs.find((doc) => doc.id === id);
+    const point = place.location.coordinates;
+    // Reruns update editorial content but preserve live position/version/timestamps.
+    const value = {
+      ...place,
+      location: {
+        ...place.location,
+        coordinates: point ? new GeoPoint(point.lat, point.lng) : null,
+      },
+      createdAt: Timestamp.fromDate(new Date(place.createdAt)),
+      updatedAt: Timestamp.fromDate(new Date(place.updatedAt)),
+    };
+    if (current) {
+      const prior = current.data();
+      for (const key of ['location', 'locationVersion', 'createdAt', 'updatedAt'])
+        value[key] = prior[key];
+    }
+    tx.set(db.collection('places').doc(id), value);
+  }
+});
+console.log('Imported one place; live locations preserved.');

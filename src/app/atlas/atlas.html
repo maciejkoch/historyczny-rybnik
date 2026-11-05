@@ -5,38 +5,140 @@
       <img src="/brand/ryba-na-mapie.svg" width="76" height="54" alt="" />
       <span>Historyczny<br />Rybnik</span>
     </a>
-    <span class="badge badge-outline preview-badge">Wersja rozwojowa · mapa</span>
+    <span class="badge badge-outline preview-badge">Wersja rozwojowa</span>
   </header>
   <main #panel id="tresc" class="content-panel" tabindex="-1">
     @if (selected(); as place) {
-      <button class="btn btn-ghost back-button" type="button" (click)="close()">← Wróć do punktów</button>
-      <p class="eyebrow">Przykład {{ place.number }} / 03</p>
+      <button class="btn btn-ghost back-button" type="button" (click)="close()">
+        ← Wróć do wyników
+      </button>
+      <p class="eyebrow">Miejsca / Sakralne</p>
       <h1 id="place-title" tabindex="-1">{{ place.name }}</h1>
-      <p class="badge badge-outline">Dane przykładowe</p>
       <p class="intro">{{ place.description }}</p>
-      <p class="muted">To punkt testowy interfejsu, a nie zweryfikowany obiekt katalogu. Opisy i materiały źródłowe pojawią się w kolejnym etapie.</p>
-      <div class="divider"></div>
-      <p class="muted">Przełączaj plan i zmieniaj jego krycie. Wybrany punkt pozostanie zaznaczony, a zamknięcie karty zachowa kadr mapy.</p>
+      @for (address of place.addresses; track address.text) {
+        <p>
+          {{ address.type === 'current' ? 'Adres współczesny' : 'Adres historyczny' }}:
+          {{ address.text }}
+        </p>
+      }
+      @if (place.district) {
+        <p class="muted">Dzielnica: {{ place.district }}</p>
+      }
+      <h2>Lokalizacja</h2>
+      <p>
+        {{
+          place.location.coordinates
+            ? place.location.precision === 'building'
+              ? 'Wskazany budynek'
+              : 'Pozycja przybliżona'
+            : 'Pozycja nieustalona — miejsce nie ma znacznika na mapie.'
+        }}
+      </p>
+      @if (place.location.explanation) {
+        <p class="muted">{{ place.location.explanation }}</p>
+      }
+      <p class="muted">
+        Wersja pozycji: {{ place.locationVersion }} · Aktualizacja: {{ place.updatedAt }}
+      </p>
+      <h2>Źródła i wzmianki</h2>
+      @for (ref of place.references; track ref.id) {
+        <article class="reference">
+          <h3>{{ ref.title }}</h3>
+          <p class="muted">
+            Wydanie: {{ date(ref.publicationDate) }}<br />Dotyczy: {{ date(ref.historicalDate) }}
+            @if (ref.page) {
+              · str. {{ ref.page }}
+            }
+          </p>
+          <p>{{ ref.excerpt }}</p>
+          @if (ref.note) {
+            <p class="muted">{{ ref.note }}</p>
+          }
+          @if (ref.url) {
+            <a [href]="ref.url" target="_blank" rel="noopener noreferrer">Otwórz źródło ↗</a>
+          }
+          @for (image of ref.images; track image.storagePath) {
+            <figure>
+              <button
+                type="button"
+                (click)="enlarged.set({ url: imageUrl(image.storagePath), alt: image.alt })"
+                [attr.aria-label]="'Powiększ: ' + image.alt"
+              >
+                <img loading="lazy" [src]="imageUrl(image.thumbnailPath)" [alt]="image.alt" />
+              </button>
+              <figcaption>{{ image.credit }} · {{ image.rights }}</figcaption>
+            </figure>
+          } @empty {
+            <p class="muted">Źródło dostępne bez kopii skanu.</p>
+          }
+        </article>
+      }
     } @else {
       <div class="eyebrow">Miejsca · ludzie · pamięć</div>
       <h1>Miasto zapisane<br />w miejscach.</h1>
       <p class="intro">Porównaj dzisiejszy Rybnik z planem z 1932 roku.</p>
       <div class="divider"></div>
-      <section aria-labelledby="demo-title">
+      <section aria-labelledby="search-title">
         <span class="section-number">01 / ODKRYWAJ MAPĘ</span>
-        <h2 id="demo-title">Wybierz punkt</h2>
-        <p class="muted">Trzy jawnie przykładowe pozycje do sprawdzenia mapy i panelu. To jeszcze nie katalog historycznych miejsc.</p>
+        <h2 id="search-title">Znajdź miejsce</h2>
+        <label for="place-search">Nazwa, dawny adres lub dzielnica</label>
+        <input
+          id="place-search"
+          class="input input-bordered search"
+          type="search"
+          autocomplete="off"
+          [value]="query()"
+          (input)="query.set($any($event.target).value)"
+        />
+        <p class="muted" role="status">Wyniki: {{ results().length }}</p>
         <ul class="place-list">
-          @for (place of places; track place.id) {
-            <li><button type="button" class="place-button" [attr.data-place]="place.id" (click)="select(place)"><span class="place-number" aria-hidden="true">{{ place.number }}</span><span>{{ place.name }}<small>Dane przykładowe</small></span><span aria-hidden="true">↗</span></button></li>
+          @for (place of results(); track place.id) {
+            <li>
+              <a
+                class="place-button"
+                [routerLink]="['/miejsca', place.slug]"
+                [attr.data-place]="place.id"
+                (click)="$event.preventDefault(); select(place)"
+                ><span class="place-number" aria-hidden="true">↗</span
+                ><span
+                  >{{ place.name
+                  }}<small>{{ place.addresses[0]?.text ?? 'Adres nieustalony' }}</small></span
+                ></a
+              >
+            </li>
+          } @empty {
+            <li>Nie znaleziono miejsca. Spróbuj innej nazwy lub adresu.</li>
           }
         </ul>
       </section>
     }
-    <a class="btn btn-outline map-link" href="#mapa">Przejdź do mapy <span aria-hidden="true">↗</span></a>
+    @if (locations.status() === 'error') {
+      <p role="status" class="muted">
+        Bieżące pozycje są niedostępne. Mapa pokazuje ostatni dostępny stan; opisy i wyszukiwanie
+        nadal działają.
+      </p>
+    }
+    <a class="btn btn-outline map-link" href="#mapa"
+      >Przejdź do mapy <span aria-hidden="true">↗</span></a
+    >
   </main>
   <section id="mapa" class="map-region" aria-label="Mapa Rybnika" tabindex="-1">
-    <app-atlas-map [selected]="selected()" (placeSelected)="select($event)" />
+    <app-atlas-map [places]="places()" [selected]="selected()" (placeSelected)="select($event)" />
   </section>
-  <footer class="panel-footer">Cyfrowy atlas lokalnej pamięci <span aria-hidden="true">↗</span></footer>
+  <footer class="panel-footer">
+    Cyfrowy atlas lokalnej pamięci <span aria-hidden="true">↗</span>
+  </footer>
 </div>
+
+<dialog
+  #scanDialog
+  class="scan-dialog"
+  aria-label="Powiększenie wycinka"
+  (close)="enlarged.set(null)"
+>
+  @if (enlarged(); as image) {
+    <button class="btn" type="button" autofocus (click)="enlarged.set(null)">
+      Zamknij powiększenie</button
+    ><img [src]="image.url" [alt]="image.alt" />
+  }
+</dialog>

@@ -4,11 +4,11 @@ Historyczne miejsca Rybnika na mapie, z opisami i materiałami źródłowymi.
 
 Domena: `historyczny.rybnik.pl` — zarejestrowana w Hostido. [Konfiguracja DNS i Firebase Hosting](docs/mvp-1/domena-konfiguracja.md).
 
-Firebase: [`historyczny-rybnik`](https://console.firebase.google.com/project/historyczny-rybnik/overview). Osobny projekt dla MVP.1; Hosting jest skonfigurowany; usługi danych pozostają do wdrożenia w fazie 3.
+Firebase: [`historyczny-rybnik`](https://console.firebase.google.com/project/historyczny-rybnik/overview). Osobny projekt dla MVP.1; dev ma Hosting, Firestore Standard, Storage, Functions, Google Auth i App Check.
 
 ## Status
 
-Implementacja MVP.1, budowanego od zera. Faza 1 dostarcza statyczny szkielet Angulara z marką; faza 2 dodaje mapę wektorową, nakładkę planu z 1932 r. i przykładowe punkty. Bieżący frontend jest publikowany na stałym dev. Ustalono zakres, nazwę i domenę, kierunek UX/UI oraz architekturę SSG + Firebase Hosting + Functions. Przygotowano propozycję modelu danych do przeglądu.
+Fazy 1–3: marka, mapa wektorowa i plan z 1932 r., backend oraz karta bazyliki św. Antoniego z wyszukiwaniem i statycznym HTML. Katalog zawiera dokładnie jeden kościół. Backend zmiany pozycji jest gotowy; docelowy interfejs logowania i edycji powstaje w fazie 4. [Konfiguracja fazy 3](docs/mvp-1/faza-3-infrastruktura.md).
 
 - [Plan MVP.1](docs/mvp-1/README.md)
 - [Nazwa i domena](docs/mvp-1/nazwa-i-domena.md)
@@ -25,6 +25,7 @@ Wymagany Node zgodny z `.nvmrc` (22.23.2) oraz npm 12.0.2.
 
 ```sh
 npm ci
+npm ci --prefix functions
 npm start
 npm run build
 npm run emulate
@@ -39,12 +40,11 @@ Build generuje statyczne pliki w `dist/historyczny-rybnik/browser`. Nie wymaga p
 | Dev — bieżące zmiany | https://historyczny-rybnik-dev.web.app/ | `historyczny-rybnik-dev` | `npm run deploy:dev` |
 | Produkcja — wydania | https://historyczny.rybnik.pl/ | `historyczny-rybnik` | `npm run deploy:prod` |
 
-Dev jest osobną witryną Hosting ze swoim kanałem live, dlatego nie wygasa i ma stały adres. Konfiguracja `firebase.dev.json` wskazuje dev, a `firebase.json` produkcję. Oba polecenia budują aplikację i publikują wyłącznie Hosting do jawnie wskazanego projektu. Nie konfigurujemy automatycznych deploymentów CI ani poświadczeń w repo.
+Dev jest osobną witryną Hosting ze swoim kanałem live, dlatego nie wygasa i ma stały adres. Konfiguracja `firebase.dev.json` wskazuje dev, a `firebase.json` produkcję. `deploy:dev` pobiera snapshot przez serwerowe ADC i buduje z niego aplikację; lokalny operator używa `PLACES_USE_FIREBASE_CLI=1 npm run deploy:dev`. Backend dev: `npm run deploy:backend:dev`. Nie konfigurujemy automatycznych deploymentów CI ani poświadczeń w repo.
 
 Ustalenie z 5 listopada 2026: bieżące prace publikujemy na dev. Produkcję publikujemy na wyraźne zlecenie wydania; dodanie polecenia nie oznacza publikacji obecnego szkieletu. Indeksowanie produkcji włączamy w fazie 5; obecny build ma noindex. Logowanie CLI: `npx firebase login`.
 
-Obie witryny należą teraz do projektu `historyczny-rybnik` i izolują pliki oraz wersje frontendu. **Nie izolują usług backendu.** Obecna aplikacja nie ma backendu. Przed fazą 3 potrzebny jest osobny projekt testowy dla Firestore, Auth, Storage i Functions oraz jawny wybór konfiguracji w buildzie dev/produkcja.
-
+Obie witryny należą do `historyczny-rybnik`. Właściciel wybrał wspólne Auth i billing oraz oddzielną bazę, bucket, funkcje i konta usług dev. Szczegóły izolacji i poleceń: [faza 3](docs/mvp-1/faza-3-infrastruktura.md).
 ### Tymczasowe preview
 
 ```sh
@@ -54,7 +54,7 @@ npm run preview
 
 Polecenie buduje aplikację i publikuje wyłącznie kanał `faza-1` w projekcie `historyczny-rybnik`, ważny 30 dni. Używa lokalnego logowania Firebase CLI; poświadczenia nie trafiają do repozytorium. Nie publikuje kanału live. Konfiguracje nie zawierają fallbacku SPA: nieznane URL-e zwracają HTTP 404 z własnym `404.html`. Preview blokuje indeksowanie przez meta robots, robots.txt i nagłówek X-Robots-Tag. Przed produkcją w fazie 5 potrzebna będzie osobna konfiguracja indeksowania.
 
-CI wykonuje `npm ci`, build i zapisuje artefakt Hosting. Nie ma uprawnień do deploymentu. Na tym etapie frontend nie łączy się z żadnym backendem, więc nie korzysta z produkcyjnych danych; izolacja usług testowych zostaje decyzją fazy 3.
+CI wykonuje `npm ci`, build i zapisuje artefakt Hosting. Nie ma uprawnień do deploymentu. CI uruchamia także walidację oraz testy API/reguł w emulatorach. Offline build korzysta z walidowanego pliku jednego kościoła, bez poświadczeń chmurowych.
 
 [Zapis odbioru fazy 1](docs/mvp-1/odbior-fazy-1.md).
 
@@ -62,6 +62,6 @@ Szczegóły: [środowiska dev i produkcja](docs/mvp-1/srodowiska.md).
 
 ## Mapa — faza 2
 
-MapLibre uruchamia się po stronie przeglądarki, po hydratacji; SSG generuje tekst i panel bez inicjalizacji WebGL. Własny styl wykorzystuje OpenFreeMap. Plan z 1932 r. pochodzi z domeny publicznej w Mazowieckiej Bibliotece Cyfrowej; własne kafelki są serwowane lokalnie. Przełącznik i suwak 0–100% zachowują kadr oraz wybór. Trzy pozycje są jawnie przykładowymi danymi do odbioru interfejsu, bez backendu i importu katalogu.
+MapLibre uruchamia się po stronie przeglądarki, po hydratacji; SSG generuje tekst i panel bez inicjalizacji WebGL. Własny styl wykorzystuje OpenFreeMap. Plan z 1932 r. pochodzi z domeny publicznej w Mazowieckiej Bibliotece Cyfrowej; własne kafelki są serwowane lokalnie. Przełącznik i suwak 0–100% zachowują kadr oraz wybór. Przykładowe punkty fazy 2 zastąpił w fazie 3 jeden rzeczywisty kościół. Bieżąca pozycja pochodzi z API, a opis i referencje są prerenderowane.
 
 [Źródła, prawa, koszt i odtwarzanie kafelków](docs/mvp-1/mapy-zrodla.md). [Odbiór fazy 2](docs/mvp-1/odbior-fazy-2.md).

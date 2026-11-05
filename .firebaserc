@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "historyczny-rybnik"
+  },
+  "targets": {
+    "historyczny-rybnik": {
+      "storage": {
+        "places-dev": [
+          "historyczny-rybnik-dev-files"
+        ]
+      }
+    }
   }
 }

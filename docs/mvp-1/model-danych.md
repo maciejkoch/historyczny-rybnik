@@ -103,7 +103,7 @@ Kilka różnych miejsc może mieć ten sam adres i współrzędne. Gdy rozróżn
 
 Każdy zalogowany może ustawić lub poprawić pozycję istniejącego publicznego miejsca. Zmiana jest od razu publiczna. Nowe wskazanie domyślnie jest przybliżone. Backend sprawdza poprawność współrzędnych i danych, a użytkownik zatwierdza podgląd przed zapisem.
 
-Szczegół uprawnień do całkowitego usunięcia pozycji pozostaje do ustalenia; nie wprowadzamy ograniczenia do administratora jako zatwierdzonej decyzji.
+Decyzja fazy 3: API użytkownika nie pozwala usuwać pozycji. Każdy zalogowany przez Google może ustawić lub poprawić pozycję, z wyjaśnieniem i kontrolą wersji. Nie wprowadzamy dodatkowej roli administratora do tego przepływu.
 
 ## 5. Referencje i daty
 
@@ -159,7 +159,7 @@ Bezpośredni zapis z przeglądarki do Firestore jest zamknięty. API zwraca tylk
 
 Komentarze, zgłoszenia źródeł i zdjęcia użytkowników zaprojektujemy, gdy wejdą do zakresu prac. Zachowujemy ustaloną zasadę: przyszłe materiały użytkowników wymagają redaktora, a obecne poprawki lokalizacji są natychmiastowe. Teraz nie tworzymy dla tych przyszłych funkcji kolekcji ani paneli.
 
-Edycja Firestore i region pozostają osobną decyzją infrastrukturalną. Model nie wymaga Enterprise ani funkcji zaawansowanego wyszukiwania. Nie utrzymujemy wcześniejszej rekomendacji Enterprise jako zatwierdzonego wyboru. Nie utworzono w tym kroku bazy ani Storage.
+Decyzja fazy 3: Firestore Standard, baza `places-dev` w `europe-central2`. Utworzono oddzielny bucket dev w tym samym regionie. [Konfiguracja i konta usług](faza-3-infrastruktura.md).
 
 Pilnujemy rozmiaru dokumentu: limit Firestore Native wynosi 1 MiB. Przy imporcie sprawdzamy wielkość i odrzucamy zbyt duże rekordy; nie usuwamy danych po cichu. Jeżeli realne referencje zaczną zbliżać się do limitu, dopiero wtedy rozważymy ich wydzielenie do podkolekcji.
 

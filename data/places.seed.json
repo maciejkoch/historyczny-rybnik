@@ -1,0 +1,66 @@
+[
+  {
+    "id": "place_sw_antoni",
+    "name": "Bazylika św. Antoniego Padewskiego",
+    "slug": "bazylika-sw-antoniego-padewskiego",
+    "previousSlugs": [],
+    "description": "Neogotycki kościół zaprojektowany przez Ludwiga Schneidera. Budowę rozpoczęto w 1903 roku, a świątynię poświęcono 29 września 1907 roku. Od 1993 roku ma tytuł bazyliki mniejszej.",
+    "category": "religion",
+    "aliases": [
+      "Kościół świętego Antoniego",
+      "Bazylika św. Antoniego",
+      "Rybnicka katedra"
+    ],
+    "addresses": [
+      {
+        "type": "current",
+        "text": "ul. Mikołowska 4, Rybnik"
+      }
+    ],
+    "district": "Śródmieście",
+    "location": {
+      "coordinates": {
+        "lat": 50.098064,
+        "lng": 18.54965
+      },
+      "precision": "approximate",
+      "explanation": "Punkt obiektu według portalu Śląskiej Organizacji Turystycznej (silesia.travel, obiekt 3273). Wskazanie orientacyjne, nie pomiar geodezyjny."
+    },
+    "references": [
+      {
+        "id": "parafia_historia",
+        "title": "Historia parafii św. Antoniego",
+        "url": "https://www.bazylika.rybnik.pl/historia.html",
+        "page": null,
+        "publicationDate": null,
+        "historicalDate": {
+          "to": "1907",
+          "approximate": false,
+          "from": "1903"
+        },
+        "accessedAt": "2026-11-05T12:00:00Z",
+        "excerpt": "Parafia podaje rozpoczęcie budowy w 1903 roku oraz poświęcenie kościoła 29 września 1907 roku.",
+        "excerptType": "summary",
+        "note": null,
+        "images": []
+      },
+      {
+        "id": "sot_lokalizacja",
+        "title": "Śląska Organizacja Turystyczna — bazylika w Rybniku",
+        "url": "https://www.silesia.travel/culturalheritage/3273",
+        "page": null,
+        "publicationDate": null,
+        "historicalDate": null,
+        "accessedAt": "2026-11-05T12:00:00Z",
+        "excerpt": "Karta obiektu wskazuje adres Mikołowska 4 i orientacyjną pozycję bazyliki.",
+        "excerptType": "summary",
+        "note": null,
+        "images": []
+      }
+    ],
+    "published": true,
+    "locationVersion": 0,
+    "createdAt": "2026-11-05T12:00:00Z",
+    "updatedAt": "2026-11-05T12:00:00Z"
+  }
+]

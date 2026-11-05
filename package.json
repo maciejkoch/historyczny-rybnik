@@ -4,12 +4,18 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && node scripts/verify-build.mjs",
+    "build": "npm run places:prepare && ng build && node scripts/verify-build.mjs",
     "watch": "ng build --watch --configuration development",
     "preview": "npm run build && firebase hosting:channel:deploy faza-1 --project historyczny-rybnik --expires 30d",
-    "emulate": "firebase emulators:start --only hosting --project historyczny-rybnik",
-    "deploy:dev": "npm run build && firebase deploy --only hosting --config firebase.dev.json --project historyczny-rybnik",
-    "deploy:prod": "npm run build && firebase deploy --only hosting --config firebase.json --project historyczny-rybnik"
+    "emulate": "firebase emulators:start --only hosting --config firebase.dev.json --project historyczny-rybnik",
+    "deploy:dev": "node scripts/places/deploy-dev.mjs",
+    "deploy:prod": "node scripts/places/deploy-prod.mjs",
+    "places:prepare": "node scripts/places/prepare.mjs",
+    "places:import": "node scripts/places/import.mjs",
+    "places:snapshot": "node scripts/places/snapshot.mjs",
+    "test": "npm --prefix functions test",
+    "test:emulator": "firebase emulators:exec --config firebase.backend.dev.json --project demo-historyczny-rybnik --only firestore,storage \"npm --prefix functions run test:emulator\"",
+    "deploy:backend:dev": "firebase deploy --config firebase.backend.dev.json --project historyczny-rybnik --only functions:places-dev,firestore:places-dev,storage:places-dev,auth"
   },
   "private": true,
   "packageManager": "npm@12.0.2",
@@ -24,6 +30,7 @@
     "@angular/ssr": "22.2.5",
     "@fontsource-variable/lora": "5.3.0",
     "@fontsource-variable/source-sans-3": "5.3.1",
+    "firebase": "12.19.0",
     "maplibre-gl": "6.16.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
@@ -44,5 +51,8 @@
   },
   "engines": {
     "node": "^22.22.3 || ^24.15.0 || >=26.0.0"
+  },
+  "overrides": {
+    "@firebase/app": "0.16.2"
   }
 }

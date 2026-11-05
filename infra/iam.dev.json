@@ -1,0 +1,32 @@
+{
+  "projectId": "historyczny-rybnik",
+  "databaseId": "places-dev",
+  "condition": {
+    "title": "Only places-dev",
+    "expression": "resource.name == \"projects/historyczny-rybnik/databases/places-dev\""
+  },
+  "roles": {
+    "placesDevApi": {
+      "serviceAccount": "places-dev-api@historyczny-rybnik.iam.gserviceaccount.com",
+      "includedPermissions": [
+        "datastore.entities.get",
+        "datastore.entities.update",
+        "datastore.databases.get"
+      ]
+    },
+    "placesDevImport": {
+      "serviceAccount": "places-dev-import@historyczny-rybnik.iam.gserviceaccount.com",
+      "includedPermissions": [
+        "datastore.entities.get",
+        "datastore.entities.list",
+        "datastore.entities.create",
+        "datastore.entities.update",
+        "datastore.databases.get"
+      ]
+    },
+    "placesDevBuild": {
+      "serviceAccount": "places-dev-build@historyczny-rybnik.iam.gserviceaccount.com",
+      "includedPermissions": ["datastore.entities.get", "datastore.entities.list"]
+    }
+  }
+}

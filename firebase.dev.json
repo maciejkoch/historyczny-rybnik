@@ -40,11 +40,12 @@
           }
         ]
       }
-    ]
+    ],
+    "redirects": []
   },
   "emulators": {
     "hosting": {
-      "port": 5000
+      "port": 5185
     }
   }
 }
