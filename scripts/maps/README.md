@@ -14,7 +14,7 @@ nie są częścią workflow `build.yml`.
 
 | Plik | Przeznaczenie |
 | --- | --- |
-| `prepare_history.py` | Dopasowuje skan na podstawie punktów kontrolnych i generuje kafelki XYZ WebP dla zoomów 10–16, manifest z sumami SHA-256 i granice nakładki w `src/app/atlas-map/history-extent.ts`. |
+| `prepare_history.py` | Dopasowuje skan na podstawie punktów kontrolnych i generuje kafelki XYZ WebP dla zoomów 10–18, manifest z sumami SHA-256 i granice nakładki w `src/app/atlas-map/history-extent.ts`. |
 | `history-controls.json` | Zweryfikowane punkty dopasowania i osobne punkty walidacyjne, parametry skanu oraz dane poprzedniego dopasowania do porównań. |
 | `test_georeference.py` | Sprawdza transformację i jej odwrotność, zgodność z punktami walidacyjnymi oraz odrzucanie błędnych danych. |
 | `register_scans.py` | Opcjonalne narzędzie pomocnicze: porównuje skan z lokalnymi kafelkami odniesienia i zapisuje kandydatów na punkty kontrolne do przeglądu. Nie pobiera ani nie publikuje obrazów odniesienia. |
@@ -42,6 +42,18 @@ Biblioteki Cyfrowej, np. poleceniem `pdfimages -f 3 -l 3 -j source.pdf page`
 Generowanie zastępuje dotychczasowe kafelki WebP w `public/maps/rybnik-1932/`
 i aktualizuje manifest oraz plik granic nakładki. Przed zapisaniem zmian należy
 przejrzeć różnice i sprawdzić dopasowanie w aplikacji.
+
+Zoomy 10–16 zachowują dotychczasową metodę: skan zmniejszony do 8192 px
+i WebP quality=85. Zoomy 17–18 korzystają z pełnego skanu 18 327 × 12 835 px
+i WebP quality=95. Powyżej poziomu 18 aplikacja powiększa kafelki poziomu 18.
+Aby dodać lub odtworzyć wyłącznie nowe poziomy, bez zapisywania kafelków 10–16:
+
+```sh
+python scripts/maps/prepare_history.py /sciezka/do/skanu-strony-3.jpg --extend-high-zooms
+```
+
+Ten tryb przed generowaniem sprawdza zgodność źródła, georeferencji i sum
+SHA-256 zachowywanych kafelków. Zastępuje wyłącznie poziomy 17–18.
 
 ## Źródło i dokładność
 

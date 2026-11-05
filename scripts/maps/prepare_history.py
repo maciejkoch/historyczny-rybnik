@@ -5,10 +5,10 @@ Extract with: pdfimages -f 3 -l 3 -j source.pdf page
 Dependencies: scripts/maps/requirements.txt. Normal frontend builds use committed tiles.
 """
 import hashlib
+import argparse
 import json
 import math
 from pathlib import Path
-import sys
 
 import numpy as np
 from PIL import Image
@@ -66,8 +66,28 @@ def georeference(config):
     return matrix, validation
 
 
+def render_detail_tile(image, transform):
+    # Pillow premultiplies RGBA before transforming. Crop locally so each tile
+    # processes hundreds of pixels, not the entire scan. Keep bicubic padding.
+    transform = transform.copy()
+    footprint = project(np.array([[0, 0], [256, 0], [256, 256], [0, 256]]), transform)
+    left, top = np.floor(footprint.min(axis=0)).astype(int) - 3
+    right, bottom = np.ceil(footprint.max(axis=0)).astype(int) + 3
+    with image.crop((left, top, right, bottom)) as source:
+        transform[0] -= left * transform[2]
+        transform[1] -= top * transform[2]
+        return source.transform((256, 256), Image.Transform.PERSPECTIVE,
+                                tuple(transform.ravel()[:8]), Image.Resampling.BICUBIC,
+                                fillcolor=(0, 0, 0, 0))
+
+
 def main():
-    path = Path(sys.argv[1])
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('source', type=Path)
+    parser.add_argument('--extend-high-zooms', action='store_true',
+                        help='Preserve and verify zooms 10–16; generate only zooms 17–18.')
+    args = parser.parse_args()
+    path = args.source
     config = json.loads((ROOT / 'scripts/maps/history-controls.json').read_text())
     source_hash = hashlib.sha256(path.read_bytes()).hexdigest()
     if source_hash != config['sourceImageSha256']:
@@ -79,21 +99,40 @@ def main():
     if list(image.size) != config['imageSize']:
         raise ValueError('Unexpected source dimensions.')
     original_width, original_height = image.size
-    image.draft('RGB', (8192, 8192))
-    image.thumbnail((8192, 8192), Image.Resampling.LANCZOS)
-    image = image.convert('RGBA')
-    factor_x, factor_y = image.width / original_width, image.height / original_height
     corners = project(np.array([[0, 0], [original_width, 0], [original_width, original_height], [0, original_height]]), matrix)
     west, south = corners.min(axis=0)
     east, north = corners.max(axis=0)
     bounds = [*lonlat(west, south), *lonlat(east, north)]
     output = ROOT / 'public/maps/rybnik-1932'
     output.mkdir(parents=True, exist_ok=True)
+    manifest = {}
+    if args.extend_high_zooms:
+        previous = json.loads((output / 'manifest.json').read_text())
+        if (previous['sourceImageSha256'] != source_hash
+                or previous['bounds'] != bounds
+                or previous['projectivePixelToMercator'] != matrix.tolist()):
+            raise ValueError('Existing tiles use a different scan or georeference; cannot extend.')
+        for rel, digest in previous['tiles'].items():
+            if int(rel.split('/')[0]) <= 16:
+                if hashlib.sha256((output / rel).read_bytes()).hexdigest() != digest:
+                    raise ValueError(f'Existing tile checksum differs: {rel}')
+                manifest[rel] = digest
+        if {int(rel.split('/')[0]) for rel in manifest} != set(range(10, 17)):
+            raise ValueError('Existing pyramid must contain zooms 10–16.')
     # Remove obsolete generated tiles when a changed extent no longer covers them.
     for stale in output.glob('*/*/*.webp'):
-        stale.unlink()
-    manifest = {}
-    for z in range(10, 17):
+        if not args.extend_high_zooms or int(stale.relative_to(output).parts[0]) > 16:
+            stale.unlink()
+    for z in range(17 if args.extend_high_zooms else 10, 19):
+        # Preserve the original low-zoom rendering; use every source pixel at 17–18.
+        if z in (10, 17):
+            image.close()
+            image = Image.open(path)
+            if z == 10:
+                image.draft('RGB', (8192, 8192))
+                image.thumbnail((8192, 8192), Image.Resampling.LANCZOS)
+            image = image.convert('RGBA')
+        factor_x, factor_y = image.width / original_width, image.height / original_height
         tile_meters = 2 * HALF_WORLD / 2 ** z
         resolution = tile_meters / 256
         x0, x1 = math.floor((west + HALF_WORLD) / tile_meters), math.floor((east + HALF_WORLD) / tile_meters)
@@ -106,15 +145,18 @@ def main():
                 transform[0] *= factor_x
                 transform[1] *= factor_y
                 transform /= transform[2, 2]
-                tile = image.transform((256, 256), Image.Transform.PERSPECTIVE, tuple(transform.ravel()[:8]), Image.Resampling.BICUBIC, fillcolor=(0, 0, 0, 0))
+                if z >= 17:
+                    tile = render_detail_tile(image, transform)
+                else:
+                    tile = image.transform((256, 256), Image.Transform.PERSPECTIVE, tuple(transform.ravel()[:8]), Image.Resampling.BICUBIC, fillcolor=(0, 0, 0, 0))
                 rel = f'{z}/{x}/{y}.webp'
                 file = output / rel
                 file.parent.mkdir(parents=True, exist_ok=True)
-                tile.save(file, 'WEBP', quality=85, method=6)
+                tile.save(file, 'WEBP', quality=85 if z <= 16 else 95, method=6)
                 manifest[rel] = hashlib.sha256(file.read_bytes()).hexdigest()
         print(f'Prepared zoom {z}', flush=True)
     report = {
-        'bounds': bounds, 'corners': [lonlat(*p) for p in corners], 'minzoom': 10, 'maxzoom': 16,
+        'bounds': bounds, 'corners': [lonlat(*p) for p in corners], 'minzoom': 10, 'maxzoom': 18,
         'sourceImageSha256': source_hash, 'projectivePixelToMercator': matrix.tolist(),
         'reference': config['reference'], 'controlCount': len(config['controls']),
         'fitRmsMeters': round(float(np.sqrt(np.mean(residuals ** 2))), 2),

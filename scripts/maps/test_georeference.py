@@ -2,10 +2,23 @@
 import json
 import unittest
 import numpy as np
-from prepare_history import ROOT, fit_projective, georeference, mercator, project
+from PIL import Image
+from prepare_history import ROOT, fit_projective, georeference, mercator, project, render_detail_tile
 
 
 class GeoreferenceTests(unittest.TestCase):
+    def test_detail_crop_preserves_perspective_and_transparency(self):
+        pixels = np.random.default_rng(42).integers(0, 256, (800, 1000, 4), dtype=np.uint8)
+        image = Image.fromarray(pixels)
+        transform = np.array([[1.2, .08, 210], [.03, 1.1, 170], [.0001, -.0002, 1]])
+        expected = image.transform((256, 256), Image.Transform.PERSPECTIVE,
+                                   tuple(transform.ravel()[:8]), Image.Resampling.BICUBIC)
+        actual = render_detail_tile(image, transform)
+        # Cropping must retain source coordinates, alpha and bicubic neighbours.
+        np.testing.assert_allclose(np.array(actual), np.array(expected), atol=1)
+        outside = np.array([[1., 0, -500], [0, 1, -500], [0, 0, 1]])
+        self.assertFalse(np.array(render_detail_tile(image, outside)).any())
+
     def test_projective_recovery_and_inverse(self):
         # A synthetic scan with perspective: an affine-only implementation cannot pass.
         pixels = np.array([[0, 0], [18000, 0], [18000, 12000], [0, 12000], [9000, 6000]])

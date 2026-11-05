@@ -7,5 +7,5 @@ export const HISTORICAL_MAP = {
   tiles: '/maps/rybnik-1932/{z}/{x}/{y}.webp',
   bounds: HISTORY_BOUNDS,
   minzoom: 10,
-  maxzoom: 16,
+  maxzoom: 18,
 };
