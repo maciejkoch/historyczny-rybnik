@@ -114,6 +114,8 @@ Od początku rozdzielamy odczyt publicznej treści od logowania i API zapisu, a 
 
 ## 9. Następne decyzje i kolejność
 
+Realizację dzielimy na [pięć faz zakończonych deploymentem](fazy-wdrozenia.md): podstawa i marka, mapa współczesna, katalog i SEO, logowanie i zapis lokalizacji, plan historyczny i wydanie produkcyjne. Jest to podział do szczegółowego planu implementacji.
+
 1. Projekt Firebase wybrany i utworzony: `historyczny-rybnik`. Następnie ustalić instancję/edycję Firestore i regiony.
 2. Doprecyzować [uproszczony model danych](model-danych.md): `places` z referencjami i bieżącą lokalizacją w dokumencie, bez podkolekcji historii. Ustalić uprawnienie do usuwania pozycji.
 3. Wybrać dostawcę podkładu i potwierdzić warunki wykorzystania mapy historycznej.
