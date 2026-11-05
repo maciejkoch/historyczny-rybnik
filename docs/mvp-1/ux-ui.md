@@ -102,7 +102,7 @@ Prototyp przedstawia stan zalogowanego użytkownika i wykorzystuje ten sam lewy 
 
 Propozycje pól: dokładność „Miejsce przybliżone” (domyślnie) lub „Wskazany budynek” oraz opcjonalne uzasadnienie/źródło. „Wskazany budynek” nie oznacza automatycznego potwierdzenia historycznej funkcji. Szczegółową semantykę statusów ustalimy przed schematem bazy.
 
-Przycisk zapisu informuje o natychmiastowej publikacji. Docelowo powstaje wpis historii autora, czasu, starej i nowej pozycji. Prototyp zmienia tylko stan makiety i jawnie informuje, że nie zapisuje do bazy. Sprawdzono wskazanie na mapie, aktywację zapisu oraz powrót do karty ze zmienioną pozycją i statusem.
+Przycisk zapisu informuje o natychmiastowej publikacji. W MVP.1 zapisywana jest wyłącznie bieżąca pozycja, dokładność, uzasadnienie i czas aktualizacji — bez historii zmian i cofania zapisów. Prototyp zmienia tylko stan makiety i jawnie informuje, że nie zapisuje do bazy. Sprawdzono wskazanie na mapie, aktywację zapisu oraz powrót do karty ze zmienioną pozycją i statusem.
 
 Do dopracowania: mobilne wskazywanie z podglądem, obsługa błędu zapisu i konfliktów oraz dostępne klawiaturą alternatywy dla kliknięcia na mapie.
 

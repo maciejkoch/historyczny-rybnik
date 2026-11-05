@@ -40,8 +40,8 @@ SSG nie oznacza zerowych kosztów: ruch, pliki, odczyty API i buildy nadal koszt
 2. Build generuje `/` oraz `/miejsca/:slug` dla wszystkich opublikowanych kart, z opisem, źródłami, metadanymi i sitemapą.
 3. Firebase Hosting serwuje HTML, JavaScript, CSS i fonty.
 4. Po uruchomieniu w przeglądarce mapa pobiera bieżące współrzędne, także poprawki wykonane po ostatnim buildzie. Nie może polegać wyłącznie na pozycji zapisanej w statycznym indeksie z builda.
-5. Zalogowany użytkownik zapisuje korektę przez Functions API, z Auth i App Check. Backend aktualizuje pozycję i historię atomowo. Poprawka jest publiczna bez czekania na nowy deploy; mechanizm odświeżenia pozostałych sesji ustalimy osobno.
-6. Zmiana opisu, referencji, sluga lub dodanie karty wymaga nowej publikacji statycznego HTML. Możemy uruchamiać ją po zmianach redakcyjnych, z łączeniem wielu zmian w jeden build. Nie uruchamiamy builda po każdej korekcie współrzędnych ani każdym wpisie historii.
+5. Zalogowany użytkownik zapisuje korektę przez Functions API, z Auth i App Check. Backend aktualizuje bieżącą pozycję, sprawdzając wersję rekordu; nie zapisuje historii. Poprawka jest publiczna bez czekania na nowy deploy; mechanizm odświeżenia pozostałych sesji ustalimy osobno.
+6. Zmiana opisu, referencji, sluga lub dodanie karty wymaga nowej publikacji statycznego HTML. Możemy uruchamiać ją po zmianach redakcyjnych, z łączeniem wielu zmian w jeden build. Nie uruchamiamy builda po każdej korekcie współrzędnych; historii zmian nie prowadzimy.
 
 Dane historyczne potrzebne robotom nie mogą istnieć tylko w odpowiedzi API po uruchomieniu JS. Metadane, Open Graph i ewentualne dane strukturalne z pozycji historycznej pozostają zgodne z wersją publikacji do czasu jej odświeżenia.
 

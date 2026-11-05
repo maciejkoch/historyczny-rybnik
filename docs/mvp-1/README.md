@@ -97,11 +97,11 @@ Wymagania z sekcji 1 są zatwierdzone przez właściciela produktu. Pozostałe s
 - Zapis jest od razu publiczny i trwały; po odświeżeniu aplikacja pokazuje zapisaną pozycję.
 - Można wskazać lokalizację przybliżoną, np. środek ulicy. Samo kliknięcie nie potwierdza historycznej posesji. Propozycja: nowe wskazanie domyślnie ma status przybliżony i krótkie uzasadnienie.
 - Każdy zalogowany może poprawiać już zapisane pozycje, również ustawione przez inne osoby. Zmiana jest od razu publiczna.
-- W planie przyjmujemy historię zmian: autora, czas, poprzednie i nowe współrzędne, status oraz uzasadnienie. Publiczny widok historii i szczegóły cofania zmian pozostają do dopracowania; historia nie wymaga publicznych profili.
+- W MVP.1 zapisujemy wyłącznie bieżącą lokalizację, jej dokładność i uzasadnienie. Nie przechowujemy historii pozycji ani autorów zmian i nie budujemy cofania zapisów.
 - Propozycja: zapis oparty na nieaktualnej wersji rekordu wymaga ponownego sprawdzenia zamiast cicho nadpisywać cudzą zmianę.
 - Nieudany zapis pokazuje błąd i zachowuje roboczy punkt do ponowienia; nie jest prezentowany jako opublikowany.
 - Wylogowanie kończy możliwość zapisu. Ograniczenie musi obowiązywać także przy bezpośrednim wywołaniu API.
-- Jedynym administratorem na początku jest właściciel aplikacji. Nie budujemy w MVP.1 panelu zarządzania rolami; szczegóły uprawnień administratora i cofania zmian dopracujemy w planie technicznym.
+- Jedynym administratorem na początku jest właściciel aplikacji. Nie budujemy w MVP.1 panelu zarządzania rolami; szczegóły uprawnień administratora dopracujemy w planie technicznym. Cofanie zmian nie wchodzi do MVP.1.
 
 ### Stany i dostępność
 
@@ -169,7 +169,7 @@ Zgłoszenia i pliki oczekujące nie są publicznymi materiałami miejsca. Odczyt
 | Błąd zapisu pozycji | Interfejs nie zgłasza sukcesu i pozwala ponowić zapis |
 | Logowanie | Dostępne przez Google; po zalogowaniu użytkownik może ustawiać i poprawiać pozycje |
 | Poprawienie pozycji innej osoby | Każdy zalogowany może zapisać poprawkę; staje się ona od razu publiczna |
-| Zapis historii zmiany | Zachowuje autora, czas oraz poprzednią i nową pozycję |
+| Zapis aktualnej pozycji | Aktualizuje bieżącą lokalizację bez tworzenia historii zmian |
 | Wejście na `/` | Otwiera mapę jako stronę główną |
 | Bezpośredni adres miejsca i odświeżenie | Otwiera właściwą kartę bez wcześniejszej nawigacji, także dla miejsca bez współrzędnych |
 | Wstecz/Dalej w przeglądarce | Odtwarza widok wynikający z adresu |
@@ -177,7 +177,7 @@ Zgłoszenia i pliki oczekujące nie są publicznymi materiałami miejsca. Odczyt
 | Nieistniejący adres | Pokazuje stronę błędu ze statusem HTTP 404 |
 | Zmiana adresu opublikowanej karty | Stary adres trwale przekierowuje do aktualnego |
 
-Kryteria dla widoku historii, cofania i konfliktów edycji uzupełnimy po uzgodnieniu szczegółów.
+Sprawdzimy także konflikt równoczesnych poprawek oraz ponowny odczyt po niepewnym wyniku zapisu. Historia i cofanie zmian są poza MVP.1.
 
 ## 7. Decyzje otwarte w etapie 1
 
@@ -187,7 +187,7 @@ Kryteria dla widoku historii, cofania i konfliktów edycji uzupełnimy po uzgodn
 - Zatwierdzone: każdy zalogowany może ustawiać lokalizacje, a zapis jest od razu publiczny. Bez logowania tylko przeglądanie.
 - Zatwierdzone: w MVP.1 logowanie wyłącznie przez Google; rozbudowa kont w kolejnych wersjach na Firebase Authentication.
 - Zatwierdzone: każdy zalogowany może poprawiać pozycje innych osób; właściciel jest na początku jedynym administratorem. Rozbudowa ról w kolejnych fazach.
-- Założenie planu: zachowujemy historię zmian lokalizacji. Szczegóły uzasadnienia, widoku historii i cofania zmian pozostają do dopracowania, bez rozbudowanego systemu moderacji.
+- Zatwierdzone uproszczenie: bez historii zmian lokalizacji i cofania zapisów w MVP.1. Przechowujemy bieżącą lokalizację; licznik wersji służy wyłącznie do wykrywania konfliktów.
 - Jednostka katalogu przy przeprowadzkach: propozycja — osobne lokalizacje powiązane wspólną instytucją.
 - Zatwierdzone: SEO, mapa jako strona główna i poprawny routing. Bezpośrednie adresy kart są w zakresie; strony informacyjne dopiero później.
 - Zawartość startowa: przegląd i selekcja danych MVP.0; bez obietnicy automatycznego przeniesienia całego katalogu. Liczbę i minimalną jakość kart ustalimy przed implementacją.
@@ -224,9 +224,9 @@ Do rozstrzygnięcia i udokumentowania:
 - Storage: oryginały i miniatury, ścieżki, metadane, dostęp oraz proces publikacji.
 - Backend i granice API: co obsługuje backend, a co klient; walidacja danych i błędów.
 - App Check: sprawdzanie tokenów w API; osobno uprawnienia do odczytu/zapisu i ochrona przed nadużyciami.
-- Logowanie: Google przez Firebase Authentication, weryfikacja zalogowania po stronie zapisu i dostęp każdego zalogowanego do ustawiania oraz poprawiania lokalizacji; bez moderacji przed publikacją. Uwzględnić przyszłe dodanie innych metod logowania i łączenie tożsamości bez utraty historii zmian.
+- Logowanie: Google przez Firebase Authentication, weryfikacja zalogowania po stronie zapisu i dostęp każdego zalogowanego do ustawiania oraz poprawiania lokalizacji; bez moderacji przed publikacją. Uwzględnić przyszłe dodanie innych metod logowania i łączenie tożsamości.
 - Administrator: przypisanie roli właścicielowi po trwałym identyfikatorze konta, zakres operacji administratora i egzekwowanie uprawnień po stronie backendu. Bez panelu zarządzania rolami w MVP.1.
-- Zmiany lokalizacji: historia autora i czasu, spójność zapisów, konflikty edycji i możliwość odtworzenia poprzednich wartości — zgodnie z ustalonym zakresem funkcjonalnym.
+- Zmiany lokalizacji: zapis bieżącej pozycji i czasu aktualizacji, spójność zapisów oraz konflikty edycji. Bez historii autora, poprzednich wartości i mechanizmu cofania.
 - Sposób redakcji, importu i walidacji danych bez budowania panelu administratora.
 - Środowiska, hosting, konfiguracja domeny, monitoring, kopie danych i przewidywane koszty.
 - Plan budowy od zera oraz kontrolowany import wybranych danych MVP.0.

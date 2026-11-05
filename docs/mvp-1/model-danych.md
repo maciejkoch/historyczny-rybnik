@@ -1,6 +1,6 @@
 # MVP.1 — model danych
 
-Aktualizacja: 4 listopada 2026. Status: **uproszczona propozycja zgodna z ustaleniem: jedna główna kolekcja `places`**. Dokument opisuje model; nie tworzy usług ani danych.
+Aktualizacja: 5 listopada 2026. Status: **uproszczona propozycja zgodna z ustaleniem: jedna kolekcja `places`, bez historii zmian**. Dokument opisuje model; nie tworzy usług ani danych.
 
 ## 1. Jedna kolekcja miejsc
 
@@ -11,14 +11,11 @@ places/{placeId}
   aktualna lokalizacja
   references[] — źródła i konkretne wzmianki
   daty techniczne i wersja lokalizacji
-
-places/{placeId}/locationHistory/{changeId}
-  autor, czas, poprzednia i nowa lokalizacja
 ```
 
 **Jeden dokument zawiera wszystko, co potrzebne do wyświetlenia karty miejsca.** Kolekcja nazywa się `places`, ponieważ obejmuje firmy, zakłady, kościoły, szkoły, urzędy i inne obiekty, także bez ustalonych współrzędnych. W kodzie używamy nazwy `Place`, w interfejsie „miejsce”.
 
-Referencje są tablicą w dokumencie miejsca. Historia lokalizacji jest jedyną podkolekcją: rośnie z kolejnymi poprawkami i nie musi być pobierana przy wyświetlaniu karty.
+Referencje są tablicą w dokumencie miejsca. Przechowujemy wyłącznie bieżącą lokalizację. W MVP.1 nie tworzymy podkolekcji historii, dziennika autora zmian ani mechanizmu cofania zapisów.
 
 Pliki znajdują się w Cloud Storage. Nie tworzymy osobnych kolekcji instytucji, źródeł, plików, slugów ani wydań SSG w MVP.1. Dane źródła mogą się powtarzać w referencjach różnych miejsc — na tę skalę akceptujemy to uproszczenie.
 
@@ -136,26 +133,15 @@ Wycinki i miniatury przechowujemy np. pod `places/{placeId}/{referenceId}/...`. 
 
 Nie wprowadzamy osobnego rejestru assetów ani automatycznego przetwarzania materiałów użytkowników w MVP.1.
 
-## 7. Historia i zapis lokalizacji
+## 7. Zapis lokalizacji
 
-```text
-places/{placeId}/locationHistory/{changeId}
-  actorUid
-  changedAt
-  before                  — cała poprzednia location
-  after                   — cała nowa location
-  fromVersion
-  toVersion
-  requestId
-```
+Callable Function sprawdza Firebase Auth i App Check. Przyjmuje wyłącznie zmianę lokalizacji i `expectedLocationVersion`, a nie dowolną aktualizację dokumentu. Nie daje użytkownikowi uprawnień do zmiany opisów, referencji ani publikacji.
 
-Callable Function sprawdza Firebase Auth i App Check. Przyjmuje wyłącznie zmianę lokalizacji, `expectedLocationVersion` i `requestId`, a nie dowolną aktualizację dokumentu. Nie daje użytkownikowi uprawnień do zmiany opisów, referencji ani publikacji.
+Transakcja porównuje oczekiwaną wersję, aktualizuje `location`, zwiększa `locationVersion` i ustawia `updatedAt` na czas serwera. Konflikt wersji wymaga ponownego sprawdzenia przez użytkownika. Zachowujemy tylko aktualne wartości — bez poprzedniej pozycji i bez autora zapisu w dokumencie.
 
-Jedna transakcja porównuje oczekiwaną wersję, aktualizuje `location`, `locationVersion` i `updatedAt` oraz dopisuje historię. Konflikt wersji wymaga ponownego sprawdzenia przez użytkownika. Autor i czas pochodzą z backendu.
+Nie tworzymy `requestId`, rejestru żądań ani wpisów historii. Jeśli połączenie zostanie przerwane bez potwierdzenia wyniku, aplikacja ponownie odczytuje pozycję i wersję. Może stwierdzić, że bieżąca pozycja odpowiada wybranej przez użytkownika, ale nie przypisuje jej jego żądaniu. Przy różnicy pokazuje aktualny stan i pozwala ponowić zapis po sprawdzeniu. Nie nadpisuje go automatycznie.
 
-`changeId` wyznaczamy na podstawie UID i `requestId`, aby ponowienie tego samego żądania nie tworzyło drugiego wpisu. Ponowienie z inną treścią jest odrzucane; istniejący wpis przechowuje dane potrzebne do porównania. Backend najpierw rozpoznaje ponowienie, potem sprawdza aktualną wersję.
-
-Historia jest początkowo dostępna administratorowi. Publiczne odpowiedzi nie ujawniają UID ani danych kont. Cofnięcie jest nową zmianą, nie usunięciem wpisu.
+`locationVersion` służy wyłącznie do ochrony przed równoczesnym nadpisaniem. Nie pozwala odtworzyć poprzednich pozycji. Publiczne odpowiedzi nie ujawniają danych kont.
 
 ## 8. Odczyt, wyszukiwanie i SSG
 
@@ -167,7 +153,7 @@ Historia jest początkowo dostępna administratorowi. Publiczne odpowiedzi nie u
 - Nowe miejsca publikujemy wraz z ich stronami. API mapy przyjmuje identyfikatory z katalogu dostarczonego z aplikacją i zwraca dane wyłącznie dla rekordów publicznych; stary frontend nie otrzyma znaczników nowych, jeszcze nieznanych mu kart.
 - `published: false` odcina rekord od API i kolejnego builda, ale nie usuwa wcześniej opublikowanego HTML ani obrazów. Wycofanie wymaga także publikacji zmienionych plików Hosting i ewentualnego ograniczenia dostępu do plików Storage.
 
-Bezpośredni zapis z przeglądarki do Firestore jest zamknięty. API zwraca tylko pola potrzebne danemu widokowi; do mapy nie pobieramy wszystkich opisów, skanów ani historii. Publiczny HTML pozostaje dostępny bez Auth i App Check.
+Bezpośredni zapis z przeglądarki do Firestore jest zamknięty. API zwraca tylko pola potrzebne danemu widokowi; do mapy nie pobieramy wszystkich opisów ani skanów. Publiczny HTML pozostaje dostępny bez Auth i App Check.
 
 ## 9. Granice MVP.1 i dalsze decyzje
 
@@ -175,6 +161,6 @@ Komentarze, zgłoszenia źródeł i zdjęcia użytkowników zaprojektujemy, gdy 
 
 Edycja Firestore i region pozostają osobną decyzją infrastrukturalną. Model nie wymaga Enterprise ani funkcji zaawansowanego wyszukiwania. Nie utrzymujemy wcześniejszej rekomendacji Enterprise jako zatwierdzonego wyboru. Nie utworzono w tym kroku bazy ani Storage.
 
-Pilnujemy rozmiaru dokumentu: limit Firestore Native wynosi 1 MiB. Przy imporcie sprawdzamy wielkość i odrzucamy zbyt duże rekordy; nie usuwamy danych po cichu. Jeżeli realne referencje zaczną zbliżać się do limitu, dopiero wtedy rozważymy ich wydzielenie do podkolekcji. Historia od początku pozostaje osobno.
+Pilnujemy rozmiaru dokumentu: limit Firestore Native wynosi 1 MiB. Przy imporcie sprawdzamy wielkość i odrzucamy zbyt duże rekordy; nie usuwamy danych po cichu. Jeżeli realne referencje zaczną zbliżać się do limitu, dopiero wtedy rozważymy ich wydzielenie do podkolekcji.
 
 Źródła zasad technicznych: [model dokumentowy i limit rozmiaru](https://firebase.google.com/docs/firestore/data-model), [transakcje Firestore](https://firebase.google.com/docs/firestore/manage-data/transactions). Są to odnośniki do uzasadnienia ograniczeń, nie dodatkowe wymagania funkcjonalne.

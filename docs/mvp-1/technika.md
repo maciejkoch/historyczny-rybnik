@@ -6,7 +6,7 @@ Data weryfikacji: 4 listopada 2026. Status: **ustalony kierunek: SSG + Firebase 
 
 ## 1. Rekomendowany kierunek
 
-Angular z prerenderem (SSG) dla publicznych kart, Tailwind z tokenami marki, daisyUI dla podstawowych kontrolek, MapLibre GL JS dla mapy wektorowej, Firebase Authentication dla Google Sign-In, Firestore dla danych i Cloud Storage dla plików. Zmiany lokalizacji przechodzą przez backend, który sprawdza zalogowanie i App Check oraz zapisuje historię razem ze zmianą.
+Angular z prerenderem (SSG) dla publicznych kart, Tailwind z tokenami marki, daisyUI dla podstawowych kontrolek, MapLibre GL JS dla mapy wektorowej, Firebase Authentication dla Google Sign-In, Firestore dla danych i Cloud Storage dla plików. Zmiany lokalizacji przechodzą przez backend, który sprawdza zalogowanie i App Check oraz aktualizuje bieżącą pozycję.
 
 To rekomendacja projektowa. Projekt Firebase `historyczny-rybnik` został wybrany i utworzony. Wybór edycji i instancji Firestore, schemat dokumentów, dostawca kafelków oraz konfiguracja środowisk pozostają otwarte.
 
@@ -68,25 +68,25 @@ Rekomendacja: bezpośrednia integracja MapLibre GL JS w komponencie Angulara, be
 
 ## 6. Dane, wyszukiwanie i pliki — decyzje przed schematem
 
-Wybrano i utworzono osobny projekt Firebase `historyczny-rybnik` (Historyczny Rybnik). [Uproszczony model danych](model-danych.md) zakłada jedną główną kolekcję `places`: jeden dokument zawiera nazwę, slug, opis, adresy, lokalizację i tablicę referencji z datami oraz ścieżkami plików. Jedyną podkolekcją jest `locationHistory`, przechowująca zmiany pozycji. Nie tworzymy osobnych kolekcji instytucji, źródeł, plików, slugów ani wydań SSG.
+Wybrano i utworzono osobny projekt Firebase `historyczny-rybnik` (Historyczny Rybnik). [Uproszczony model danych](model-danych.md) zakłada jedną główną kolekcję `places`: jeden dokument zawiera nazwę, slug, opis, adresy, lokalizację i tablicę referencji z datami oraz ścieżkami plików. Nie tworzymy podkolekcji historii; zapisujemy wyłącznie bieżącą pozycję. Nie tworzymy osobnych kolekcji instytucji, źródeł, plików, slugów ani wydań SSG.
 
 Edycja Firestore i region nie zostały zatwierdzone; model nie wymaga Enterprise. Wcześniejsza rekomendacja Enterprise nie jest obowiązującą decyzją. Ostatni odczyt listy instancji zwrócił 403 z powodu niewłączonego Firestore API. Przed utworzeniem bazy ponawiamy sprawdzenie konfiguracji i wybieramy edycję oraz region. Obecnej bazy MVP.0 nie traktujemy automatycznie jako produkcyjnej bazy nowej aplikacji.
 
 Dla obecnego katalogu około 200 miejsc proponuję na początek mały publiczny indeks nazw, aliasów i adresów, filtrowany w przeglądarce, bez pobierania opisów i wszystkich skanów przy wpisywaniu każdej litery. Format, odświeżanie i wersjonowanie indeksu ustalimy razem z modelem danych. Wzrost katalogu może uzasadnić wyszukiwanie serwerowe.
 
-W schemacie zachowujemy osobne dokumenty miejsc, referencje wewnątrz każdego dokumentu, różne rodzaje dat, stopień dokładności lokalizacji i historię zmian. Kilka miejsc może mieć ten sam adres. Nie dodajemy osobnego modelu instytucji. Szczegóły pól i walidacji zawiera [model danych](model-danych.md). Nie wdrożono jeszcze schematu ani reguł.
+W schemacie zachowujemy osobne dokumenty miejsc, referencje wewnątrz każdego dokumentu, różne rodzaje dat, stopień dokładności lokalizacji oraz bieżącą pozycję. Kilka miejsc może mieć ten sam adres. Nie dodajemy osobnego modelu instytucji. Szczegóły pól i walidacji zawiera [model danych](model-danych.md). Nie wdrożono jeszcze schematu ani reguł.
 
 Cloud Storage przechowuje pliki i miniatury, z metadanymi wskazującymi oryginalne źródło i podstawę użycia. Karty pobierają obrazy na żądanie. Zwykły użytkownik zmienia pozycję; nie otrzymuje przez to uprawnień do podmieniania skanów ani treści źródeł.
 
 ## 7. Backend, logowanie i App Check
 
-Rekomendacja dla zapisów: Cloud Functions 2nd gen, endpoint callable do zmiany lokalizacji. Sprawdza użytkownika Firebase Auth, token App Check, dane wejściowe i wersję rekordu. Autor i czas wynikają z backendu, nie z przesłanych przez klienta wartości.
+Rekomendacja dla zapisów: Cloud Functions 2nd gen, endpoint callable do zmiany lokalizacji. Sprawdza użytkownika Firebase Auth, token App Check, dane wejściowe i wersję rekordu. Czas aktualizacji nadaje backend, nie klient. Autor zapisu nie jest utrwalany w modelu miejsca.
 
-Zmiana pozycji i wpis historii muszą być atomowe. Konflikt z nowszą zmianą zwraca czytelny wynik zamiast nadpisywania cudzego zapisu. Ponowienie żądania nie powinno tworzyć duplikatów tej samej zmiany. To wymagania do uwzględnienia w schemacie i protokole API.
+Zapis pozycji sprawdza `locationVersion` i aktualizuje jeden dokument miejsca w transakcji. Konflikt z nowszą zmianą zwraca czytelny wynik zamiast nadpisywania cudzego zapisu. Po niepewnym wyniku żądania klient ponownie odczytuje bieżący stan. Nie przechowujemy poprzednich pozycji, autorów zmian ani rejestru żądań; cofanie zmian nie wchodzi do MVP.1.
 
 - Każdy zalogowany przez Google może zmienić lokalizację, bez moderacji przed publikacją.
 - Użytkownik niezalogowany nie może zapisać zmiany nawet przez bezpośrednie wywołanie API.
-- Administrator jest wskazany trwałym UID; początkowo jest nim właściciel. Zakres cofania i naprawy danych dopracujemy bez budowania panelu zarządzania rolami.
+- Administrator jest wskazany trwałym UID; początkowo jest nim właściciel. Szczegóły naprawy bieżących danych dopracujemy bez budowania panelu zarządzania rolami i mechanizmu cofania.
 - App Check potwierdza pochodzenie żądania z aplikacji; autoryzację użytkownika sprawdzamy oddzielnie.
 - Build SSG odczytuje wyłącznie opublikowane dane przez kontrolowaną ścieżkę z uprawnieniami środowiska CI. Dane uwierzytelniające nie trafiają do plików frontendu. Publiczny statyczny HTML nie wymaga tokenu przeglądarki. Interaktywne API aplikacji ma własne egzekwowanie App Check.
 - Bezpośredni zapis danych z przeglądarki do bazy ma być zamknięty; zapis biznesowy realizuje backend. Reguły i testy emulatora przygotujemy po wyborze instancji oraz schematu.
@@ -97,7 +97,7 @@ Zmiana pozycji i wpis historii muszą być atomowe. Konflikt z nowszą zmianą z
 
 - Angular generuje statyczne HTML dla `/` i wszystkich opublikowanych `/miejsca/:slug`, wraz z metadanymi i sitemapą. Wynik builda jest wdrażany na klasyczny Firebase Hosting, który serwuje także JavaScript, CSS i fonty.
 - Cloud Functions 2nd gen obsługują API odczytu bieżących danych i zapisu lokalizacji. W MVP.1 nie renderują stron HTML. Nie wdrażamy osobnej usługi Cloud Run ani Firebase App Hosting.
-- Mapa pobiera aktualne współrzędne niezależnie od wersji HTML. Zapis lokalizacji i historii nie uruchamia builda ani deploymentu frontendu.
+- Mapa pobiera aktualne współrzędne niezależnie od wersji HTML. Zapis lokalizacji nie uruchamia builda ani deploymentu frontendu.
 - Zmiana opisu, źródeł, metadanych lub zestawu publicznych adresów wymaga builda i deploymentu statycznej treści. Proces publikacji może być automatyczny i łączyć wiele zmian redakcyjnych. Nowe karty publikujemy wraz z ich stronami.
 - Przy przyszłej moderacji oddzielamy zatwierdzenie materiału od zakończenia publikacji HTML. Błąd builda nie może być prezentowany jako udana publikacja. Materiały pobierane z API mogą pojawić się wcześniej niż zaktualizowany HTML.
 - CI sprawdza build, indeksowalną treść, metadane, bezpośrednie wejścia, rzeczywiste 404 i przekierowania. Proces publikacji ma zachowywać możliwość powrotu do poprzedniej wersji.
@@ -115,12 +115,12 @@ Od początku rozdzielamy odczyt publicznej treści od logowania i API zapisu, a 
 ## 9. Następne decyzje i kolejność
 
 1. Projekt Firebase wybrany i utworzony: `historyczny-rybnik`. Następnie ustalić instancję/edycję Firestore i regiony.
-2. Doprecyzować [uproszczony model danych](model-danych.md): `places` z referencjami w dokumencie i podkolekcją historii lokalizacji. Ustalić uprawnienie do usuwania pozycji.
+2. Doprecyzować [uproszczony model danych](model-danych.md): `places` z referencjami i bieżącą lokalizacją w dokumencie, bez podkolekcji historii. Ustalić uprawnienie do usuwania pozycji.
 3. Wybrać dostawcę podkładu i potwierdzić warunki wykorzystania mapy historycznej.
 4. Potwierdzić statyczny build SSG, routing Firebase Hosting i integrację Functions API na minimalnym szkielecie; oszacować koszt dla oczekiwanego ruchu i częstości publikacji.
 5. Dopiero potem przygotować właściwy szkielet od zera i wdrażać kolejne funkcje.
 
-Weryfikacja implementacji obejmie realne 404 i przekierowania, indeksowalny HTML bez JS, nawigację panelu, dostępność bez mapy, zapisy bez Auth/App Check, konflikty edycji, atomową historię oraz rozróżnienie miejsc bez pozycji i przybliżonych.
+Weryfikacja implementacji obejmie realne 404 i przekierowania, indeksowalny HTML bez JS, nawigację panelu, dostępność bez mapy, zapisy bez Auth/App Check, konflikty edycji, ponowny odczyt po niepewnym wyniku zapisu oraz rozróżnienie miejsc bez pozycji i przybliżonych.
 
 
 ## Utworzony projekt — 4 listopada 2026
