@@ -16,6 +16,7 @@ Planowanie MVP.1, budowanego od zera. Ustalono zakres, nazwę i domenę, kierune
 - [Plan techniczny](docs/mvp-1/technika.md)
 - [Model danych — propozycja](docs/mvp-1/model-danych.md)
 - [Fazy wdrożenia MVP.1](docs/mvp-1/fazy-wdrozenia.md)
+- [Plan implementacji](docs/mvp-1/plan-implementacji.md)
 - [Logo — wybrany kierunek](docs/mvp-1/assets/logo/README.md)
 
 Repozytorium zawiera na razie dokumentację, bez kodu aplikacji MVP.0.

@@ -1,6 +1,6 @@
 # MVP.1 — fazy wdrożenia
 
-Data: 5 listopada 2026. Status: **proponowany podział przed szczegółowym planem implementacji**. Każda faza kończy się działającym deploymentem, sprawdzeniem wdrożonej wersji i zapisaniem adresu do odbioru. Ten dokument nie uruchamia wdrożeń.
+Data: 5 listopada 2026. Status: **podział będący podstawą [szczegółowego planu implementacji](plan-implementacji.md)**. Każda faza kończy się działającym deploymentem, sprawdzeniem wdrożonej wersji i zapisaniem adresu do odbioru. Ten dokument nie uruchamia wdrożeń.
 
 Założenia: [zakres produktu](README.md), [technika](technika.md), [model danych](model-danych.md). Budujemy Angular SSG + Firebase Hosting + Functions. Jedna kolekcja `places`, bez historii zmian lokalizacji.
 
@@ -77,4 +77,4 @@ Budujemy i wdrażamy HTML wszystkich publicznych kart, indeks wyszukiwania, site
 
 Komentarze, dodawanie źródeł i zdjęć przez użytkowników, panel moderacji, filtrowanie czasu, dodatkowe metody logowania, strony informacyjne oraz SSR. Nie dokładamy ich do ostatniej fazy jako warunku wydania MVP.1.
 
-Szczegółowy plan implementacji rozbije powyższe fazy na zadania i zależności. Warunkiem zamknięcia każdej fazy będzie sprawdzenie jej wdrożonego rezultatu, nie samo ukończenie kodu lokalnie.
+[Szczegółowy plan implementacji](plan-implementacji.md) rozbija powyższe fazy na zadania i zależności. Warunkiem zamknięcia każdej fazy będzie sprawdzenie jej wdrożonego rezultatu, nie samo ukończenie kodu lokalnie.
