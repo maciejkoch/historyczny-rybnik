@@ -1,6 +1,6 @@
 # MVP.1 — plan implementacji
 
-Data: 5 listopada 2026. Status: **plan do przeglądu przed rozpoczęciem implementacji**. Przygotowanie dokumentu nie oznacza utworzenia usług ani rozpoczęcia fazy 1.
+Data: 5 listopada 2026. Status: **faza 1 wdrożona i odebrana — 5 listopada 2026**. [Zapis odbioru fazy 1](odbior-fazy-1.md).
 
 Podstawa: [fazy wdrożenia](fazy-wdrozenia.md), [zakres produktu](README.md), [technika](technika.md), [model danych](model-danych.md), [UX/UI](ux-ui.md).
 
@@ -35,11 +35,11 @@ Dla izolacji danych proponujemy osobny projekt testowy, zamiast rozdzielania dan
 
 **Zależności:** zaakceptowane kierunki UX/UI oraz repozytorium. Brak zależności od Firestore.
 
-- [ ] **1.1 Szkielet Angulara.** Utworzyć aplikację CLI w istniejącym repo bez nadpisania dokumentacji. Włączyć routing i prerender; skonfigurować wyjście statyczne. Zapisać polecenia instalacji, developmentu i builda.
-- [ ] **1.2 Marka.** Dodać Tailwind i daisyUI, wspólne tokeny wybranej palety, lokalne fonty Lora i Source Sans 3 z polskimi znakami. Przygotować wybrane logo „Ryba na mapie” jako SVG oraz faviconę; zachować planszę koncepcyjną jako materiał referencyjny.
-- [ ] **1.3 Układ.** Zbudować główny obszar mapy i jeden panel treści: po lewej na desktopie, zgodnie z układem mobilnym na telefonie. Przygotować fokus, semantyczne przyciski i podstawowe stany ładowania/błędu. Na tym etapie mapa może być pustym obszarem; nie prezentować niedziałającego zapisu.
-- [ ] **1.4 Hosting i build.** Skonfigurować statyczne zasoby, prawdziwe 404 oraz preview z `noindex`. Ustalić powtarzalny build i publikację; CI co najmniej sprawdza instalację z lockfile i build. Uprawnienia deploymentu nie trafiają do repo ani frontendu.
-- [ ] **1.5 Deployment i odbiór.** Opublikować preview i zapisać adres oraz commit.
+- [x] **1.1 Szkielet Angulara.** Utworzyć aplikację CLI w istniejącym repo bez nadpisania dokumentacji. Włączyć routing i prerender; skonfigurować wyjście statyczne. Zapisać polecenia instalacji, developmentu i builda.
+- [x] **1.2 Marka.** Dodać Tailwind i daisyUI, wspólne tokeny wybranej palety, lokalne fonty Lora i Source Sans 3 z polskimi znakami. Przygotować wybrane logo „Ryba na mapie” jako SVG oraz faviconę; zachować planszę koncepcyjną jako materiał referencyjny.
+- [x] **1.3 Układ.** Zbudować główny obszar mapy i jeden panel treści: po lewej na desktopie, zgodnie z układem mobilnym na telefonie. Przygotować fokus, semantyczne przyciski i podstawowe stany ładowania/błędu. Na tym etapie mapa może być pustym obszarem; nie prezentować niedziałającego zapisu.
+- [x] **1.4 Hosting i build.** Skonfigurować statyczne zasoby, prawdziwe 404 oraz preview z `noindex`. Ustalić powtarzalny build i publikację; CI co najmniej sprawdza instalację z lockfile i build. Uprawnienia deploymentu nie trafiają do repo ani frontendu.
+- [x] **1.5 Deployment i odbiór.** Opublikować preview i zapisać adres oraz commit.
 
 **Sprawdzenie:** build przechodzi; HTTPS, logo i fonty działają na wdrożeniu; układ jest czytelny na telefonie i desktopie; `/` działa po odświeżeniu, nieznany URL zwraca HTTP 404. Nie są wymagane testy jednostkowe odtwarzające sam układ CSS.
 
@@ -123,4 +123,4 @@ Sprawdzić surowy HTML bez JS, statusy HTTP, sitemapę, brak prywatnych danych w
 
 Po wdrożeniu dopisujemy do dokumentacji: numer fazy, datę, commit, adres i środowisko, wynik sprawdzenia wdrożenia oraz otwarte usterki blokujące odbiór. Zaznaczenie zadań nie zastępuje działającego deploymentu. Następną fazę rozpoczynamy po spełnieniu kryteriów poprzedniej.
 
-Pierwszym krokiem wykonawczym po uzgodnieniu planu będzie **1.1 — utworzenie szkieletu Angulara SSG w repozytorium `historyczny-rybnik`**.
+Realizację fazy 1 rozpoczęto 5 listopada 2026 na zlecenie właściciela. Wynik publikacji i kontroli zapisujemy w [odbiorze fazy 1](odbior-fazy-1.md).
