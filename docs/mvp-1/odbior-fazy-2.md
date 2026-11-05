@@ -1,6 +1,6 @@
 # Odbiór fazy 2 — mapa współczesna i plan historyczny
 
-Data: 5 listopada 2026. Status: kontrola przed publikacją dev.
+Data: 5 listopada 2026. Status: **wdrożona i odebrana na dev**.
 
 Gałąź: `codex/mvp-phase-2`, oparta o `codex/mvp-phase-1` (PR #1). PR fazy 2 ma tę gałąź jako bazę, zgodnie z prośbą właściciela. Produkcja pozostaje osobnym wydaniem.
 
@@ -31,4 +31,17 @@ Dokładność: pięć rozpoznawalnych budynków użyto jako kontroli dopasowania
 
 ## Publikacja
 
-Commit, wersja Hosting i wynik kontroli wdrożenia: do uzupełnienia po publikacji.
+Wdrożony kod aplikacji: `4e48143`; konfiguracja rewalidacji cache dev: `03e6611`. Publikacja przez `npm run deploy:dev`, następnie aktualizacja samych nagłówków Hosting na tym samym artefakcie. Witryna: `historyczny-rybnik-dev`, 974 pliki w wydaniu. Produkcji nie publikowano.
+
+Wynik kontroli wdrożenia:
+
+- HTTPS `/` zwraca HTTP 200, HTML zawiera tekst fazy 2 i jawne oznaczenie przykładowych danych.
+- Nieznany adres zwraca HTTP 404. Noindex pozostaje w HTML i nagłówkach.
+- Styl JSON, lokalny worker i przykładowy kafelek WebP zwracają HTTP 200; pobrany kafelek `14/9034/5549.webp` jest zgodny z SHA-256 manifestu.
+- Obie warstwy działają w przeglądarce na dev; sprawdzono pełne krycie planu, 0%, wybór punktu oraz mobilny widok 390 × 844. Konsola kontrolowanej sesji dev bez błędów i ostrzeżeń.
+- Poprawiono wykryty podczas odbioru cache starego HTML: odpowiedzi dev rewalidują się (`Cache-Control: no-cache`), co potwierdzono przez HTTPS. Dotychczasowe zasady cache fontów i SVG pozostają osobną regułą. Starsza karta otwarta przed tą zmianą może wymagać jednorazowego odświeżenia.
+- CI dla kodu aplikacji w PR #2: npm ci i build przeszły; sam build sprawdza też styl oraz wszystkie kafelki. Końcowe commity dokumentacji nie zmieniają bundle aplikacji.
+
+PR: https://github.com/maciejkoch/historyczny-rybnik/pull/2 — baza `codex/mvp-phase-1` z PR #1.
+
+Otwarte usterki blokujące odbiór: brak. Ograniczenia dokładności historycznego planu i zakres kontroli urządzeń opisano wyżej.

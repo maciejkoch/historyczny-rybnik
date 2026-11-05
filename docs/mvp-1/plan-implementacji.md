@@ -1,6 +1,6 @@
 # MVP.1 — plan implementacji
 
-Data: 5 listopada 2026. Status: **faza 1 wdrożona; faza 2 w odbiorze — 5 listopada 2026**. [Zapis odbioru fazy 1](odbior-fazy-1.md).
+Data: 5 listopada 2026. Status: **fazy 1–2 wdrożone i odebrane na dev — 5 listopada 2026**. [Zapis odbioru fazy 1](odbior-fazy-1.md).
 
 Podstawa: [fazy wdrożenia](fazy-wdrozenia.md), [zakres produktu](README.md), [technika](technika.md), [model danych](model-danych.md), [UX/UI](ux-ui.md).
 
@@ -55,7 +55,7 @@ Dla izolacji danych proponujemy osobny projekt testowy, zamiast rozdzielania dan
 - [x] **2.2 Plan historyczny.** Przygotować plan do nakładania na współczesne współrzędne, sprawdzić dopasowanie na kilku rozpoznawalnych punktach. Dobrać raster lub kafelki do rozmiaru pliku i płynności na telefonie. Jeśli plik wymaga serwowania już teraz, wdrożyć niezbędne statyczne zasoby w tej fazie, bez czekania na infrastrukturę miejsc.
 - [x] **2.3 Warstwy.** Dodać przełącznik planu i suwak 0–100% z opisem dostępnym dla klawiatury/czytnika. Zachować kadr i zaznaczenie podczas przełączania. Pokazać ograniczony zasięg nakładki i komunikat poza pokryciem.
 - [x] **2.4 Wybór miejsca.** Na jawnie przykładowych danych lokalnych sprawdzić znacznik, wyróżnienie wyboru i otwieranie jednego panelu. Zamknięcie panelu zachowuje kadr. Przy niedostępnym WebGL/podkładzie nadal dostępna jest treść i komunikat.
-- [ ] **2.5 Deployment i odbiór.** Wdrożyć oba podkłady oraz potrzebne pliki i konfigurację dostawcy na preview.
+- [x] **2.5 Deployment i odbiór.** Wdrożyć oba podkłady oraz potrzebne pliki i konfigurację dostawcy na preview.
 
 **Sprawdzenie:** build nie inicjalizuje WebGL; obie mapy działają na wdrożeniu mobilnym i desktopowym; suwak zmienia faktyczne krycie, w tym krańce 0 i 100%; wyłączenie planu odsłania uzgodniony styl wektorowy. Sprawdzić klawiaturę suwaka, zasięg i podstawowe dopasowanie planu.
 
