@@ -3,10 +3,32 @@ import json
 import unittest
 import numpy as np
 from PIL import Image
-from prepare_history import ROOT, fit_projective, georeference, mercator, project, render_detail_tile
+from prepare_history import ROOT, fit_projective, georeference, mercator, project, render_detail_tile, render_overview_tile
 
 
 class GeoreferenceTests(unittest.TestCase):
+    def test_overviews_filter_fine_pattern_without_tile_seams(self):
+        # Fine scan hatching should average to grey instead of a false pattern.
+        grid = (np.indices((1200, 1600)).sum(axis=0) % 2 * 255).astype(np.uint8)
+        image = Image.fromarray(grid).convert('RGBA')
+        image.thumbnail((800, 600), Image.Resampling.LANCZOS)
+        transform = np.array([[1.2, .03, 50], [.01, 1.1, 60], [.0001, 0, 1]])
+        left = render_overview_tile(image, transform)
+        right = render_overview_tile(image, transform @ np.array([[1, 0, 256], [0, 1, 0], [0, 0, 1]]))
+        actual = np.concatenate([np.array(left), np.array(right)], axis=1)
+        self.assertLess(actual[:, :, :3].std(), 1)
+        # A nonuniform image catches coordinate shifts and mismatched seam filters.
+        image = Image.fromarray(np.random.default_rng(7).integers(0, 256, (600, 800, 4), dtype=np.uint8))
+        left = render_overview_tile(image, transform)
+        right = render_overview_tile(image, transform @ np.array([[1, 0, 256], [0, 1, 0], [0, 0, 1]]))
+        actual = np.concatenate([np.array(left), np.array(right)], axis=1)
+        samples = transform @ np.array([[.5, 0, -3], [0, .5, -3], [0, 0, 1]])
+        samples /= samples[2, 2]
+        wide = image.transform((1036, 524), Image.Transform.PERSPECTIVE,
+                               tuple(samples.ravel()[:8]), Image.Resampling.BICUBIC)
+        expected = wide.resize((518, 262), Image.Resampling.LANCZOS).crop((3, 3, 515, 259))
+        np.testing.assert_allclose(actual, np.array(expected), atol=1)
+
     def test_detail_crop_preserves_perspective_and_transparency(self):
         pixels = np.random.default_rng(42).integers(0, 256, (800, 1000, 4), dtype=np.uint8)
         image = Image.fromarray(pixels)

@@ -43,8 +43,10 @@ Generowanie zastępuje dotychczasowe kafelki WebP w `public/maps/rybnik-1932/`
 i aktualizuje manifest oraz plik granic nakładki. Przed zapisaniem zmian należy
 przejrzeć różnice i sprawdzić dopasowanie w aplikacji.
 
-Zoomy 10–16 zachowują dotychczasową metodę: skan zmniejszony do 8192 px
-i WebP quality=85. Zoomy 17–18 korzystają z pełnego skanu 18 327 × 12 835 px
+Zoomy 10–16 korzystają z osobnego pomniejszenia skanu dla każdego poziomu
+(filtr Lanczos), próbkowania z podwójną rozdzielczością i końcowego pomniejszenia
+Lanczos do 256 × 256 px. Zapas trzech pikseli wokół kafelka zapobiega szwom
+przy filtrowaniu. Zapis WebP ma jakość 85. Zoomy 17–18 korzystają z pełnego skanu 18 327 × 12 835 px
 i WebP quality=95. Powyżej poziomu 18 aplikacja powiększa kafelki poziomu 18.
 Aby dodać lub odtworzyć wyłącznie nowe poziomy, bez zapisywania kafelków 10–16:
 
@@ -52,8 +54,14 @@ Aby dodać lub odtworzyć wyłącznie nowe poziomy, bez zapisywania kafelków 10
 python scripts/maps/prepare_history.py /sciezka/do/skanu-strony-3.jpg --extend-high-zooms
 ```
 
-Ten tryb przed generowaniem sprawdza zgodność źródła, georeferencji i sum
-SHA-256 zachowywanych kafelków. Zastępuje wyłącznie poziomy 17–18.
+Aby odświeżyć wyłącznie poziomy 10–16, zachowując ostre kafelki 17–18:
+
+```sh
+python scripts/maps/prepare_history.py /sciezka/do/skanu-strony-3.jpg --refresh-low-zooms
+```
+
+Oba tryby przed generowaniem sprawdzają zgodność źródła, georeferencji i sum
+SHA-256 zachowywanych kafelków. Flagi wykluczają się wzajemnie.
 
 ## Źródło i dokładność
 

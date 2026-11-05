@@ -66,26 +66,37 @@ def georeference(config):
     return matrix, validation
 
 
-def render_detail_tile(image, transform):
+def render_detail_tile(image, transform, size=256):
     # Pillow premultiplies RGBA before transforming. Crop locally so each tile
     # processes hundreds of pixels, not the entire scan. Keep bicubic padding.
     transform = transform.copy()
-    footprint = project(np.array([[0, 0], [256, 0], [256, 256], [0, 256]]), transform)
+    footprint = project(np.array([[0, 0], [size, 0], [size, size], [0, size]]), transform)
     left, top = np.floor(footprint.min(axis=0)).astype(int) - 3
     right, bottom = np.ceil(footprint.max(axis=0)).astype(int) + 3
     with image.crop((left, top, right, bottom)) as source:
         transform[0] -= left * transform[2]
         transform[1] -= top * transform[2]
-        return source.transform((256, 256), Image.Transform.PERSPECTIVE,
+        return source.transform((size, size), Image.Transform.PERSPECTIVE,
                                 tuple(transform.ravel()[:8]), Image.Resampling.BICUBIC,
                                 fillcolor=(0, 0, 0, 0))
+
+
+def render_overview_tile(image, transform):
+    # Include 3 output pixels around the tile: Lanczos must see neighbours.
+    samples = transform @ np.array([[.5, 0, -3], [0, .5, -3], [0, 0, 1]])
+    samples /= samples[2, 2]
+    with render_detail_tile(image, samples, 524) as tile:
+        return tile.resize((262, 262), Image.Resampling.LANCZOS).crop((3, 3, 259, 259))
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('source', type=Path)
-    parser.add_argument('--extend-high-zooms', action='store_true',
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument('--extend-high-zooms', action='store_true',
                         help='Preserve and verify zooms 10–16; generate only zooms 17–18.')
+    modes.add_argument('--refresh-low-zooms', action='store_true',
+                       help='Regenerate zooms 10–16 with antialiasing; preserve and verify 17–18.')
     args = parser.parse_args()
     path = args.source
     config = json.loads((ROOT / 'scripts/maps/history-controls.json').read_text())
@@ -106,35 +117,40 @@ def main():
     output = ROOT / 'public/maps/rybnik-1932'
     output.mkdir(parents=True, exist_ok=True)
     manifest = {}
-    if args.extend_high_zooms:
+    incremental = args.extend_high_zooms or args.refresh_low_zooms
+    preserved_zooms = set(range(10, 17)) if args.extend_high_zooms else {17, 18}
+    if incremental:
         previous = json.loads((output / 'manifest.json').read_text())
         if (previous['sourceImageSha256'] != source_hash
                 or previous['bounds'] != bounds
                 or previous['projectivePixelToMercator'] != matrix.tolist()):
             raise ValueError('Existing tiles use a different scan or georeference; cannot extend.')
         for rel, digest in previous['tiles'].items():
-            if int(rel.split('/')[0]) <= 16:
+            if int(rel.split('/')[0]) in preserved_zooms:
                 if hashlib.sha256((output / rel).read_bytes()).hexdigest() != digest:
                     raise ValueError(f'Existing tile checksum differs: {rel}')
                 manifest[rel] = digest
-        if {int(rel.split('/')[0]) for rel in manifest} != set(range(10, 17)):
-            raise ValueError('Existing pyramid must contain zooms 10–16.')
+        if {int(rel.split('/')[0]) for rel in manifest} != preserved_zooms:
+            raise ValueError(f'Existing pyramid must contain zooms {sorted(preserved_zooms)}.')
     # Remove obsolete generated tiles when a changed extent no longer covers them.
     for stale in output.glob('*/*/*.webp'):
-        if not args.extend_high_zooms or int(stale.relative_to(output).parts[0]) > 16:
+        if not incremental or int(stale.relative_to(output).parts[0]) not in preserved_zooms:
             stale.unlink()
-    for z in range(17 if args.extend_high_zooms else 10, 19):
-        # Preserve the original low-zoom rendering; use every source pixel at 17–18.
-        if z in (10, 17):
-            image.close()
-            image = Image.open(path)
-            if z == 10:
-                image.draft('RGB', (8192, 8192))
-                image.thumbnail((8192, 8192), Image.Resampling.LANCZOS)
-            image = image.convert('RGBA')
-        factor_x, factor_y = image.width / original_width, image.height / original_height
+    for z in range(17 if args.extend_high_zooms else 10, 17 if args.refresh_low_zooms else 19):
         tile_meters = 2 * HALF_WORLD / 2 ** z
         resolution = tile_meters / 256
+        if z <= 17:
+            image.close()
+            image = Image.open(path)
+            if z <= 16:
+                # Average source details before the warp. Two samples per output
+                # pixel retain lines; a final Lanczos pass filters the warped tile.
+                width = max(np.linalg.norm(corners[1] - corners[0]), np.linalg.norm(corners[2] - corners[3]))
+                height = max(np.linalg.norm(corners[3] - corners[0]), np.linalg.norm(corners[2] - corners[1]))
+                image.thumbnail((max(1, math.ceil(2 * width / resolution)),
+                                 max(1, math.ceil(2 * height / resolution))), Image.Resampling.LANCZOS)
+            image = image.convert('RGBA')
+        factor_x, factor_y = image.width / original_width, image.height / original_height
         x0, x1 = math.floor((west + HALF_WORLD) / tile_meters), math.floor((east + HALF_WORLD) / tile_meters)
         y0, y1 = math.floor((HALF_WORLD - north) / tile_meters), math.floor((HALF_WORLD - south) / tile_meters)
         for x in range(x0, x1 + 1):
@@ -145,10 +161,7 @@ def main():
                 transform[0] *= factor_x
                 transform[1] *= factor_y
                 transform /= transform[2, 2]
-                if z >= 17:
-                    tile = render_detail_tile(image, transform)
-                else:
-                    tile = image.transform((256, 256), Image.Transform.PERSPECTIVE, tuple(transform.ravel()[:8]), Image.Resampling.BICUBIC, fillcolor=(0, 0, 0, 0))
+                tile = render_detail_tile(image, transform) if z >= 17 else render_overview_tile(image, transform)
                 rel = f'{z}/{x}/{y}.webp'
                 file = output / rel
                 file.parent.mkdir(parents=True, exist_ok=True)
