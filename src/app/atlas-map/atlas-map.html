@@ -1,20 +1,29 @@
 <div class="map-frame">
   <div #canvas class="map-canvas"></div>
   <div class="map-controls">
-    <fieldset class="layer-controls">
-      <legend class="sr-only">Warstwy mapy</legend>
-      <label class="layer-toggle"><input type="checkbox" class="toggle toggle-primary toggle-sm" [checked]="historyEnabled()" [disabled]="!historyAvailable || state() !== 'ready'" (change)="toggleHistory($event)" /><span>Plan z 1932 r.</span></label>
-      @if (historyAvailable) {
-        <div class="opacity-field" [class.layer-off]="!historyEnabled()">
-          <label for="history-opacity">Krycie planu <output for="history-opacity">{{ opacity() }}%</output></label>
-          <input id="history-opacity" class="range range-primary range-xs" type="range" min="0" max="100" step="1" [value]="opacity()" [disabled]="!historyEnabled() || state() !== 'ready'" [attr.aria-valuetext]="opacity() + ' procent'" (input)="changeOpacity($event)" />
-        </div>
-        <p class="layer-note">Dopasowanie przybliżone. Przerywana linia wyznacza zasięg planu.</p>
-        <button type="button" class="btn btn-ghost btn-sm coverage-button" [disabled]="!historyEnabled() || state() !== 'ready'" (click)="showCoverage()">Pokaż cały plan ↗</button>
-      } @else {
-        <p class="layer-note">Plan oczekuje na potwierdzenie możliwości publikacji.</p>
-      }
-    </fieldset>
+    <div class="layers-panel" [class.is-collapsed]="layerControlsCollapsed()">
+      <button type="button" class="btn btn-square layers-collapse" [attr.aria-label]="layerControlsCollapsed() ? 'Rozwiń ustawienia planu' : 'Zwiń ustawienia planu'" [attr.aria-expanded]="!layerControlsCollapsed()" aria-controls="history-layer-controls" (click)="toggleLayerControls()">
+        @if (layerControlsCollapsed()) {
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5Z"/><path d="M9 3v16M15 5v16"/></svg>
+        } @else {
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg>
+        }
+      </button>
+      <fieldset id="history-layer-controls" class="layer-controls">
+        <legend class="sr-only">Warstwy mapy</legend>
+        <label class="layer-toggle"><input type="checkbox" class="toggle toggle-primary toggle-sm" [checked]="historyEnabled()" [disabled]="!historyAvailable || state() !== 'ready'" (change)="toggleHistory($event)" /><span>Plan z 1932 r.</span></label>
+        @if (historyAvailable) {
+          <div class="opacity-field" [class.layer-off]="!historyEnabled()">
+            <label for="history-opacity">Krycie planu <output for="history-opacity">{{ opacity() }}%</output></label>
+            <input id="history-opacity" class="range range-primary range-xs" aria-label="Krycie planu" type="range" min="0" max="100" step="1" [value]="opacity()" [disabled]="!historyEnabled() || state() !== 'ready'" [attr.aria-valuetext]="opacity() + ' procent'" (input)="changeOpacity($event)" />
+          </div>
+          <p class="layer-note">Dopasowanie przybliżone. Przerywana linia wyznacza zasięg planu.</p>
+          <button type="button" class="btn btn-ghost btn-sm coverage-button" [disabled]="!historyEnabled() || state() !== 'ready'" (click)="showCoverage()">Pokaż cały plan ↗</button>
+        } @else {
+          <p class="layer-note">Plan oczekuje na potwierdzenie możliwości publikacji.</p>
+        }
+      </fieldset>
+    </div>
     <div class="navigation-controls" role="group" aria-label="Sterowanie mapą">
       <button type="button" class="btn btn-square" aria-label="Przybliż mapę" [disabled]="state() !== 'ready'" (click)="zoom(1)">+</button>
       <button type="button" class="btn btn-square" aria-label="Oddal mapę" [disabled]="state() !== 'ready'" (click)="zoom(-1)">−</button>

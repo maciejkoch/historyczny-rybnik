@@ -29,6 +29,7 @@ export class AtlasMap {
   readonly state = signal<'loading' | 'ready' | 'error'>('loading');
   readonly historyEnabled = signal(false);
   readonly opacity = signal(35);
+  readonly layerControlsCollapsed = signal(false);
   readonly historyError = signal(false);
   readonly outsideCoverage = signal(false);
   readonly historyAvailable = HISTORICAL_MAP.available;
@@ -41,7 +42,10 @@ export class AtlasMap {
   private generation = 0;
 
   constructor() {
-    afterNextRender(() => void this.initialize());
+    afterNextRender(() => {
+      this.restoreLayerPreferences();
+      void this.initialize();
+    });
     effect(() => {
       const selected = this.selected();
       this.markers.forEach((marker, i) =>
@@ -198,12 +202,49 @@ export class AtlasMap {
 
   toggleHistory(event: Event): void {
     this.historyEnabled.set((event.target as HTMLInputElement).checked);
+    this.saveLayerPreferences();
     this.applyHistory();
   }
 
   changeOpacity(event: Event): void {
     this.opacity.set(Number((event.target as HTMLInputElement).value));
+    this.saveLayerPreferences();
     this.applyHistory();
+  }
+
+  toggleLayerControls(): void {
+    this.layerControlsCollapsed.update((collapsed) => !collapsed);
+    this.saveLayerPreferences();
+  }
+
+  private restoreLayerPreferences(): void {
+    try {
+      const saved: unknown = JSON.parse(localStorage.getItem('historyczny-rybnik.layers.v1') ?? 'null');
+      if (!saved || typeof saved !== 'object') return;
+      if ('collapsed' in saved && typeof saved.collapsed === 'boolean') {
+        this.layerControlsCollapsed.set(saved.collapsed);
+      }
+      if ('enabled' in saved && typeof saved.enabled === 'boolean') {
+        this.historyEnabled.set(saved.enabled && this.historyAvailable);
+      }
+      if ('opacity' in saved && typeof saved.opacity === 'number' && Number.isFinite(saved.opacity)) {
+        this.opacity.set(Math.round(Math.max(0, Math.min(100, saved.opacity))));
+      }
+    } catch {
+      // Keep defaults when storage is unavailable or contains invalid JSON.
+    }
+  }
+
+  private saveLayerPreferences(): void {
+    try {
+      localStorage.setItem('historyczny-rybnik.layers.v1', JSON.stringify({
+        collapsed: this.layerControlsCollapsed(),
+        enabled: this.historyEnabled(),
+        opacity: this.opacity(),
+      }));
+    } catch {
+      // Controls remain usable when the browser blocks storage.
+    }
   }
 
   private applyHistory(): void {
