@@ -5,11 +5,12 @@ import {
   Directive,
   ElementRef,
   inject,
+  input,
   output,
   signal,
 } from '@angular/core';
 
-const MIN_WIDTH = 320;
+const MIN_WIDTH = 280;
 const DEFAULT_WIDTH = 410;
 const STORAGE_KEY = 'historyczny-rybnik.panel.v1';
 
@@ -24,6 +25,8 @@ const STORAGE_KEY = 'historyczny-rybnik.panel.v1';
   },
 })
 export class PanelLayout {
+  readonly side = input<'left' | 'right'>('left');
+  readonly split = input(false);
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly destroyRef = inject(DestroyRef);
   private readonly preferredWidth = signal(DEFAULT_WIDTH);
@@ -36,7 +39,10 @@ export class PanelLayout {
   readonly maxWidth = computed(() =>
     Math.max(
       MIN_WIDTH,
-      Math.min(Math.floor(this.viewportWidth() * 0.6), this.viewportWidth() - 328),
+      Math.min(
+        Math.floor(this.viewportWidth() * 0.6),
+        this.split() ? Math.floor((this.viewportWidth() - 336) / 2) : this.viewportWidth() - 328,
+      ),
     ),
   );
   readonly expandedWidth = computed(() => this.clamp(this.preferredWidth()));
@@ -52,15 +58,17 @@ export class PanelLayout {
 
   constructor() {
     afterNextRender(() => {
-      const media = window.matchMedia('(min-width: 741px)');
+      const media = window.matchMedia('(min-width: 1100px)');
       const syncViewport = () => {
         if (this.drag) this.finishResize(true);
-        this.viewportWidth.set(this.host.nativeElement.clientWidth);
+        this.viewportWidth.set(
+          this.host.nativeElement.closest('.atlas-shell')?.clientWidth ?? window.innerWidth,
+        );
         this.desktop.set(media.matches);
       };
       syncViewport();
       try {
-        const saved: unknown = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null');
+        const saved: unknown = JSON.parse(localStorage.getItem(this.storageKey()) ?? 'null');
         if (saved && typeof saved === 'object' && 'width' in saved && 'collapsed' in saved) {
           if (
             typeof saved.width === 'number' &&
@@ -118,7 +126,10 @@ export class PanelLayout {
 
   moveResize(event: PointerEvent): void {
     if (this.drag?.pointerId !== event.pointerId) return;
-    this.preferredWidth.set(this.clamp(this.drag.startWidth + event.clientX - this.drag.startX));
+    const direction = this.side() === 'right' ? -1 : 1;
+    this.preferredWidth.set(
+      this.clamp(this.drag.startWidth + direction * (event.clientX - this.drag.startX)),
+    );
   }
 
   stopResize(event: PointerEvent, cancel = false): void {
@@ -135,10 +146,10 @@ export class PanelLayout {
     let next: number;
     switch (event.key) {
       case 'ArrowLeft':
-        next = this.expandedWidth() - step;
+        next = this.expandedWidth() + (this.side() === 'right' ? step : -step);
         break;
       case 'ArrowRight':
-        next = this.expandedWidth() + step;
+        next = this.expandedWidth() + (this.side() === 'right' ? -step : step);
         break;
       case 'Home':
         next = MIN_WIDTH;
@@ -184,11 +195,15 @@ export class PanelLayout {
   private save(): void {
     try {
       localStorage.setItem(
-        STORAGE_KEY,
+        this.storageKey(),
         JSON.stringify({ width: this.preferredWidth(), collapsed: this.collapsed() }),
       );
     } catch {
       /* The controls remain usable when persistent storage is unavailable. */
     }
+  }
+
+  private storageKey(): string {
+    return this.side() === 'right' ? 'historyczny-rybnik.details-panel.v1' : STORAGE_KEY;
   }
 }

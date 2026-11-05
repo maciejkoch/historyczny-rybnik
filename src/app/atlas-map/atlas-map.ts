@@ -1,5 +1,6 @@
 import {
   afterNextRender,
+  afterRenderEffect,
   ChangeDetectionStrategy,
   Component,
   DestroyRef,
@@ -46,8 +47,9 @@ export class AtlasMap {
       this.restoreLayerPreferences();
       void this.initialize();
     });
-    effect(() => {
+    afterRenderEffect(() => {
       const selected = this.selected();
+      this.state();
       this.markers.forEach((marker, i) =>
         marker
           .getElement()
@@ -57,6 +59,8 @@ export class AtlasMap {
           ),
       );
       if (selected?.location.coordinates && this.map) {
+        // Panel selection changes the available map width in the same render.
+        this.map.resize();
         this.map.easeTo({
           center: [selected.location.coordinates.lng, selected.location.coordinates.lat],
           duration: this.motionDuration(),
@@ -219,7 +223,9 @@ export class AtlasMap {
 
   private restoreLayerPreferences(): void {
     try {
-      const saved: unknown = JSON.parse(localStorage.getItem('historyczny-rybnik.layers.v1') ?? 'null');
+      const saved: unknown = JSON.parse(
+        localStorage.getItem('historyczny-rybnik.layers.v1') ?? 'null',
+      );
       if (!saved || typeof saved !== 'object') return;
       if ('collapsed' in saved && typeof saved.collapsed === 'boolean') {
         this.layerControlsCollapsed.set(saved.collapsed);
@@ -227,7 +233,11 @@ export class AtlasMap {
       if ('enabled' in saved && typeof saved.enabled === 'boolean') {
         this.historyEnabled.set(saved.enabled && this.historyAvailable);
       }
-      if ('opacity' in saved && typeof saved.opacity === 'number' && Number.isFinite(saved.opacity)) {
+      if (
+        'opacity' in saved &&
+        typeof saved.opacity === 'number' &&
+        Number.isFinite(saved.opacity)
+      ) {
         this.opacity.set(Math.round(Math.max(0, Math.min(100, saved.opacity))));
       }
     } catch {
@@ -237,11 +247,14 @@ export class AtlasMap {
 
   private saveLayerPreferences(): void {
     try {
-      localStorage.setItem('historyczny-rybnik.layers.v1', JSON.stringify({
-        collapsed: this.layerControlsCollapsed(),
-        enabled: this.historyEnabled(),
-        opacity: this.opacity(),
-      }));
+      localStorage.setItem(
+        'historyczny-rybnik.layers.v1',
+        JSON.stringify({
+          collapsed: this.layerControlsCollapsed(),
+          enabled: this.historyEnabled(),
+          opacity: this.opacity(),
+        }),
+      );
     } catch {
       // Controls remain usable when the browser blocks storage.
     }

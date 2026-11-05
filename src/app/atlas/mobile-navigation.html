@@ -1,0 +1,24 @@
+<nav aria-label="Nawigacja atlasu">
+  <button
+    type="button"
+    class="btn btn-ghost"
+    [attr.aria-current]="view() === 'search' ? 'page' : null"
+    aria-controls="tresc"
+    (click)="searchRequested.emit()"
+  >
+    Szukaj
+  </button>
+  <button type="button" class="btn btn-ghost" aria-controls="mapa" (click)="mapRequested.emit()">
+    Mapa ↑
+  </button>
+  <button
+    type="button"
+    class="btn btn-ghost"
+    [disabled]="!hasPlace()"
+    [attr.aria-current]="view() === 'details' ? 'page' : null"
+    aria-controls="szczegoly"
+    (click)="detailsRequested.emit()"
+  >
+    Miejsce
+  </button>
+</nav>

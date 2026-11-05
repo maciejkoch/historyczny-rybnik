@@ -1,0 +1,128 @@
+h1 {
+  margin: 1rem 0 1.25rem;
+  font-size: clamp(2.3rem, 3vw, 3rem);
+  line-height: 1.13;
+  letter-spacing: -0.045em;
+}
+p {
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+.intro {
+  font-size: 1.125rem;
+}
+.divider {
+  margin: 2.1rem 0;
+  color: var(--color-line);
+}
+.section-number {
+  color: var(--color-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.13em;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-top: 0.7rem;
+}
+.muted {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+.map-link {
+  margin-top: 1.25rem;
+  width: 100%;
+  justify-content: space-between;
+  font-weight: 600;
+}
+.place-list {
+  padding: 0;
+  list-style: none;
+  margin: 1rem 0;
+}
+.place-button {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  text-align: left;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-line);
+  cursor: pointer;
+}
+.place-button:hover {
+  color: var(--color-primary);
+  background: var(--color-base-200);
+}
+.place-button small {
+  display: block;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  margin-top: 0.15rem;
+}
+.place-button > span:last-child {
+  margin-left: auto;
+}
+.place-number {
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-primary-content);
+}
+.search {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.reference {
+  border-top: 1px solid var(--color-line);
+  padding-block: 1rem;
+}
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.reference a {
+  text-decoration: underline;
+}
+.reference-image {
+  margin: 1.25rem 0;
+}
+.reference-image button {
+  display: block;
+  width: 100%;
+  cursor: zoom-in;
+  text-align: left;
+}
+.reference-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.reference-image button span {
+  display: block;
+  margin-top: 0.4rem;
+  text-decoration: underline;
+}
+.reference-image figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+:host {
+  display: block;
+}
+@media (max-width: 1099px) {
+  h1 {
+    font-size: 2rem;
+    margin-top: 0;
+  }
+}
+.place-button[aria-current='true'] {
+  background: var(--color-base-200);
+  color: var(--color-primary);
+}

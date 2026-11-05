@@ -18,7 +18,7 @@
 .map-message { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--color-base-100); padding: 1.2rem; border: 1px solid var(--color-line); border-radius: .65rem; width: min(340px, 85%); text-align: center; }
 .map-message h2 { font-size: 1.4rem; } .map-message p { margin: .7rem 0 1rem; line-height: 1.5; }
 .coverage-message { position: absolute; bottom: 3.5rem; left: 1rem; right: 1rem; padding: .65rem 1rem; border-radius: .5rem; background: var(--color-base-100); border: 1px solid var(--color-line); font-size: .85rem; width: fit-content; max-width: calc(100% - 2rem); }
-@media (max-width: 740px) {
+@media (max-width: 1099px) {
   .map-controls { inset: .75rem .75rem auto; gap: .6rem; }
   .layers-panel { width: min(225px, calc(100% - 60px)); }
   .layer-controls { padding: .35rem .65rem .65rem; }
