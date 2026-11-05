@@ -7,7 +7,7 @@ if (!appCheck || !idToken)
   throw new Error(
     'Provide APP_CHECK_TOKEN and Google FIREBASE_ID_TOKEN from a local authenticated test session',
   );
-const location = JSON.parse(readFileSync('data/places.seed.json', 'utf8'))[0].location;
+const location = JSON.parse(readFileSync('data/places.test-data.json', 'utf8'))[0].location;
 const invoke = async (name, data, headers = {}) => {
   const response = await fetch(
     `https://europe-central2-historyczny-rybnik.cloudfunctions.net/${name}`,

@@ -8,8 +8,8 @@ import {
   writeRequest,
   readRequest,
 } from '../src/validation.mjs';
-const seed = JSON.parse(readFileSync(new URL('../../data/places.seed.json', import.meta.url)));
-test('reviewed single church validates', () => assert.equal(validateCatalog(seed).length, 1));
+const testData = JSON.parse(readFileSync(new URL('../../data/places.test-data.json', import.meta.url)));
+test('reviewed single church validates', () => assert.equal(validateCatalog(testData).length, 1));
 test('image provenance rejects invalid URLs, hashes, rights dates and unknown fields', () => {
   const mutations = [
     (image) => (image.provenance.sourcePageUrl = 'http://example.org/source'),
@@ -24,7 +24,7 @@ test('image provenance rejects invalid URLs, hashes, rights dates and unknown fi
     (image) => delete image.provenance,
   ];
   for (const mutate of mutations) {
-    const data = structuredClone(seed);
+    const data = structuredClone(testData);
     const image = data[0].references.find((ref) => ref.images.length).images[0];
     mutate(image);
     assert.throws(() => validateCatalog(data));
@@ -44,7 +44,7 @@ test('reject unknown fields, invalid paths, oversized document, collisions', () 
     (p) => (p.references[0].url = 'javascript:alert(1)'),
     (p) => p.previousSlugs.push(p.slug),
   ]) {
-    const data = structuredClone(seed);
+    const data = structuredClone(testData);
     mutate(data[0]);
     assert.throws(() => validateCatalog(data));
   }
@@ -58,7 +58,7 @@ test('bounded read and strict write DTO, no removal', () => {
     { ids: ['a'], published: false },
   ])
     assert.throws(() => readRequest(data));
-  const value = { placeId: 'a', expectedLocationVersion: 0, location: seed[0].location };
+  const value = { placeId: 'a', expectedLocationVersion: 0, location: testData[0].location };
   writeRequest(value);
   for (const data of [
     { ...value, published: true },

@@ -7,7 +7,7 @@ copyFileSync(`${root}/404/index.html`, `${root}/404.html`);
 const home = readFileSync(`${root}/index.html`, 'utf8');
 assert.match(home, /Miasto zapisane/);
 assert.doesNotMatch(home, /Dane przykładowe/);
-const catalogue = JSON.parse(readFileSync('data/places.seed.json', 'utf8'));
+const catalogue = JSON.parse(readFileSync('data/places.test-data.json', 'utf8'));
 for (const place of catalogue) {
   const html = readFileSync(`${root}/miejsca/${place.slug}/index.html`, 'utf8');
   assert.ok(html.includes(place.name)); assert.ok(html.includes(place.description));
