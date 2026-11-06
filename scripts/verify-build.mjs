@@ -55,7 +55,7 @@ console.log(`Verified vector style and ${Object.keys(manifest.tiles).length} his
 
 const privacy = readFileSync(`${root}/prywatnosc/index.html`, 'utf8');
 assert.match(privacy, /Polityka prywatności i pliki cookie/);
-assert.match(privacy, /historyczny-rybnik.consent.v1/);
+assert.match(privacy, /180 dni/);
 assert.match(privacy, /noindex/);
 assert.doesNotMatch(home, /<script[^>]+src=[\"'][^\"']*(google|recaptcha)/);
 console.log('Verified static privacy page and no embedded Google scripts.');

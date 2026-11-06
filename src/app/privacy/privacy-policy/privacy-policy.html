@@ -3,9 +3,11 @@
   <p class="eyebrow">Historyczny Rybnik · wersja rozwojowa · 6 listopada 2026</p>
   <h1>Polityka prywatności i pliki cookie</h1>
   <p>
-    Historyczny Rybnik udostępnia mapę, opisy miejsc i materiały źródłowe. Ta informacja opisuje
-    obecną wersję dev.
+    Samodzielnie wybierasz, czy zapamiętamy ustawienia atlasu i włączymy pobieranie bieżących
+    pozycji miejsc przez usługi Google. Możesz odmówić i nadal korzystać z mapy, wyszukiwarki oraz
+    opisów. Nie używamy narzędzi reklamowych ani analitycznych.
   </p>
+
   <h2>Kto prowadzi serwis</h2>
   <p>
     Projekt prowadzi Maciej Koch. Kontakt w sprawie serwisu i prywatności:
@@ -13,52 +15,64 @@
       >zgłoszenie w repozytorium projektu</a
     >. Nie zamieszczaj danych osobowych w publicznym zgłoszeniu.
   </p>
-  <h2>Co działa bez opcjonalnych zgód</h2>
+
+  <h2>Co jest potrzebne do wyświetlenia atlasu</h2>
   <p>
-    Statyczne opisy, wyszukiwanie i mapa pozostają dostępne. Serwer Hosting, OpenFreeMap (kafelki i
-    glify mapy) oraz Firebase Storage (obrazy) otrzymują dane żądania, w tym adres IP i informacje
-    przeglądarki potrzebne do dostarczenia plików. Fonty, styl mapy i kafelki planu z 1932 r. są
-    serwowane lokalnie. Nie dodajemy narzędzi reklamowych ani analitycznych.
-  </p>
-  <h2>Decyzja o zgodach</h2>
-  <p>
-    Klucz <code>historyczny-rybnik.consent.v1</code> w localStorage zawiera wersję, datę i wybór
-    kategorii. Decyzja jest ważna przez 180 dni. Po wygaśnięciu, usunięciu danych lub zmianie wersji
-    zapytamy ponownie. Zablokowanie pamięci nie uniemożliwia korzystania z atlasu; wybór działa
-    wtedy w bieżącej karcie.
-  </p>
-  <h2>Opcjonalne zapamiętywanie ustawień</h2>
-  <p>
-    Po zgodzie localStorage przechowuje szerokość i zwinięcie paneli
-    (<code>historyczny-rybnik.panel.v1</code>, <code>historyczny-rybnik.details-panel.v1</code>)
-    oraz widoczność, krycie i zwinięcie warstw (<code>historyczny-rybnik.layers.v1</code>). Dane
-    pozostają do ich usunięcia lub cofnięcia zgody. Bez zgody zmiany działają tylko w sesji.
-    Cofnięcie zgody usuwa te klucze, zachowując bieżący widok.
-  </p>
-  <h2>Opcjonalne bieżące pozycje i usługi Google</h2>
-  <p>
-    Zgoda uruchamia Firebase App Check z reCAPTCHA Enterprise oraz API bieżących pozycji miejsc.
-    reCAPTCHA analizuje sygnały urządzenia i przeglądarki w celu ochrony przed nadużyciami; może
-    zapisać cookie <code>_GRECAPTCHA</code>. Firebase App Check przechowuje tokeny w IndexedDB (baza
-    <code>firebase-app-check-database</code>) i odświeża je automatycznie. Bez tej zgody pokazujemy
-    ostatnie opublikowane pozycje, które mogą być nieaktualne.
+    Gdy otwierasz atlas, dostawcy strony i zdjęć (Google Firebase) oraz mapy (OpenFreeMap) otrzymują
+    adres IP i informacje przesyłane przez przeglądarkę. Służą one dostarczeniu treści. Fonty i
+    historyczny plan Rybnika pobieramy razem z plikami naszej strony.
   </p>
   <p>
-    Wycofanie zgody przeładuje stronę i zatrzyma dalsze uruchamianie tych usług. Dane już przekazane
-    dostawcy nie zostaną cofnięte. Dane w domenach Google możesz usunąć w ustawieniach prywatności
-    przeglądarki; serwis nie ma dostępu do ich usunięcia.
+    Twój wybór zgód zapisujemy w przeglądarce na 180 dni. Po tym czasie lub po usunięciu danych
+    strony zapytamy ponownie. Jeśli przeglądarka blokuje zapis, wybór obowiązuje do zamknięcia lub
+    odświeżenia strony.
+  </p>
+
+  <h2>Zapamiętywanie ustawień — opcjonalne</h2>
+  <p>
+    Za Twoją zgodą zapamiętamy na tym urządzeniu układ i szerokość paneli oraz wybrane warstwy mapy
+    i ich przejrzystość. Ustawienia pozostają do ich usunięcia lub wycofania zgody. Bez zgody
+    również możesz je zmieniać, ale po ponownym otwarciu atlasu wrócą ustawienia domyślne.
+  </p>
+  <p>Cofnięcie zgody usuwa zapisane ustawienia. Bieżący widok pozostaje bez zmian.</p>
+
+  <h2>Bieżące pozycje miejsc — opcjonalne usługi Google</h2>
+  <p>
+    Za Twoją zgodą pobieramy aktualne pozycje miejsc. Dostęp chroni Google reCAPTCHA, która sprawdza
+    sygnały urządzenia i przeglądarki, aby ograniczać nadużycia. Google otrzymuje te dane i może
+    zapisywać pliki cookie oraz dane zabezpieczające w przeglądarce.
   </p>
   <p>
-    Informacje dostawców:
+    Bez tej zgody atlas pokazuje pozycje z ostatniej publikacji strony. Mogą być nieaktualne, ale
+    mapa, wyszukiwarka i opisy nadal działają.
+  </p>
+  <p>
+    Wycofanie zgody odświeży stronę i zatrzyma dalsze korzystanie z tej usługi. Nie cofnie danych
+    już przekazanych Google. Dane zapisane przez Google możesz usunąć w ustawieniach prywatności
+    przeglądarki.
+  </p>
+  <p>
+    Więcej informacji o przetwarzaniu danych przez dostawców:
     <a href="https://policies.google.com/privacy">polityka prywatności Google</a>,
-    <a href="https://policies.google.com/terms">warunki Google</a>,
-    <a href="https://openfreemap.org/privacy/">prywatność OpenFreeMap</a>. Kliknięcie zewnętrznego
-    źródła otwiera usługę z jej własnymi zasadami.
+    <a href="https://policies.google.com/terms">warunki Google</a> oraz
+    <a href="https://openfreemap.org/privacy/">polityka prywatności OpenFreeMap</a>. Zewnętrzne
+    strony ze źródłami mają własne zasady prywatności.
   </p>
-  <h2>Zmiana decyzji</h2>
+
+  <h2>Twoje prawa</h2>
   <p>
-    Ustawienia są dostępne w stopce atlasu i na tej stronie. Odrzucenie opcjonalnych kategorii jest
-    dostępne tym samym przyciskiem co w banerze.
+    Jeśli przetwarzamy Twoje dane osobowe, możesz zwrócić się o dostęp do nich, sprostowanie,
+    usunięcie lub ograniczenie przetwarzania, a w przypadkach przewidzianych prawem także o
+    przeniesienie danych albo wnieść sprzeciw. Zakres praw zależy od podstawy i okoliczności
+    przetwarzania. Możesz też złożyć skargę do
+    <a href="https://uodo.gov.pl/">Prezesa Urzędu Ochrony Danych Osobowych</a>.
+  </p>
+
+  <h2>Jak zmienić decyzję</h2>
+  <p>
+    W każdej chwili otwórz ustawienia prywatności w stopce atlasu lub przyciskiem z ikoną tarczy w
+    dolnym pasku na telefonie. Możesz zmienić wybrane opcje albo odrzucić wszystkie opcjonalne.
+    Zmiana zdania nie wpływa na zgodność z prawem wcześniejszego przetwarzania na podstawie zgody.
   </p>
   <button class="btn btn-primary" type="button" (click)="consent.openSettings()">
     Ustawienia prywatności
