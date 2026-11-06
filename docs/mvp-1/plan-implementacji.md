@@ -1,6 +1,6 @@
 # MVP.1 — plan implementacji
 
-Data: 5 listopada 2026. Status: **fazy 1–2 wdrożone i odebrane na dev — 5 listopada 2026**. [Zapis odbioru fazy 1](odbior-fazy-1.md).
+Data: 5 listopada 2026. Status: **fazy 1–3 wdrożone i odebrane na dev — 5 listopada 2026**. [Zapis odbioru fazy 1](odbior-fazy-1.md).
 
 Podstawa: [fazy wdrożenia](fazy-wdrozenia.md), [zakres produktu](README.md), [technika](technika.md), [model danych](model-danych.md), [UX/UI](ux-ui.md).
 
@@ -31,7 +31,7 @@ Nie blokujemy całej pracy wyborami potrzebnymi dopiero w późniejszej fazie.
 | Początek fazy 3 | Wybór jednego rzeczywistego kościoła | Sprawdzony adres i pozycja, opis, referencje oraz prawa do obrazów |
 | Przed API zapisu w fazie 3 | Kto może usuwać już ustawioną pozycję | Jedna reguła obowiązująca w API i interfejsie |
 
-Dla izolacji danych proponujemy osobny projekt testowy, zamiast rozdzielania danych dodatkowymi kolekcjami w produkcji. Konkretna konfiguracja wymaga rozstrzygnięcia przed fazą 3; nie tworzymy projektu w ramach pisania tego planu. Nie traktujemy wcześniejszej propozycji Enterprise ani Warszawy jako zatwierdzonego wyboru.
+Decyzja właściciela w fazie 3: jeden projekt `historyczny-rybnik`, wspólne Google Auth i billing, oddzielna baza `places-dev` Standard w Warszawie, bucket i Functions dev. Usuwanie pozycji przez API wyłączone. Zatwierdzono konto billingowe, alert 10 PLN i uprawnienia dedykowanych kont usług. [Konfiguracja](faza-3-infrastruktura.md), [odbiór](odbior-fazy-3.md).
 
 ## Faza 1 — podstawa i marka
 
@@ -65,19 +65,21 @@ Dla izolacji danych proponujemy osobny projekt testowy, zamiast rozdzielania dan
 
 **Zależności:** faza 2 i decyzje infrastrukturalne z tabeli. To pełna ścieżka danych miejsc; nie jest to import całego katalogu.
 
-- [ ] **3.1 Konfiguracja usług.** Zweryfikować aktualny stan projektu, instancje i edycję bazy przed utworzeniem zasobów. Skonfigurować Firestore, Storage, Functions, Authentication Google, App Check, domeny testowe i konta usług. Zapisać jawne identyfikatory środowisk oraz regiony. Oddzielić uprawnienia importu/CI od API użytkownika.
-- [ ] **3.2 Kontrakt miejsca i walidacja.** Zdefiniować model z `model-danych.md` oraz DTO odczytu i zapisu. Walidować wymagane pola, daty częściowe, slugi, współrzędne, referencje, rozmiar dokumentu i dozwolone pola aktualizacji. Nie dodawać kolejnych kolekcji.
-- [ ] **3.3 Import jednego kościoła.** Zweryfikować źródła i lokalizację wybranego obiektu. Przygotować plik wejściowy oraz prosty importer z trybem podglądu, stabilnym ID i ponawialnym zapisem. Zaimportować dokładnie jeden rzeczywisty dokument i jego dozwolone pliki. Usunąć dane przykładowe z wdrożonego katalogu. Dodatkowe warianty testowe trzymać lokalnie.
-- [ ] **3.4 Odczyt.** Wdrożyć API zwracające bieżącą pozycję, dokładność, wyjaśnienie, wersję i czas dla publicznych miejsc z katalogu frontendu. Egzekwować App Check, ograniczenia wejścia i odpowiedzi; nie ujawniać draftów ani prywatnych pól. Dane opisu i referencji dla SSG pobiera CI przez ścieżkę serwerową z właściwymi uprawnieniami.
-- [ ] **3.5 Zapis.** Wdrożyć callable zmiany lokalizacji: Auth + App Check, tylko istniejące publiczne miejsce, tylko dozwolone pola. Transakcja sprawdza `expectedLocationVersion`, zapisuje `location`, zwiększa wersję i ustawia `updatedAt`. Nie zapisuje autora, poprzednich wartości ani historii. Uwzględnić uzgodnioną regułę usuwania pozycji. API ma być sprawdzone przed końcem tej fazy, mimo braku interfejsu edycji.
-- [ ] **3.6 Dostęp do danych i plików.** Zamknąć bezpośredni zapis klienta do Firestore. Przyjąć serwerowy odczyt danych przez API, bez bezpośredniego dostępu przeglądarki do bazy. Publiczne wycinki udostępnić bez logowania, prywatne pliki pozostawić niedostępne. Backend weryfikuje uprawnienia niezależnie od reguł klienta. Napisać i sprawdzić niezbędne reguły dopiero w implementacji.
-- [ ] **3.7 SSG i routing.** Pobrać dane wejściowe jednego builda do lokalnego pliku CI. Wygenerować `/` i `/miejsca/:slug`, opisy, referencje, tytuły, canonical, Open Graph i sitemapę. Skonfigurować brak fallbacku do serwera, rzeczywiste 404 oraz przekierowania ze starych slugów. Szkielet mapy pozostaje częścią strony, sama mapa uruchamia się po stronie klienta.
-- [ ] **3.8 Wyszukiwanie i karta.** Generować lekki indeks nazw, aliasów, adresów i dzielnic. Filtrować lokalnie, normalizując wielkość liter i polskie znaki. Dodać listę wyników, pusty wynik, opis, referencje, daty, linki i powiększanie wycinków. Lista i karta zajmują ten sam panel; powrót odtwarza zapytanie i przewinięcie. URL i Wstecz/Dalej sterują wyborem bez niepotrzebnego tworzenia mapy od nowa.
-- [ ] **3.9 Deployment i odbiór.** Wdrożyć konfigurację usług, reguły, potrzebne indeksy, API i frontend preview. Utrzymać dokładnie jeden kościół w katalogu. Preview pozostaje `noindex`; testowe dane App Check nie są umieszczane w publicznym bundle.
+- [x] **3.1 Konfiguracja usług.** Zweryfikować aktualny stan projektu, instancje i edycję bazy przed utworzeniem zasobów. Skonfigurować Firestore, Storage, Functions, Authentication Google, App Check, domeny testowe i konta usług. Zapisać jawne identyfikatory środowisk oraz regiony. Oddzielić uprawnienia importu/CI od API użytkownika.
+- [x] **3.2 Kontrakt miejsca i walidacja.** Zdefiniować model z `model-danych.md` oraz DTO odczytu i zapisu. Walidować wymagane pola, daty częściowe, slugi, współrzędne, referencje, rozmiar dokumentu i dozwolone pola aktualizacji. Nie dodawać kolejnych kolekcji.
+- [x] **3.3 Import jednego kościoła.** Zweryfikować źródła i lokalizację wybranego obiektu. Przygotować plik wejściowy oraz prosty importer z trybem podglądu, stabilnym ID i ponawialnym zapisem. Zaimportować dokładnie jeden rzeczywisty dokument i jego dozwolone pliki. Usunąć dane przykładowe z wdrożonego katalogu. Dodatkowe warianty testowe trzymać lokalnie.
+- [x] **3.4 Odczyt.** Wdrożyć API zwracające bieżącą pozycję, dokładność, wyjaśnienie, wersję i czas dla publicznych miejsc z katalogu frontendu. Egzekwować App Check, ograniczenia wejścia i odpowiedzi; nie ujawniać draftów ani prywatnych pól. Dane opisu i referencji dla SSG pobiera CI przez ścieżkę serwerową z właściwymi uprawnieniami.
+- [x] **3.5 Zapis.** Wdrożyć callable zmiany lokalizacji: Auth + App Check, tylko istniejące publiczne miejsce, tylko dozwolone pola. Transakcja sprawdza `expectedLocationVersion`, zapisuje `location`, zwiększa wersję i ustawia `updatedAt`. Nie zapisuje autora, poprzednich wartości ani historii. Uwzględnić uzgodnioną regułę usuwania pozycji. API ma być sprawdzone przed końcem tej fazy, mimo braku interfejsu edycji.
+- [x] **3.6 Dostęp do danych i plików.** Zamknąć bezpośredni zapis klienta do Firestore. Przyjąć serwerowy odczyt danych przez API, bez bezpośredniego dostępu przeglądarki do bazy. Publiczne wycinki udostępnić bez logowania, prywatne pliki pozostawić niedostępne. Backend weryfikuje uprawnienia niezależnie od reguł klienta. Napisać i sprawdzić niezbędne reguły dopiero w implementacji.
+- [x] **3.7 SSG i routing.** Pobrać dane wejściowe jednego builda do lokalnego pliku CI. Wygenerować `/` i `/miejsca/:slug`, opisy, referencje, tytuły, canonical, Open Graph i sitemapę. Skonfigurować brak fallbacku do serwera, rzeczywiste 404 oraz przekierowania ze starych slugów. Szkielet mapy pozostaje częścią strony, sama mapa uruchamia się po stronie klienta.
+- [x] **3.8 Wyszukiwanie i karta.** Generować lekki indeks nazw, aliasów, adresów i dzielnic. Filtrować lokalnie, normalizując wielkość liter i polskie znaki. Dodać listę wyników, pusty wynik, opis, referencje, daty, linki i powiększanie wycinków. Lista i karta zajmują ten sam panel; powrót odtwarza zapytanie i przewinięcie. URL i Wstecz/Dalej sterują wyborem bez niepotrzebnego tworzenia mapy od nowa.
+- [x] **3.9 Deployment i odbiór.** Wdrożyć konfigurację usług, reguły, potrzebne indeksy, API i frontend preview. Utrzymać dokładnie jeden kościół w katalogu. Preview pozostaje `noindex`; testowe dane App Check nie są umieszczane w publicznym bundle.
 
 **Sprawdzenie:** celowane testy walidacji i transakcji w emulatorach obejmują brak Auth, draft, niedozwolone pola i dwa równoczesne zapisy. Na wdrożeniu osobno sprawdzić egzekwowanie App Check, ponieważ emulator nie zastępuje tej kontroli. Zapis bez interfejsu można sprawdzić lokalnym klientem testowym z prawidłowo uzyskanymi tokenami, bez publicznej furtki testowej.
 
 Sprawdzić surowy HTML bez JS, statusy HTTP, sitemapę, brak prywatnych danych w artefaktach, bezpośredni URL, odświeżenie i Wstecz/Dalej. Lokalnie sprawdzić miejsce bez pozycji i źródło bez skanu. Jeden kościół na preview musi przejść pełną ścieżkę wyszukania i odczytu. Po próbach API przywrócić jego sprawdzoną pozycję.
+
+**Odbiór:** [zapis fazy 3](odbior-fazy-3.md).
 
 **Wynik:** kompletna infrastruktura miejsc i działająca karta z wyszukiwaniem/SEO. Funkcje logowania i zapisu mają gotowy backend; ich docelowy interfejs powstaje w fazie 4.
 

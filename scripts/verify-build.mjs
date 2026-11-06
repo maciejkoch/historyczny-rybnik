@@ -6,7 +6,15 @@ const root = 'dist/historyczny-rybnik/browser';
 copyFileSync(`${root}/404/index.html`, `${root}/404.html`);
 const home = readFileSync(`${root}/index.html`, 'utf8');
 assert.match(home, /Miasto zapisane/);
-assert.match(home, /Dane przykładowe/);
+assert.doesNotMatch(home, /Dane przykładowe/);
+const catalogue = JSON.parse(readFileSync('data/places.test-data.json', 'utf8'));
+for (const place of catalogue) {
+  const html = readFileSync(`${root}/miejsca/${place.slug}/index.html`, 'utf8');
+  assert.ok(html.includes(place.name)); assert.ok(html.includes(place.description));
+  assert.match(html, /rel="canonical"/); assert.match(html, /og:title/);
+  for (const ref of place.references) assert.ok(html.includes(ref.title));
+}
+assert.match(readFileSync(`${root}/sitemap.xml`, 'utf8'), /bazylika-sw-antoniego/);
 assert.ok(existsSync(`${root}/maplibre/maplibre-gl-worker.mjs`));
 assert.ok(existsSync(`${root}/maps/rybnik-style.json`));
 assert.match(home, /noindex/);

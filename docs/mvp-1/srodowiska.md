@@ -10,7 +10,7 @@ Obie witryny używają oddzielnych wydań kanału live. Wdrożenie dev nie zmien
 
 Dev zachowuje blokadę indeksowania. Produkcyjne indeksowanie przygotujemy z wydaniem fazy 5. Poświadczenia pozostają w lokalnym Firebase CLI, CI sprawdza tylko instalację i build. Nie wdrożono automatyzacji publikacji po pushu.
 
-Na razie to izolacja frontendu. Przed fazą 3 należy utworzyć lub wybrać osobny projekt testowy i rozdzielić konfiguracje usług danych. Sam drugi adres Hosting nie oddziela Firestore, Auth, Functions ani Storage.
+W fazie 3 właściciel wybrał jeden projekt ze wspólnym Google Authentication. Dev ma osobną bazę `places-dev` (Standard, Warszawa), bucket `historyczny-rybnik-dev-files`, codebase Functions `places-dev` i konta usług ograniczone do bazy dev. Konta użytkowników i billing pozostają wspólne. Ta decyzja zastępuje wcześniejszą propozycję osobnego projektu testowego. [Konfiguracja fazy 3](faza-3-infrastruktura.md).
 
 [Dokumentacja Firebase: wiele witryn](https://firebase.google.com/docs/hosting/multisites).
 

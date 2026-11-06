@@ -53,3 +53,8 @@ Thumbs.db
 # Offline map preparation
 __pycache__/
 *.pyc
+
+# Local snapshots and credentials
+.local/
+functions/node_modules/
+*-debug.log

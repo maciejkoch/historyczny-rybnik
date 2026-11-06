@@ -59,11 +59,27 @@ Przykład jest fikcyjny. `placeId` to trwały identyfikator dokumentu, niezależ
       "note": null,
       "images": [
         {
-          "storagePath": "places/place_example/ref_01/wycinek-v1.webp",
-          "thumbnailPath": "places/place_example/ref_01/miniatura-v1.webp",
+          "storagePath": "public/places/place_example/ref_01/wycinek-v1.webp",
+          "thumbnailPath": "public/places/place_example/ref_01/miniatura-v1.webp",
           "alt": "Wycinek spisu z wpisem dotyczącym szkoły",
           "credit": "Nazwa archiwum lub autora",
-          "rights": "Informacja o licencji lub innej podstawie publikacji"
+          "rights": "Domena publiczna",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "thumbnailSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "provenance": {
+            "title": "Tytuł skanu",
+            "sourcePageUrl": "https://example.org/skan/17",
+            "originalCollectionUrl": "https://example.org/kolekcja/1",
+            "originalImageUrl": "https://example.org/oryginal.jpg",
+            "originalSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "author": "Autor nieznany",
+            "dateNote": "Rok wydania 1932; data fotografii nieustalona",
+            "license": "Public domain",
+            "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+            "copyrighted": false,
+            "rightsCheckedAt": "2026-11-05",
+            "transformations": "Zmniejszenie i kompresja; bez retuszu"
+          }
         }
       ]
     }
@@ -103,7 +119,7 @@ Kilka różnych miejsc może mieć ten sam adres i współrzędne. Gdy rozróżn
 
 Każdy zalogowany może ustawić lub poprawić pozycję istniejącego publicznego miejsca. Zmiana jest od razu publiczna. Nowe wskazanie domyślnie jest przybliżone. Backend sprawdza poprawność współrzędnych i danych, a użytkownik zatwierdza podgląd przed zapisem.
 
-Szczegół uprawnień do całkowitego usunięcia pozycji pozostaje do ustalenia; nie wprowadzamy ograniczenia do administratora jako zatwierdzonej decyzji.
+Decyzja fazy 3: API użytkownika nie pozwala usuwać pozycji. Każdy zalogowany przez Google może ustawić lub poprawić pozycję, z wyjaśnieniem i kontrolą wersji. Nie wprowadzamy dodatkowej roli administratora do tego przepływu.
 
 ## 5. Referencje i daty
 
@@ -123,7 +139,11 @@ Brak daty oznacza `null`; samego roku nie zamieniamy na 1 stycznia. Daty wydania
 
 ## 6. Pliki w Storage
 
-Wycinki i miniatury przechowujemy np. pod `places/{placeId}/{referenceId}/...`. Ich ścieżki, podpisy, tekst alternatywny i podstawa wykorzystania są zapisane bezpośrednio w referencji.
+Wycinki i miniatury przechowujemy pod `public/places/{placeId}/{referenceId}/...` w Storage. Ich ścieżki, podpisy, tekst alternatywny i podstawa wykorzystania są zapisane w `references[].images[]` dokumentu miejsca.
+
+Każdy obraz zawiera `sha256` i `thumbnailSha256` publikowanych wariantów oraz obiekt `provenance`: tytuł, stronę źródłową, kolekcję oryginału, URL i SHA-256 oryginału, autora, wyjaśnienie datowania, nazwę i URL licencji lub oznaczenia praw, status `copyrighted`, datę sprawdzenia `rightsCheckedAt` (`YYYY-MM-DD`) i opis przekształceń `transformations`. Nieznanego autora lub datowania nie uzupełniamy domysłem — niepewność opisujemy tekstowo. Wszystkie te pola są publiczne.
+
+Dane te zapisujemy w Firestore przez importer; `data/places.test-data.json` zawiera dane testowe dla testów i buildów CI; może też służyć do jawnego importu testowego na dev. Wdrożenie dev pobiera aktualny snapshot Firestore. Nie utrzymujemy osobnego manifestu assetów ani pliku JSON z metadanymi źródła. Pliki binarne są w Storage, poza repozytorium. Do ponownego uploadu operator dostarcza lokalne kopie; skrypt sprawdza ich sumy względem dokumentu miejsca.
 
 - Nie zapisujemy obrazów jako base64 w Firestore.
 - Referencja może mieć sam opis i link, bez plików.
@@ -159,7 +179,7 @@ Bezpośredni zapis z przeglądarki do Firestore jest zamknięty. API zwraca tylk
 
 Komentarze, zgłoszenia źródeł i zdjęcia użytkowników zaprojektujemy, gdy wejdą do zakresu prac. Zachowujemy ustaloną zasadę: przyszłe materiały użytkowników wymagają redaktora, a obecne poprawki lokalizacji są natychmiastowe. Teraz nie tworzymy dla tych przyszłych funkcji kolekcji ani paneli.
 
-Edycja Firestore i region pozostają osobną decyzją infrastrukturalną. Model nie wymaga Enterprise ani funkcji zaawansowanego wyszukiwania. Nie utrzymujemy wcześniejszej rekomendacji Enterprise jako zatwierdzonego wyboru. Nie utworzono w tym kroku bazy ani Storage.
+Decyzja fazy 3: Firestore Standard, baza `places-dev` w `europe-central2`. Utworzono oddzielny bucket dev w tym samym regionie. [Konfiguracja i konta usług](faza-3-infrastruktura.md).
 
 Pilnujemy rozmiaru dokumentu: limit Firestore Native wynosi 1 MiB. Przy imporcie sprawdzamy wielkość i odrzucamy zbyt duże rekordy; nie usuwamy danych po cichu. Jeżeli realne referencje zaczną zbliżać się do limitu, dopiero wtedy rozważymy ich wydzielenie do podkolekcji.
 

@@ -1,0 +1,54 @@
+{
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "places-dev",
+      "runtime": "nodejs22",
+      "ignore": ["node_modules", "test", "*.log"]
+    }
+  ],
+  "firestore": [
+    {
+      "database": "places-dev",
+      "rules": "firestore.rules",
+      "indexes": "firestore.indexes.json"
+    }
+  ],
+  "emulators": {
+    "firestore": {
+      "port": 8185
+    },
+    "auth": {
+      "port": 9099
+    },
+    "functions": {
+      "port": 5001
+    },
+    "storage": {
+      "port": 9295
+    },
+    "ui": {
+      "enabled": false
+    },
+    "singleProjectMode": true
+  },
+  "storage": [
+    {
+      "target": "places-dev",
+      "rules": "storage.rules"
+    }
+  ],
+  "auth": {
+    "providers": {
+      "googleSignIn": {
+        "oAuthBrandDisplayName": "Historyczny Rybnik",
+        "supportEmail": "maciejkoch90@gmail.com",
+        "authorizedRedirectUris": [
+          "https://historyczny-rybnik.firebaseapp.com/__/auth/handler",
+          "https://historyczny-rybnik-dev.web.app/__/auth/handler",
+          "http://localhost"
+        ]
+      }
+    }
+  }
+}

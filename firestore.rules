@@ -1,0 +1,8 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // places includes public content and drafts. Only the Admin SDK API and
+    // separately authorized importer/build identities may access this database.
+    match /{document=**} { allow read, write: if false; }
+  }
+}
