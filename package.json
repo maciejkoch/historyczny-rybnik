@@ -13,10 +13,11 @@
     "places:prepare": "node scripts/places/prepare.mjs",
     "places:import": "node scripts/places/import.mjs",
     "places:snapshot": "node scripts/places/snapshot.mjs",
-    "test": "npm --prefix functions test",
+    "test": "npm run check:contracts && npm --prefix functions test",
     "test:emulator": "firebase emulators:exec --config firebase.backend.dev.json --project demo-historyczny-rybnik --only firestore,storage \"npm --prefix functions run test:emulator\"",
     "deploy:backend:dev": "firebase deploy --config firebase.backend.dev.json --project historyczny-rybnik --only functions:places-dev,firestore:places-dev,storage:places-dev,auth",
-    "places:upload-assets": "node scripts/places/upload-assets.mjs"
+    "places:upload-assets": "node scripts/places/upload-assets.mjs",
+    "check:contracts": "tsc -p tsconfig.contracts.json"
   },
   "private": true,
   "packageManager": "npm@12.0.2",
@@ -34,7 +35,8 @@
     "firebase": "12.19.0",
     "maplibre-gl": "6.16.0",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "zod": "4.6.6"
   },
   "devDependencies": {
     "@angular/build": "22.2.5",

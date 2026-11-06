@@ -1,5 +1,6 @@
 import { HttpsError } from 'firebase-functions/v2/https';
 import { FieldValue, GeoPoint } from 'firebase-admin/firestore';
+import { locationDtoSchema, readResponseSchema } from './contracts/places.mjs';
 import { readRequest, writeRequest, ValidationError } from './validation.mjs';
 const fail = (code, message) => {
   throw new HttpsError(code, message);
@@ -8,8 +9,18 @@ function validate(fn, data) {
   try {
     return fn(data);
   } catch (error) {
-    if (error instanceof ValidationError) fail('invalid-argument', error.message);
+    if (error instanceof ValidationError)
+      throw new HttpsError('invalid-argument', 'Invalid request', {
+        issues: error.issues.map(({ path, code }) => ({ path, code })),
+      });
     throw error;
+  }
+}
+function serverResponse(parse) {
+  try {
+    return parse();
+  } catch {
+    fail('internal', 'Invalid location data');
   }
 }
 export function requireApp(request) {
@@ -18,7 +29,7 @@ export function requireApp(request) {
 export function locationDto(snapshot) {
   const value = snapshot.data();
   const point = value.location.coordinates;
-  return {
+  return locationDtoSchema.parse({
     id: snapshot.id,
     location: {
       coordinates: point ? { lat: point.latitude, lng: point.longitude } : null,
@@ -27,15 +38,17 @@ export function locationDto(snapshot) {
     },
     locationVersion: value.locationVersion,
     updatedAt: value.updatedAt.toDate().toISOString(),
-  };
+  });
 }
 export async function readLocations(db, request) {
   requireApp(request);
   const ids = validate(readRequest, request.data);
   const docs = await db.getAll(...ids.map((id) => db.collection('places').doc(id)));
-  return {
-    places: docs.filter((doc) => doc.exists && doc.data().published === true).map(locationDto),
-  };
+  return serverResponse(() =>
+    readResponseSchema.parse({
+      places: docs.filter((doc) => doc.exists && doc.data().published === true).map(locationDto),
+    }),
+  );
 }
 export async function updateLocation(db, request) {
   requireApp(request);
@@ -60,5 +73,6 @@ export async function updateLocation(db, request) {
     });
   });
   // A later concurrent edit may already be visible: this is current state, not a request receipt.
-  return locationDto(await ref.get());
+  const saved = await ref.get();
+  return serverResponse(() => locationDto(saved));
 }

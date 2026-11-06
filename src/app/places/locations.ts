@@ -12,21 +12,26 @@ export class Locations {
       { initializeApp, getApps },
       { initializeAppCheck, ReCaptchaEnterpriseProvider },
       { getFunctions, httpsCallable },
+      { parseReadResponse, readRequestSchema },
     ] = await Promise.all([
       import('firebase/app'),
       import('firebase/app-check'),
       import('firebase/functions'),
+      import('../../../functions/src/contracts/places.mjs'),
     ]);
     const app = getApps()[0] ?? initializeApp(FIREBASE_DEV.firebase);
     initializeAppCheck(app, {
       provider: new ReCaptchaEnterpriseProvider(FIREBASE_DEV.appCheckSiteKey),
       isTokenAutoRefreshEnabled: true,
     });
-    const read = httpsCallable<{ ids: string[] }, { places: LocationDto[] }>(
+    const read = httpsCallable<{ ids: string[] }, unknown>(
       getFunctions(app, 'europe-central2'),
       'placesDevRead',
     );
-    return async () => (await read({ ids: PLACES.map((p) => p.id) })).data.places;
+    return async () => {
+      const request = readRequestSchema.parse({ ids: PLACES.map((p) => p.id) });
+      return parseReadResponse((await read(request)).data, request.ids).places;
+    };
   }
   async refresh(): Promise<void> {
     this.status.set('loading');

@@ -1,10 +1,13 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { publicCatalogSchema } from '../../functions/src/contracts/places.mjs';
 import { validateCatalog } from '../../functions/src/validation.mjs';
 // Build input is a single validated snapshot. Never copy private document fields.
 export function publicCatalog(input) {
-  return validateCatalog(input)
-    .filter((place) => place.published)
-    .map(({ published, createdAt, ...place }) => place);
+  return publicCatalogSchema.parse(
+    validateCatalog(input)
+      .filter((place) => place.published)
+      .map(({ published, createdAt, ...place }) => place),
+  );
 }
 export function generate(input) {
   const places = publicCatalog(input);
