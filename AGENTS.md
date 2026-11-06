@@ -7,3 +7,8 @@
 - Obecnie rozdzielono frontend. Przed dodaniem backendu w fazie 3 rozdziel projekty i konfiguracje usług testowych oraz produkcyjnych; oddzielne witryny Hosting nie izolują bazy ani Auth.
 
 Szczegóły: [środowiska](docs/mvp-1/srodowiska.md).
+
+# Zadania GitHub Projects
+
+- Projektowe skille znajdują się w `.agents/skills`: `rybnik-create-task` tworzy zadania, a `rybnik-start-task` rozpoczyna i wznawia pracę. [Użycie i ograniczenia](docs/agent/skille-github-projects.md).
+- Skille odczytują aktualne zasady z tego pliku i dokumentacji. Planowanych środowisk ani pól tablicy nie traktuj jako wdrożonych; brak zależności lub rezerwacji zgłoś przed zależną operacją.

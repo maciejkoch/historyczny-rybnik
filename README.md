@@ -21,6 +21,10 @@ Implementacja MVP.1, budowanego od zera. Faza 1 dostarcza statyczny szkielet Ang
 
 ## Uruchomienie
 
+Obsługę zadań GitHub Projects wspierają projektowe skille
+`rybnik-create-task` i `rybnik-start-task`.
+[Instalacja, użycie i ograniczenia](docs/agent/skille-github-projects.md).
+
 Wymagany Node zgodny z `.nvmrc` (22.23.2) oraz npm 12.0.2.
 
 ```sh
