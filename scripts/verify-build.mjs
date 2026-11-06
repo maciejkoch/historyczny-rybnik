@@ -36,6 +36,12 @@ console.log('Verified prerendered home, custom 404, brand and preview indexing p
 const style = JSON.parse(readFileSync(`${root}/maps/rybnik-style.json`, 'utf8'));
 assert.deepEqual(validateStyleMin(style), [], 'MapLibre style must be valid');
 const manifest = JSON.parse(readFileSync(`${root}/maps/rybnik-1932/manifest.json`, 'utf8'));
+assert.equal(manifest.maxzoom, 18, 'Historical pyramid must support zoom 18');
+assert.deepEqual(
+  [...new Set(Object.keys(manifest.tiles).map(path => Number(path.split('/')[0])))].sort((a, b) => a - b),
+  Array.from({ length: 9 }, (_, index) => index + 10),
+  'Historical pyramid must contain every zoom from 10 to 18',
+);
 assert.deepEqual(
   readdirSync(`${root}/maps/rybnik-1932`, { recursive: true }).filter(path => path.endsWith('.webp')).sort(),
   Object.keys(manifest.tiles).sort(),
