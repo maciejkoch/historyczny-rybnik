@@ -1,4 +1,4 @@
-import { Consent } from '../privacy/consent';
+import { Consent } from '../../privacy/consent';
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -11,6 +11,6 @@ import { RouterLink } from '@angular/router';
 })
 export class MobileNavigation {
   readonly consent = inject(Consent);
-  readonly view = input<'map' | 'search' | 'place'>('map');
+  readonly view = input<'map' | 'search' | 'place' | 'privacy'>('map');
   readonly query = input('');
 }

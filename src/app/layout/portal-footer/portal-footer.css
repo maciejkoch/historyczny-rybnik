@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem 1.4rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

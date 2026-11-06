@@ -55,3 +55,10 @@ Właściciel wyraźnie wybrał pozostawienie GitHub Issues jako kanału kontaktu
 Dane o retencji dostawców oparto na ich dokumentacji: Google Hosting przechowuje adresy IP przez kilka miesięcy; OpenFreeMap logi błędów przez 7 dni, a adresy zbierane przy incydentach do 30 dni. Nie utożsamiamy 180-dniowej ważności własnej decyzji ze wszystkimi cookies i danymi Google. Konfiguracja konkretnego projektu i umowy z dostawcami nadal wymagają weryfikacji przed potwierdzeniem pełnej zgodności produkcji.
 
 Źródła: [prywatność Firebase](https://firebase.google.com/support/privacy), [retencja Google](https://policies.google.com/technologies/retention?hl=pl), [transfery Google](https://policies.google.com/privacy/frameworks?hl=pl), [prywatność OpenFreeMap](https://openfreemap.org/privacy/).
+
+
+### Wspólny układ stron — 6 listopada 2026
+
+Nagłówek z logo i oznaczeniem wersji, stopka oraz mobilna nawigacja są współdzielone przez mapę/wyszukiwarkę i stronę prywatności. Ich źródła znajdują się w `src/app/layout/portal-header`, `portal-footer` i `mobile-navigation`. Strona prywatności ma czytelną kolumnę treści oraz te same odstępy i elementy marki co wyszukiwarka; stopka i nawigacja otwierają ten sam dialog ustawień.
+
+Odbiór: porównano strony na telefonie 390×844, przejście Szukaj/Prywatność, otwarcie i zamknięcie ustawień ze stopki oraz zwinięcie/rozwinięcie wyszukiwarki na desktopie. Wspólny nagłówek zachowuje obserwację wysokości i wariant zwiniętego panelu. Build i prerender pięciu tras zaliczone.

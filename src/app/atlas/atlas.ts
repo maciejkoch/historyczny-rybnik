@@ -13,13 +13,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  NavigationStart,
-  Router,
-  RouterLink,
-} from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { Meta, Title } from '@angular/platform-browser';
 import { Consent } from '../privacy/consent';
@@ -30,16 +24,19 @@ import { Locations } from '../places/locations';
 import { normalizeSearch, Place } from '../places/place';
 import { PlaceSearchPanel } from './place-search-panel';
 import { PlaceDetailsPanel } from './place-details-panel';
-import { MobileNavigation } from './mobile-navigation';
+import { MobileNavigation } from '../layout/mobile-navigation/mobile-navigation';
+import { PortalHeader } from '../layout/portal-header/portal-header';
+import { PortalFooter } from '../layout/portal-footer/portal-footer';
 @Component({
   selector: 'app-atlas',
   imports: [
-    RouterLink,
     AtlasMap,
     PanelLayout,
     PlaceSearchPanel,
     PlaceDetailsPanel,
     MobileNavigation,
+    PortalHeader,
+    PortalFooter,
   ],
   templateUrl: './atlas.html',
   styleUrls: ['./atlas.css', './atlas-mobile.css'],
@@ -106,7 +103,9 @@ export class Atlas {
   private readonly searchPanel = viewChild<ElementRef<HTMLElement>>('searchPanel');
   private readonly detailsPanel = viewChild<ElementRef<HTMLElement>>('detailsPanel');
   private readonly mapRegion = viewChild<ElementRef<HTMLElement>>('mapRegion');
-  private readonly brandHeader = viewChild<ElementRef<HTMLElement>>('brandHeader');
+  private readonly brandHeader = viewChild<PortalHeader, ElementRef<HTMLElement>>('brandHeader', {
+    read: ElementRef,
+  });
   private readonly searchLayout = viewChild<PanelLayout>('searchLayout');
   private readonly detailsLayout = viewChild<PanelLayout>('detailsLayout');
   private readonly scanDialog = viewChild<ElementRef<HTMLDialogElement>>('scanDialog');

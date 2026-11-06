@@ -10,19 +10,6 @@
   }
   .brand-header {
     grid-row: 1;
-    padding: 1rem 1.4rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  .brand {
-    font-size: 1.25rem;
-    padding: 0;
-  }
-  .preview-badge {
-    margin: 0;
   }
   .map-region {
     grid-row: 2;

@@ -5,41 +5,10 @@
 .atlas-shell {
   display: grid;
 }
-.brand-header {
-  position: relative;
-  padding: 1.5rem 1.4rem 1rem;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding-right: 1.8rem;
-  text-decoration: none;
-  font: 600 1.4rem/1.05 var(--font-display);
-}
-.brand img {
-  flex: 0 0 auto;
-  width: 60px;
-  height: auto;
-}
-.preview-badge {
-  margin-top: 1rem;
-  font-size: 0.72rem;
-  border-color: var(--color-line);
-  color: var(--color-muted);
-}
 .content-panel {
   padding: 1rem 1.4rem 2rem;
   min-width: 0;
   overflow-wrap: anywhere;
-}
-.panel-footer {
-  padding: 1rem 1.4rem;
-  border-top: 1px solid var(--color-line);
-  font-size: 0.8rem;
-  color: var(--color-muted);
-  display: flex;
-  justify-content: space-between;
 }
 .muted {
   color: var(--color-muted);
@@ -172,19 +141,6 @@
   .panel-footer,
   .details-header {
     flex: 0 0 auto;
-  }
-  .panel-collapsed .brand-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 0.4rem;
-  }
-  .panel-collapsed .brand {
-    padding: 0;
-  }
-  .panel-collapsed .brand img {
-    width: 40px;
   }
   .panel-collapsed .panel-toggle {
     position: static;
