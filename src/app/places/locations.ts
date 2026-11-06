@@ -1,11 +1,13 @@
-import { Injectable, signal } from '@angular/core';
+import { Consent } from '../privacy/consent';
+import { inject, Injectable, signal } from '@angular/core';
 import { PLACES } from './catalog.generated';
 import { LocationDto } from './place';
 import { FIREBASE_DEV } from './runtime-config';
 @Injectable({ providedIn: 'root' })
 export class Locations {
+  private readonly consent = inject(Consent);
   readonly current = signal<readonly LocationDto[]>([]);
-  readonly status = signal<'loading' | 'ready' | 'error'>('loading');
+  readonly status = signal<'loading' | 'ready' | 'error' | 'disabled'>('loading');
   private reader?: Promise<() => Promise<readonly LocationDto[]>>;
   private async initialize(): Promise<() => Promise<readonly LocationDto[]>> {
     const [
@@ -34,6 +36,10 @@ export class Locations {
     };
   }
   async refresh(): Promise<void> {
+    if (!this.consent.google()) {
+      this.status.set('disabled');
+      return;
+    }
     this.status.set('loading');
     try {
       this.reader ??= this.initialize();

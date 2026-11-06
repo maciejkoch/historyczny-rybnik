@@ -1,0 +1,66 @@
+<main>
+  <a routerLink="/">← Wróć do atlasu</a>
+  <p class="eyebrow">Historyczny Rybnik · wersja rozwojowa · 6 listopada 2026</p>
+  <h1>Polityka prywatności i pliki cookie</h1>
+  <p>
+    Historyczny Rybnik udostępnia mapę, opisy miejsc i materiały źródłowe. Ta informacja opisuje
+    obecną wersję dev.
+  </p>
+  <h2>Kto prowadzi serwis</h2>
+  <p>
+    Projekt prowadzi Maciej Koch. Kontakt w sprawie serwisu i prywatności:
+    <a href="https://github.com/maciejkoch/historyczny-rybnik/issues/new"
+      >zgłoszenie w repozytorium projektu</a
+    >. Nie zamieszczaj danych osobowych w publicznym zgłoszeniu.
+  </p>
+  <h2>Co działa bez opcjonalnych zgód</h2>
+  <p>
+    Statyczne opisy, wyszukiwanie i mapa pozostają dostępne. Serwer Hosting, OpenFreeMap (kafelki i
+    glify mapy) oraz Firebase Storage (obrazy) otrzymują dane żądania, w tym adres IP i informacje
+    przeglądarki potrzebne do dostarczenia plików. Fonty, styl mapy i kafelki planu z 1932 r. są
+    serwowane lokalnie. Nie dodajemy narzędzi reklamowych ani analitycznych.
+  </p>
+  <h2>Decyzja o zgodach</h2>
+  <p>
+    Klucz <code>historyczny-rybnik.consent.v1</code> w localStorage zawiera wersję, datę i wybór
+    kategorii. Decyzja jest ważna przez 180 dni. Po wygaśnięciu, usunięciu danych lub zmianie wersji
+    zapytamy ponownie. Zablokowanie pamięci nie uniemożliwia korzystania z atlasu; wybór działa
+    wtedy w bieżącej karcie.
+  </p>
+  <h2>Opcjonalne zapamiętywanie ustawień</h2>
+  <p>
+    Po zgodzie localStorage przechowuje szerokość i zwinięcie paneli
+    (<code>historyczny-rybnik.panel.v1</code>, <code>historyczny-rybnik.details-panel.v1</code>)
+    oraz widoczność, krycie i zwinięcie warstw (<code>historyczny-rybnik.layers.v1</code>). Dane
+    pozostają do ich usunięcia lub cofnięcia zgody. Bez zgody zmiany działają tylko w sesji.
+    Cofnięcie zgody usuwa te klucze, zachowując bieżący widok.
+  </p>
+  <h2>Opcjonalne bieżące pozycje i usługi Google</h2>
+  <p>
+    Zgoda uruchamia Firebase App Check z reCAPTCHA Enterprise oraz API bieżących pozycji miejsc.
+    reCAPTCHA analizuje sygnały urządzenia i przeglądarki w celu ochrony przed nadużyciami; może
+    zapisać cookie <code>_GRECAPTCHA</code>. Firebase App Check przechowuje tokeny w IndexedDB (baza
+    <code>firebase-app-check-database</code>) i odświeża je automatycznie. Bez tej zgody pokazujemy
+    ostatnie opublikowane pozycje, które mogą być nieaktualne.
+  </p>
+  <p>
+    Wycofanie zgody przeładuje stronę i zatrzyma dalsze uruchamianie tych usług. Dane już przekazane
+    dostawcy nie zostaną cofnięte. Dane w domenach Google możesz usunąć w ustawieniach prywatności
+    przeglądarki; serwis nie ma dostępu do ich usunięcia.
+  </p>
+  <p>
+    Informacje dostawców:
+    <a href="https://policies.google.com/privacy">polityka prywatności Google</a>,
+    <a href="https://policies.google.com/terms">warunki Google</a>,
+    <a href="https://openfreemap.org/privacy/">prywatność OpenFreeMap</a>. Kliknięcie zewnętrznego
+    źródła otwiera usługę z jej własnymi zasadami.
+  </p>
+  <h2>Zmiana decyzji</h2>
+  <p>
+    Ustawienia są dostępne w stopce atlasu i na tej stronie. Odrzucenie opcjonalnych kategorii jest
+    dostępne tym samym przyciskiem co w banerze.
+  </p>
+  <button class="btn btn-primary" type="button" (click)="consent.openSettings()">
+    Ustawienia prywatności
+  </button>
+</main>

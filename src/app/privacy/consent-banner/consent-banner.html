@@ -1,0 +1,89 @@
+@if (consent.ready() && !consent.decided()) {
+  <section class="consent-banner" role="region" aria-labelledby="consent-title">
+    <div>
+      <p class="eyebrow">Twoja prywatność</p>
+      <h2 id="consent-title">Ty wybierasz, co zapamiętujemy</h2>
+      <p>
+        Za Twoją zgodą zapamiętamy ustawienia atlasu i włączymy pobieranie bieżących pozycji z usług
+        Google (Firebase App Check i reCAPTCHA). Bez zgody możesz korzystać z mapy, wyszukiwarki i
+        opisów z ostatniego opublikowanego stanu.
+      </p>
+      <a routerLink="/prywatnosc">Polityka prywatności i pliki cookie</a>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn btn-outline" (click)="save(false, false)">
+        Odrzuć opcjonalne
+      </button>
+      <button type="button" class="btn btn-outline" (click)="save(true, true)">
+        Akceptuj wszystkie
+      </button>
+      <button type="button" class="btn btn-ghost" (click)="open()">Ustawienia</button>
+    </div>
+  </section>
+}
+@if (consent.ready() && consent.storageFailed()) {
+  <p class="storage-notice" role="status">
+    Przeglądarka blokuje zapis. Wybór obowiązuje w tej karcie; przy kolejnej wizycie możemy zapytać
+    ponownie.
+  </p>
+}
+<dialog
+  #settings
+  class="consent-dialog"
+  aria-labelledby="settings-title"
+  aria-describedby="settings-description"
+>
+  <h2 id="settings-title">Ustawienia prywatności</h2>
+  <p id="settings-description">
+    Opcjonalne kategorie są domyślnie wyłączone. Decyzję zmienisz w stopce.
+  </p>
+  <div class="category">
+    <h3>Niezbędne — zawsze aktywne</h3>
+    <p>
+      Zapis samej decyzji o zgodach przez 180 dni. Mapa korzysta z OpenFreeMap, a obrazy z Firebase
+      Storage. Nie używamy analityki ani reklam.
+    </p>
+  </div>
+  <label class="category">
+    <span
+      ><strong>Zapamiętywanie ustawień</strong
+      ><span>Układ i szerokość paneli oraz ustawienia warstw mapy na tym urządzeniu.</span></span
+    >
+    <input
+      type="checkbox"
+      class="checkbox"
+      [checked]="preferences()"
+      (change)="preferences.set($event.target.checked)"
+    />
+  </label>
+  <label class="category">
+    <span
+      ><strong>Bieżące pozycje — usługi Google</strong
+      ><span
+        >Firebase App Check i reCAPTCHA chronią odczyt aktualnych pozycji. Google może zapisywać
+        cookie i dane w pamięci przeglądarki. Wyłączenie tej zgody przeładuje stronę.</span
+      ></span
+    >
+    <input
+      type="checkbox"
+      class="checkbox"
+      [checked]="google()"
+      (change)="google.set($event.target.checked)"
+    />
+  </label>
+  <a routerLink="/prywatnosc" (click)="settings.close()">Polityka prywatności i pliki cookie</a>
+  <div class="actions">
+    <button type="button" class="btn btn-outline" (click)="save(false, false)">
+      Odrzuć opcjonalne
+    </button>
+    <button type="button" class="btn btn-outline" (click)="save(true, true)">
+      Akceptuj wszystkie
+    </button>
+    <button type="button" class="btn btn-primary" (click)="save(preferences(), google())">
+      Zapisz wybór
+    </button>
+    <button type="button" class="btn btn-ghost" (click)="settings.close()">
+      Zamknij bez zmian
+    </button>
+  </div>
+</dialog>

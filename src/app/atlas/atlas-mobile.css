@@ -72,11 +72,13 @@
   .screen-search .map-region,
   .atlas-shell:not(.screen-search) .search-panel,
   .atlas-shell:not(.screen-place):not(.sheet-animating) .details-sidebar,
-  .panel-footer,
   .panel-toggle,
   .panel-separator,
   .details-header {
     display: none;
+  }
+  .panel-footer {
+    grid-row: 4;
   }
   .details-jump {
     display: inline-flex;

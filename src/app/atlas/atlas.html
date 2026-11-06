@@ -52,6 +52,14 @@
         (queryChanged)="updateQuery($event)"
         (placeSelected)="select($event)"
       />
+      @if (locations.status() === 'disabled') {
+        <p class="muted">
+          Pokazujemy ostatnio opublikowane pozycje. Pobieranie bieżących pozycji włączysz w
+          <button type="button" class="privacy-settings" (click)="consent.openSettings()">
+            ustawieniach prywatności</button
+          >.
+        </p>
+      }
       @if (locations.status() === 'error') {
         <p role="status" class="muted">
           Bieżące pozycje są niedostępne. Mapa pokazuje ostatni dostępny stan; opisy i wyszukiwanie
@@ -60,7 +68,10 @@
       }
     </main>
     <footer id="panel-footer" class="panel-footer" [hidden]="searchLayout.isCollapsed()">
-      Cyfrowy atlas lokalnej pamięci <span aria-hidden="true">↗</span>
+      <a routerLink="/prywatnosc">Prywatność i cookies</a>
+      <button type="button" class="privacy-settings" (click)="consent.openSettings()">
+        Ustawienia prywatności
+      </button>
     </footer>
   </div>
   <div

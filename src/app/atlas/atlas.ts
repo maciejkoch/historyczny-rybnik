@@ -4,8 +4,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  effect,
   DestroyRef,
   ElementRef,
+  Injector,
   inject,
   signal,
   viewChild,
@@ -20,6 +22,7 @@ import {
 } from '@angular/router';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { Meta, Title } from '@angular/platform-browser';
+import { Consent } from '../privacy/consent';
 import { PanelLayout } from './panel-layout';
 import { AtlasMap } from '../atlas-map/atlas-map';
 import { PLACES } from '../places/catalog.generated';
@@ -43,6 +46,7 @@ import { MobileNavigation } from './mobile-navigation';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Atlas {
+  private readonly injector = inject(Injector);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly params = toSignal(this.route.data, { initialValue: this.route.snapshot.data });
@@ -51,6 +55,7 @@ export class Atlas {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   readonly locations = inject(Locations);
+  readonly consent = inject(Consent);
   readonly query = signal(this.route.snapshot.queryParamMap.get('q') ?? '');
   readonly screen = computed<'map' | 'search' | 'place'>(() => this.params()['screen'] ?? 'map');
   readonly hasDetails = computed(() => this.screen() === 'place');
@@ -144,7 +149,13 @@ export class Atlas {
       canonical.href = url;
     });
     afterNextRender(() => {
-      void this.locations.refresh();
+      effect(
+        () => {
+          this.consent.google();
+          void this.locations.refresh();
+        },
+        { injector: this.injector },
+      );
       const header = this.brandHeader()?.nativeElement;
       const observer = new ResizeObserver(() => {
         if (header) this.headerHeight.set(header.getBoundingClientRect().height);

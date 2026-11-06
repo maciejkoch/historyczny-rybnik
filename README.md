@@ -65,3 +65,7 @@ Szczegóły: [środowiska dev i produkcja](docs/mvp-1/srodowiska.md).
 MapLibre uruchamia się po stronie przeglądarki, po hydratacji; SSG generuje tekst i panel bez inicjalizacji WebGL. Własny styl wykorzystuje OpenFreeMap. Plan z 1932 r. pochodzi z domeny publicznej w Mazowieckiej Bibliotece Cyfrowej; własne kafelki są serwowane lokalnie. Przełącznik i suwak 0–100% zachowują kadr oraz wybór. Przykładowe punkty fazy 2 zastąpił w fazie 3 jeden rzeczywisty kościół. Bieżąca pozycja pochodzi z API, a opis i referencje są prerenderowane.
 
 [Źródła, prawa, koszt i odtwarzanie kafelków](docs/mvp-1/mapy-zrodla.md). [Odbiór fazy 2](docs/mvp-1/odbior-fazy-2.md).
+
+## Prywatność i zgody
+
+Baner pozwala osobno włączyć zapamiętywanie ustawień oraz bieżące pozycje z usług Google. Bez zgody atlas działa na opublikowanym snapshotcie. Ustawienia są dostępne w stopce i na telefonie. [Audyt, zachowanie i odbiór](docs/mvp-1/cookie-consent.md). Testy: `npm run test:privacy` (także część `npm test`).
