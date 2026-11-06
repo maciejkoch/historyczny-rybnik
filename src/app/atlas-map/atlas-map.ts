@@ -104,7 +104,7 @@ export class AtlasMap {
         style: '/maps/rybnik-style.json',
         ...camera,
         minZoom: 10,
-        maxZoom: 19,
+        maxZoom: 16.5,
         attributionControl: false,
         dragRotate: false,
         pitchWithRotate: false,
