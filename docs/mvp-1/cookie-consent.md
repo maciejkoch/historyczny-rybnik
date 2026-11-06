@@ -38,9 +38,20 @@ Aktualizacja 6 listopada 2026: treści użytkownika opisują cele, dane, dostawc
 - Art. 12 RODO wymaga prostego i zrozumiałego języka. Art. 13 określa informacje o administratorze, celach/podstawach, odbiorcach, retencji, prawach i ewentualnych transferach. Nazwy wewnętrznych kluczy i baz nie są wymaganym elementem banera. Okres 180 dni jest decyzją projektu, nie uniwersalnym terminem ustawowym.
 - Raport grupy EROD wskazuje łatwo dostępny link lub ikonę jako możliwe sposoby wycofania zgody; nie narzuca konkretnego symbolu.
 
-Przed uznaniem polityki za kompletną dla wydania produkcyjnego należy potwierdzić z właścicielem prywatny kanał kontaktu (obecny link prowadzi do publicznego GitHub), podstawy prawne poszczególnych operacji oraz rzeczywiste okresy/kryteria retencji logów i danych dostawców. Należy również ustalić występujące transfery poza EOG i odpowiednie zabezpieczenia. Linki do polityk dostawców nie zastępują własnego obowiązku informacyjnego administratora. Uproszczenie języka nie stanowi potwierdzenia pełnej zgodności prawnej.
+Przed uznaniem polityki za kompletną dla wydania produkcyjnego należy zweryfikować podstawy prawne poszczególnych operacji oraz rzeczywiste okresy/kryteria retencji logów i danych dostawców. Należy również ustalić występujące transfery poza EOG i odpowiednie zabezpieczenia. Linki do polityk dostawców nie zastępują własnego obowiązku informacyjnego administratora. Uproszczenie języka nie stanowi potwierdzenia pełnej zgodności prawnej.
 
 Źródła prawne (odczyt 6 listopada 2026):
 [Prawo komunikacji elektronicznej, art. 399–400](https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20240001221/U/D20241221Lj.pdf),
 [RODO, art. 7, 12–13](https://eur-lex.europa.eu/legal-content/PL/TXT/?uri=CELEX:32016R0679),
 [EROD, Cookie Banner Taskforce, pkt 31–35](https://www.edpb.europa.eu/system/files/2023-01/edpb_20230118_report_cookie_banner_taskforce_en.pdf).
+
+
+### Skrócenie do informacji prawnych — 6 listopada 2026
+
+Na zlecenie właściciela usunięto opisy paneli, przeładowania, sposobu publikacji danych i wewnętrznych zabezpieczeń. Treści używają określeń serwis/portal. Pozostawiono administratora, cele i zakres danych, podstawy przetwarzania, odbiorców, okresy/kryteria przechowywania, informację o transferach, dobrowolności i wycofaniu zgód oraz prawach. Art. 6 ust. 1 lit. f wskazuje interes w udostępnieniu i ochronie serwisu; opcjonalne przetwarzanie opiera się na zgodzie.
+
+Właściciel wyraźnie wybrał pozostawienie GitHub Issues jako kanału kontaktu. Zachowano ostrzeżenie, że zgłoszenia są publiczne i nie należy wpisywać danych osobowych.
+
+Dane o retencji dostawców oparto na ich dokumentacji: Google Hosting przechowuje adresy IP przez kilka miesięcy; OpenFreeMap logi błędów przez 7 dni, a adresy zbierane przy incydentach do 30 dni. Nie utożsamiamy 180-dniowej ważności własnej decyzji ze wszystkimi cookies i danymi Google. Konfiguracja konkretnego projektu i umowy z dostawcami nadal wymagają weryfikacji przed potwierdzeniem pełnej zgodności produkcji.
+
+Źródła: [prywatność Firebase](https://firebase.google.com/support/privacy), [retencja Google](https://policies.google.com/technologies/retention?hl=pl), [transfery Google](https://policies.google.com/privacy/frameworks?hl=pl), [prywatność OpenFreeMap](https://openfreemap.org/privacy/).

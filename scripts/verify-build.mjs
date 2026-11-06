@@ -54,7 +54,7 @@ for (const [path, digest] of Object.entries(manifest.tiles)) {
 console.log(`Verified vector style and ${Object.keys(manifest.tiles).length} historical tiles.`);
 
 const privacy = readFileSync(`${root}/prywatnosc/index.html`, 'utf8');
-assert.match(privacy, /Polityka prywatności i pliki cookie/);
+assert.match(privacy, /Prywatność i pliki cookie/);
 assert.match(privacy, /180 dni/);
 assert.match(privacy, /noindex/);
 assert.doesNotMatch(home, /<script[^>]+src=[\"'][^\"']*(google|recaptcha)/);

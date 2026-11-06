@@ -7,7 +7,7 @@ export const routes: Routes = [
   {
     path: 'prywatnosc',
     component: PrivacyPolicy,
-    title: 'Prywatność i pliki cookie — Historyczny Rybnik',
+    title: 'Prywatność — Historyczny Rybnik',
   },
   { path: '', pathMatch: 'full', component: Atlas, data: { screen: 'map' } },
   { path: 'szukaj', component: Atlas, data: { screen: 'search' } },
