@@ -1,0 +1,95 @@
+@media (max-width: 1099px) {
+  .atlas-shell {
+    align-content: start;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 100dvh;
+    padding-bottom: var(--mobile-toolbar-height);
+  }
+  .sidebar {
+    display: contents;
+  }
+  .brand-header {
+    grid-row: 1;
+    padding: 1rem 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .brand {
+    font-size: 1.25rem;
+    padding: 0;
+  }
+  .preview-badge {
+    margin: 0;
+  }
+  .map-region {
+    grid-row: 2;
+    height: calc(100dvh - var(--mobile-header-height, 74px) - var(--mobile-toolbar-height));
+  }
+  .content-panel {
+    padding: 1.25rem 1.4rem 2rem;
+  }
+  .search-panel,
+  .details-sidebar {
+    grid-row: 3;
+  }
+  .details-content {
+    padding-top: 1rem;
+  }
+  .sheet-open .map-region {
+    height: clamp(260px, 48svh, 520px);
+  }
+  .details-sidebar {
+    display: grid;
+    grid-template-rows: 0fr;
+  }
+  .sheet-open .details-sidebar {
+    grid-template-rows: 1fr;
+  }
+  .details-inner {
+    min-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  .sheet-open .details-inner {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .sheet-animating .map-region {
+    transition: height 280ms ease;
+  }
+  .sheet-animating .details-sidebar {
+    transition: grid-template-rows 280ms ease;
+  }
+  .sheet-animating .details-inner {
+    transition:
+      opacity 200ms ease,
+      transform 280ms ease;
+  }
+  .screen-search .map-region,
+  .atlas-shell:not(.screen-search) .search-panel,
+  .atlas-shell:not(.screen-place):not(.sheet-animating) .details-sidebar,
+  .panel-footer,
+  .panel-toggle,
+  .panel-separator,
+  .details-header {
+    display: none;
+  }
+  .details-jump {
+    display: inline-flex;
+    position: absolute;
+    bottom: 4rem;
+    right: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet-animating .map-region,
+  .sheet-animating .details-sidebar,
+  .sheet-animating .details-inner {
+    transition: none;
+  }
+}

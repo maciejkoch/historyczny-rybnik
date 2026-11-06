@@ -1,5 +1,6 @@
 import {
   afterNextRender,
+  afterRenderEffect,
   ChangeDetectionStrategy,
   Component,
   DestroyRef,
@@ -25,10 +26,14 @@ import { HISTORY_CORNERS } from './history-extent';
 export class AtlasMap {
   readonly places = input<readonly Place[]>([]);
   readonly selected = input<Place | null>(null);
+  readonly focusSelected = input(true);
+  readonly layoutAnimating = input(false);
   readonly placeSelected = output<Place>();
+  readonly backgroundClicked = output<void>();
   readonly state = signal<'loading' | 'ready' | 'error'>('loading');
   readonly historyEnabled = signal(false);
   readonly opacity = signal(35);
+  readonly layerControlsCollapsed = signal(false);
   readonly historyError = signal(false);
   readonly outsideCoverage = signal(false);
   readonly historyAvailable = HISTORICAL_MAP.available;
@@ -38,12 +43,19 @@ export class AtlasMap {
   private markers: Marker[] = [];
   private resizeObserver?: ResizeObserver;
   private loadingTimeout?: ReturnType<typeof setTimeout>;
+  private backgroundClickTimeout?: ReturnType<typeof setTimeout>;
   private generation = 0;
 
   constructor() {
-    afterNextRender(() => void this.initialize());
-    effect(() => {
+    afterNextRender(() => {
+      this.restoreLayerPreferences();
+      void this.initialize();
+    });
+    afterRenderEffect(() => {
       const selected = this.selected();
+      const focusSelected = this.focusSelected();
+      const layoutAnimating = this.layoutAnimating();
+      this.state();
       this.markers.forEach((marker, i) =>
         marker
           .getElement()
@@ -52,11 +64,14 @@ export class AtlasMap {
             String(marker.getElement().dataset['placeId'] === selected?.id),
           ),
       );
-      if (selected?.location.coordinates && this.map) {
+      if (focusSelected && selected?.location.coordinates && this.map) {
+        // Panel selection changes the available map width in the same render.
+        this.map.resize();
         this.map.easeTo({
           center: [selected.location.coordinates.lng, selected.location.coordinates.lat],
-          duration: this.motionDuration(),
+          duration: layoutAnimating ? 0 : this.motionDuration(),
         });
+        this.map.redraw();
       }
     });
     effect(() => {
@@ -93,6 +108,8 @@ export class AtlasMap {
         attributionControl: false,
         dragRotate: false,
         pitchWithRotate: false,
+        // Our observer renders every resize before paint, including panel transitions.
+        trackResize: false,
         canvasContextAttributes: { preserveDrawingBuffer: false },
       });
       this.map = map;
@@ -105,7 +122,11 @@ export class AtlasMap {
           'Mapa Rybnika. Strzałki przesuwają mapę, plus i minus zmieniają przybliżenie. Punkty można również wybrać z listy.',
         );
       map.touchZoomRotate.disableRotation();
-      this.resizeObserver = new ResizeObserver(() => map.resize());
+      this.resizeObserver = new ResizeObserver(([entry]) => {
+        if (!entry || entry.contentRect.width === 0 || entry.contentRect.height === 0) return;
+        // Resizing clears WebGL's drawing buffer; redraw synchronously to avoid a blank frame.
+        map.resize().redraw();
+      });
       this.resizeObserver.observe(this.container().nativeElement);
       this.loadingTimeout = setTimeout(() => {
         if (generation === this.generation && this.state() === 'loading') this.state.set('error');
@@ -122,6 +143,17 @@ export class AtlasMap {
         void this.renderMarkers();
       });
       map.on('moveend', () => this.updateCoverage());
+      const cancelBackgroundClick = () => clearTimeout(this.backgroundClickTimeout);
+      map.on('click', (event) => {
+        if (event.originalEvent.target !== map.getCanvas()) return;
+        cancelBackgroundClick();
+        // Distinguish a single tap from double-click/tap zoom, not animation timing.
+        this.backgroundClickTimeout = setTimeout(() => this.backgroundClicked.emit(), 300);
+      });
+      map.on('dblclick', cancelBackgroundClick);
+      map.on('movestart', cancelBackgroundClick);
+      map.on('zoomstart', cancelBackgroundClick);
+      map.on('dragstart', cancelBackgroundClick);
     } catch {
       if (!this.destroyRef.destroyed && generation === this.generation) this.state.set('error');
     }
@@ -147,7 +179,11 @@ export class AtlasMap {
         `${place.name} — ${place.location.precision === 'approximate' ? 'pozycja przybliżona' : 'budynek'}`,
       );
       button.setAttribute('aria-pressed', String(this.selected()?.id === place.id));
-      button.addEventListener('click', () => this.placeSelected.emit(place));
+      button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        clearTimeout(this.backgroundClickTimeout);
+        this.placeSelected.emit(place);
+      });
       this.markers.push(
         new Marker({ element: button }).setLngLat([point.lng, point.lat]).addTo(map),
       );
@@ -198,12 +234,58 @@ export class AtlasMap {
 
   toggleHistory(event: Event): void {
     this.historyEnabled.set((event.target as HTMLInputElement).checked);
+    this.saveLayerPreferences();
     this.applyHistory();
   }
 
   changeOpacity(event: Event): void {
     this.opacity.set(Number((event.target as HTMLInputElement).value));
+    this.saveLayerPreferences();
     this.applyHistory();
+  }
+
+  toggleLayerControls(): void {
+    this.layerControlsCollapsed.update((collapsed) => !collapsed);
+    this.saveLayerPreferences();
+  }
+
+  private restoreLayerPreferences(): void {
+    try {
+      const saved: unknown = JSON.parse(
+        localStorage.getItem('historyczny-rybnik.layers.v1') ?? 'null',
+      );
+      if (!saved || typeof saved !== 'object') return;
+      if ('collapsed' in saved && typeof saved.collapsed === 'boolean') {
+        this.layerControlsCollapsed.set(saved.collapsed);
+      }
+      if ('enabled' in saved && typeof saved.enabled === 'boolean') {
+        this.historyEnabled.set(saved.enabled && this.historyAvailable);
+      }
+      if (
+        'opacity' in saved &&
+        typeof saved.opacity === 'number' &&
+        Number.isFinite(saved.opacity)
+      ) {
+        this.opacity.set(Math.round(Math.max(0, Math.min(100, saved.opacity))));
+      }
+    } catch {
+      // Keep defaults when storage is unavailable or contains invalid JSON.
+    }
+  }
+
+  private saveLayerPreferences(): void {
+    try {
+      localStorage.setItem(
+        'historyczny-rybnik.layers.v1',
+        JSON.stringify({
+          collapsed: this.layerControlsCollapsed(),
+          enabled: this.historyEnabled(),
+          opacity: this.opacity(),
+        }),
+      );
+    } catch {
+      // Controls remain usable when the browser blocks storage.
+    }
   }
 
   private applyHistory(): void {
@@ -241,6 +323,7 @@ export class AtlasMap {
   }
   private cleanup(): void {
     clearTimeout(this.loadingTimeout);
+    clearTimeout(this.backgroundClickTimeout);
     this.resizeObserver?.disconnect();
     this.markers.forEach((marker) => marker.remove());
     this.markers = [];

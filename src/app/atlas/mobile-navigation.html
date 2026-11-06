@@ -1,0 +1,12 @@
+<nav aria-label="Nawigacja atlasu">
+  <a class="btn btn-ghost" routerLink="/" [attr.aria-current]="view() === 'map' ? 'page' : null"
+    >Mapa</a
+  >
+  <a
+    class="btn btn-ghost"
+    routerLink="/szukaj"
+    [queryParams]="{ q: query() || null }"
+    [attr.aria-current]="view() === 'search' ? 'page' : null"
+    >Szukaj</a
+  >
+</nav>
