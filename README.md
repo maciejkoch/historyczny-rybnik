@@ -20,6 +20,7 @@ Katalog obejmuje obecnie jeden kościół. Administratorzy zalogowani przez Goog
 - [Zasady kodu i code review](CONTRIBUTING.md).
 - [Obowiązujące zasady bezpieczeństwa](SECURITY.md).
 - [Materiały referencyjne i plany](agent-context/reference/README.md).
+- [Źródła wiedzy o historii Rybnika](resources/README.md).
 - [Instrukcje agenta](AGENTS.md) i [materiały pomocnicze](agent-context/README.md).
 
 Opis funkcji aktualizujemy w tej samej zmianie, która zmienia zachowanie aplikacji.
