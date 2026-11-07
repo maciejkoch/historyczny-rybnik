@@ -58,3 +58,5 @@ h1, h2 { font-family: var(--font-display); font-weight: 500; }
 .maplibregl-ctrl button { min-width: 44px; min-height: 44px; }
 
 .privacy-settings { min-height: 44px; text-decoration: underline; text-underline-offset: .2em; cursor: pointer; }
+
+html.portal-menu-open { overflow: hidden; }

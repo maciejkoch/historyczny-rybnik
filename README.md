@@ -10,7 +10,7 @@ Aplikacja do poznawania historii Rybnika przez mapę i miejsca.
 - Wyszukiwanie miejsc i karta bazyliki św. Antoniego z opisem, źródłami oraz osobnym adresem.
 - Przełączanie mapy, wyszukiwania i szczegółów miejsca na telefonie i komputerze.
 - Ustawienia prywatności: osobne zgody na zapamiętywanie ustawień i bieżące pozycje z usług Google. Bez zgody aplikacja korzysta z opublikowanego snapshotu.
-- Strona polityki prywatności i możliwość powrotu do ustawień zgód.
+- Globalne menu we wspólnym górnym nagłówku: panel z prawej na telefonie i menu rozwijane na komputerze. Mapa i wyszukiwanie są oddzielone od polityki prywatności oraz ustawień cookies.
 
 Katalog obejmuje obecnie jeden kościół. Backend zmiany lokalizacji jest przygotowany; docelowy interfejs logowania i edycji pozostaje do realizacji w fazie 4.
 
