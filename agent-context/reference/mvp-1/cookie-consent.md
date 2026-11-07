@@ -65,7 +65,7 @@ Odbiór: porównano strony na telefonie 390×844, przejście Szukaj/Prywatność
 
 ### Menu globalne — 7 listopada 2026
 
-Nagłówek otrzymał hamburger zamiast oznaczenia wersji. Ustawienia cookies są dostępne w dolnej grupie globalnego menu, obok polityki prywatności; stopka i dotychczasowy skrót mobilny nadal otwierają ten sam dialog. Drawer na telefonie korzysta z natywnego dialogu modalnego, a Dropdown na desktopie z Popover API. Lista odnośników jest wspólna. Nie zmieniono logiki ani kategorii zgód.
+Nagłówek otrzymał hamburger zamiast oznaczenia wersji. Ustawienia cookies są dostępne w dolnej grupie globalnego menu, obok polityki prywatności; stopka i dotychczasowy skrót mobilny nadal otwierają ten sam dialog. Drawer na telefonie korzysta ze standardowej struktury daisyUI, z nieaktywnym tłem (`inert`) i obsługą fokusu; Dropdown na desktopie używa Popover API i pozycjonowania względem hamburgera przez CSS Anchor Positioning. Lista odnośników jest wspólna. Nie zmieniono logiki ani kategorii zgód.
 
 Odbiór lokalny: telefon 390×844 i 320×320, desktop 1280×720, wejście na prywatność, przejście do wyszukiwania, ustawienia cookies, Escape, zamknięcie tłem, obieg Tab/Shift+Tab i powrót fokusu. Sekcja prywatności pozostaje na dole panelu; przy małej wysokości wszystkie pozycje są dostępne przez przewijanie.
 
