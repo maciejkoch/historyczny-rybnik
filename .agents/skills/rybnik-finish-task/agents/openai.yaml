@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rybnik — zakończ zadanie"
+  short_description: "Merge PR, wdrożenie main na dev i zamknięcie zadania"
+  default_prompt: "Użyj $rybnik-finish-task, aby zakończyć wskazane zadanie Historycznego Rybnika: scal PR, opublikuj main na główny dev, sprawdź wdrożenie i ustaw Done."
