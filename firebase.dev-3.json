@@ -2,7 +2,11 @@
   "hosting": {
     "site": "historyczny-rybnik-dev-3",
     "public": "dist/historyczny-rybnik/browser",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "cleanUrls": true,
     "trailingSlash": false,
     "headers": [
