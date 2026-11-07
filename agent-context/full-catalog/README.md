@@ -19,3 +19,7 @@ Ograniczenia: nie odebrano odczytu bieżącego API po zgodzie Google ani pełneg
 ## Grupowanie punktów — rozszerzenie zlecone przez właściciela
 
 Wdrożono na dev-1 a1ffdfb6. Build 200 tras i sprawdzenia SSG/map PASS. IAB: widoczne grupy z licznikami, dwukrotne rozwijanie grupy przez przybliżenie, włączenie planu historycznego i wybór pojedynczego Starego Ratusza z otwarciem karty oraz osobnym zaznaczonym markerem — PASS. README, TECHNICAL i src/README zaktualizowane; CONTRIBUTING i SECURITY bez potrzeby zmian. Bez zmian danych/backendu. Ostrzeżenie rozmiaru pakietu pozostaje (~769 kB).
+
+## Filtr bez lokalizacji
+
+Na zlecenie właściciela dodano checkbox „Bez lokalizacji” w wyszukiwarce. Wybiera rekordy bez współrzędnych z aktualnego stanu atlasu, łączy się z wyszukiwaniem tekstowym i nie zmienia danych. Wdrożenie dev-1: 762921d8. Build 200 tras PASS. IAB: filtr zmniejszył listę 196 → 158 (stan snapshotu wdrożenia); filtr + Wilczynski dał Jerzego Wilczyńskiego jako jeden wynik. Lokalny plik katalogu ma 159 miejsc bez pozycji; różnica wynika z bieżących danych dev, z których budowane jest wdrożenie. README, TECHNICAL i src/README zaktualizowane. CONTRIBUTING i SECURITY bez potrzeby zmian. Produkcja bez zmian.
