@@ -1,0 +1,72 @@
+# Opis techniczny
+
+Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa praktyki implementacji i review. Plany rozwoju są w [docs/](docs/README.md).
+
+## Stos
+
+
+- Angular 22.2 (core 22.2.4, CLI/build/SSR 22.2.5), TypeScript 6.0, RxJS 7.8.
+- Tailwind CSS 4.3.4 i daisyUI 5.7.50; fonty Lora i Source Sans 3 z lokalnych pakietów Fontsource.
+- MapLibre GL JS 6.16.0, podkład OpenFreeMap i własne kafelki planu z 1932 r.
+- Statyczne generowanie HTML (SSG), hydratacja w przeglądarce i klasyczny Firebase Hosting.
+- Node 22.23.2 z `.nvmrc`, npm 12.0.2. Dokładne zależności: `package.json` i `package-lock.json`.
+
+- Firebase JS 12.19.0 i Zod 4.6.6; backend Firebase Functions, Firestore, Storage, Google Auth i App Check.
+
+## Mechanizmy i struktura
+
+- Angular generuje publiczny HTML i hydratację; MapLibre jest uruchamiany wyłącznie w przeglądarce. Podkład to OpenFreeMap, plan historyczny jest serwowany jako lokalne kafelki.
+- Trasy: `/` (mapa), `/szukaj`, `/miejsca/:slug` dla opublikowanych miejsc, `/prywatnosc` i 404. Hosting nie stosuje globalnego fallbacku SPA.
+- Katalog do statycznego builda jest walidowany i przygotowywany przez `places:prepare`. Bieżące pozycje mogą pochodzić z API; bez zgody na usługi Google aplikacja korzysta ze snapshotu.
+- Komponenty panelu i mapy są w `src/app/atlas/` i `src/app/atlas-map/`; `src/app/places/` obsługuje katalog i pozycje, `src/app/privacy/` zgody i politykę prywatności. Stan interfejsu korzysta z Signals.
+- `functions/` zawiera backend i jego testy; `functions/src/contracts/` współdzielone kontrakty. `data/` przechowuje dane do publikacji, a `infra/` konfigurację infrastruktury.
+- `public/` zawiera zasoby, `scripts/` narzędzia budowania i danych, `.github/` CI. `docs/` przechowuje plany i szczegóły, `agent-context/` materiały robocze agenta.
+- Backend dev działa w projekcie `historyczny-rybnik`: baza `places-dev`, bucket `historyczny-rybnik-dev-files`, codebase Functions `places-dev` i osobne konta usług dev; Auth jest wspólne. [Konfiguracja](docs/mvp-1/faza-3-infrastruktura.md).
+
+## Uruchomienie, publikacja i weryfikacja
+
+
+Wymagany Node zgodny z `.nvmrc` (22.23.2) oraz npm 12.0.2.
+
+```sh
+npm ci
+npm ci --prefix functions
+npm start
+npm run build
+npm run emulate
+```
+
+Build przygotowuje katalog miejsc i generuje statyczne pliki w `dist/historyczny-rybnik/browser`. Offline build nie wymaga połączenia z usługami danych; runtime może pobierać bieżące pozycje z API. `npm run build` sprawdza też prerender strony głównej, 404 i blokadę indeksowania preview. Fonty Lora i Source Sans 3 (również latin-ext z polskimi znakami) są bundlowane lokalnie z pakietów Fontsource; ich licencje znajdują się w `public/fonts`.
+
+## Środowiska i publikacja
+
+| Środowisko | Adres | Witryna Hosting | Polecenie |
+| --- | --- | --- | --- |
+| Dev — bieżące zmiany | https://historyczny-rybnik-dev.web.app/ | `historyczny-rybnik-dev` | `npm run deploy:dev` |
+| Produkcja — wydania | https://historyczny.rybnik.pl/ | `historyczny-rybnik` | `npm run deploy:prod` |
+
+Dev jest osobną witryną Hosting ze swoim kanałem live, dlatego nie wygasa i ma stały adres. Konfiguracja `firebase.dev.json` wskazuje dev, a `firebase.json` produkcję. `deploy:dev` pobiera snapshot przez serwerowe ADC i buduje z niego aplikację; lokalny operator używa `PLACES_USE_FIREBASE_CLI=1 npm run deploy:dev`. Backend dev: `npm run deploy:backend:dev`. Nie konfigurujemy automatycznych deploymentów CI ani poświadczeń w repo.
+
+Ustalenie z 5 listopada 2026: bieżące prace publikujemy na dev. Produkcję publikujemy na wyraźne zlecenie wydania; dodanie polecenia nie oznacza publikacji obecnego szkieletu. Indeksowanie produkcji włączamy w fazie 5; obecny build ma noindex. Logowanie CLI: `npx firebase login`.
+
+Obie witryny należą do `historyczny-rybnik`. Właściciel wybrał wspólne Auth i billing oraz oddzielną bazę, bucket, funkcje i konta usług dev. Szczegóły izolacji i poleceń: [faza 3](docs/mvp-1/faza-3-infrastruktura.md).
+### Tymczasowe preview
+
+```sh
+npx firebase login
+npm run preview
+```
+
+Polecenie buduje aplikację i publikuje wyłącznie kanał `faza-1` w projekcie `historyczny-rybnik`, ważny 30 dni. Używa lokalnego logowania Firebase CLI; poświadczenia nie trafiają do repozytorium. Nie publikuje kanału live. Konfiguracje nie zawierają fallbacku SPA: nieznane URL-e zwracają HTTP 404 z własnym `404.html`. Preview blokuje indeksowanie przez meta robots, robots.txt i nagłówek X-Robots-Tag. Przed produkcją w fazie 5 potrzebna będzie osobna konfiguracja indeksowania.
+
+CI wykonuje `npm ci`, build i zapisuje artefakt Hosting. Nie ma uprawnień do deploymentu. CI uruchamia także walidację oraz testy API/reguł w emulatorach. Offline build korzysta z walidowanego pliku jednego kościoła, bez poświadczeń chmurowych.
+
+[Zapis odbioru fazy 1](docs/mvp-1/odbior-fazy-1.md).
+
+Szczegóły: [środowiska dev i produkcja](docs/mvp-1/srodowiska.md).
+
+## Testy i utrzymanie
+
+`npm test` sprawdza kontrakty, prywatność i backend. `npm run test:emulator` weryfikuje API i reguły w emulatorach Firestore/Storage. Przy zmianach georeferencji uruchamiamy testy opisane w [scripts/maps/README.md](scripts/maps/README.md).
+
+Szczegóły zgód i ich odbioru: [cookie-consent.md](docs/mvp-1/cookie-consent.md). Aktualizujemy ten dokument razem ze zmianami technologii, mechanizmów, struktury i procedur. Sama dokumentacja nie wymaga deploymentu.
