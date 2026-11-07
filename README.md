@@ -18,6 +18,7 @@ Katalog obejmuje obecnie jeden kościół. Backend zmiany lokalizacji jest przyg
 
 - [Opis techniczny i uruchomienie](TECHNICAL.md).
 - [Zasady kodu i code review](CONTRIBUTING.md).
+- [Obowiązujące zasady bezpieczeństwa](SECURITY.md).
 - [Materiały referencyjne i plany](agent-context/reference/README.md).
 - [Instrukcje agenta](AGENTS.md) i [materiały pomocnicze](agent-context/README.md).
 

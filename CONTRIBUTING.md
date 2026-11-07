@@ -2,7 +2,7 @@
 
 ## Przed rozpoczęciem
 
-Przeczytaj [TECHNICAL.md](TECHNICAL.md), ten plik i README folderów objętych pracą. Oba dokumenty obowiązują przy implementacji i code review. Szczegółową dokumentację czytaj według zakresu zadania, zgodnie z [AGENTS.md](AGENTS.md).
+Przeczytaj [TECHNICAL.md](TECHNICAL.md), [SECURITY.md](SECURITY.md), ten plik i README folderów objętych pracą. Wszystkie trzy dokumenty obowiązują przy implementacji i code review. Szczegółową dokumentację czytaj według zakresu zadania, zgodnie z [AGENTS.md](AGENTS.md).
 
 ## Styl kodu i praktyki
 
@@ -18,7 +18,7 @@ Poniższe punkty utrzymują istniejące konwencje repozytorium; kolejne zasady u
 ## Weryfikacja i dokumentacja
 
 - Dobieramy weryfikację do zmiany. Dla kodu aplikacji wykonujemy `npm run build` oraz sprawdzamy zmienione zachowanie; dla georeferencji także testy mapy. Sama dokumentacja wymaga kontroli treści i odnośników.
-- Przy każdym zadaniu sprawdzamy aktualność `README.md`, `TECHNICAL.md`, tego pliku oraz README odpowiednich folderów. Poprawiamy opisy, których dotyczy zmiana, w ramach tego samego zadania.
+- Przy każdym zadaniu sprawdzamy aktualność `README.md`, `TECHNICAL.md`, `SECURITY.md`, tego pliku oraz README odpowiednich folderów. Poprawiamy opisy, których dotyczy zmiana, w ramach tego samego zadania.
 - Główny README opisuje działające funkcje prostym, zwięzłym językiem. Plany są wyraźnie oddzielone od stanu obecnego.
 - Każdy utrzymywany folder bezpośrednio pod rootem ma krótki README opisujący przeznaczenie i zawartość. Wyjątek: foldery generowane, zależności, cache i metadane narzędzi.
 - Przy dodaniu, usunięciu lub zmianie skryptu albo polecenia npm aktualizujemy pełny spis i krótkie opisy w `scripts/README.md`.
@@ -26,6 +26,8 @@ Poniższe punkty utrzymują istniejące konwencje repozytorium; kolejne zasady u
 
 ## Code review i zakończenie
 
-Review sprawdza zgodność z `TECHNICAL.md` i `CONTRIBUTING.md`, poprawność zachowania, adekwatność weryfikacji oraz aktualność dokumentacji. Sprzeczność z dokumentacją wymaga wyjaśnienia; planu nie traktujemy jako wdrożonego rozwiązania.
+Review sprawdza zgodność z `TECHNICAL.md`, `CONTRIBUTING.md` i `SECURITY.md`, poprawność zachowania, adekwatność weryfikacji oraz aktualność dokumentacji. Sprzeczność z dokumentacją wymaga wyjaśnienia; planu nie traktujemy jako wdrożonego rozwiązania.
+
+Naruszenie SECURITY.md blokuje ukończenie zadania i pozytywny wynik review. Zatrzymujemy zależną operację i zgłaszamy problem właścicielowi; nie osłabiamy zasad ani zabezpieczeń.
 
 W podsumowaniu podajemy wynik, wykonaną weryfikację i zaktualizowane dokumenty albo informację, że sprawdzono ich aktualność i zmiana nie była potrzebna. Zasady publikacji pozostają w [AGENTS.md](AGENTS.md).
