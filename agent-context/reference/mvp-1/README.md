@@ -1,6 +1,6 @@
 # MVP.1 — plan produktu
 
-> Dokument planistyczny. Aktualna implementacja: [TECHNICAL.md](../../TECHNICAL.md); działające funkcje: [README.md](../../README.md).
+> Dokument planistyczny. Aktualna implementacja: [TECHNICAL.md](../../../TECHNICAL.md); działające funkcje: [README.md](../../../README.md).
 
 Nazwa aplikacji: **Historyczny Rybnik**. Domena główna: **`historyczny.rybnik.pl`**. Wybór zatwierdzony 4 listopada 2026; domena kupiona przez właściciela w Hostido.
 

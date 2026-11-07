@@ -1,6 +1,6 @@
-# Dokumentacja projektu
+# Zachowane materiały referencyjne
 
-Szczegóły produktu, materiały źródłowe i historia decyzji. Bieżące funkcje opisuje [README](../README.md), aktualną implementację [TECHNICAL](../TECHNICAL.md), a obowiązujące praktyki [CONTRIBUTING](../CONTRIBUTING.md).
+Materiały przeniesione z dawnego `docs/`, zachowane jako kontekst do pracy: szczegóły produktu, źródła i historia decyzji. Bieżące funkcje opisuje [README](../../README.md), aktualną implementację [TECHNICAL](../../TECHNICAL.md), a obowiązujące praktyki [CONTRIBUTING](../../CONTRIBUTING.md).
 
 ## Co tu znajdziesz
 
@@ -11,7 +11,7 @@ Szczegóły produktu, materiały źródłowe i historia decyzji. Bieżące funkc
 - `mvp-1/srodowiska.md`, `domena-konfiguracja.md` — środowiska i domena.
 - `mvp-1/odbior-fazy-*.md` — zapisy weryfikacji zakończonych etapów.
 
-Materiały operacyjne agenta są w [agent-context/](../agent-context/README.md). Dokumenty historyczne i plany czytamy z uwzględnieniem ich daty i statusu.
+Materiały operacyjne agenta są w [agent-context/](../README.md). Dokumenty historyczne i plany czytamy z uwzględnieniem ich daty i statusu.
 
 ## Plan realizacji
 

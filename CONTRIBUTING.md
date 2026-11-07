@@ -21,6 +21,7 @@ Poniższe punkty utrzymują istniejące konwencje repozytorium; kolejne zasady u
 - Przy każdym zadaniu sprawdzamy aktualność `README.md`, `TECHNICAL.md`, tego pliku oraz README odpowiednich folderów. Poprawiamy opisy, których dotyczy zmiana, w ramach tego samego zadania.
 - Główny README opisuje działające funkcje prostym, zwięzłym językiem. Plany są wyraźnie oddzielone od stanu obecnego.
 - Każdy utrzymywany folder bezpośrednio pod rootem ma krótki README opisujący przeznaczenie i zawartość. Wyjątek: foldery generowane, zależności, cache i metadane narzędzi.
+- Przy dodaniu, usunięciu lub zmianie skryptu albo polecenia npm aktualizujemy pełny spis i krótkie opisy w `scripts/README.md`.
 - Nie powielamy opisów: README przedstawia funkcje, TECHNICAL stan techniczny, ten plik praktyki, a `agent-context/` materiały pomocnicze.
 
 ## Code review i zakończenie

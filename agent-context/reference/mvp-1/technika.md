@@ -1,6 +1,6 @@
 # MVP.1 — plan techniczny
 
-> Dokument planistyczny. Aktualna implementacja: [TECHNICAL.md](../../TECHNICAL.md); działające funkcje: [README.md](../../README.md).
+> Dokument planistyczny. Aktualna implementacja: [TECHNICAL.md](../../../TECHNICAL.md); działające funkcje: [README.md](../../../README.md).
 
 Data weryfikacji: 4 listopada 2026. Status: **ustalony kierunek: SSG + Firebase Hosting + Functions; szczegóły do dopracowania przed implementacją**.
 
