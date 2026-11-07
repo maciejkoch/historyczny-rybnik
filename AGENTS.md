@@ -25,5 +25,5 @@ Szczegóły: [środowiska](agent-context/reference/mvp-1/srodowiska.md).
 
 # Zadania GitHub Projects
 
-- Skille w `.agents/skills/`: `rybnik-create-task` przygotowuje i tworzy zadania, `rybnik-start-task` rozpoczyna i wznawia pracę. [Użycie i ograniczenia](agent-context/github-projects/skille-github-projects.md).
+- Skille w `.agents/skills/`: `rybnik-create-task` przygotowuje i tworzy zadania, `rybnik-start-task` rozpoczyna i wznawia pracę, a `rybnik-finish-task` scala PR, wdraża main na integracyjny dev i zamyka zadanie. [Użycie i ograniczenia](agent-context/github-projects/skille-github-projects.md).
 - Odczytuj aktualne zasady i pola tablicy. Planowanych środowisk nie traktuj jako wdrożonych; brak zależności lub rezerwacji zgłoś przed zależną operacją.

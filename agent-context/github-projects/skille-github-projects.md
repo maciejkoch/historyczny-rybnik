@@ -5,10 +5,12 @@
 - [rybnik-create-task](../../.agents/skills/rybnik-create-task/SKILL.md) — propozycja lub utworzenie zadania po sprawdzeniu duplikatów.
 - [rybnik-start-task](../../.agents/skills/rybnik-start-task/SKILL.md) — gotowość, rozpoczęcie i wznowienie pracy z zachowaniem istniejących powiązań.
 
-Oba skille działają wyłącznie w `maciejkoch/historyczny-rybnik` i na
+Skille działają wyłącznie w `maciejkoch/historyczny-rybnik` i na
 [tablicy Historyczny Rybnik](https://github.com/users/maciejkoch/projects/1).
 `AGENTS.md`, `README.md` i dokumentacja są źródłami zasad projektu; skille
 opisują sposób ich zastosowania, nie przechowują kopii zmiennych ustaleń.
+
+- [rybnik-finish-task](../../.agents/skills/rybnik-finish-task/SKILL.md) — merge PR, publikacja aktualnego main na integracyjny dev, odbiór, zwolnienie rezerwacji i Done. Wywołanie z poleceniem zakończenia obejmuje te operacje bez kolejnych potwierdzeń.
 
 ## Instalacja i wywołanie
 
@@ -25,7 +27,7 @@ import shutil
 from pathlib import Path
 
 destination = Path(os.environ.get('CODEX_HOME') or Path.home() / '.codex') / 'skills'
-names = ('rybnik-create-task', 'rybnik-start-task')
+names = ('rybnik-create-task', 'rybnik-start-task', 'rybnik-finish-task')
 targets = [destination / name for name in names]
 if any(path.exists() or path.is_symlink() for path in targets):
     raise SystemExit('Docelowy skill już istnieje; porównaj wersje przed aktualizacją.')
@@ -98,3 +100,9 @@ Integrację z żywą tablicą oraz pozostałe ograniczenia opisano w
 ## Przekazanie do review
 
 Po utworzeniu powiązanego PR, także draftu, `rybnik-start-task` zapisuje link i ustawia zadanie na `In review`. Dotyczy to również PR utworzonego przez właściciela i wykrytego przy wznowieniu. Rezerwacja pozostaje na czas review. Merge i `Done` wymagają odrębnego zlecenia właściciela.
+
+## Zakończenie zadania
+
+Wywołaj `Użyj $rybnik-finish-task i zakończ zadanie <link lub ID>`. Kolejność: kontrole → merge → czysty aktualny main → `deploy:dev` → odbiór → zwolnienie rezerwacji → `Done`. Nieudane wdrożenie pozostawia zadanie otwarte. Ponowienie wznawia brakujące kroki. Skill nie publikuje produkcji.
+
+Walidacja `rybnik-finish-task`: poprawny format, odnośniki i kontrola przebiegu dla PR otwartego, już scalonego, nieudanego wdrożenia i częściowo zwolnionej rezerwacji. Zmiana instrukcji nie wymaga dodatkowego builda aplikacji.
