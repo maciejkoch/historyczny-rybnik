@@ -15,3 +15,7 @@ Sprawdzenia: walidacja 196 rekordów, npm test (5 testów prywatności, 17 backe
 Opublikowano dev-1, rewizja 0f75acc3e42e757b04293b3f6599e0e2176aa698. Deployment.json potwierdza slot i SHA. HTTPS 200 dla wyszukiwarki i nowej karty, noindex oraz rzeczywiste 404 — PASS. Przeglądarka IAB: 196 wyników, wyszukiwanie Wilczynski → Jerzy Wilczyński, otwarcie karty, mapa ze znacznikami oraz jawny brak pozycji miejsca kandydackiego — PASS. Snapshot po imporcie potwierdza 196 rekordów i niezmienione location, locationVersion, createdAt, updatedAt istniejącej bazyliki.
 
 Ograniczenia: nie odebrano odczytu bieżącego API po zgodzie Google ani pełnego scenariusza mobilnego; obrazy MVP.0 pozostają bez kopii do czasu potwierdzenia praw. Nie uznawać pełnego odbioru fazy za zakończony. Produkcja bez zmian. Podgląd pozostaje zarezerwowany do review.
+
+## Grupowanie punktów — rozszerzenie zlecone przez właściciela
+
+Wdrożono na dev-1 a1ffdfb6. Build 200 tras i sprawdzenia SSG/map PASS. IAB: widoczne grupy z licznikami, dwukrotne rozwijanie grupy przez przybliżenie, włączenie planu historycznego i wybór pojedynczego Starego Ratusza z otwarciem karty oraz osobnym zaznaczonym markerem — PASS. README, TECHNICAL i src/README zaktualizowane; CONTRIBUTING i SECURITY bez potrzeby zmian. Bez zmian danych/backendu. Ostrzeżenie rozmiaru pakietu pozostaje (~769 kB).
