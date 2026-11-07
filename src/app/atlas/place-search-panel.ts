@@ -11,6 +11,8 @@ import { Place } from '../places/place';
 export class PlaceSearchPanel {
   readonly mobilePage = input(false);
   readonly query = input('');
+  readonly withoutLocation = input(false);
+  readonly withoutLocationChanged = output<boolean>();
   readonly results = input<readonly Place[]>([]);
   readonly selectedId = input<string>();
   readonly queryChanged = output<string>();

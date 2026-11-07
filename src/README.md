@@ -7,3 +7,5 @@ Kod Angulara, konfiguracja i style. `app/atlas/` zawiera panele, `app/atlas-map/
 Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
 
 Mapa grupuje pobliskie miejsca przy oddaleniu, z liczbą miejsc i przybliżaniem po wyborze grupy. Wybrane miejsce zachowuje osobny znacznik.
+
+Wyszukiwarka ma filtr „Bez lokalizacji”, łączony z wpisaną nazwą, adresem lub dzielnicą.

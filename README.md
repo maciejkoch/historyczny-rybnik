@@ -31,3 +31,5 @@ Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne
 Katalog pełny przygotowano do odbioru na dev: 196 miejsc z MVP.0. Lokalizacje kandydackie pozostają nieustalone; kopie dawnych wycinków bez potwierdzonej podstawy publikacji są wyłączone, referencje zawierają odnośniki do źródeł.
 
 Przy oddaleniu mapy pobliskie miejsca łączą się w grupy z liczbą punktów. Kliknięcie grupy przybliża mapę; wybrane miejsce pozostaje widoczne osobno.
+
+Wyszukiwarka ma filtr „Bez lokalizacji”, łączony z wpisaną nazwą, adresem lub dzielnicą.

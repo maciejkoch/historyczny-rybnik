@@ -120,3 +120,5 @@ Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne
 Plik `data/places.catalog.json` zawiera 196 miejsc przeniesionych z MVP.0, ze stabilnymi ID i zachowanym rekordem `place_sw_antoni`. Build przyjmuje pełny walidowany snapshot, a odczyt lokalizacji dzieli katalog na żądania po maksymalnie 100 ID. Import dev obsługuje do 400 miejsc w jednej transakcji, zachowuje istniejące lokalizacje, wersje i daty; odrzuca pominięcie istniejących dokumentów. Produkcja pozostaje oddzielnym zadaniem.
 
 AtlasMap korzysta z klastrowanego źródła GeoJSON MapLibre (promień 50 px, maksymalny zoom grupowania 15) i markerów HTML z natywnymi przyciskami. Grupa przybliża do getClusterExpansionZoom; wybrany punkt pozostaje poza grupami. Edycja wyłącza przyciski, a podgląd punktu nie wchodzi do grupowania.
+
+Filtr „Bez lokalizacji” używa aktualnych danych Locations (lub snapshotu przy niedostępnym odczycie) i wybiera miejsca z `location.coordinates === null`. Łączy się z wyszukiwaniem tekstowym; zmienia listę wyników, a stan pozostaje w pamięci atlasu.

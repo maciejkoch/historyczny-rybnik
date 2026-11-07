@@ -40,6 +40,8 @@
     >
       <app-place-search-panel
         [query]="query()"
+        [withoutLocation]="withoutLocation()"
+        (withoutLocationChanged)="withoutLocation.set($event)"
         [mobilePage]="screen() === 'search'"
         [results]="results()"
         [selectedId]="selected()?.id"

@@ -16,6 +16,15 @@
     [value]="query()"
     (input)="queryChanged.emit($any($event.target).value)"
   />
+  <label class="flex items-center gap-3 cursor-pointer py-3">
+    <input
+      type="checkbox"
+      class="checkbox checkbox-primary checkbox-sm"
+      [checked]="withoutLocation()"
+      (change)="withoutLocationChanged.emit($any($event.target).checked)"
+    />
+    Bez lokalizacji
+  </label>
   <p class="muted" role="status">Wyniki: {{ results().length }}</p>
   <ul class="place-list">
     @for (place of results(); track place.id) {
