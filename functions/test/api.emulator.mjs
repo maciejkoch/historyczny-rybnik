@@ -95,4 +95,17 @@ await test('exactly one concurrent save commits; no history or author', async ()
   assert.equal(value.author, undefined);
   assert.deepEqual(await db.doc('places/public').listCollections(), []);
 });
+await test('optional comment replaces previous text and can be cleared', async () => {
+  const previous = (await db.doc('places/public').get()).data();
+  const saved = await updateLocation(
+    db,
+    request({
+      placeId: 'public',
+      expectedLocationVersion: previous.locationVersion,
+      location: { ...location, explanation: '' },
+    }),
+  );
+  assert.equal(saved.location.explanation, '');
+  assert.equal((await db.doc('places/public').get()).data().location.explanation, '');
+});
 after(() => deleteApp(app));

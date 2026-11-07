@@ -185,6 +185,7 @@ export class AtlasMap {
       this.draftMarker = new Marker({ color: '#b45309' })
         .setLngLat([draft.lng, draft.lat])
         .addTo(map);
+    if (this.draftMarker) this.draftMarker.getElement().style.pointerEvents = 'none';
     if (map !== this.map || this.destroyRef.destroyed) return;
     this.markers.forEach((marker) => marker.remove());
     this.markers = [];
@@ -193,6 +194,9 @@ export class AtlasMap {
       if (!point) continue;
       const button = document.createElement('button');
       button.type = 'button';
+      button.disabled = this.editing();
+      button.style.pointerEvents = this.editing() ? 'none' : '';
+      button.tabIndex = this.editing() ? -1 : 0;
       button.className = 'place-marker';
       button.dataset['placeId'] = place.id;
       button.textContent = place.location.precision === 'approximate' ? '≈' : '•';
@@ -204,7 +208,7 @@ export class AtlasMap {
       button.addEventListener('click', (event) => {
         event.stopPropagation();
         clearTimeout(this.backgroundClickTimeout);
-        this.placeSelected.emit(place);
+        if (!this.editing()) this.placeSelected.emit(place);
       });
       this.markers.push(
         new Marker({ element: button }).setLngLat([point.lng, point.lat]).addTo(map),

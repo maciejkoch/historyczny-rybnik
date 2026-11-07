@@ -53,7 +53,7 @@ Przepływ danych: plik katalogu → walidacja i `places:prepare` → `catalog.ge
 
 `placesDevRead`: App Check → walidacja listy identyfikatorów → odczyt opublikowanych dokumentów `places` → odpowiedź z lokalizacją, wersją i czasem aktualizacji. Nie wymaga zalogowanego użytkownika.
 
-`placesDevUpdate`: App Check i Google Auth → walidacja → transakcja porównująca `expectedLocationVersion` → zapis współrzędnych, zwiększenie wersji i czas serwera. Konflikt zwraca `aborted`; po zapisie API odczytuje bieżący stan dokumentu. Nie zapisuje historii pozycji. Account inicjalizuje Google Auth wyłącznie w przeglądarce po zgodzie na Google. Na desktopie nagłówek pokazuje konto i logowanie/wylogowanie obok hamburgera; na telefonie akcje konta udostępnia PortalMenu. Nagłówek pokazuje komunikaty błędów, Atlas podgląd punktu, dokładność, uzasadnienie i zapis przez Locations.update. Zapis porównuje wersję z początku edycji; błąd wymaga sprawdzenia bieżącej pozycji i ponownego rozpoczęcia edycji. Bez dodatkowych kolekcji i blokad.
+`placesDevUpdate`: App Check i Google Auth → walidacja → transakcja porównująca `expectedLocationVersion` → zapis współrzędnych, zwiększenie wersji i czas serwera. Konflikt zwraca `aborted`; po zapisie API odczytuje bieżący stan dokumentu. Nie zapisuje historii pozycji. Account inicjalizuje Google Auth wyłącznie w przeglądarce po zgodzie na Google. Na desktopie nagłówek pokazuje konto i logowanie/wylogowanie obok hamburgera; na telefonie akcje konta udostępnia PortalMenu. Nagłówek pokazuje komunikaty błędów, Atlas podgląd punktu, dokładność, opcjonalny komentarz i zapis przez Locations.update. Zapis porównuje wersję z początku edycji; błąd wymaga sprawdzenia bieżącej pozycji i ponownego rozpoczęcia edycji. Bez dodatkowych kolekcji i blokad.
 
 ## Katalog lokalny `.local/`
 
@@ -112,3 +112,5 @@ Szczegóły zgód i ich odbioru: [cookie-consent.md](agent-context/reference/mvp
 Trzy witryny `historyczny-rybnik-dev-1`, `-2`, `-3` mają osobne konfiguracje `firebase.dev-N.json` i polecenia `deploy:dev-N`. Współdzielą istniejący backend dev; domeny dopuszczono w CORS, Auth i App Check. Atomowe blokady `env-lock/dev-N` oraz pole Środowisko w Projects określają rezerwacje. Pełny proces: [środowiska](agent-context/reference/mvp-1/srodowiska.md). Stały dev służy integracji.
 
 Rola administratora: custom claim `admin: true` w Firebase Auth. Rejestracja i przeglądanie są publiczne; zapis lokalizacji wymaga Google Auth, App Check i roli admina. Rola dociera do klienta przy wydaniu nowego tokenu, np. po ponownym logowaniu. Odebranie roli nie unieważnia już wydanego tokenu (ważnego do około godziny).
+
+Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.

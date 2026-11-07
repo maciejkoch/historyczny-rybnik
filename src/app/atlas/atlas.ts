@@ -78,8 +78,8 @@ export class Atlas {
     this.editVersion = place.locationVersion;
     this.editId = place.id;
     this.draftPoint.set(place.location.coordinates);
-    this.precision.set('approximate');
-    this.explanation.set('');
+    this.precision.set(place.location.precision === 'building' ? 'building' : 'approximate');
+    this.explanation.set(place.location.explanation ?? '');
     this.editMessage.set('');
     this.editing.set(true);
   }
@@ -100,7 +100,6 @@ export class Atlas {
       !Number.isFinite(point.lng) ||
       Math.abs(point.lat) > 90 ||
       Math.abs(point.lng) > 180 ||
-      !this.explanation().trim() ||
       !this.account.admin()
     )
       return;
@@ -346,7 +345,7 @@ export class Atlas {
   }
 
   select(place: Place): void {
-    if (this.saving()) return;
+    if (this.saving() || this.editing()) return;
     this.cancelEditing();
     const path = '/miejsca/' + place.slug;
     if (this.currentPath === path) {

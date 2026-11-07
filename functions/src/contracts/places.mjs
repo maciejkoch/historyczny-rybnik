@@ -69,7 +69,7 @@ const coordinatesSchema = z.strictObject({
 export const knownLocationSchema = z.strictObject({
   coordinates: coordinatesSchema,
   precision: z.enum(['building', 'approximate']),
-  explanation: text(2000),
+  explanation: z.string().max(2000),
 });
 export const locationSchema = z.union([
   knownLocationSchema,

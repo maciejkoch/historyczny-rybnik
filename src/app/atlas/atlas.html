@@ -205,33 +205,12 @@
           } @else {
             <fieldset [disabled]="saving()" class="location-editor">
               <legend>Popraw lokalizację</legend>
-              <p>
-                Kliknij punkt na mapie lub podaj współrzędne. Podgląd nie jest jeszcze zapisany.
-              </p>
-              <label
-                >Szerokość geograficzna
-                <input
-                  type="number"
-                  step="any"
-                  min="-90"
-                  max="90"
-                  [value]="draftPoint()?.lat ?? ''"
-                  (change)="
-                    pickPoint({ lat: +$any($event.target).value, lng: draftPoint()?.lng ?? 18.54 })
-                  "
-              /></label>
-              <label
-                >Długość geograficzna
-                <input
-                  type="number"
-                  step="any"
-                  min="-180"
-                  max="180"
-                  [value]="draftPoint()?.lng ?? ''"
-                  (change)="
-                    pickPoint({ lat: draftPoint()?.lat ?? 50.09, lng: +$any($event.target).value })
-                  "
-              /></label>
+              <p>Kliknij punkt na mapie. Podgląd nie jest jeszcze zapisany.</p>
+              @if (draftPoint(); as point) {
+                <p class="text-xs text-muted">
+                  Współrzędne: {{ point.lat.toFixed(6) }}, {{ point.lng.toFixed(6) }}
+                </p>
+              }
               <label
                 >Dokładność
                 <select [value]="precision()" (change)="precision.set($any($event.target).value)">
@@ -240,7 +219,7 @@
                 </select></label
               >
               <label
-                >Uzasadnienie
+                >Komentarz (opcjonalnie)
                 <textarea
                   maxlength="2000"
                   [value]="explanation()"
@@ -251,7 +230,7 @@
               <button
                 class="btn btn-primary"
                 type="button"
-                [disabled]="needsRestart() || !draftPoint() || !explanation().trim()"
+                [disabled]="needsRestart() || !draftPoint()"
                 (click)="saveLocation()"
               >
                 {{ saving() ? 'Zapisywanie…' : 'Zapisz lokalizację' }}

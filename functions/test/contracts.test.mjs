@@ -31,7 +31,7 @@ test('public and stored records have distinct strict contracts', () => {
     { category: 'unknown' },
     { locationVersion: Number.MAX_SAFE_INTEGER + 1 },
     { location: { coordinates: null, precision: 'building', explanation: null } },
-    { location: { ...dto.location, explanation: '  ' } },
+    { location: { ...dto.location, explanation: 'x'.repeat(2001) } },
   ])
     assert.equal(placeSchema.safeParse({ ...places[0], ...change }).success, false);
 });
@@ -145,4 +145,13 @@ test('malformed persisted location returns a sanitized server error', async () =
       return true;
     },
   );
+});
+
+test('location comment can be empty and replaces the current comment', () => {
+  const request = {
+    placeId: dto.id,
+    expectedLocationVersion: 0,
+    location: { ...dto.location, explanation: '' },
+  };
+  assert.equal(writeRequestSchema.parse(request).location.explanation, '');
 });
