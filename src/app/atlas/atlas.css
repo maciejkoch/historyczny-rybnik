@@ -95,13 +95,13 @@
     grid-template-columns:
       var(--panel-width, 410px) var(--separator-width, 8px) minmax(320px, 1fr)
       calc(var(--details-width, 0px) + var(--details-separator-width, 0px));
-    height: 100svh;
+    height: calc(100svh - var(--mobile-header-height, 76px));
   }
   .sidebar,
   .details-sidebar {
     display: flex;
     flex-direction: column;
-    height: 100svh;
+    height: calc(100svh - var(--mobile-header-height, 76px));
     min-width: 0;
     overflow: hidden;
   }
@@ -113,7 +113,7 @@
   }
   .map-region {
     grid-column: 3;
-    height: 100svh;
+    height: calc(100svh - var(--mobile-header-height, 76px));
   }
   .details-sidebar {
     grid-column: 4;
@@ -141,6 +141,18 @@
   .panel-footer,
   .details-header {
     flex: 0 0 auto;
+  }
+  .search-toolbar {
+    position: relative;
+    min-height: 52px;
+    flex: 0 0 auto;
+  }
+  .search-toolbar .panel-toggle {
+    top: 0.25rem;
+  }
+  .panel-collapsed .search-toolbar {
+    display: flex;
+    justify-content: center;
   }
   .panel-collapsed .panel-toggle {
     position: static;

@@ -1,22 +1,31 @@
 <a class="brand" routerLink="/" aria-label="Historyczny Rybnik — strona główna">
   <img src="/brand/ryba-na-mapie.svg" width="76" height="54" alt="" />
-  <span [hidden]="compact()">Historyczny<br />Rybnik</span>
+  <span>Historyczny<br />Rybnik</span>
 </a>
-<div [hidden]="compact()" class="preview-badge">
-  @if (account.user(); as user) {
-    <p>
-      Zalogowano: {{ user.displayName || 'Użytkownik'
-      }}{{ account.admin() ? ' · Administrator' : '' }}
-    </p>
-  }
-  <button
-    type="button"
-    class="btn btn-outline btn-sm"
-    [disabled]="account.busy()"
-    (click)="account.toggle()"
+<button
+  #menuTrigger
+  type="button"
+  class="btn btn-ghost btn-square portal-menu-trigger"
+  style="anchor-name: --portal-menu-trigger"
+  aria-label="Menu serwisu"
+  [attr.aria-expanded]="menu.mode() !== null"
+  aria-controls="portal-menu-drawer portal-menu-dropdown"
+  (click)="menu.toggle(menuTrigger)"
+>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    aria-hidden="true"
   >
-    {{ account.busy() ? 'Proszę czekać…' : account.user() ? 'Wyloguj' : 'Zaloguj przez Google' }}
-  </button>
-  <p role="status">{{ account.message() }}</p>
-</div>
-<ng-content />
+    <path d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+</button>
+
+@if (account.message()) {
+  <p role="status" class="text-sm">{{ account.message() }}</p>
+}

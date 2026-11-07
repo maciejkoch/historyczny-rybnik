@@ -1,6 +1,6 @@
 # Opis techniczny
 
-Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa praktyki implementacji i review. Materiały szczegółowe i plany są w [agent-context/reference/](agent-context/reference/README.md).
+Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa praktyki implementacji i review. [SECURITY.md](SECURITY.md) określa obowiązujące wymagania bezpieczeństwa przy pracy i review; opis mechanizmów poniżej nie zastępuje ich weryfikacji. Materiały szczegółowe i plany są w [agent-context/reference/](agent-context/reference/README.md).
 
 ## Stos
 
@@ -33,7 +33,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 | `app/atlas-map/` | MapLibre, znaczniki, historyczna warstwa rastrowa, zasięg i komunikaty błędów. |
 | `app/places/` | Typy, normalizacja wyszukiwania, wygenerowany katalog, konfiguracja Firebase i odczyt pozycji. `AtlasReuse` zachowuje instancję atlasu między jego trasami. |
 | `app/privacy/` | Serwis zgód, baner i polityka prywatności. Wycofanie zgody Google przeładowuje stronę, aby zatrzymać SDK i odświeżanie tokenów. |
-| `app/layout/` | Wspólny nagłówek, stopka i nawigacja mobilna. |
+| `app/layout/` | Wspólny nagłówek, stopka, nawigacja mobilna i menu globalne. `PortalMenu` otacza wspólny układ aplikacji standardową strukturą Drawer daisyUI (`drawer-toggle`, `drawer-content`, `drawer-side`, `drawer-overlay`) i współdzieli listę odnośników z Dropdown daisyUI na Popover API oraz CSS Anchor Positioning. Stan nagłówka i menu łączy `PortalMenuState`. Wspólny nagłówek jest przyklejony do góry; na desktopie zajmuje pełną szerokość nad mapą i panelami. Dropdown otwiera się pod hamburgerem i pomija odnośnik Szukaj, ponieważ wyszukiwarka jest dostępna w panelu. Na telefonie menu zachowuje Mapa/Szukaj; tło jest nieaktywne dzięki `inert`, przewijanie strony jest blokowane, a fokus wraca do hamburgera. Przejścia otwierania i zamykania pochodzą z daisyUI. |
 
 Przepływ danych: plik katalogu → walidacja i `places:prepare` → `catalog.generated.ts`, indeks wyszukiwania, sitemap i przekierowania → prerender HTML → hydratacja. W przeglądarce `Atlas` łączy katalog z bieżącymi pozycjami z `Locations`; wyszukiwanie filtruje nazwy, aliasy, adresy i dzielnice lokalnie.
 
@@ -53,7 +53,7 @@ Przepływ danych: plik katalogu → walidacja i `places:prepare` → `catalog.ge
 
 `placesDevRead`: App Check → walidacja listy identyfikatorów → odczyt opublikowanych dokumentów `places` → odpowiedź z lokalizacją, wersją i czasem aktualizacji. Nie wymaga zalogowanego użytkownika.
 
-`placesDevUpdate`: App Check i Google Auth → walidacja → transakcja porównująca `expectedLocationVersion` → zapis współrzędnych, zwiększenie wersji i czas serwera. Konflikt zwraca `aborted`; po zapisie API odczytuje bieżący stan dokumentu. Nie zapisuje historii pozycji. Account inicjalizuje Google Auth wyłącznie w przeglądarce po zgodzie na Google. Nagłówek obsługuje logowanie i wylogowanie, Atlas podgląd punktu, dokładność, uzasadnienie i zapis przez Locations.update. Zapis porównuje wersję z początku edycji; błąd wymaga sprawdzenia bieżącej pozycji i ponownego rozpoczęcia edycji. Bez dodatkowych kolekcji i blokad.
+`placesDevUpdate`: App Check i Google Auth → walidacja → transakcja porównująca `expectedLocationVersion` → zapis współrzędnych, zwiększenie wersji i czas serwera. Konflikt zwraca `aborted`; po zapisie API odczytuje bieżący stan dokumentu. Nie zapisuje historii pozycji. Account inicjalizuje Google Auth wyłącznie w przeglądarce po zgodzie na Google. PortalMenu obsługuje logowanie i wylogowanie, a nagłówek pokazuje komunikaty błędów, Atlas podgląd punktu, dokładność, uzasadnienie i zapis przez Locations.update. Zapis porównuje wersję z początku edycji; błąd wymaga sprawdzenia bieżącej pozycji i ponownego rozpoczęcia edycji. Bez dodatkowych kolekcji i blokad.
 
 ## Katalog lokalny `.local/`
 

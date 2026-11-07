@@ -1,0 +1,116 @@
+<input
+  id="portal-menu-toggle"
+  type="checkbox"
+  class="drawer-toggle"
+  tabindex="-1"
+  aria-hidden="true"
+  [checked]="menu.mode() === 'drawer'"
+  (change)="menu.close()"
+/>
+<div class="drawer-content" [inert]="menu.mode() === 'drawer'">
+  <ng-content />
+</div>
+<div
+  #drawer
+  id="portal-menu-drawer"
+  class="drawer-side z-50 motion-reduce:transition-none [&>*]:motion-reduce:transition-none"
+  [inert]="menu.mode() !== 'drawer'"
+  [attr.aria-hidden]="menu.mode() !== 'drawer' ? 'true' : null"
+  (keydown)="trapFocus($event)"
+  (transitionstart)="focusDrawer()"
+  (transitionend)="focusDrawer()"
+>
+  <label for="portal-menu-toggle" class="drawer-overlay" aria-label="Zamknij menu"></label>
+  <section
+    class="flex min-h-full w-[min(86vw,360px)] flex-col gap-6 bg-base-100 px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))]"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menu serwisu"
+  >
+    <header class="flex items-center justify-between gap-4">
+      <span class="eyebrow">Menu serwisu</span>
+      <button
+        #closeButton
+        type="button"
+        class="btn btn-ghost btn-square text-3xl font-normal"
+        aria-label="Zamknij menu"
+        (click)="menu.close()"
+      >
+        ×
+      </button>
+    </header>
+    <ng-container *ngTemplateOutlet="links; context: { mobile: true }" />
+  </section>
+</div>
+<div
+  #dropdown
+  id="portal-menu-dropdown"
+  popover="auto"
+  class="dropdown dropdown-bottom dropdown-end m-0 mt-2 max-h-[calc(100dvh-1rem)] w-68 overflow-y-auto rounded-box border border-line bg-base-100 p-3 shadow-xl"
+  style="position-anchor: --portal-menu-trigger"
+  (toggle)="onPopoverToggle($event)"
+  (focusout)="onDropdownFocusOut($event)"
+>
+  <ng-container *ngTemplateOutlet="links" />
+</div>
+<ng-template #links let-mobile="mobile">
+  <nav class="flex min-h-0 flex-1 flex-col gap-5" aria-label="Menu serwisu">
+    <ul class="menu w-full gap-1 p-0 text-base [&_a]:min-h-12 [&_a]:px-4 [&_a]:py-3">
+      <li>
+        <a
+          routerLink="/"
+          routerLinkActive="menu-active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page"
+          (click)="menu.close()"
+          >Mapa</a
+        >
+      </li>
+      @if (mobile) {
+        <li>
+          <a
+            routerLink="/szukaj"
+            queryParamsHandling="preserve"
+            routerLinkActive="menu-active"
+            ariaCurrentWhenActive="page"
+            (click)="menu.close()"
+            >Szukaj</a
+          >
+        </li>
+      }
+    </ul>
+    <ul
+      class="menu w-full gap-1 border-t border-line p-0 pt-4 text-base [&_button]:min-h-12 [&_button]:px-4 [&_button]:py-3"
+    >
+      @if (account.user(); as user) {
+        <li class="px-4 py-2">
+          <span class="block p-0"
+            >{{ user.displayName || 'Użytkownik'
+            }}{{ account.admin() ? ' · Administrator' : '' }}</span
+          >
+        </li>
+      }
+      <li>
+        <button type="button" [disabled]="account.busy()" (click)="toggleAccount()">
+          {{
+            account.busy() ? 'Proszę czekać…' : account.user() ? 'Wyloguj' : 'Zaloguj przez Google'
+          }}
+        </button>
+      </li>
+    </ul>
+    <ul
+      class="menu mt-auto w-full gap-1 border-t border-line p-0 pt-4 text-base [&_a]:min-h-12 [&_a]:px-4 [&_a]:py-3 [&_button]:min-h-12 [&_button]:px-4 [&_button]:py-3"
+    >
+      <li>
+        <a
+          routerLink="/prywatnosc"
+          routerLinkActive="menu-active"
+          ariaCurrentWhenActive="page"
+          (click)="menu.close()"
+          >Polityka prywatności</a
+        >
+      </li>
+      <li><button type="button" (click)="settings()">Ustawienia cookies</button></li>
+    </ul>
+  </nav>
+</ng-template>

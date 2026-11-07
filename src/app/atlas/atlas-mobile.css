@@ -2,17 +2,14 @@
   .atlas-shell {
     align-content: start;
     grid-template-columns: minmax(0, 1fr);
-    min-height: 100dvh;
+    min-height: calc(100dvh - var(--mobile-header-height, 74px));
     padding-bottom: var(--mobile-toolbar-height);
   }
   .sidebar {
     display: contents;
   }
-  .brand-header {
-    grid-row: 1;
-  }
   .map-region {
-    grid-row: 2;
+    grid-row: 1;
     height: calc(100dvh - var(--mobile-header-height, 74px) - var(--mobile-toolbar-height));
   }
   .content-panel {
@@ -20,7 +17,7 @@
   }
   .search-panel,
   .details-sidebar {
-    grid-row: 3;
+    grid-row: 2;
   }
   .details-content {
     padding-top: 1rem;
@@ -64,8 +61,11 @@
   .details-header {
     display: none;
   }
+  .search-toolbar {
+    display: none;
+  }
   .panel-footer {
-    grid-row: 4;
+    grid-row: 3;
   }
   .details-jump {
     display: inline-flex;

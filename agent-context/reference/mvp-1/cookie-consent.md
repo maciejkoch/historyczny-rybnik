@@ -62,3 +62,11 @@ Dane o retencji dostawców oparto na ich dokumentacji: Google Hosting przechowuj
 Nagłówek z logo i oznaczeniem wersji, stopka oraz mobilna nawigacja są współdzielone przez mapę/wyszukiwarkę i stronę prywatności. Ich źródła znajdują się w `src/app/layout/portal-header`, `portal-footer` i `mobile-navigation`. Strona prywatności ma czytelną kolumnę treści oraz te same odstępy i elementy marki co wyszukiwarka; stopka i nawigacja otwierają ten sam dialog ustawień.
 
 Odbiór: porównano strony na telefonie 390×844, przejście Szukaj/Prywatność, otwarcie i zamknięcie ustawień ze stopki oraz zwinięcie/rozwinięcie wyszukiwarki na desktopie. Wspólny nagłówek zachowuje obserwację wysokości i wariant zwiniętego panelu. Build i prerender pięciu tras zaliczone.
+
+### Menu globalne — 7 listopada 2026
+
+Nagłówek otrzymał hamburger zamiast oznaczenia wersji. Ustawienia cookies są dostępne w dolnej grupie globalnego menu, obok polityki prywatności; stopka i dotychczasowy skrót mobilny nadal otwierają ten sam dialog. Drawer na telefonie korzysta ze standardowej struktury daisyUI, z nieaktywnym tłem (`inert`) i obsługą fokusu; Dropdown na desktopie używa Popover API i pozycjonowania względem hamburgera przez CSS Anchor Positioning. Lista odnośników jest wspólna. Nie zmieniono logiki ani kategorii zgód.
+
+Odbiór lokalny: telefon 390×844 i 320×320, desktop 1280×720, wejście na prywatność, przejście do wyszukiwania, ustawienia cookies, Escape, zamknięcie tłem, obieg Tab/Shift+Tab i powrót fokusu. Sekcja prywatności pozostaje na dole panelu; przy małej wysokości wszystkie pozycje są dostępne przez przewijanie.
+
+Dopracowanie desktopu po odbiorze właściciela: nagłówek zajmuje całą szerokość nad mapą i panelami, niezależnie od zwinięcia wyszukiwarki. Dropdown otwiera się pod hamburgerem po prawej i pomija Szukaj. Mobilny Drawer i jego pozycje pozostają bez zmian. Sprawdzono brak pionowego przewijania całego atlasu na desktopie 1280×720, zwijanie panelu, kartę miejsca oraz stały nagłówek na przewijanej stronie prywatności.

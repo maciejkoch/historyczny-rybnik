@@ -1,6 +1,7 @@
 <a class="skip-link btn btn-primary" [href]="screen() === 'search' ? '#tresc' : '#mapa'"
   >Przejdź do treści</a
 >
+<header appPortalHeader #brandHeader class="brand-header"></header>
 <div
   class="atlas-shell"
   appPanelLayout
@@ -17,12 +18,7 @@
   [style.--details-separator-width]="hasDetails() && !detailsLayout.isCollapsed() ? '8px' : '0px'"
 >
   <div class="sidebar">
-    <header
-      appPortalHeader
-      #brandHeader
-      class="brand-header"
-      [compact]="searchLayout.isCollapsed()"
-    >
+    <div class="search-toolbar">
       <button
         class="btn btn-ghost btn-square panel-toggle"
         type="button"
@@ -34,7 +30,7 @@
       >
         <span aria-hidden="true">{{ searchLayout.isCollapsed() ? '›' : '‹' }}</span>
       </button>
-    </header>
+    </div>
     <main
       #searchPanel
       id="tresc"
