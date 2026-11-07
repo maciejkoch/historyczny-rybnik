@@ -79,25 +79,31 @@
         </li>
       }
     </ul>
-    <ul
-      class="menu w-full gap-1 border-t border-line p-0 pt-4 text-base [&_button]:min-h-12 [&_button]:px-4 [&_button]:py-3"
-    >
-      @if (account.user(); as user) {
-        <li class="px-4 py-2">
-          <span class="block p-0"
-            >{{ user.displayName || 'Użytkownik'
-            }}{{ account.admin() ? ' · Administrator' : '' }}</span
-          >
+    @if (mobile) {
+      <ul
+        class="menu w-full gap-1 border-t border-line p-0 pt-4 text-base [&_button]:min-h-12 [&_button]:px-4 [&_button]:py-3"
+      >
+        @if (account.user(); as user) {
+          <li class="px-4 py-2">
+            <span class="block p-0"
+              >{{ user.displayName || 'Użytkownik'
+              }}{{ account.admin() ? ' · Administrator' : '' }}</span
+            >
+          </li>
+        }
+        <li>
+          <button type="button" [disabled]="account.busy()" (click)="toggleAccount()">
+            {{
+              account.busy()
+                ? 'Proszę czekać…'
+                : account.user()
+                  ? 'Wyloguj'
+                  : 'Zaloguj przez Google'
+            }}
+          </button>
         </li>
-      }
-      <li>
-        <button type="button" [disabled]="account.busy()" (click)="toggleAccount()">
-          {{
-            account.busy() ? 'Proszę czekać…' : account.user() ? 'Wyloguj' : 'Zaloguj przez Google'
-          }}
-        </button>
-      </li>
-    </ul>
+      </ul>
+    }
     <ul
       class="menu mt-auto w-full gap-1 border-t border-line p-0 pt-4 text-base [&_a]:min-h-12 [&_a]:px-4 [&_a]:py-3 [&_button]:min-h-12 [&_button]:px-4 [&_button]:py-3"
     >
