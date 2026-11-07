@@ -12,6 +12,7 @@ Poniższe punkty utrzymują istniejące konwencje repozytorium; kolejne zasady u
 - Zachowujemy ścisłe sprawdzanie TypeScript i szablonów Angulara ustawione w `tsconfig.json`.
 - Kontynuujemy istniejący podział na komponenty standalone, Signals i `OnPush`. Kod mapy wymagający przeglądarki pozostaje poza wykonaniem SSG.
 - Zachowujemy wspólne tokeny stylów i istniejące komponenty. Interfejs uwzględnia telefon, klawiaturę, fokus i ograniczenie animacji.
+- W każdym zadaniu UI w pierwszej kolejności wykorzystujemy komponenty i mechanizmy daisyUI oraz klasy narzędziowe Tailwind CSS. Własne style i mechanizmy tworzymy dopiero wtedy, gdy wymagania nie mogą zostać zrealizowane przy użyciu możliwości tych bibliotek.
 - Nie rozszerzamy zakresu zadania o niezwiązane zmiany i nie nadpisujemy zastanej pracy.
 - Odstępstwa od uzgodnionej architektury lub praktyk omawiamy z właścicielem przed wprowadzeniem. Zasad nie przepisujemy samodzielnie w celu uzasadnienia kodu.
 
