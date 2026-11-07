@@ -22,7 +22,7 @@
   width: 60px;
   height: auto;
 }
-app-portal-menu {
+.portal-menu-trigger {
   position: absolute;
   right: 1rem;
   bottom: 0.75rem;
@@ -42,7 +42,7 @@ app-portal-menu {
   .brand img {
     width: 54px;
   }
-  app-portal-menu {
+  .portal-menu-trigger {
     position: static;
   }
 }
