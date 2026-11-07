@@ -18,7 +18,11 @@
     "deploy:backend:dev": "firebase deploy --config firebase.backend.dev.json --project historyczny-rybnik --only functions:places-dev,firestore:places-dev,storage:places-dev,auth",
     "places:upload-assets": "node scripts/places/upload-assets.mjs",
     "check:contracts": "tsc -p tsconfig.contracts.json",
-    "test:privacy": "node --test scripts/privacy/consent.test.mjs"
+    "test:privacy": "node --test scripts/privacy/consent.test.mjs",
+    "deploy:dev-1": "node scripts/places/deploy-dev.mjs dev-1",
+    "deploy:dev-2": "node scripts/places/deploy-dev.mjs dev-2",
+    "deploy:dev-3": "node scripts/places/deploy-dev.mjs dev-3",
+    "environment": "node scripts/places/environment.mjs"
   },
   "private": true,
   "packageManager": "npm@12.0.2",

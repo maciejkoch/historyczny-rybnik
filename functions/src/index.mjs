@@ -12,7 +12,11 @@ const options = {
   minInstances: 0,
   memory: '256MiB',
   timeoutSeconds: 30,
-  cors: ['https://historyczny-rybnik-dev.web.app', /^http:\/\/localhost(:\d+)?$/],
+  cors: [
+    'https://historyczny-rybnik-dev.web.app',
+    ...[1, 2, 3].map((slot) => `https://historyczny-rybnik-dev-${slot}.web.app`),
+    /^http:\/\/localhost(:\d+)?$/,
+  ],
 };
 export const placesDevRead = onCall(options, (request) => readLocations(db, request));
 export const placesDevUpdate = onCall(options, (request) => updateLocation(db, request));
