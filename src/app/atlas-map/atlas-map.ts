@@ -1,3 +1,4 @@
+import { Consent } from '../privacy/consent';
 import {
   afterNextRender,
   afterRenderEffect,
@@ -39,6 +40,7 @@ export class AtlasMap {
   readonly historyAvailable = HISTORICAL_MAP.available;
   private readonly container = viewChild.required<ElementRef<HTMLElement>>('canvas');
   private readonly destroyRef = inject(DestroyRef);
+  private readonly consent = inject(Consent);
   private map?: LibreMap;
   private markers: Marker[] = [];
   private resizeObserver?: ResizeObserver;
@@ -256,7 +258,7 @@ export class AtlasMap {
   private restoreLayerPreferences(): void {
     try {
       const saved: unknown = JSON.parse(
-        localStorage.getItem('historyczny-rybnik.layers.v1') ?? 'null',
+        this.consent.readPreference('historyczny-rybnik.layers.v1') ?? 'null',
       );
       if (!saved || typeof saved !== 'object') return;
       if ('collapsed' in saved && typeof saved.collapsed === 'boolean') {
@@ -279,7 +281,7 @@ export class AtlasMap {
 
   private saveLayerPreferences(): void {
     try {
-      localStorage.setItem(
+      this.consent.writePreference(
         'historyczny-rybnik.layers.v1',
         JSON.stringify({
           collapsed: this.layerControlsCollapsed(),

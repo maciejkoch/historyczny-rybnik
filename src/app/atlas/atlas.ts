@@ -4,22 +4,19 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  effect,
   DestroyRef,
   ElementRef,
+  Injector,
   inject,
   signal,
   viewChild,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  NavigationStart,
-  Router,
-  RouterLink,
-} from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { Meta, Title } from '@angular/platform-browser';
+import { Consent } from '../privacy/consent';
 import { PanelLayout } from './panel-layout';
 import { AtlasMap } from '../atlas-map/atlas-map';
 import { PLACES } from '../places/catalog.generated';
@@ -27,22 +24,26 @@ import { Locations } from '../places/locations';
 import { normalizeSearch, Place } from '../places/place';
 import { PlaceSearchPanel } from './place-search-panel';
 import { PlaceDetailsPanel } from './place-details-panel';
-import { MobileNavigation } from './mobile-navigation';
+import { MobileNavigation } from '../layout/mobile-navigation/mobile-navigation';
+import { PortalHeader } from '../layout/portal-header/portal-header';
+import { PortalFooter } from '../layout/portal-footer/portal-footer';
 @Component({
   selector: 'app-atlas',
   imports: [
-    RouterLink,
     AtlasMap,
     PanelLayout,
     PlaceSearchPanel,
     PlaceDetailsPanel,
     MobileNavigation,
+    PortalHeader,
+    PortalFooter,
   ],
   templateUrl: './atlas.html',
   styleUrls: ['./atlas.css', './atlas-mobile.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Atlas {
+  private readonly injector = inject(Injector);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly params = toSignal(this.route.data, { initialValue: this.route.snapshot.data });
@@ -51,6 +52,7 @@ export class Atlas {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   readonly locations = inject(Locations);
+  readonly consent = inject(Consent);
   readonly query = signal(this.route.snapshot.queryParamMap.get('q') ?? '');
   readonly screen = computed<'map' | 'search' | 'place'>(() => this.params()['screen'] ?? 'map');
   readonly hasDetails = computed(() => this.screen() === 'place');
@@ -101,7 +103,9 @@ export class Atlas {
   private readonly searchPanel = viewChild<ElementRef<HTMLElement>>('searchPanel');
   private readonly detailsPanel = viewChild<ElementRef<HTMLElement>>('detailsPanel');
   private readonly mapRegion = viewChild<ElementRef<HTMLElement>>('mapRegion');
-  private readonly brandHeader = viewChild<ElementRef<HTMLElement>>('brandHeader');
+  private readonly brandHeader = viewChild<PortalHeader, ElementRef<HTMLElement>>('brandHeader', {
+    read: ElementRef,
+  });
   private readonly searchLayout = viewChild<PanelLayout>('searchLayout');
   private readonly detailsLayout = viewChild<PanelLayout>('detailsLayout');
   private readonly scanDialog = viewChild<ElementRef<HTMLDialogElement>>('scanDialog');
@@ -144,7 +148,13 @@ export class Atlas {
       canonical.href = url;
     });
     afterNextRender(() => {
-      void this.locations.refresh();
+      effect(
+        () => {
+          this.consent.google();
+          void this.locations.refresh();
+        },
+        { injector: this.injector },
+      );
       const header = this.brandHeader()?.nativeElement;
       const observer = new ResizeObserver(() => {
         if (header) this.headerHeight.set(header.getBoundingClientRect().height);

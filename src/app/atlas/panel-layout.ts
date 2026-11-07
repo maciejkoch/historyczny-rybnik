@@ -1,3 +1,4 @@
+import { Consent } from '../privacy/consent';
 import {
   afterNextRender,
   computed,
@@ -29,6 +30,7 @@ export class PanelLayout {
   readonly split = input(false);
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly consent = inject(Consent);
   private readonly preferredWidth = signal(DEFAULT_WIDTH);
   private readonly collapsed = signal(false);
   private readonly desktop = signal(false);
@@ -68,7 +70,7 @@ export class PanelLayout {
       };
       syncViewport();
       try {
-        const saved: unknown = JSON.parse(localStorage.getItem(this.storageKey()) ?? 'null');
+        const saved: unknown = JSON.parse(this.consent.readPreference(this.storageKey()) ?? 'null');
         if (saved && typeof saved === 'object' && 'width' in saved && 'collapsed' in saved) {
           if (
             typeof saved.width === 'number' &&
@@ -194,7 +196,7 @@ export class PanelLayout {
 
   private save(): void {
     try {
-      localStorage.setItem(
+      this.consent.writePreference(
         this.storageKey(),
         JSON.stringify({ width: this.preferredWidth(), collapsed: this.collapsed() }),
       );

@@ -1,0 +1,35 @@
+<nav aria-label="Nawigacja serwisu">
+  <a class="btn btn-ghost" routerLink="/" [attr.aria-current]="view() === 'map' ? 'page' : null"
+    >Mapa</a
+  >
+  <a
+    class="btn btn-ghost"
+    routerLink="/szukaj"
+    [queryParams]="{ q: query() || null }"
+    [attr.aria-current]="view() === 'search' ? 'page' : null"
+    >Szukaj</a
+  >
+  <button
+    type="button"
+    class="btn btn-ghost btn-square"
+    aria-label="Ustawienia prywatności"
+    title="Ustawienia prywatności"
+    (click)="consent.openSettings()"
+  >
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.7"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M12 3 4 6v5c0 5 8 10 8 10s8-5 8-10V6l-8-3Z" />
+      <path d="m8.5 11.5 2.5 2.5 4.5-5" />
+    </svg>
+  </button>
+</nav>

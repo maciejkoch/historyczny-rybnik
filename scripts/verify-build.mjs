@@ -52,3 +52,10 @@ for (const [path, digest] of Object.entries(manifest.tiles)) {
   assert.equal(createHash('sha256').update(readFileSync(`${root}/maps/rybnik-1932/${path}`)).digest('hex'), digest, path);
 }
 console.log(`Verified vector style and ${Object.keys(manifest.tiles).length} historical tiles.`);
+
+const privacy = readFileSync(`${root}/prywatnosc/index.html`, 'utf8');
+assert.match(privacy, /Prywatność i pliki cookie/);
+assert.match(privacy, /180 dni/);
+assert.match(privacy, /noindex/);
+assert.doesNotMatch(home, /<script[^>]+src=[\"'][^\"']*(google|recaptcha)/);
+console.log('Verified static privacy page and no embedded Google scripts.');

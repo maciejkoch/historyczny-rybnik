@@ -17,14 +17,12 @@
   [style.--details-separator-width]="hasDetails() && !detailsLayout.isCollapsed() ? '8px' : '0px'"
 >
   <div class="sidebar">
-    <header #brandHeader class="brand-header">
-      <a class="brand" routerLink="/" aria-label="Historyczny Rybnik — strona główna">
-        <img src="/brand/ryba-na-mapie.svg" width="76" height="54" alt="" />
-        <span [hidden]="searchLayout.isCollapsed()">Historyczny<br />Rybnik</span>
-      </a>
-      <span [hidden]="searchLayout.isCollapsed()" class="badge badge-outline preview-badge"
-        >Wersja rozwojowa</span
-      >
+    <header
+      appPortalHeader
+      #brandHeader
+      class="brand-header"
+      [compact]="searchLayout.isCollapsed()"
+    >
       <button
         class="btn btn-ghost btn-square panel-toggle"
         type="button"
@@ -52,6 +50,14 @@
         (queryChanged)="updateQuery($event)"
         (placeSelected)="select($event)"
       />
+      @if (locations.status() === 'disabled') {
+        <p class="muted">
+          Pokazujemy ostatnio opublikowane pozycje. Pobieranie bieżących pozycji włączysz w
+          <button type="button" class="privacy-settings" (click)="consent.openSettings()">
+            ustawieniach prywatności</button
+          >.
+        </p>
+      }
       @if (locations.status() === 'error') {
         <p role="status" class="muted">
           Bieżące pozycje są niedostępne. Mapa pokazuje ostatni dostępny stan; opisy i wyszukiwanie
@@ -59,9 +65,12 @@
         </p>
       }
     </main>
-    <footer id="panel-footer" class="panel-footer" [hidden]="searchLayout.isCollapsed()">
-      Cyfrowy atlas lokalnej pamięci <span aria-hidden="true">↗</span>
-    </footer>
+    <footer
+      appPortalFooter
+      id="panel-footer"
+      class="panel-footer"
+      [hidden]="searchLayout.isCollapsed()"
+    ></footer>
   </div>
   <div
     class="panel-separator"
