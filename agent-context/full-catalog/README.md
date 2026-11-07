@@ -31,3 +31,5 @@ Indeks data/source-rights.json zawiera odkryte publikacje, odwołania każdego m
 61 referencji w 60 miejscach otrzymało wycinki i miniatury (122 obiekty dev Storage), z sumami SHA-256 i pochodzeniem w dokumentach. 73 odwołania do wycinków księgi rzemiosła pozostają bez kopii. Pełne PDF-y nie są kopiowane. Wejściem są lokalne wycinki MVP.0; ich sumy nie są przedstawiane jako sumy PDF. Narzędzie prepare-rights-index.py wymaga istniejącego, ręcznie zweryfikowanego indeksu i pomija niepotwierdzone źródła. Nie tworzy automatycznych decyzji prawnych.
 
 README, TECHNICAL i data/README zaktualizowane; CONTRIBUTING, SECURITY i scripts/README sprawdzone, nie zmieniono zasad ani poleceń utrzymania. Produkcja bez zmian.
+
+Kontrola po imporcie: snapshot zawiera dokładnie wszystkie 61 zatwierdzonych referencji obrazowych i żadnej z niepotwierdzonego źródła; 196 miejsc. Publiczny odczyt wycinka Jerzego Wilczyńskiego: HTTP 200, SHA-256 zgodny. Build 200 tras i kontrole artefaktów PASS; ostrzeżenie początkowego pakietu ~861 kB. Zasadę sprawdzania indeksu przed kolejnym materiałem zapisano też w AGENTS.md na polecenie właściciela.
