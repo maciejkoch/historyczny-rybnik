@@ -94,3 +94,7 @@ GitHub. Jest to walidacja zachowania instrukcji, nie test wdrożenia infrastrukt
 
 Integrację z żywą tablicą oraz pozostałe ograniczenia opisano w
 [zapisie weryfikacji](skille-github-projects-weryfikacja.md).
+
+## Przekazanie do review
+
+Po utworzeniu powiązanego PR, także draftu, `rybnik-start-task` zapisuje link i ustawia zadanie na `In review`. Dotyczy to również PR utworzonego przez właściciela i wykrytego przy wznowieniu. Rezerwacja pozostaje na czas review. Merge i `Done` wymagają odrębnego zlecenia właściciela.

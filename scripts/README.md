@@ -58,3 +58,8 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduł
 | `npm --prefix functions run test:emulator` | `node --test test/*.emulator.mjs` |
 
 `functions/src/` to kod uruchamianego backendu, opisany w [TECHNICAL.md](../TECHNICAL.md). Jednorazowe materiały agenta należą do `agent-context/`; wygenerowane zależności i pliki robocze nie należą do tego spisu.
+
+## Równoległe środowiska
+
+- `npm run deploy:dev-1`, `deploy:dev-2`, `deploy:dev-3`: snapshot wspólnego backendu dev, build i publikacja wyłącznie wskazanej witryny. Konfiguracja przejmuje aktualne przekierowania wygenerowane przez build; `/deployment.json` zapisuje slot, branch, SHA i czas.
+- `npm run environment -- reserve|release dev-1|dev-2|dev-3 <ID pozycji Projects>`: `scripts/places/environment.mjs` tworzy atomową blokadę w zdalnej gałęzi `env-lock/<slot>` lub zwalnia wyłącznie blokadę tego zadania. Pole Projects aktualizuje operator osobno.

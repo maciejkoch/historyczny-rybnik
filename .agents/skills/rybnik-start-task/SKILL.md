@@ -111,9 +111,14 @@ zapisu oznacza wstrzymanie mutacji do wyjaśnienia.
 Kontynuuj zadanie zgodnie z aktualną dokumentacją: dobierz sprawdzenia do ryzyka,
 aktualizuj dokumentację, wdrażaj zmiany aplikacji do właściwego dev i zweryfikuj
 URL. Uwzględnij wspólny backend dev i wpływ zmian danych na inne podglądy.
-Zaktualizuj powiązania rzeczywistym SHA wdrożenia i PR. Status review/zakończenie
-i zwolnienie slotu wykonaj po spełnieniu warunków udokumentowanego procesu,
-nie przy samym przerwaniu sesji.
+Zaktualizuj powiązania rzeczywistym SHA wdrożenia i PR. Po utworzeniu PR do zadania
+(albo wykryciu PR utworzonego przez właściciela) zapisz jego link i ustaw status
+pozycji Projects na `In review`, również dla draft PR. Odczytaj ID opcji na żywo
+i potwierdź zapis po node ID. Nie pozostawiaj `In progress` tylko dlatego, że
+PR zawiera jawnie opisane ograniczenia lub oczekuje odbioru. Zachowaj rezerwację
+środowiska na czas review. Samo utworzenie PR nie upoważnia do merge ani `Done`.
+Zakończenie i zwolnienie slotu wykonaj zgodnie z udokumentowanym procesem oraz
+wyraźnym zleceniem właściciela, nie przy samym przerwaniu sesji.
 
 Raportuj link i ID zadania, rzeczywisty status, branch/bazę, środowisko
 i zweryfikowany podgląd (lub blokadę), wymagane sprawdzenia i następny krok.

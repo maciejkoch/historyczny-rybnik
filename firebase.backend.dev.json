@@ -46,7 +46,10 @@
         "authorizedRedirectUris": [
           "https://historyczny-rybnik.firebaseapp.com/__/auth/handler",
           "https://historyczny-rybnik-dev.web.app/__/auth/handler",
-          "http://localhost"
+          "http://localhost",
+          "https://historyczny-rybnik-dev-1.web.app/__/auth/handler",
+          "https://historyczny-rybnik-dev-2.web.app/__/auth/handler",
+          "https://historyczny-rybnik-dev-3.web.app/__/auth/handler"
         ]
       }
     }
