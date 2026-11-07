@@ -2,5 +2,18 @@
   <img src="/brand/ryba-na-mapie.svg" width="76" height="54" alt="" />
   <span [hidden]="compact()">Historyczny<br />Rybnik</span>
 </a>
-<span [hidden]="compact()" class="badge badge-outline preview-badge">Wersja rozwojowa</span>
+<div [hidden]="compact()" class="preview-badge">
+  @if (account.user(); as user) {
+    <p>Zalogowano: {{ user.displayName || 'Użytkownik' }}</p>
+  }
+  <button
+    type="button"
+    class="btn btn-outline btn-sm"
+    [disabled]="account.busy()"
+    (click)="account.toggle()"
+  >
+    {{ account.busy() ? 'Proszę czekać…' : account.user() ? 'Wyloguj' : 'Zaloguj przez Google' }}
+  </button>
+  <p role="status">{{ account.message() }}</p>
+</div>
 <ng-content />

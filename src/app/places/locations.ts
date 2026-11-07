@@ -35,6 +35,23 @@ export class Locations {
       return parseReadResponse((await read(request)).data, request.ids).places;
     };
   }
+  async update(request: import('./place').UpdateLocationRequest): Promise<void> {
+    if (!this.consent.google()) throw new Error('Google consent required');
+    this.reader ??= this.initialize();
+    await this.reader;
+    const [{ getFunctions, httpsCallable }, { getApp }, { writeRequestSchema, locationDtoSchema }] =
+      await Promise.all([
+        import('firebase/functions'),
+        import('firebase/app'),
+        import('../../../functions/src/contracts/places.mjs'),
+      ]);
+    const result = await httpsCallable(
+      getFunctions(getApp(), 'europe-central2'),
+      'placesDevUpdate',
+    )(writeRequestSchema.parse(request));
+    const saved = locationDtoSchema.parse(result.data);
+    this.current.update((values) => [...values.filter((value) => value.id !== saved.id), saved]);
+  }
   async refresh(): Promise<void> {
     if (!this.consent.google()) {
       this.status.set('disabled');

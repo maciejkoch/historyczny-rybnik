@@ -12,7 +12,7 @@ Aplikacja do poznawania historii Rybnika przez mapę i miejsca.
 - Ustawienia prywatności: osobne zgody na zapamiętywanie ustawień i bieżące pozycje z usług Google. Bez zgody aplikacja korzysta z opublikowanego snapshotu.
 - Strona polityki prywatności i możliwość powrotu do ustawień zgód.
 
-Katalog obejmuje obecnie jeden kościół. Backend zmiany lokalizacji jest przygotowany; docelowy interfejs logowania i edycji pozostaje do realizacji w fazie 4.
+Katalog obejmuje obecnie jeden kościół. Zalogowani przez Google mogą poprawiać lokalizację: wskazać punkt, określić dokładność i uzasadnienie oraz jawnie zapisać zmianę. Przycisk logowania znajduje się tymczasowo w nagłówku. Zapis sprawdza wersję pozycji, bez blokad edycji.
 
 ## Dokumentacja
 
