@@ -65,3 +65,5 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduł
 - `npm run environment -- reserve|release dev-1|dev-2|dev-3 <ID pozycji Projects>`: `scripts/places/environment.mjs` tworzy atomową blokadę w zdalnej gałęzi `env-lock/<slot>` lub zwalnia wyłącznie blokadę tego zadania. Pole Projects aktualizuje operator osobno.
 
 `npm run auth:admin -- show|grant|revoke UID [--apply] [--firebase-cli]` uruchamia `infra/admin-role.mjs`. Bez `--apply` grant/revoke to podgląd. Wymaga ADC lub lokalnego logowania Firebase CLI z uprawnieniem zarządzania Auth; zachowuje pozostałe custom claims. Auth i role są wspólne dla projektu. Zmiany ról wykonuje jeden operator naraz.
+
+Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_SNAPSHOT`; `places:import` przyjmuje 1–400 miejsc z zachowaniem bazyliki i bieżących lokalizacji. `verify-build.mjs` sprawdza karty wejściowego snapshotu, także pełnego katalogu.

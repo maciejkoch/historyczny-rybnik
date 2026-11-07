@@ -2,8 +2,8 @@ import { readFileSync } from 'node:fs';
 import { validateCatalog } from '../../functions/src/validation.mjs';
 const input = process.argv.find((arg) => arg.endsWith('.json')) || 'data/places.test-data.json';
 const places = validateCatalog(JSON.parse(readFileSync(input, 'utf8')));
-if (places.length !== 1 || places[0].id !== 'place_sw_antoni' || !places[0].published)
-  throw new Error('Dev import requires exactly the reviewed public church');
+if (!places.length || places.length > 400 || !places.some((p) => p.id === 'place_sw_antoni' && p.published))
+  throw new Error('Dev import requires the reviewed church and 1–400 validated places');
 console.log(
   JSON.stringify(
     places.map(({ id, slug, references }) => ({ id, slug, references: references.length })),
@@ -19,7 +19,7 @@ const { database, GeoPoint, Timestamp } = await import('./firestore.mjs');
 const db = await database('import');
 await db.runTransaction(async (tx) => {
   const existing = await tx.get(db.collection('places'));
-  if (existing.docs.some((doc) => doc.id !== places[0].id))
+  if (existing.docs.some((doc) => !places.some((place) => place.id === doc.id)))
     throw new Error('Unexpected documents: refusing to change catalogue');
   for (const { id, ...place } of places) {
     const current = existing.docs.find((doc) => doc.id === id);
@@ -42,4 +42,4 @@ await db.runTransaction(async (tx) => {
     tx.set(db.collection('places').doc(id), value);
   }
 });
-console.log('Imported one place; live locations preserved.');
+console.log(`Imported ${places.length} places; live locations preserved.`);

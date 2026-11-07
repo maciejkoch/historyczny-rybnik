@@ -1,0 +1,1372 @@
+[
+  {
+    "oldId": 1,
+    "id": "place_mvp0_1",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 3
+  },
+  {
+    "oldId": 2,
+    "id": "place_mvp0_2",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 3,
+    "id": "place_mvp0_3",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 4,
+    "id": "place_mvp0_4",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 5,
+    "id": "place_mvp0_5",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 6,
+    "id": "place_mvp0_6",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 7,
+    "id": "place_mvp0_7",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 8,
+    "id": "place_mvp0_8",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 3
+  },
+  {
+    "oldId": 9,
+    "id": "place_mvp0_9",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 10,
+    "id": "place_mvp0_10",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 11,
+    "id": "place_mvp0_11",
+    "location": "unknown",
+    "imagesDeferred": 2,
+    "references": 3
+  },
+  {
+    "oldId": 12,
+    "id": "place_mvp0_12",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 13,
+    "id": "place_mvp0_13",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 14,
+    "id": "place_mvp0_14",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 15,
+    "id": "place_mvp0_15",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 16,
+    "id": "place_mvp0_16",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 17,
+    "id": "place_mvp0_17",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 18,
+    "id": "place_mvp0_18",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 19,
+    "id": "place_mvp0_19",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 20,
+    "id": "place_mvp0_20",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 21,
+    "id": "place_mvp0_21",
+    "location": "unknown",
+    "imagesDeferred": 4,
+    "references": 5
+  },
+  {
+    "oldId": 22,
+    "id": "place_mvp0_22",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 23,
+    "id": "place_mvp0_23",
+    "location": "unknown",
+    "imagesDeferred": 2,
+    "references": 2
+  },
+  {
+    "oldId": 24,
+    "id": "place_mvp0_24",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 25,
+    "id": "place_mvp0_25",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 26,
+    "id": "place_mvp0_26",
+    "location": "unknown",
+    "imagesDeferred": 2,
+    "references": 2
+  },
+  {
+    "oldId": 27,
+    "id": "place_mvp0_27",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 28,
+    "id": "place_mvp0_28",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 29,
+    "id": "place_mvp0_29",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 30,
+    "id": "place_mvp0_30",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 31,
+    "id": "place_mvp0_31",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 32,
+    "id": "place_mvp0_32",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 3
+  },
+  {
+    "oldId": 33,
+    "id": "place_mvp0_33",
+    "location": "unknown",
+    "imagesDeferred": 2,
+    "references": 3
+  },
+  {
+    "oldId": 34,
+    "id": "place_mvp0_34",
+    "location": "building",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 35,
+    "id": "place_mvp0_35",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 36,
+    "id": "place_mvp0_36",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 37,
+    "id": "place_mvp0_37",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 38,
+    "id": "place_mvp0_38",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 39,
+    "id": "place_mvp0_39",
+    "location": "unknown",
+    "imagesDeferred": 2,
+    "references": 3
+  },
+  {
+    "oldId": 40,
+    "id": "place_mvp0_40",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 41,
+    "id": "place_mvp0_41",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 42,
+    "id": "place_mvp0_42",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 43,
+    "id": "place_mvp0_43",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 44,
+    "id": "place_mvp0_44",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 45,
+    "id": "place_mvp0_45",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 46,
+    "id": "place_mvp0_46",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 47,
+    "id": "place_mvp0_47",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 3
+  },
+  {
+    "oldId": 48,
+    "id": "place_mvp0_48",
+    "location": "unknown",
+    "imagesDeferred": 2,
+    "references": 2
+  },
+  {
+    "oldId": 49,
+    "id": "place_mvp0_49",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 50,
+    "id": "place_mvp0_50",
+    "location": "unknown",
+    "imagesDeferred": 2,
+    "references": 2
+  },
+  {
+    "oldId": 51,
+    "id": "place_mvp0_51",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 52,
+    "id": "place_mvp0_52",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 53,
+    "id": "place_mvp0_53",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 54,
+    "id": "place_mvp0_54",
+    "location": "unknown",
+    "imagesDeferred": 4,
+    "references": 5
+  },
+  {
+    "oldId": 55,
+    "id": "place_mvp0_55",
+    "location": "unknown",
+    "imagesDeferred": 2,
+    "references": 2
+  },
+  {
+    "oldId": 56,
+    "id": "place_mvp0_56",
+    "location": "unknown",
+    "imagesDeferred": 2,
+    "references": 3
+  },
+  {
+    "oldId": 57,
+    "id": "place_mvp0_57",
+    "location": "unknown",
+    "imagesDeferred": 2,
+    "references": 2
+  },
+  {
+    "oldId": 58,
+    "id": "place_mvp0_58",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 59,
+    "id": "place_mvp0_59",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 60,
+    "id": "place_mvp0_60",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 61,
+    "id": "place_mvp0_61",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 62,
+    "id": "place_mvp0_62",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 63,
+    "id": "place_mvp0_63",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 64,
+    "id": "place_mvp0_64",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 65,
+    "id": "place_mvp0_65",
+    "location": "unknown",
+    "imagesDeferred": 3,
+    "references": 3
+  },
+  {
+    "oldId": 66,
+    "id": "place_mvp0_66",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 67,
+    "id": "place_mvp0_67",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 68,
+    "id": "place_mvp0_68",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 69,
+    "id": "place_mvp0_69",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 70,
+    "id": "place_mvp0_70",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 4
+  },
+  {
+    "oldId": 71,
+    "id": "place_mvp0_71",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 72,
+    "id": "place_mvp0_72",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 73,
+    "id": "place_mvp0_73",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 74,
+    "id": "place_mvp0_74",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 75,
+    "id": "place_mvp0_75",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 76,
+    "id": "place_mvp0_76",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 77,
+    "id": "place_mvp0_77",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 78,
+    "id": "place_mvp0_78",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 79,
+    "id": "place_mvp0_79",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 80,
+    "id": "place_mvp0_80",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 81,
+    "id": "place_mvp0_81",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 82,
+    "id": "place_mvp0_82",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 83,
+    "id": "place_mvp0_83",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 84,
+    "id": "place_mvp0_84",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 85,
+    "id": "place_mvp0_85",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 86,
+    "id": "place_mvp0_86",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 87,
+    "id": "place_mvp0_87",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 88,
+    "id": "place_mvp0_88",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 89,
+    "id": "place_mvp0_89",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 90,
+    "id": "place_mvp0_90",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 91,
+    "id": "place_mvp0_91",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 92,
+    "id": "place_mvp0_92",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 93,
+    "id": "place_mvp0_93",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 94,
+    "id": "place_mvp0_94",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 95,
+    "id": "place_mvp0_95",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 96,
+    "id": "place_mvp0_96",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 97,
+    "id": "place_mvp0_97",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 98,
+    "id": "place_mvp0_98",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 99,
+    "id": "place_mvp0_99",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 100,
+    "id": "place_mvp0_100",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 101,
+    "id": "place_mvp0_101",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 102,
+    "id": "place_mvp0_102",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 103,
+    "id": "place_mvp0_103",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 104,
+    "id": "place_mvp0_104",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 2
+  },
+  {
+    "oldId": 105,
+    "id": "place_mvp0_105",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 106,
+    "id": "place_mvp0_106",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 107,
+    "id": "place_mvp0_107",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 2
+  },
+  {
+    "oldId": 108,
+    "id": "place_mvp0_108",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 109,
+    "id": "place_mvp0_109",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 110,
+    "id": "place_mvp0_110",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 111,
+    "id": "place_mvp0_111",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 112,
+    "id": "place_mvp0_112",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 113,
+    "id": "place_mvp0_113",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 114,
+    "id": "place_mvp0_114",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 115,
+    "id": "place_mvp0_115",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 116,
+    "id": "place_mvp0_116",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 117,
+    "id": "place_mvp0_117",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 118,
+    "id": "place_mvp0_118",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 119,
+    "id": "place_mvp0_119",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 120,
+    "id": "place_mvp0_120",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 121,
+    "id": "place_mvp0_121",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 122,
+    "id": "place_mvp0_122",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 123,
+    "id": "place_mvp0_123",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 124,
+    "id": "place_mvp0_124",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 125,
+    "id": "place_mvp0_125",
+    "location": "unknown",
+    "imagesDeferred": 1,
+    "references": 1
+  },
+  {
+    "oldId": 126,
+    "id": "place_mvp0_126",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 127,
+    "id": "place_mvp0_127",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 128,
+    "id": "place_mvp0_128",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1001,
+    "id": "place_sw_antoni",
+    "decision": "existing church retained"
+  },
+  {
+    "oldId": 1002,
+    "id": "place_mvp0_1002",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1003,
+    "id": "place_mvp0_1003",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1004,
+    "id": "place_mvp0_1004",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1005,
+    "id": "place_mvp0_1005",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 2
+  },
+  {
+    "oldId": 1006,
+    "id": "place_mvp0_1006",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1007,
+    "id": "place_mvp0_1007",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1008,
+    "id": "place_mvp0_1008",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1009,
+    "id": "place_mvp0_1009",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1010,
+    "id": "place_mvp0_1010",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1011,
+    "id": "place_mvp0_1011",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1012,
+    "id": "place_mvp0_1012",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1013,
+    "id": "place_mvp0_1013",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1014,
+    "id": "place_mvp0_1014",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 2
+  },
+  {
+    "oldId": 1015,
+    "id": "place_mvp0_1015",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1016,
+    "id": "place_mvp0_1016",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1017,
+    "id": "place_mvp0_1017",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 2
+  },
+  {
+    "oldId": 1018,
+    "id": "place_mvp0_1018",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1019,
+    "id": "place_mvp0_1019",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1020,
+    "id": "place_mvp0_1020",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1021,
+    "id": "place_mvp0_1021",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1022,
+    "id": "place_mvp0_1022",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1023,
+    "id": "place_mvp0_1023",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1024,
+    "id": "place_mvp0_1024",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1025,
+    "id": "place_mvp0_1025",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1026,
+    "id": "place_mvp0_1026",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1027,
+    "id": "place_mvp0_1027",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1028,
+    "id": "place_mvp0_1028",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1029,
+    "id": "place_mvp0_1029",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1030,
+    "id": "place_mvp0_1030",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1031,
+    "id": "place_mvp0_1031",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1032,
+    "id": "place_mvp0_1032",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1033,
+    "id": "place_mvp0_1033",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1034,
+    "id": "place_mvp0_1034",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1035,
+    "id": "place_mvp0_1035",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1036,
+    "id": "place_mvp0_1036",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1037,
+    "id": "place_mvp0_1037",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1038,
+    "id": "place_mvp0_1038",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1039,
+    "id": "place_mvp0_1039",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1040,
+    "id": "place_mvp0_1040",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 2
+  },
+  {
+    "oldId": 1041,
+    "id": "place_mvp0_1041",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1042,
+    "id": "place_mvp0_1042",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1043,
+    "id": "place_mvp0_1043",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 2
+  },
+  {
+    "oldId": 1044,
+    "id": "place_mvp0_1044",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1045,
+    "id": "place_mvp0_1045",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1046,
+    "id": "place_mvp0_1046",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1047,
+    "id": "place_mvp0_1047",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 1048,
+    "id": "place_mvp0_1048",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2001,
+    "id": "place_mvp0_2001",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2002,
+    "id": "place_mvp0_2002",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2003,
+    "id": "place_mvp0_2003",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2004,
+    "id": "place_mvp0_2004",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 2
+  },
+  {
+    "oldId": 2005,
+    "id": "place_mvp0_2005",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2006,
+    "id": "place_mvp0_2006",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2007,
+    "id": "place_mvp0_2007",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2008,
+    "id": "place_mvp0_2008",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2009,
+    "id": "place_mvp0_2009",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2010,
+    "id": "place_mvp0_2010",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2011,
+    "id": "place_mvp0_2011",
+    "location": "approximate",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2012,
+    "id": "place_mvp0_2012",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2013,
+    "id": "place_mvp0_2013",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2014,
+    "id": "place_mvp0_2014",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2015,
+    "id": "place_mvp0_2015",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2016,
+    "id": "place_mvp0_2016",
+    "location": "building",
+    "imagesDeferred": 0,
+    "references": 3
+  },
+  {
+    "oldId": 2017,
+    "id": "place_mvp0_2017",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2018,
+    "id": "place_mvp0_2018",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2019,
+    "id": "place_mvp0_2019",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  },
+  {
+    "oldId": 2020,
+    "id": "place_mvp0_2020",
+    "location": "unknown",
+    "imagesDeferred": 0,
+    "references": 1
+  }
+]

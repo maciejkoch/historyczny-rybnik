@@ -14,7 +14,7 @@ assert.match(search, /noindex/);
 assert.ok(search.includes('https://historyczny-rybnik-dev.web.app/szukaj'));
 
 assert.doesNotMatch(home, /Dane przykładowe/);
-const catalogue = JSON.parse(readFileSync('data/places.test-data.json', 'utf8'));
+const catalogue = JSON.parse(readFileSync(process.env['PLACES_SNAPSHOT'] || 'data/places.test-data.json', 'utf8'));
 for (const place of catalogue) {
   const html = readFileSync(`${root}/miejsca/${place.slug}/index.html`, 'utf8');
   assert.match(html, /screen-place/);

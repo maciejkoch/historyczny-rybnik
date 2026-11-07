@@ -114,3 +114,7 @@ Trzy witryny `historyczny-rybnik-dev-1`, `-2`, `-3` mają osobne konfiguracje `f
 Rola administratora: custom claim `admin: true` w Firebase Auth. Rejestracja i przeglądanie są publiczne; zapis lokalizacji wymaga Google Auth, App Check i roli admina. Rola dociera do klienta przy wydaniu nowego tokenu, np. po ponownym logowaniu. Odebranie roli nie unieważnia już wydanego tokenu (ważnego do około godziny).
 
 Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
+
+## Pełny katalog na dev
+
+Plik `data/places.catalog.json` zawiera 196 miejsc przeniesionych z MVP.0, ze stabilnymi ID i zachowanym rekordem `place_sw_antoni`. Build przyjmuje pełny walidowany snapshot, a odczyt lokalizacji dzieli katalog na żądania po maksymalnie 100 ID. Import dev obsługuje do 400 miejsc w jednej transakcji, zachowuje istniejące lokalizacje, wersje i daty; odrzuca pominięcie istniejących dokumentów. Produkcja pozostaje oddzielnym zadaniem.
