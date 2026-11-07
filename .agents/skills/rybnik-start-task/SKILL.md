@@ -7,7 +7,7 @@ description: Rozpocznij lub wznów wskazane zadanie GitHub Projects Historyczny 
 
 Zakres: repozytorium `maciejkoch/historyczny-rybnik` i tablica
 <https://github.com/users/maciejkoch/projects/1> (owner `maciejkoch`, numer `1`).
-Nie przeszukuj innych kont ani zasobów Marcura. Nie zapisuj sekretów.
+Nie przeszukuj innych kont. Nie zapisuj sekretów.
 Polecenie podjęcia pracy obejmuje status i zapis powiązań zadania na tablicy;
 nie obejmuje komentarzy/review. Produkcja wymaga osobnego wyraźnego zlecenia.
 Sama prośba o ocenę gotowości jest tylko odczytem.
@@ -40,7 +40,7 @@ Obsługuj drafty i issues. Odczytaj cały opis, istotne komentarze issue, zależ
 i powiązania pracy. Odróżniaj ID pozycji Projects, ID draftu oraz numer issue.
 Status jest polem pozycji Projects.
 
-Przeczytaj bieżące instrukcje użytkownika, `AGENTS.md`, `README.md` i wskazaną
+Przeczytaj bieżące instrukcje użytkownika, `AGENTS.md`, `README.md`, `TECHNICAL.md`, `CONTRIBUTING.md` i wskazaną
 dokumentację architektury, testów, branchowania i środowisk. Zasady pozostają
 w tych źródłach. Instrukcje użytkownika mają pierwszeństwo; nierozstrzygnięty
 konflikt zgłoś przed zależną operacją. Do odkrywania kodu stosuj graf MCP zgodnie

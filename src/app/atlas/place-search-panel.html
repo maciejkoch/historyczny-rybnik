@@ -1,0 +1,40 @@
+<div class="search-intro">
+  <div class="eyebrow">Miejsca · ludzie · pamięć</div>
+  <h1>Miasto zapisane<br />w miejscach.</h1>
+  <p class="intro">Porównaj dzisiejszy Rybnik z planem z 1932 roku.</p>
+  <div class="divider"></div>
+</div>
+<section aria-labelledby="search-title">
+  <span class="section-number">01 / ODKRYWAJ MAPĘ</span>
+  <h2 id="search-title">Znajdź miejsce</h2>
+  <label for="place-search">Nazwa, dawny adres lub dzielnica</label>
+  <input
+    id="place-search"
+    class="input input-bordered search"
+    type="search"
+    autocomplete="off"
+    [value]="query()"
+    (input)="queryChanged.emit($any($event.target).value)"
+  />
+  <p class="muted" role="status">Wyniki: {{ results().length }}</p>
+  <ul class="place-list">
+    @for (place of results(); track place.id) {
+      <li>
+        <a
+          class="place-button"
+          [href]="'/miejsca/' + place.slug"
+          [attr.data-place]="place.id"
+          [attr.aria-current]="selectedId() === place.id ? 'true' : null"
+          (click)="choose($event, place)"
+          ><span class="place-number" aria-hidden="true">↗</span
+          ><span
+            >{{ place.name
+            }}<small>{{ place.addresses[0]?.text ?? 'Adres nieustalony' }}</small></span
+          ></a
+        >
+      </li>
+    } @empty {
+      <li>Nie znaleziono miejsca. Spróbuj innej nazwy lub adresu.</li>
+    }
+  </ul>
+</section>

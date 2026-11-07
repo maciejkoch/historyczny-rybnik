@@ -1,0 +1,110 @@
+.consent-banner {
+  position: fixed;
+  z-index: 100;
+  inset: auto 1rem 1rem;
+  max-width: 74rem;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0.65rem;
+  background: var(--color-base-100);
+  box-shadow: 0 8px 40px #203b3233;
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+}
+h2 {
+  font-size: 1.45rem;
+  margin-bottom: 0.65rem;
+}
+p {
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.consent-banner .actions {
+  flex: 0 0 15rem;
+}
+.actions .btn {
+  white-space: normal;
+  height: auto;
+  padding-block: 0.6rem;
+}
+.consent-banner .btn {
+  width: 100%;
+}
+.consent-dialog {
+  color: var(--color-base-content);
+  background: var(--color-base-100);
+  border: 1px solid var(--color-line);
+  border-radius: 0.65rem;
+  padding: 1.5rem;
+  width: min(40rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  overflow: auto;
+}
+.consent-dialog::backdrop {
+  background: #203b3277;
+}
+.category {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+  border-block-start: 1px solid var(--color-line);
+  padding-block: 1rem;
+}
+.category:has(h3) {
+  display: block;
+}
+.category h3,
+.category strong {
+  font-weight: 600;
+}
+.category span span {
+  display: block;
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+.category input {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+.consent-dialog .actions {
+  margin-top: 1.25rem;
+}
+.storage-notice {
+  position: fixed;
+  z-index: 101;
+  inset: auto 1rem 1rem;
+  padding: 0.75rem;
+  background: var(--color-base-100);
+  border: 1px solid var(--color-line);
+  border-radius: 0.4rem;
+  max-width: 34rem;
+}
+@media (max-width: 700px) {
+  .consent-banner {
+    display: block;
+    padding: 1rem;
+    gap: 1rem;
+    inset: auto 0.5rem 0.5rem;
+  }
+  .consent-banner .actions {
+    margin-top: 1rem;
+  }
+  .consent-banner h2 {
+    font-size: 1.2rem;
+  }
+}

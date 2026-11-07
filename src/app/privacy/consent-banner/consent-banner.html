@@ -1,0 +1,88 @@
+@if (consent.ready() && !consent.decided()) {
+  <section class="consent-banner" role="region" aria-labelledby="consent-title">
+    <div>
+      <p class="eyebrow">Twoja prywatność</p>
+      <h2 id="consent-title">Ty wybierasz, co zapamiętujemy</h2>
+      <p>
+        Za Twoją zgodą zapamiętujemy ustawienia serwisu i korzystamy z usług Google do pobierania
+        bieżących pozycji miejsc i ochrony przed nadużyciami. Możesz odmówić i nadal korzystać z
+        portalu. Nie używamy analityki ani reklam.
+      </p>
+      <a routerLink="/prywatnosc">Prywatność i pliki cookie</a>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn btn-outline" (click)="save(false, false)">
+        Odrzuć opcjonalne
+      </button>
+      <button type="button" class="btn btn-outline" (click)="save(true, true)">
+        Akceptuj wszystkie
+      </button>
+      <button type="button" class="btn btn-ghost" (click)="open()">Ustawienia</button>
+    </div>
+  </section>
+}
+@if (consent.ready() && consent.storageFailed()) {
+  <p class="storage-notice" role="status">
+    Przeglądarka blokuje zapis. Wybór obowiązuje w tej karcie; przy kolejnej wizycie możemy zapytać
+    ponownie.
+  </p>
+}
+<dialog
+  #settings
+  class="consent-dialog"
+  aria-labelledby="settings-title"
+  aria-describedby="settings-description"
+>
+  <h2 id="settings-title">Ustawienia prywatności</h2>
+  <p id="settings-description">
+    Opcjonalne kategorie są domyślnie wyłączone. Decyzję zmienisz w stopce.
+  </p>
+  <div class="category">
+    <h3>Niezbędne — zawsze aktywne</h3>
+    <p>Działanie serwisu i zapis Twojej decyzji o zgodach przez 180 dni.</p>
+  </div>
+  <label class="category">
+    <span
+      ><strong>Zapamiętywanie ustawień</strong
+      ><span
+        >Zapis ustawień serwisu na tym urządzeniu do usunięcia danych lub wycofania zgody.</span
+      ></span
+    >
+    <input
+      type="checkbox"
+      class="checkbox"
+      [checked]="preferences()"
+      (change)="preferences.set($event.target.checked)"
+    />
+  </label>
+  <label class="category">
+    <span
+      ><strong>Bieżące pozycje — usługi Google</strong
+      ><span
+        >Pobieranie aktualnych pozycji miejsc i ochrona przed nadużyciami. Google otrzymuje dane
+        urządzenia i przeglądarki oraz może zapisywać pliki cookie.</span
+      ></span
+    >
+    <input
+      type="checkbox"
+      class="checkbox"
+      [checked]="google()"
+      (change)="google.set($event.target.checked)"
+    />
+  </label>
+  <a routerLink="/prywatnosc" (click)="settings.close()">Prywatność i pliki cookie</a>
+  <div class="actions">
+    <button type="button" class="btn btn-outline" (click)="save(false, false)">
+      Odrzuć opcjonalne
+    </button>
+    <button type="button" class="btn btn-outline" (click)="save(true, true)">
+      Akceptuj wszystkie
+    </button>
+    <button type="button" class="btn btn-primary" (click)="save(preferences(), google())">
+      Zapisz wybór
+    </button>
+    <button type="button" class="btn btn-ghost" (click)="settings.close()">
+      Zamknij bez zmian
+    </button>
+  </div>
+</dialog>

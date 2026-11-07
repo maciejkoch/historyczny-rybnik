@@ -1,42 +1,217 @@
-<a class="skip-link btn btn-primary" href="#tresc">Przejdź do treści</a>
-<div class="atlas-shell">
-  <header class="brand-header">
-    <a class="brand" href="/" aria-label="Historyczny Rybnik — strona główna">
-      <img src="/brand/ryba-na-mapie.svg" width="76" height="54" alt="" />
-      <span>Historyczny<br />Rybnik</span>
-    </a>
-    <span class="badge badge-outline preview-badge">Wersja rozwojowa · mapa</span>
-  </header>
-  <main #panel id="tresc" class="content-panel" tabindex="-1">
-    @if (selected(); as place) {
-      <button class="btn btn-ghost back-button" type="button" (click)="close()">← Wróć do punktów</button>
-      <p class="eyebrow">Przykład {{ place.number }} / 03</p>
-      <h1 id="place-title" tabindex="-1">{{ place.name }}</h1>
-      <p class="badge badge-outline">Dane przykładowe</p>
-      <p class="intro">{{ place.description }}</p>
-      <p class="muted">To punkt testowy interfejsu, a nie zweryfikowany obiekt katalogu. Opisy i materiały źródłowe pojawią się w kolejnym etapie.</p>
-      <div class="divider"></div>
-      <p class="muted">Przełączaj plan i zmieniaj jego krycie. Wybrany punkt pozostanie zaznaczony, a zamknięcie karty zachowa kadr mapy.</p>
-    } @else {
-      <div class="eyebrow">Miejsca · ludzie · pamięć</div>
-      <h1>Miasto zapisane<br />w miejscach.</h1>
-      <p class="intro">Porównaj dzisiejszy Rybnik z planem z 1932 roku.</p>
-      <div class="divider"></div>
-      <section aria-labelledby="demo-title">
-        <span class="section-number">01 / ODKRYWAJ MAPĘ</span>
-        <h2 id="demo-title">Wybierz punkt</h2>
-        <p class="muted">Trzy jawnie przykładowe pozycje do sprawdzenia mapy i panelu. To jeszcze nie katalog historycznych miejsc.</p>
-        <ul class="place-list">
-          @for (place of places; track place.id) {
-            <li><button type="button" class="place-button" [attr.data-place]="place.id" (click)="select(place)"><span class="place-number" aria-hidden="true">{{ place.number }}</span><span>{{ place.name }}<small>Dane przykładowe</small></span><span aria-hidden="true">↗</span></button></li>
-          }
-        </ul>
-      </section>
+<a class="skip-link btn btn-primary" [href]="screen() === 'search' ? '#tresc' : '#mapa'"
+  >Przejdź do treści</a
+>
+<div
+  class="atlas-shell"
+  appPanelLayout
+  #searchLayout="panelLayout"
+  [split]="hasDetails()"
+  [class.screen-map]="screen() === 'map'"
+  [class.screen-search]="screen() === 'search'"
+  [class.screen-place]="screen() === 'place'"
+  [class.has-details]="hasDetails()"
+  [class.sheet-open]="sheetOpen()"
+  [class.sheet-animating]="sheetAnimating()"
+  [style.--mobile-header-height]="headerHeight() + 'px'"
+  [style.--details-width]="hasDetails() ? detailsLayout.panelWidth() + 'px' : '0px'"
+  [style.--details-separator-width]="hasDetails() && !detailsLayout.isCollapsed() ? '8px' : '0px'"
+>
+  <div class="sidebar">
+    <header
+      appPortalHeader
+      #brandHeader
+      class="brand-header"
+      [compact]="searchLayout.isCollapsed()"
+    >
+      <button
+        class="btn btn-ghost btn-square panel-toggle"
+        type="button"
+        data-panel-toggle
+        aria-controls="tresc panel-footer"
+        [attr.aria-expanded]="!searchLayout.isCollapsed()"
+        [attr.aria-label]="searchLayout.isCollapsed() ? 'Rozwiń wyszukiwarkę' : 'Zwiń wyszukiwarkę'"
+        (click)="searchLayout.toggle()"
+      >
+        <span aria-hidden="true">{{ searchLayout.isCollapsed() ? '›' : '‹' }}</span>
+      </button>
+    </header>
+    <main
+      #searchPanel
+      id="tresc"
+      class="content-panel search-panel"
+      tabindex="-1"
+      [hidden]="searchLayout.isCollapsed()"
+    >
+      <app-place-search-panel
+        [query]="query()"
+        [mobilePage]="screen() === 'search'"
+        [results]="results()"
+        [selectedId]="selected()?.id"
+        (queryChanged)="updateQuery($event)"
+        (placeSelected)="select($event)"
+      />
+      @if (locations.status() === 'disabled') {
+        <p class="muted">
+          Pokazujemy ostatnio opublikowane pozycje. Pobieranie bieżących pozycji włączysz w
+          <button type="button" class="privacy-settings" (click)="consent.openSettings()">
+            ustawieniach prywatności</button
+          >.
+        </p>
+      }
+      @if (locations.status() === 'error') {
+        <p role="status" class="muted">
+          Bieżące pozycje są niedostępne. Mapa pokazuje ostatni dostępny stan; opisy i wyszukiwanie
+          nadal działają.
+        </p>
+      }
+    </main>
+    <footer
+      appPortalFooter
+      id="panel-footer"
+      class="panel-footer"
+      [hidden]="searchLayout.isCollapsed()"
+    ></footer>
+  </div>
+  <div
+    class="panel-separator"
+    role="separator"
+    tabindex="0"
+    aria-orientation="vertical"
+    aria-label="Szerokość wyszukiwarki"
+    aria-controls="tresc"
+    [hidden]="searchLayout.isCollapsed()"
+    [attr.aria-valuemin]="searchLayout.minWidth"
+    [attr.aria-valuemax]="searchLayout.maxWidth()"
+    [attr.aria-valuenow]="searchLayout.expandedWidth()"
+    [attr.aria-valuetext]="searchLayout.expandedWidth() + ' pikseli'"
+    aria-describedby="panel-resize-help"
+    (pointerdown)="searchLayout.startResize($event)"
+    (pointermove)="searchLayout.moveResize($event)"
+    (pointerup)="searchLayout.stopResize($event)"
+    (pointercancel)="searchLayout.stopResize($event, true)"
+    (lostpointercapture)="searchLayout.stopResize($event)"
+    (keydown)="searchLayout.resizeByKeyboard($event)"
+    (dblclick)="searchLayout.resetWidth()"
+  >
+    <span aria-hidden="true"></span>
+  </div>
+  <p id="panel-resize-help" class="sr-only">
+    Przeciągnij krawędź panelu. Strzałki lewo i prawo przesuwają krawędź; Shift przyspiesza zmianę.
+    Home ustawia minimum, End maksimum, Enter zwija panel. Podwójne kliknięcie przywraca domyślną
+    szerokość. Escape anuluje przeciąganie.
+  </p>
+  <section
+    #mapRegion
+    id="mapa"
+    class="map-region"
+    aria-label="Mapa Rybnika"
+    tabindex="-1"
+    (transitionend)="finishSheetTransition($event)"
+  >
+    <app-atlas-map
+      [places]="places()"
+      [selected]="selected()"
+      [focusSelected]="hasDetails()"
+      [layoutAnimating]="sheetAnimating()"
+      (placeSelected)="select($event)"
+      (backgroundClicked)="closeFromMap()"
+    />
+    @if (hasDetails()) {
+      <button
+        class="btn btn-primary details-jump"
+        type="button"
+        aria-controls="szczegoly"
+        (click)="showDetails()"
+      >
+        Szczegóły ↓
+      </button>
     }
-    <a class="btn btn-outline map-link" href="#mapa">Przejdź do mapy <span aria-hidden="true">↗</span></a>
-  </main>
-  <section id="mapa" class="map-region" aria-label="Mapa Rybnika" tabindex="-1">
-    <app-atlas-map [selected]="selected()" (placeSelected)="select($event)" />
   </section>
-  <footer class="panel-footer">Cyfrowy atlas lokalnej pamięci <span aria-hidden="true">↗</span></footer>
+  <aside
+    class="details-sidebar"
+    appPanelLayout
+    #detailsLayout="panelLayout"
+    side="right"
+    [split]="true"
+    [hidden]="!hasDetails() && !sheetAnimating()"
+    [inert]="!hasDetails() || !sheetOpen()"
+    [attr.aria-hidden]="!hasDetails() ? 'true' : null"
+    (transitionend)="finishSheetTransition($event)"
+    aria-label="Szczegóły miejsca"
+  >
+    <div
+      class="panel-separator details-separator"
+      role="separator"
+      tabindex="0"
+      aria-orientation="vertical"
+      aria-label="Szerokość szczegółów"
+      aria-controls="szczegoly"
+      [hidden]="detailsLayout.isCollapsed()"
+      [attr.aria-valuemin]="detailsLayout.minWidth"
+      [attr.aria-valuemax]="detailsLayout.maxWidth()"
+      [attr.aria-valuenow]="detailsLayout.expandedWidth()"
+      [attr.aria-valuetext]="detailsLayout.expandedWidth() + ' pikseli'"
+      aria-describedby="panel-resize-help"
+      (pointerdown)="detailsLayout.startResize($event)"
+      (pointermove)="detailsLayout.moveResize($event)"
+      (pointerup)="detailsLayout.stopResize($event)"
+      (pointercancel)="detailsLayout.stopResize($event, true)"
+      (lostpointercapture)="detailsLayout.stopResize($event)"
+      (keydown)="detailsLayout.resizeByKeyboard($event)"
+      (dblclick)="detailsLayout.resetWidth()"
+    >
+      <span aria-hidden="true"></span>
+    </div>
+    <div class="details-inner">
+      <header class="details-header">
+        <span [hidden]="detailsLayout.isCollapsed()" class="eyebrow">Szczegóły miejsca</span>
+        <div class="details-actions">
+          <button
+            class="btn btn-ghost btn-square"
+            type="button"
+            data-panel-toggle
+            aria-controls="szczegoly"
+            [attr.aria-expanded]="!detailsLayout.isCollapsed()"
+            [attr.aria-label]="detailsLayout.isCollapsed() ? 'Rozwiń szczegóły' : 'Zwiń szczegóły'"
+            (click)="detailsLayout.toggle()"
+          >
+            {{ detailsLayout.isCollapsed() ? '‹' : '›' }}
+          </button>
+          <button
+            class="btn btn-ghost btn-square"
+            type="button"
+            aria-label="Zamknij szczegóły"
+            [hidden]="detailsLayout.isCollapsed()"
+            (click)="close()"
+          >
+            ×
+          </button>
+        </div>
+      </header>
+      <section
+        #detailsPanel
+        id="szczegoly"
+        class="content-panel details-content"
+        tabindex="-1"
+        aria-label="Opis miejsca"
+        [hidden]="detailsLayout.isCollapsed()"
+      >
+        <app-place-details-panel [place]="selected()" (imageOpened)="enlarged.set($event)" />
+      </section>
+    </div>
+  </aside>
 </div>
+<app-mobile-navigation [view]="screen()" [query]="query()" />
+<dialog
+  #scanDialog
+  class="scan-dialog"
+  aria-label="Powiększenie wycinka"
+  (close)="enlarged.set(null)"
+>
+  @if (enlarged(); as image) {
+    <button class="btn" type="button" autofocus (click)="enlarged.set(null)">
+      Zamknij powiększenie
+    </button>
+    <img [src]="image.url" [alt]="image.alt" />
+  }
+</dialog>

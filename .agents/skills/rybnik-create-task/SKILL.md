@@ -7,13 +7,13 @@ description: Przygotuj lub utwórz zadanie w GitHub Projects Historyczny Rybnik,
 
 Zakres: repozytorium `maciejkoch/historyczny-rybnik` i tablica
 <https://github.com/users/maciejkoch/projects/1> (owner `maciejkoch`, numer `1`).
-Nie wyszukuj danych w innych kontach ani zasobach Marcura. Nie zapisuj tokenów.
+Nie wyszukuj danych w innych kontach. Nie zapisuj tokenów.
 
 ## Intencja i aktualne zasady
 
 - „Omów”, „zaproponuj”, „przygotuj opis” oznacza propozycję w rozmowie bez zapisów w GitHub.
 - „Utwórz/dodaj zadanie” upoważnia do utworzenia zadania i uzgodnionych pól tej tablicy. Nie upoważnia do komentarzy, implementacji ani wdrożeń.
-- Odczytaj bieżące instrukcje użytkownika, `AGENTS.md`, `README.md` i dokumentację dotyczącą tematu z właściwego checkoutu. Zasady projektu pozostają w tych źródłach. Istotną sprzeczność zgłoś; instrukcje użytkownika mają pierwszeństwo.
+- Odczytaj bieżące instrukcje użytkownika, `AGENTS.md`, `README.md`, `TECHNICAL.md`, `CONTRIBUTING.md` i dokumentację dotyczącą tematu z właściwego checkoutu. Zasady projektu pozostają w tych źródłach. Istotną sprzeczność zgłoś; instrukcje użytkownika mają pierwszeństwo.
 - Preferuj dostępny konektor GitHub. Gdy nie obsługuje Projects, użyj lokalnego `gh` z istniejącym logowaniem. Brak dostępu zgłoś bez poszerzania zakresu kont i bez proszenia o token w rozmowie.
 
 ## Odczyt i duplikaty

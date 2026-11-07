@@ -1,0 +1,7 @@
+{
+  "indexes": [],
+  "fieldOverrides": [
+    { "collectionGroup": "places", "fieldPath": "description", "indexes": [] },
+    { "collectionGroup": "places", "fieldPath": "references", "indexes": [] }
+  ]
+}
