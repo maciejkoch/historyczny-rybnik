@@ -1,5 +1,7 @@
 # MVP.1 — plan techniczny
 
+> Dokument planistyczny. Aktualna implementacja: [TECHNICAL.md](../../../TECHNICAL.md); działające funkcje: [README.md](../../../README.md).
+
 Data weryfikacji: 4 listopada 2026. Status: **ustalony kierunek: SSG + Firebase Hosting + Functions; szczegóły do dopracowania przed implementacją**.
 
 **Architektura MVP.1:** Angular prerender (SSG) dla publicznej treści, Firebase Hosting dla statycznych plików i Cloud Functions 2nd gen dla API. Mapa działa wyłącznie w przeglądarce. SSR jest opcją przyszłego rozwoju, a osobna usługa Cloud Run nie jest częścią planu MVP.1. [Uzasadnienie i porównanie wariantów](renderowanie-porownanie.md).

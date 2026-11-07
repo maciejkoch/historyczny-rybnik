@@ -71,4 +71,4 @@ aplikacja ich nie publikuje ani nie pobiera podczas działania.
 
 Testy mierzą zgodność z tym odniesieniem, a nie niezależnie potwierdzoną dokładność
 terenową. Szczegóły źródeł i metody są w
-[dokumentacji map](../../docs/mvp-1/mapy-zrodla.md).
+[dokumentacji map](../../agent-context/reference/mvp-1/mapy-zrodla.md).
