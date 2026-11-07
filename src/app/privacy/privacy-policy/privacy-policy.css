@@ -4,7 +4,7 @@
 .page-shell {
   display: flex;
   flex-direction: column;
-  min-height: 100svh;
+  min-height: calc(100svh - 76px);
   max-width: 48rem;
   margin-inline: auto;
 }
@@ -36,5 +36,12 @@ a {
   }
   main {
     padding: 1.25rem 1.4rem 2rem;
+  }
+}
+
+@media (max-width: 1099px) {
+  .privacy-header {
+    max-width: 48rem;
+    margin-inline: auto;
   }
 }

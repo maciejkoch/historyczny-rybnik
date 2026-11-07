@@ -45,7 +45,7 @@
           ×
         </button>
       </header>
-      <ng-container *ngTemplateOutlet="links" />
+      <ng-container *ngTemplateOutlet="links; context: { mobile: true }" />
     </section>
   </div>
 </dialog>
@@ -53,14 +53,14 @@
   #dropdown
   id="portal-menu-dropdown"
   popover="auto"
-  class="dropdown dropdown-top dropdown-end portal-dropdown"
+  class="dropdown dropdown-bottom dropdown-end portal-dropdown"
   (toggle)="onPopoverToggle($event)"
   (focusout)="onDropdownFocusOut($event)"
   (keydown.escape)="close()"
 >
   <ng-container *ngTemplateOutlet="links" />
 </div>
-<ng-template #links>
+<ng-template #links let-mobile="mobile">
   <nav class="menu-navigation" aria-label="Menu serwisu">
     <ul class="menu primary-links">
       <li>
@@ -73,16 +73,18 @@
           >Mapa</a
         >
       </li>
-      <li>
-        <a
-          routerLink="/szukaj"
-          queryParamsHandling="preserve"
-          routerLinkActive="menu-active"
-          ariaCurrentWhenActive="page"
-          (click)="close()"
-          >Szukaj</a
-        >
-      </li>
+      @if (mobile) {
+        <li>
+          <a
+            routerLink="/szukaj"
+            queryParamsHandling="preserve"
+            routerLinkActive="menu-active"
+            ariaCurrentWhenActive="page"
+            (click)="close()"
+            >Szukaj</a
+          >
+        </li>
+      }
     </ul>
     <ul class="menu privacy-links">
       <li>

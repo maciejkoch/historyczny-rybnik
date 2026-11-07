@@ -54,7 +54,7 @@ export class PortalMenu {
       popup.style.setProperty('--menu-right', `${Math.max(12, window.innerWidth - rect.right)}px`);
       popup.showPopover();
       const height = popup.getBoundingClientRect().height;
-      const top = rect.top >= height + 12 ? rect.top - height - 8 : rect.bottom + 8;
+      const top = rect.bottom + 8;
       popup.style.setProperty(
         '--menu-top',
         `${Math.max(8, Math.min(top, window.innerHeight - height - 8))}px`,
