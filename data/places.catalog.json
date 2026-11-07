@@ -35,7 +35,31 @@
         "excerpt": "Wzmianka o podmiocie Jerzy Wilczyński. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_1/newspaper-ad-1/place_mvp0_1-newspaper-ad-1-1cfc00509959.jpg",
+            "thumbnailPath": "public/places/place_mvp0_1/newspaper-ad-1/place_mvp0_1-newspaper-ad-1-1cfc00509959-thumb.jpg",
+            "alt": "Ogłoszenie: Jerzy Wilczyński. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "1cfc00509959433ffbf108f5e02f2e9fd4d2e7f29e108add32a395497fbe1733",
+            "thumbnailSha256": "8f25d2dcfdb100c270f2817bf188253433266c97e11b649648971c7f27e718e6",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-01.jpg",
+              "originalSha256": "1cfc00509959433ffbf108f5e02f2e9fd4d2e7f29e108add32a395497fbe1733",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       },
       {
         "id": "observation-082",
@@ -113,7 +137,31 @@
         "excerpt": "Wzmianka o podmiocie Paweł Auer. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_2/newspaper-ad-2/place_mvp0_2-newspaper-ad-2-fa603dbbac2c.jpg",
+            "thumbnailPath": "public/places/place_mvp0_2/newspaper-ad-2/place_mvp0_2-newspaper-ad-2-fa603dbbac2c-thumb.jpg",
+            "alt": "Ogłoszenie: Paweł Auer. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "fa603dbbac2c6cfb3c295a91c654339e97c4bc129d5eb8c6d8f4acd95597064e",
+            "thumbnailSha256": "cd68a1dd09bd36af97895474fbf29b1c8fec4dc004854cda291efa017239f9c0",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-02.jpg",
+              "originalSha256": "fa603dbbac2c6cfb3c295a91c654339e97c4bc129d5eb8c6d8f4acd95597064e",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -157,7 +205,31 @@
         "excerpt": "Wzmianka o podmiocie Firma Jan Łepiarczyk. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_3/newspaper-ad-3/place_mvp0_3-newspaper-ad-3-1253338a047a.jpg",
+            "thumbnailPath": "public/places/place_mvp0_3/newspaper-ad-3/place_mvp0_3-newspaper-ad-3-1253338a047a-thumb.jpg",
+            "alt": "Ogłoszenie: Firma Jan Łepiarczyk. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "1253338a047a2be19bb5fe4fb3100452d16f9ce47289fb4616d757a776778d0c",
+            "thumbnailSha256": "1ab569259b4a31211d1dec9cc6ce18a0c5799340af9a9c56ecc76dc58a559e97",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-03.jpg",
+              "originalSha256": "1253338a047a2be19bb5fe4fb3100452d16f9ce47289fb4616d757a776778d0c",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -218,7 +290,31 @@
         "excerpt": "Wzmianka o podmiocie Jan Myśliwiec. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_4/newspaper-ad-4/place_mvp0_4-newspaper-ad-4-013a2826e4f7.jpg",
+            "thumbnailPath": "public/places/place_mvp0_4/newspaper-ad-4/place_mvp0_4-newspaper-ad-4-013a2826e4f7-thumb.jpg",
+            "alt": "Ogłoszenie: Jan Myśliwiec. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "013a2826e4f7876602499f58493c29ac72a7b2eaf9d304594e25a69593eec82a",
+            "thumbnailSha256": "9ac9724ae84ba4b925b8dfe99bd0654c17b563814f8f1013ec4b032aedb4b257",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-04.jpg",
+              "originalSha256": "013a2826e4f7876602499f58493c29ac72a7b2eaf9d304594e25a69593eec82a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -262,7 +358,31 @@
         "excerpt": "Wzmianka o podmiocie Wojciech Kamiński. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_5/newspaper-ad-5/place_mvp0_5-newspaper-ad-5-e5f1344a675a.jpg",
+            "thumbnailPath": "public/places/place_mvp0_5/newspaper-ad-5/place_mvp0_5-newspaper-ad-5-e5f1344a675a-thumb.jpg",
+            "alt": "Ogłoszenie: Wojciech Kamiński. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "e5f1344a675a0c0aae14bccc8499c0fcd58864b2591b8a38f6c695a0261cfcdf",
+            "thumbnailSha256": "6f72d7db4dfd65abd625058ffabee5b622cd18d10152ef75b29390bca1cb6df8",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-05.jpg",
+              "originalSha256": "e5f1344a675a0c0aae14bccc8499c0fcd58864b2591b8a38f6c695a0261cfcdf",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       },
       {
         "id": "observation-086",
@@ -323,7 +443,31 @@
         "excerpt": "Wzmianka o podmiocie Alojzy Borgiel. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_6/newspaper-ad-6/place_mvp0_6-newspaper-ad-6-2ed44751f7e5.jpg",
+            "thumbnailPath": "public/places/place_mvp0_6/newspaper-ad-6/place_mvp0_6-newspaper-ad-6-2ed44751f7e5-thumb.jpg",
+            "alt": "Ogłoszenie: Alojzy Borgiel. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "2ed44751f7e56b06adf72a55856758b1144089751f010d0592b44e1ae368edb9",
+            "thumbnailSha256": "044537bd105a65031d741b49e083c61a9fd6ec5bf15a5cecf0b08efdad36b7da",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-06.jpg",
+              "originalSha256": "2ed44751f7e56b06adf72a55856758b1144089751f010d0592b44e1ae368edb9",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -388,7 +532,31 @@
         "excerpt": "Wzmianka o podmiocie Baltazar Kopyciok. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_7/newspaper-ad-7/place_mvp0_7-newspaper-ad-7-266f4a1e4868.jpg",
+            "thumbnailPath": "public/places/place_mvp0_7/newspaper-ad-7/place_mvp0_7-newspaper-ad-7-266f4a1e4868-thumb.jpg",
+            "alt": "Ogłoszenie: Baltazar Kopyciok. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "266f4a1e48689933a0bc23f33e4e4a4e3cad5bb081015acd9c7125666dcead7f",
+            "thumbnailSha256": "d51b5b732161ea312f6cadbb9acf284180926119efc93cad293a36ccae0613fc",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-07.jpg",
+              "originalSha256": "266f4a1e48689933a0bc23f33e4e4a4e3cad5bb081015acd9c7125666dcead7f",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -466,7 +634,31 @@
         "excerpt": "Wzmianka o podmiocie Piotr Kupczak / Hotel Śląski. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_8/newspaper-ad-8/place_mvp0_8-newspaper-ad-8-2959db66fa8c.jpg",
+            "thumbnailPath": "public/places/place_mvp0_8/newspaper-ad-8/place_mvp0_8-newspaper-ad-8-2959db66fa8c-thumb.jpg",
+            "alt": "Ogłoszenie: Piotr Kupczak / Hotel Śląski. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "2959db66fa8cb7101289370db371262724fe211ce6012d50c90ad41c0cba152b",
+            "thumbnailSha256": "d57a706c15502f00a48684d7e145de8c0e71ea9b1068bde65b3d330bc9ac93bd",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-08.jpg",
+              "originalSha256": "2959db66fa8cb7101289370db371262724fe211ce6012d50c90ad41c0cba152b",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -531,7 +723,31 @@
         "excerpt": "Wzmianka o podmiocie Engelbert Rybka. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_9/newspaper-ad-9/place_mvp0_9-newspaper-ad-9-ff12cb4a3449.jpg",
+            "thumbnailPath": "public/places/place_mvp0_9/newspaper-ad-9/place_mvp0_9-newspaper-ad-9-ff12cb4a3449-thumb.jpg",
+            "alt": "Ogłoszenie: Engelbert Rybka. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "ff12cb4a34493ba5084f664bd53fc90057c4694ab97add61decbf94476a74cb5",
+            "thumbnailSha256": "3cc0b612d32c5b7d028ad0949dc78c4277934353930c1fea3f911b9a25caa062",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-09.jpg",
+              "originalSha256": "ff12cb4a34493ba5084f664bd53fc90057c4694ab97add61decbf94476a74cb5",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -575,7 +791,31 @@
         "excerpt": "Wzmianka o podmiocie Rudolf Rojek. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_10/newspaper-ad-10/place_mvp0_10-newspaper-ad-10-678d361e98a8.jpg",
+            "thumbnailPath": "public/places/place_mvp0_10/newspaper-ad-10/place_mvp0_10-newspaper-ad-10-678d361e98a8-thumb.jpg",
+            "alt": "Ogłoszenie: Rudolf Rojek. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "678d361e98a8d70a5b6f27b84c012d64d176f9a7074d697619a6a22310c13e7d",
+            "thumbnailSha256": "c80acf76c70ffb6c00d4420180d022b2c7d1d02b3139eca27e175dde43c3fdbb",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-10.jpg",
+              "originalSha256": "678d361e98a8d70a5b6f27b84c012d64d176f9a7074d697619a6a22310c13e7d",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -653,7 +893,31 @@
         "excerpt": "Wzmianka o podmiocie Karol Jokel. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_11/newspaper-ad-11/place_mvp0_11-newspaper-ad-11-9461e173ac7b.jpg",
+            "thumbnailPath": "public/places/place_mvp0_11/newspaper-ad-11/place_mvp0_11-newspaper-ad-11-9461e173ac7b-thumb.jpg",
+            "alt": "Ogłoszenie: Karol Jokel. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "9461e173ac7b9f1bb5992982041ea5280cd92fd12fe53a32d4024de94705e0ea",
+            "thumbnailSha256": "7112a9a0d38168016927892493148210be15bcfcd6eb37211069523169a6836d",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-11.jpg",
+              "originalSha256": "9461e173ac7b9f1bb5992982041ea5280cd92fd12fe53a32d4024de94705e0ea",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -714,7 +978,31 @@
         "excerpt": "Wzmianka o podmiocie Feliks Ćwik. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_12/newspaper-ad-12/place_mvp0_12-newspaper-ad-12-8d311d5a3f4f.jpg",
+            "thumbnailPath": "public/places/place_mvp0_12/newspaper-ad-12/place_mvp0_12-newspaper-ad-12-8d311d5a3f4f-thumb.jpg",
+            "alt": "Ogłoszenie: Feliks Ćwik. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d311d5a3f4f894d39937c2f65f8c9f14b7b7f99fecead627be2e11ab864f4ee",
+            "thumbnailSha256": "20e1c566e3d7a3f2fc990b509448f736ea70ded67c945a1a4cd149cae9dc626c",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-12.jpg",
+              "originalSha256": "8d311d5a3f4f894d39937c2f65f8c9f14b7b7f99fecead627be2e11ab864f4ee",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -775,7 +1063,31 @@
         "excerpt": "Wzmianka o podmiocie Wilhelm Syrek i Roman Lubos. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_13/newspaper-ad-13/place_mvp0_13-newspaper-ad-13-1eac3c6fc1d5.jpg",
+            "thumbnailPath": "public/places/place_mvp0_13/newspaper-ad-13/place_mvp0_13-newspaper-ad-13-1eac3c6fc1d5-thumb.jpg",
+            "alt": "Ogłoszenie: Wilhelm Syrek i Roman Lubos. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "1eac3c6fc1d5cf750d98cbbf350bd96a71705631dc560bc08392f3e261c36f7f",
+            "thumbnailSha256": "8cd24a3057c7a40bce28d09bb5879b668d758e8e967383d5bf062f956b16c5fe",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-13.jpg",
+              "originalSha256": "1eac3c6fc1d5cf750d98cbbf350bd96a71705631dc560bc08392f3e261c36f7f",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -819,7 +1131,31 @@
         "excerpt": "Wzmianka o podmiocie Rodzina Hetman. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_14/newspaper-ad-14/place_mvp0_14-newspaper-ad-14-9de3db52cfdb.jpg",
+            "thumbnailPath": "public/places/place_mvp0_14/newspaper-ad-14/place_mvp0_14-newspaper-ad-14-9de3db52cfdb-thumb.jpg",
+            "alt": "Ogłoszenie: Rodzina Hetman. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "9de3db52cfdb8b3112ad25d00333e9bacf725db0a8bfe07422f16706a4059d38",
+            "thumbnailSha256": "456b52932b8c291f28e58c8bda05f13b3cf5c1d02d7199ad7bd012ca56c31658",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-14.jpg",
+              "originalSha256": "9de3db52cfdb8b3112ad25d00333e9bacf725db0a8bfe07422f16706a4059d38",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -880,7 +1216,31 @@
         "excerpt": "Wzmianka o podmiocie Centrala Pończoch, K. Foltynowicz. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_15/newspaper-ad-15/place_mvp0_15-newspaper-ad-15-e31a53e36b92.jpg",
+            "thumbnailPath": "public/places/place_mvp0_15/newspaper-ad-15/place_mvp0_15-newspaper-ad-15-e31a53e36b92-thumb.jpg",
+            "alt": "Ogłoszenie: Centrala Pończoch, K. Foltynowicz. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "e31a53e36b9238ff76ba522b538db40bef16430298297f50f16cfdb114a7b24f",
+            "thumbnailSha256": "c5f1e61888236f002a43df9c7e22c39a55b94c54f8212b2d5cc2544ed2d89811",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-15.jpg",
+              "originalSha256": "e31a53e36b9238ff76ba522b538db40bef16430298297f50f16cfdb114a7b24f",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -924,7 +1284,31 @@
         "excerpt": "Wzmianka o podmiocie Dzierżon i Ska, Jerzy Sroczyński. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_16/newspaper-ad-16/place_mvp0_16-newspaper-ad-16-7991925cfeb9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_16/newspaper-ad-16/place_mvp0_16-newspaper-ad-16-7991925cfeb9-thumb.jpg",
+            "alt": "Ogłoszenie: Dzierżon i Ska, Jerzy Sroczyński. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "7991925cfeb903e96a037a70d1fcda8d93be27f553137d9b52e23651af20d9bd",
+            "thumbnailSha256": "e7b14ee61692b0952bfc4a25275dfd0b7ad496a8fd1a3a814bb0dfb6ac8ea743",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-16.jpg",
+              "originalSha256": "7991925cfeb903e96a037a70d1fcda8d93be27f553137d9b52e23651af20d9bd",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -985,7 +1369,31 @@
         "excerpt": "Wzmianka o podmiocie Jan Szafranek. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_17/newspaper-ad-17/place_mvp0_17-newspaper-ad-17-87df07ece44f.jpg",
+            "thumbnailPath": "public/places/place_mvp0_17/newspaper-ad-17/place_mvp0_17-newspaper-ad-17-87df07ece44f-thumb.jpg",
+            "alt": "Ogłoszenie: Jan Szafranek. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "87df07ece44f1108e00af5e50b3bbb9af82b0f89569a4a8c972e8e0fa391c02e",
+            "thumbnailSha256": "3b6ed36b2c17c16d8a428ffdccb36f15e417057a3b5c6cfc865b58e127670c96",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-17.jpg",
+              "originalSha256": "87df07ece44f1108e00af5e50b3bbb9af82b0f89569a4a8c972e8e0fa391c02e",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1029,7 +1437,31 @@
         "excerpt": "Wzmianka o podmiocie Juliusz Sosna i Ska. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_18/newspaper-ad-18/place_mvp0_18-newspaper-ad-18-5ad1bc82237a.jpg",
+            "thumbnailPath": "public/places/place_mvp0_18/newspaper-ad-18/place_mvp0_18-newspaper-ad-18-5ad1bc82237a-thumb.jpg",
+            "alt": "Ogłoszenie: Juliusz Sosna i Ska. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "5ad1bc82237a3f00d009cda8458810ca8d303bec3a78a043fee549da134de3a1",
+            "thumbnailSha256": "b0bdfb702e10682cbd926f64529a7c4892c888e0598078b34f79dbbd79490c26",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-18.jpg",
+              "originalSha256": "5ad1bc82237a3f00d009cda8458810ca8d303bec3a78a043fee549da134de3a1",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1073,7 +1505,31 @@
         "excerpt": "Wzmianka o podmiocie Roman Malke. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_19/newspaper-ad-19/place_mvp0_19-newspaper-ad-19-79818debe51e.jpg",
+            "thumbnailPath": "public/places/place_mvp0_19/newspaper-ad-19/place_mvp0_19-newspaper-ad-19-79818debe51e-thumb.jpg",
+            "alt": "Ogłoszenie: Roman Malke. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "79818debe51ea0cd97a49136643362019c535007e05168cd7247127cc82a7fa8",
+            "thumbnailSha256": "b1071e56ee0cacd1060929c74cf28631d3c14969831500ad75bdb17174f5d904",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-19.jpg",
+              "originalSha256": "79818debe51ea0cd97a49136643362019c535007e05168cd7247127cc82a7fa8",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1117,7 +1573,31 @@
         "excerpt": "Wzmianka o podmiocie Be-Bi, H. Foltynowiczówna. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_20/newspaper-ad-20/place_mvp0_20-newspaper-ad-20-3f4f0254dde3.jpg",
+            "thumbnailPath": "public/places/place_mvp0_20/newspaper-ad-20/place_mvp0_20-newspaper-ad-20-3f4f0254dde3-thumb.jpg",
+            "alt": "Ogłoszenie: Be-Bi, H. Foltynowiczówna. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "3f4f0254dde30a32eec2ac2365b44bcc5189c443ede7fba567285b43a46caab7",
+            "thumbnailSha256": "3ed7f7a9df2afd9c689100d3d97b431269848cc082c2a164227dd23b038fdb13",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-20.jpg",
+              "originalSha256": "3f4f0254dde30a32eec2ac2365b44bcc5189c443ede7fba567285b43a46caab7",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1229,7 +1709,31 @@
         "excerpt": "Wzmianka o podmiocie Jan Kuśka. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_21/newspaper-ad-21/place_mvp0_21-newspaper-ad-21-80ab32c83c1e.jpg",
+            "thumbnailPath": "public/places/place_mvp0_21/newspaper-ad-21/place_mvp0_21-newspaper-ad-21-80ab32c83c1e-thumb.jpg",
+            "alt": "Ogłoszenie: Jan Kuśka. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "80ab32c83c1ee097a721ed041b2f1c1ee910fc94bf6bb8e73bfd61c4c3dfa4a4",
+            "thumbnailSha256": "184a71cf1cedb9cf6bf5b8bbac4b0300ef20726488a1050d296b6bfaef244fc3",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-21.jpg",
+              "originalSha256": "80ab32c83c1ee097a721ed041b2f1c1ee910fc94bf6bb8e73bfd61c4c3dfa4a4",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1273,7 +1777,31 @@
         "excerpt": "Wzmianka o podmiocie Wieczorkowie. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_22/newspaper-ad-22/place_mvp0_22-newspaper-ad-22-49b8f58a0d1b.jpg",
+            "thumbnailPath": "public/places/place_mvp0_22/newspaper-ad-22/place_mvp0_22-newspaper-ad-22-49b8f58a0d1b-thumb.jpg",
+            "alt": "Ogłoszenie: Wieczorkowie. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "49b8f58a0d1b43c96c565ed678740b3a853528c536cf50a7553aa49c842c4b67",
+            "thumbnailSha256": "9a0e29d08404b171789d9397b6d75186cb5a255ce9122a9d6f5d45d640f252d0",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-22.jpg",
+              "originalSha256": "49b8f58a0d1b43c96c565ed678740b3a853528c536cf50a7553aa49c842c4b67",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       },
       {
         "id": "observation-083",
@@ -1351,7 +1879,31 @@
         "excerpt": "Wzmianka o podmiocie Wincenty Modlich. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_23/newspaper-ad-23/place_mvp0_23-newspaper-ad-23-0ad8d269ea4d.jpg",
+            "thumbnailPath": "public/places/place_mvp0_23/newspaper-ad-23/place_mvp0_23-newspaper-ad-23-0ad8d269ea4d-thumb.jpg",
+            "alt": "Ogłoszenie: W. Modlich. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "0ad8d269ea4df6d5b5a3a174baa2448039f85a69049bf8e7e94636a57e2922ff",
+            "thumbnailSha256": "7a52c171993408a8e08b8f52662a1a97e4ae71bbeea1a4170c3f991d80560012",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-23.jpg",
+              "originalSha256": "0ad8d269ea4df6d5b5a3a174baa2448039f85a69049bf8e7e94636a57e2922ff",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1412,7 +1964,31 @@
         "excerpt": "Wzmianka o podmiocie Restauracja Obywatelska, Alojzy Gabor. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_24/newspaper-ad-24/place_mvp0_24-newspaper-ad-24-0c3d8e61102b.jpg",
+            "thumbnailPath": "public/places/place_mvp0_24/newspaper-ad-24/place_mvp0_24-newspaper-ad-24-0c3d8e61102b-thumb.jpg",
+            "alt": "Ogłoszenie: Restauracja Obywatelska, Alojzy Gabor. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "0c3d8e61102be99ae81a0a26a79d0ad3730bba42443dc4a02dbedaf08baac9b7",
+            "thumbnailSha256": "1d12fed37178b1ee2448b6b1693c123cc751eea0ca2dcd0f5d5a0fc5bcfa9702",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-24.jpg",
+              "originalSha256": "0c3d8e61102be99ae81a0a26a79d0ad3730bba42443dc4a02dbedaf08baac9b7",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1456,7 +2032,31 @@
         "excerpt": "Wzmianka o podmiocie Drogeria św. Walentego. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_25/newspaper-ad-25/place_mvp0_25-newspaper-ad-25-9a2243c789e5.jpg",
+            "thumbnailPath": "public/places/place_mvp0_25/newspaper-ad-25/place_mvp0_25-newspaper-ad-25-9a2243c789e5-thumb.jpg",
+            "alt": "Ogłoszenie: Drogeria św. Walentego. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "9a2243c789e5e6e83943c55ff7c9e80e031b2ca6cd8c04fbdc43806d5b9bdb98",
+            "thumbnailSha256": "8f14b96bcb22f9f495d0ebb1d16c57f4162da8700041620d48e10631d21819c0",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-25.jpg",
+              "originalSha256": "9a2243c789e5e6e83943c55ff7c9e80e031b2ca6cd8c04fbdc43806d5b9bdb98",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1517,7 +2117,31 @@
         "excerpt": "Wzmianka o podmiocie Ludwik Tarara. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_26/newspaper-ad-26/place_mvp0_26-newspaper-ad-26-d91b41498591.jpg",
+            "thumbnailPath": "public/places/place_mvp0_26/newspaper-ad-26/place_mvp0_26-newspaper-ad-26-d91b41498591-thumb.jpg",
+            "alt": "Ogłoszenie: L. Tarara. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "d91b414985915a0c20e1748c97eaaff13f4011f6e231c6284e9407167fffbc96",
+            "thumbnailSha256": "94f723f33ff49808ab9530e9ba2ae31550d104f05ece910561bfe1d715983e04",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-26.jpg",
+              "originalSha256": "d91b414985915a0c20e1748c97eaaff13f4011f6e231c6284e9407167fffbc96",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1578,7 +2202,31 @@
         "excerpt": "Wzmianka o podmiocie M. Kocur. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_27/newspaper-ad-27/place_mvp0_27-newspaper-ad-27-bea07376ebee.jpg",
+            "thumbnailPath": "public/places/place_mvp0_27/newspaper-ad-27/place_mvp0_27-newspaper-ad-27-bea07376ebee-thumb.jpg",
+            "alt": "Ogłoszenie: M. Kocur. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "bea07376ebee6cb5811379f7ba810635a7f32f6b3d8d9bc0f17b650fad91e282",
+            "thumbnailSha256": "b837137daad6dc9713b38349db61ddcf6055070eab37a7cfd9c2b12a8f4c88e4",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-27.jpg",
+              "originalSha256": "bea07376ebee6cb5811379f7ba810635a7f32f6b3d8d9bc0f17b650fad91e282",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1639,7 +2287,31 @@
         "excerpt": "Wzmianka o podmiocie Paschalis Nowak. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_28/newspaper-ad-28/place_mvp0_28-newspaper-ad-28-f79a759d13ab.jpg",
+            "thumbnailPath": "public/places/place_mvp0_28/newspaper-ad-28/place_mvp0_28-newspaper-ad-28-f79a759d13ab-thumb.jpg",
+            "alt": "Ogłoszenie: Paschalis Nowak. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "f79a759d13ab5bdc7bfcd9b3f87c3c22d3497c2c72be330e38bd4c850d5849b6",
+            "thumbnailSha256": "556a841714ac34b169b930a945e354c256e955a40ee6da706781e23fdaa4a4fd",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-28.jpg",
+              "originalSha256": "f79a759d13ab5bdc7bfcd9b3f87c3c22d3497c2c72be330e38bd4c850d5849b6",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1683,7 +2355,31 @@
         "excerpt": "Wzmianka o podmiocie Drogeria i Perfumeria Warszawska. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_29/newspaper-ad-29/place_mvp0_29-newspaper-ad-29-a45abae1755f.jpg",
+            "thumbnailPath": "public/places/place_mvp0_29/newspaper-ad-29/place_mvp0_29-newspaper-ad-29-a45abae1755f-thumb.jpg",
+            "alt": "Ogłoszenie: Drogeria i Perfumeria Warszawska. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "a45abae1755f53bd37628fb1af54a352db346fdd2efc47905b347f365c1efd1f",
+            "thumbnailSha256": "4cbcf46539f4d7fae92f381a4ea5bae422d428785dad17d4cba061c8fe726616",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-29.jpg",
+              "originalSha256": "a45abae1755f53bd37628fb1af54a352db346fdd2efc47905b347f365c1efd1f",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1744,7 +2440,31 @@
         "excerpt": "Wzmianka o podmiocie Augustyn Szostek. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_30/newspaper-ad-30/place_mvp0_30-newspaper-ad-30-612627a7ac11.jpg",
+            "thumbnailPath": "public/places/place_mvp0_30/newspaper-ad-30/place_mvp0_30-newspaper-ad-30-612627a7ac11-thumb.jpg",
+            "alt": "Ogłoszenie: Augustyn Szostek. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "612627a7ac1183803a5e9424ecbf7c202be695a24fc9bf047b9db190772aa915",
+            "thumbnailSha256": "92fc3b2eec1fe32cf2fe13763f85cb9c976d50bdbcb37e09178b9e3f9a77cfaf",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-30.jpg",
+              "originalSha256": "612627a7ac1183803a5e9424ecbf7c202be695a24fc9bf047b9db190772aa915",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1788,7 +2508,31 @@
         "excerpt": "Wzmianka o podmiocie A. Krakowczykowie. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_31/newspaper-ad-31/place_mvp0_31-newspaper-ad-31-6890f6686a84.jpg",
+            "thumbnailPath": "public/places/place_mvp0_31/newspaper-ad-31/place_mvp0_31-newspaper-ad-31-6890f6686a84-thumb.jpg",
+            "alt": "Ogłoszenie: A. Krakowczykowie. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "6890f6686a8475b0f6bde1ca07ac6af5befb34069e9ce51793eaf6d16fe761b8",
+            "thumbnailSha256": "3524081912c167daedfcf327c559c8f466bf44a95f55c45716cb697ab68b36a7",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-31.jpg",
+              "originalSha256": "6890f6686a8475b0f6bde1ca07ac6af5befb34069e9ce51793eaf6d16fe761b8",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1870,7 +2614,31 @@
         "excerpt": "Wzmianka o podmiocie E. Aronstamm. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_32/newspaper-ad-32/place_mvp0_32-newspaper-ad-32-c906a2872e32.jpg",
+            "thumbnailPath": "public/places/place_mvp0_32/newspaper-ad-32/place_mvp0_32-newspaper-ad-32-c906a2872e32-thumb.jpg",
+            "alt": "Ogłoszenie: E. Aronstamm. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "c906a2872e3281bee49ea886934a1ecec12e1a960b6fcbe5802daa8896be288e",
+            "thumbnailSha256": "3708087c0f73231c8c90cc843d9f3de5da7e76c2e05b531bd38d71739e1fea13",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-32.jpg",
+              "originalSha256": "c906a2872e3281bee49ea886934a1ecec12e1a960b6fcbe5802daa8896be288e",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -1931,7 +2699,31 @@
         "excerpt": "Wzmianka o podmiocie Augustyn Wieczorek. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_33/newspaper-ad-33/place_mvp0_33-newspaper-ad-33-ff0e79919e9d.jpg",
+            "thumbnailPath": "public/places/place_mvp0_33/newspaper-ad-33/place_mvp0_33-newspaper-ad-33-ff0e79919e9d-thumb.jpg",
+            "alt": "Ogłoszenie: Augustyn Wieczorek. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "ff0e79919e9d87035db6c09c248a86187d7aba1b17f847413baf37dedee1383f",
+            "thumbnailSha256": "2880453e6a1863a8dcad433187bfa5c950dd36c4f988ce2a2c67f1bc3ac6ef62",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-33.jpg",
+              "originalSha256": "ff0e79919e9d87035db6c09c248a86187d7aba1b17f847413baf37dedee1383f",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       },
       {
         "id": "observation-155",
@@ -2016,7 +2808,31 @@
         "excerpt": "Wzmianka o podmiocie Dom Towarowy Czesław Beyga. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_34/newspaper-ad-34/place_mvp0_34-newspaper-ad-34-bf9cb66314ac.jpg",
+            "thumbnailPath": "public/places/place_mvp0_34/newspaper-ad-34/place_mvp0_34-newspaper-ad-34-bf9cb66314ac-thumb.jpg",
+            "alt": "Ogłoszenie: Dom Towarowy Czesław Beyga. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "bf9cb66314ac633db661d4205e3037bd8883b58858bcbed22a3ae024f32b3dc9",
+            "thumbnailSha256": "538c048ccd35a53c83aab8a1a58a8d5a636eca758ee1ab20d6431ce05fd79dec",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-34.jpg",
+              "originalSha256": "bf9cb66314ac633db661d4205e3037bd8883b58858bcbed22a3ae024f32b3dc9",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -2077,7 +2893,31 @@
         "excerpt": "Wzmianka o podmiocie Jadwiga Zaremba. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_35/newspaper-ad-35/place_mvp0_35-newspaper-ad-35-e665b3cf7972.jpg",
+            "thumbnailPath": "public/places/place_mvp0_35/newspaper-ad-35/place_mvp0_35-newspaper-ad-35-e665b3cf7972-thumb.jpg",
+            "alt": "Ogłoszenie: Jadwiga Zaremba. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "e665b3cf79720422e19ad62e218924dbf85275b5f58e2814cff9905cbaaa8f8a",
+            "thumbnailSha256": "7c414397d002d81fe33181bc0e4c32acfb317c92bee6148c624622bf7256dc63",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-35.jpg",
+              "originalSha256": "e665b3cf79720422e19ad62e218924dbf85275b5f58e2814cff9905cbaaa8f8a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -2138,7 +2978,31 @@
         "excerpt": "Wzmianka o podmiocie Franciszek Breslauer. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_36/newspaper-ad-36/place_mvp0_36-newspaper-ad-36-416698fabdfe.jpg",
+            "thumbnailPath": "public/places/place_mvp0_36/newspaper-ad-36/place_mvp0_36-newspaper-ad-36-416698fabdfe-thumb.jpg",
+            "alt": "Ogłoszenie: Franciszek Breslauer. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "416698fabdfef53422e891711362cc2667f83024c00d728b94d68362a261300e",
+            "thumbnailSha256": "787049656540601541057d8dd6de642e973375ede497ab0835f8d5839d61e18d",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-36.jpg",
+              "originalSha256": "416698fabdfef53422e891711362cc2667f83024c00d728b94d68362a261300e",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -2199,7 +3063,31 @@
         "excerpt": "Wzmianka o podmiocie R. Łukaszczyk. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_37/newspaper-ad-37/place_mvp0_37-newspaper-ad-37-92d4732c1c38.jpg",
+            "thumbnailPath": "public/places/place_mvp0_37/newspaper-ad-37/place_mvp0_37-newspaper-ad-37-92d4732c1c38-thumb.jpg",
+            "alt": "Ogłoszenie: R. Łukaszczyk. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "92d4732c1c386818764a0b51837b142ce5ffdb441dd815b35dcc1fc92f76a1c5",
+            "thumbnailSha256": "eda280776e702e96d74f1a2b754fe2b4b03cf6d2d3fbcb6cb0b50adb0ce1e08d",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-37.jpg",
+              "originalSha256": "92d4732c1c386818764a0b51837b142ce5ffdb441dd815b35dcc1fc92f76a1c5",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -2243,7 +3131,31 @@
         "excerpt": "Wzmianka o podmiocie Walenty Tkocz i Jan Bogocz. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_38/newspaper-ad-38/place_mvp0_38-newspaper-ad-38-05ccc3db58f1.jpg",
+            "thumbnailPath": "public/places/place_mvp0_38/newspaper-ad-38/place_mvp0_38-newspaper-ad-38-05ccc3db58f1-thumb.jpg",
+            "alt": "Ogłoszenie: Walenty Tkocz i Jan Bogocz. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "05ccc3db58f1c63874d193d33ba207798be49c3a15053d5ec82e71230faa6bb6",
+            "thumbnailSha256": "0dc46c5f9dcd344a1cfa6a5c9d4833e0172385889a682757fa1dcbee485abd54",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-38.jpg",
+              "originalSha256": "05ccc3db58f1c63874d193d33ba207798be49c3a15053d5ec82e71230faa6bb6",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       },
       {
         "id": "observation-111",
@@ -2338,7 +3250,31 @@
         "excerpt": "Wzmianka o podmiocie Franciszek Szypuła. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_39/newspaper-ad-39/place_mvp0_39-newspaper-ad-39-451ccf1f847d.jpg",
+            "thumbnailPath": "public/places/place_mvp0_39/newspaper-ad-39/place_mvp0_39-newspaper-ad-39-451ccf1f847d-thumb.jpg",
+            "alt": "Ogłoszenie: Franciszek Szypuła. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "451ccf1f847d3947b16fa42ee5b82ff73a309ea72b1aa32acb8378bffb759eb3",
+            "thumbnailSha256": "4b6c9ad0393a865e6935f4366a2fc40b506b42863ca8b7c83ea4380794d85282",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-39.jpg",
+              "originalSha256": "451ccf1f847d3947b16fa42ee5b82ff73a309ea72b1aa32acb8378bffb759eb3",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -2386,7 +3322,31 @@
         "excerpt": "Wzmianka o podmiocie Gawronowie. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_40/newspaper-ad-40/place_mvp0_40-newspaper-ad-40-e5b13ed138a6.jpg",
+            "thumbnailPath": "public/places/place_mvp0_40/newspaper-ad-40/place_mvp0_40-newspaper-ad-40-e5b13ed138a6-thumb.jpg",
+            "alt": "Ogłoszenie: Gawronowie. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "e5b13ed138a6aff511c29852501b6d5aefa6eba669b613a289e732a6c526180d",
+            "thumbnailSha256": "61b7f72d629d00a568c07bead9849aa3fab5f1a00b2ee15e53bae126e3c75a14",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-40.jpg",
+              "originalSha256": "e5b13ed138a6aff511c29852501b6d5aefa6eba669b613a289e732a6c526180d",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       },
       {
         "id": "observation-106",
@@ -2447,7 +3407,31 @@
         "excerpt": "Wzmianka o podmiocie Firma Karol (nazwisko niepewne). Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": "Nazwisko wymaga dalszego sprawdzenia. Pierwotny odczyt Kuśka nie jest pewny na skanie.",
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_41/newspaper-ad-41/place_mvp0_41-newspaper-ad-41-1f2ca20a9fec.jpg",
+            "thumbnailPath": "public/places/place_mvp0_41/newspaper-ad-41/place_mvp0_41-newspaper-ad-41-1f2ca20a9fec-thumb.jpg",
+            "alt": "Ogłoszenie: Firma Karol (nazwisko niepewne). Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "1f2ca20a9fec145dbe44958598dadfa2f55112b2bed58509c9944869f4262851",
+            "thumbnailSha256": "18cfbf547b9fed08bc8e0f89f51571f4fded01f213a5945bdc204f1c0ef47018",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-41.jpg",
+              "originalSha256": "1f2ca20a9fec145dbe44958598dadfa2f55112b2bed58509c9944869f4262851",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -2491,7 +3475,31 @@
         "excerpt": "Wzmianka o podmiocie Powszechny Zakład Ubezpieczeń Wzajemnych. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_42/newspaper-ad-42/place_mvp0_42-newspaper-ad-42-590a23855983.jpg",
+            "thumbnailPath": "public/places/place_mvp0_42/newspaper-ad-42/place_mvp0_42-newspaper-ad-42-590a23855983-thumb.jpg",
+            "alt": "Ogłoszenie: Powszechny Zakład Ubezpieczeń Wzajemnych. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 2.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "590a23855983e5ffbaff010043550a15e58cc644523fd42e8e4fdf436df6e598",
+            "thumbnailSha256": "7fc481806208f977a282336132e0a201406fc03e0b2a63de9c365873218d5c2c",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-42.jpg",
+              "originalSha256": "590a23855983e5ffbaff010043550a15e58cc644523fd42e8e4fdf436df6e598",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -2535,7 +3543,31 @@
         "excerpt": "Wzmianka o podmiocie Drogeria św. Antoniego. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_43/newspaper-ad-43/place_mvp0_43-newspaper-ad-43-3c626e3f4df4.jpg",
+            "thumbnailPath": "public/places/place_mvp0_43/newspaper-ad-43/place_mvp0_43-newspaper-ad-43-3c626e3f4df4-thumb.jpg",
+            "alt": "Ogłoszenie: Drogeria św. Antoniego. Sztandar Polski i Gazeta Rybnicka, 1938, nr 40, strona PDF 3.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "3c626e3f4df4b0c24134e5983d322f8a19c354de5cb421c490344d83c0116a2e",
+            "thumbnailSha256": "13d812aab8f039ea8698347ca4e3b36313ac0d1ba459f6c1fb3e13addf3c24ca",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256198",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256198",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-43.jpg",
+              "originalSha256": "3c626e3f4df4b0c24134e5983d322f8a19c354de5cb421c490344d83c0116a2e",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-04-05; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -2579,7 +3611,31 @@
         "excerpt": "Wzmianka o podmiocie Józef Dziura. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_44/newspaper-ad-44/place_mvp0_44-newspaper-ad-44-1440777318ea.jpg",
+            "thumbnailPath": "public/places/place_mvp0_44/newspaper-ad-44/place_mvp0_44-newspaper-ad-44-1440777318ea-thumb.jpg",
+            "alt": "Ogłoszenie: Józef Dziura. Sztandar Polski i Gazeta Rybnicka, 1938, nr 45, strona PDF 4.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "1440777318ea21607e78b088aa3c39e675624ad28faa99ce6fb4b386b7dcf15b",
+            "thumbnailSha256": "f4d2a76be0bc91d3981bfd19adcf22575fd8f0b891c707cf6eb639364cd757ef",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256202",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256202",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-44.jpg",
+              "originalSha256": "1440777318ea21607e78b088aa3c39e675624ad28faa99ce6fb4b386b7dcf15b",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-04-14; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -2623,7 +3679,31 @@
         "excerpt": "Wzmianka o podmiocie Drukarnia Sztandaru Polskiego i Gazety Rybnickiej. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_45/newspaper-ad-45/place_mvp0_45-newspaper-ad-45-ee32b91c1fd1.jpg",
+            "thumbnailPath": "public/places/place_mvp0_45/newspaper-ad-45/place_mvp0_45-newspaper-ad-45-ee32b91c1fd1-thumb.jpg",
+            "alt": "Ogłoszenie: Drukarnia Sztandaru Polskiego i Gazety Rybnickiej. Sztandar Polski i Gazeta Rybnicka, 1938, nr 52, strona PDF 2.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "ee32b91c1fd1c6b205b3384f2dcda4952990804cd2632a009f3dba64a8d4bb9c",
+            "thumbnailSha256": "d97a3b400d110761d2ffddb4dd48ad07d91376d4ea3d562bff68fec1449fc1a2",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256207",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256207",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-45.jpg",
+              "originalSha256": "ee32b91c1fd1c6b205b3384f2dcda4952990804cd2632a009f3dba64a8d4bb9c",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-05-03; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -2667,7 +3747,31 @@
         "excerpt": "Wzmianka o podmiocie Gliwicki i Ska. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_46/newspaper-ad-46/place_mvp0_46-newspaper-ad-46-b9b8322f137e.jpg",
+            "thumbnailPath": "public/places/place_mvp0_46/newspaper-ad-46/place_mvp0_46-newspaper-ad-46-b9b8322f137e-thumb.jpg",
+            "alt": "Ogłoszenie: Gliwicki i Ska. Sztandar Polski i Gazeta Rybnicka, 1938, nr 52, strona PDF 3.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "b9b8322f137e9dac92f7a93ba4c44570dfdc6635b5062ea07d28ba837a7c5302",
+            "thumbnailSha256": "0ba0e294dad995d499d42e6426a77f170ee1dfebb0a509eb2d47f24f7abebb5b",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256207",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256207",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-46.jpg",
+              "originalSha256": "b9b8322f137e9dac92f7a93ba4c44570dfdc6635b5062ea07d28ba837a7c5302",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-05-03; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -2745,7 +3849,31 @@
         "excerpt": "Wzmianka o podmiocie Komunalna Kasa Oszczędności miasta Rybnika. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_47/newspaper-ad-47/place_mvp0_47-newspaper-ad-47-537d34e3dc47.jpg",
+            "thumbnailPath": "public/places/place_mvp0_47/newspaper-ad-47/place_mvp0_47-newspaper-ad-47-537d34e3dc47-thumb.jpg",
+            "alt": "Ogłoszenie: Komunalna Kasa Oszczędności miasta Rybnika. Sztandar Polski i Gazeta Rybnicka, 1938, nr 150, strona PDF 3.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "537d34e3dc47bf07ff0d826d81f25eb0a21628fcdbeb37f6d056534d36b0b6a7",
+            "thumbnailSha256": "b5208d6b33a592a1ee2ea2f5d9d899922ed81e9b57b041aa58a69aeb748a6b43",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256298",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256298",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-47.jpg",
+              "originalSha256": "537d34e3dc47bf07ff0d826d81f25eb0a21628fcdbeb37f6d056534d36b0b6a7",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-12-29; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -3813,7 +4941,31 @@
         "excerpt": "Głowik J. i Głowik P., św. Barbary 33",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_65/observation-126/place_mvp0_65-observation-126-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_65/observation-126/place_mvp0_65-observation-126-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku, 1936, strona PDF 99. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       },
       {
         "id": "observation-150",
@@ -3830,7 +4982,31 @@
         "excerpt": "Głowik Paweł — Rybnik; Główik Józef — Rybnik.",
         "excerptType": "transcription",
         "note": "Wzmianka o zdaniu egzaminów mistrzowskich przez dwóch stolarzy z Rybnika. Imiona odpowiadają inicjałom J. i P. ze spisu z 1938 r., ale brak adresu i informacji o wspólnym zakładzie. To przypuszczalne powiązanie osób, nie potwierdzenie działalności firmy w 1931 r.; Powiązanie z tym miejscem jest przypuszczalne.",
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_65/observation-150/place_mvp0_65-observation-150-908e7d3b9ea0.jpg",
+            "thumbnailPath": "public/places/place_mvp0_65/observation-150/place_mvp0_65-observation-150-908e7d3b9ea0-thumb.jpg",
+            "alt": "Fragment: Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku, 1936, strona PDF 99. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Rzemieślnik Śląski, R. 3, nr 2",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "908e7d3b9ea0b02656323ef8c3e22466a3aaf213fd80d10b7b464a34b2ded347",
+            "thumbnailSha256": "af206596e442a45e581b3a076c9a34dcd3144cdfd4783d85eb54f4b5e24ab4dd",
+            "provenance": {
+              "title": "Rzemieślnik Śląski, R. 3, nr 2",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/293425",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/293425",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/craftsman-1931-02-10.jpg",
+              "originalSha256": "908e7d3b9ea0b02656323ef8c3e22466a3aaf213fd80d10b7b464a34b2ded347",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1931-02-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -6342,7 +7518,31 @@
         "excerpt": "Bartkowiak Fr., Poprzeczna 36",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_114/observation-122/place_mvp0_114-observation-122-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_114/observation-122/place_mvp0_114-observation-122-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -6386,7 +7586,31 @@
         "excerpt": "Bohn M., Mikołowska 49",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_115/observation-123/place_mvp0_115-observation-123-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_115/observation-123/place_mvp0_115-observation-123-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -6430,7 +7654,31 @@
         "excerpt": "Wytwórnia trumien WIKTOR BONK. Rybnik — Dworek",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_116/observation-124/place_mvp0_116-observation-124-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_116/observation-124/place_mvp0_116-observation-124-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -6474,7 +7722,31 @@
         "excerpt": "Broksch Karol, Piasta 9",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_117/observation-125/place_mvp0_117-observation-125-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_117/observation-125/place_mvp0_117-observation-125-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -6518,7 +7790,31 @@
         "excerpt": "Ficek L., Cmentarna 7",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_118/observation-127/place_mvp0_118-observation-127-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_118/observation-127/place_mvp0_118-observation-127-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -6562,7 +7858,31 @@
         "excerpt": "Herger E., Piasta 17",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_119/observation-128/place_mvp0_119-observation-128-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_119/observation-128/place_mvp0_119-observation-128-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -6606,7 +7926,31 @@
         "excerpt": "Hütter Jerzy, Wysoka 4",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_120/observation-129/place_mvp0_120-observation-129-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_120/observation-129/place_mvp0_120-observation-129-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -6650,7 +7994,31 @@
         "excerpt": "Kostka P., Sobieskiego 21",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_121/observation-130/place_mvp0_121-observation-130-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_121/observation-130/place_mvp0_121-observation-130-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -6694,7 +8062,31 @@
         "excerpt": "Płaszyński [inicjał niepewny], Rudzka 10",
         "excerptType": "transcription",
         "note": "Inicjał imienia nieczytelny; nie rozwijano go na podstawie OCR.",
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_122/observation-131/place_mvp0_122-observation-131-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_122/observation-131/place_mvp0_122-observation-131-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -6738,7 +8130,31 @@
         "excerpt": "Solarz B., Piłsudskiego 8",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_123/observation-132/place_mvp0_123-observation-132-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_123/observation-132/place_mvp0_123-observation-132-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -6782,7 +8198,31 @@
         "excerpt": "Solarz E., Rynek 6",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_124/observation-133/place_mvp0_124-observation-133-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_124/observation-133/place_mvp0_124-observation-133-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,
@@ -6826,7 +8266,31 @@
         "excerpt": "Vieweg W., ks. Szafranka 4",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "images": [
+          {
+            "storagePath": "public/places/place_mvp0_125/observation-134/place_mvp0_125-observation-134-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_125/observation-134/place_mvp0_125-observation-134-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            }
+          }
+        ]
       }
     ],
     "published": true,

@@ -33,3 +33,5 @@ Katalog pełny przygotowano do odbioru na dev: 196 miejsc z MVP.0. Lokalizacje k
 Przy oddaleniu mapy pobliskie miejsca łączą się w grupy z liczbą punktów. Kliknięcie grupy przybliża mapę; wybrane miejsce pozostaje widoczne osobno.
 
 Wyszukiwarka ma filtr „Bez lokalizacji”, łączony z wpisaną nazwą, adresem lub dzielnicą.
+
+Potwierdzone w źródłach wycinki domeny publicznej są stopniowo podłączane do kart na dev. Źródła bez potwierdzonego statusu pozostają dostępne przez linki.
