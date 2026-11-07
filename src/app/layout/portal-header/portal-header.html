@@ -9,14 +9,6 @@
         >{{ user.displayName || 'Użytkownik' }}{{ account.admin() ? ' · Administrator' : '' }}</span
       >
     }
-    <button
-      type="button"
-      class="btn btn-outline btn-sm"
-      [disabled]="account.busy()"
-      (click)="account.toggle()"
-    >
-      {{ account.busy() ? 'Proszę czekać…' : account.user() ? 'Wyloguj' : 'Zaloguj przez Google' }}
-    </button>
   </div>
   <button
     #menuTrigger
