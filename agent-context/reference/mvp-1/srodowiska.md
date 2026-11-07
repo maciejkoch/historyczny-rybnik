@@ -2,7 +2,7 @@
 
 Decyzja właściciela: 5 listopada 2026.
 
-- Dev: https://historyczny-rybnik-dev.web.app/ — stała witryna `historyczny-rybnik-dev`, konfiguracja `firebase.dev.json`, `npm run deploy:dev`. Bieżące prace publikujemy tutaj.
+- Dev: https://historyczny-rybnik-dev.web.app/ — stała witryna `historyczny-rybnik-dev`, konfiguracja `firebase.dev.json`, `npm run deploy:dev`. Integrujemy tu ukończone zmiany; zadania mają oddzielne sloty opisane poniżej.
 - Produkcja: https://historyczny.rybnik.pl/ — witryna `historyczny-rybnik`, konfiguracja `firebase.json`, `npm run deploy:prod`. Publikacja po osobnym zleceniu wydania.
 - Dotychczasowy preview fazy 1 jest tymczasowym zapisem odbioru; nie jest stałym dev.
 
@@ -37,3 +37,5 @@ Stały `dev` jest środowiskiem integracji ukończonych zmian. Zadania publikuje
 Zadanie infrastrukturalne inicjalizuje wszystkie trzy witryny; dev-1 pozostaje jego rezerwacją na czas review. Dev-2 i dev-3 są dostępne po odbiorze technicznym. Pełne interaktywne logowanie Google wymaga osobnego odbioru z użytkownikiem; obecny frontend nie zawiera jeszcze interfejsu logowania fazy 4. Konfiguracja autoryzowanych domen jest wspólna i została rozszerzona o trzy adresy.
 
 Każdy deployment publikuje `/deployment.json` z nazwą slotu, branchem, SHA i czasem. To ułatwia weryfikację niezależności wydań; SHA opisuje commit źródłowy, wdrażaj wyłącznie czysty checkout.
+
+[Zapis odbioru trzech środowisk](odbior-srodowisk-dev.md).
