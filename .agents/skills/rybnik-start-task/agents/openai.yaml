@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rybnik — rozpocznij zadanie"
+  short_description: "Start i wznowienie pracy z GitHub Projects"
+  default_prompt: "Użyj $rybnik-start-task, aby rozpocząć wskazane zadanie Historycznego Rybnika lub wznowić jego istniejącą gałąź i rezerwację."

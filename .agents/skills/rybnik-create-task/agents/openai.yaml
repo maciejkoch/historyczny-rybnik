@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rybnik — utwórz zadanie"
+  short_description: "Przygotowanie i tworzenie zadań GitHub Projects"
+  default_prompt: "Użyj $rybnik-create-task, aby utworzyć zadanie w projekcie Historyczny Rybnik po sprawdzeniu duplikatów."

@@ -22,3 +22,8 @@ Szczegóły: [środowiska](agent-context/reference/mvp-1/srodowiska.md).
 # Spis skryptów
 
 - [scripts/README.md](scripts/README.md) zawiera pełny spis skryptów repozytorium i poleceń npm. Przy dodaniu, usunięciu lub zmianie działania skryptu albo polecenia npm aktualizuj ten spis w tym samym zadaniu; sprawdzaj go również podczas review.
+
+# Zadania GitHub Projects
+
+- Skille w `.agents/skills/`: `rybnik-create-task` przygotowuje i tworzy zadania, `rybnik-start-task` rozpoczyna i wznawia pracę. [Użycie i ograniczenia](agent-context/github-projects/skille-github-projects.md).
+- Odczytuj aktualne zasady i pola tablicy. Planowanych środowisk nie traktuj jako wdrożonych; brak zależności lub rezerwacji zgłoś przed zależną operacją.
