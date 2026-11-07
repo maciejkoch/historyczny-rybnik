@@ -33,7 +33,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 | `app/atlas-map/` | MapLibre, znaczniki, historyczna warstwa rastrowa, zasięg i komunikaty błędów. |
 | `app/places/` | Typy, normalizacja wyszukiwania, wygenerowany katalog, konfiguracja Firebase i odczyt pozycji. `AtlasReuse` zachowuje instancję atlasu między jego trasami. |
 | `app/privacy/` | Serwis zgód, baner i polityka prywatności. Wycofanie zgody Google przeładowuje stronę, aby zatrzymać SDK i odświeżanie tokenów. |
-| `app/layout/` | Wspólny nagłówek, stopka i nawigacja mobilna. |
+| `app/layout/` | Wspólny nagłówek, stopka, nawigacja mobilna i menu globalne. `PortalMenu` współdzieli listę odnośników między Drawer daisyUI na natywnym dialogu modalnym i Dropdown daisyUI na Popover API. Menu desktop otwiera się nad przyciskiem, a przy braku miejsca poniżej. Mobilny nagłówek jest przyklejony do góry; dialog blokuje tło i przewijanie, a fokus wraca do hamburgera. |
 
 Przepływ danych: plik katalogu → walidacja i `places:prepare` → `catalog.generated.ts`, indeks wyszukiwania, sitemap i przekierowania → prerender HTML → hydratacja. W przeglądarce `Atlas` łączy katalog z bieżącymi pozycjami z `Locations`; wyszukiwanie filtruje nazwy, aliasy, adresy i dzielnice lokalnie.
 

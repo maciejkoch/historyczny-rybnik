@@ -62,3 +62,9 @@ Dane o retencji dostawców oparto na ich dokumentacji: Google Hosting przechowuj
 Nagłówek z logo i oznaczeniem wersji, stopka oraz mobilna nawigacja są współdzielone przez mapę/wyszukiwarkę i stronę prywatności. Ich źródła znajdują się w `src/app/layout/portal-header`, `portal-footer` i `mobile-navigation`. Strona prywatności ma czytelną kolumnę treści oraz te same odstępy i elementy marki co wyszukiwarka; stopka i nawigacja otwierają ten sam dialog ustawień.
 
 Odbiór: porównano strony na telefonie 390×844, przejście Szukaj/Prywatność, otwarcie i zamknięcie ustawień ze stopki oraz zwinięcie/rozwinięcie wyszukiwarki na desktopie. Wspólny nagłówek zachowuje obserwację wysokości i wariant zwiniętego panelu. Build i prerender pięciu tras zaliczone.
+
+### Menu globalne — 7 listopada 2026
+
+Nagłówek otrzymał hamburger zamiast oznaczenia wersji. Ustawienia cookies są dostępne w dolnej grupie globalnego menu, obok polityki prywatności; stopka i dotychczasowy skrót mobilny nadal otwierają ten sam dialog. Drawer na telefonie korzysta z natywnego dialogu modalnego, a Dropdown na desktopie z Popover API. Lista odnośników jest wspólna. Nie zmieniono logiki ani kategorii zgód.
+
+Odbiór lokalny: telefon 390×844 i 320×320, desktop 1280×720, wejście na prywatność, przejście do wyszukiwania, ustawienia cookies, Escape, zamknięcie tłem, obieg Tab/Shift+Tab i powrót fokusu. Sekcja prywatności pozostaje na dole panelu; przy małej wysokości wszystkie pozycje są dostępne przez przewijanie.

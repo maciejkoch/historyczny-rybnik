@@ -57,3 +57,32 @@
     width: 40px;
   }
 }
+
+app-portal-menu {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.75rem;
+}
+:host {
+  padding-right: 4.5rem;
+}
+@media (max-width: 1099px) {
+  :host {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    background: var(--color-base-100);
+    flex-wrap: nowrap;
+  }
+  .brand {
+    min-width: 0;
+  }
+}
+@media (min-width: 1100px) {
+  :host(.compact) app-portal-menu {
+    position: static;
+  }
+  :host:not(.compact) {
+    padding-bottom: 3.5rem;
+  }
+}
