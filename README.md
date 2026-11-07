@@ -29,3 +29,5 @@ Każdy może zalogować się przez Google. Edycja lokalizacji jest obecnie dost�
 Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
 
 Katalog pełny przygotowano do odbioru na dev: 196 miejsc z MVP.0. Lokalizacje kandydackie pozostają nieustalone; kopie dawnych wycinków bez potwierdzonej podstawy publikacji są wyłączone, referencje zawierają odnośniki do źródeł.
+
+Przy oddaleniu mapy pobliskie miejsca łączą się w grupy z liczbą punktów. Kliknięcie grupy przybliża mapę; wybrane miejsce pozostaje widoczne osobno.

@@ -13,7 +13,8 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import type { Map as LibreMap, Marker } from 'maplibre-gl';
+import type { FeatureCollection, Point } from 'geojson';
+import type { Map as LibreMap, Marker, GeoJSONSource } from 'maplibre-gl';
 import { Place } from '../places/place';
 import { HISTORICAL_MAP, INITIAL_CENTER } from './map-config';
 import { HISTORY_CORNERS } from './history-extent';
@@ -82,6 +83,7 @@ export class AtlasMap {
     });
     effect(() => {
       this.places();
+      this.selected();
       this.draftPoint();
       this.editing();
       if (this.state() === 'ready') void this.renderMarkers();
@@ -154,7 +156,14 @@ export class AtlasMap {
         if (HISTORICAL_MAP.available) this.addHistoricalMap();
         void this.renderMarkers();
       });
-      map.on('moveend', () => this.updateCoverage());
+      map.on('moveend', () => {
+        this.updateCoverage();
+        void this.drawClusterMarkers();
+      });
+      map.on('sourcedata', (event) => {
+        if (event.sourceId === 'places-clustered' && event.isSourceLoaded)
+          void this.drawClusterMarkers();
+      });
       const cancelBackgroundClick = () => clearTimeout(this.backgroundClickTimeout);
       map.on('click', (event) => {
         if (this.editing()) {
@@ -187,33 +196,117 @@ export class AtlasMap {
         .addTo(map);
     if (this.draftMarker) this.draftMarker.getElement().style.pointerEvents = 'none';
     if (map !== this.map || this.destroyRef.destroyed) return;
+    const data: FeatureCollection<Point> = {
+      type: 'FeatureCollection',
+      features: this.places()
+        .filter((p) => p.location.coordinates && p.id !== this.selected()?.id)
+        .map((p) => ({
+          type: 'Feature',
+          properties: { placeId: p.id },
+          geometry: {
+            type: 'Point',
+            coordinates: [p.location.coordinates!.lng, p.location.coordinates!.lat],
+          },
+        })),
+    };
+    const source = map.getSource<GeoJSONSource>('places-clustered');
+    if (source) source.setData(data);
+    else {
+      map.addSource('places-clustered', {
+        type: 'geojson',
+        data,
+        cluster: true,
+        clusterRadius: 50,
+        clusterMaxZoom: 15,
+      });
+      map.addLayer({
+        id: 'places-clustered',
+        type: 'circle',
+        source: 'places-clustered',
+        paint: { 'circle-radius': 0, 'circle-opacity': 0 },
+      });
+    }
+    await this.drawClusterMarkers();
+  }
+
+  private async drawClusterMarkers(): Promise<void> {
+    const map = this.map;
+    if (!map?.getSource('places-clustered') || this.state() !== 'ready') return;
+    const { Marker } = await import('maplibre-gl');
+    if (map !== this.map || this.destroyRef.destroyed) return;
     this.markers.forEach((marker) => marker.remove());
     this.markers = [];
-    for (const place of this.places()) {
-      const point = place.location.coordinates;
-      if (!point) continue;
+    const seen = new Set<string>();
+    const add = (coordinates: number[], place?: Place, clusterId?: number, count?: number) => {
       const button = document.createElement('button');
       button.type = 'button';
       button.disabled = this.editing();
       button.style.pointerEvents = this.editing() ? 'none' : '';
       button.tabIndex = this.editing() ? -1 : 0;
-      button.className = 'place-marker';
-      button.dataset['placeId'] = place.id;
-      button.textContent = place.location.precision === 'approximate' ? '≈' : '•';
+      button.className = count
+        ? 'place-marker btn btn-circle btn-primary min-w-11 min-h-11'
+        : 'place-marker';
+      if (place) button.dataset['placeId'] = place.id;
+      button.textContent = count
+        ? String(count)
+        : place?.location.precision === 'approximate'
+          ? '≈'
+          : '•';
       button.setAttribute(
         'aria-label',
-        `${place.name} — ${place.location.precision === 'approximate' ? 'pozycja przybliżona' : 'budynek'}`,
+        count
+          ? `Grupa ${count} miejsc — przybliż mapę`
+          : `${place!.name} — ${place!.location.precision === 'approximate' ? 'pozycja przybliżona' : 'budynek'}`,
       );
-      button.setAttribute('aria-pressed', String(this.selected()?.id === place.id));
-      button.addEventListener('click', (event) => {
+      if (place) button.setAttribute('aria-pressed', String(this.selected()?.id === place.id));
+      button.addEventListener('click', async (event) => {
         event.stopPropagation();
         clearTimeout(this.backgroundClickTimeout);
-        if (!this.editing()) this.placeSelected.emit(place);
+        if (this.editing()) return;
+        if (place) this.placeSelected.emit(place);
+        else {
+          try {
+            const zoom = await map
+              .getSource<GeoJSONSource>('places-clustered')!
+              .getClusterExpansionZoom(clusterId!);
+            if (map !== this.map || this.editing()) return;
+            map.easeTo({
+              center: [coordinates[0], coordinates[1]],
+              zoom: Math.min(zoom, map.getMaxZoom()),
+              duration: this.motionDuration(),
+            });
+          } catch {
+            /* A refreshed source may have replaced this cluster. */
+          }
+        }
       });
       this.markers.push(
-        new Marker({ element: button }).setLngLat([point.lng, point.lat]).addTo(map),
+        new Marker({ element: button }).setLngLat([coordinates[0], coordinates[1]]).addTo(map),
       );
+    };
+    for (const feature of map.querySourceFeatures('places-clustered')) {
+      if (feature.geometry.type !== 'Point') continue;
+      const properties = feature.properties;
+      const key = properties['cluster']
+        ? `cluster-${properties['cluster_id']}`
+        : properties['placeId'];
+      if (seen.has(key)) continue;
+      seen.add(key);
+      if (properties['cluster'])
+        add(
+          feature.geometry.coordinates,
+          undefined,
+          properties['cluster_id'],
+          properties['point_count'],
+        );
+      else {
+        const place = this.places().find((p) => p.id === properties['placeId']);
+        if (place) add(feature.geometry.coordinates, place);
+      }
     }
+    const selected = this.selected();
+    if (selected?.location.coordinates)
+      add([selected.location.coordinates.lng, selected.location.coordinates.lat], selected);
   }
 
   private addHistoricalMap(): void {
