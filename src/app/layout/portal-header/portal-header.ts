@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Account } from '../../places/account';
+import { ChangeDetectionStrategy, Component, input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 @Component({
   selector: 'header[appPortalHeader]',
@@ -9,5 +10,6 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PortalHeader {
+  readonly account = inject(Account);
   readonly compact = input(false);
 }

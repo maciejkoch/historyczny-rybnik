@@ -110,6 +110,9 @@
   >
     <app-atlas-map
       [places]="places()"
+      [editing]="editing()"
+      [draftPoint]="draftPoint()"
+      (pointPicked)="pickPoint($event)"
       [selected]="selected()"
       [focusSelected]="hasDetails()"
       [layoutAnimating]="sheetAnimating()"
@@ -196,6 +199,70 @@
         aria-label="Opis miejsca"
         [hidden]="detailsLayout.isCollapsed()"
       >
+        @if (selected()) {
+          @if (!editing()) {
+            <button class="btn btn-outline" type="button" (click)="startEditing()">
+              {{ account.user() ? 'Popraw lokalizację' : 'Zaloguj się, aby poprawić lokalizację' }}
+            </button>
+          } @else {
+            <fieldset [disabled]="saving()" class="location-editor">
+              <legend>Popraw lokalizację</legend>
+              <p>
+                Kliknij punkt na mapie lub podaj współrzędne. Podgląd nie jest jeszcze zapisany.
+              </p>
+              <label
+                >Szerokość geograficzna
+                <input
+                  type="number"
+                  step="any"
+                  min="-90"
+                  max="90"
+                  [value]="draftPoint()?.lat ?? ''"
+                  (change)="
+                    pickPoint({ lat: +$any($event.target).value, lng: draftPoint()?.lng ?? 18.54 })
+                  "
+              /></label>
+              <label
+                >Długość geograficzna
+                <input
+                  type="number"
+                  step="any"
+                  min="-180"
+                  max="180"
+                  [value]="draftPoint()?.lng ?? ''"
+                  (change)="
+                    pickPoint({ lat: draftPoint()?.lat ?? 50.09, lng: +$any($event.target).value })
+                  "
+              /></label>
+              <label
+                >Dokładność
+                <select [value]="precision()" (change)="precision.set($any($event.target).value)">
+                  <option value="approximate">Przybliżona</option>
+                  <option value="building">Wskazany budynek</option>
+                </select></label
+              >
+              <label
+                >Uzasadnienie
+                <textarea
+                  maxlength="2000"
+                  [value]="explanation()"
+                  (input)="explanation.set($any($event.target).value)"
+                ></textarea>
+              </label>
+              <p>Zapis od razu opublikuje nową lokalizację.</p>
+              <button
+                class="btn btn-primary"
+                type="button"
+                [disabled]="needsRestart() || !draftPoint() || !explanation().trim()"
+                (click)="saveLocation()"
+              >
+                {{ saving() ? 'Zapisywanie…' : 'Zapisz lokalizację' }}
+              </button>
+              <button class="btn" type="button" (click)="cancelEditing()">Anuluj</button>
+            </fieldset>
+          }
+          <p role="status">{{ editMessage() }}</p>
+        }
         <app-place-details-panel [place]="selected()" (imageOpened)="enlarged.set($event)" />
       </section>
     </div>
