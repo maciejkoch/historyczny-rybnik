@@ -8,7 +8,7 @@ Decyzje właściciela, 5 listopada 2026: jeden projekt `historyczny-rybnik`, wsp
 
 Callable `placesDevRead({ids})` przyjmuje 1–100 unikalnych identyfikatorów znanych frontendowi. Wymaga App Check, zwraca tylko publiczne miejsca: `id`, `location`, `locationVersion`, `updatedAt`. Drafty i brakujące dokumenty są pomijane. Katalog frontendowy ogranicza zakres żądania; identyfikatory nie stanowią mechanizmu autoryzacji publicznych miejsc.
 
-Callable `placesDevUpdate({placeId,expectedLocationVersion,location})` wymaga Google Auth i App Check. Zmienia tylko lokalizację istniejącego publicznego miejsca. Wyjaśnienie jest obowiązkowe; pozycja musi być określona. Transakcja podnosi wersję i ustawia czas serwera. Konflikt: `aborted`; draft/brak: `not-found`; niepoprawne dane: `invalid-argument`. Brak historii, autora i rejestru żądań. Po niepewnym wyniku należy odczytać bieżący stan.
+Callable `placesDevUpdate({placeId,expectedLocationVersion,location})` wymaga Google Auth i App Check. Zmienia tylko lokalizację istniejącego publicznego miejsca. W fazie 4 pole explanation jest opcjonalnym komentarzem (pusty tekst usuwa komentarz), aktualizowanym zamiast dopisywania kolejnych wpisów; pozycja musi być określona. Zapis w fazie 4 wymaga dodatkowo roli admina. Transakcja podnosi wersję i ustawia czas serwera. Konflikt: `aborted`; draft/brak: `not-found`; niepoprawne dane: `invalid-argument`. Brak historii, autora i rejestru żądań. Po niepewnym wyniku należy odczytać bieżący stan.
 
 ## Dane i build
 

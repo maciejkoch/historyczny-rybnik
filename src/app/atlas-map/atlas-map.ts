@@ -25,6 +25,10 @@ import { HISTORY_CORNERS } from './history-extent';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtlasMap {
+  readonly editing = input(false);
+  readonly draftPoint = input<{ lat: number; lng: number } | null>(null);
+  readonly pointPicked = output<{ lat: number; lng: number }>();
+  private draftMarker?: Marker;
   readonly places = input<readonly Place[]>([]);
   readonly selected = input<Place | null>(null);
   readonly focusSelected = input(true);
@@ -78,6 +82,8 @@ export class AtlasMap {
     });
     effect(() => {
       this.places();
+      this.draftPoint();
+      this.editing();
       if (this.state() === 'ready') void this.renderMarkers();
     });
     this.destroyRef.onDestroy(() => {
@@ -151,6 +157,10 @@ export class AtlasMap {
       map.on('moveend', () => this.updateCoverage());
       const cancelBackgroundClick = () => clearTimeout(this.backgroundClickTimeout);
       map.on('click', (event) => {
+        if (this.editing()) {
+          this.pointPicked.emit({ lat: event.lngLat.lat, lng: event.lngLat.lng });
+          return;
+        }
         if (event.originalEvent.target !== map.getCanvas()) return;
         cancelBackgroundClick();
         // Distinguish a single tap from double-click/tap zoom, not animation timing.
@@ -169,6 +179,13 @@ export class AtlasMap {
     const map = this.map;
     if (!map || this.state() !== 'ready') return;
     const { Marker } = await import('maplibre-gl');
+    this.draftMarker?.remove();
+    const draft = this.draftPoint();
+    if (this.editing() && draft)
+      this.draftMarker = new Marker({ color: '#b45309' })
+        .setLngLat([draft.lng, draft.lat])
+        .addTo(map);
+    if (this.draftMarker) this.draftMarker.getElement().style.pointerEvents = 'none';
     if (map !== this.map || this.destroyRef.destroyed) return;
     this.markers.forEach((marker) => marker.remove());
     this.markers = [];
@@ -177,6 +194,9 @@ export class AtlasMap {
       if (!point) continue;
       const button = document.createElement('button');
       button.type = 'button';
+      button.disabled = this.editing();
+      button.style.pointerEvents = this.editing() ? 'none' : '';
+      button.tabIndex = this.editing() ? -1 : 0;
       button.className = 'place-marker';
       button.dataset['placeId'] = place.id;
       button.textContent = place.location.precision === 'approximate' ? '≈' : '•';
@@ -188,7 +208,7 @@ export class AtlasMap {
       button.addEventListener('click', (event) => {
         event.stopPropagation();
         clearTimeout(this.backgroundClickTimeout);
-        this.placeSelected.emit(place);
+        if (!this.editing()) this.placeSelected.emit(place);
       });
       this.markers.push(
         new Marker({ element: button }).setLngLat([point.lng, point.lat]).addTo(map),
@@ -328,6 +348,8 @@ export class AtlasMap {
     return matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 300;
   }
   private cleanup(): void {
+    this.draftMarker?.remove();
+    this.draftMarker = undefined;
     clearTimeout(this.loadingTimeout);
     clearTimeout(this.backgroundClickTimeout);
     this.resizeObserver?.disconnect();

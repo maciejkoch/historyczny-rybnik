@@ -2,26 +2,39 @@
   <img src="/brand/ryba-na-mapie.svg" width="76" height="54" alt="" />
   <span>Historyczny<br />Rybnik</span>
 </a>
-<button
-  #menuTrigger
-  type="button"
-  class="btn btn-ghost btn-square portal-menu-trigger"
-  style="anchor-name: --portal-menu-trigger"
-  aria-label="Menu serwisu"
-  [attr.aria-expanded]="menu.mode() !== null"
-  aria-controls="portal-menu-drawer portal-menu-dropdown"
-  (click)="menu.toggle(menuTrigger)"
->
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="1.8"
-    stroke-linecap="round"
-    aria-hidden="true"
+<div class="ml-auto flex items-center gap-4">
+  <div class="hidden items-center gap-4 min-[1100px]:flex">
+    @if (account.user(); as user) {
+      <span class="text-sm"
+        >{{ user.displayName || 'Użytkownik' }}{{ account.admin() ? ' · Administrator' : '' }}</span
+      >
+    }
+  </div>
+  <button
+    #menuTrigger
+    type="button"
+    class="btn btn-ghost btn-square portal-menu-trigger"
+    style="anchor-name: --portal-menu-trigger"
+    aria-label="Menu serwisu"
+    [attr.aria-expanded]="menu.mode() !== null"
+    aria-controls="portal-menu-drawer portal-menu-dropdown"
+    (click)="menu.toggle(menuTrigger)"
   >
-    <path d="M4 6h16M4 12h16M4 18h16" />
-  </svg>
-</button>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      aria-hidden="true"
+    >
+      <path d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+</div>
+
+@if (account.message()) {
+  <p role="status" class="text-sm">{{ account.message() }}</p>
+}

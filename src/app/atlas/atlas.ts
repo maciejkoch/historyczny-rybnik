@@ -1,3 +1,4 @@
+import { Account } from '../places/account';
 import {
   afterNextRender,
   afterRenderEffect,
@@ -51,6 +52,83 @@ export class Atlas {
   private readonly destroyRef = inject(DestroyRef);
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
+  readonly account = inject(Account);
+  readonly editing = signal(false);
+  readonly draftPoint = signal<{ lat: number; lng: number } | null>(null);
+  readonly precision = signal<'building' | 'approximate'>('approximate');
+  readonly explanation = signal('');
+  readonly saving = signal(false);
+  readonly needsRestart = signal(false);
+  readonly editMessage = signal('');
+  private editVersion = 0;
+  private editId = '';
+  async startEditing(): Promise<void> {
+    if (!this.account.user()) {
+      await this.account.toggle();
+      return;
+    }
+    if (!this.account.admin()) return;
+    await this.locations.refresh();
+    const place = this.selected();
+    if (!place || this.locations.status() !== 'ready') {
+      this.editMessage.set('Nie można pobrać bieżącej pozycji. Spróbuj ponownie.');
+      return;
+    }
+    this.needsRestart.set(false);
+    this.editVersion = place.locationVersion;
+    this.editId = place.id;
+    this.draftPoint.set(place.location.coordinates);
+    this.precision.set(place.location.precision === 'building' ? 'building' : 'approximate');
+    this.explanation.set(place.location.explanation ?? '');
+    this.editMessage.set('');
+    this.editing.set(true);
+  }
+  cancelEditing(): void {
+    this.editing.set(false);
+    this.draftPoint.set(null);
+  }
+  pickPoint(point: { lat: number; lng: number }): void {
+    if (this.editing() && !this.saving()) this.draftPoint.set(point);
+  }
+  async saveLocation(): Promise<void> {
+    const point = this.draftPoint();
+    if (
+      this.needsRestart() ||
+      this.saving() ||
+      !point ||
+      !Number.isFinite(point.lat) ||
+      !Number.isFinite(point.lng) ||
+      Math.abs(point.lat) > 90 ||
+      Math.abs(point.lng) > 180 ||
+      !this.account.admin()
+    )
+      return;
+    this.saving.set(true);
+    try {
+      await this.locations.update({
+        placeId: this.editId,
+        expectedLocationVersion: this.editVersion,
+        location: {
+          coordinates: point,
+          precision: this.precision(),
+          explanation: this.explanation().trim(),
+        },
+      });
+      this.cancelEditing();
+      this.editMessage.set('Lokalizacja została zapisana.');
+    } catch (error) {
+      await this.locations.refresh();
+      const code = (error as { code?: string }).code;
+      this.editMessage.set(
+        code === 'functions/aborted'
+          ? 'Lokalizacja została zmieniona. Anuluj edycję i spróbuj ponownie.'
+          : 'Nie udało się potwierdzić zapisu. Sprawdź bieżącą pozycję przed ponowieniem.',
+      );
+      this.needsRestart.set(true);
+    } finally {
+      this.saving.set(false);
+    }
+  }
   readonly locations = inject(Locations);
   readonly consent = inject(Consent);
   readonly query = signal(this.route.snapshot.queryParamMap.get('q') ?? '');
@@ -174,9 +252,13 @@ export class Atlas {
         reducedMotion.removeEventListener('change', settle);
       });
     });
+    effect(() => {
+      if (!this.account.admin()) this.cancelEditing();
+    });
     this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
       if (typeof window === 'undefined') return;
       if (event instanceof NavigationStart) {
+        this.cancelEditing();
         this.scrollPositions.set(this.currentPath, window.scrollY);
         this.restoringHistory = event.navigationTrigger === 'popstate';
         const target = event.url.split(/[?#]/)[0];
@@ -252,6 +334,7 @@ export class Atlas {
   }
 
   closeFromMap(): void {
+    if (this.editing()) return;
     if (!this.isDesktop() && this.hasDetails()) void this.router.navigate(['/']);
   }
 
@@ -262,6 +345,8 @@ export class Atlas {
   }
 
   select(place: Place): void {
+    if (this.saving() || this.editing()) return;
+    this.cancelEditing();
     const path = '/miejsca/' + place.slug;
     if (this.currentPath === path) {
       this.detailsLayout()?.expand();

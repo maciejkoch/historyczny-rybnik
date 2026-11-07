@@ -1,3 +1,4 @@
+import { Account } from '../../places/account';
 import { DOCUMENT, NgTemplateOutlet } from '@angular/common';
 import {
   afterRenderEffect,
@@ -30,6 +31,11 @@ export class PortalMenu {
   private readonly drawer = viewChild.required<ElementRef<HTMLElement>>('drawer');
   private readonly closeButton = viewChild.required<ElementRef<HTMLButtonElement>>('closeButton');
   private readonly dropdown = viewChild.required<ElementRef<HTMLElement>>('dropdown');
+  readonly account = inject(Account);
+  async toggleAccount(): Promise<void> {
+    this.menu.close();
+    await this.account.toggle();
+  }
   readonly menu = inject(PortalMenuState);
 
   constructor() {

@@ -55,6 +55,25 @@
 </div>
 <ng-template #links let-mobile="mobile">
   <nav class="flex min-h-0 flex-1 flex-col gap-5" aria-label="Menu serwisu">
+    <ul
+      class="menu w-full gap-1 border-b border-line p-0 pb-4 text-base [&_button]:min-h-12 [&_button]:px-4 [&_button]:py-3"
+    >
+      @if (account.user(); as user) {
+        <li class="px-4 py-2">
+          <span class="block p-0"
+            >{{ user.displayName || 'Użytkownik'
+            }}{{ account.admin() ? ' · Administrator' : '' }}</span
+          >
+        </li>
+      }
+      <li>
+        <button type="button" [disabled]="account.busy()" (click)="toggleAccount()">
+          {{
+            account.busy() ? 'Proszę czekać…' : account.user() ? 'Wyloguj' : 'Zaloguj przez Google'
+          }}
+        </button>
+      </li>
+    </ul>
     <ul class="menu w-full gap-1 p-0 text-base [&_a]:min-h-12 [&_a]:px-4 [&_a]:py-3">
       <li>
         <a
