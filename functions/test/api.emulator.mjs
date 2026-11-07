@@ -10,23 +10,24 @@ const location = {
   precision: 'approximate',
   explanation: 'Test location',
 };
-const auth = { uid: 'test-user', token: { firebase: { sign_in_provider: 'google.com' } } };
+const auth = {
+  uid: 'test-user',
+  token: { admin: true, firebase: { sign_in_provider: 'google.com' } },
+};
 const request = (data, extra = {}) => ({ app: { appId: 'test' }, auth, data, ...extra });
-await db
-  .doc('places/public')
-  .set({
-    published: true,
-    location: { ...location, coordinates: new GeoPoint(50, 18) },
-    locationVersion: 0,
-    updatedAt: Timestamp.now(),
-    privateNote: 'never expose',
-  });
+await db.doc('places/public').set({
+  published: true,
+  location: { ...location, coordinates: new GeoPoint(50, 18) },
+  locationVersion: 0,
+  updatedAt: Timestamp.now(),
+  privateNote: 'never expose',
+});
 await db.doc('places/draft').set({ published: false });
 await test('App Check and Google Auth mandatory', async () => {
   for (const overrides of [
     { app: undefined },
     { auth: undefined },
-    { auth: { uid: 'x', token: { firebase: { sign_in_provider: 'password' } } } },
+    { auth: { uid: 'x', token: { admin: true, firebase: { sign_in_provider: 'password' } } } },
   ])
     await assert.rejects(
       updateLocation(
@@ -38,6 +39,18 @@ await test('App Check and Google Auth mandatory', async () => {
   await assert.rejects(readLocations(db, request({ ids: ['public'] }, { app: undefined })), {
     code: 'unauthenticated',
   });
+});
+await test('regular Google user cannot write', async () => {
+  await assert.rejects(
+    updateLocation(
+      db,
+      request(
+        { placeId: 'public', expectedLocationVersion: 0, location },
+        { auth: { uid: 'regular', token: { firebase: { sign_in_provider: 'google.com' } } } },
+      ),
+    ),
+    { code: 'permission-denied' },
+  );
 });
 await test('public projection excludes draft and private fields', async () => {
   const result = await readLocations(db, request({ ids: ['public', 'draft', 'missing'] }));

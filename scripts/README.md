@@ -63,3 +63,5 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduł
 
 - `npm run deploy:dev-1`, `deploy:dev-2`, `deploy:dev-3`: snapshot wspólnego backendu dev, build i publikacja wyłącznie wskazanej witryny. Konfiguracja przejmuje aktualne przekierowania wygenerowane przez build; `/deployment.json` zapisuje slot, branch, SHA i czas.
 - `npm run environment -- reserve|release dev-1|dev-2|dev-3 <ID pozycji Projects>`: `scripts/places/environment.mjs` tworzy atomową blokadę w zdalnej gałęzi `env-lock/<slot>` lub zwalnia wyłącznie blokadę tego zadania. Pole Projects aktualizuje operator osobno.
+
+`npm run auth:admin -- show|grant|revoke UID [--apply] [--firebase-cli]` uruchamia `infra/admin-role.mjs`. Bez `--apply` grant/revoke to podgląd. Wymaga ADC lub lokalnego logowania Firebase CLI z uprawnieniem zarządzania Auth; zachowuje pozostałe custom claims. Auth i role są wspólne dla projektu. Zmiany ról wykonuje jeden operator naraz.

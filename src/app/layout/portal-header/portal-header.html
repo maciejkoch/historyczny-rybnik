@@ -4,7 +4,10 @@
 </a>
 <div [hidden]="compact()" class="preview-badge">
   @if (account.user(); as user) {
-    <p>Zalogowano: {{ user.displayName || 'Użytkownik' }}</p>
+    <p>
+      Zalogowano: {{ user.displayName || 'Użytkownik'
+      }}{{ account.admin() ? ' · Administrator' : '' }}
+    </p>
   }
   <button
     type="button"

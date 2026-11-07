@@ -200,7 +200,9 @@
         [hidden]="detailsLayout.isCollapsed()"
       >
         @if (selected()) {
-          @if (!editing()) {
+          @if (account.user() && !account.admin()) {
+            <p>Edycja lokalizacji jest obecnie dostępna tylko dla administratorów.</p>
+          } @else if (!editing()) {
             <button class="btn btn-outline" type="button" (click)="startEditing()">
               {{ account.user() ? 'Popraw lokalizację' : 'Zaloguj się, aby poprawić lokalizację' }}
             </button>

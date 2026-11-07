@@ -98,7 +98,7 @@ test('known/unknown location and optimistic version bounds do not coerce input',
 test('invalid callable requests fail before database access and expose only field codes', async () => {
   const request = {
     app: {},
-    auth: { token: { firebase: { sign_in_provider: 'google.com' } } },
+    auth: { token: { admin: true, firebase: { sign_in_provider: 'google.com' } } },
     data: { ids: [], private: 'secret' },
   };
   await assert.rejects(readLocations({}, request), (error) => {

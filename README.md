@@ -12,7 +12,7 @@ Aplikacja do poznawania historii Rybnika przez mapę i miejsca.
 - Ustawienia prywatności: osobne zgody na zapamiętywanie ustawień i bieżące pozycje z usług Google. Bez zgody aplikacja korzysta z opublikowanego snapshotu.
 - Strona polityki prywatności i możliwość powrotu do ustawień zgód.
 
-Katalog obejmuje obecnie jeden kościół. Zalogowani przez Google mogą poprawiać lokalizację: wskazać punkt, określić dokładność i uzasadnienie oraz jawnie zapisać zmianę. Przycisk logowania znajduje się tymczasowo w nagłówku. Zapis sprawdza wersję pozycji, bez blokad edycji.
+Katalog obejmuje obecnie jeden kościół. Administratorzy zalogowani przez Google mogą poprawiać lokalizację: wskazać punkt, określić dokładność i uzasadnienie oraz jawnie zapisać zmianę. Przycisk logowania znajduje się tymczasowo w nagłówku. Zapis sprawdza wersję pozycji, bez blokad edycji.
 
 ## Dokumentacja
 
@@ -22,3 +22,5 @@ Katalog obejmuje obecnie jeden kościół. Zalogowani przez Google mogą poprawi
 - [Instrukcje agenta](AGENTS.md) i [materiały pomocnicze](agent-context/README.md).
 
 Opis funkcji aktualizujemy w tej samej zmianie, która zmienia zachowanie aplikacji.
+
+Każdy może zalogować się przez Google. Edycja lokalizacji jest obecnie dostępna tylko dla administratorów; rolami zarządza operator.

@@ -67,6 +67,7 @@ export class Atlas {
       await this.account.toggle();
       return;
     }
+    if (!this.account.admin()) return;
     await this.locations.refresh();
     const place = this.selected();
     if (!place || this.locations.status() !== 'ready') {
@@ -100,7 +101,7 @@ export class Atlas {
       Math.abs(point.lat) > 90 ||
       Math.abs(point.lng) > 180 ||
       !this.explanation().trim() ||
-      !this.account.user()
+      !this.account.admin()
     )
       return;
     this.saving.set(true);
@@ -253,7 +254,7 @@ export class Atlas {
       });
     });
     effect(() => {
-      if (!this.account.user()) this.cancelEditing();
+      if (!this.account.admin()) this.cancelEditing();
     });
     this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
       if (typeof window === 'undefined') return;

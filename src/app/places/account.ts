@@ -7,6 +7,7 @@ import { FIREBASE_DEV } from './runtime-config';
 export class Account {
   readonly consent = inject(Consent);
   readonly user = signal<User | null>(null);
+  readonly admin = signal(false);
   readonly busy = signal(false);
   readonly message = signal('');
   private client?: Promise<import('firebase/auth').Auth>;
@@ -26,13 +27,24 @@ export class Account {
   }
   private initialize() {
     return (this.client ??= (async () => {
-      const [{ getApps, initializeApp }, { getAuth, onAuthStateChanged }] = await Promise.all([
+      const [{ getApps, initializeApp }, { getAuth, onIdTokenChanged }] = await Promise.all([
         import('firebase/app'),
         import('firebase/auth'),
       ]);
       const auth = getAuth(getApps()[0] ?? initializeApp(FIREBASE_DEV.firebase));
       auth.languageCode = 'pl';
-      onAuthStateChanged(auth, (user) => this.user.set(user));
+      onIdTokenChanged(auth, async (user) => {
+        this.admin.set(false);
+        this.user.set(user);
+        if (user) {
+          try {
+            const token = await user.getIdTokenResult();
+            if (auth.currentUser === user) this.admin.set(token.claims['admin'] === true);
+          } catch {
+            this.admin.set(false);
+          }
+        }
+      });
       await auth.authStateReady();
       return auth;
     })().catch((error) => {

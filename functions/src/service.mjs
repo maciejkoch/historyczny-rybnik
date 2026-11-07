@@ -54,6 +54,7 @@ export async function updateLocation(db, request) {
   requireApp(request);
   if (!request.auth || request.auth.token.firebase?.sign_in_provider !== 'google.com')
     fail('unauthenticated', 'Google authentication required');
+  if (request.auth.token.admin !== true) fail('permission-denied', 'Administrator role required');
   const data = validate(writeRequest, request.data);
   const ref = db.collection('places').doc(data.placeId);
   await db.runTransaction(async (tx) => {
