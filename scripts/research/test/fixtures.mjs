@@ -51,7 +51,6 @@ export function fixture() {
       evidenceMaterialId: null,
       checkedAt: null,
       credit: null,
-      downloadAllowed: false,
       publicationApproved: false,
     },
     files: [],
@@ -85,7 +84,7 @@ export function fixture() {
     publicationApproved: false,
   };
   return {
-    config: { schemaVersion: 1, city: 'Rybnik', period: { from: 1918, to: 1939, flexible: true } },
+    config: { schemaVersion: 2, city: 'Rybnik', period: { from: 1918, to: 1939, flexible: true } },
     tags: [
       { id: 'uslugi', name: 'usługi', description: 'Usługi', synonyms: [] },
       { id: 'fryzjer', name: 'fryzjer', description: 'Fryzjer', synonyms: ['zakład fryzjerski'] },

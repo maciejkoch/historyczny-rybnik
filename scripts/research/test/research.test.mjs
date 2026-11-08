@@ -251,7 +251,6 @@ test('own scans preserve missing web provenance and allow a local documentary ri
     evidenceMaterialId: 'mat_b',
     checkedAt: '2026-11-08T08:00:00Z',
     credit: 'Fikcyjne archiwum',
-    downloadAllowed: true,
     publicationApproved: true,
   };
   assert.equal(validateWorkspace(d).materials[0].rights.evidenceUrl, null);
@@ -300,4 +299,40 @@ test('a 1938 contemporary advertisement proves activity without a fabricated his
     legacyPeriod([{ ...ref, note: 'Powiązanie z tym miejscem jest przypuszczalne.' }]).status,
     'probable',
   );
+});
+
+test('internal unknown/restricted copies are retained and never become public images', async (t) => {
+  const { capture } = await import('../capture.mjs');
+  const d = fixture();
+  d.materials[1].rights.status = 'restricted';
+  const root = await workspace(t, d);
+  const input = join(root, 'sample.pdf');
+  await writeFile(input, '%PDF-1.4\ninternal fixture');
+  const first = await capture({ root, materialId: 'mat_a', input, apply: true });
+  const second = await capture({ root, materialId: 'mat_b', input, apply: true });
+  assert.equal(first.path, second.path);
+  const stored = await loadWorkspace(root);
+  assert.equal(stored.materials[0].files.length, 1);
+  assert.equal(stored.materials[1].files.length, 1);
+  assert.equal(stored.materials[0].rights.status, 'unknown');
+  stored.places[0].publicationApproved = true;
+  assert.ok(projectPlace(stored.places[0], stored).references.every((r) => r.images.length === 0));
+  stored.materials[1].rights.publicationApproved = true;
+  assert.throws(() => validateWorkspace(stored));
+  await capture({ root, materialId: 'mat_a', input, apply: true });
+  assert.equal((await loadWorkspace(root)).materials[0].files.length, 1);
+  await writeFile(input, '<html>not a PDF</html>');
+  await assert.rejects(capture({ root, materialId: 'mat_a', input, apply: true }), /format/);
+});
+
+test('publication label never extends crop approval to a new full-page scan', async () => {
+  const { publicationNotice } = await import('../../../tools/research-viewer/publication.mjs');
+  const m = fixture().materials[0];
+  m.rights.status = 'public-domain';
+  m.rights.publicationApproved = true;
+  m.publicationImages = [{ sha256: 'crop', thumbnailSha256: 'thumb' }];
+  assert.equal(publicationNotice(m, { sha256: 'crop' }).approved, true);
+  assert.equal(publicationNotice(m, { sha256: 'full-page' }).approved, false);
+  m.rights.status = 'restricted';
+  assert.equal(publicationNotice(m, { sha256: 'crop' }).approved, false);
 });

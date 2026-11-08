@@ -79,3 +79,5 @@ Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_
 `research hydrate [--apply] [--firebase-cli]` (`research/hydrate.mjs`): podgląd/pobranie już opublikowanych zatwierdzonych obrazów dev do lokalnego warsztatu, z kontrolą SHA-256.
 
 `research/legacy-period.mjs` kwalifikuje wcześniejsze wzmianki: datowanie treści oraz jawnie rozpoznane współczesne ogłoszenia i spisy adresowe, z zachowaniem niepewności identyfikacji.
+
+`research capture --material=ID --input=plik [--role=original|scan|crop|thumbnail] [--derived-from=files/...] [--transformations=opis] [--apply]` (`research/capture.mjs`): podgląd/zapis wewnętrznej kopii z deduplikacją SHA-256 i pochodzeniem, bez zmiany praw publikacyjnych.

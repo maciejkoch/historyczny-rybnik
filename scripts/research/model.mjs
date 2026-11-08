@@ -31,7 +31,7 @@ export const periodSchema = z.strictObject({
 });
 const tag = z.strictObject({ id, name: text, description: text, synonyms: z.array(text) });
 export const configSchema = z.strictObject({
-  schemaVersion: z.literal(1),
+  schemaVersion: z.literal(2),
   city: z.literal('Rybnik'),
   period: z.strictObject({ from: z.literal(1918), to: z.literal(1939), flexible: z.literal(true) }),
 });
@@ -81,7 +81,6 @@ export const materialSchema = z.strictObject({
     evidenceMaterialId: id.nullable().optional(),
     checkedAt: timestampSchema.nullable(),
     credit: text.nullable(),
-    downloadAllowed: z.boolean(),
     publicationApproved: z.boolean(),
   }),
   files: z.array(
@@ -227,7 +226,6 @@ export function validateWorkspace(input) {
         !m.rights.credit)
     )
       throw new Error(`Publication rights not evidenced: ${m.id}`);
-    if (m.files.length && !m.rights.downloadAllowed) throw new Error(`Copy not permitted: ${m.id}`);
     const visited = new Set([m.id]);
     let parent = m.parentMaterialId;
     while (parent) {

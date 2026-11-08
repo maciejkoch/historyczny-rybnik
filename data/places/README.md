@@ -26,7 +26,18 @@ Miejsce to obiekt lub punkt działalności, bez oddzielnego modelowania instytuc
 
 `findings`: ID, nasze streszczenie ustalenia, `confirmed|uncertain|conflicting`, dowody `materialId + locator + note`. Niepewność i sprzeczności pozostają widoczne. W treści materiału rozdzielamy cytat/transkrypcję/OCR/streszczenie. A cytujące B nie stanowi drugiego niezależnego potwierdzenia; zapisuj łańcuch źródeł i szukaj oryginału.
 
-Materiały o nieustalonych prawach rejestrujemy z `unknown`, bez automatycznego pobrania/publikacji. `downloadAllowed` i `publicationApproved` to odrębne decyzje. Kopie publikujemy obecnie tylko przy potwierdzonej domenie publicznej konkretnego materiału, z basis/evidenceUrl/checkedAt/credit. Dostęp publiczny do biblioteki nie jest licencją całości. `publicationImages` przechowuje zatwierdzone publiczne warianty z pełnym kontraktem pochodzenia; nowe ścieżki `public/materials/<materialId>/<niezmienna-nazwa>.jpg|png|webp`. Lokalne pliki oryginałów i wariantów mają SHA-256, role oraz `derivedFrom`/opis przekształceń.
+Znalezione i dostępne skany/obrazy zawsze archiwizujemy wewnętrznie, także przy prawach `unknown`, `restricted` lub zakazie publikacji. Kopia pozostaje prywatna i nie nadaje zgody na publikację. Każdy materiał ma źródło i jawny status praw; nieustalone pola pozostają null. Oryginały i obrazy stron zapisujemy raz po SHA-256, współdzieląc ścieżki między materiałami. Wycinki/skany wskazują `derivedFrom` i opis przekształceń. Nie obchodzimy ograniczeń dostępu; niedostępne pliki odnotowujemy do ponowienia.
+
+Schemat warsztatu ma wersję 2: usunięto `rights.downloadAllowed`, które wcześniej mieszało archiwizację z decyzją o publikacji. Przy przenoszeniu kopii wersji 1 należy jawnie usunąć to pole z materiałów i ustawić schemaVersion=2; stan praw i publicationApproved pozostają bez zmian. Stare rewizje zachowują oryginalne bajty i wymagają tej migracji przed użyciem przez narzędzia wersji 2.
+
+Kopie publikujemy obecnie tylko przy potwierdzonej domenie publicznej konkretnego materiału, z basis/evidenceUrl albo evidenceMaterialId, checkedAt i credit oraz osobnym `publicationApproved`. `publicationImages` przechowuje zatwierdzone publiczne warianty, nigdy wszystkie pliki prywatnego archiwum. Galeria „Materiały” oraz karta miejsca pokazują lokalne obrazy z podpisami miejsc/źródeł i wyraźnym ostrzeżeniem o nieustalonych prawach, ograniczeniach lub braku zatwierdzenia publikacji.
+
+```sh
+npm run research -- capture --material=mat_id --input=/sciezka/oryginal.pdf --apply
+npm run research -- capture --material=mat_id --input=/sciezka/strona.png --role=scan --derived-from=files/archive/suma.pdf --transformations="Render PDF, strona 8" --apply
+```
+
+`capture` bez --apply pokazuje plan. Sprawdza format pliku, wielkość, SHA-256 i pochodzenie, wykorzystuje istniejącą identyczną kopię i nie zmienia praw ani zgód publikacyjnych.
 
 ## Użycie
 

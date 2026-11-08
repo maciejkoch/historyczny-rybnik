@@ -91,7 +91,6 @@ export async function migrate({ root, input, apply = false }) {
             checkedAt:
               decision?.status === 'public-domain' ? decision.checkedAt + 'T00:00:00Z' : null,
             credit: ref.images[0]?.credit || null,
-            downloadAllowed: decision?.status === 'public-domain',
             publicationApproved: false,
           },
           files: [],

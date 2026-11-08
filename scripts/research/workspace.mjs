@@ -55,7 +55,7 @@ export async function initWorkspace(root = defaultRoot) {
     await mkdir(await safePath(root, key), { recursive: true });
   for (const [name, value] of Object.entries({
     'config.json': {
-      schemaVersion: 1,
+      schemaVersion: 2,
       city: 'Rybnik',
       period: { from: 1918, to: 1939, flexible: true },
     },

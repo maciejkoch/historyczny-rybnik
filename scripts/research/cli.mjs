@@ -44,6 +44,19 @@ try {
         apply: args.includes('--apply'),
       }),
     );
+  } else if (command === 'capture') {
+    const { capture } = await import('./capture.mjs');
+    console.log(
+      await capture({
+        root,
+        materialId: value('material'),
+        input: value('input'),
+        role: value('role') || 'original',
+        derivedFrom: value('derived-from') || null,
+        transformations: value('transformations') || null,
+        apply: args.includes('--apply'),
+      }),
+    );
   } else if (command === 'hydrate') {
     const { hydrate } = await import('./hydrate.mjs');
     const { storageClient } = await import('./storage.mjs');
@@ -84,7 +97,7 @@ try {
     );
   } else
     throw new Error(
-      'Użycie: research init|validate|migrate|export|pull|push|restore|report [--root=...] [--apply]',
+      'Użycie: research init|validate|capture|hydrate|migrate|export|pull|push|restore|report [--root=...] [--apply]',
     );
 } catch (e) {
   console.error(e.message);

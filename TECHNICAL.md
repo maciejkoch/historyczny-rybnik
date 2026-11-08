@@ -138,3 +138,5 @@ Płaskie `tags: {id,name}[]` zastępują publiczne `category`. `period: {status,
 Eksport ma jawną listę pól, oddzielne zatwierdzenie miejsca i kopii materiałów, zachowuje istniejący katalog, a transakcyjny importer utrzymuje nowsze lokalizacje. Testy warsztatu w `npm test` oraz testy reguł prywatnego prefixu w emulatorach. Instrukcje operatora i odzyskiwania: `data/places/README.md`.
 
 Kwalifikacja migracji rozróżnia datę wydania od kontekstu treści: współczesne ogłoszenia i spisy adresowe z lat 1918–1939 potwierdzają działalność w czasie wydania, bez automatycznego kopiowania publicationDate do historicalDate. Artykuły retrospektywne wymagają osobnej oceny; unverified oznacza nieukończoną ocenę, nie nieistnienie dowodu.
+
+Prywatny warsztat używa schematu 2 bez rights.downloadAllowed. Kopie archiwalne są niezależne od zgody publikacyjnej. research capture zapisuje identyczne pliki raz po SHA-256. Galeria Materiały i karta miejsca pokazują obrazy z pochodzeniem i ostrzeżeniami; eksport nadal wybiera tylko zatwierdzone publiczne warianty.

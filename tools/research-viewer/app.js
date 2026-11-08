@@ -1,3 +1,4 @@
+import { publicationNotice } from '/publication.mjs';
 import * as maplibregl from '/vendor/maplibre-gl.mjs';
 const $ = (id) => document.getElementById(id);
 const names = {
@@ -108,6 +109,72 @@ function evidence(parent, items) {
     parent.append(p);
   }
 }
+function archiveNotice(material, file = null) {
+  const notice = publicationNotice(material, file);
+  return node('p', notice.text, 'alert my-3 alert-' + notice.tone);
+}
+function imageGallery(parent, materials, showPlaces = false) {
+  const seen = new Set();
+  for (const m of materials) {
+    const images = m.files.filter((f) => /\.(png|jpg|jpeg|webp)$/i.test(f.path));
+    const preferred = images.some((f) => f.role !== 'thumbnail')
+      ? images.filter((f) => f.role !== 'thumbnail')
+      : images;
+    for (const f of preferred) {
+      if (seen.has(f.sha256)) continue;
+      seen.add(f.sha256);
+      const group = (showPlaces ? data.materials : materials).filter((other) =>
+        other.files.some((file) => file.sha256 === f.sha256),
+      );
+      const card = node('figure', undefined, 'card bg-base-200 border border-base-300 p-4 my-4');
+      const url = '/files/' + f.path.slice(6).split('/').map(encodeURIComponent).join('/');
+      const img = node('img', undefined, 'h-64 w-full object-contain rounded-box mb-3');
+      img.src = url;
+      img.alt = m.title;
+      img.loading = 'lazy';
+      card.append(img, link(url, 'Otwórz pełny obraz ↗'));
+      const caption = node('figcaption', undefined, 'mt-3');
+      caption.append(node('p', m.title, 'font-medium'));
+      const notices = new Set();
+      for (const item of group) {
+        const text = publicationNotice(item, f).text;
+        if (!notices.has(text)) {
+          notices.add(text);
+          caption.append(archiveNotice(item, f));
+        }
+      }
+      if (showPlaces) {
+        const places = node('div', undefined, 'flex flex-wrap gap-1 items-center my-2');
+        places.append(node('span', 'Miejsca:'));
+        for (const id of new Set(group.flatMap((item) => item.placeIds))) places.append(ref(id));
+        if (!group.some((item) => item.placeIds.length))
+          places.append(node('span', 'Nieprzypisane'));
+        caption.append(places);
+      }
+      const sources = node('p', 'Źródła: ');
+      for (const id of new Set(group.map((item) => item.sourceId))) sources.append(ref(id));
+      caption.append(sources);
+      const details = node('details');
+      details.append(
+        node(
+          'summary',
+          'Materiały i odnośniki (' + group.length + ')',
+          'cursor-pointer text-sm my-2',
+        ),
+      );
+      for (const item of group) {
+        const row = node('p');
+        row.append(ref(item.id));
+        if (item.url) row.append(link(item.url, 'Źródło ↗'));
+        details.append(row);
+      }
+      caption.append(details);
+      card.append(caption);
+      parent.append(card);
+    }
+  }
+  if (!seen.size) parent.append(node('p', 'Brak zapisanych obrazów dla tych materiałów.'));
+}
 function detail(key, r) {
   const box = $('detail-body');
   box.replaceChildren(
@@ -138,6 +205,10 @@ function detail(key, r) {
       node('p', 'Dotyczy: ' + dated(r.historicalDate)),
     );
     if (r.dateNote) box.append(node('p', r.dateNote));
+  }
+  if (r.materialIds?.length) {
+    heading(box, 'Skany i obrazki');
+    imageGallery(box, r.materialIds.map((id) => find(id)?.r).filter(Boolean));
   }
   if (r.findings) {
     heading(box, 'Ustalenia i dowody');
@@ -205,6 +276,7 @@ function detail(key, r) {
   }
   if (r.rights) {
     heading(box, 'Prawa');
+    box.append(archiveNotice(r));
     box.append(
       node('p', states[r.rights.status] || r.rights.status),
       node('p', r.rights.basis || 'Brak ustalonej podstawy'),
@@ -215,17 +287,11 @@ function detail(key, r) {
     if (r.rights.evidenceUrl) box.append(link(r.rights.evidenceUrl, 'Dowód praw ↗'));
   }
   if (r.files?.length) {
+    imageGallery(box, [r]);
     heading(box, 'Pliki lokalne');
     for (const file of r.files) {
       const url = '/files/' + file.path.slice(6).split('/').map(encodeURIComponent).join('/');
       box.append(link(url, file.role + ' · ' + file.path));
-      if (/\.(png|jpg|jpeg|webp)$/i.test(file.path)) {
-        const img = node('img', undefined, 'max-h-96 my-3 rounded-box');
-        img.src = url;
-        img.alt = r.title || file.path;
-        img.loading = 'lazy';
-        box.append(img);
-      }
       box.append(node('p', file.sha256, 'text-xs break-all opacity-60'));
     }
   }
@@ -269,7 +335,14 @@ function filtered(rows) {
   const q = normalize($('search').value);
   return rows.filter(
     (r) =>
-      (!q || normalize(JSON.stringify(r)).includes(q)) &&
+      (!q ||
+        normalize(
+          JSON.stringify(r) +
+            ' ' +
+            (r.placeIds || []).map((id) => title(find(id)?.r || { id })).join(' ') +
+            ' ' +
+            (r.sourceId ? title(find(r.sourceId)?.r || { id: r.sourceId }) : ''),
+        ).includes(q)) &&
       (!$('tag').value || r.tags?.includes($('tag').value)) &&
       (!$('status').value || status(r) === $('status').value) &&
       (!$('location').value ||
@@ -343,6 +416,22 @@ function render() {
   }
   if (view === 'graph') {
     renderGraph(rows);
+    return;
+  }
+  if (view === 'materials') {
+    imageGallery($('cards'), rows, true);
+    const withoutImages = rows.filter(
+      (m) => !m.files.some((f) => /\.(png|jpg|jpeg|webp)$/i.test(f.path)),
+    );
+    if (withoutImages.length) heading($('cards'), 'Materiały bez zapisanego obrazu');
+    for (const m of withoutImages) {
+      const card = node('article', undefined, 'card bg-base-100 border border-base-300 p-5');
+      card.append(ref(m.id), archiveNotice(m));
+      for (const id of m.placeIds) card.append(ref(id));
+      card.append(ref(m.sourceId));
+      if (m.url) card.append(link(m.url, 'Otwórz źródło ↗'));
+      $('cards').append(card);
+    }
     return;
   }
   for (const r of rows) {

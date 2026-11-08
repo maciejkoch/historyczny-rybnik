@@ -3,9 +3,7 @@ import { extname } from 'node:path';
 export async function hydrate({ root, store, apply = false }) {
   const d = await loadWorkspace(root);
   let count = 0;
-  for (const m of d.materials.filter(
-    (m) => m.rights.publicationApproved && m.rights.downloadAllowed,
-  )) {
+  for (const m of d.materials.filter((m) => m.rights.publicationApproved)) {
     for (const image of m.publicationImages)
       for (const [pathKey, sumKey, role] of [
         ['storagePath', 'sha256', 'crop'],

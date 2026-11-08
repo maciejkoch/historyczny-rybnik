@@ -61,6 +61,7 @@ export async function createViewer({ root = defaultRoot, port = 4319 } = {}) {
       const routes = {
         '/': 'tools/research-viewer/index.html',
         '/app.js': 'tools/research-viewer/app.js',
+        '/publication.mjs': 'tools/research-viewer/publication.mjs',
         '/vendor/maplibre-gl.mjs': 'node_modules/maplibre-gl/dist/maplibre-gl.mjs',
         '/vendor/maplibre-gl-shared.mjs': 'node_modules/maplibre-gl/dist/maplibre-gl-shared.mjs',
         '/vendor/maplibre-gl-worker.mjs': 'node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs',
