@@ -80,3 +80,5 @@ Dopiero osobne `places:import ... --apply` zapisuje bazę dev. Zachowuje aktualn
 Migracja kontraktu istniejącej bazy: operator pobiera kopię `places:snapshot -- --firebase-cli --migrate-legacy`, przegląda różnicę, a następnie importuje ją nowym importerem. `--migrate-legacy` jest jawnym narzędziem jednorazowej migracji, normalny odczyt/build pozostaje ścisły. Build i deployment portalu to oddzielny proces dev-N; lokalna przeglądarka nigdy nie jest wdrażana.
 
 `npm run research -- hydrate --firebase-cli` pokazuje brakujące lokalne kopie już opublikowanych, zatwierdzonych obrazów. `--apply` pobiera je ze Storage dev, weryfikuje SHA-256 i zapisuje w files/imported oraz materiale. Nie pobiera nowych materiałów z nieustalonymi prawami; umożliwia podgląd wcześniejszych wycinków bez internetu. Po pobraniu wykonaj push warsztatu.
+
+Dla własnych skanów adresy internetowe oryginału/kolekcji/oznaczenia praw oraz autor w publicznym provenance mogą być null; nie tworzymy zastępczych URL ani nazw autora. Potwierdzenie praw wymaga basis, checkedAt, credit oraz evidenceUrl albo evidenceMaterialId wskazującego zarejestrowany materiał dowodowy (np. lokalną dokumentację).

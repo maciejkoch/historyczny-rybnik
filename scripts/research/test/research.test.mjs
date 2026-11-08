@@ -1,10 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtemp, writeFile, readFile, rm, symlink } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fixture } from './fixtures.mjs';
 import { validateWorkspace } from '../model.mjs';
+import { imageSchema } from '../../../functions/src/contracts/places.mjs';
 import { initWorkspace, loadWorkspace, atomicWrite, safePath, inventory } from '../workspace.mjs';
 import { syncWorkspace } from '../sync.mjs';
 import { projectPlace } from '../publish.mjs';
@@ -238,3 +240,36 @@ test('lost head-write acknowledgement can be retried without overwriting concurr
   const result = await syncWorkspace({ root, store, direction: 'push', apply: true });
   assert.ok(result.revision);
 });
+
+test('own scans preserve missing web provenance and allow a local documentary rights proof', () => {
+  const d = fixture(),
+    m = d.materials[0];
+  m.rights = {
+    status: 'public-domain',
+    basis: 'Fikcyjny dowód w skanie dokumentacji',
+    evidenceUrl: null,
+    evidenceMaterialId: 'mat_b',
+    checkedAt: '2026-11-08T08:00:00Z',
+    credit: 'Fikcyjne archiwum',
+    downloadAllowed: true,
+    publicationApproved: true,
+  };
+  assert.equal(validateWorkspace(d).materials[0].rights.evidenceUrl, null);
+  const image = JSON.parse(requireFixtureImage());
+  for (const field of [
+    'sourcePageUrl',
+    'originalCollectionUrl',
+    'originalImageUrl',
+    'licenseUrl',
+    'author',
+  ])
+    image.provenance[field] = null;
+  assert.equal(imageSchema.parse(image).provenance.originalImageUrl, null);
+});
+function requireFixtureImage() {
+  return JSON.stringify(
+    JSON.parse(
+      readFileSync(new URL('../../../data/places.test-data.json', import.meta.url)),
+    ).flatMap((p) => p.references.flatMap((r) => r.images))[0],
+  );
+}

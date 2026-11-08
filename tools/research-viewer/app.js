@@ -13,7 +13,12 @@ const names = {
   graph: 'Sieć źródeł',
 };
 const states = {
-  uncertain: 'Niepewne', conflicting: 'Sprzeczne', summary: 'Streszczenie', quote: 'Cytat', transcription: 'Transkrypcja', ocr: 'OCR',
+  uncertain: 'Niepewne',
+  conflicting: 'Sprzeczne',
+  summary: 'Streszczenie',
+  quote: 'Cytat',
+  transcription: 'Transkrypcja',
+  ocr: 'OCR',
   confirmed: 'Potwierdzone',
   probable: 'Brak potwierdzenia okresu',
   unverified: 'Nieustalone',
@@ -137,7 +142,10 @@ function detail(key, r) {
   if (r.findings) {
     heading(box, 'Ustalenia i dowody');
     for (const f of r.findings) {
-      box.append(node('p', f.text, 'font-medium'), node('p', states[f.status] || f.status, 'text-sm opacity-60'));
+      box.append(
+        node('p', f.text, 'font-medium'),
+        node('p', states[f.status] || f.status, 'text-sm opacity-60'),
+      );
       evidence(box, f.evidence);
     }
   }
@@ -203,6 +211,7 @@ function detail(key, r) {
       node('p', 'Sprawdzono: ' + (r.rights.checkedAt || 'nie sprawdzono')),
       node('p', 'Publikacja: ' + (r.rights.publicationApproved ? 'dopuszczona' : 'niedopuszczona')),
     );
+    if (r.rights.evidenceMaterialId) box.append(ref(r.rights.evidenceMaterialId));
     if (r.rights.evidenceUrl) box.append(link(r.rights.evidenceUrl, 'Dowód praw ↗'));
   }
   if (r.files?.length) {
@@ -472,7 +481,7 @@ function renderGraph(rows) {
     return;
   }
   const picker = node('select', undefined, 'select w-full mb-4');
-  picker.setAttribute('aria-label','Źródło w centrum grafu');
+  picker.setAttribute('aria-label', 'Źródło w centrum grafu');
   for (const r of rows) {
     const o = node('option', r.name);
     o.value = r.id;

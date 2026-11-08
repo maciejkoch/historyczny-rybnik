@@ -84,6 +84,7 @@ export async function migrate({ root, input, apply = false }) {
           rights: {
             status: decision?.status === 'public-domain' ? 'public-domain' : 'unknown',
             basis: decision?.status === 'public-domain' ? decision.evidenceText : null,
+            evidenceMaterialId: null,
             evidenceUrl: decision?.status === 'public-domain' ? decision.evidenceUrl : null,
             checkedAt:
               decision?.status === 'public-domain' ? decision.checkedAt + 'T00:00:00Z' : null,

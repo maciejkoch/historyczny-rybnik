@@ -5,7 +5,7 @@
 ## Rezultat i sprawdzenia
 
 - Skill projektowy `rybnik-research-places` i kontrakty prywatnego warsztatu. Walidator skilla PASS. Przegląd scenariuszy: wzmianki 1890/1950, późna publikacja opisująca 1932, brak automatycznego założenia ciągłości, A/B/kandydat, łańcuch A → B → C, brak niezależności cytowania, materiały o nieustalonych prawach i krótki raport.
-- `npm test`: PASS — kontrakty TypeScript, 5 testów prywatności, 17 backendu i 7 warsztatu. Warsztat obejmuje datowanie, integralność, prawa, jawny eksport, zachowanie live fields, konflikt/retry/restore/usunięcia, utratę potwierdzenia head, symlinki, ścieżki, Host/Origin i tylko odczyt.
+- `npm test`: PASS — kontrakty TypeScript, 5 testów prywatności, 17 backendu i 8 warsztatu. Warsztat obejmuje datowanie, integralność, prawa, jawny eksport, zachowanie live fields, konflikt/retry/restore/usunięcia, utratę potwierdzenia head, symlinki, ścieżki, Host/Origin i tylko odczyt.
 - `npm run test:emulator`: 9 PASS, także odmowa odczytu/zapisu prywatnego prefixu dla anonimowego i administratora oraz odczyt wspólnego obrazu public/materials i odmowa zapisu klienta.
 - Build pełnego snapshotu: 200 tras, mapy/404/noindex/prywatność PASS. Istnieje ostrzeżenie budżetu początkowego pakietu (~918 kB wobec 500 kB dla pełnego katalogu); nie jest raportowane jako błąd kompilacji ani ukrywane zwiększeniem limitu.
 - Migracja dev: 196 rekordów category → tags/period; porównanie zachowania ID/location/locationVersion/createdAt/updatedAt PASS. Backup przed migracją w ignorowanym `.local/places.before-research-*.json`. Ścisły snapshot po migracji działa. Wspólny backend i reguły dev wdrożone przez deploy:backend:dev, produkcja bez zmian.
@@ -19,3 +19,7 @@
 Zaktualizowano README, TECHNICAL, AGENTS, opis modelu referencyjnego, README data/functions/src/infra/resources/.agents, spis scripts i instrukcje warsztatu. Dodano README tools i scripts/research. CONTRIBUTING i SECURITY sprawdzone, aktualizacja zasad nie była potrzebna. Publiczne place pozostają projekcją do odczytu; normalized źródła i materiały należą do prywatnego warsztatu. Publiczny UX filtrów pozostaje w osobnym zadaniu.
 
 Do review przekazywany jest PR i zarezerwowany dev-1. Nie scalać i nie oznaczać Done bez osobnego polecenia. Lokalna przeglądarka nie jest częścią Hosting, nie ma logowania ani zapisów przez interfejs. Nie wykonano produkcyjnego wydania.
+
+## Odbiór dev-1
+
+Podgląd https://historyczny-rybnik-dev-1.web.app/ udostępniono z rewizji 105e6f222dcc7ce0e8bf36c67be016f9063a2fd5; deployment.json potwierdził slot i SHA. HTTP 200/noindex dla mapy i karty bazyliki; rzeczywiste 404 dla nieznanej trasy, prywatnego prefixu i tools/research-viewer. IAB: karta pokazuje tag i adnotację okresu, mapa i wycinek działają. CI build/test-backend PASS. Następna poprawka kontraktu własnych skanów dopuszcza brak adresów/autorów i lokalny materiał dowodu praw; 8 testów warsztatu i ponowny build PASS. Aktualne wdrożone SHA jest zapisane w Projects i deployment.json.

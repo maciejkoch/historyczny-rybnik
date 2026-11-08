@@ -48,6 +48,7 @@ export function fixture() {
       status: 'unknown',
       basis: null,
       evidenceUrl: null,
+      evidenceMaterialId: null,
       checkedAt: null,
       credit: null,
       downloadAllowed: false,

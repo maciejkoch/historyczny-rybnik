@@ -77,6 +77,7 @@ export const materialSchema = z.strictObject({
     status: z.enum(['public-domain', 'licensed', 'restricted', 'unknown']),
     basis: text.nullable(),
     evidenceUrl: url.nullable(),
+    evidenceMaterialId: id.nullable().optional(),
     checkedAt: timestampSchema.nullable(),
     credit: text.nullable(),
     downloadAllowed: z.boolean(),
@@ -215,11 +216,12 @@ export function validateWorkspace(input) {
     need(sets.sources, m.sourceId);
     m.placeIds.forEach((p) => need(allPlaces, p));
     if (m.parentMaterialId) need(sets.materials, m.parentMaterialId);
+    if (m.rights.evidenceMaterialId) need(sets.materials, m.rights.evidenceMaterialId);
     if (
       m.rights.publicationApproved &&
       (m.rights.status !== 'public-domain' ||
         !m.rights.basis ||
-        !m.rights.evidenceUrl ||
+        (!m.rights.evidenceUrl && !m.rights.evidenceMaterialId) ||
         !m.rights.checkedAt ||
         !m.rights.credit)
     )
