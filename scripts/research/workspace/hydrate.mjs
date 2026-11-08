@@ -1,4 +1,4 @@
-import { loadWorkspace, hash, safePath, atomicWrite } from './workspace.mjs';
+import { loadWorkspace, hash, safePath, atomicWrite } from './files.mjs';
 import { extname } from 'node:path';
 export async function hydrate({ root, store, apply = false }) {
   const d = await loadWorkspace(root);

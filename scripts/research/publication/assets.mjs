@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { extname } from 'node:path';
-import { loadWorkspace, safePath, hash } from './workspace.mjs';
+import { loadWorkspace, safePath, hash } from '../workspace/files.mjs';
 export function publicationImages(material) {
   return material.publicationImages.map((image) => ({
     ...image,

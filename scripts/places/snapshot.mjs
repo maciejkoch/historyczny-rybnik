@@ -1,7 +1,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { validateCatalog } from '../../functions/src/validation.mjs';
 import { database } from './firestore.mjs';
-import { upgradePlace } from '../research/legacy.mjs';
+import { upgradePlace } from '../research/migrations/legacy-catalog.mjs';
 const docs = await (
   await database('build')
 )

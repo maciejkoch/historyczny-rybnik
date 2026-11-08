@@ -6,7 +6,7 @@ import {
   timestampSchema,
   locationSchema,
   imageSchema,
-} from '../../functions/src/contracts/places.mjs';
+} from '../../../functions/src/contracts/places.mjs';
 const text = z.string().trim().min(1).max(20000);
 const url = z
   .url()

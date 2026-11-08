@@ -5,7 +5,7 @@ description: Badaj historię miejsc Rybnika, kontynuuj wcześniejsze poszukiwani
 
 # Badanie miejsc Rybnika
 
-Warsztat `data/places/`, kontrakt `scripts/research/model.mjs`. Przeczytaj README warsztatu, AGENTS, SECURITY i resources/README. Domyślnie Rybnik 1918–1939, elastycznie, plan 1932. Użytkownik podaje temat, nie musi podawać lat. Zachowuj także wcześniejsze/późniejsze dowody.
+Warsztat `data/places/`, kontrakt `scripts/research/model/schema.mjs`. Przeczytaj README warsztatu, AGENTS, SECURITY i resources/README. Domyślnie Rybnik 1918–1939, elastycznie, plan 1932. Użytkownik podaje temat, nie musi podawać lat. Zachowuj także wcześniejsze/późniejsze dowody.
 
 ## Kontynuowanie poszukiwań
 

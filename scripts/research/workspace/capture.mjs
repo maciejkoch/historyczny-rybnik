@@ -1,6 +1,6 @@
 import { readFile, stat } from 'node:fs/promises';
 import { extname } from 'node:path';
-import { loadWorkspace, safePath, hash, atomicWrite } from './workspace.mjs';
+import { loadWorkspace, safePath, hash, atomicWrite } from './files.mjs';
 
 // Internal copies do not imply permission to publish. Identical bytes share one file.
 export async function capture({

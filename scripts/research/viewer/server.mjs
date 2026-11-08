@@ -4,8 +4,8 @@ import { resolve, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import postcss from 'postcss';
 import tailwind from '@tailwindcss/postcss';
-import { loadWorkspace, defaultRoot, safePath } from './workspace.mjs';
-const repo = fileURLToPath(new URL('../../', import.meta.url));
+import { loadWorkspace, defaultRoot, safePath } from '../workspace/files.mjs';
+const repo = fileURLToPath(new URL('../../../', import.meta.url));
 export async function createViewer({ root = defaultRoot, port = 4319 } = {}) {
   const cssPath = resolve(repo, 'tools/research-viewer/input.css');
   const css = (
@@ -61,7 +61,7 @@ export async function createViewer({ root = defaultRoot, port = 4319 } = {}) {
       const routes = {
         '/': 'tools/research-viewer/index.html',
         '/app.js': 'tools/research-viewer/app.js',
-        '/chronology.mjs': 'scripts/research/chronology.mjs',
+        '/chronology.mjs': 'scripts/research/model/chronology.mjs',
         '/publication.mjs': 'tools/research-viewer/publication.mjs',
         '/vendor/maplibre-gl.mjs': 'node_modules/maplibre-gl/dist/maplibre-gl.mjs',
         '/vendor/maplibre-gl-shared.mjs': 'node_modules/maplibre-gl/dist/maplibre-gl-shared.mjs',

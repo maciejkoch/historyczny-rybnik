@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { materialMatchesMention } from './chronology.mjs';
+import { materialMatchesMention } from '../model/chronology.mjs';
 const uid = (prefix, value) =>
   prefix + createHash('sha256').update(value).digest('hex').slice(0, 32);
 // Explicit v2 -> v3 conversion. No runtime fallback: ambiguous facts and visual dating stay unverified.

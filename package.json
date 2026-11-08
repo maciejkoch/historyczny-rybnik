@@ -25,7 +25,7 @@
     "environment": "node scripts/places/environment.mjs",
     "auth:admin": "node infra/admin-role.mjs",
     "research": "node scripts/research/cli.mjs",
-    "research:view": "node scripts/research/viewer.mjs",
+    "research:view": "node scripts/research/viewer/server.mjs",
     "test:research": "node --test scripts/research/test/*.test.mjs"
   },
   "private": true,

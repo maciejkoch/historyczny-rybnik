@@ -1,5 +1,5 @@
 import { resolve } from 'node:path';
-import { initWorkspace, loadWorkspace, defaultRoot } from './workspace.mjs';
+import { initWorkspace, loadWorkspace, defaultRoot } from './workspace/files.mjs';
 const [command, ...args] = process.argv.slice(2);
 const value = (name) => args.find((a) => a.startsWith(`--${name}=`))?.slice(name.length + 3);
 const root = resolve(value('root') || defaultRoot);
@@ -17,8 +17,8 @@ try {
       ),
     );
   } else if (['push', 'pull', 'restore'].includes(command)) {
-    const { storageClient } = await import('./storage.mjs');
-    const { syncWorkspace } = await import('./sync.mjs');
+    const { storageClient } = await import('./sync/storage.mjs');
+    const { syncWorkspace } = await import('./sync/sync.mjs');
     const store = await storageClient(args.includes('--firebase-cli'));
     await store.verifyPrivacy();
     console.log(
@@ -36,7 +36,7 @@ try {
       ),
     );
   } else if (command === 'migrate') {
-    const { migrate } = await import('./migrate.mjs');
+    const { migrate } = await import('./migrations/import-catalog.mjs');
     console.log(
       await migrate({
         root,
@@ -45,7 +45,7 @@ try {
       }),
     );
   } else if (command === 'capture') {
-    const { capture } = await import('./capture.mjs');
+    const { capture } = await import('./workspace/capture.mjs');
     console.log(
       await capture({
         root,
@@ -59,8 +59,8 @@ try {
       }),
     );
   } else if (command === 'hydrate') {
-    const { hydrate } = await import('./hydrate.mjs');
-    const { storageClient } = await import('./storage.mjs');
+    const { hydrate } = await import('./workspace/hydrate.mjs');
+    const { storageClient } = await import('./sync/storage.mjs');
     console.log(
       await hydrate({
         root,
@@ -69,16 +69,16 @@ try {
       }),
     );
   } else if (command === 'assets') {
-    const { prepareAssets } = await import('./assets.mjs');
+    const { prepareAssets } = await import('./publication/assets.mjs');
     const assets = await prepareAssets(root);
     console.log(assets.map((a) => ({ path: a.path, size: a.bytes.length })));
     if (args.includes('--apply')) {
-      const { storageClient } = await import('./storage.mjs');
+      const { storageClient } = await import('./sync/storage.mjs');
       const store = await storageClient(args.includes('--firebase-cli'));
       for (const a of assets) await store.putPublicAsset(a.path, a.bytes, a.mime);
     }
   } else if (command === 'export') {
-    const { exportCatalog } = await import('./publish.mjs');
+    const { exportCatalog } = await import('./publication/catalog.mjs');
     console.log(
       await exportCatalog({
         root,

@@ -1,7 +1,7 @@
 import { readdir, readFile, lstat, mkdir, writeFile, rename } from 'node:fs/promises';
 import { resolve, relative, sep, dirname } from 'node:path';
 import { createHash } from 'node:crypto';
-import { schemas, validateWorkspace } from './model.mjs';
+import { schemas, validateWorkspace } from '../model/schema.mjs';
 export const defaultRoot = resolve('data/places');
 export const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 export async function safePath(root, name) {

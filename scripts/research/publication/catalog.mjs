@@ -1,8 +1,8 @@
 import { publicationImages } from './assets.mjs';
 import { readFile } from 'node:fs/promises';
-import { loadWorkspace, atomicWrite } from './workspace.mjs';
-import { catalogSchema } from '../../functions/src/contracts/places.mjs';
-import { materialMatchesMention } from './chronology.mjs';
+import { loadWorkspace, atomicWrite } from '../workspace/files.mjs';
+import { catalogSchema } from '../../../functions/src/contracts/places.mjs';
+import { materialMatchesMention } from '../model/chronology.mjs';
 export function projectPlace(p, data) {
   if (!p.publicationApproved || !['confirmed', 'probable'].includes(p.period.status))
     throw new Error('Place is not approved for publication');

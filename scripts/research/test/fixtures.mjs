@@ -1,4 +1,4 @@
-import { restructureWorkspace } from '../restructure.mjs';
+import { restructureWorkspace } from '../migrations/workspace-v2-v3.mjs';
 export const stamp = '2026-11-08T08:00:00Z';
 export const unknownLocation = { coordinates: null, precision: 'unknown', explanation: null };
 const date = (year) => ({ from: year, to: null, approximate: false });

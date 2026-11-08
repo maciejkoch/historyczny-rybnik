@@ -1,9 +1,9 @@
-import { restructureWorkspace } from './restructure.mjs';
+import { restructureWorkspace } from './workspace-v2-v3.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
-import { initWorkspace, loadWorkspace, safePath, hash, atomicWrite } from './workspace.mjs';
-import { upgradePlace } from './legacy.mjs';
+import { initWorkspace, loadWorkspace, safePath, hash, atomicWrite } from '../workspace/files.mjs';
+import { upgradePlace } from './legacy-catalog.mjs';
 import { legacyTemporalContext, legacyPeriod } from './legacy-period.mjs';
-import { validateWorkspace } from './model.mjs';
+import { validateWorkspace } from '../model/schema.mjs';
 export async function migrate({ root, input, apply = false }) {
   await initWorkspace(root);
   const existing = await loadWorkspace(root);

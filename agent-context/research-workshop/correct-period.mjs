@@ -1,6 +1,6 @@
 import { readFile, rm } from 'node:fs/promises';
-import { loadWorkspace, atomicWrite, safePath } from '../../scripts/research/workspace.mjs';
-import { legacyPeriod, legacyTemporalContext } from '../../scripts/research/legacy-period.mjs';
+import { loadWorkspace, atomicWrite, safePath } from '../../scripts/research/workspace/files.mjs';
+import { legacyPeriod, legacyTemporalContext } from '../../scripts/research/migrations/legacy-period.mjs';
 const apply = process.argv.includes('--apply'),
   root = 'data/places',
   catalog = JSON.parse(await readFile('data/places.catalog.json'));

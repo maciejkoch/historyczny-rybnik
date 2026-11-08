@@ -71,15 +71,15 @@ Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_
 ## Warsztat badań
 
 - `npm run research -- init|validate|migrate|export|assets|pull|push|restore|report`: `research/cli.mjs`; pełna procedura, flagi i odzyskiwanie w [warsztacie](../data/places/README.md). Operacje chmurowe i eksport domyślnie mają podgląd; zapis przez --apply.
-- `npm run research:view`: `research/viewer.mjs`, lokalny serwer tylko do odczytu 127.0.0.1:4319.
+- `npm run research:view`: `research/viewer/server.mjs`, lokalny serwer tylko do odczytu 127.0.0.1:4319.
 - `npm run test:research`: testy modelu, publikacji, synchronizacji, odzyskania i serwera z `research/test/`; włączone do npm test.
-- Moduły `research/model.mjs`, `workspace.mjs`, `storage.mjs`, `sync.mjs`, `legacy.mjs`, `migrate.mjs`, `publish.mjs`, `assets.mjs` oraz fikcyjne `test/fixtures.mjs`: role opisane w [README narzędzi](research/README.md).
+- Foldery `research/model/`, `workspace/`, `sync/`, `migrations/`, `publication/`, `viewer/` i `test/`: pełny spis modułów oraz ich role opisuje [README narzędzi](research/README.md). `research/cli.mjs` pozostaje wspólnym wejściem.
 - `places/import-policy.mjs`: wspólna, testowana ochrona live location/version/timestamps przy imporcie. `places:snapshot -- --migrate-legacy` wykonuje jawne mapowanie wcześniejszego category na tags/period oraz references/images na mentions/materials dla jednorazowej migracji; zwykły snapshot wymaga nowego kontraktu.
 
-`research hydrate [--apply] [--firebase-cli]` (`research/hydrate.mjs`): podgląd/pobranie już opublikowanych zatwierdzonych obrazów dev do lokalnego warsztatu, z kontrolą SHA-256.
+`research hydrate [--apply] [--firebase-cli]` (`research/workspace/hydrate.mjs`): podgląd/pobranie już opublikowanych zatwierdzonych obrazów dev do lokalnego warsztatu, z kontrolą SHA-256.
 
-`research/legacy-period.mjs` kwalifikuje wcześniejsze wzmianki: datowanie treści oraz jawnie rozpoznane współczesne ogłoszenia i spisy adresowe, z zachowaniem niepewności identyfikacji.
+`research/migrations/legacy-period.mjs` kwalifikuje wcześniejsze wzmianki: datowanie treści oraz jawnie rozpoznane współczesne ogłoszenia i spisy adresowe, z zachowaniem niepewności identyfikacji.
 
-`research capture --material=ID --input=plik [--role=original|scan|crop|thumbnail] [--derived-from=files/...] [--transformations=opis] [--apply]` (`research/capture.mjs`): podgląd/zapis wewnętrznej kopii z deduplikacją SHA-256 i pochodzeniem, bez zmiany praw publikacyjnych.
+`research capture --material=ID --input=plik [--role=original|scan|crop|thumbnail] [--derived-from=files/...] [--transformations=opis] [--apply]` (`research/workspace/capture.mjs`): podgląd/zapis wewnętrznej kopii z deduplikacją SHA-256 i pochodzeniem, bez zmiany praw publikacyjnych.
 
-`research/chronology.mjs` wylicza udokumentowane daty bez interpolacji lat oraz sprawdza zgodność źródła/datowania obrazu ze wzmianką. `research/restructure.mjs` jawnie przekształca schemat 2 → 3. `capture --collection=documents|materials` wybiera rekord docelowy.
+`research/model/chronology.mjs` wylicza udokumentowane daty bez interpolacji lat oraz sprawdza zgodność źródła/datowania obrazu ze wzmianką. `research/migrations/workspace-v2-v3.mjs` jawnie przekształca schemat 2 → 3. `capture --collection=documents|materials` wybiera rekord docelowy.

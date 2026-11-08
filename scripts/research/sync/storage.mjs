@@ -1,5 +1,5 @@
 import { createRequire } from 'node:module';
-const require = createRequire(new URL('../../functions/package.json', import.meta.url));
+const require = createRequire(new URL('../../../functions/package.json', import.meta.url));
 const { GoogleAuth, OAuth2Client } = require('google-auth-library');
 export const bucket = 'historyczny-rybnik-dev-files';
 export const prefix = 'research-workspace/';
@@ -8,7 +8,7 @@ export async function storageClient(firebaseCli = false) {
     throw new Error('TLS verification must remain enabled');
   let auth;
   if (firebaseCli) {
-    const cli = createRequire(new URL('../../package.json', import.meta.url));
+    const cli = createRequire(new URL('../../../package.json', import.meta.url));
     const account = cli('firebase-tools/lib/auth').getGlobalDefaultAccount();
     if (!account) throw new Error('Sign in using firebase login');
     const api = cli('firebase-tools/lib/api');

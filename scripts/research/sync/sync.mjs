@@ -1,7 +1,7 @@
 import { readFile, mkdir, rename, rm, copyFile, lstat } from 'node:fs/promises';
 import { resolve, dirname, basename } from 'node:path';
 import { z } from 'zod';
-import { schemas } from './model.mjs';
+import { schemas } from '../model/schema.mjs';
 import {
   inventory,
   hash,
@@ -9,7 +9,7 @@ import {
   safePath,
   atomicWrite,
   initWorkspace,
-} from './workspace.mjs';
+} from '../workspace/files.mjs';
 import { prefix } from './storage.mjs';
 const digest = z.string().regex(/^[a-f0-9]{64}$/);
 const allowedPath = z

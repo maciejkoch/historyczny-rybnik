@@ -6,13 +6,19 @@ import { readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fixture } from './fixtures.mjs';
-import { validateWorkspace } from '../model.mjs';
+import { validateWorkspace } from '../model/schema.mjs';
 import { imageSchema } from '../../../functions/src/contracts/places.mjs';
-import { initWorkspace, loadWorkspace, atomicWrite, safePath, inventory } from '../workspace.mjs';
-import { syncWorkspace } from '../sync.mjs';
-import { projectPlace } from '../publish.mjs';
+import {
+  initWorkspace,
+  loadWorkspace,
+  atomicWrite,
+  safePath,
+  inventory,
+} from '../workspace/files.mjs';
+import { syncWorkspace } from '../sync/sync.mjs';
+import { projectPlace } from '../publication/catalog.mjs';
 import { preserveLiveFields } from '../../places/import-policy.mjs';
-import { createViewer } from '../viewer.mjs';
+import { createViewer } from '../viewer/server.mjs';
 async function workspace(t, data = fixture()) {
   const root = await mkdtemp(join(tmpdir(), 'rybnik-research-test-'));
   t.after(() => rm(root, { recursive: true, force: true }));
@@ -278,7 +284,7 @@ function requireFixtureImage() {
 }
 
 test('a 1938 contemporary advertisement proves activity without a fabricated historicalDate', async () => {
-  const { legacyPeriod } = await import('../legacy-period.mjs');
+  const { legacyPeriod } = await import('../migrations/legacy-period.mjs');
   const ref = {
     id: 'ad',
     title: 'Sztandar Polski i Gazeta Rybnicka',
@@ -306,7 +312,7 @@ test('a 1938 contemporary advertisement proves activity without a fabricated his
 });
 
 test('internal unknown/restricted copies are retained and never become public images', async (t) => {
-  const { capture } = await import('../capture.mjs');
+  const { capture } = await import('../workspace/capture.mjs');
   const d = fixture();
   d.documents[1].rights.status = 'restricted';
   const root = await workspace(t, d);
@@ -357,7 +363,7 @@ test('publication label never extends crop approval to a new full-page scan', as
 });
 
 test('documented dates retain separate 1920, 1928, 1945 evidence; no inferred continuity', async () => {
-  const { documentedDates, materialMatchesMention } = await import('../chronology.mjs');
+  const { documentedDates, materialMatchesMention } = await import('../model/chronology.mjs');
   const base = fixture().mentions[0];
   const mentions = ['1920', '1928', '1945'].map((year, i) => ({
     ...base,
@@ -399,7 +405,7 @@ test('documented dates retain separate 1920, 1928, 1945 evidence; no inferred co
 });
 
 test('historical publication keeps material identity and relocates legacy image paths consistently', async () => {
-  const { publicationImages } = await import('../assets.mjs');
+  const { publicationImages } = await import('../publication/assets.mjs');
   const d = fixture(),
     p = d.places[0],
     mention = d.mentions.find((m) => p.mentionIds.includes(m.id) && m.verification === 'verified');

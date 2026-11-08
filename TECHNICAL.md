@@ -133,8 +133,10 @@ Obraz ma własne originalDate/depictedDate, źródłowe dokumenty, uzasadnienie 
 
 Publiczna projekcja Firestore/SSG używa mentions zamiast references: documentedDate, verification, dane źródła i materials z własnym datowaniem. Kontrakt odrzuca materiał spoza dat wzmianki. Nowy eksport zawiera tylko verified wzmianki; jawna migracja dawnych rekordów zachowuje robocze wpisy oddzielnie. Import nadal chroni lokalizację, wersję i daty transakcyjnie. Nie ma automatycznego importu ani publikacji wyników badania.
 
-`restructure.mjs` wykonuje jawną migrację warsztatu 2 → 3, `legacy.mjs` migruje publiczny kontrakt references → mentions. Zwykłe odczyty pozostają ścisłe. Stare rewizje zachowują bajty wejścia; odzyskanie starszego schematu wymaga jawnej migracji.
+`migrations/workspace-v2-v3.mjs` wykonuje jawną migrację warsztatu 2 → 3, `migrations/legacy-catalog.mjs` migruje publiczny kontrakt references → mentions. Zwykłe odczyty pozostają ścisłe. Stare rewizje zachowują bajty wejścia; odzyskanie starszego schematu wymaga jawnej migracji.
 
 Sync zachowuje identyczne ścieżki/bajty, niezmienne rewizje, SHA-256, kontrolę konfliktów i atomowy head z warunkiem generacji. Prywatny prefix research-workspace/ w bucketcie dev nie ma publicznego dostępu. ADC/Firebase CLI bez nowych kluczy i tokenów pobierania.
 
 Lokalna przeglądarka HTML/CSS/JS działa tylko na 127.0.0.1:4319, tylko do odczytu, z kontrolą Host/Origin, bez symlinków i zewnętrznych zależności przy przeglądaniu. Pokazuje chronologię miejsca, wzmianki, galerię historyczną, dokumenty/kopie źródeł i obrazy do rozpoznania. Pozostaje poza Hosting i SSG. Instrukcje: data/places/README.md; testy: scripts/research/test.
+
+Narzędzia `scripts/research/` są pogrupowane w model, workspace, sync, migrations, publication, viewer i test. `cli.mjs` pozostaje wspólnym wejściem operatora; polecenia npm zachowują nazwy. Spis modułów: scripts/research/README.md.
