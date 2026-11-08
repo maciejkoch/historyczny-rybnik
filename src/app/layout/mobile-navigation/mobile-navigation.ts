@@ -11,6 +11,6 @@ import { RouterLink } from '@angular/router';
 })
 export class MobileNavigation {
   readonly consent = inject(Consent);
-  readonly view = input<'map' | 'search' | 'place' | 'privacy'>('map');
+  readonly view = input<'map' | 'search' | 'place' | 'privacy' | 'about'>('map');
   readonly query = input('');
 }

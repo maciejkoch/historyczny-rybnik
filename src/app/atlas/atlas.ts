@@ -190,10 +190,8 @@ export class Atlas {
   private readonly detailsLayout = viewChild<PanelLayout>('detailsLayout');
   private readonly scanDialog = viewChild<ElementRef<HTMLDialogElement>>('scanDialog');
   private currentPath = '/' + this.route.snapshot.url.map((segment) => segment.path).join('/');
-  private restoringHistory = false;
   private animateNextNavigation = false;
-  private readonly scrollPositions = new Map<string, number>();
-  private readonly navigation = signal<{ path: string; top: number } | null>(null);
+  private readonly navigation = signal<{ path: string } | null>(null);
   private handledNavigation: object | null = null;
   constructor() {
     this.route.data.pipe(takeUntilDestroyed()).subscribe((data) => {
@@ -261,8 +259,6 @@ export class Atlas {
       if (typeof window === 'undefined') return;
       if (event instanceof NavigationStart) {
         this.cancelEditing();
-        this.scrollPositions.set(this.currentPath, window.scrollY);
-        this.restoringHistory = event.navigationTrigger === 'popstate';
         const target = event.url.split(/[?#]/)[0];
         this.animateNextNavigation =
           !this.isDesktop() &&
@@ -279,11 +275,7 @@ export class Atlas {
         this.currentPath = path;
         this.sheetAnimating.set(this.animateNextNavigation);
         if (!this.animateNextNavigation) this.sheetOpen.set(this.hasDetails());
-        this.navigation.set({
-          path,
-          top:
-            this.restoringHistory || path === '/szukaj' ? (this.scrollPositions.get(path) ?? 0) : 0,
-        });
+        this.navigation.set({ path });
       }
     });
     afterRenderEffect(() => {
@@ -302,7 +294,6 @@ export class Atlas {
           this.sheetOpen.set(this.hasDetails());
         }
         if (!this.isDesktop()) {
-          window.scrollTo({ top: navigation.top, behavior: 'instant' });
           (screen === 'search' ? this.searchPanel() : this.mapRegion())?.nativeElement.focus({
             preventScroll: true,
           });
@@ -310,6 +301,7 @@ export class Atlas {
           this.detailsPanel()?.nativeElement.scrollTo({ top: 0 });
           this.focusDetails();
         } else if (screen === 'search') {
+          this.searchPanel()?.nativeElement.scrollTo({ top: 0 });
           this.searchPanel()
             ?.nativeElement.querySelector<HTMLElement>('#place-search')
             ?.focus({ preventScroll: true });
