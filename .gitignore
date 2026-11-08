@@ -58,3 +58,9 @@ __pycache__/
 .local/
 functions/node_modules/
 *-debug.log
+
+# Private research corpus; schemas and documentation remain versioned
+/data/places/*
+!/data/places/README.md
+/data/places.sync-lock/
+/data/places.stage-*/

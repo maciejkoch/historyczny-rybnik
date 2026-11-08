@@ -9,3 +9,5 @@ Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne
 Mapa grupuje pobliskie miejsca przy oddaleniu, z liczbą miejsc i przybliżaniem po wyborze grupy. Wybrane miejsce zachowuje osobny znacznik.
 
 Wyszukiwarka ma filtr „Bez lokalizacji”, łączony z wpisaną nazwą, adresem lub dzielnicą.
+
+Karta miejsca pokazuje płaskie tagi i adnotację, gdy period nie potwierdza istnienia w okresie międzywojennym. Prywatny warsztat i jego przeglądarka są poza src i publicznym buildem.

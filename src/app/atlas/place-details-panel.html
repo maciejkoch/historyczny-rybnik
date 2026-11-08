@@ -1,5 +1,15 @@
 @if (place(); as place) {
   <h1 id="place-title" tabindex="-1">{{ place.name }}</h1>
+  <div class="flex flex-wrap gap-2 my-3">
+    @for (tag of place.tags; track tag.id) {
+      <span class="badge badge-outline">{{ tag.name }}</span>
+    }
+  </div>
+  @if (place.period.status !== 'confirmed') {
+    <p class="alert alert-warning">
+      Brak potwierdzenia istnienia w okresie międzywojennym. {{ place.period.explanation }}
+    </p>
+  }
   <p class="intro">{{ place.description }}</p>
   @for (address of place.addresses; track address.text) {
     <p>

@@ -124,3 +124,15 @@ AtlasMap korzysta z klastrowanego źródła GeoJSON MapLibre (promień 50 px, ma
 Filtr „Bez lokalizacji” używa aktualnych danych Locations (lub snapshotu przy niedostępnym odczycie) i wybiera miejsca z `location.coordinates === null`. Łączy się z wyszukiwaniem tekstowym; zmienia listę wyników, a stan pozostaje w pamięci atlasu.
 
 Indeks data/source-rights.json zapisuje decyzje praw na poziomie konkretnego wydania i odwołania materiałów. Publiczne dokumenty places zachowują pochodzenie, datę sprawdzenia oraz sumy wycinka i miniatury. originalSha256 nowych obrazów opisuje odziedziczony wycinek MVP.0 (jawnie w transformations), nie pełny PDF. Indeks nie jest dodatkową kolekcją ani manifestem plików.
+
+## Warsztat badań historycznych
+
+`data/places/` jest prywatnym, ignorowanym zbiorem JSON i plików, czytanym przez skill `rybnik-research-places`. Schematy i integralność: `scripts/research/model.mjs`; źródła i materiały są wspólne, miejsca wskazują konkretne ustalenia/dowody, kandydaci czekają na decyzję właściciela. `places/` obejmuje confirmed/probable; `out-of-period/` unverified/outside. Zakres konfiguracyjny 1918–1939 jest elastyczny.
+
+Płaskie `tags: {id,name}[]` zastępują publiczne `category`. `period: {status,explanation}` zachowuje niepewność także na karcie SSG. Baza nadal przechowuje zdenormalizowaną publiczną projekcję miejsca, nie prywatny warsztat. Referencje budowane są z ustaleń i materiałów; wspólne nowe obrazy trafiają do `public/materials/{materialId}/...`. Stare niezmienne ścieżki obrazów pozostają ważne. Migracja category jest jawną operacją operatora, nie tolerancyjnym odczytem API.
+
+`research` udostępnia init/validate/migrate/export/assets/report i pull/push/restore. Prywatny prefix Storage `research-workspace/` zawiera niezmienne rewizje z identycznymi ścieżkami/bajtami lokalnego zbioru oraz atomowo zmieniany head z warunkiem generacji. Nie ma dodatkowej bazy ani synchronizacji w tle. Kontrola bazowej rewizji, usunięć i SHA chroni dane; stare rewizje i lokalne backupy umożliwiają odzyskanie. Dostęp operatora korzysta z istniejącego ADC lub Firebase CLI, bez kluczy i tokenów pobierania.
+
+`npm run research:view` uruchamia serwer Node tylko na 127.0.0.1:4319. HTML/CSS/JS w tools, Tailwind/daisyUI kompilowane lokalnie, MapLibre i plan 1932 z lokalnych plików; brak zależności sieciowych w przeglądaniu. Serwer jest tylko do odczytu, sprawdza Host/Origin, ogranicza ścieżki i odrzuca symlinki. Zewnętrzne źródła otwierane wyłącznie po wybraniu linku. Przeglądarka nie wchodzi do Angulara, SSG ani Hosting.
+
+Eksport ma jawną listę pól, oddzielne zatwierdzenie miejsca i kopii materiałów, zachowuje istniejący katalog, a transakcyjny importer utrzymuje nowsze lokalizacje. Testy warsztatu w `npm test` oraz testy reguł prywatnego prefixu w emulatorach. Instrukcje operatora i odzyskiwania: `data/places/README.md`.

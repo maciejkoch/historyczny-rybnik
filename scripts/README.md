@@ -67,3 +67,13 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduł
 `npm run auth:admin -- show|grant|revoke UID [--apply] [--firebase-cli]` uruchamia `infra/admin-role.mjs`. Bez `--apply` grant/revoke to podgląd. Wymaga ADC lub lokalnego logowania Firebase CLI z uprawnieniem zarządzania Auth; zachowuje pozostałe custom claims. Auth i role są wspólne dla projektu. Zmiany ról wykonuje jeden operator naraz.
 
 Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_SNAPSHOT`; `places:import` przyjmuje 1–400 miejsc z zachowaniem bazyliki i bieżących lokalizacji. `verify-build.mjs` sprawdza karty wejściowego snapshotu, także pełnego katalogu.
+
+## Warsztat badań
+
+- `npm run research -- init|validate|migrate|export|assets|pull|push|restore|report`: `research/cli.mjs`; pełna procedura, flagi i odzyskiwanie w [warsztacie](../data/places/README.md). Operacje chmurowe i eksport domyślnie mają podgląd; zapis przez --apply.
+- `npm run research:view`: `research/viewer.mjs`, lokalny serwer tylko do odczytu 127.0.0.1:4319.
+- `npm run test:research`: testy modelu, publikacji, synchronizacji, odzyskania i serwera z `research/test/`; włączone do npm test.
+- Moduły `research/model.mjs`, `workspace.mjs`, `storage.mjs`, `sync.mjs`, `legacy.mjs`, `migrate.mjs`, `publish.mjs`, `assets.mjs` oraz fikcyjne `test/fixtures.mjs`: role opisane w [README narzędzi](research/README.md).
+- `places/import-policy.mjs`: wspólna, testowana ochrona live location/version/timestamps przy imporcie. `places:snapshot -- --migrate-legacy` wykonuje jawne mapowanie wcześniejszego category na tags i period dla jednorazowej migracji; zwykły snapshot wymaga nowego kontraktu.
+
+`research hydrate [--apply] [--firebase-cli]` (`research/hydrate.mjs`): podgląd/pobranie już opublikowanych zatwierdzonych obrazów dev do lokalnego warsztatu, z kontrolą SHA-256.

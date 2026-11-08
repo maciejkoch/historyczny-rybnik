@@ -1,3 +1,5 @@
+> Aktualizacja 8 listopada 2026: poniższy dokument zachowuje wcześniejszy projekt MVP. Publiczny kontrakt używa teraz płaskich tags i period. Prywatny warsztat ma osobne źródła, materiały, kandydatów i historię badań; nowy model i procedury opisano w [data/places/README](../../../data/places/README.md) i TECHNICAL. Wcześniejsze zakazy osobnego rejestru materiałów dotyczą dawnego zakresu i nie opisują nowego warsztatu.
+
 # MVP.1 — model danych
 
 Aktualizacja: 5 listopada 2026. Status: **uproszczona propozycja zgodna z ustaleniem: jedna kolekcja `places`, bez historii zmian**. Dokument opisuje model; nie tworzy usług ani danych.

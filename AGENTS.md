@@ -31,6 +31,12 @@ Szczegóły: [środowiska](agent-context/reference/mvp-1/srodowiska.md).
 
 # Prawa do materiałów źródłowych
 
-- Przed weryfikacją kolejnego materiału odczytaj `data/source-rights.json`. Wykorzystuj wcześniejszą decyzję tylko w jej zapisanym zakresie (konkretne wydanie/obiekt), bez rozszerzania jej na bibliotekę, rocznik lub tytuł.
-- Nowe źródło lub wydanie dodaj do indeksu z powiązaniami miejsc i referencji; wynik sprawdzenia zapisz wraz z datą i bezpośrednim dowodem. Brak potwierdzenia zapisuj jako niepotwierdzony.
+- Przed weryfikacją materiału odczytaj rejestr praw w prywatnym warsztacie `data/places/materials/`; dla dawnych publikacji sprawdź także wejściowy `data/source-rights.json`. Wykorzystuj wcześniejszą decyzję tylko w jej zapisanym zakresie (konkretne wydanie/obiekt), bez rozszerzania jej na bibliotekę, rocznik lub tytuł.
+- Nowe źródło lub wydanie dodaj do warsztatu z powiązaniami miejsc i materiałów; wynik sprawdzenia zapisz wraz z datą i bezpośrednim dowodem. Brak potwierdzenia zapisuj jako niepotwierdzony.
 - Decyzja właściciela z 7 listopada 2026: na tym etapie publikujemy kopie tylko materiałów z potwierdzoną domeną publiczną. Zweryfikowane materiały dodawaj do dev Storage i dokumentów miejsc, zachowując sumy oraz pochodzenie. Produkcja wymaga osobnego zlecenia.
+
+# Warsztat badań miejsc
+
+- Nowe badania prowadź skillem `.agents/skills/rybnik-research-places/SKILL.md` i według `data/places/README.md`. Stały zakres: elastycznie 1918–1939.
+- Po migracji źródłem bieżących decyzji praw dla badań są materiały w prywatnym warsztacie; `data/source-rights.json` zachowuje wcześniejsze decyzje jako wejście migracji, wyłącznie w ich zapisanym zakresie. Nie prowadź dwóch rejestrów tej samej nowej decyzji.
+- Lokalna przeglądarka i prywatny zbiór nigdy nie trafiają do publicznych artefaktów. Badanie i synchronizacja nie oznaczają zgody na import ani publikację.

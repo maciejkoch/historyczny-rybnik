@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pl" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Warsztat — Historyczny Rybnik</title>
+    <link rel="stylesheet" href="/viewer.css" />
+    <link rel="stylesheet" href="/vendor/maplibre-gl.css" />
+  </head>
+  <body class="bg-base-200 text-base-content">
+    <header class="navbar bg-base-100 border-b border-base-300 px-6">
+      <div class="flex-1">
+        <div>
+          <p class="text-xs uppercase tracking-widest opacity-60">
+            Historyczny Rybnik · tylko lokalnie
+          </p>
+          <h1 class="font-serif text-2xl">Warsztat badawczy</h1>
+        </div>
+      </div>
+      <button id="reload" class="btn btn-outline btn-sm">Odśwież dane</button>
+    </header>
+    <div class="flex min-h-screen">
+      <aside class="w-56 shrink-0 bg-base-100 border-r border-base-300 p-3">
+        <p class="px-3 py-4 text-sm opacity-60">Rybnik 1918–1939<br />Plan odniesienia: 1932</p>
+        <nav id="nav" class="menu w-full gap-1" aria-label="Zbiory warsztatu"></nav>
+      </aside>
+      <main class="p-6 lg:p-10 flex-1 min-w-0">
+        <div id="errors" role="alert"></div>
+        <div id="overview"></div>
+        <section id="browser" hidden>
+          <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+            <div>
+              <p class="text-xs uppercase tracking-widest opacity-60">Zbiór warsztatu</p>
+              <h2 id="heading" class="font-serif text-3xl"></h2>
+            </div>
+            <p id="count" class="badge badge-outline"></p>
+          </div>
+          <div class="flex flex-wrap gap-3 mb-6">
+            <label class="input flex-1 min-w-48"
+              ><span aria-hidden="true">⌕</span
+              ><input
+                id="search"
+                type="search"
+                placeholder="Nazwa, adres, treść…"
+                aria-label="Szukaj w zbiorze" /></label
+            ><select id="tag" class="select w-auto" aria-label="Tag">
+              <option value="">Wszystkie tagi</option></select
+            ><select id="status" class="select w-auto" aria-label="Stan">
+              <option value="">Wszystkie stany</option></select
+            ><select id="location" class="select w-auto" aria-label="Lokalizacja">
+              <option value="">Każda lokalizacja</option>
+              <option value="known">Ze współrzędnymi</option>
+              <option value="unknown">Bez współrzędnych</option>
+            </select>
+          </div>
+          <div id="cards" class="grid gap-3 md:grid-cols-2 xl:grid-cols-3"></div>
+          <div id="map-panel" hidden>
+            <div class="flex flex-wrap gap-3 mb-3 text-sm">
+              <span>● potwierdzone</span><span>◐ prawdopodobne</span
+              ><span>○ nieustalone / poza okresem</span><span>◆ kandydaci</span>
+            </div>
+            <div
+              id="map"
+              class="rounded-box border border-base-300"
+              aria-label="Plan Rybnika z 1932 roku"
+            ></div>
+            <div id="map-list" class="mt-4"></div>
+          </div>
+          <div id="graph-panel" hidden></div>
+        </section>
+        <dialog id="detail" class="modal">
+          <div class="modal-box max-w-4xl">
+            <form method="dialog">
+              <button class="btn btn-sm btn-circle absolute right-3 top-3" aria-label="Zamknij">
+                ✕
+              </button>
+            </form>
+            <div id="detail-body" class="pt-3"></div>
+          </div>
+          <form method="dialog" class="modal-backdrop"><button>Zamknij</button></form>
+        </dialog>
+      </main>
+    </div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

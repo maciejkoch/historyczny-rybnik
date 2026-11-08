@@ -12,7 +12,7 @@ Aplikacja do poznawania historii Rybnika przez mapę i miejsca.
 - Ustawienia prywatności: osobne zgody na zapamiętywanie ustawień i bieżące pozycje z usług Google. Bez zgody aplikacja korzysta z opublikowanego snapshotu.
 - Globalne menu we wspólnym górnym nagłówku: panel z prawej na telefonie i menu rozwijane na komputerze. Mapa i wyszukiwanie są oddzielone od polityki prywatności oraz ustawień cookies.
 
-Katalog obejmuje obecnie jeden kościół. Administratorzy zalogowani przez Google mogą poprawiać lokalizację: wskazać punkt, określić dokładność i opcjonalny komentarz oraz jawnie zapisać zmianę. Logowanie i wylogowanie są dostępne w sekcji konta u góry menu. Na komputerze nazwa użytkownika jest także widoczna obok hamburgera. Zapis sprawdza wersję pozycji, bez blokad edycji.
+Administratorzy zalogowani przez Google mogą poprawiać lokalizację: wskazać punkt, określić dokładność i opcjonalny komentarz oraz jawnie zapisać zmianę. Logowanie i wylogowanie są dostępne w sekcji konta u góry menu. Na komputerze nazwa użytkownika jest także widoczna obok hamburgera. Zapis sprawdza wersję pozycji, bez blokad edycji.
 
 ## Dokumentacja
 
@@ -36,3 +36,5 @@ Przy oddaleniu mapy pobliskie miejsca łączą się w grupy z liczbą punktów. 
 Wyszukiwarka ma filtr „Bez lokalizacji”, łączony z wpisaną nazwą, adresem lub dzielnicą.
 
 Potwierdzone w źródłach wycinki domeny publicznej są stopniowo podłączane do kart na dev. Źródła bez potwierdzonego statusu pozostają dostępne przez linki.
+
+Warsztat badań ma projektowy skill, prywatne dane źródeł/materiałów/miejsc, synchronizację ze Storage i [lokalną przeglądarkę](data/places/README.md) (`npm run research:view`). Każde badanie kontynuuje wcześniejsze ustalenia; publikacja zatwierdzonych treści pozostaje osobnym etapem. Karty pokazują tagi i brak potwierdzenia istnienia w okresie międzywojennym.

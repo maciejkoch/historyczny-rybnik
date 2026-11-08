@@ -81,7 +81,7 @@ export const locationSchema = z.union([
 ]);
 const sha256 = z.string().regex(/^[a-f0-9]{64}$/);
 const assetPath = text(500).regex(
-  /^public\/places\/[a-zA-Z0-9_-]{1,100}\/[a-zA-Z0-9_-]{1,100}\/[a-zA-Z0-9_-]+\.(webp|png|jpg)$/,
+  /^public\/(?:places\/[a-zA-Z0-9_-]{1,100}\/[a-zA-Z0-9_-]{1,100}|materials\/[a-zA-Z0-9_-]{1,100})\/[a-zA-Z0-9_-]+\.(webp|png|jpg)$/,
 );
 export const imageSchema = z.strictObject({
   storagePath: assetPath,
@@ -109,10 +109,18 @@ export const imageSchema = z.strictObject({
     transformations: text(2000),
   }),
 });
+const referenceUrl = text(2000).refine((value) => {
+  try {
+    const u = new URL(value);
+    return ['http:', 'https:'].includes(u.protocol) && !u.username && !u.password;
+  } catch {
+    return false;
+  }
+}, 'HTTP(S) source URL without credentials required');
 export const referenceSchema = z.strictObject({
   id: idSchema,
   title: text(500),
-  url: httpsUrl.nullable(),
+  url: referenceUrl.nullable(),
   page: text(100).nullable(),
   publicationDate: partialDateSchema,
   historicalDate: partialDateSchema,
@@ -128,7 +136,15 @@ const placeFields = {
   slug: slugSchema,
   previousSlugs: z.array(slugSchema).max(30),
   description: text(20000),
-  category: z.enum(['industry', 'commerce', 'religion', 'education', 'public', 'culture', 'other']),
+  tags: z
+    .array(z.strictObject({ id: idSchema, name: text(200) }))
+    .min(1)
+    .max(100)
+    .refine((tags) => new Set(tags.map((t) => t.id)).size === tags.length, 'Duplicate tags'),
+  period: z.strictObject({
+    status: z.enum(['confirmed', 'probable', 'unverified']),
+    explanation: text(2000),
+  }),
   aliases: z.array(text(200)).max(30),
   addresses: z
     .array(z.strictObject({ type: z.enum(['historical', 'current']), text: text(500) }))
@@ -154,7 +170,10 @@ function placeRelations(place, ctx) {
     refs.add(ref.id);
     ref.images.forEach((image, imageIndex) => {
       for (const key of /** @type {const} */ (['storagePath', 'thumbnailPath'])) {
-        if (!image[key].startsWith(`public/places/${place.id}/${ref.id}/`))
+        if (
+          !image[key].startsWith(`public/places/${place.id}/${ref.id}/`) &&
+          !image[key].startsWith('public/materials/')
+        )
           ctx.addIssue({
             code: 'custom',
             message: 'Asset belongs to another place or reference',

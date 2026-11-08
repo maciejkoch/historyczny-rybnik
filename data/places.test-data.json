@@ -5,7 +5,6 @@
     "slug": "bazylika-sw-antoniego-padewskiego",
     "previousSlugs": [],
     "description": "Neogotycki kościół zaprojektowany przez Ludwiga Schneidera. Budowę rozpoczęto w 1903 roku, a świątynię poświęcono 29 września 1907 roku. Od 1993 roku ma tytuł bazyliki mniejszej.",
-    "category": "religion",
     "aliases": ["Kościół świętego Antoniego", "Bazylika św. Antoniego", "Rybnicka katedra"],
     "addresses": [
       {
@@ -98,6 +97,16 @@
     "published": true,
     "locationVersion": 0,
     "createdAt": "2026-11-05T12:00:00Z",
-    "updatedAt": "2026-11-05T12:00:00Z"
+    "updatedAt": "2026-11-05T12:00:00Z",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    }
   }
 ]

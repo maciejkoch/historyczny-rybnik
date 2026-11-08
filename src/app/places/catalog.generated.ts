@@ -7,7 +7,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jerzy-wilczynski-1",
     "previousSlugs": [],
     "description": "Jerzy Wilczyński — Cegielnia i skład materiałów budowlanych. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -107,7 +116,16 @@ export const PLACES: readonly Place[] = [
     "slug": "rudolf-rojek-10",
     "previousSlugs": [],
     "description": "Rudolf Rojek — Zakład elektrotechniczny. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -173,7 +191,16 @@ export const PLACES: readonly Place[] = [
     "slug": "franciszek-kaniewski-100",
     "previousSlugs": [],
     "description": "Franciszek Kaniewski — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -215,7 +242,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kosciol-matki-bozej-bolesnej-1002",
     "previousSlugs": [],
     "description": "Kościół Matki Bożej Bolesnej — Kościół katolicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -260,7 +296,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dawny-kosciol-farny-wniebowziecia-nmp-1003",
     "previousSlugs": [],
     "description": "Dawny kościół farny Wniebowzięcia NMP — Kościół / kaplica cmentarna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -305,7 +350,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kosciol-ewangelicko-augsburski-1004",
     "previousSlugs": [],
     "description": "Kościół ewangelicko-augsburski — Kościół ewangelicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -350,7 +404,16 @@ export const PLACES: readonly Place[] = [
     "slug": "synagoga-przy-zamkowej-1005",
     "previousSlugs": [],
     "description": "Synagoga przy Zamkowej — Synagoga. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -412,7 +475,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dawny-zydowski-dom-modlitw-przy-raciborskiej-1006",
     "previousSlugs": [],
     "description": "Dawny żydowski dom modlitw przy Raciborskiej — Dom modlitw. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -454,7 +526,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kosciol-sw-jozefa-na-smolnej-1007",
     "previousSlugs": [],
     "description": "Kościół św. Józefa na Smolnej — Kościół franciszkański. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -499,7 +580,16 @@ export const PLACES: readonly Place[] = [
     "slug": "klasztor-franciszkanow-1008",
     "previousSlugs": [],
     "description": "Klasztor Franciszkanów — Klasztor. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -540,7 +630,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kaplica-szpitalna-sw-juliusza-1009",
     "previousSlugs": [],
     "description": "Kaplica szpitalna św. Juliusza — Kaplica szpitalna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -589,7 +688,16 @@ export const PLACES: readonly Place[] = [
     "slug": "maksymilian-kuska-101",
     "previousSlugs": [],
     "description": "Maksymilian Kuśka — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -631,7 +739,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dawny-cmentarz-na-gorce-koscielnej-1010",
     "previousSlugs": [],
     "description": "Dawny cmentarz na Górce Kościelnej — Cmentarz katolicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -672,7 +789,16 @@ export const PLACES: readonly Place[] = [
     "slug": "stary-cmentarz-zydowski-1011",
     "previousSlugs": [],
     "description": "Stary cmentarz żydowski — Cmentarz żydowski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -717,7 +843,16 @@ export const PLACES: readonly Place[] = [
     "slug": "nowy-cmentarz-zydowski-przy-rudzkiej-1012",
     "previousSlugs": [],
     "description": "Nowy cmentarz żydowski przy Rudzkiej — Cmentarz żydowski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -755,7 +890,16 @@ export const PLACES: readonly Place[] = [
     "slug": "panstwowe-gimnazjum-dzisiejsze-i-lo-1013",
     "previousSlugs": [],
     "description": "Państwowe Gimnazjum — dzisiejsze I LO — Gimnazjum ogólnokształcące. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -800,7 +944,16 @@ export const PLACES: readonly Place[] = [
     "slug": "klasztor-i-szkoly-siostr-urszulanek-1014",
     "previousSlugs": [],
     "description": "Klasztor i szkoły Sióstr Urszulanek — Szkoły żeńskie / klasztor. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -858,7 +1011,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-powszechna-nr-1-im-adama-mickiewicza-1015",
     "previousSlugs": [],
     "description": "Szkoła powszechna nr 1 im. Adama Mickiewicza — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -903,7 +1065,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-powszechna-na-smolnej-1016",
     "previousSlugs": [],
     "description": "Szkoła powszechna na Smolnej — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -945,7 +1116,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-powszechna-na-paruszowcupiaskach-1017",
     "previousSlugs": [],
     "description": "Szkoła powszechna na Paruszowcu–Piaskach — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1000,7 +1180,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-powszechna-nr-4-w-ligocie-1018",
     "previousSlugs": [],
     "description": "Szkoła powszechna nr 4 w Ligocie — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1042,7 +1231,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-powszechna-nr-5-1019",
     "previousSlugs": [],
     "description": "Szkoła powszechna nr 5 — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1084,7 +1282,16 @@ export const PLACES: readonly Place[] = [
     "slug": "rajmund-jonderko-102",
     "previousSlugs": [],
     "description": "Rajmund Jonderko — Skład skór. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1143,7 +1350,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-handlowa-1020",
     "previousSlugs": [],
     "description": "Szkoła Handlowa — Szkoła zawodowa / handlowa. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1185,7 +1401,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-przysposobienia-kupieckiego-1021",
     "previousSlugs": [],
     "description": "Szkoła Przysposobienia Kupieckiego — Szkoła zawodowa / kupiecka. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1227,7 +1452,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-rolnicza-1022",
     "previousSlugs": [],
     "description": "Szkoła Rolnicza — Szkoła rolnicza. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1269,7 +1503,16 @@ export const PLACES: readonly Place[] = [
     "slug": "rzemieslnicza-szkola-zawodowa-1023",
     "previousSlugs": [],
     "description": "Rzemieślnicza Szkoła Zawodowa — Szkoła zawodowa. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1311,7 +1554,16 @@ export const PLACES: readonly Place[] = [
     "slug": "niemiecka-szkola-powszechna-przy-chrobrego-1024",
     "previousSlugs": [],
     "description": "Niemiecka szkoła powszechna przy Chrobrego — Szkoła mniejszości niemieckiej. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1353,7 +1605,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kolegium-serafickie-franciszkanow-1025",
     "previousSlugs": [],
     "description": "Kolegium Serafickie Franciszkanów — Niższe seminarium duchowne. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1394,7 +1655,16 @@ export const PLACES: readonly Place[] = [
     "slug": "nizsze-seminarium-duchowne-werbistow-1026",
     "previousSlugs": [],
     "description": "Niższe Seminarium Duchowne Werbistów — Szkoła średnia / seminarium. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1436,7 +1706,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-muzyczna-braci-szafrankow-1027",
     "previousSlugs": [],
     "description": "Szkoła Muzyczna braci Szafranków — Szkoła muzyczna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1478,7 +1757,16 @@ export const PLACES: readonly Place[] = [
     "slug": "filia-slaskiej-szkoly-muzycznej-1028",
     "previousSlugs": [],
     "description": "Filia Śląskiej Szkoły Muzycznej — Szkoła muzyczna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1520,7 +1808,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kino-apollo-pozniejszy-slazak-1029",
     "previousSlugs": [],
     "description": "Kino Apollo — późniejszy Ślązak — Kino. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "culture",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1562,7 +1859,16 @@ export const PLACES: readonly Place[] = [
     "slug": "leon-kaminski-103",
     "previousSlugs": [],
     "description": "Leon Kamiński — Zakład złotniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1621,7 +1927,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kino-helios-1030",
     "previousSlugs": [],
     "description": "Kino Helios — Kino. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "culture",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1663,7 +1978,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kino-palac-baltyk-wawel-wanda-swit-1031",
     "previousSlugs": [],
     "description": "Kino Pałac / Bałtyk / Wawel / Wanda / Świt — Kino. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "culture",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1705,7 +2029,16 @@ export const PLACES: readonly Place[] = [
     "slug": "swierklaniec-hotel-i-sala-spotkan-1032",
     "previousSlugs": [],
     "description": "Świerklaniec — hotel i sala spotkań — Hotel / sala widowiskowa. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "culture",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1750,7 +2083,16 @@ export const PLACES: readonly Place[] = [
     "slug": "towarzystwo-czytelni-ludowych-w-rybniku-1033",
     "previousSlugs": [],
     "description": "Towarzystwo Czytelni Ludowych w Rybniku — Czytelnictwo / oświata. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "culture",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1792,7 +2134,16 @@ export const PLACES: readonly Place[] = [
     "slug": "uniwersytet-powszechny-w-rybniku-1034",
     "previousSlugs": [],
     "description": "Uniwersytet Powszechny w Rybniku — Oświata dorosłych. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "culture",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1834,7 +2185,16 @@ export const PLACES: readonly Place[] = [
     "slug": "swietlica-strzelecka-1035",
     "previousSlugs": [],
     "description": "Świetlica Strzelecka — Świetlica / życie społeczne. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "culture",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1876,7 +2236,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kolekcja-historyczna-o-emila-drobnego-1036",
     "previousSlugs": [],
     "description": "Kolekcja historyczna o. Emila Drobnego — Zbiory muzealne. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "culture",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1914,7 +2283,16 @@ export const PLACES: readonly Place[] = [
     "slug": "biblioteka-i-czytelnia-szkol-urszulanskich-1037",
     "previousSlugs": [],
     "description": "Biblioteka i czytelnia szkół urszulańskich — Biblioteka szkolna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "culture",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -1955,7 +2333,16 @@ export const PLACES: readonly Place[] = [
     "slug": "stary-ratusz-1038",
     "previousSlugs": [],
     "description": "Stary Ratusz — Ratusz. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "public",
+    "tags": [
+      {
+        "id": "instytucja-publiczna",
+        "name": "instytucja publiczna"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2000,7 +2387,16 @@ export const PLACES: readonly Place[] = [
     "slug": "nowy-ratusz-magistrat-1039",
     "previousSlugs": [],
     "description": "Nowy Ratusz — Magistrat — Urząd miejski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "public",
+    "tags": [
+      {
+        "id": "instytucja-publiczna",
+        "name": "instytucja publiczna"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2045,7 +2441,16 @@ export const PLACES: readonly Place[] = [
     "slug": "rymag-rybnicka-fabryka-maszyn-104",
     "previousSlugs": [],
     "description": "Rymag — Rybnicka Fabryka Maszyn — Fabryka maszyn. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "industry",
+    "tags": [
+      {
+        "id": "przemysl",
+        "name": "przemysł"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2104,7 +2509,16 @@ export const PLACES: readonly Place[] = [
     "slug": "starostwo-powiatowe-1040",
     "previousSlugs": [],
     "description": "Starostwo Powiatowe — Urząd powiatowy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "public",
+    "tags": [
+      {
+        "id": "instytucja-publiczna",
+        "name": "instytucja publiczna"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2166,7 +2580,16 @@ export const PLACES: readonly Place[] = [
     "slug": "poczta-glowna-1041",
     "previousSlugs": [],
     "description": "Poczta Główna — Poczta / łączność. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "public",
+    "tags": [
+      {
+        "id": "instytucja-publiczna",
+        "name": "instytucja publiczna"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2211,7 +2634,16 @@ export const PLACES: readonly Place[] = [
     "slug": "zamek-sad-grodzki-1042",
     "previousSlugs": [],
     "description": "Zamek — Sąd Grodzki — Zamek / sąd. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "public",
+    "tags": [
+      {
+        "id": "instytucja-publiczna",
+        "name": "instytucja publiczna"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2256,7 +2688,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szpital-juliusza-1043",
     "previousSlugs": [],
     "description": "Szpital Juliusza — Szpital. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2318,7 +2759,16 @@ export const PLACES: readonly Place[] = [
     "slug": "prowincjonalny-zaklad-dla-psychicznie-chorych-1044",
     "previousSlugs": [],
     "description": "Prowincjonalny Zakład dla Psychicznie Chorych — Szpital psychiatryczny. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2363,7 +2813,16 @@ export const PLACES: readonly Place[] = [
     "slug": "stacja-kolejowa-rybnik-1045",
     "previousSlugs": [],
     "description": "Stacja kolejowa Rybnik — Stacja kolejowa. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2408,7 +2867,16 @@ export const PLACES: readonly Place[] = [
     "slug": "przystanek-kolejowy-rybnik-paruszowiec-1046",
     "previousSlugs": [],
     "description": "Przystanek kolejowy Rybnik-Paruszowiec — Przystanek kolejowy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2453,7 +2921,16 @@ export const PLACES: readonly Place[] = [
     "slug": "park-kozie-gory-haasenheide-1047",
     "previousSlugs": [],
     "description": "Park Kozie Góry — Haasenheide — Park miejski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2498,7 +2975,16 @@ export const PLACES: readonly Place[] = [
     "slug": "zydowski-dom-sierot-1048",
     "previousSlugs": [],
     "description": "Żydowski dom sierot — Dom sierot. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2536,7 +3022,16 @@ export const PLACES: readonly Place[] = [
     "slug": "urban-skowron-105",
     "previousSlugs": [],
     "description": "Urban Skowron — Zakład blacharski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2578,7 +3073,16 @@ export const PLACES: readonly Place[] = [
     "slug": "fryderyk-vieweg-106",
     "previousSlugs": [],
     "description": "Fryderyk Vieweg — Zakład blacharski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2620,7 +3124,16 @@ export const PLACES: readonly Place[] = [
     "slug": "browar-rybnicki-107",
     "previousSlugs": [],
     "description": "Browar Rybnicki — Browar. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2683,7 +3196,16 @@ export const PLACES: readonly Place[] = [
     "slug": "faust-krakowski-sklad-futer-108",
     "previousSlugs": [],
     "description": "Faust — Krakowski Skład Futer — Skład futer. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2725,7 +3247,16 @@ export const PLACES: readonly Place[] = [
     "slug": "fr-heidrich-109",
     "previousSlugs": [],
     "description": "Fr. Heidrich — Skład obuwia. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2767,7 +3298,16 @@ export const PLACES: readonly Place[] = [
     "slug": "karol-jokel-11",
     "previousSlugs": [],
     "description": "Karol Jokel — Mistrz rzeźnicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2867,7 +3407,16 @@ export const PLACES: readonly Place[] = [
     "slug": "w-olszewski-110",
     "previousSlugs": [],
     "description": "W. Olszewski — Pracownia obuwia ortopedycznego. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2909,7 +3458,16 @@ export const PLACES: readonly Place[] = [
     "slug": "maria-wilczek-111",
     "previousSlugs": [],
     "description": "Maria Wilczek — Skład obuwia. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2951,7 +3509,16 @@ export const PLACES: readonly Place[] = [
     "slug": "m-zimon-112",
     "previousSlugs": [],
     "description": "M. Zimon — Hurtownia piwa i fabryka wody sodowej. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -2993,7 +3560,16 @@ export const PLACES: readonly Place[] = [
     "slug": "h-pachulla-113",
     "previousSlugs": [],
     "description": "H. Pachulla — Warsztat radiowy i rowerowy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3035,7 +3611,16 @@ export const PLACES: readonly Place[] = [
     "slug": "fr-bartkowiak-114",
     "previousSlugs": [],
     "description": "Fr. Bartkowiak — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3101,7 +3686,16 @@ export const PLACES: readonly Place[] = [
     "slug": "m-bohn-115",
     "previousSlugs": [],
     "description": "M. Bohn — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3167,7 +3761,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wiktor-bonk-116",
     "previousSlugs": [],
     "description": "Wiktor Bonk — Wytwórnia trumien. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3233,7 +3836,16 @@ export const PLACES: readonly Place[] = [
     "slug": "karol-broksch-117",
     "previousSlugs": [],
     "description": "Karol Broksch — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3299,7 +3911,16 @@ export const PLACES: readonly Place[] = [
     "slug": "l-ficek-118",
     "previousSlugs": [],
     "description": "L. Ficek — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3365,7 +3986,16 @@ export const PLACES: readonly Place[] = [
     "slug": "e-herger-119",
     "previousSlugs": [],
     "description": "E. Herger — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3431,7 +4061,16 @@ export const PLACES: readonly Place[] = [
     "slug": "feliks-cwik-12",
     "previousSlugs": [],
     "description": "Feliks Ćwik — Konfekcja męska i dziecięca. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3514,7 +4153,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jerzy-hutter-120",
     "previousSlugs": [],
     "description": "Jerzy Hütter — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3580,7 +4228,16 @@ export const PLACES: readonly Place[] = [
     "slug": "p-kostka-121",
     "previousSlugs": [],
     "description": "P. Kostka — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3646,7 +4303,16 @@ export const PLACES: readonly Place[] = [
     "slug": "plaszynski-inicjal-niepewny-122",
     "previousSlugs": [],
     "description": "Płaszyński (inicjał niepewny) — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3712,7 +4378,16 @@ export const PLACES: readonly Place[] = [
     "slug": "b-solarz-123",
     "previousSlugs": [],
     "description": "B. Solarz — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3778,7 +4453,16 @@ export const PLACES: readonly Place[] = [
     "slug": "e-solarz-124",
     "previousSlugs": [],
     "description": "E. Solarz — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3844,7 +4528,16 @@ export const PLACES: readonly Place[] = [
     "slug": "w-vieweg-125",
     "previousSlugs": [],
     "description": "W. Vieweg — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3910,7 +4603,16 @@ export const PLACES: readonly Place[] = [
     "slug": "gerard-jokel-126",
     "previousSlugs": [],
     "description": "Gerard Jokel — Zakład tapicerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3952,7 +4654,16 @@ export const PLACES: readonly Place[] = [
     "slug": "karol-konkol-127",
     "previousSlugs": [],
     "description": "Karol Konkol — Zakład tapicerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -3994,7 +4705,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jozef-szopa-128",
     "previousSlugs": [],
     "description": "Józef Szopa — Zakład tapicerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4036,7 +4756,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wilhelm-syrek-i-roman-lubos-13",
     "previousSlugs": [],
     "description": "Wilhelm Syrek i Roman Lubos — Zakład krawiecki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4119,7 +4848,16 @@ export const PLACES: readonly Place[] = [
     "slug": "rodzina-hetman-14",
     "previousSlugs": [],
     "description": "Rodzina Hetman — Skład kolonialny. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4185,7 +4923,16 @@ export const PLACES: readonly Place[] = [
     "slug": "centrala-ponczoch-k-foltynowicz-15",
     "previousSlugs": [],
     "description": "Centrala Pończoch, K. Foltynowicz — Odzież i pończochy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4268,7 +5015,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dzierzon-i-ska-jerzy-sroczynski-16",
     "previousSlugs": [],
     "description": "Dzierżon i Ska, Jerzy Sroczyński — Artykuły techniczne i drogeryjne. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4334,7 +5090,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jan-szafranek-17",
     "previousSlugs": [],
     "description": "Jan Szafranek — Zakład fryzjerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4417,7 +5182,16 @@ export const PLACES: readonly Place[] = [
     "slug": "juliusz-sosna-i-ska-18",
     "previousSlugs": [],
     "description": "Juliusz Sosna i Ska — Przedsiębiorstwo budowlane. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4483,7 +5257,16 @@ export const PLACES: readonly Place[] = [
     "slug": "roman-malke-19",
     "previousSlugs": [],
     "description": "Roman Malke — Skład obuwia. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4549,7 +5332,16 @@ export const PLACES: readonly Place[] = [
     "slug": "pawel-auer-2",
     "previousSlugs": [],
     "description": "Paweł Auer — Piekarnia parowa. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4615,7 +5407,16 @@ export const PLACES: readonly Place[] = [
     "slug": "be-bi-h-foltynowiczowna-20",
     "previousSlugs": [],
     "description": "Be-Bi, H. Foltynowiczówna — Niepodana branża. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4681,7 +5482,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kosciol-najswietszego-serca-pana-jezusa-niedobczyce-2001",
     "previousSlugs": [],
     "description": "Kościół Najświętszego Serca Pana Jezusa — Niedobczyce — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4726,7 +5536,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kosciol-sw-teresy-od-dzieciatka-jezus-chwalowice-2002",
     "previousSlugs": [],
     "description": "Kościół św. Teresy od Dzieciątka Jezus — Chwałowice — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4771,7 +5590,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kosciol-chrystusa-krola-golejow-2003",
     "previousSlugs": [],
     "description": "Kościół Chrystusa Króla — Golejów — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4816,7 +5644,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dawne-miejsce-kosciola-sw-wawrzynca-boguszowice-2004",
     "previousSlugs": [],
     "description": "Dawne miejsce kościoła św. Wawrzyńca — Boguszowice — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4870,7 +5707,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kosciol-najswietszego-serca-pana-jezusa-boguszowice-2005",
     "previousSlugs": [],
     "description": "Kościół Najświętszego Serca Pana Jezusa — Boguszowice — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4915,7 +5761,16 @@ export const PLACES: readonly Place[] = [
     "slug": "kosciol-trojcy-przenajswietszej-popielow-2006",
     "previousSlugs": [],
     "description": "Kościół Trójcy Przenajświętszej — Popielów — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4960,7 +5815,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dawny-drewniany-kosciol-sw-anny-popielow-2007",
     "previousSlugs": [],
     "description": "Dawny drewniany kościół św. Anny — Popielów — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -4998,7 +5862,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-powszechna-chwalowice-pozniejsza-sp13-2008",
     "previousSlugs": [],
     "description": "Szkoła powszechna — Chwałowice (późniejsza SP13) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5040,7 +5913,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-przy-niedobczyckiej-niedobczyce-pozniejsza-sp21-2009",
     "previousSlugs": [],
     "description": "Szkoła przy Niedobczyckiej — Niedobczyce (późniejsza SP21) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5081,7 +5963,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-przy-kopalni-siwka-niedobczyce-pozniejsza-sp22-2010",
     "previousSlugs": [],
     "description": "Szkoła przy kopalni Siwka — Niedobczyce (późniejsza SP22) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5126,7 +6017,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-powszechna-wielopole-pozniejsza-sp8-2011",
     "previousSlugs": [],
     "description": "Szkoła powszechna — Wielopole (późniejsza SP8) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5167,7 +6067,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dawna-szkola-golejow-2012",
     "previousSlugs": [],
     "description": "Dawna szkoła — Golejów — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5205,7 +6114,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-filialna-grabownia-2013",
     "previousSlugs": [],
     "description": "Szkoła filialna — Grabownia — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5243,7 +6161,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dawna-szkola-ochojec-2014",
     "previousSlugs": [],
     "description": "Dawna szkoła — Ochojec — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5281,7 +6208,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dawna-szkola-polska-kamien-2015",
     "previousSlugs": [],
     "description": "Dawna szkoła polska — Kamień — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5319,7 +6255,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dawna-szkola-klokocin-dzisiejsze-przedszkole-nr-21-2016",
     "previousSlugs": [],
     "description": "Dawna szkoła — Kłokocin (dzisiejsze Przedszkole nr 21) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5390,7 +6335,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dawna-szkola-zebrzydowice-2017",
     "previousSlugs": [],
     "description": "Dawna szkoła — Zebrzydowice — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5428,7 +6382,16 @@ export const PLACES: readonly Place[] = [
     "slug": "szkola-powszechna-zamyslow-2018",
     "previousSlugs": [],
     "description": "Szkoła powszechna — Zamysłów — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5466,7 +6429,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dawna-szkola-chwalecice-2019",
     "previousSlugs": [],
     "description": "Dawna szkoła — Chwałęcice — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5504,7 +6476,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dawne-szkoly-boguszowice-pozniejsza-sp16-2020",
     "previousSlugs": [],
     "description": "Dawne szkoły — Boguszowice (późniejsza SP16) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "category": "education",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5546,7 +6527,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jan-kuska-21",
     "previousSlugs": [],
     "description": "Jan Kuśka — Przedsiębiorstwo blacharskie. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5680,7 +6670,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wieczorkowie-22",
     "previousSlugs": [],
     "description": "Wieczorkowie — Restauracja. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5763,7 +6762,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wincenty-modlich-23",
     "previousSlugs": [],
     "description": "Wincenty Modlich — Zakład szewsko-ortopedyczny. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5846,7 +6854,16 @@ export const PLACES: readonly Place[] = [
     "slug": "restauracja-obywatelska-alojzy-gabor-24",
     "previousSlugs": [],
     "description": "Restauracja Obywatelska, Alojzy Gabor — Restauracja. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5929,7 +6946,16 @@ export const PLACES: readonly Place[] = [
     "slug": "drogeria-sw-walentego-25",
     "previousSlugs": [],
     "description": "Drogeria św. Walentego — Drogeria. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -5995,7 +7021,16 @@ export const PLACES: readonly Place[] = [
     "slug": "ludwik-tarara-26",
     "previousSlugs": [],
     "description": "Ludwik Tarara — Zakład krawiecki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -6078,7 +7113,16 @@ export const PLACES: readonly Place[] = [
     "slug": "m-kocur-27",
     "previousSlugs": [],
     "description": "M. Kocur — Pralnia i fabryka bielizny. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -6161,7 +7205,16 @@ export const PLACES: readonly Place[] = [
     "slug": "paschalis-nowak-28",
     "previousSlugs": [],
     "description": "Paschalis Nowak — Kawiarnia i cukiernia. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -6244,7 +7297,16 @@ export const PLACES: readonly Place[] = [
     "slug": "drogeria-i-perfumeria-warszawska-29",
     "previousSlugs": [],
     "description": "Drogeria i Perfumeria Warszawska — Drogeria i perfumeria. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -6310,7 +7372,16 @@ export const PLACES: readonly Place[] = [
     "slug": "firma-jan-lepiarczyk-3",
     "previousSlugs": [],
     "description": "Firma Jan Łepiarczyk — Niepodana branża. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -6376,7 +7447,16 @@ export const PLACES: readonly Place[] = [
     "slug": "augustyn-szostek-30",
     "previousSlugs": [],
     "description": "Augustyn Szostek — Rzeźnictwo. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -6459,7 +7539,16 @@ export const PLACES: readonly Place[] = [
     "slug": "a-krakowczykowie-31",
     "previousSlugs": [],
     "description": "A. Krakowczykowie — Zegarmistrz, złotnik i optyk. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -6525,7 +7614,16 @@ export const PLACES: readonly Place[] = [
     "slug": "e-aronstamm-32",
     "previousSlugs": [],
     "description": "E. Aronstamm — Skład bławatów i wyrobów modnych. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -6629,7 +7727,16 @@ export const PLACES: readonly Place[] = [
     "slug": "augustyn-wieczorek-33",
     "previousSlugs": [],
     "description": "Augustyn Wieczorek — Wytwórnia wędlin i rzeźnictwo. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -6729,7 +7836,16 @@ export const PLACES: readonly Place[] = [
     "slug": "dom-towarowy-czeslaw-beyga-34",
     "previousSlugs": [],
     "description": "Dom Towarowy Czesław Beyga — Dom towarowy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -6819,7 +7935,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jadwiga-zaremba-35",
     "previousSlugs": [],
     "description": "Jadwiga Zaremba — Skład optyczny i jubilerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -6902,7 +8027,16 @@ export const PLACES: readonly Place[] = [
     "slug": "franciszek-breslauer-36",
     "previousSlugs": [],
     "description": "Franciszek Breslauer — Skład towarów krótkich i bielizny. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -6985,7 +8119,16 @@ export const PLACES: readonly Place[] = [
     "slug": "r-lukaszczyk-37",
     "previousSlugs": [],
     "description": "R. Łukaszczyk — Skład zegarów i biżuterii. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -7068,7 +8211,16 @@ export const PLACES: readonly Place[] = [
     "slug": "walenty-tkocz-i-jan-bogocz-38",
     "previousSlugs": [],
     "description": "Walenty Tkocz i Jan Bogocz — Zakład stróżów nocnych. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -7151,7 +8303,16 @@ export const PLACES: readonly Place[] = [
     "slug": "franciszek-szypula-39",
     "previousSlugs": [],
     "description": "Franciszek Szypuła — Mistrz obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -7251,7 +8412,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jan-mysliwiec-4",
     "previousSlugs": [],
     "description": "Jan Myśliwiec — Konfekcja. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -7334,7 +8504,16 @@ export const PLACES: readonly Place[] = [
     "slug": "gawronowie-40",
     "previousSlugs": [],
     "description": "Gawronowie — Niepodana branża. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -7421,7 +8600,16 @@ export const PLACES: readonly Place[] = [
     "slug": "firma-karol-nazwisko-niepewne-41",
     "previousSlugs": [],
     "description": "Firma Karol (nazwisko niepewne) — Niepodana branża. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -7487,7 +8675,16 @@ export const PLACES: readonly Place[] = [
     "slug": "powszechny-zaklad-ubezpieczen-wzajemnych-42",
     "previousSlugs": [],
     "description": "Powszechny Zakład Ubezpieczeń Wzajemnych — Ubezpieczenia. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -7553,7 +8750,16 @@ export const PLACES: readonly Place[] = [
     "slug": "drogeria-sw-antoniego-43",
     "previousSlugs": [],
     "description": "Drogeria św. Antoniego — Drogeria. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -7619,7 +8825,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jozef-dziura-44",
     "previousSlugs": [],
     "description": "Józef Dziura — Przedsiębiorstwo samochodowe. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -7685,7 +8900,16 @@ export const PLACES: readonly Place[] = [
     "slug": "drukarnia-sztandaru-polskiego-i-gazety-rybnickiej-45",
     "previousSlugs": [],
     "description": "Drukarnia Sztandaru Polskiego i Gazety Rybnickiej — Drukarnia. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -7751,7 +8975,16 @@ export const PLACES: readonly Place[] = [
     "slug": "gliwicki-i-ska-46",
     "previousSlugs": [],
     "description": "Gliwicki i Ska — Fabryka konserw i detaliczny skład wędlin. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -7817,7 +9050,16 @@ export const PLACES: readonly Place[] = [
     "slug": "komunalna-kasa-oszczednosci-miasta-rybnika-47",
     "previousSlugs": [],
     "description": "Komunalna Kasa Oszczędności miasta Rybnika — Kasa oszczędności. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -7917,7 +9159,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wladyslaw-malinowski-48",
     "previousSlugs": [],
     "description": "Władysław Malinowski — Architekt i przedsiębiorstwo budowlane. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -7976,7 +9227,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wincenty-macioszek-49",
     "previousSlugs": [],
     "description": "Wincenty Macioszek — Zakład blacharski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8039,7 +9299,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wojciech-kaminski-5",
     "previousSlugs": [],
     "description": "Wojciech Kamiński — Zakład fryzjerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8122,7 +9391,16 @@ export const PLACES: readonly Place[] = [
     "slug": "antoni-szaforz-50",
     "previousSlugs": [],
     "description": "Antoni Szaforz — Zakład blacharski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8181,7 +9459,16 @@ export const PLACES: readonly Place[] = [
     "slug": "antoni-grzesik-51",
     "previousSlugs": [],
     "description": "Antoni Grzesik — Przedsiębiorstwo budowlane. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8223,7 +9510,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jozef-halek-52",
     "previousSlugs": [],
     "description": "Józef Halek — Zakład dekarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8265,7 +9561,16 @@ export const PLACES: readonly Place[] = [
     "slug": "a-kowol-53",
     "previousSlugs": [],
     "description": "A. Kowol — Instalator elektryczny. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8307,7 +9612,16 @@ export const PLACES: readonly Place[] = [
     "slug": "tomasz-siedlaczek-54",
     "previousSlugs": [],
     "description": "Tomasz Siedlaczek — Kamieniarstwo, sztukatorstwo i urządzenia sanitarne. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8417,7 +9731,16 @@ export const PLACES: readonly Place[] = [
     "slug": "pawel-botor-55",
     "previousSlugs": [],
     "description": "Paweł Botor — Kamieniarstwo i rzeźbiarstwo. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8476,7 +9799,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jan-wilk-56",
     "previousSlugs": [],
     "description": "Jan Wilk — Zakład malarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8552,7 +9884,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wojciech-holisz-57",
     "previousSlugs": [],
     "description": "Wojciech Holisz — Zakład malarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8611,7 +9952,16 @@ export const PLACES: readonly Place[] = [
     "slug": "herman-chmura-58",
     "previousSlugs": [],
     "description": "Herman Chmura — Zakład mechaniczny. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8653,7 +10003,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wincenty-szypula-59",
     "previousSlugs": [],
     "description": "Wincenty Szypuła — Zakład obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8695,7 +10054,16 @@ export const PLACES: readonly Place[] = [
     "slug": "alojzy-borgiel-6",
     "previousSlugs": [],
     "description": "Alojzy Borgiel — Hurtowy i detaliczny skład nabiału. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8761,7 +10129,16 @@ export const PLACES: readonly Place[] = [
     "slug": "stanislaw-fojt-60",
     "previousSlugs": [],
     "description": "Stanisław Fojt — Zakład obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8820,7 +10197,16 @@ export const PLACES: readonly Place[] = [
     "slug": "augustyn-skrzypek-61",
     "previousSlugs": [],
     "description": "Augustyn Skrzypek — Zakład piekarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8879,7 +10265,16 @@ export const PLACES: readonly Place[] = [
     "slug": "brunon-jokel-62",
     "previousSlugs": [],
     "description": "Brunon Jokel — Zakład piekarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8938,7 +10333,16 @@ export const PLACES: readonly Place[] = [
     "slug": "pawel-kajzer-63",
     "previousSlugs": [],
     "description": "Paweł Kajzer — Rzeźbiarstwo w drewnie. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -8980,7 +10384,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wilhelm-goszyc-64",
     "previousSlugs": [],
     "description": "Wilhelm Goszyc — Zakład siodlarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9039,7 +10452,16 @@ export const PLACES: readonly Place[] = [
     "slug": "bracia-glowik-65",
     "previousSlugs": [],
     "description": "Bracia Głowik — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9166,7 +10588,16 @@ export const PLACES: readonly Place[] = [
     "slug": "stanislaw-dziuba-66",
     "previousSlugs": [],
     "description": "Stanisław Dziuba — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9208,7 +10639,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jozef-kuczera-67",
     "previousSlugs": [],
     "description": "Józef Kuczera — Zakład zduński. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9267,7 +10707,16 @@ export const PLACES: readonly Place[] = [
     "slug": "florjan-morgala-68",
     "previousSlugs": [],
     "description": "Florjan Morgała — Zakład zduński. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9326,7 +10775,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jozef-kuminek-69",
     "previousSlugs": [],
     "description": "Józef Kuminek — Cholewkarstwo. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9368,7 +10826,16 @@ export const PLACES: readonly Place[] = [
     "slug": "baltazar-kopyciok-7",
     "previousSlugs": [],
     "description": "Baltazar Kopyciok — Zakład malarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9455,7 +10922,16 @@ export const PLACES: readonly Place[] = [
     "slug": "robert-barwik-70",
     "previousSlugs": [],
     "description": "Robert Barwik — Drukarnia. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9548,7 +11024,16 @@ export const PLACES: readonly Place[] = [
     "slug": "maksymilian-grebowicz-71",
     "previousSlugs": [],
     "description": "Maksymilian Grębowicz — Zakład fryzjerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9590,7 +11075,16 @@ export const PLACES: readonly Place[] = [
     "slug": "ludwik-wrobel-72",
     "previousSlugs": [],
     "description": "Ludwik Wróbel — Zakład krawiecki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9632,7 +11126,16 @@ export const PLACES: readonly Place[] = [
     "slug": "juljusz-malik-73",
     "previousSlugs": [],
     "description": "Juljusz Malik — Zakład krawiecki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9674,7 +11177,16 @@ export const PLACES: readonly Place[] = [
     "slug": "franciszek-gawelek-74",
     "previousSlugs": [],
     "description": "Franciszek Gawełek — Zakład krawiecki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9733,7 +11245,16 @@ export const PLACES: readonly Place[] = [
     "slug": "czeslaw-adamczyk-75",
     "previousSlugs": [],
     "description": "Czesław Adamczyk — Zakład krawiecki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9792,7 +11313,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jozef-zimon-76",
     "previousSlugs": [],
     "description": "Józef Zimon — Zakład krawiecki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9834,7 +11364,16 @@ export const PLACES: readonly Place[] = [
     "slug": "stanislaw-bilinski-77",
     "previousSlugs": [],
     "description": "Stanisław Biliński — Zakład krawiecki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9876,7 +11415,16 @@ export const PLACES: readonly Place[] = [
     "slug": "roman-furmanowski-78",
     "previousSlugs": [],
     "description": "Roman Furmanowski — Zakład krawiecki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9935,7 +11483,16 @@ export const PLACES: readonly Place[] = [
     "slug": "antoni-lesnik-79",
     "previousSlugs": [],
     "description": "Antoni Leśnik — Zakład kowalski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -9977,7 +11534,16 @@ export const PLACES: readonly Place[] = [
     "slug": "piotr-kupczak-hotel-slaski-8",
     "previousSlugs": [],
     "description": "Piotr Kupczak / Hotel Śląski — Skład kolonialny i hotel. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10077,7 +11643,16 @@ export const PLACES: readonly Place[] = [
     "slug": "ludwik-sobik-80",
     "previousSlugs": [],
     "description": "Ludwik Sobik — Zakład kowalski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10119,7 +11694,16 @@ export const PLACES: readonly Place[] = [
     "slug": "franciszek-cwik-81",
     "previousSlugs": [],
     "description": "Franciszek Ćwik — Zakład kuśnierski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10161,7 +11745,16 @@ export const PLACES: readonly Place[] = [
     "slug": "marja-sznapkowa-82",
     "previousSlugs": [],
     "description": "Marja Sznapkowa — Modniarstwo. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10220,7 +11813,16 @@ export const PLACES: readonly Place[] = [
     "slug": "marja-wilkowska-83",
     "previousSlugs": [],
     "description": "Marja Wilkowska — Modniarstwo. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10279,7 +11881,16 @@ export const PLACES: readonly Place[] = [
     "slug": "konstanty-duda-84",
     "previousSlugs": [],
     "description": "Konstanty Duda — Zakład obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10321,7 +11932,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wiktor-widenka-85",
     "previousSlugs": [],
     "description": "Wiktor Widenka — Zakład obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10384,7 +12004,16 @@ export const PLACES: readonly Place[] = [
     "slug": "hubert-kozik-86",
     "previousSlugs": [],
     "description": "Hubert Kozik — Zakład obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10426,7 +12055,16 @@ export const PLACES: readonly Place[] = [
     "slug": "oskar-knapik-87",
     "previousSlugs": [],
     "description": "Oskar Knapik — Zakład obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10468,7 +12106,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wiktor-wieczorek-88",
     "previousSlugs": [],
     "description": "Wiktor Wieczorek — Zakład obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10510,7 +12157,16 @@ export const PLACES: readonly Place[] = [
     "slug": "walenty-hasinski-89",
     "previousSlugs": [],
     "description": "Walenty Hasiński — Zakład obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10552,7 +12208,16 @@ export const PLACES: readonly Place[] = [
     "slug": "engelbert-rybka-9",
     "previousSlugs": [],
     "description": "Engelbert Rybka — Wynajem samochodów. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "other",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10639,7 +12304,16 @@ export const PLACES: readonly Place[] = [
     "slug": "franciszek-wodach-90",
     "previousSlugs": [],
     "description": "Franciszek Wodach — Zakład obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10681,7 +12355,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jozef-moses-91",
     "previousSlugs": [],
     "description": "Józef Moses — Zakład obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10723,7 +12406,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jan-drozd-92",
     "previousSlugs": [],
     "description": "Jan Drozd — Zakład obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10782,7 +12474,16 @@ export const PLACES: readonly Place[] = [
     "slug": "franciszek-franke-93",
     "previousSlugs": [],
     "description": "Franciszek Franke — Zakład obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10845,7 +12546,16 @@ export const PLACES: readonly Place[] = [
     "slug": "pawel-mazur-94",
     "previousSlugs": [],
     "description": "Paweł Mazur — Zakład obuwniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10908,7 +12618,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wiktor-mandrysz-jr-95",
     "previousSlugs": [],
     "description": "Wiktor Mandrysz jr. — Zakład piekarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -10967,7 +12686,16 @@ export const PLACES: readonly Place[] = [
     "slug": "wincenty-musiol-96",
     "previousSlugs": [],
     "description": "Wincenty Musioł — Zakład piekarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -11009,7 +12737,16 @@ export const PLACES: readonly Place[] = [
     "slug": "karol-kuska-97",
     "previousSlugs": [],
     "description": "Karol Kuśka — Zakład rzeźnicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -11068,7 +12805,16 @@ export const PLACES: readonly Place[] = [
     "slug": "franciszek-dziura-98",
     "previousSlugs": [],
     "description": "Franciszek Dziura — Zakład rzeźnicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -11110,7 +12856,16 @@ export const PLACES: readonly Place[] = [
     "slug": "jan-galus-99",
     "previousSlugs": [],
     "description": "Jan Galus — Zakład rzeźnicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "category": "commerce",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [],
     "addresses": [
       {
@@ -11152,7 +12907,16 @@ export const PLACES: readonly Place[] = [
     "slug": "bazylika-sw-antoniego-padewskiego",
     "previousSlugs": [],
     "description": "Neogotycki kościół zaprojektowany przez Ludwiga Schneidera. Budowę rozpoczęto w 1903 roku, a świątynię poświęcono 29 września 1907 roku. Od 1993 roku ma tytuł bazyliki mniejszej.",
-    "category": "religion",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
     "aliases": [
       "Kościół świętego Antoniego",
       "Bazylika św. Antoniego",

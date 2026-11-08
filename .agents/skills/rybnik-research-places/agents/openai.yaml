@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Badanie historycznych miejsc Rybnika'
+  short_description: 'Kontynuuj badania miejsc, źródeł i materiałów Rybnika'
+  default_prompt: 'Użyj $rybnik-research-places do badania wskazanego tematu w warsztacie Historycznego Rybnika.'

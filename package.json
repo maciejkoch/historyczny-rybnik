@@ -13,7 +13,7 @@
     "places:prepare": "node scripts/places/prepare.mjs",
     "places:import": "node scripts/places/import.mjs",
     "places:snapshot": "node scripts/places/snapshot.mjs",
-    "test": "npm run check:contracts && npm run test:privacy && npm --prefix functions test",
+    "test": "npm run check:contracts && npm run test:privacy && npm --prefix functions test && npm run test:research",
     "test:emulator": "firebase emulators:exec --config firebase.backend.dev.json --project demo-historyczny-rybnik --only firestore,storage \"npm --prefix functions run test:emulator\"",
     "deploy:backend:dev": "firebase deploy --config firebase.backend.dev.json --project historyczny-rybnik --only functions:places-dev,firestore:places-dev,storage:places-dev,auth",
     "places:upload-assets": "node scripts/places/upload-assets.mjs",
@@ -23,7 +23,10 @@
     "deploy:dev-2": "node scripts/places/deploy-dev.mjs dev-2",
     "deploy:dev-3": "node scripts/places/deploy-dev.mjs dev-3",
     "environment": "node scripts/places/environment.mjs",
-    "auth:admin": "node infra/admin-role.mjs"
+    "auth:admin": "node infra/admin-role.mjs",
+    "research": "node scripts/research/cli.mjs",
+    "research:view": "node scripts/research/viewer.mjs",
+    "test:research": "node --test scripts/research/test/*.test.mjs"
   },
   "private": true,
   "packageManager": "npm@12.0.2",
