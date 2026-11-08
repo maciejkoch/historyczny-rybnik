@@ -59,6 +59,7 @@ export const materialSchema = z.strictObject({
   ...base,
   title: text,
   kind: z.enum(['article', 'newspaper', 'book', 'photo', 'map', 'scan', 'other']),
+  temporalContext: z.enum(['contemporary', 'retrospective', 'unknown']).optional(),
   sourceId: id,
   url: url.nullable(),
   identifier: text.nullable(),

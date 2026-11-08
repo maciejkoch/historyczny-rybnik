@@ -273,3 +273,31 @@ function requireFixtureImage() {
     ).flatMap((p) => p.references.flatMap((r) => r.images))[0],
   );
 }
+
+test('a 1938 contemporary advertisement proves activity without a fabricated historicalDate', async () => {
+  const { legacyPeriod } = await import('../legacy-period.mjs');
+  const ref = {
+    id: 'ad',
+    title: 'Sztandar Polski i Gazeta Rybnicka',
+    excerpt: 'Wzmianka o firmie A. Dział: Ogłoszenie prasowe.',
+    excerptType: 'summary',
+    publicationDate: { from: '1938', to: null, approximate: false },
+    historicalDate: null,
+    note: null,
+  };
+  assert.equal(legacyPeriod([ref]).status, 'confirmed');
+  assert.equal(ref.historicalDate, null);
+  assert.equal(
+    legacyPeriod([{ ...ref, excerpt: 'Artykuł wspomina rok 1890.' }]).status,
+    'unverified',
+  );
+  assert.equal(
+    legacyPeriod([{ ...ref, publicationDate: { from: '1950', to: null, approximate: false } }])
+      .status,
+    'unverified',
+  );
+  assert.equal(
+    legacyPeriod([{ ...ref, note: 'Powiązanie z tym miejscem jest przypuszczalne.' }]).status,
+    'probable',
+  );
+});

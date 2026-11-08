@@ -1,6 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { initWorkspace, loadWorkspace, safePath, hash, atomicWrite } from './workspace.mjs';
-import { legacyTags, upgradePlace } from './legacy.mjs';
+import { upgradePlace } from './legacy.mjs';
+import { legacyTemporalContext, legacyPeriod } from './legacy-period.mjs';
 import { validateWorkspace } from './model.mjs';
 export async function migrate({ root, input, apply = false }) {
   await initWorkspace(root);
@@ -66,6 +67,7 @@ export async function migrate({ root, input, apply = false }) {
           updatedAt: stamp,
           title: ref.title,
           kind: 'other',
+          temporalContext: legacyTemporalContext(ref),
           sourceId,
           url: ref.url,
           identifier: null,
@@ -119,27 +121,24 @@ export async function migrate({ root, input, apply = false }) {
         synonyms: [],
       });
     const { references, published, period, ...rest } = p;
-    // Old publication dates alone do not prove the date of the described event.
-    const proofs = materialIds.filter((id) => {
-      const d = materials.get(id).historicalDate;
-      return (
-        d && Number(d.from.slice(0, 4)) >= 1918 && Number((d.to || d.from).slice(0, 4)) <= 1939
-      );
-    });
-    const confirmed = proofs.length > 0;
+    const qualification = legacyPeriod(p.references);
+    const confirmed = ['confirmed', 'probable'].includes(qualification.status);
     const place = {
       ...rest,
       tags: p.tags.map((t) => t.id),
       period: {
-        status: confirmed ? 'confirmed' : 'unverified',
-        explanation: confirmed
-          ? 'Datowanie historyczne zapisanej wzmianki mieści się w latach 1918–1939; zachowano istniejące ustalenie, bez nowego badania.'
-          : 'Dotychczasowe referencje nie mają potwierdzonego datowania historycznego w latach 1918–1939; wymagają sprawdzenia.',
-        evidence: proofs.map((materialId) => ({
-          materialId,
-          locator: materials.get(materialId).locator || 'Treść wzmianki',
-          note: null,
-        })),
+        status: qualification.status,
+        explanation: qualification.explanation,
+        evidence: qualification.proofs.map((proof) => {
+          const ref = p.references.find((r) => r.id === proof.referenceId);
+          const materialId =
+            'mat_' +
+            hash(Buffer.from(JSON.stringify([ref.url, ref.title, ref.page, ref.excerpt]))).slice(
+              0,
+              24,
+            );
+          return { materialId, locator: ref.page || 'Treść wzmianki', note: proof.note };
+        }),
       },
       materialIds: [...new Set(materialIds)],
       findings,

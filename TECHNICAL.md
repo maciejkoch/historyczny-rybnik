@@ -136,3 +136,5 @@ Płaskie `tags: {id,name}[]` zastępują publiczne `category`. `period: {status,
 `npm run research:view` uruchamia serwer Node tylko na 127.0.0.1:4319. HTML/CSS/JS w tools, Tailwind/daisyUI kompilowane lokalnie, MapLibre i plan 1932 z lokalnych plików; brak zależności sieciowych w przeglądaniu. Serwer jest tylko do odczytu, sprawdza Host/Origin, ogranicza ścieżki i odrzuca symlinki. Zewnętrzne źródła otwierane wyłącznie po wybraniu linku. Przeglądarka nie wchodzi do Angulara, SSG ani Hosting.
 
 Eksport ma jawną listę pól, oddzielne zatwierdzenie miejsca i kopii materiałów, zachowuje istniejący katalog, a transakcyjny importer utrzymuje nowsze lokalizacje. Testy warsztatu w `npm test` oraz testy reguł prywatnego prefixu w emulatorach. Instrukcje operatora i odzyskiwania: `data/places/README.md`.
+
+Kwalifikacja migracji rozróżnia datę wydania od kontekstu treści: współczesne ogłoszenia i spisy adresowe z lat 1918–1939 potwierdzają działalność w czasie wydania, bez automatycznego kopiowania publicationDate do historicalDate. Artykuły retrospektywne wymagają osobnej oceny; unverified oznacza nieukończoną ocenę, nie nieistnienie dowodu.

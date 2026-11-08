@@ -14,8 +14,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -123,8 +123,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -198,8 +198,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -250,7 +250,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -304,7 +304,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -358,7 +358,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -412,7 +412,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -483,7 +483,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -534,7 +534,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -588,7 +588,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -638,7 +638,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -695,8 +695,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -747,7 +747,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -797,7 +797,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -851,7 +851,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -898,7 +898,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -952,7 +952,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1019,7 +1019,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1073,7 +1073,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1124,7 +1124,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1188,7 +1188,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1239,7 +1239,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1289,8 +1289,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -1358,7 +1358,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1409,7 +1409,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1460,7 +1460,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1511,7 +1511,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1562,7 +1562,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1613,7 +1613,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1663,7 +1663,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1714,7 +1714,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1765,7 +1765,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1816,7 +1816,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1866,8 +1866,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -1935,7 +1935,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -1986,7 +1986,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2037,7 +2037,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2091,7 +2091,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2142,7 +2142,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2193,7 +2193,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2244,7 +2244,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2291,7 +2291,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2341,7 +2341,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2395,7 +2395,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2448,8 +2448,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -2517,7 +2517,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2588,7 +2588,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2642,7 +2642,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2696,7 +2696,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2767,7 +2767,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2821,7 +2821,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2875,7 +2875,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2929,7 +2929,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -2983,7 +2983,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -3029,8 +3029,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3080,8 +3080,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3131,8 +3131,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3203,8 +3203,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3254,8 +3254,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3305,8 +3305,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3414,8 +3414,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3465,8 +3465,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3516,8 +3516,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3567,8 +3567,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3618,8 +3618,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3693,8 +3693,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3768,8 +3768,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3843,8 +3843,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3918,8 +3918,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -3993,8 +3993,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -4068,8 +4068,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -4160,8 +4160,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -4235,8 +4235,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -4310,8 +4310,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -4385,8 +4385,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -4460,8 +4460,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -4535,8 +4535,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -4610,8 +4610,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -4661,8 +4661,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -4712,8 +4712,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -4763,8 +4763,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -4855,8 +4855,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -4930,8 +4930,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -5022,8 +5022,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -5097,8 +5097,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -5189,8 +5189,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -5264,8 +5264,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -5339,8 +5339,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -5414,8 +5414,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -5490,7 +5490,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -5544,7 +5544,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -5598,7 +5598,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -5652,7 +5652,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -5715,7 +5715,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -5769,7 +5769,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -5823,7 +5823,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -5870,7 +5870,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -5921,7 +5921,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -5971,7 +5971,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -6025,7 +6025,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -6075,7 +6075,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -6122,7 +6122,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -6169,7 +6169,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -6216,7 +6216,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -6263,7 +6263,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -6343,7 +6343,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -6390,7 +6390,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -6437,7 +6437,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -6484,7 +6484,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [],
     "addresses": [
@@ -6534,8 +6534,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -6677,8 +6677,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -6769,8 +6769,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -6861,8 +6861,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -6953,8 +6953,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -7028,8 +7028,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -7120,8 +7120,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -7212,8 +7212,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -7304,8 +7304,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -7379,8 +7379,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -7454,8 +7454,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -7546,8 +7546,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -7621,8 +7621,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -7734,8 +7734,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -7843,8 +7843,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -7942,8 +7942,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -8034,8 +8034,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -8126,8 +8126,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -8218,8 +8218,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -8310,8 +8310,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -8419,8 +8419,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -8511,8 +8511,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -8607,8 +8607,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -8682,8 +8682,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -8757,8 +8757,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -8832,8 +8832,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -8907,8 +8907,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -8982,8 +8982,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -9057,8 +9057,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -9166,8 +9166,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -9234,8 +9234,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -9306,8 +9306,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -9398,8 +9398,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -9466,8 +9466,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -9517,8 +9517,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -9568,8 +9568,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -9619,8 +9619,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -9738,8 +9738,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -9806,8 +9806,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -9891,8 +9891,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -9959,8 +9959,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10010,8 +10010,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10061,8 +10061,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10136,8 +10136,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10204,8 +10204,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10272,8 +10272,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10340,8 +10340,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10391,8 +10391,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10459,8 +10459,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10595,8 +10595,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10646,8 +10646,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10714,8 +10714,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10782,8 +10782,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10833,8 +10833,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -10929,8 +10929,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11031,8 +11031,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11082,8 +11082,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11133,8 +11133,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11184,8 +11184,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11252,8 +11252,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11320,8 +11320,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11371,8 +11371,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11422,8 +11422,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11490,8 +11490,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11541,8 +11541,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11650,8 +11650,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11701,8 +11701,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11752,8 +11752,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11820,8 +11820,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11888,8 +11888,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -11939,8 +11939,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12011,8 +12011,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12062,8 +12062,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12113,8 +12113,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12164,8 +12164,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12215,8 +12215,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12311,8 +12311,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12362,8 +12362,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12413,8 +12413,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12481,8 +12481,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12553,8 +12553,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12625,8 +12625,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12693,8 +12693,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12744,8 +12744,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12812,8 +12812,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12863,8 +12863,8 @@ export const PLACES: readonly Place[] = [
       }
     ],
     "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
     },
     "aliases": [],
     "addresses": [
@@ -12915,7 +12915,7 @@ export const PLACES: readonly Place[] = [
     ],
     "period": {
       "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
     },
     "aliases": [
       "Kościół świętego Antoniego",

@@ -82,3 +82,7 @@ Migracja kontraktu istniejącej bazy: operator pobiera kopię `places:snapshot -
 `npm run research -- hydrate --firebase-cli` pokazuje brakujące lokalne kopie już opublikowanych, zatwierdzonych obrazów. `--apply` pobiera je ze Storage dev, weryfikuje SHA-256 i zapisuje w files/imported oraz materiale. Nie pobiera nowych materiałów z nieustalonymi prawami; umożliwia podgląd wcześniejszych wycinków bez internetu. Po pobraniu wykonaj push warsztatu.
 
 Dla własnych skanów adresy internetowe oryginału/kolekcji/oznaczenia praw oraz autor w publicznym provenance mogą być null; nie tworzymy zastępczych URL ani nazw autora. Potwierdzenie praw wymaga basis, checkedAt, credit oraz evidenceUrl albo evidenceMaterialId wskazującego zarejestrowany materiał dowodowy (np. lokalną dokumentację).
+
+Materiały mogą określać temporalContext: contemporary (opis stanu bieżącego, np. reklama lub spis adresowy), retrospective albo unknown. Współczesne ogłoszenie z 1938 potwierdza działalność w naszym okresie również przy historicalDate=null. Nie kopiujemy automatycznie publicationDate do historicalDate; podstawę kwalifikacji zapisujemy w period.evidence. Data artykułu wspomnieniowego nie dowodzi istnienia miejsca w roku wydania.
+
+Korekta kwalifikacji wcześniejszego katalogu: datowane ogłoszenia prasowe i współczesne wpisy adresowe są dowodem okresu bez wymagania osobno wpisanego historicalDate. Sam brak tego pola oznacza brak ustrukturyzowanej daty, a nie brak dowodu. Część „Do sprawdzenia / inne lata” obejmuje również miejsca oczekujące na ocenę istniejących wzmianek.

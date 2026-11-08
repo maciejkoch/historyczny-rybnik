@@ -23,3 +23,7 @@ Do review przekazywany jest PR i zarezerwowany dev-1. Nie scalać i nie oznacza�
 ## Odbiór dev-1
 
 Podgląd https://historyczny-rybnik-dev-1.web.app/ udostępniono z rewizji 105e6f222dcc7ce0e8bf36c67be016f9063a2fd5; deployment.json potwierdził slot i SHA. HTTP 200/noindex dla mapy i karty bazyliki; rzeczywiste 404 dla nieznanej trasy, prywatnego prefixu i tools/research-viewer. IAB: karta pokazuje tag i adnotację okresu, mapa i wycinek działają. CI build/test-backend PASS. Następna poprawka kontraktu własnych skanów dopuszcza brak adresów/autorów i lokalny materiał dowodu praw; 8 testów warsztatu i ponowny build PASS. Aktualne wdrożone SHA jest zapisane w Projects i deployment.json.
+
+## Korekta po uwadze właściciela o Sztandarze z 1938
+
+Początkowa migracja zbyt mechanicznie wymagała historicalDate. Poprawiono ją: datowane współczesne ogłoszenia i spisy adresowe dowodzą działalności w czasie wydania, przy zachowaniu niepewności identyfikacji. Nowy test odróżnia reklamę 1938 od retrospektywnego artykułu i ogłoszenia 1950. Skrypt correct-period.mjs sprawdza zgodność oryginalnych referencji z ustaleniami i koryguje kwalifikację bez utraty ID/plików. Wynik: 128 miejsc confirmed, 68 oczekujących na ocenę innych wzmianek. Brak oceny nie jest stwierdzeniem braku dowodów.

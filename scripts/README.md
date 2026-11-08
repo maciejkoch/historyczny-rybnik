@@ -77,3 +77,5 @@ Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_
 - `places/import-policy.mjs`: wspólna, testowana ochrona live location/version/timestamps przy imporcie. `places:snapshot -- --migrate-legacy` wykonuje jawne mapowanie wcześniejszego category na tags i period dla jednorazowej migracji; zwykły snapshot wymaga nowego kontraktu.
 
 `research hydrate [--apply] [--firebase-cli]` (`research/hydrate.mjs`): podgląd/pobranie już opublikowanych zatwierdzonych obrazów dev do lokalnego warsztatu, z kontrolą SHA-256.
+
+`research/legacy-period.mjs` kwalifikuje wcześniejsze wzmianki: datowanie treści oraz jawnie rozpoznane współczesne ogłoszenia i spisy adresowe, z zachowaniem niepewności identyfikacji.

@@ -4,7 +4,7 @@ const names = {
   overview: 'Podsumowanie',
   places: 'Miejsca',
   candidates: 'Kandydaci',
-  'out-of-period': 'Poza okresem',
+  'out-of-period': 'Do sprawdzenia / inne lata',
   sources: 'Źródła',
   materials: 'Materiały',
   research: 'Badania',
