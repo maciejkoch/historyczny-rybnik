@@ -74,7 +74,7 @@ Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_
 - `npm run research:view`: `research/viewer.mjs`, lokalny serwer tylko do odczytu 127.0.0.1:4319.
 - `npm run test:research`: testy modelu, publikacji, synchronizacji, odzyskania i serwera z `research/test/`; włączone do npm test.
 - Moduły `research/model.mjs`, `workspace.mjs`, `storage.mjs`, `sync.mjs`, `legacy.mjs`, `migrate.mjs`, `publish.mjs`, `assets.mjs` oraz fikcyjne `test/fixtures.mjs`: role opisane w [README narzędzi](research/README.md).
-- `places/import-policy.mjs`: wspólna, testowana ochrona live location/version/timestamps przy imporcie. `places:snapshot -- --migrate-legacy` wykonuje jawne mapowanie wcześniejszego category na tags i period dla jednorazowej migracji; zwykły snapshot wymaga nowego kontraktu.
+- `places/import-policy.mjs`: wspólna, testowana ochrona live location/version/timestamps przy imporcie. `places:snapshot -- --migrate-legacy` wykonuje jawne mapowanie wcześniejszego category na tags/period oraz references/images na mentions/materials dla jednorazowej migracji; zwykły snapshot wymaga nowego kontraktu.
 
 `research hydrate [--apply] [--firebase-cli]` (`research/hydrate.mjs`): podgląd/pobranie już opublikowanych zatwierdzonych obrazów dev do lokalnego warsztatu, z kontrolą SHA-256.
 
