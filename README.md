@@ -42,3 +42,5 @@ Warsztat badań ma projektowy skill, prywatne dane źródeł/materiałów/miejsc
 Lokalny warsztat: widok Materiały pokazuje galerię skanów i wycinków z miejscami, źródłami oraz stanem praw. Prywatna archiwizacja jest niezależna od zgody na publikację.
 
 Miejsce ma opis redakcyjny, udokumentowane daty i zweryfikowane wzmianki z właściwymi materiałami historycznymi. Lokalny warsztat rozdziela historyczne obrazy, kopie źródeł oraz materiały do rozpoznania; współczesne zdjęcia nie ilustrują dawnych wzmianek.
+
+Rzeczywiste dane miejsc i wygenerowane katalogi pozostają poza Git. Testy i CI używają wyłącznie fikcyjnych danych; build dev pobiera aktualny snapshot z Firestore.

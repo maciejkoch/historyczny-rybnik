@@ -13,3 +13,5 @@
 | `test/` | Fikcyjne dane i testy zachowania. `npm run test:research` wymaga nasłuchu na 127.0.0.1, bez chmury i prawdziwych poświadczeń. |
 
 Capture zachowuje kopie niezależnie od praw publikacyjnych, współdzieli pliki po SHA-256 i rejestruje pochodzenie. Hydrate zachowuje wcześniej opublikowane obrazy jako kopie dokumentów źródłowych. Nadanie im roli materiału historycznego i powiązanie ze wzmianką wymaga osobnej oceny datowania. Żadna z tych operacji nie przyznaje zgody na publikację.
+
+Publiczny eksport trafia do ignorowanego `.local/research.catalog.json`. Bazą jest świeży snapshot `.local/places.snapshot.json` (najpierw `places:snapshot`); `research export --baseline=/sciezka/plik.json` jawnie wybiera inną bazę. Brak pliku przerywa eksport zamiast tworzyć niepełny katalog. Migracja wcześniejszych publikacji oczekuje lokalnego `.local/source-rights.json`; kopia dawnych decyzji pozostaje także w prywatnym warsztacie jako files/legacy-source-rights.json.

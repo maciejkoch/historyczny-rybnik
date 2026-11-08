@@ -8,8 +8,8 @@ import {
   writeRequest,
   readRequest,
 } from '../src/validation.mjs';
-const testData = JSON.parse(readFileSync(new URL('../../data/places.test-data.json', import.meta.url)));
-test('reviewed single church validates', () => assert.equal(validateCatalog(testData).length, 1));
+const testData = JSON.parse(readFileSync(new URL('../../data/places.fixture.json', import.meta.url)));
+test('synthetic catalogue fixture validates', () => assert.equal(validateCatalog(testData).length, 1));
 test('image provenance rejects invalid URLs, hashes, rights dates and unknown fields', () => {
   const mutations = [
     (image) => (image.provenance.sourcePageUrl = 'http://example.org/source'),

@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { preserveLiveFields } from './import-policy.mjs';
 import { validateCatalog } from '../../functions/src/validation.mjs';
-const input = process.argv.find((arg) => arg.endsWith('.json')) || 'data/places.test-data.json';
+const input = process.argv.find((arg) => arg.endsWith('.json')) || '.local/research.catalog.json';
 const places = validateCatalog(JSON.parse(readFileSync(input, 'utf8')));
 if (
   !places.length ||

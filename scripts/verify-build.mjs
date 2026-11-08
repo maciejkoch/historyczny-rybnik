@@ -14,15 +14,21 @@ assert.match(search, /noindex/);
 assert.ok(search.includes('https://historyczny-rybnik-dev.web.app/szukaj'));
 
 assert.doesNotMatch(home, /Dane przykładowe/);
-const catalogue = JSON.parse(readFileSync(process.env['PLACES_SNAPSHOT'] || 'data/places.test-data.json', 'utf8'));
+const catalogue = JSON.parse(
+  readFileSync(process.env['PLACES_SNAPSHOT'] || 'data/places.fixture.json', 'utf8'),
+);
 for (const place of catalogue) {
   const html = readFileSync(`${root}/miejsca/${place.slug}/index.html`, 'utf8');
   assert.match(html, /screen-place/);
-  assert.ok(html.includes(place.name)); assert.ok(html.includes(place.description));
-  assert.match(html, /rel="canonical"/); assert.match(html, /og:title/);
+  assert.ok(html.includes(place.name));
+  assert.ok(html.includes(place.description));
+  assert.match(html, /rel="canonical"/);
+  assert.match(html, /og:title/);
   for (const ref of place.mentions) assert.ok(html.includes(ref.title));
 }
-assert.match(readFileSync(`${root}/sitemap.xml`, 'utf8'), /bazylika-sw-antoniego/);
+const sitemap = readFileSync(`${root}/sitemap.xml`, 'utf8');
+for (const place of catalogue.filter((p) => p.published))
+  assert.ok(sitemap.includes('/miejsca/' + place.slug));
 assert.ok(existsSync(`${root}/maplibre/maplibre-gl-worker.mjs`));
 assert.ok(existsSync(`${root}/maps/rybnik-style.json`));
 assert.match(home, /noindex/);
@@ -38,18 +44,31 @@ assert.deepEqual(validateStyleMin(style), [], 'MapLibre style must be valid');
 const manifest = JSON.parse(readFileSync(`${root}/maps/rybnik-1932/manifest.json`, 'utf8'));
 assert.equal(manifest.maxzoom, 18, 'Historical pyramid must support zoom 18');
 assert.deepEqual(
-  [...new Set(Object.keys(manifest.tiles).map(path => Number(path.split('/')[0])))].sort((a, b) => a - b),
+  [...new Set(Object.keys(manifest.tiles).map((path) => Number(path.split('/')[0])))].sort(
+    (a, b) => a - b,
+  ),
   Array.from({ length: 9 }, (_, index) => index + 10),
   'Historical pyramid must contain every zoom from 10 to 18',
 );
 assert.deepEqual(
-  readdirSync(`${root}/maps/rybnik-1932`, { recursive: true }).filter(path => path.endsWith('.webp')).sort(),
+  readdirSync(`${root}/maps/rybnik-1932`, { recursive: true })
+    .filter((path) => path.endsWith('.webp'))
+    .sort(),
   Object.keys(manifest.tiles).sort(),
   'Published tiles must exactly match the manifest (no stale tiles)',
 );
-assert.ok(manifest.validation.p90Meters <= 4 && manifest.validation.maxMeters <= 8, 'Historical reference validation failed');
+assert.ok(
+  manifest.validation.p90Meters <= 4 && manifest.validation.maxMeters <= 8,
+  'Historical reference validation failed',
+);
 for (const [path, digest] of Object.entries(manifest.tiles)) {
-  assert.equal(createHash('sha256').update(readFileSync(`${root}/maps/rybnik-1932/${path}`)).digest('hex'), digest, path);
+  assert.equal(
+    createHash('sha256')
+      .update(readFileSync(`${root}/maps/rybnik-1932/${path}`))
+      .digest('hex'),
+    digest,
+    path,
+  );
 }
 console.log(`Verified vector style and ${Object.keys(manifest.tiles).length} historical tiles.`);
 

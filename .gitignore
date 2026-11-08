@@ -64,3 +64,15 @@ functions/node_modules/
 !/data/places/README.md
 /data/places.sync-lock/
 /data/places.stage-*/
+
+# Real catalogue inputs and generated public projections
+/data/places.catalog.json
+/data/places.test-data.json
+/data/source-rights.json
+/src/app/places/catalog.generated.ts
+/public/search-index.json
+/public/sitemap.xml
+
+# Historical catalogue copies and one-off migration inputs
+/agent-context/full-catalog/*
+!/agent-context/full-catalog/README.md

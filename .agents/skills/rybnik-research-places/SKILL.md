@@ -34,3 +34,5 @@ Status praw, podstawa, dowód, checkedAt i credit dotyczą konkretnego materiał
 ## Zakończenie
 
 Zapisz research: kontekst, zapytania, zakresy źródeł, wyniki, zmiany, ograniczenia i dalsze leads. Wykonaj validate, podgląd push i push --apply --firebase-cli; usunięcia zatwierdzaj dopiero po obejrzeniu planu. Krótko podsumuj po polsku: miejsca i wzmianki, nowe udokumentowane daty, materiały historyczne i kopie źródeł, prawa, kandydaci, niepewności i stan synchronizacji. Nie raportuj ukończenia czynności, których nie wykonałeś.
+
+Rzeczywiste dane i wygenerowane projekcje pozostają poza Git. Do zatwierdzonej publikacji operator pobiera świeży places:snapshot do .local/places.snapshot.json; to baza research export, którego wynik trafia do .local/research.catalog.json. Nie używaj fikcyjnego data/places.fixture.json jako danych importu lub źródła historycznego.

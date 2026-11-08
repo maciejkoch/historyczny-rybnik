@@ -68,6 +68,7 @@ Każda rewizja zawiera identyczne ścieżki i bajty, manifest SHA-256 i rozmiary
 Publiczny kontrakt miejsca używa mentions z documentedDate, verification, źródłem i materials z własnym datowaniem. `upgradePlace` jawnie migruje dawne references — zwykły odczyt pozostaje ścisły. Nowe badania nie włączają publicationApproved. Eksport wymaga zatwierdzonego miejsca i datowanych verified wzmianek, zachowuje resztę wskazanego katalogu, nie usuwa istniejących rekordów. Import chroni live location/version/timestamps transakcyjnie.
 
 ```sh
+GCLOUD_PROJECT=historyczny-rybnik npm run places:snapshot -- --firebase-cli
 npm run research -- export
 npm run research -- export --apply
 npm run research -- assets
@@ -76,3 +77,5 @@ GCLOUD_PROJECT=historyczny-rybnik npm run places:import -- .local/research.catal
 ```
 
 Dopiero osobne places:import --apply zapisuje bazę dev. Lokalna przeglądarka działa tylko na 127.0.0.1:4319, jest tylko do odczytu, bez Google i internetu przy przeglądaniu, poza Hosting/SSG. Plan, moduły i obrazy są lokalne. `--root=/absolutna/sciezka` wybiera warsztat; `RESEARCH_PORT` ustawia port.
+
+Eksport czyta domyślnie .local/places.snapshot.json; --baseline=plik.json jawnie wybiera inną bazę. Wynik to .local/research.catalog.json. Rzeczywiste katalogi i wszystkie wygenerowane projekcje są poza Git; data/places.fixture.json zawiera tylko fikcyjne dane CI.

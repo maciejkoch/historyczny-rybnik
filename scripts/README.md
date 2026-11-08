@@ -15,7 +15,7 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 | [places/deploy-prod.mjs](places/deploy-prod.mjs) | Blokuje publikację produkcji do przygotowania konfiguracji fazy 5; obecnie nie wdraża niczego. |
 | [places/firestore.mjs](places/firestore.mjs) | Moduł połączenia do jawnie wybranej bazy dev lub emulatora; obsługuje ADC i impersonację przez logowanie Firebase CLI. |
 | [places/import.mjs](places/import.mjs) | Waliduje i importuje katalog do dev, zachowując bieżącą pozycję; domyślnie podgląd, zapis przez `--apply`. |
-| [places/prepare.mjs](places/prepare.mjs) | Waliduje wejście builda i generuje pliki katalogu; wymaga jednego zatwierdzonego kościoła. |
+| [places/prepare.mjs](places/prepare.mjs) | Waliduje wejście builda i generuje pliki katalogu; domyślnie używa fikcyjnego zestawu CI, a PLACES_SNAPSHOT wybiera rzeczywisty snapshot. |
 | [places/snapshot.mjs](places/snapshot.mjs) | Pobiera opublikowane miejsca z Firestore do ignorowanego `.local/places.snapshot.json`. |
 | [places/upload-assets.mjs](places/upload-assets.mjs) | Sprawdza SHA-256 i rozmiary obrazów; z `--apply` publikuje nowe, niezmienne pliki w bucket dev. |
 | [privacy/consent.test.mjs](privacy/consent.test.mjs) | Testuje zgody, przechowywanie ustawień i warunki ładowania usług Google. |
@@ -83,3 +83,7 @@ Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_
 `research capture --material=ID --input=plik [--role=original|scan|crop|thumbnail] [--derived-from=files/...] [--transformations=opis] [--apply]` (`research/workspace/capture.mjs`): podgląd/zapis wewnętrznej kopii z deduplikacją SHA-256 i pochodzeniem, bez zmiany praw publikacyjnych.
 
 `research/model/chronology.mjs` wylicza udokumentowane daty bez interpolacji lat oraz sprawdza zgodność źródła/datowania obrazu ze wzmianką. `research/migrations/workspace-v2-v3.mjs` jawnie przekształca schemat 2 → 3. `capture --collection=documents|materials` wybiera rekord docelowy.
+
+Rzeczywiste dane katalogu są poza Git: `places:snapshot` zapisuje `.local/places.snapshot.json`, eksport warsztatu `.local/research.catalog.json`. Import i uploader domyślnie używają tego eksportu; `check-live.mjs` wymaga rzeczywistego snapshotu z lokalizacją sprawdzanego miejsca. `research export --baseline=plik.json` nadpisuje domyślną bazę snapshotu.
+
+Domyślny build i CI korzystają wyłącznie z `data/places.fixture.json` (fikcyjne dane). `start` i `watch` najpierw wykonują `places:prepare`, więc działają w świeżym checkoutcie bez wygenerowanego katalogu. Generator zapisuje ignorowane catalog.generated.ts, public/search-index.json, public/sitemap.xml oraz `.local/firebase.dev.json` z przekierowaniami i bezwzględnym katalogiem Hosting. Nie modyfikuje wersjonowanych konfiguracji Firebase. `preview` używa tej wygenerowanej konfiguracji; `deploy:dev-N` po świeżym snapshocie i buildzie tworzy `.local/firebase.dev-N.json` dla właściwej witryny.

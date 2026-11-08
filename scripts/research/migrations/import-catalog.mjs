@@ -22,7 +22,7 @@ export async function migrate({ root, input, apply = false }) {
     sources = new Map(),
     materials = new Map(),
     tags = new Map();
-  const rights = JSON.parse(await readFile('data/source-rights.json', 'utf8')).sources;
+  const rights = JSON.parse(await readFile('.local/source-rights.json', 'utf8')).sources;
   for (const raw of catalog) {
     const upgraded = upgradePlace(raw);
     const p = {
@@ -174,7 +174,7 @@ export async function migrate({ root, input, apply = false }) {
   await atomicWrite(await safePath(root, 'files/legacy-catalog.json'), await readFile(input));
   await atomicWrite(
     await safePath(root, 'files/legacy-source-rights.json'),
-    await readFile('data/source-rights.json'),
+    await readFile('.local/source-rights.json'),
   );
   for (const [collection, rows] of Object.entries(data)) {
     if (collection === 'config') continue;

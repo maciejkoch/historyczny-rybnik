@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run places:prepare && ng serve",
     "build": "npm run places:prepare && ng build && node scripts/verify-build.mjs",
-    "watch": "ng build --watch --configuration development",
-    "preview": "npm run build && firebase hosting:channel:deploy faza-1 --project historyczny-rybnik --expires 30d",
+    "watch": "npm run places:prepare && ng build --watch --configuration development",
+    "preview": "npm run build && firebase hosting:channel:deploy faza-1 --project historyczny-rybnik --expires 30d --config .local/firebase.dev.json",
     "emulate": "firebase emulators:start --only hosting --config firebase.dev.json --project historyczny-rybnik",
     "deploy:dev": "node scripts/places/deploy-dev.mjs",
     "deploy:prod": "node scripts/places/deploy-prod.mjs",

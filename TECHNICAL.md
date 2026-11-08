@@ -95,7 +95,7 @@ npm run preview
 
 Polecenie buduje aplikację i publikuje wyłącznie kanał `faza-1` w projekcie `historyczny-rybnik`, ważny 30 dni. Używa lokalnego logowania Firebase CLI; poświadczenia nie trafiają do repozytorium. Nie publikuje kanału live. Konfiguracje nie zawierają fallbacku SPA: nieznane URL-e zwracają HTTP 404 z własnym `404.html`. Preview blokuje indeksowanie przez meta robots, robots.txt i nagłówek X-Robots-Tag. Przed produkcją w fazie 5 potrzebna będzie osobna konfiguracja indeksowania.
 
-CI wykonuje `npm ci`, build i zapisuje artefakt Hosting. Nie ma uprawnień do deploymentu. CI uruchamia także walidację oraz testy API/reguł w emulatorach. Offline build korzysta z walidowanego pliku jednego kościoła, bez poświadczeń chmurowych.
+CI wykonuje `npm ci`, build i zapisuje artefakt Hosting. Nie ma uprawnień do deploymentu. CI uruchamia także walidację oraz testy API/reguł w emulatorach. Offline build korzysta wyłącznie z fikcyjnego data/places.fixture.json, bez poświadczeń chmurowych.
 
 [Zapis odbioru fazy 1](agent-context/reference/mvp-1/odbior-fazy-1.md).
 
@@ -117,13 +117,13 @@ Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne
 
 ## Pełny katalog na dev
 
-Plik `data/places.catalog.json` zawiera 200 miejsc (196 przeniesionych z MVP.0 i cztery punkty sprzedaży benzyny), ze stabilnymi ID i zachowanym rekordem `place_sw_antoni`. Build przyjmuje pełny walidowany snapshot, a odczyt lokalizacji dzieli katalog na żądania po maksymalnie 100 ID. Import dev obsługuje do 400 miejsc w jednej transakcji, zachowuje istniejące lokalizacje, wersje i daty; odrzuca pominięcie istniejących dokumentów. Produkcja pozostaje oddzielnym zadaniem.
+Ignorowany snapshot `.local/places.snapshot.json` jest wejściem builda dev. Baza dev zawiera 200 miejsc (196 przeniesionych z MVP.0 i cztery punkty sprzedaży benzyny), ze stabilnymi ID i zachowanym rekordem `place_sw_antoni`. Build przyjmuje pełny walidowany snapshot, a odczyt lokalizacji dzieli katalog na żądania po maksymalnie 100 ID. Import dev obsługuje do 400 miejsc w jednej transakcji, zachowuje istniejące lokalizacje, wersje i daty; odrzuca pominięcie istniejących dokumentów. Produkcja pozostaje oddzielnym zadaniem.
 
 AtlasMap korzysta z klastrowanego źródła GeoJSON MapLibre (promień 50 px, maksymalny zoom grupowania 15) i markerów HTML z natywnymi przyciskami. Grupa przybliża do getClusterExpansionZoom; wybrany punkt pozostaje poza grupami. Edycja wyłącza przyciski, a podgląd punktu nie wchodzi do grupowania.
 
 Filtr „Bez lokalizacji” używa aktualnych danych Locations (lub snapshotu przy niedostępnym odczycie) i wybiera miejsca z `location.coordinates === null`. Łączy się z wyszukiwaniem tekstowym; zmienia listę wyników, a stan pozostaje w pamięci atlasu.
 
-Indeks data/source-rights.json zapisuje decyzje praw na poziomie konkretnego wydania i odwołania materiałów. Publiczne dokumenty places zachowują pochodzenie, datę sprawdzenia oraz sumy wycinka i miniatury. originalSha256 nowych obrazów opisuje odziedziczony wycinek MVP.0 (jawnie w transformations), nie pełny PDF. Indeks nie jest dodatkową kolekcją ani manifestem plików.
+Indeks .local/source-rights.json zapisuje decyzje praw na poziomie konkretnego wydania i odwołania materiałów. Publiczne dokumenty places zachowują pochodzenie, datę sprawdzenia oraz sumy wycinka i miniatury. originalSha256 nowych obrazów opisuje odziedziczony wycinek MVP.0 (jawnie w transformations), nie pełny PDF. Indeks nie jest dodatkową kolekcją ani manifestem plików.
 
 ## Warsztat badań historycznych
 
@@ -140,3 +140,5 @@ Sync zachowuje identyczne ścieżki/bajty, niezmienne rewizje, SHA-256, kontrol�
 Lokalna przeglądarka HTML/CSS/JS działa tylko na 127.0.0.1:4319, tylko do odczytu, z kontrolą Host/Origin, bez symlinków i zewnętrznych zależności przy przeglądaniu. Pokazuje chronologię miejsca, wzmianki, galerię historyczną, dokumenty/kopie źródeł i obrazy do rozpoznania. Pozostaje poza Hosting i SSG. Instrukcje: data/places/README.md; testy: scripts/research/test.
 
 Narzędzia `scripts/research/` są pogrupowane w model, workspace, sync, migrations, publication, viewer i test. `cli.mjs` pozostaje wspólnym wejściem operatora; polecenia npm zachowują nazwy. Spis modułów: scripts/research/README.md.
+
+Rzeczywiste katalogi i indeks dawnych praw są poza Git. Wersjonowany jest tylko fikcyjny data/places.fixture.json. Generator tworzy ignorowane src/app/places/catalog.generated.ts, public/search-index.json i public/sitemap.xml. Szablony firebase.dev*.json pozostają stałe; przekierowania z katalogu są zapisywane do ignorowanych .local/firebase.dev*.json z bezwzględną ścieżką Hosting. Deploy dev i preview używają tych wygenerowanych konfiguracji. Start/watch najpierw przygotowują katalog, więc świeży checkout nie wymaga śledzonego modułu generated.

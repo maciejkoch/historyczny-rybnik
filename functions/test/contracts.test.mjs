@@ -13,7 +13,7 @@ import {
 import { readLocations, updateLocation } from '../src/service.mjs';
 
 const places = JSON.parse(
-  readFileSync(new URL('../../data/places.test-data.json', import.meta.url)),
+  readFileSync(new URL('../../data/places.fixture.json', import.meta.url)),
 );
 const { published, createdAt, ...publicPlace } = places[0];
 const dto = {

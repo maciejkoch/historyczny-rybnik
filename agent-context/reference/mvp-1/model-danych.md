@@ -145,7 +145,7 @@ Wycinki i miniatury przechowujemy pod `public/places/{placeId}/{referenceId}/...
 
 Każdy obraz zawiera `sha256` i `thumbnailSha256` publikowanych wariantów oraz obiekt `provenance`: tytuł, stronę źródłową, kolekcję oryginału, URL i SHA-256 oryginału, autora, wyjaśnienie datowania, nazwę i URL licencji lub oznaczenia praw, status `copyrighted`, datę sprawdzenia `rightsCheckedAt` (`YYYY-MM-DD`) i opis przekształceń `transformations`. Nieznanego autora lub datowania nie uzupełniamy domysłem — niepewność opisujemy tekstowo. Wszystkie te pola są publiczne.
 
-Dane te zapisujemy w Firestore przez importer; `data/places.test-data.json` zawiera dane testowe dla testów i buildów CI; może też służyć do jawnego importu testowego na dev. Wdrożenie dev pobiera aktualny snapshot Firestore. Nie utrzymujemy osobnego manifestu assetów ani pliku JSON z metadanymi źródła. Pliki binarne są w Storage, poza repozytorium. Do ponownego uploadu operator dostarcza lokalne kopie; skrypt sprawdza ich sumy względem dokumentu miejsca.
+Dane te zapisujemy w Firestore przez importer; `data/places.fixture.json` zawiera dane testowe dla testów i buildów CI; może też służyć do jawnego importu testowego na dev. Wdrożenie dev pobiera aktualny snapshot Firestore. Nie utrzymujemy osobnego manifestu assetów ani pliku JSON z metadanymi źródła. Pliki binarne są w Storage, poza repozytorium. Do ponownego uploadu operator dostarcza lokalne kopie; skrypt sprawdza ich sumy względem dokumentu miejsca.
 
 - Nie zapisujemy obrazów jako base64 w Firestore.
 - Referencja może mieć sam opis i link, bez plików.

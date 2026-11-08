@@ -3,7 +3,7 @@ import { loadWorkspace, atomicWrite, safePath } from '../../scripts/research/wor
 import { legacyPeriod, legacyTemporalContext } from '../../scripts/research/migrations/legacy-period.mjs';
 const apply = process.argv.includes('--apply'),
   root = 'data/places',
-  catalog = JSON.parse(await readFile('data/places.catalog.json'));
+  catalog = JSON.parse(await readFile('.local/places.catalog.json'));
 const data = await loadWorkspace(root),
   places = new Map([...data.places, ...data['out-of-period']].map((p) => [p.id, p])),
   materials = new Map(data.materials.map((m) => [m.id, m]));
@@ -52,7 +52,7 @@ if (apply) {
       await safePath(root, `materials/${id}.json`),
       JSON.stringify(materials.get(id), null, 2) + '\n',
     );
-  await atomicWrite('data/places.catalog.json', JSON.stringify(catalog, null, 2) + '\n');
+  await atomicWrite('.local/places.catalog.json', JSON.stringify(catalog, null, 2) + '\n');
   await loadWorkspace(root);
 }
 console.log({ applied: apply, ...counts });

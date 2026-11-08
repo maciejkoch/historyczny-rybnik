@@ -278,7 +278,7 @@ test('own scans preserve missing web provenance and allow a local documentary ri
 function requireFixtureImage() {
   return JSON.stringify(
     JSON.parse(
-      readFileSync(new URL('../../../data/places.test-data.json', import.meta.url)),
+      readFileSync(new URL('../../../data/places.fixture.json', import.meta.url)),
     ).flatMap((p) => p.mentions.flatMap((r) => r.materials))[0],
   );
 }
@@ -409,7 +409,7 @@ test('historical publication keeps material identity and relocates legacy image 
   const d = fixture(),
     p = d.places[0],
     mention = d.mentions.find((m) => p.mentionIds.includes(m.id) && m.verification === 'verified');
-  const sample = JSON.parse(readFileSync('data/places.test-data.json', 'utf8'))[0].mentions.flatMap(
+  const sample = JSON.parse(readFileSync('data/places.fixture.json', 'utf8'))[0].mentions.flatMap(
     (m) => m.materials,
   )[0];
   assert.ok(sample);

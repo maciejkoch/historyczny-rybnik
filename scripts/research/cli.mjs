@@ -40,7 +40,7 @@ try {
     console.log(
       await migrate({
         root,
-        input: value('input') || 'data/places.catalog.json',
+        input: value('input') || '.local/places.snapshot.json',
         apply: args.includes('--apply'),
       }),
     );
@@ -83,6 +83,7 @@ try {
       await exportCatalog({
         root,
         output: value('output') || '.local/research.catalog.json',
+        baseline: value('baseline') || '.local/places.snapshot.json',
         apply: args.includes('--apply'),
       }),
     );

@@ -67,7 +67,7 @@ export async function exportCatalog({
   root,
   output,
   apply = false,
-  baseline = 'data/places.catalog.json',
+  baseline = '.local/places.snapshot.json',
 }) {
   const data = await loadWorkspace(root);
   const prior = catalogSchema.parse(JSON.parse(await readFile(baseline, 'utf8')));
