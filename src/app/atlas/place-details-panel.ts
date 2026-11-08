@@ -12,6 +12,21 @@ export class PlaceDetailsPanel {
   readonly place = input<Place | null>(null);
   readonly imageOpened = output<{ url: string; alt: string }>();
 
+  verifiedMentions() {
+    return (this.place()?.mentions || []).filter((m) => m.verification === 'verified');
+  }
+  draftMentions() {
+    return (this.place()?.mentions || []).filter((m) => m.verification !== 'verified');
+  }
+
+  documentedDates() {
+    const dates = new Map<string, PartialDate>();
+    for (const mention of this.place()?.mentions || [])
+      if (mention.verification === 'verified' && mention.documentedDate)
+        dates.set(JSON.stringify(mention.documentedDate), mention.documentedDate);
+    return [...dates.values()].sort((a, b) => a.from.localeCompare(b.from));
+  }
+
   date(value: PartialDate | null): string {
     return value
       ? `${value.approximate ? 'około ' : ''}${value.from}${value.to ? ' – ' + value.to : ''}`

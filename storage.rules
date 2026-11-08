@@ -3,6 +3,7 @@ service firebase.storage {
   match /b/{bucket}/o {
     // Only reviewed copies with publication rights are imported under public/.
     match /public/places/{placeId}/{referenceId}/{file} { allow read: if true; allow write: if false; }
+    match /public/materials/{materialId}/{file} { allow read: if true; allow write: if false; }
     match /{path=**} { allow read, write: if false; }
   }
 }

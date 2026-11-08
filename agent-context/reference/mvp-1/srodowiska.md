@@ -39,3 +39,5 @@ Zadanie infrastrukturalne inicjalizuje wszystkie trzy witryny; dev-1 pozostaje j
 Każdy deployment publikuje `/deployment.json` z nazwą slotu, branchem, SHA i czasem. To ułatwia weryfikację niezależności wydań; SHA opisuje commit źródłowy, wdrażaj wyłącznie czysty checkout.
 
 [Zapis odbioru trzech środowisk](odbior-srodowisk-dev.md).
+
+Konfiguracje firebase.dev*.json w repo są szablonami. Build zapisuje konfigurację z przekierowaniami pochodzącymi z katalogu do ignorowanego .local/firebase.dev.json; deploy:dev-N tworzy odpowiedni .local/firebase.dev-N.json i publikuje z niego. Bezwzględna ścieżka public w wygenerowanej konfiguracji wskazuje wynik builda repozytorium. Szablony nie są modyfikowane przez generator.

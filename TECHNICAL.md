@@ -26,7 +26,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 | Obszar | Odpowiedzialność |
 | --- | --- |
 | `src/main.ts`, `main.server.ts`, `app.config*.ts` | Start przeglądarki i SSG, konfiguracja Angulara, routera i hydratacji. |
-| `app.routes.ts`, `app.routes.server.ts` | Publiczne adresy oraz wybór stron generowanych podczas builda. Lista kart wynika z katalogu. |
+| `app.routes.ts`, `app.routes.server.ts` | Publiczne adresy oraz wybór stron generowanych podczas builda. Lista kart wynika z katalogu. Atlas i jego katalog są ładowane przez osobny pakiet tras atlas/atlas.routes.ts; SSG nadal generuje wszystkie karty. Reuse rozpoznaje te trasy po data.atlas, bez wciągania komponentu atlasu do pakietu startowego. |
 | `app/atlas/atlas.ts` | Łączy stan trasy, wyszukiwania, wybranego miejsca i lokalizacji. Ustawia metadane, zarządza nawigacją, przewijaniem i powiększaniem skanów. |
 | `app/atlas/place-*-panel.*` | Osobne widoki wyników wyszukiwania i szczegółów miejsca. |
 | `app/atlas/panel-layout.ts` | Układ i rozmiar paneli oraz ustawienia zapamiętywane zgodnie ze zgodą użytkownika. |
@@ -96,7 +96,7 @@ npm run preview
 
 Polecenie buduje aplikację i publikuje wyłącznie kanał `faza-1` w projekcie `historyczny-rybnik`, ważny 30 dni. Używa lokalnego logowania Firebase CLI; poświadczenia nie trafiają do repozytorium. Nie publikuje kanału live. Konfiguracje nie zawierają fallbacku SPA: nieznane URL-e zwracają HTTP 404 z własnym `404.html`. Preview blokuje indeksowanie przez meta robots, robots.txt i nagłówek X-Robots-Tag. Przed produkcją w fazie 5 potrzebna będzie osobna konfiguracja indeksowania.
 
-CI wykonuje `npm ci`, build i zapisuje artefakt Hosting. Nie ma uprawnień do deploymentu. CI uruchamia także walidację oraz testy API/reguł w emulatorach. Offline build korzysta z walidowanego pliku jednego kościoła, bez poświadczeń chmurowych.
+CI wykonuje `npm ci`, build i zapisuje artefakt Hosting. Nie ma uprawnień do deploymentu. CI uruchamia także walidację oraz testy API/reguł w emulatorach. Offline build korzysta wyłącznie z fikcyjnego data/places.fixture.json, bez poświadczeń chmurowych.
 
 [Zapis odbioru fazy 1](agent-context/reference/mvp-1/odbior-fazy-1.md).
 
@@ -118,10 +118,28 @@ Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne
 
 ## Pełny katalog na dev
 
-Plik `data/places.catalog.json` zawiera 196 miejsc przeniesionych z MVP.0, ze stabilnymi ID i zachowanym rekordem `place_sw_antoni`. Build przyjmuje pełny walidowany snapshot, a odczyt lokalizacji dzieli katalog na żądania po maksymalnie 100 ID. Import dev obsługuje do 400 miejsc w jednej transakcji, zachowuje istniejące lokalizacje, wersje i daty; odrzuca pominięcie istniejących dokumentów. Produkcja pozostaje oddzielnym zadaniem.
+Ignorowany snapshot `.local/places.snapshot.json` jest wejściem builda dev. Baza dev zawiera 200 miejsc (196 przeniesionych z MVP.0 i cztery punkty sprzedaży benzyny), ze stabilnymi ID i zachowanym rekordem `place_sw_antoni`. Build przyjmuje pełny walidowany snapshot, a odczyt lokalizacji dzieli katalog na żądania po maksymalnie 100 ID. Import dev obsługuje do 400 miejsc w jednej transakcji, zachowuje istniejące lokalizacje, wersje i daty; odrzuca pominięcie istniejących dokumentów. Produkcja pozostaje oddzielnym zadaniem.
 
 AtlasMap korzysta z klastrowanego źródła GeoJSON MapLibre (promień 50 px, maksymalny zoom grupowania 15) i markerów HTML z natywnymi przyciskami. Grupa przybliża do getClusterExpansionZoom; wybrany punkt pozostaje poza grupami. Edycja wyłącza przyciski, a podgląd punktu nie wchodzi do grupowania.
 
 Filtr „Bez lokalizacji” używa aktualnych danych Locations (lub snapshotu przy niedostępnym odczycie) i wybiera miejsca z `location.coordinates === null`. Łączy się z wyszukiwaniem tekstowym; zmienia listę wyników, a stan pozostaje w pamięci atlasu.
 
-Indeks data/source-rights.json zapisuje decyzje praw na poziomie konkretnego wydania i odwołania materiałów. Publiczne dokumenty places zachowują pochodzenie, datę sprawdzenia oraz sumy wycinka i miniatury. originalSha256 nowych obrazów opisuje odziedziczony wycinek MVP.0 (jawnie w transformations), nie pełny PDF. Indeks nie jest dodatkową kolekcją ani manifestem plików.
+Indeks .local/source-rights.json zapisuje decyzje praw na poziomie konkretnego wydania i odwołania materiałów. Publiczne dokumenty places zachowują pochodzenie, datę sprawdzenia oraz sumy wycinka i miniatury. originalSha256 nowych obrazów opisuje odziedziczony wycinek MVP.0 (jawnie w transformations), nie pełny PDF. Indeks nie jest dodatkową kolekcją ani manifestem plików.
+
+## Warsztat badań historycznych
+
+Prywatny `data/places/`, schemat 3: sources (kolekcje), documents (konkretne źródła i ich kopie), mentions (datowane fakty o jednym miejscu), materials (odrębne obrazy), places/out-of-period, candidates i research. Miejsce wskazuje mentionIds. Wzmianka ma documentedDate, verified/draft/conflicting, verifiedAt, evidence z documentId/locator oraz materialIds. Zweryfikowana wzmianka wymaga daty i czasu sprawdzenia. Daty miejsca są wyliczane ze zweryfikowanych wzmianek, bez interpolowania ciągłości pomiędzy latami.
+
+Obraz ma własne originalDate/depictedDate, źródłowe dokumenty, uzasadnienie datowania i klasyfikację historical/source-copy/unidentified/outside-period. Powiązanie z verified wzmianką wymaga historycznej klasyfikacji, zgodnego dokumentu i datowania mieszczącego się w jej okresie. Skany późniejszych opracowań pozostają kopiami źródeł; współczesne/nieustalone zdjęcia są poza galerią historyczną. Pliki współdzielimy po SHA-256. Archiwizacja prywatna nie zależy od praw publikacyjnych; eksport nadal wymaga potwierdzonej domeny publicznej i zgody na konkretny wariant.
+
+Publiczna projekcja Firestore/SSG używa mentions zamiast references: documentedDate, verification, dane źródła i materials z własnym datowaniem. Kontrakt odrzuca materiał spoza dat wzmianki. Nowy eksport zawiera tylko verified wzmianki; jawna migracja dawnych rekordów zachowuje robocze wpisy oddzielnie. Import nadal chroni lokalizację, wersję i daty transakcyjnie. Nie ma automatycznego importu ani publikacji wyników badania.
+
+`migrations/workspace-v2-v3.mjs` wykonuje jawną migrację warsztatu 2 → 3, `migrations/legacy-catalog.mjs` migruje publiczny kontrakt references → mentions. Zwykłe odczyty pozostają ścisłe. Stare rewizje zachowują bajty wejścia; odzyskanie starszego schematu wymaga jawnej migracji.
+
+Sync zachowuje identyczne ścieżki/bajty, niezmienne rewizje, SHA-256, kontrolę konfliktów i atomowy head z warunkiem generacji. Prywatny prefix research-workspace/ w bucketcie dev nie ma publicznego dostępu. ADC/Firebase CLI bez nowych kluczy i tokenów pobierania.
+
+Lokalna przeglądarka HTML/CSS/JS działa tylko na 127.0.0.1:4319, tylko do odczytu, z kontrolą Host/Origin, bez symlinków i zewnętrznych zależności przy przeglądaniu. Pokazuje chronologię miejsca, wzmianki, galerię historyczną, dokumenty/kopie źródeł i obrazy do rozpoznania. Pozostaje poza Hosting i SSG. Instrukcje: data/places/README.md; testy: scripts/research/test.
+
+Narzędzia `scripts/research/` są pogrupowane w model, workspace, sync, migrations, publication, viewer i test. `cli.mjs` pozostaje wspólnym wejściem operatora; polecenia npm zachowują nazwy. Spis modułów: scripts/research/README.md.
+
+Rzeczywiste katalogi i indeks dawnych praw są poza Git. Wersjonowany jest tylko fikcyjny data/places.fixture.json. Generator tworzy ignorowane src/app/places/catalog.generated.ts, public/search-index.json i public/sitemap.xml. Szablony firebase.dev*.json pozostają stałe; przekierowania z katalogu są zapisywane do ignorowanych .local/firebase.dev*.json z bezwzględną ścieżką Hosting. Deploy dev i preview używają tych wygenerowanych konfiguracji. Start/watch najpierw przygotowują katalog, więc świeży checkout nie wymaga śledzonego modułu generated.

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, BaseRouteReuseStrategy } from '@angular/router';
-import { Atlas } from '../atlas/atlas';
 @Injectable()
 export class AtlasReuse extends BaseRouteReuseStrategy {
   override shouldReuseRoute(
@@ -8,7 +7,7 @@ export class AtlasReuse extends BaseRouteReuseStrategy {
     current: ActivatedRouteSnapshot,
   ): boolean {
     return (
-      (future.component === Atlas && current.component === Atlas) ||
+      (future.data['atlas'] === true && current.data['atlas'] === true) ||
       super.shouldReuseRoute(future, current)
     );
   }

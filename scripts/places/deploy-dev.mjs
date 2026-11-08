@@ -13,9 +13,9 @@ run(process.execPath, ['scripts/places/snapshot.mjs', ...operator], {
 });
 run('npm', ['run', 'build'], { ...process.env, PLACES_SNAPSHOT: '.local/places.snapshot.json' });
 if (target !== 'dev') {
-  const config = JSON.parse(readFileSync('firebase.dev.json', 'utf8'));
+  const config = JSON.parse(readFileSync('.local/firebase.dev.json', 'utf8'));
   config.hosting.site = `historyczny-rybnik-${target}`;
-  writeFileSync(`firebase.${target}.json`, JSON.stringify(config, null, 2) + '\n');
+  writeFileSync(`.local/firebase.${target}.json`, JSON.stringify(config, null, 2) + '\n');
 }
 const revision = spawnSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' });
 if (revision.status !== 0) throw new Error('Cannot determine deployment revision');
@@ -34,7 +34,7 @@ run('npx', [
   '--only',
   'hosting',
   '--config',
-  `firebase.${target}.json`,
+  `.local/firebase.${target}.json`,
   '--project',
   'historyczny-rybnik',
 ]);

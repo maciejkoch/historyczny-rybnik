@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { publicCatalogSchema } from '../../functions/src/contracts/places.mjs';
 import { validateCatalog } from '../../functions/src/validation.mjs';
 // Build input is a single validated snapshot. Never copy private document fields.
@@ -24,6 +25,7 @@ export function generate(input) {
     addresses,
     district,
   }));
+  mkdirSync('public', { recursive: true });
   writeFileSync('public/search-index.json', JSON.stringify(index));
   const origin = 'https://historyczny-rybnik-dev.web.app';
   writeFileSync(
@@ -31,6 +33,7 @@ export function generate(input) {
     `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['/', '/o-nas', ...places.map((p) => '/miejsca/' + p.slug)].map((path) => `<url><loc>${origin}${path}</loc></url>`).join('')}</urlset>`,
   );
   const config = JSON.parse(readFileSync('firebase.dev.json', 'utf8'));
+  config.hosting.public = resolve(config.hosting.public);
   config.hosting.redirects = places.flatMap((place) =>
     place.previousSlugs.map((slug) => ({
       source: '/miejsca/' + slug,
@@ -38,6 +41,7 @@ export function generate(input) {
       type: 301,
     })),
   );
-  writeFileSync('firebase.dev.json', JSON.stringify(config, null, 2) + '\n');
+  mkdirSync('.local', { recursive: true });
+  writeFileSync('.local/firebase.dev.json', JSON.stringify(config, null, 2) + '\n');
   return places;
 }

@@ -81,7 +81,7 @@ export const locationSchema = z.union([
 ]);
 const sha256 = z.string().regex(/^[a-f0-9]{64}$/);
 const assetPath = text(500).regex(
-  /^public\/places\/[a-zA-Z0-9_-]{1,100}\/[a-zA-Z0-9_-]{1,100}\/[a-zA-Z0-9_-]+\.(webp|png|jpg)$/,
+  /^public\/(?:places\/[a-zA-Z0-9_-]{1,100}\/[a-zA-Z0-9_-]{1,100}|materials\/[a-zA-Z0-9_-]{1,100})\/[a-zA-Z0-9_-]+\.(webp|png|jpg)$/,
 );
 export const imageSchema = z.strictObject({
   storagePath: assetPath,
@@ -93,14 +93,14 @@ export const imageSchema = z.strictObject({
   thumbnailSha256: sha256,
   provenance: z.strictObject({
     title: text(500),
-    sourcePageUrl: httpsUrl,
-    originalCollectionUrl: httpsUrl,
-    originalImageUrl: httpsUrl,
+    sourcePageUrl: httpsUrl.nullable(),
+    originalCollectionUrl: httpsUrl.nullable(),
+    originalImageUrl: httpsUrl.nullable(),
     originalSha256: sha256,
-    author: text(500),
+    author: text(500).nullable(),
     dateNote: text(500),
     license: text(500),
-    licenseUrl: httpsUrl,
+    licenseUrl: httpsUrl.nullable(),
     copyrighted: z.boolean(),
     rightsCheckedAt: historicalDateSchema.refine(
       (v) => /^\d{4}-\d{2}-\d{2}$/.test(v),
@@ -109,18 +109,29 @@ export const imageSchema = z.strictObject({
     transformations: text(2000),
   }),
 });
-export const referenceSchema = z.strictObject({
+const referenceUrl = text(2000).refine((value) => {
+  try {
+    const u = new URL(value);
+    return ['http:', 'https:'].includes(u.protocol) && !u.username && !u.password;
+  } catch {
+    return false;
+  }
+}, 'HTTP(S) source URL without credentials required');
+export const mentionSchema = z.strictObject({
   id: idSchema,
   title: text(500),
-  url: httpsUrl.nullable(),
-  page: text(100).nullable(),
+  url: referenceUrl.nullable(),
+  page: text(2000).nullable(),
   publicationDate: partialDateSchema,
-  historicalDate: partialDateSchema,
+  documentedDate: partialDateSchema,
+  verification: z.enum(['verified', 'draft', 'conflicting']),
   accessedAt: timestampSchema,
   excerpt: text(10000),
   excerptType: z.enum(['quote', 'transcription', 'summary']),
   note: text(2000).nullable(),
-  images: z.array(imageSchema).max(10),
+  materials: z
+    .array(imageSchema.extend({ materialId: idSchema, documentedDate: partialDateSchema.unwrap() }))
+    .max(10),
 });
 const placeFields = {
   id: idSchema,
@@ -128,37 +139,78 @@ const placeFields = {
   slug: slugSchema,
   previousSlugs: z.array(slugSchema).max(30),
   description: text(20000),
-  category: z.enum(['industry', 'commerce', 'religion', 'education', 'public', 'culture', 'other']),
+  tags: z
+    .array(z.strictObject({ id: idSchema, name: text(200) }))
+    .min(1)
+    .max(100)
+    .refine((tags) => new Set(tags.map((t) => t.id)).size === tags.length, 'Duplicate tags'),
+  period: z.strictObject({
+    status: z.enum(['confirmed', 'probable', 'unverified']),
+    explanation: text(2000),
+  }),
   aliases: z.array(text(200)).max(30),
   addresses: z
     .array(z.strictObject({ type: z.enum(['historical', 'current']), text: text(500) }))
     .max(30),
   district: text(200).nullable(),
   location: locationSchema,
-  references: z.array(referenceSchema).max(100),
+  mentions: z.array(mentionSchema).max(100),
   locationVersion: versionSchema,
   updatedAt: timestampSchema,
 };
 const basePlaceSchema = z.strictObject(placeFields);
-/** @param {{id: string, references: {id: string, images: {storagePath: string, thumbnailPath: string}[]}[]}} place
+/** @param {{id: string, mentions: {id: string, documentedDate: {from:string,to:string|null,approximate:boolean}|null, verification:string, materials: {storagePath:string,thumbnailPath:string,documentedDate:{from:string,to:string|null,approximate:boolean}}[]}[]}} place
  * @param {z.RefinementCtx} ctx */
 function placeRelations(place, ctx) {
   const refs = new Set();
-  place.references.forEach((ref, index) => {
+  place.mentions.forEach((ref, index) => {
     if (refs.has(ref.id))
       ctx.addIssue({
         code: 'custom',
         message: 'Duplicate reference',
-        path: ['references', index, 'id'],
+        path: ['mentions', index, 'id'],
       });
     refs.add(ref.id);
-    ref.images.forEach((image, imageIndex) => {
+    if (ref.verification === 'verified' && !ref.documentedDate)
+      ctx.addIssue({
+        code: 'custom',
+        message: 'Verified mention requires a documented date',
+        path: ['mentions', index, 'documentedDate'],
+      });
+    if (ref.verification !== 'verified' && ref.materials.length)
+      ctx.addIssue({
+        code: 'custom',
+        message: 'Draft mention cannot publish historical materials',
+        path: ['mentions', index, 'materials'],
+      });
+    ref.materials.forEach((image, imageIndex) => {
+      const mentionStart = ref.documentedDate && dateBounds(ref.documentedDate.from);
+      const mentionEnd =
+        ref.documentedDate && dateBounds(ref.documentedDate.to || ref.documentedDate.from);
+      const imageStart = dateBounds(image.documentedDate.from);
+      const imageEnd = dateBounds(image.documentedDate.to || image.documentedDate.from);
+      if (
+        !mentionStart ||
+        !mentionEnd ||
+        !imageStart ||
+        !imageEnd ||
+        imageStart[0] < mentionStart[0] ||
+        imageEnd[1] > mentionEnd[1]
+      )
+        ctx.addIssue({
+          code: 'custom',
+          message: 'Material outside mention period',
+          path: ['mentions', index, 'materials', imageIndex],
+        });
       for (const key of /** @type {const} */ (['storagePath', 'thumbnailPath'])) {
-        if (!image[key].startsWith(`public/places/${place.id}/${ref.id}/`))
+        if (
+          !image[key].startsWith(`public/places/${place.id}/${ref.id}/`) &&
+          !image[key].startsWith('public/materials/')
+        )
           ctx.addIssue({
             code: 'custom',
             message: 'Asset belongs to another place or reference',
-            path: ['references', index, 'images', imageIndex, key],
+            path: ['mentions', index, 'materials', imageIndex, key],
           });
       }
     });

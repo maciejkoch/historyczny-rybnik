@@ -1,3 +1,5 @@
+> Aktualizacja 8 listopada 2026: poniższy dokument zachowuje wcześniejszy projekt MVP. Publiczny kontrakt używa teraz płaskich tags i period. Prywatny warsztat ma osobne źródła, materiały, kandydatów i historię badań; nowy model i procedury opisano w [data/places/README](../../../data/places/README.md) i TECHNICAL. Wcześniejsze zakazy osobnego rejestru materiałów dotyczą dawnego zakresu i nie opisują nowego warsztatu.
+
 # MVP.1 — model danych
 
 Aktualizacja: 5 listopada 2026. Status: **uproszczona propozycja zgodna z ustaleniem: jedna kolekcja `places`, bez historii zmian**. Dokument opisuje model; nie tworzy usług ani danych.
@@ -143,7 +145,7 @@ Wycinki i miniatury przechowujemy pod `public/places/{placeId}/{referenceId}/...
 
 Każdy obraz zawiera `sha256` i `thumbnailSha256` publikowanych wariantów oraz obiekt `provenance`: tytuł, stronę źródłową, kolekcję oryginału, URL i SHA-256 oryginału, autora, wyjaśnienie datowania, nazwę i URL licencji lub oznaczenia praw, status `copyrighted`, datę sprawdzenia `rightsCheckedAt` (`YYYY-MM-DD`) i opis przekształceń `transformations`. Nieznanego autora lub datowania nie uzupełniamy domysłem — niepewność opisujemy tekstowo. Wszystkie te pola są publiczne.
 
-Dane te zapisujemy w Firestore przez importer; `data/places.test-data.json` zawiera dane testowe dla testów i buildów CI; może też służyć do jawnego importu testowego na dev. Wdrożenie dev pobiera aktualny snapshot Firestore. Nie utrzymujemy osobnego manifestu assetów ani pliku JSON z metadanymi źródła. Pliki binarne są w Storage, poza repozytorium. Do ponownego uploadu operator dostarcza lokalne kopie; skrypt sprawdza ich sumy względem dokumentu miejsca.
+Dane te zapisujemy w Firestore przez importer; `data/places.fixture.json` zawiera dane testowe dla testów i buildów CI; może też służyć do jawnego importu testowego na dev. Wdrożenie dev pobiera aktualny snapshot Firestore. Nie utrzymujemy osobnego manifestu assetów ani pliku JSON z metadanymi źródła. Pliki binarne są w Storage, poza repozytorium. Do ponownego uploadu operator dostarcza lokalne kopie; skrypt sprawdza ich sumy względem dokumentu miejsca.
 
 - Nie zapisujemy obrazów jako base64 w Firestore.
 - Referencja może mieć sam opis i link, bez plików.
@@ -184,3 +186,5 @@ Decyzja fazy 3: Firestore Standard, baza `places-dev` w `europe-central2`. Utwor
 Pilnujemy rozmiaru dokumentu: limit Firestore Native wynosi 1 MiB. Przy imporcie sprawdzamy wielkość i odrzucamy zbyt duże rekordy; nie usuwamy danych po cichu. Jeżeli realne referencje zaczną zbliżać się do limitu, dopiero wtedy rozważymy ich wydzielenie do podkolekcji.
 
 Źródła zasad technicznych: [model dokumentowy i limit rozmiaru](https://firebase.google.com/docs/firestore/data-model), [transakcje Firestore](https://firebase.google.com/docs/firestore/manage-data/transactions). Są to odnośniki do uzasadnienia ograniczeń, nie dodatkowe wymagania funkcjonalne.
+
+Aktualizacja wdrażanego kontraktu: mentions zastępuje references. Wzmianka przechowuje documentedDate i verification; materiały mają własne datowanie zgodne z okresem wzmianki. Pełna prywatna struktura sources/documents/mentions/materials oraz zasady migracji są opisane w data/places/README.md i TECHNICAL.md.

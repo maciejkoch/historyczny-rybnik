@@ -1,9 +1,7 @@
 import { About } from './about/about';
 import { Routes } from '@angular/router';
-import { Atlas } from './atlas/atlas';
 import { NotFound } from './not-found/not-found';
 import { PrivacyPolicy } from './privacy/privacy-policy/privacy-policy';
-import { PLACES } from './places/catalog.generated';
 export const routes: Routes = [
   { path: 'o-nas', component: About, title: 'O nas — Historyczny Rybnik' },
   {
@@ -11,13 +9,7 @@ export const routes: Routes = [
     component: PrivacyPolicy,
     title: 'Prywatność — Historyczny Rybnik',
   },
-  { path: '', pathMatch: 'full', component: Atlas, data: { screen: 'map' } },
-  { path: 'szukaj', component: Atlas, data: { screen: 'search' } },
-  ...PLACES.map((place) => ({
-    path: 'miejsca/' + place.slug,
-    component: Atlas,
-    data: { screen: 'place', slug: place.slug },
-  })),
+  { path: '', loadChildren: () => import('./atlas/atlas.routes').then((m) => m.atlasRoutes) },
   { path: '404', component: NotFound, title: 'Nie znaleziono strony — Historyczny Rybnik' },
   { path: '**', component: NotFound, title: 'Nie znaleziono strony — Historyczny Rybnik' },
 ];
