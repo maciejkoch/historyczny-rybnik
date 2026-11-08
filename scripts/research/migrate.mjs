@@ -1,3 +1,4 @@
+import { restructureWorkspace } from './restructure.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 import { initWorkspace, loadWorkspace, safePath, hash, atomicWrite } from './workspace.mjs';
 import { upgradePlace } from './legacy.mjs';
@@ -7,7 +8,7 @@ export async function migrate({ root, input, apply = false }) {
   await initWorkspace(root);
   const existing = await loadWorkspace(root);
   const catalog = JSON.parse(await readFile(input, 'utf8'));
-  const data = {
+  let data = {
     config: existing.config,
     tags: [],
     sources: [],
@@ -23,7 +24,15 @@ export async function migrate({ root, input, apply = false }) {
     tags = new Map();
   const rights = JSON.parse(await readFile('data/source-rights.json', 'utf8')).sources;
   for (const raw of catalog) {
-    const p = upgradePlace(raw);
+    const upgraded = upgradePlace(raw);
+    const p = {
+      ...upgraded,
+      references: upgraded.mentions.map((m) => ({
+        ...m,
+        historicalDate: m.documentedDate,
+        images: m.materials.map(({ materialId, documentedDate, ...image }) => image),
+      })),
+    };
     const materialIds = [],
       findings = [];
     for (const ref of p.references) {
@@ -119,7 +128,7 @@ export async function migrate({ root, input, apply = false }) {
           'Tag przeniesiony z wcześniejszej klasyfikacji; bez domyślnego uszczegóławiania.',
         synonyms: [],
       });
-    const { references, published, period, ...rest } = p;
+    const { references, mentions, published, period, ...rest } = p;
     const qualification = legacyPeriod(p.references);
     const confirmed = ['confirmed', 'probable'].includes(qualification.status);
     const place = {
@@ -150,6 +159,7 @@ export async function migrate({ root, input, apply = false }) {
   data.sources = [...sources.values()];
   data.materials = [...materials.values()];
   data.tags = [...tags.values()];
+  data = restructureWorkspace(data);
   validateWorkspace(data);
   const count = Object.fromEntries(
     Object.entries(data)

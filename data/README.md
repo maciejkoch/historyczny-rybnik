@@ -7,3 +7,5 @@ Dane wejściowe publikowanego katalogu i materiałów miejsc. Służą przygotow
 source-rights.json jest indeksem weryfikacji praw: źródła i konkretne wydania, status, data, dowód oraz powiązane miejsca i referencje. Przed sprawdzeniem kolejnego materiału odczytaj indeks; korzystaj z decyzji tylko w zapisanym zakresie wydania. Brak wpisu lub status not-reviewed/unconfirmed nie zezwala na publikację kopii. W tym zadaniu dopuszczamy wyłącznie domenę publiczną potwierdzoną w metadanych źródła. Nie uznajemy całej biblioteki ani tytułu czasopisma za domenę publiczną.
 
 Nowe badania przechowują źródła, materiały i decyzje praw w warsztacie. `source-rights.json` pozostaje wejściem migracji wcześniejszych publikacji; nie jest równoległym rejestrem nowych badań. Publiczne rekordy używają płaskich `tags` oraz jawnego `period`, zamiast pojedynczego `category`.
+
+Katalogi publiczne używają mentions z documentedDate, verification i datowanymi materials. Prywatny warsztat schematu 3 rozdziela dokumenty, wzmianki i historyczne obrazy; nieustalone i współczesne ilustracje nie są materiałami historycznych wzmianek.

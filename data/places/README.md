@@ -1,82 +1,71 @@
 # Warsztat badań Rybnika
 
-Trwały zbiór badawczy, domyślnie Rybnik 1918–1939 (elastycznie), z lokalnym planem 1932. Badania nie publikują danych automatycznie. Pojedynczy rekord to JSON o nazwie `<id>.json`; ID nie zmienia się z nazwą miejsca ani URL. Dane i pliki są prywatne, ignorowane przez Git. Ten README, schematy, narzędzia i fikcyjne testy pozostają w repo.
+Prywatny zbiór JSON i plików, ignorowany przez Git, synchronizowany 1:1 ze Storage. Rybnik, domyślnie 1918–1939 (elastycznie), plan 1932. Badanie nie publikuje danych. Kontrakt: [model.mjs](../../scripts/research/model.mjs), schemat 3.
 
-## Zawartość
+## Struktura
 
-| Ścieżka | Zawartość |
+| Folder | Znaczenie |
 | --- | --- |
-| `config.json` | Wersja schematu, miasto, domyślny zakres 1918–1939 i elastyczność. |
-| `sources/` | Źródła/kolekcje: zakres, języki, zasoby, wyszukiwanie, OCR, dostęp, ogólne zasady praw, `discoveredFrom` (ID źródła + przypis/odnośnik). URL może być null dla źródła offline. |
-| `materials/` | Konkretne publikacje/zdjęcia/skany/fragmenty, źródło, daty publikacji i treści, autor, sygnatura/strona, odczyt i jego rodzaj, miejsca, prawa i ich dowód, rodzic i pliki. |
-| `files/` | Oryginały, skany, wycinki i miniatury; powiązania i SHA-256 w materiale. Także wejściowe kopie migracji dla odtwarzalności. |
-| `places/` | Potwierdzone lub uzasadnione prawdopodobne miejsca: nazwy/adresy, lokalizacja, tagi, kwalifikacja okresu, ustalenia z dowodami, proste powiązania miejsc, pytania i zatwierdzenie publikacji. |
-| `out-of-period/` | Rozpoznane miejsca spoza okresu lub z nieustalonym związkiem; zachowane do dalszych badań. |
-| `candidates/` | Nowe tropy do przeglądu właściciela: dowód, powód, kontekst, duplikaty i decyzja. Akceptacja/połączenie wskazuje docelowe miejsce. |
-| `tags.json` | Płaskie definicje ID/nazwa/opis/synonimy. Minimum jeden tag na miejsce, bez dziedziczenia. |
-| `research/` | Kontekst kolejnych badań, zapytania, odwiedzone zakresy, także brak wyników/niedostępność, zmienione rekordy, dalsze tropy, ograniczenia i krótki raport. |
+| sources | Archiwa, kolekcje i serwisy, zakres, dostęp, instrukcje, sieć discoveredFrom. |
+| documents | Konkretne źródła: strony, artykuły, numery gazet, PDF-y; daty publikacji i opisywanego faktu, odczyt, pliki kopii i prawa. parentDocumentId łączy fragment z dokumentem. |
+| mentions | Datowane informacje o jednym miejscu: documentedDate, verified/draft/conflicting, verifiedAt, uzasadnienie, evidence(documentId, locator, note), materialIds. |
+| materials | Obrazy z własnym datowaniem oryginału i przedstawianego stanu, uzasadnieniem, sourceDocumentIds, klasyfikacją, plikami i prawami. |
+| places | Miejsca confirmed/probable: opis redakcyjny, nazwy, adresy, lokalizacja, płaskie tagi, mentionIds i proste relatedPlaces z documentId. |
+| out-of-period | Miejsca outside/unverified; zachowane do innych okresów i dalszego rozpoznania. |
+| candidates | Uboczne nowe tropy z dowodem documentId i decyzją właściciela; nie rozpoczynamy ich pełnych badań automatycznie. |
+| research | Przebieg badań, źródła, brak wyników, zmiany, leads i ograniczenia. |
+| files | Oryginały, obrazy stron, wycinki i miniatury; wspólne ścieżki oraz SHA-256 bez powielania identycznych bajtów. |
 
-Dokładne pola i limity: [model.mjs](../../scripts/research/model.mjs). Fikcyjny kompletny przykład: [fixtures.mjs](../../scripts/research/test/fixtures.mjs). `npm run research -- validate` sprawdza schematy, unikalność, relacje, foldery, decyzje praw i sumy lokalnych plików.
+`config.json` określa miasto i zakres, `tags.json` zawiera płaski słownik. Każde miejsce ma minimum jeden tag. Nazwy rekordów: `<id>.json`. ID nie zmienia się z nazwą ani URL. Walidacja sprawdza także powiązania, zgodność datowania, prawa i sumy plików.
 
-Miejsce to obiekt lub punkt działalności, bez oddzielnego modelowania instytucji/budynku. `relatedPlaces` to `placeId`, opcjonalne `note` i `materialId`. Firma X i sąsiedzi Y/Z mogą zostać połączeni dla następnego badania. Kandydat wymaga decyzji właściciela przed pełnym badaniem.
+## Daty i weryfikacja
 
-## Okres, dowody i prawa
+Opis miejsca nie jest dowodem. Zweryfikowana wzmianka wymaga daty/roku lub uzasadnionego zakresu, dokładnego dowodu i czasu weryfikacji. Bez daty lub sprawdzenia pozostaje draft; konflikty są jawne. Daty miejsca wyliczamy z verified wzmianek: **1920, 1928, 1945** pozostają osobnymi punktami, także poza domyślnym okresem. Nie zakładamy ciągłości między nimi. Zachowujemy precyzję źródła, bez wymyślania dni i miesięcy.
 
-`period.status`: `confirmed` (konkretny dowód z `evidence`), `probable` (uzasadnienie, ale brak potwierdzenia), `unverified` (brak podstaw kwalifikacji), `outside` (poza okresem). Dwa pierwsze stany są w places, dwa ostatnie w out-of-period. Przeniesienie zachowuje ID. Późniejsza publikacja może opisywać 1932. Wzmianka 1890 wymaga poszukiwań późniejszych, a 1950 wcześniejszych. Nie zakładaj ciągłości ani tożsamości na podstawie samej nazwy/adresu. Daty są nullable: `{from,to,approximate}`, dokładność rok/miesiąc/dzień, bez wymyślania brakujących dat.
+Data publikacji i data faktu są osobne. Artykuł 2008 o roku 1935 może być źródłem wzmianki 1935. Współczesna reklama z 1938 stanowi dowód 1938 po ustaleniu charakteru treści. Sama data późniejszej publikacji nie wystarcza. Confirmed wymaga verified wzmianki z okresu; probable wymaga jawnego uzasadnienia. Brak dowodu nie oznacza nieistnienia.
 
-`findings`: ID, nasze streszczenie ustalenia, `confirmed|uncertain|conflicting`, dowody `materialId + locator + note`. Niepewność i sprzeczności pozostają widoczne. W treści materiału rozdzielamy cytat/transkrypcję/OCR/streszczenie. A cytujące B nie stanowi drugiego niezależnego potwierdzenia; zapisuj łańcuch źródeł i szukaj oryginału.
+## Materiały historyczne i kopie źródeł
 
-Znalezione i dostępne skany/obrazy zawsze archiwizujemy wewnętrznie, także przy prawach `unknown`, `restricted` lub zakazie publikacji. Kopia pozostaje prywatna i nie nadaje zgody na publikację. Każdy materiał ma źródło i jawny status praw; nieustalone pola pozostają null. Oryginały i obrazy stron zapisujemy raz po SHA-256, współdzieląc ścieżki między materiałami. Wycinki/skany wskazują `derivedFrom` i opis przekształceń. Nie obchodzimy ograniczeń dostępu; niedostępne pliki odnotowujemy do ponowienia.
+Szukamy starych reklam, wpisów prasowych/archiwalnych, pocztówek, dawnych zdjęć i map. Współczesny skan gazety 1935 jest materiałem 1935. Skany późniejszych opracowań są kopiami źródeł, a współczesne zdjęcia i obrazy bez datowania nie są ilustracjami międzywojennej wzmianki.
 
-Schemat warsztatu ma wersję 2: usunięto `rights.downloadAllowed`, które wcześniej mieszało archiwizację z decyzją o publikacji. Przy przenoszeniu kopii wersji 1 należy jawnie usunąć to pole z materiałów i ustawić schemaVersion=2; stan praw i publicationApproved pozostają bez zmian. Stare rewizje zachowują oryginalne bajty i wymagają tej migracji przed użyciem przez narzędzia wersji 2.
+Klasyfikacja: historical, source-copy, unidentified, outside-period. Do wzmianki dopuszczamy tylko historical z datowaniem mieszczącym się w okresie verified wzmianki, powiązany z jej dokumentem dowodowym. Szeroko datowany obraz nie potwierdza wąskiego roku/dnia. Galeria historyczna pokazuje wyłącznie takie materiały. Dokumenty źródłowe, kopie późniejszych opracowań i obrazy do rozpoznania mają osobne widoki. Karta miejsca pokazuje chronologię i wzmianki z właściwymi materiałami.
 
-Kopie publikujemy obecnie tylko przy potwierdzonej domenie publicznej konkretnego materiału, z basis/evidenceUrl albo evidenceMaterialId, checkedAt i credit oraz osobnym `publicationApproved`. `publicationImages` przechowuje zatwierdzone publiczne warianty, nigdy wszystkie pliki prywatnego archiwum. Galeria „Materiały” oraz karta miejsca pokazują lokalne obrazy z podpisami miejsc/źródeł i wyraźnym ostrzeżeniem o nieustalonych prawach, ograniczeniach lub braku zatwierdzenia publikacji.
+## Archiwizacja i prawa
 
-```sh
-npm run research -- capture --material=mat_id --input=/sciezka/oryginal.pdf --apply
-npm run research -- capture --material=mat_id --input=/sciezka/strona.png --role=scan --derived-from=files/archive/suma.pdf --transformations="Render PDF, strona 8" --apply
-```
+Zapisujemy wszystkie dostępne materiały prywatnie, również przy unknown/restricted. Nie obchodzimy kontroli dostępu. Oryginał zapisujemy raz po SHA-256; kopie stron i wycinki mają derivedFrom i transformations. Nieudane pobrania odnotowujemy. Prawa do publikacji nie blokują archiwizacji i nie są przez nią nadawane.
 
-`capture` bez --apply pokazuje plan. Sprawdza format pliku, wielkość, SHA-256 i pochodzenie, wykorzystuje istniejącą identyczną kopię i nie zmienia praw ani zgód publikacyjnych.
-
-## Użycie
-
-Wymagane zależności root i functions (`npm ci`, `npm ci --prefix functions`), Node z `.nvmrc`. Skill projektowy: `$rybnik-research-places`, np. „szukaj kościołów” lub „kontynuuj firmę A; skup się na zdjęciach”. Po zakończeniu zwraca krótki raport miejsc, źródeł, materiałów, kandydatów, niepewności i dalszych tropów.
+Publikacja obrazu wymaga odrębnego zatwierdzenia konkretnego wariantu, potwierdzonej domeny publicznej, podstawy, dowodu (evidenceUrl/evidenceDocumentId), daty sprawdzenia i podpisu. Nie przenosimy zgody z wycinka na całą stronę. Eksport pobiera tylko publicationImages historycznych materiałów właściwych dla zweryfikowanej wzmianki; nie kopiuje prywatnego archiwum.
 
 ```sh
 npm run research -- init
-npm run research -- pull --firebase-cli
-npm run research -- pull --firebase-cli --apply
 npm run research -- validate
 npm run research:view
+npm run research -- capture --collection=documents --material=ID --input=/sciezka/oryginal.pdf --apply
+npm run research -- capture --collection=documents --material=ID --input=/sciezka/strona.png --role=scan --derived-from=files/archive/suma.pdf --transformations="Render PDF, strona 8" --apply
+```
+
+Capture bez --apply pokazuje plan. Kopię dokumentu przypisujemy następnie do odrębnego rekordu materiału historycznego dopiero po ocenie datowania. `capture --collection=materials` obsługuje istniejący rekord materiału. `hydrate` pobiera lokalnie już opublikowane warianty, bez zmiany praw.
+
+## Synchronizacja i odzyskanie
+
+```sh
+npm run research -- pull --firebase-cli
+npm run research -- pull --firebase-cli --apply
 npm run research -- push --firebase-cli
 npm run research -- push --firebase-cli --apply
 ```
 
-Przeglądarka: http://127.0.0.1:4319 — tylko lokalnie, tylko odczyt. Jedno polecenie buduje lokalnie CSS i uruchamia serwer. Nie wymaga Google ani internetu do przeglądania, mapy i grafu. Port można ustawić przez `RESEARCH_PORT`. `--root=/absolutna/sciezka` wybiera inną kopię warsztatu dla narzędzi i przeglądarki. Samo `init` nie nadpisuje istniejących rekordów.
+Cel: prywatny prefix `research-workspace/` bucketa dev `historyczny-rybnik-dev-files`. Istniejące ADC/Firebase CLI, bez kluczy, publicznych tokenów i wyłączania TLS. Narzędzie sprawdza prywatność IAM. Reguły odmawiają klientom dostępu do prefixu.
 
-## Synchronizacja 1:1 i odzyskiwanie
+Każda rewizja zawiera identyczne ścieżki i bajty, manifest SHA-256 i rozmiary. Head zmienia się dopiero po kompletnym wysłaniu, z warunkiem generacji; konflikt nie nadpisuje cudzej pracy. Stare rewizje pozostają. `.sync-state.json` jest lokalną podstawą, nie danymi archiwum. Pull odmawia nadpisania lokalnych zmian; sprawdza staging i zachowuje backup w `.local/research-backups`. Usunięcia wymagają obejrzenia planu i --approve-deletions. Pusty zbiór nie może wyczyścić archiwum.
 
-Cel: prywatny prefix `research-workspace/` istniejącego bucketa dev `historyczny-rybnik-dev-files`. ADC operatora lub istniejące logowanie `--firebase-cli`; bez tworzenia kluczy. Weryfikacja TLS pozostaje włączona. Przed synchronizacją narzędzie sprawdza brak publicznych powiązań IAM bucketa. Reguły Firebase odmawiają klientom każdego dostępu do prefixu; pliki nie otrzymują publicznych tokenów pobierania.
-
-Każda rewizja przechowuje **te same względne ścieżki i identyczne bajty** co lokalny zbiór w `revisions/<sha>/`. `head.json` wskazuje zatwierdzony kompletny stan, a manifest opisuje SHA-256 i rozmiary. To pliki w Storage, nie dodatkowa baza. Wysłanie niekompletnej rewizji nie zmienia head. Zmiana head używa warunku generacji (CAS); równoległy zapis wywołuje konflikt, zamiast nadpisywać inne badanie. Poprzednie rewizje pozostają do odzyskania. Fizyczne czyszczenie historii nie jest częścią synchronizacji.
-
-`pull`/`push` bez `--apply` pokazują plan. Usunięcia wymagają obejrzenia listy i osobnego `--approve-deletions`; pusty zbiór nie może wyczyścić archiwum. Pobranie odmawia nadpisania lokalnych zmian. `.sync-state.json` to lokalna podstawa porównania, nie część synchronizowanego zbioru. README również pozostaje lokalną dokumentacją repo.
-
-Pobranie odbywa się do katalogu tymczasowego, sprawdza cały zbiór, potem podmienia go, zachowując poprzednią lokalną kopię w `.local/research-backups/`. Przy przerwaniu wysyłania ponów tę samą operację: niezmienne obiekty z poprawną sumą zostaną rozpoznane. Przy awarii procesu lokalna blokada `<root>.sync-lock` pozostaje; usuń ją ręcznie dopiero po sprawdzeniu, że poprzedni proces nie działa. Po awarii między podmianami przywróć zachowaną kopię lokalną z raportowanej lokalizacji backupu.
-
-```sh
-npm run research -- restore --revision=<sha-poprzedniej-rewizji> --firebase-cli
-npm run research -- restore --revision=<sha-poprzedniej-rewizji> --firebase-cli --apply --approve-deletions
-```
-
-Restore przywraca lokalną kopię; zwykły push zatwierdza ją jako bieżącą zdalnie. Nie zmieniaj head ręcznie. Prywatne dane nie trafiają do Git, public, SSG ani Hosting.
+`research restore --revision=SHA --firebase-cli [--apply --approve-deletions]` przywraca lokalną kopię zgodną z bieżącym schematem, następnie push zatwierdza ją zdalnie. Starsze schematy wymagają jawnej migracji. Po przerwanym push ponów operację; identyczne obiekty są rozpoznawane. Blokadę `<root>.sync-lock` usuwaj tylko po sprawdzeniu, że proces nie działa. Nie modyfikuj ręcznie head.
 
 ## Migracja i publikacja
 
-`npm run research -- migrate [--input=plik.json]` pokazuje migrację wcześniejszego katalogu; `--apply` zapisuje wyłącznie do pustego warsztatu. Zachowuje ID, referencje w materiałach/ustaleniach, publiczne metadane obrazów i kopie wejścia w files. Wykorzystuje dotychczasowy `data/source-rights.json` w jego dokładnym zakresie; nigdy nie rozszerza praw. Szerokie wcześniejsze category mapuje jawnie na szerokie tagi, bez zgadywania branży. Brak historycznego datowania nie staje się potwierdzeniem międzywojnia; takie miejsca trafiają do out-of-period, z wyłączoną zgodą publikacji.
+`restructure.mjs` jawnie przekształca schemat 2 w 3: wcześniejsze materiały stają się dokumentami, ustalenia wzmiankami, obrazy otrzymują odrębne rekordy i kwalifikację. Nie przyznaje automatycznie weryfikacji niepewnym faktom. `migrate` tworzy warsztat z katalogu tylko w pustym zbiorze. Stare ID dokumentów zachowujemy; nowe wzmianki i materiały mają trwałe ID. Pliki i decyzje praw pozostają zachowane; kopie wejścia i stare rewizje umożliwiają odtworzenie migracji.
 
-Nowe badania utrzymują prawa w materials; source-rights jest zachowanym wejściem migracji, nie drugim aktualizowanym rejestrem warsztatu. Zatwierdzenie treści do publikacji jest osobną decyzją redakcyjną. Eksport łączy zatwierdzone zmiany ze wskazanym istniejącym katalogiem, zachowując pozostałe opublikowane rekordy; nie usuwa ich wskutek braku nowego opracowania.
+Publiczny kontrakt miejsca używa mentions z documentedDate, verification, źródłem i materials z własnym datowaniem. `upgradePlace` jawnie migruje dawne references — zwykły odczyt pozostaje ścisły. Nowe badania nie włączają publicationApproved. Eksport wymaga zatwierdzonego miejsca i datowanych verified wzmianek, zachowuje resztę wskazanego katalogu, nie usuwa istniejących rekordów. Import chroni live location/version/timestamps transakcyjnie.
 
 ```sh
 npm run research -- export
@@ -86,14 +75,4 @@ npm run research -- assets --apply --firebase-cli
 GCLOUD_PROJECT=historyczny-rybnik npm run places:import -- .local/research.catalog.json --firebase-cli
 ```
 
-Dopiero osobne `places:import ... --apply` zapisuje bazę dev. Zachowuje aktualną lokalizację, wersję i daty z Firestore transakcyjnie. Eksport nie zawiera prywatnego warsztatu; publikuje nasze streszczenia ustaleń i referencje. Niepotwierdzenie okresu jest jawne na publicznej karcie. Materiały o nieustalonych prawach mogą być wskazane linkiem, ich kopie nie są eksportowane. Nowe zatwierdzone publiczne warianty muszą mieć lokalne pliki o zgodnych sumach; `assets` przesyła niezmienne nazwy i odmawia nadpisania innej zawartości.
-
-Migracja kontraktu istniejącej bazy: operator pobiera kopię `places:snapshot -- --firebase-cli --migrate-legacy`, przegląda różnicę, a następnie importuje ją nowym importerem. `--migrate-legacy` jest jawnym narzędziem jednorazowej migracji, normalny odczyt/build pozostaje ścisły. Build i deployment portalu to oddzielny proces dev-N; lokalna przeglądarka nigdy nie jest wdrażana.
-
-`npm run research -- hydrate --firebase-cli` pokazuje brakujące lokalne kopie już opublikowanych, zatwierdzonych obrazów. `--apply` pobiera je ze Storage dev, weryfikuje SHA-256 i zapisuje w files/imported oraz materiale. Nie pobiera nowych materiałów z nieustalonymi prawami; umożliwia podgląd wcześniejszych wycinków bez internetu. Po pobraniu wykonaj push warsztatu.
-
-Dla własnych skanów adresy internetowe oryginału/kolekcji/oznaczenia praw oraz autor w publicznym provenance mogą być null; nie tworzymy zastępczych URL ani nazw autora. Potwierdzenie praw wymaga basis, checkedAt, credit oraz evidenceUrl albo evidenceMaterialId wskazującego zarejestrowany materiał dowodowy (np. lokalną dokumentację).
-
-Materiały mogą określać temporalContext: contemporary (opis stanu bieżącego, np. reklama lub spis adresowy), retrospective albo unknown. Współczesne ogłoszenie z 1938 potwierdza działalność w naszym okresie również przy historicalDate=null. Nie kopiujemy automatycznie publicationDate do historicalDate; podstawę kwalifikacji zapisujemy w period.evidence. Data artykułu wspomnieniowego nie dowodzi istnienia miejsca w roku wydania.
-
-Korekta kwalifikacji wcześniejszego katalogu: datowane ogłoszenia prasowe i współczesne wpisy adresowe są dowodem okresu bez wymagania osobno wpisanego historicalDate. Sam brak tego pola oznacza brak ustrukturyzowanej daty, a nie brak dowodu. Część „Do sprawdzenia / inne lata” obejmuje również miejsca oczekujące na ocenę istniejących wzmianek.
+Dopiero osobne places:import --apply zapisuje bazę dev. Lokalna przeglądarka działa tylko na 127.0.0.1:4319, jest tylko do odczytu, bez Google i internetu przy przeglądaniu, poza Hosting/SSG. Plan, moduły i obrazy są lokalne. `--root=/absolutna/sciezka` wybiera warsztat; `RESEARCH_PORT` ustawia port.

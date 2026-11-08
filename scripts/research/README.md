@@ -7,3 +7,7 @@ Polecenia, format i decyzje: [data/places/README](../../data/places/README.md). 
 `hydrate.mjs` pobiera wyłącznie istniejące zatwierdzone warianty publiczne do lokalnego warsztatu, sprawdzając SHA-256 i rejestrując pliki.
 
 `capture.mjs` zapisuje wewnętrzne kopie PDF/obrazów niezależnie od praw publikacyjnych, współdzieli pliki po SHA-256 i rejestruje pochodzenie. Nie przyznaje zgód publikacji.
+
+Schemat 3: documents, mentions i odrębne materiały wizualne. chronology.mjs wylicza daty i sprawdza zgodność epoki oraz źródła; restructure.mjs wykonuje jawną migrację 2 → 3. Eksport czyta tylko verified wzmianki i właściwe historyczne materiały.
+
+`hydrate` zachowuje wcześniej opublikowane pliki jako kopie dokumentów źródłowych. Nadanie im roli materiału historycznego i powiązanie ze wzmianką wymaga osobnej oceny datowania.

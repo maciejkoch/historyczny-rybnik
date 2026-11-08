@@ -14,8 +14,8 @@ const places = validateCatalog(JSON.parse(readFileSync(input, 'utf8')));
 const assets = places
   .filter((p) => p.published)
   .flatMap((p) =>
-    p.references.flatMap((ref) =>
-      ref.images.flatMap((image) => [
+    p.mentions.flatMap((ref) =>
+      ref.materials.flatMap((image) => [
         { storagePath: image.storagePath, sha256: image.sha256, image },
         { storagePath: image.thumbnailPath, sha256: image.thumbnailSha256, image },
       ]),

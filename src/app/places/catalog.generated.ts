@@ -30,7 +30,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "newspaper-ad-1",
         "title": "Sztandar Polski i Gazeta Rybnicka",
@@ -41,12 +41,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Jerzy Wilczyński. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_1/newspaper-ad-1/place_mvp0_1-newspaper-ad-1-1cfc00509959.jpg",
             "thumbnailPath": "public/places/place_mvp0_1/newspaper-ad-1/place_mvp0_1-newspaper-ad-1-1cfc00509959-thumb.jpg",
@@ -68,6 +73,12 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_1cfc00509959433ffbf108f5e02f2e9f",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
@@ -82,12 +93,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "draft",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wilczyński J., Sobieskiego 21",
         "excerptType": "transcription",
         "note": "W gazecie Jerzy Wilczyński, w przewodniku tylko J. Wilczyński i inny adres. Zgodny inicjał i branża nie rozstrzygają tożsamości; nie dodano tych adresów na mapę.; Powiązanie z tym miejscem jest przypuszczalne.",
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-084",
@@ -99,5232 +115,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "draft",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wilczyński J., Cegielniana 14",
         "excerptType": "transcription",
         "note": "W gazecie Jerzy Wilczyński, w przewodniku tylko J. Wilczyński i inny adres. Zgodny inicjał i branża nie rozstrzygają tożsamości; nie dodano tych adresów na mapę.; Powiązanie z tym miejscem jest przypuszczalne.",
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_10",
-    "name": "Rudolf Rojek",
-    "slug": "rudolf-rojek-10",
-    "previousSlugs": [],
-    "description": "Rudolf Rojek — Zakład elektrotechniczny. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Sobieskiego 14"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "newspaper-ad-10",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
-        "page": "5 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Rudolf Rojek. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_10/newspaper-ad-10/place_mvp0_10-newspaper-ad-10-678d361e98a8.jpg",
-            "thumbnailPath": "public/places/place_mvp0_10/newspaper-ad-10/place_mvp0_10-newspaper-ad-10-678d361e98a8-thumb.jpg",
-            "alt": "Ogłoszenie: Rudolf Rojek. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "678d361e98a8d70a5b6f27b84c012d64d176f9a7074d697619a6a22310c13e7d",
-            "thumbnailSha256": "c80acf76c70ffb6c00d4420180d022b2c7d1d02b3139eca27e175dde43c3fdbb",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-10.jpg",
-              "originalSha256": "678d361e98a8d70a5b6f27b84c012d64d176f9a7074d697619a6a22310c13e7d",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_100",
-    "name": "Franciszek Kaniewski",
-    "slug": "franciszek-kaniewski-100",
-    "previousSlugs": [],
-    "description": "Franciszek Kaniewski — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Aleja 3 Maja (bez numeru)"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-069",
-        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
-        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=127",
-        "page": "127 (PDF)",
-        "publicationDate": {
-          "from": "1936",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kaniewski Franciszek, ul. Aleja 3-go Maja.",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1002",
-    "name": "Kościół Matki Bożej Bolesnej",
-    "slug": "kosciol-matki-bozej-bolesnej-1002",
-    "previousSlugs": [],
-    "description": "Kościół Matki Bożej Bolesnej — Kościół katolicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Kościół Matki Bożej Bolesnej"
-      },
-      {
-        "type": "current",
-        "text": "Franciszka Rybnickiego 2"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.097533,
-        "lng": 18.5420896
-      },
-      "precision": "building",
-      "explanation": "Zachowany kościół opisany w miejskim wykazie zabytków; punkt w obrysie dzisiejszej świątyni. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/236882053 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-mbb-1",
-        "title": "Miasto Rybnik — Zabytki",
-        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Budowa według projektu Franciszka Ilgnera w latach 1798–1801.",
-        "excerptType": "summary",
-        "note": "1798–1801 · budowa",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1003",
-    "name": "Dawny kościół farny Wniebowzięcia NMP",
-    "slug": "dawny-kosciol-farny-wniebowziecia-nmp-1003",
-    "previousSlugs": [],
-    "description": "Dawny kościół farny Wniebowzięcia NMP — Kościół / kaplica cmentarna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Górka Kościelna, przy Gliwickiej"
-      },
-      {
-        "type": "current",
-        "text": "Gliwicka 8"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0995762,
-        "lng": 18.5450177
-      },
-      "precision": "building",
-      "explanation": "Punkt wskazuje zachowane prezbiterium. Dzisiejsza funkcja kościoła akademickiego nie jest funkcją z 1932 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/209433735 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-wnmp-1",
-        "title": "Miasto Rybnik — Zabytki",
-        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Gotyckie prezbiterium; nawę i wieżę rozebrano w 1797 r. Później kaplica cmentarna.",
-        "excerptType": "summary",
-        "note": "XV w. · zachowane prezbiterium",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1004",
-    "name": "Kościół ewangelicko-augsburski",
-    "slug": "kosciol-ewangelicko-augsburski-1004",
-    "previousSlugs": [],
-    "description": "Kościół ewangelicko-augsburski — Kościół ewangelicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Dawna Dworcowa / Grażyńskiego, przy kościele"
-      },
-      {
-        "type": "current",
-        "text": "Miejska 12"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0914629,
-        "lng": 18.5420565
-      },
-      "precision": "building",
-      "explanation": "Zachowany obiekt identyfikowany przez miejskie opracowanie. OSM określa obecny budynek, nie dawny numer posesji. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/232162513 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-ewangelicki-1",
-        "title": "Miasto Rybnik — Zabytki",
-        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Dawna sieciarnia zamkowa przystosowana do nabożeństw około 1791 r.",
-        "excerptType": "summary",
-        "note": "ok. 1791 · adaptacja",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1005",
-    "name": "Synagoga przy Zamkowej",
-    "slug": "synagoga-przy-zamkowej-1005",
-    "previousSlugs": [],
-    "description": "Synagoga przy Zamkowej — Synagoga. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Zamkowa, miejsce dawnej synagogi"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.094135,
-        "lng": 18.5421736
-      },
-      "precision": "approximate",
-      "explanation": "Punkt pochodzi z węzła tablicy pamiątkowej. Wskazuje otoczenie dawnej synagogi, nie ustalony środek ani obrys zniszczonego budynku. Współrzędne węzła OpenStreetMap. https://www.openstreetmap.org/node/10647135724 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-synagoga-1",
-        "title": "Jak święcono nową rybnicką synagogę…",
-        "url": "https://www.rybnicka.eu/aktualnosci/historia/Jak-swiecono-nowa-rybnicka-synagoge/idn:1250",
-        "page": null,
-        "publicationDate": {
-          "from": "2023-07-02",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Otwarcie 5 czerwca 1848 r.; spalenie przez Niemców w październiku 1939 r.",
-        "excerptType": "summary",
-        "note": "1848–1939",
-        "images": []
-      },
-      {
-        "id": "institution-synagoga-2",
-        "title": "Miasto Rybnik — Tablice ku pamięci",
-        "url": "https://www.rybnik.eu/dla-mieszkancow/aktualnosci/aktualnosc/tablice-ku-pamieci",
-        "page": null,
-        "publicationDate": {
-          "from": "2017-07-05",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Tablica upamiętnia miejsce synagogi; ruiny rozebrano wiosną 1940 r.",
-        "excerptType": "summary",
-        "note": "1848–1939",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1006",
-    "name": "Dawny żydowski dom modlitw przy Raciborskiej",
-    "slug": "dawny-zydowski-dom-modlitw-przy-raciborskiej-1006",
-    "previousSlugs": [],
-    "description": "Dawny żydowski dom modlitw przy Raciborskiej — Dom modlitw. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Raciborska, okolice Skłodowskiej-Curie"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-stary-dom-modlitw-1",
-        "title": "Jak święcono nową rybnicką synagogę…",
-        "url": "https://www.rybnicka.eu/aktualnosci/historia/Jak-swiecono-nowa-rybnicka-synagoge/idn:1250",
-        "page": null,
-        "publicationDate": {
-          "from": "2023-07-02",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Drewniany dom modlitw działał jeszcze w 1848 r.; lokalizacja opisana orientacyjnie.",
-        "excerptType": "summary",
-        "note": "1848 · wzmianka",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1007",
-    "name": "Kościół św. Józefa na Smolnej",
-    "slug": "kosciol-sw-jozefa-na-smolnej-1007",
-    "previousSlugs": [],
-    "description": "Kościół św. Józefa na Smolnej — Kościół franciszkański. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Smolna, kościół franciszkanów"
-      },
-      {
-        "type": "current",
-        "text": "Wodzisławska 7"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0938898,
-        "lng": 18.5362899
-      },
-      "precision": "building",
-      "explanation": "Punkt przedstawia kościół ukończony w 1937 r., więc późniejszy od podkładu z 1932 r. Wcześniejsza kaplica mieściła się w innym budynku. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/105738602 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-jozef-1",
-        "title": "Śląscy Franciszkanie — Rybnik",
-        "url": "https://www.panewniki.pl/klasztory/rybnik/",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Budowę obecnego kościoła ukończono w 1937 r.; wcześniejszy kościół urządzono w stodole.",
-        "excerptType": "summary",
-        "note": "1937 · ukończenie",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1008",
-    "name": "Klasztor Franciszkanów",
-    "slug": "klasztor-franciszkanow-1008",
-    "previousSlugs": [],
-    "description": "Klasztor Franciszkanów — Klasztor. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Smolna, klasztor franciszkanów"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0939417,
-        "lng": 18.5365816
-      },
-      "precision": "approximate",
-      "explanation": "Zidentyfikowany zespół klasztorny; punkt reprezentuje współczesny budynek, a nie pomieszczenia pierwszej placówki z 1922 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/270432324 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-franciszkanie-1",
-        "title": "Śląscy Franciszkanie — Rybnik",
-        "url": "https://www.panewniki.pl/klasztory/rybnik/",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Placówka istnieje od 4 marca 1922 r.; budowę klasztoru rozpoczęto w 1927 r.",
-        "excerptType": "summary",
-        "note": "1922 · początek placówki",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1009",
-    "name": "Kaplica szpitalna św. Juliusza",
-    "slug": "kaplica-szpitalna-sw-juliusza-1009",
-    "previousSlugs": [],
-    "description": "Kaplica szpitalna św. Juliusza — Kaplica szpitalna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Kaplica w zespole szpitala Juliusz"
-      },
-      {
-        "type": "current",
-        "text": "3 Maja 20"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0911129,
-        "lng": 18.5439181
-      },
-      "precision": "building",
-      "explanation": "Punkt wskazuje zachowaną kaplicę szpitalną; jej obecna desakralizacja nie opisuje funkcji przedwojennej. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/623770636 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-kaplica-juliusza-1",
-        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
-        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=95",
-        "page": "95 (PDF)",
-        "publicationDate": {
-          "from": "2019",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Centralna kaplica zespołu szpitalnego pochodzi z 1894 r.",
-        "excerptType": "summary",
-        "note": "1894 · kaplica",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_101",
-    "name": "Maksymilian Kuśka",
-    "slug": "maksymilian-kuska-101",
-    "previousSlugs": [],
-    "description": "Maksymilian Kuśka — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Św. Barbary (bez numeru)"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-070",
-        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
-        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=127",
-        "page": "127 (PDF)",
-        "publicationDate": {
-          "from": "1936",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kuśka Maksymilian, ul. św. Barbary.",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1010",
-    "name": "Dawny cmentarz na Górce Kościelnej",
-    "slug": "dawny-cmentarz-na-gorce-koscielnej-1010",
-    "previousSlugs": [],
-    "description": "Dawny cmentarz na Górce Kościelnej — Cmentarz katolicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "inne",
-        "name": "inne"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Górka Kościelna, przy dawnym kościele farnym"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0992133,
-        "lng": 18.5440984
-      },
-      "precision": "approximate",
-      "explanation": "Współczesny park wyznacza jedynie otoczenie dawnego cmentarza. Nie odtworzono jego granic ani kwater. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/209433745 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-cmentarz-gorka-1",
-        "title": "Miasto Rybnik — Zabytki",
-        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Najstarszy rybnicki cmentarz otaczał dawny kościół farny; zlikwidowany w latach 70. XX w.",
-        "excerptType": "summary",
-        "note": "do lat 70. XX w. · cmentarz",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1011",
-    "name": "Stary cmentarz żydowski",
-    "slug": "stary-cmentarz-zydowski-1011",
-    "previousSlugs": [],
-    "description": "Stary cmentarz żydowski — Cmentarz żydowski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "inne",
-        "name": "inne"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Między Klasztorną, Wieniawskiego i 3 Maja"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0930522,
-        "lng": 18.5455075
-      },
-      "precision": "approximate",
-      "explanation": "Punkt reprezentuje dzisiejszy zieleniec na terenie opisanym przez muzeum. Nie jest odtworzeniem granic nekropolii. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/441954878 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-stary-cmentarz-zydowski-1",
-        "title": "Muzeum — Cmentarz żydowski w Rybniku",
-        "url": "https://www.muzeum.rybnik.pl/cmentarz-zydowski-w-rybniku",
-        "page": null,
-        "publicationDate": {
-          "from": "2014",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Cmentarz w trójkącie Klasztorna–Wieniawskiego–3 Maja; pochówki zamknięto 1 stycznia 1931 r., teren zniszczono w 1940 r.",
-        "excerptType": "summary",
-        "note": "1815 · założenie / 1931 · zamknięcie",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1012",
-    "name": "Nowy cmentarz żydowski przy Rudzkiej",
-    "slug": "nowy-cmentarz-zydowski-przy-rudzkiej-1012",
-    "previousSlugs": [],
-    "description": "Nowy cmentarz żydowski przy Rudzkiej — Cmentarz żydowski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "inne",
-        "name": "inne"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Rudzka, na północ od nowego cmentarza ewangelickiego"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-nowy-cmentarz-zydowski-1",
-        "title": "NID / POLIN — Nowy cmentarz żydowski",
-        "url": "https://zabytek.pl/pl/obiekty/cmentarz-zydowski-nowy--2",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Urządzony po ugodzie z 1931 r.; pierwszy pochówek prawdopodobnie 28 stycznia 1932 r.",
-        "excerptType": "summary",
-        "note": "Nagłówek serwisu podaje 1925–1926, opis wiąże założenie z 1931 r. Zachowano rozbieżność; daty otwarcia nie uznano za pewną.; 1931–1932 · urządzenie",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1013",
-    "name": "Państwowe Gimnazjum — dzisiejsze I LO",
-    "slug": "panstwowe-gimnazjum-dzisiejsze-i-lo-1013",
-    "previousSlugs": [],
-    "description": "Państwowe Gimnazjum — dzisiejsze I LO — Gimnazjum ogólnokształcące. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Kościuszki, gmach gimnazjum"
-      },
-      {
-        "type": "current",
-        "text": "Tadeusza Kościuszki 5"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0968031,
-        "lng": 18.5497404
-      },
-      "precision": "building",
-      "explanation": "Historia szkoły wprost identyfikuje zachowany budynek I LO. Numer 5 jest adresem współczesnym. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/127080668 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-gimnazjum-1",
-        "title": "I LO — Historia szkoły",
-        "url": "https://1lo.rybnik.pl/szkola/historia",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Nowy gmach przy Kościuszki oddano w 1911 r.; polskie gimnazjum przejęło budynek w lipcu 1922 r.",
-        "excerptType": "summary",
-        "note": "1911 · gmach / 1922 · polskie gimnazjum",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1014",
-    "name": "Klasztor i szkoły Sióstr Urszulanek",
-    "slug": "klasztor-i-szkoly-siostr-urszulanek-1014",
-    "previousSlugs": [],
-    "description": "Klasztor i szkoły Sióstr Urszulanek — Szkoły żeńskie / klasztor. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "3 Maja, kompleks urszulański"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0906572,
-        "lng": 18.5436144
-      },
-      "precision": "approximate",
-      "explanation": "Punkt reprezentuje zachowany kompleks szkolny, rozbudowywany w różnych latach. Nie przypisuje wszystkich zajęć z 1923 r. do obecnego gmachu. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/237039713 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-urszulanki-1",
-        "title": "Szkoły Urszulańskie — 100 lat na 100%",
-        "url": "https://www.urszulanki.rybnik.pl/100-lat-na-100",
-        "page": null,
-        "publicationDate": {
-          "from": "2023",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Pierwsze lekcje odbyły się 10 września 1923 r.",
-        "excerptType": "summary",
-        "note": "1923 · początek nauczania",
-        "images": []
-      },
-      {
-        "id": "institution-urszulanki-2",
-        "title": "Urszulanki Unii Rzymskiej — Rybnik",
-        "url": "https://www.osu.pl/Rybnik%2C473%2C0.html",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Miasto przekazało budynki przy 3 Maja; prowadzono kilka typów szkół.",
-        "excerptType": "summary",
-        "note": "1923 · początek nauczania",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1015",
-    "name": "Szkoła powszechna nr 1 im. Adama Mickiewicza",
-    "slug": "szkola-powszechna-nr-1-im-adama-mickiewicza-1015",
-    "previousSlugs": [],
-    "description": "Szkoła powszechna nr 1 im. Adama Mickiewicza — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Przy kościele Matki Bożej Bolesnej"
-      },
-      {
-        "type": "current",
-        "text": "Cmentarna 1"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0978063,
-        "lng": 18.5417029
-      },
-      "precision": "building",
-      "explanation": "Historia SP nr 9 identyfikuje zachowany budynek. Dawna „jedynka” nie jest dzisiejszą SP nr 1 im. Korczaka. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/237989507 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-jedynka-1",
-        "title": "SP nr 9 — Historia szkoły",
-        "url": "https://www.sp9.miastorybnik.pl/szkola/historia-szkoly.html",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Nowy neogotycki gmach ukończono w 1902 r.; później szkoła nosiła numer 9.",
-        "excerptType": "summary",
-        "note": "1902 · nowy gmach",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1016",
-    "name": "Szkoła powszechna na Smolnej",
-    "slug": "szkola-powszechna-na-smolnej-1016",
-    "previousSlugs": [],
-    "description": "Szkoła powszechna na Smolnej — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Wodzisławska, Smolna"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-smolna-1",
-        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
-        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
-        "page": "25 (PDF)",
-        "publicationDate": {
-          "from": "2009-05-26",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Nowy gmach przy Wodzisławskiej powstał w 1913 r.",
-        "excerptType": "summary",
-        "note": "1913 · nowy budynek",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1017",
-    "name": "Szkoła powszechna na Paruszowcu–Piaskach",
-    "slug": "szkola-powszechna-na-paruszowcupiaskach-1017",
-    "previousSlugs": [],
-    "description": "Szkoła powszechna na Paruszowcu–Piaskach — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Paruszowiec–Piaski, adres nieustalony"
-      }
-    ],
-    "district": "Paruszowiec–Piaski",
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-paruszowiec-szkola-1",
-        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
-        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
-        "page": "25 (PDF)",
-        "publicationDate": {
-          "from": "2009-05-26",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Szkoła na Paruszowcu–Piaskach powstała w 1910 r.",
-        "excerptType": "summary",
-        "note": "1906 / 1910 · rozbieżność źródeł",
-        "images": []
-      },
-      {
-        "id": "institution-paruszowiec-szkola-2",
-        "title": "SP3 — Historia szkoły na Paruszowcu",
-        "url": "https://sp3.rybnik.pl/o-szkole/historia/",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Historia SP3 podaje pierwszy dzwonek w 1906 r.",
-        "excerptType": "summary",
-        "note": "Rozbieżność: opracowanie Michała Palicy podaje powstanie szkoły w 1910 r. Nie rozstrzygnięto, czy daty odnoszą się do tego samego etapu.; 1906 / 1910 · rozbieżność źródeł",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1018",
-    "name": "Szkoła powszechna nr 4 w Ligocie",
-    "slug": "szkola-powszechna-nr-4-w-ligocie-1018",
-    "previousSlugs": [],
-    "description": "Szkoła powszechna nr 4 w Ligocie — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Ligota, adres nieustalony"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-ligota-szkola-1",
-        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
-        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
-        "page": "25 (PDF)",
-        "publicationDate": {
-          "from": "2009-05-26",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wymieniono „czwórkę” w Ligocie, kierowaną przez F. Mieszańca.",
-        "excerptType": "summary",
-        "note": "lata 30. XX w. · wzmianka",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1019",
-    "name": "Szkoła powszechna nr 5",
-    "slug": "szkola-powszechna-nr-5-1019",
-    "previousSlugs": [],
-    "description": "Szkoła powszechna nr 5 — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Mikołowska (bez numeru)"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-piatka-1",
-        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
-        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
-        "page": "25 (PDF)",
-        "publicationDate": {
-          "from": "2009-05-26",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "W 1935 r. otwarto gmach „piątki” przy Mikołowskiej.",
-        "excerptType": "summary",
-        "note": "1935 · nowy gmach",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_102",
-    "name": "Rajmund Jonderko",
-    "slug": "rajmund-jonderko-102",
-    "previousSlugs": [],
-    "description": "Rajmund Jonderko — Skład skór. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Korfantego 4a"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-071",
-        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
-        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=128",
-        "page": "128 (PDF)",
-        "publicationDate": {
-          "from": "1936",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Jonderko Rajmund, ul. Korfantego.",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "observation-121",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=513",
-        "page": "513 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Jonderko R., Korfantego 4-a",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1020",
-    "name": "Szkoła Handlowa",
-    "slug": "szkola-handlowa-1020",
-    "previousSlugs": [],
-    "description": "Szkoła Handlowa — Szkoła zawodowa / handlowa. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Kościuszki (bez numeru)"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-handlowa-1",
-        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
-        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
-        "page": "25 (PDF)",
-        "publicationDate": {
-          "from": "2009-05-26",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Nowy gmach szkoły handlowej przy Kościuszki datowano na 1938/1939.",
-        "excerptType": "summary",
-        "note": "1938/1939 · nowy gmach",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1021",
-    "name": "Szkoła Przysposobienia Kupieckiego",
-    "slug": "szkola-przysposobienia-kupieckiego-1021",
-    "previousSlugs": [],
-    "description": "Szkoła Przysposobienia Kupieckiego — Szkoła zawodowa / kupiecka. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Adres niepodany"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-kupiecka-1",
-        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
-        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
-        "page": "25 (PDF)",
-        "publicationDate": {
-          "from": "2009-05-26",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wymieniona wśród przedwojennych szkół Rybnika.",
-        "excerptType": "summary",
-        "note": "lata 30. XX w. · wzmianka",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1022",
-    "name": "Szkoła Rolnicza",
-    "slug": "szkola-rolnicza-1022",
-    "previousSlugs": [],
-    "description": "Szkoła Rolnicza — Szkoła rolnicza. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Dawny budynek powojennej Szkoły Muzycznej"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-rolnicza-1",
-        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
-        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
-        "page": "25 (PDF)",
-        "publicationDate": {
-          "from": "2009-05-26",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Mieściła się w nieistniejącym budynku późniejszej szkoły muzycznej.",
-        "excerptType": "summary",
-        "note": "lata 30. XX w. · wzmianka",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1023",
-    "name": "Rzemieślnicza Szkoła Zawodowa",
-    "slug": "rzemieslnicza-szkola-zawodowa-1023",
-    "previousSlugs": [],
-    "description": "Rzemieślnicza Szkoła Zawodowa — Szkoła zawodowa. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Adres niepodany"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-rzemieslnicza-szkola-1",
-        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
-        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
-        "page": "25 (PDF)",
-        "publicationDate": {
-          "from": "2009-05-26",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Szkoła zawodowa finansowana przez magistrat.",
-        "excerptType": "summary",
-        "note": "lata 30. XX w. · wzmianka",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1024",
-    "name": "Niemiecka szkoła powszechna przy Chrobrego",
-    "slug": "niemiecka-szkola-powszechna-przy-chrobrego-1024",
-    "previousSlugs": [],
-    "description": "Niemiecka szkoła powszechna przy Chrobrego — Szkoła mniejszości niemieckiej. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Chrobrego (bez numeru)"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-niemiecka-szkola-1",
-        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
-        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
-        "page": "25 (PDF)",
-        "publicationDate": {
-          "from": "2009-05-26",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wymieniono szkołę mniejszości niemieckiej przy Chrobrego.",
-        "excerptType": "summary",
-        "note": "lata 30. XX w. · wzmianka",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1025",
-    "name": "Kolegium Serafickie Franciszkanów",
-    "slug": "kolegium-serafickie-franciszkanow-1025",
-    "previousSlugs": [],
-    "description": "Kolegium Serafickie Franciszkanów — Niższe seminarium duchowne. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Smolna, kompleks klasztoru franciszkanów"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0939417,
-        "lng": 18.5365816
-      },
-      "precision": "approximate",
-      "explanation": "Punkt zespołu klasztornego, wspólny z kartą klasztoru. Nie ustalono rozmieszczenia dawnych klas. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/270432324 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-serafickie-1",
-        "title": "Śląscy Franciszkanie — Rybnik",
-        "url": "https://www.panewniki.pl/klasztory/rybnik/",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "W 1928 r. uczniowie III i IV klasy zamieszkali w nowym gmachu seminarium.",
-        "excerptType": "summary",
-        "note": "1928 · uczniowie w nowym gmachu",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1026",
-    "name": "Niższe Seminarium Duchowne Werbistów",
-    "slug": "nizsze-seminarium-duchowne-werbistow-1026",
-    "previousSlugs": [],
-    "description": "Niższe Seminarium Duchowne Werbistów — Szkoła średnia / seminarium. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Dom Misyjny Królowej Apostołów, dawny gmach"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-werbisci-seminarium-1",
-        "title": "Werbiści w Rybniku",
-        "url": "https://www.werbisci.pl/wiadomosci/polska/werbisci-w-rybniku",
-        "page": null,
-        "publicationDate": {
-          "from": "2023-05-04",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Seminarium otwarto w 1923 r.; nowy klasztor oddano w 1932 r.",
-        "excerptType": "summary",
-        "note": "1923 · otwarcie / 1932 · nowy gmach",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1027",
-    "name": "Szkoła Muzyczna braci Szafranków",
-    "slug": "szkola-muzyczna-braci-szafrankow-1027",
-    "previousSlugs": [],
-    "description": "Szkoła Muzyczna braci Szafranków — Szkoła muzyczna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Kraszewskiego (bez numeru)"
-      },
-      {
-        "type": "historical",
-        "text": "Budynek „Polonia” — adres do wyjaśnienia"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-muzyczna-1",
-        "title": "PSM w Rybniku — Patroni szkoły",
-        "url": "https://www.gov.pl/web/psmrybnik/patroni-szkoly",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Początkowo przy Kraszewskiego; później w budynku „Polonia”.",
-        "excerptType": "summary",
-        "note": "Opracowanie szkoły wskazuje Chrobrego. Inne opracowania podają 3 Maja; relokacja wymaga dalszej kwerendy.; 1933 · założenie",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1028",
-    "name": "Filia Śląskiej Szkoły Muzycznej",
-    "slug": "filia-slaskiej-szkoly-muzycznej-1028",
-    "previousSlugs": [],
-    "description": "Filia Śląskiej Szkoły Muzycznej — Szkoła muzyczna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Adres nieustalony"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-filia-muzyczna-1",
-        "title": "W rozmuzykowanym Rybniku",
-        "url": "https://www.rybnicka.eu/aktualnosci/kultura-i-rozrywka/W-rozmuzykowanym-Rybniku/idn:1385",
-        "page": null,
-        "publicationDate": {
-          "from": "2023",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Filia katowickiej Śląskiej Szkoły Muzycznej działała w Rybniku już w 1928 r.",
-        "excerptType": "summary",
-        "note": "1928 · działalność",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1029",
-    "name": "Kino Apollo — późniejszy Ślązak",
-    "slug": "kino-apollo-pozniejszy-slazak-1029",
-    "previousSlugs": [],
-    "description": "Kino Apollo — późniejszy Ślązak — Kino. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "kultura",
-        "name": "kultura"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Adres nieustalony"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-apollo-1",
-        "title": "Rybnik w starym kinie",
-        "url": "https://sbc.org.pl/Content/306994/14A.pdf#page=19",
-        "page": "19 (PDF)",
-        "publicationDate": {
-          "from": "2013-04-02",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kino Stokłosów otwarto w 1932 r.; po wojnie działało jako Ślązak.",
-        "excerptType": "summary",
-        "note": "1932 · otwarcie",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_103",
-    "name": "Leon Kamiński",
-    "slug": "leon-kaminski-103",
-    "previousSlugs": [],
-    "description": "Leon Kamiński — Zakład złotniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Łony 11"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-072",
-        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
-        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=129",
-        "page": "129 (PDF)",
-        "publicationDate": {
-          "from": "1936",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kamiński Leon, ul. Łony 11.",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "observation-153",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=549",
-        "page": "549 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kamiński L., Łony 8",
-        "excerptType": "transcription",
-        "note": "Zgodny inicjał, nazwisko i branża, ale inny numer: księga z 1936 r. podaje Łony 11. Nie rozstrzygnięto tożsamości.; Powiązanie z tym miejscem jest przypuszczalne.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1030",
-    "name": "Kino Helios",
-    "slug": "kino-helios-1030",
-    "previousSlugs": [],
-    "description": "Kino Helios — Kino. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "kultura",
-        "name": "kultura"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Reja / plac Wolności"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-helios-1",
-        "title": "Rybnik w starym kinie",
-        "url": "https://sbc.org.pl/Content/306994/14A.pdf#page=19",
-        "page": "19 (PDF)",
-        "publicationDate": {
-          "from": "2013-04-02",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kino na rogu Reja i pl. Wolności; poprzednikiem było kino z 1910 r.",
-        "excerptType": "summary",
-        "note": "1910 · poprzednik / lata 30. · Helios",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1031",
-    "name": "Kino Pałac / Bałtyk / Wawel / Wanda / Świt",
-    "slug": "kino-palac-baltyk-wawel-wanda-swit-1031",
-    "previousSlugs": [],
-    "description": "Kino Pałac / Bałtyk / Wawel / Wanda / Świt — Kino. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "kultura",
-        "name": "kultura"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Dr. Grażyńskiego (bez numeru)"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-swit-1",
-        "title": "Rybnik w starym kinie",
-        "url": "https://sbc.org.pl/Content/306994/14A.pdf#page=19",
-        "page": "19 (PDF)",
-        "publicationDate": {
-          "from": "2013-04-02",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Jedno kino przy Dworcowej/Grażyńskiego wielokrotnie zmieniało nazwę; po wojnie Górnik.",
-        "excerptType": "summary",
-        "note": "1920 · kino / 1938 · Świt",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1032",
-    "name": "Świerklaniec — hotel i sala spotkań",
-    "slug": "swierklaniec-hotel-i-sala-spotkan-1032",
-    "previousSlugs": [],
-    "description": "Świerklaniec — hotel i sala spotkań — Hotel / sala widowiskowa. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "kultura",
-        "name": "kultura"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Świerklaniec, przy Sobieskiego"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0967958,
-        "lng": 18.5427156
-      },
-      "precision": "approximate",
-      "explanation": "OSM wskazuje parcelę współczesnego Świerklańca. Dawny budynek uległ częściowemu zawaleniu w 2021 r.; punkt nie dowodzi zachowania historycznej substancji. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/244470822 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-swierklaniec-1",
-        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
-        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=101",
-        "page": "101 (PDF)",
-        "publicationDate": {
-          "from": "2019",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Neobarokowy budynek zajazdu powstał u schyłku XIX w.",
-        "excerptType": "summary",
-        "note": "koniec XIX w. · gmach",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1033",
-    "name": "Towarzystwo Czytelni Ludowych w Rybniku",
-    "slug": "towarzystwo-czytelni-ludowych-w-rybniku-1033",
-    "previousSlugs": [],
-    "description": "Towarzystwo Czytelni Ludowych w Rybniku — Czytelnictwo / oświata. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "kultura",
-        "name": "kultura"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Adres niepodany"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-tcl-1",
-        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
-        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
-        "page": "25 (PDF)",
-        "publicationDate": {
-          "from": "2009-05-26",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Towarzystwo wymieniono jako instytucję wspierającą edukację rybniczan.",
-        "excerptType": "summary",
-        "note": "lata 30. XX w. · wzmianka",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1034",
-    "name": "Uniwersytet Powszechny w Rybniku",
-    "slug": "uniwersytet-powszechny-w-rybniku-1034",
-    "previousSlugs": [],
-    "description": "Uniwersytet Powszechny w Rybniku — Oświata dorosłych. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "kultura",
-        "name": "kultura"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Adres niepodany"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-uniwersytet-powszechny-1",
-        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
-        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
-        "page": "25 (PDF)",
-        "publicationDate": {
-          "from": "2009-05-26",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wymieniony obok TCL wśród instytucji edukacji pozaszkolnej.",
-        "excerptType": "summary",
-        "note": "lata 30. XX w. · wzmianka",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1035",
-    "name": "Świetlica Strzelecka",
-    "slug": "swietlica-strzelecka-1035",
-    "previousSlugs": [],
-    "description": "Świetlica Strzelecka — Świetlica / życie społeczne. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "kultura",
-        "name": "kultura"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Adres niepodany"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-swietlica-strzelecka-1",
-        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
-        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
-        "page": "25 (PDF)",
-        "publicationDate": {
-          "from": "2009-05-26",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Świetlicę wymieniono wśród miejsc wspomagających oświatę.",
-        "excerptType": "summary",
-        "note": "lata 30. XX w. · wzmianka",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1036",
-    "name": "Kolekcja historyczna o. Emila Drobnego",
-    "slug": "kolekcja-historyczna-o-emila-drobnego-1036",
-    "previousSlugs": [],
-    "description": "Kolekcja historyczna o. Emila Drobnego — Zbiory muzealne. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "kultura",
-        "name": "kultura"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Adres ekspozycji nieustalony"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-kolekcja-drobnego-1",
-        "title": "Muzeum w Rybniku — Historia muzeum",
-        "url": "https://www.muzeum.rybnik.pl/historia-muzeum",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Przedwojenna kolekcja werbisty Emila Drobnego została rozproszona podczas wojny.",
-        "excerptType": "summary",
-        "note": "1930–1939 · kolekcja",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1037",
-    "name": "Biblioteka i czytelnia szkół urszulańskich",
-    "slug": "biblioteka-i-czytelnia-szkol-urszulanskich-1037",
-    "previousSlugs": [],
-    "description": "Biblioteka i czytelnia szkół urszulańskich — Biblioteka szkolna. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "kultura",
-        "name": "kultura"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "3 Maja, kompleks szkół urszulańskich"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0906572,
-        "lng": 18.5436144
-      },
-      "precision": "approximate",
-      "explanation": "Punkt reprezentuje kompleks szkół. Nie ustalono sali ani budynku przedwojennej biblioteki. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/237039713 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-biblioteka-urszulanek-1",
-        "title": "Biblioteka szkół urszulańskich — Historia",
-        "url": "https://bsip.miastorybnik.pl/zsu/historia.htm",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "W 1935 r. około 5 tys. tomów i 37 prenumerowanych tytułów.",
-        "excerptType": "summary",
-        "note": "1935 · księgozbiór",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1038",
-    "name": "Stary Ratusz",
-    "slug": "stary-ratusz-1038",
-    "previousSlugs": [],
-    "description": "Stary Ratusz — Ratusz. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "instytucja-publiczna",
-        "name": "instytucja publiczna"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Rynek, dawny ratusz"
-      },
-      {
-        "type": "current",
-        "text": "Rynek 18"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0959137,
-        "lng": 18.5415527
-      },
-      "precision": "building",
-      "explanation": "Węzeł OSM dzisiejszego muzeum identyfikuje dawny ratusz. Karta dotyczy budynku i dawnej funkcji, a nie muzeum z lat 30. Współrzędne węzła OpenStreetMap. https://www.openstreetmap.org/node/423200594 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-stary-ratusz-1",
-        "title": "Miasto Rybnik — Zabytki",
-        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Klasycystyczny gmach ratusza z 1822 r.",
-        "excerptType": "summary",
-        "note": "1822 · budowa",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1039",
-    "name": "Nowy Ratusz — Magistrat",
-    "slug": "nowy-ratusz-magistrat-1039",
-    "previousSlugs": [],
-    "description": "Nowy Ratusz — Magistrat — Urząd miejski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "instytucja-publiczna",
-        "name": "instytucja publiczna"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Nowy gmach Magistratu"
-      },
-      {
-        "type": "current",
-        "text": "Bolesława Chrobrego 2"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0935495,
-        "lng": 18.5423086
-      },
-      "precision": "building",
-      "explanation": "Zachowany budynek wskazany przez miejskie opracowanie; punkt w obecnym obrysie gmachu. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/260502088 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-magistrat-1",
-        "title": "Miasto Rybnik — Zabytki",
-        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Gmach władz miejskich wybudowany w latach 1927–1928.",
-        "excerptType": "summary",
-        "note": "1927–1928 · budowa",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_104",
-    "name": "Rymag — Rybnicka Fabryka Maszyn",
-    "slug": "rymag-rybnicka-fabryka-maszyn-104",
-    "previousSlugs": [],
-    "description": "Rymag — Rybnicka Fabryka Maszyn — Fabryka maszyn. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "przemysl",
-        "name": "przemysł"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Hutnicza (bez numeru)"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-073",
-        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
-        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=153",
-        "page": "153 (PDF)",
-        "publicationDate": {
-          "from": "1936",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Rymag. Rybnicka Fabryka Maszyn Sp. z o.o. w Rybniku G. Śl. Nr telefonów 69 i 125.",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "observation-149",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=551",
-        "page": "551 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Rybnicka Fabryka Maszyn, S-ka z o.o., Hutnicza",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1040",
-    "name": "Starostwo Powiatowe",
-    "slug": "starostwo-powiatowe-1040",
-    "previousSlugs": [],
-    "description": "Starostwo Powiatowe — Urząd powiatowy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "instytucja-publiczna",
-        "name": "instytucja publiczna"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "3 Maja, gmach starostwa"
-      },
-      {
-        "type": "current",
-        "text": "3 Maja 31"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0898847,
-        "lng": 18.5449399
-      },
-      "precision": "building",
-      "explanation": "Zachowany budynek starostwa. Numer 31 pochodzi ze współczesnej identyfikacji OSM. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/237464684 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-starostwo-1",
-        "title": "Miasto Rybnik — Zabytki",
-        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Miejski wykaz datuje gmach na 1887 r.",
-        "excerptType": "summary",
-        "note": "1887 · budowa według wykazu",
-        "images": []
-      },
-      {
-        "id": "institution-starostwo-2",
-        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
-        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=96",
-        "page": "96 (PDF)",
-        "publicationDate": {
-          "from": "2019",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Folder podaje budowę 1887–1893.",
-        "excerptType": "summary",
-        "note": "Rozbieżność datowania w dwóch miejskich opracowaniach zachowano; nie rozstrzygnięto daty ukończenia.; 1887 · budowa według wykazu",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1041",
-    "name": "Poczta Główna",
-    "slug": "poczta-glowna-1041",
-    "previousSlugs": [],
-    "description": "Poczta Główna — Poczta / łączność. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "instytucja-publiczna",
-        "name": "instytucja publiczna"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Gmach poczty przy Pocztowej"
-      },
-      {
-        "type": "current",
-        "text": "Pocztowa 2"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0938635,
-        "lng": 18.5414663
-      },
-      "precision": "building",
-      "explanation": "Punkt urzędu pocztowego w OSM; NID identyfikuje zachowany historyczny gmach. Współrzędne węzła OpenStreetMap. https://www.openstreetmap.org/node/3684056298 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-poczta-1",
-        "title": "NID — Poczta w Rybniku",
-        "url": "https://zabytek.pl/pl/obiekty/poczta-938889",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Gmach Poczty Królewskiej wzniesiony w latach 1902–1905; w międzywojniu także PKO.",
-        "excerptType": "summary",
-        "note": "1902–1905 · budowa",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1042",
-    "name": "Zamek — Sąd Grodzki",
-    "slug": "zamek-sad-grodzki-1042",
-    "previousSlugs": [],
-    "description": "Zamek — Sąd Grodzki — Zamek / sąd. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "instytucja-publiczna",
-        "name": "instytucja publiczna"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Zamek, siedziba sądu"
-      },
-      {
-        "type": "current",
-        "text": "Plac Mikołaja Kopernika 2"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.092946,
-        "lng": 18.5404286
-      },
-      "precision": "building",
-      "explanation": "Zachowany zamek identyfikowany w miejskim opracowaniu. Współrzędne reprezentują obecny obrys budynku. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/105738665 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-zamek-sad-1",
-        "title": "Miasto Rybnik — Zabytki",
-        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Od 1842 r. zamek był siedzibą Sądu Grodzkiego.",
-        "excerptType": "summary",
-        "note": "1842 · siedziba sądu",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1043",
-    "name": "Szpital Juliusza",
-    "slug": "szpital-juliusza-1043",
-    "previousSlugs": [],
-    "description": "Szpital Juliusza — Szpital. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "inne",
-        "name": "inne"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Zespół szpitala Juliusz"
-      },
-      {
-        "type": "current",
-        "text": "Klasztorna 11"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0911992,
-        "lng": 18.5433981
-      },
-      "precision": "building",
-      "explanation": "Punkt pawilonu Juliusz w zachowanym kompleksie szpitalnym; nie wskazuje wszystkich historycznych oddziałów. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/237090745 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-szpital-juliusz-1",
-        "title": "Edukatorium Juliusz — Historia miejsca",
-        "url": "https://www.juliusz.eu/o-edukatorium",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Szpital ukończono wiosną 1869 r.",
-        "excerptType": "summary",
-        "note": "1869 · otwarcie",
-        "images": []
-      },
-      {
-        "id": "institution-szpital-juliusz-2",
-        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
-        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=95",
-        "page": "95 (PDF)",
-        "publicationDate": {
-          "from": "2019",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Najstarszą część szpitala oddano do użytku w 1869 r.",
-        "excerptType": "summary",
-        "note": "1869 · otwarcie",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1044",
-    "name": "Prowincjonalny Zakład dla Psychicznie Chorych",
-    "slug": "prowincjonalny-zaklad-dla-psychicznie-chorych-1044",
-    "previousSlugs": [],
-    "description": "Prowincjonalny Zakład dla Psychicznie Chorych — Szpital psychiatryczny. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "inne",
-        "name": "inne"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Rudzka Góra, przy trakcie do Gliwic"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.1027722,
-        "lng": 18.5457623
-      },
-      "precision": "approximate",
-      "explanation": "Punkt reprezentuje jeden z budynków współczesnego zespołu szpitalnego. Nie ustalono, który pawilon odpowiadał konkretnej funkcji w 1932 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/232440843 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-szpital-psychiatryczny-1",
-        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
-        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=103",
-        "page": "103 (PDF)",
-        "publicationDate": {
-          "from": "2019",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Działalność rozpoczęto 18 maja 1886 r.",
-        "excerptType": "summary",
-        "note": "1886 · rozpoczęcie działalności",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1045",
-    "name": "Stacja kolejowa Rybnik",
-    "slug": "stacja-kolejowa-rybnik-1045",
-    "previousSlugs": [],
-    "description": "Stacja kolejowa Rybnik — Stacja kolejowa. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "inne",
-        "name": "inne"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Dworzec kolejowy Rybnik"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.0891826,
-        "lng": 18.5472959
-      },
-      "precision": "approximate",
-      "explanation": "Punkt reprezentuje obecny budynek dworca. Data uruchomienia stacji nie jest datą powstania całej obecnej bryły. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/240279537 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-stacja-rybnik-1",
-        "title": "Miasto Rybnik — 170 lat kolei w Rybniku",
-        "url": "https://www.rybnik.eu/dla-mieszkancow/aktualnosci/aktualnosc/170-lat-kolei-w-rybniku-od-konia-do-parowozu-jak-drogi-zelazne-wplynely-na-rozwoj-rybnika",
-        "page": null,
-        "publicationDate": {
-          "from": "2026-09-12",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Stację i linię uruchomiono 1 października 1856 r.",
-        "excerptType": "summary",
-        "note": "1856 · uruchomienie",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1046",
-    "name": "Przystanek kolejowy Rybnik-Paruszowiec",
-    "slug": "przystanek-kolejowy-rybnik-paruszowiec-1046",
-    "previousSlugs": [],
-    "description": "Przystanek kolejowy Rybnik-Paruszowiec — Przystanek kolejowy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "inne",
-        "name": "inne"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Paruszowiec, przystanek kolejowy"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.1023344,
-        "lng": 18.5649393
-      },
-      "precision": "approximate",
-      "explanation": "Punkt obecnego budynku przystanku. Nie odtworzono historycznego układu peronów. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/232227707 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-stacja-paruszowiec-1",
-        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
-        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=91",
-        "page": "91 (PDF)",
-        "publicationDate": {
-          "from": "2019",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Przystanek otwarto 16 lipca 1912 r.",
-        "excerptType": "summary",
-        "note": "1912 · otwarcie",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1047",
-    "name": "Park Kozie Góry — Haasenheide",
-    "slug": "park-kozie-gory-haasenheide-1047",
-    "previousSlugs": [],
-    "description": "Park Kozie Góry — Haasenheide — Park miejski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "inne",
-        "name": "inne"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Haasenheide, przy Chwałowickiej"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": {
-        "lat": 50.082343,
-        "lng": 18.5456192
-      },
-      "precision": "approximate",
-      "explanation": "Punkt dzisiejszego parku, bez rekonstrukcji historycznych granic. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/105700860 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-kozie-gory-1",
-        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
-        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=99",
-        "page": "99 (PDF)",
-        "publicationDate": {
-          "from": "2019",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Darowizna gruntu w 1888 r.; powiększenie parku w 1905 r.",
-        "excerptType": "summary",
-        "note": "1888 / 1905 · kształtowanie parku",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_1048",
-    "name": "Żydowski dom sierot",
-    "slug": "zydowski-dom-sierot-1048",
-    "previousSlugs": [],
-    "description": "Żydowski dom sierot — Dom sierot. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "inne",
-        "name": "inne"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Adres nieustalony"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-dom-sierot-1",
-        "title": "POLIN — Historia społeczności Rybnika",
-        "url": "https://sztetl.org.pl/pl/miejscowosci/r/68-rybnik/99-historia-spolecznosci/137964-historia-spolecznosci",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Budynek kupiła gmina katowicka w 1922 r.; w 1927 r. sprzedano go Śląskiej Izbie Rolniczej.",
-        "excerptType": "summary",
-        "note": "1922 / 1927 · zmiany własności",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_105",
-    "name": "Urban Skowron",
-    "slug": "urban-skowron-105",
-    "previousSlugs": [],
-    "description": "Urban Skowron — Zakład blacharski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Jankowicka 20"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-078",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=412",
-        "page": "412 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Skowron Urban, Jankowicka 20",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_106",
-    "name": "Fryderyk Vieweg",
-    "slug": "fryderyk-vieweg-106",
-    "previousSlugs": [],
-    "description": "Fryderyk Vieweg — Zakład blacharski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Plac Wolności 10"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-079",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=412",
-        "page": "412 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Vieweg Fryderyk, pl. Wolności 10",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_107",
-    "name": "Browar Rybnicki",
-    "slug": "browar-rybnicki-107",
-    "previousSlugs": [],
-    "description": "Browar Rybnicki — Browar. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Zamkowa 3"
-      },
-      {
-        "type": "historical",
-        "text": "Zamkowa 4"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-081",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=413",
-        "page": "413 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Browar Rybnicki, dawn. Müller H., Zamkowa 3",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "observation-152",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=546",
-        "page": "546 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Browar Rybnicki, Zamkowa 4",
-        "excerptType": "transcription",
-        "note": "W dziale Browary podano Zamkową 3, a w dziale Wyszynk trunków Zamkową 4. Wpisy mogą dotyczyć różnych części przedsiębiorstwa; nie rozstrzygnięto tego.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_108",
-    "name": "Faust — Krakowski Skład Futer",
-    "slug": "faust-krakowski-sklad-futer-108",
-    "previousSlugs": [],
-    "description": "Faust — Krakowski Skład Futer — Skład futer. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Sobieskiego 7"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-087",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=437",
-        "page": "437 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "KRAKOWSKI SKŁAD FUTER FAUST. RYBNIK, UL. SOBIESKIEGO 7",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_109",
-    "name": "Fr. Heidrich",
-    "slug": "fr-heidrich-109",
-    "previousSlugs": [],
-    "description": "Fr. Heidrich — Skład obuwia. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Rynek 12"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-107",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=482",
-        "page": "482 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Fr. Heidrich. SKŁAD OBUWIA. Rybnik, Rynek 12, tel. 1121",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_11",
-    "name": "Karol Jokel",
-    "slug": "karol-jokel-11",
-    "previousSlugs": [],
-    "description": "Karol Jokel — Mistrz rzeźnicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Rynek 12"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-068",
-        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
-        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=125",
-        "page": "125 (PDF)",
-        "publicationDate": {
-          "from": "1936",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Jokel Karol, Rynek.",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "observation-117",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=509",
-        "page": "509 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Jokiel K., Rynek",
-        "excerptType": "transcription",
-        "note": "W przewodniku wariant nazwiska Jokiel; w księdze z 1936 r. i gazecie Jokel.",
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-11",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
-        "page": "6 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Karol Jokel. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_11/newspaper-ad-11/place_mvp0_11-newspaper-ad-11-9461e173ac7b.jpg",
-            "thumbnailPath": "public/places/place_mvp0_11/newspaper-ad-11/place_mvp0_11-newspaper-ad-11-9461e173ac7b-thumb.jpg",
-            "alt": "Ogłoszenie: Karol Jokel. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "9461e173ac7b9f1bb5992982041ea5280cd92fd12fe53a32d4024de94705e0ea",
-            "thumbnailSha256": "7112a9a0d38168016927892493148210be15bcfcd6eb37211069523169a6836d",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-11.jpg",
-              "originalSha256": "9461e173ac7b9f1bb5992982041ea5280cd92fd12fe53a32d4024de94705e0ea",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_110",
-    "name": "W. Olszewski",
-    "slug": "w-olszewski-110",
-    "previousSlugs": [],
-    "description": "W. Olszewski — Pracownia obuwia ortopedycznego. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Hallera 7"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-108",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=482",
-        "page": "482 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "W. Olszewski, mistrz obuwniczy. Rybnik, Hallera 7. PRACOWNIA OBUWIA. Specj. obuwie ortopedyczne",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_111",
-    "name": "Maria Wilczek",
-    "slug": "maria-wilczek-111",
-    "previousSlugs": [],
-    "description": "Maria Wilczek — Skład obuwia. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Sobieskiego 20"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-110",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=482",
-        "page": "482 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Maria Wilczek. SKŁAD OBUWIA. Rybnik G. Śl., Sobieskiego nr. 20",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_112",
-    "name": "M. Zimon",
-    "slug": "m-zimon-112",
-    "previousSlugs": [],
-    "description": "M. Zimon — Hurtownia piwa i fabryka wody sodowej. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Raciborska 49a"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-114",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=494",
-        "page": "494 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "M. ZIMON. Hurtownia piwa i fabryka wody sodowej. Rybnik, Raciborska 49a",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_113",
-    "name": "H. Pachulla",
-    "slug": "h-pachulla-113",
-    "previousSlugs": [],
-    "description": "H. Pachulla — Warsztat radiowy i rowerowy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Sobieskiego 5"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-115",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=498",
-        "page": "498 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Radio-Rowery-Warsztat H. PACHULLA. Rybnik Śl., ul. Sobieskiego 5",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_114",
-    "name": "Fr. Bartkowiak",
-    "slug": "fr-bartkowiak-114",
-    "previousSlugs": [],
-    "description": "Fr. Bartkowiak — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Poprzeczna 36"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-122",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
-        "page": "519 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Bartkowiak Fr., Poprzeczna 36",
-        "excerptType": "transcription",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_114/observation-122/place_mvp0_114-observation-122-8d2fb5c919d9.jpg",
-            "thumbnailPath": "public/places/place_mvp0_114/observation-122/place_mvp0_114-observation-122-8d2fb5c919d9-thumb.jpg",
-            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
-            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
-            "provenance": {
-              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
-              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_115",
-    "name": "M. Bohn",
-    "slug": "m-bohn-115",
-    "previousSlugs": [],
-    "description": "M. Bohn — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Mikołowska 49"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-123",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
-        "page": "519 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Bohn M., Mikołowska 49",
-        "excerptType": "transcription",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_115/observation-123/place_mvp0_115-observation-123-8d2fb5c919d9.jpg",
-            "thumbnailPath": "public/places/place_mvp0_115/observation-123/place_mvp0_115-observation-123-8d2fb5c919d9-thumb.jpg",
-            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
-            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
-            "provenance": {
-              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
-              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_116",
-    "name": "Wiktor Bonk",
-    "slug": "wiktor-bonk-116",
-    "previousSlugs": [],
-    "description": "Wiktor Bonk — Wytwórnia trumien. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Dworek (bez numeru)"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-124",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
-        "page": "519 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wytwórnia trumien WIKTOR BONK. Rybnik — Dworek",
-        "excerptType": "transcription",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_116/observation-124/place_mvp0_116-observation-124-8d2fb5c919d9.jpg",
-            "thumbnailPath": "public/places/place_mvp0_116/observation-124/place_mvp0_116-observation-124-8d2fb5c919d9-thumb.jpg",
-            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
-            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
-            "provenance": {
-              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
-              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_117",
-    "name": "Karol Broksch",
-    "slug": "karol-broksch-117",
-    "previousSlugs": [],
-    "description": "Karol Broksch — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Piasta 9"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-125",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
-        "page": "519 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Broksch Karol, Piasta 9",
-        "excerptType": "transcription",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_117/observation-125/place_mvp0_117-observation-125-8d2fb5c919d9.jpg",
-            "thumbnailPath": "public/places/place_mvp0_117/observation-125/place_mvp0_117-observation-125-8d2fb5c919d9-thumb.jpg",
-            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
-            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
-            "provenance": {
-              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
-              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_118",
-    "name": "L. Ficek",
-    "slug": "l-ficek-118",
-    "previousSlugs": [],
-    "description": "L. Ficek — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Cmentarna 7"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-127",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
-        "page": "519 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Ficek L., Cmentarna 7",
-        "excerptType": "transcription",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_118/observation-127/place_mvp0_118-observation-127-8d2fb5c919d9.jpg",
-            "thumbnailPath": "public/places/place_mvp0_118/observation-127/place_mvp0_118-observation-127-8d2fb5c919d9-thumb.jpg",
-            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
-            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
-            "provenance": {
-              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
-              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_119",
-    "name": "E. Herger",
-    "slug": "e-herger-119",
-    "previousSlugs": [],
-    "description": "E. Herger — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Piasta 17"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-128",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
-        "page": "519 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Herger E., Piasta 17",
-        "excerptType": "transcription",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_119/observation-128/place_mvp0_119-observation-128-8d2fb5c919d9.jpg",
-            "thumbnailPath": "public/places/place_mvp0_119/observation-128/place_mvp0_119-observation-128-8d2fb5c919d9-thumb.jpg",
-            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
-            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
-            "provenance": {
-              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
-              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_12",
-    "name": "Feliks Ćwik",
-    "slug": "feliks-cwik-12",
-    "previousSlugs": [],
-    "description": "Feliks Ćwik — Konfekcja męska i dziecięca. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Marszałka Piłsudskiego 10"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-093",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=453",
-        "page": "453 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Ćwik F., Piłsudskiego 10",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-12",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
-        "page": "6 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Feliks Ćwik. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_12/newspaper-ad-12/place_mvp0_12-newspaper-ad-12-8d311d5a3f4f.jpg",
-            "thumbnailPath": "public/places/place_mvp0_12/newspaper-ad-12/place_mvp0_12-newspaper-ad-12-8d311d5a3f4f-thumb.jpg",
-            "alt": "Ogłoszenie: Feliks Ćwik. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "8d311d5a3f4f894d39937c2f65f8c9f14b7b7f99fecead627be2e11ab864f4ee",
-            "thumbnailSha256": "20e1c566e3d7a3f2fc990b509448f736ea70ded67c945a1a4cd149cae9dc626c",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-12.jpg",
-              "originalSha256": "8d311d5a3f4f894d39937c2f65f8c9f14b7b7f99fecead627be2e11ab864f4ee",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_120",
-    "name": "Jerzy Hütter",
-    "slug": "jerzy-hutter-120",
-    "previousSlugs": [],
-    "description": "Jerzy Hütter — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Wysoka 4"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-129",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
-        "page": "519 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Hütter Jerzy, Wysoka 4",
-        "excerptType": "transcription",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_120/observation-129/place_mvp0_120-observation-129-8d2fb5c919d9.jpg",
-            "thumbnailPath": "public/places/place_mvp0_120/observation-129/place_mvp0_120-observation-129-8d2fb5c919d9-thumb.jpg",
-            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
-            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
-            "provenance": {
-              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
-              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_121",
-    "name": "P. Kostka",
-    "slug": "p-kostka-121",
-    "previousSlugs": [],
-    "description": "P. Kostka — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Sobieskiego 21"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-130",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
-        "page": "519 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kostka P., Sobieskiego 21",
-        "excerptType": "transcription",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_121/observation-130/place_mvp0_121-observation-130-8d2fb5c919d9.jpg",
-            "thumbnailPath": "public/places/place_mvp0_121/observation-130/place_mvp0_121-observation-130-8d2fb5c919d9-thumb.jpg",
-            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
-            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
-            "provenance": {
-              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
-              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_122",
-    "name": "Płaszyński (inicjał niepewny)",
-    "slug": "plaszynski-inicjal-niepewny-122",
-    "previousSlugs": [],
-    "description": "Płaszyński (inicjał niepewny) — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Rudzka 10"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-131",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
-        "page": "519 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Płaszyński [inicjał niepewny], Rudzka 10",
-        "excerptType": "transcription",
-        "note": "Inicjał imienia nieczytelny; nie rozwijano go na podstawie OCR.",
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_122/observation-131/place_mvp0_122-observation-131-8d2fb5c919d9.jpg",
-            "thumbnailPath": "public/places/place_mvp0_122/observation-131/place_mvp0_122-observation-131-8d2fb5c919d9-thumb.jpg",
-            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
-            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
-            "provenance": {
-              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
-              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_123",
-    "name": "B. Solarz",
-    "slug": "b-solarz-123",
-    "previousSlugs": [],
-    "description": "B. Solarz — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Piłsudskiego 8"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-132",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
-        "page": "519 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Solarz B., Piłsudskiego 8",
-        "excerptType": "transcription",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_123/observation-132/place_mvp0_123-observation-132-8d2fb5c919d9.jpg",
-            "thumbnailPath": "public/places/place_mvp0_123/observation-132/place_mvp0_123-observation-132-8d2fb5c919d9-thumb.jpg",
-            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
-            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
-            "provenance": {
-              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
-              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_124",
-    "name": "E. Solarz",
-    "slug": "e-solarz-124",
-    "previousSlugs": [],
-    "description": "E. Solarz — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Rynek 6"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-133",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
-        "page": "519 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Solarz E., Rynek 6",
-        "excerptType": "transcription",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_124/observation-133/place_mvp0_124-observation-133-8d2fb5c919d9.jpg",
-            "thumbnailPath": "public/places/place_mvp0_124/observation-133/place_mvp0_124-observation-133-8d2fb5c919d9-thumb.jpg",
-            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
-            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
-            "provenance": {
-              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
-              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_125",
-    "name": "W. Vieweg",
-    "slug": "w-vieweg-125",
-    "previousSlugs": [],
-    "description": "W. Vieweg — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Ks. Szafranka 4"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-134",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
-        "page": "519 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Vieweg W., ks. Szafranka 4",
-        "excerptType": "transcription",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_125/observation-134/place_mvp0_125-observation-134-8d2fb5c919d9.jpg",
-            "thumbnailPath": "public/places/place_mvp0_125/observation-134/place_mvp0_125-observation-134-8d2fb5c919d9-thumb.jpg",
-            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
-            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
-            "provenance": {
-              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
-              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_126",
-    "name": "Gerard Jokel",
-    "slug": "gerard-jokel-126",
-    "previousSlugs": [],
-    "description": "Gerard Jokel — Zakład tapicerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Łony 9"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-140",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=530",
-        "page": "530 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "GERARD JOKEL. Mistrz tapicerski. RYBNIK, ul. Łony 9",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_127",
-    "name": "Karol Konkol",
-    "slug": "karol-konkol-127",
-    "previousSlugs": [],
-    "description": "Karol Konkol — Zakład tapicerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Św. Jana 2"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-141",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=530",
-        "page": "530 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Zakład mebli wyścielanych Karol Konkol, mistrz tapicerski. Rybnik, Świętego Jana 2",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_128",
-    "name": "Józef Szopa",
-    "slug": "jozef-szopa-128",
-    "previousSlugs": [],
-    "description": "Józef Szopa — Zakład tapicerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Raciborska 5"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-142",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=530",
-        "page": "530 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Specjalny warsztat wyrobów tapicerskich Józef Szopa. Rybnik, Raciborska 5. Tel. 197",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_13",
-    "name": "Wilhelm Syrek i Roman Lubos",
-    "slug": "wilhelm-syrek-i-roman-lubos-13",
-    "previousSlugs": [],
-    "description": "Wilhelm Syrek i Roman Lubos — Zakład krawiecki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Marszałka Piłsudskiego 14"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-094",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=459",
-        "page": "459 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Zakład Krawiecki dla Pań i Panów W. Syrek i R. Lubos. Rybnik, ul. Piłsudskiego 14",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-13",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
-        "page": "6 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Wilhelm Syrek i Roman Lubos. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_13/newspaper-ad-13/place_mvp0_13-newspaper-ad-13-1eac3c6fc1d5.jpg",
-            "thumbnailPath": "public/places/place_mvp0_13/newspaper-ad-13/place_mvp0_13-newspaper-ad-13-1eac3c6fc1d5-thumb.jpg",
-            "alt": "Ogłoszenie: Wilhelm Syrek i Roman Lubos. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "1eac3c6fc1d5cf750d98cbbf350bd96a71705631dc560bc08392f3e261c36f7f",
-            "thumbnailSha256": "8cd24a3057c7a40bce28d09bb5879b668d758e8e967383d5bf062f956b16c5fe",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-13.jpg",
-              "originalSha256": "1eac3c6fc1d5cf750d98cbbf350bd96a71705631dc560bc08392f3e261c36f7f",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_14",
-    "name": "Rodzina Hetman",
-    "slug": "rodzina-hetman-14",
-    "previousSlugs": [],
-    "description": "Rodzina Hetman — Skład kolonialny. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Marszałka Piłsudskiego 24"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "newspaper-ad-14",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
-        "page": "6 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Rodzina Hetman. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_14/newspaper-ad-14/place_mvp0_14-newspaper-ad-14-9de3db52cfdb.jpg",
-            "thumbnailPath": "public/places/place_mvp0_14/newspaper-ad-14/place_mvp0_14-newspaper-ad-14-9de3db52cfdb-thumb.jpg",
-            "alt": "Ogłoszenie: Rodzina Hetman. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "9de3db52cfdb8b3112ad25d00333e9bacf725db0a8bfe07422f16706a4059d38",
-            "thumbnailSha256": "456b52932b8c291f28e58c8bda05f13b3cf5c1d02d7199ad7bd012ca56c31658",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-14.jpg",
-              "originalSha256": "9de3db52cfdb8b3112ad25d00333e9bacf725db0a8bfe07422f16706a4059d38",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_15",
-    "name": "Centrala Pończoch, K. Foltynowicz",
-    "slug": "centrala-ponczoch-k-foltynowicz-15",
-    "previousSlugs": [],
-    "description": "Centrala Pończoch, K. Foltynowicz — Odzież i pończochy. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Rynek 9"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-089",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=438",
-        "page": "438 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Poltynowicz K., Rynek 9",
-        "excerptType": "transcription",
-        "note": "W przewodniku odczyt Poltynowicz; w gazecie Foltynowicz. Powiązanie oparto na zgodnym inicjale, branży i adresie.",
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-15",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
-        "page": "6 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Centrala Pończoch, K. Foltynowicz. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_15/newspaper-ad-15/place_mvp0_15-newspaper-ad-15-e31a53e36b92.jpg",
-            "thumbnailPath": "public/places/place_mvp0_15/newspaper-ad-15/place_mvp0_15-newspaper-ad-15-e31a53e36b92-thumb.jpg",
-            "alt": "Ogłoszenie: Centrala Pończoch, K. Foltynowicz. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "e31a53e36b9238ff76ba522b538db40bef16430298297f50f16cfdb114a7b24f",
-            "thumbnailSha256": "c5f1e61888236f002a43df9c7e22c39a55b94c54f8212b2d5cc2544ed2d89811",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-15.jpg",
-              "originalSha256": "e31a53e36b9238ff76ba522b538db40bef16430298297f50f16cfdb114a7b24f",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_16",
-    "name": "Dzierżon i Ska, Jerzy Sroczyński",
-    "slug": "dzierzon-i-ska-jerzy-sroczynski-16",
-    "previousSlugs": [],
-    "description": "Dzierżon i Ska, Jerzy Sroczyński — Artykuły techniczne i drogeryjne. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Rynkowa 5"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "newspaper-ad-16",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
-        "page": "6 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Dzierżon i Ska, Jerzy Sroczyński. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_16/newspaper-ad-16/place_mvp0_16-newspaper-ad-16-7991925cfeb9.jpg",
-            "thumbnailPath": "public/places/place_mvp0_16/newspaper-ad-16/place_mvp0_16-newspaper-ad-16-7991925cfeb9-thumb.jpg",
-            "alt": "Ogłoszenie: Dzierżon i Ska, Jerzy Sroczyński. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "7991925cfeb903e96a037a70d1fcda8d93be27f553137d9b52e23651af20d9bd",
-            "thumbnailSha256": "e7b14ee61692b0952bfc4a25275dfd0b7ad496a8fd1a3a814bb0dfb6ac8ea743",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-16.jpg",
-              "originalSha256": "7991925cfeb903e96a037a70d1fcda8d93be27f553137d9b52e23651af20d9bd",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_17",
-    "name": "Jan Szafranek",
-    "slug": "jan-szafranek-17",
-    "previousSlugs": [],
-    "description": "Jan Szafranek — Zakład fryzjerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Mikołaja Reja 5"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-085",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=436",
-        "page": "436 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Szafranek Jan, Reja 5",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-17",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
-        "page": "6 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Jan Szafranek. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_17/newspaper-ad-17/place_mvp0_17-newspaper-ad-17-87df07ece44f.jpg",
-            "thumbnailPath": "public/places/place_mvp0_17/newspaper-ad-17/place_mvp0_17-newspaper-ad-17-87df07ece44f-thumb.jpg",
-            "alt": "Ogłoszenie: Jan Szafranek. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "87df07ece44f1108e00af5e50b3bbb9af82b0f89569a4a8c972e8e0fa391c02e",
-            "thumbnailSha256": "3b6ed36b2c17c16d8a428ffdccb36f15e417057a3b5c6cfc865b58e127670c96",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-17.jpg",
-              "originalSha256": "87df07ece44f1108e00af5e50b3bbb9af82b0f89569a4a8c972e8e0fa391c02e",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_18",
-    "name": "Juliusz Sosna i Ska",
-    "slug": "juliusz-sosna-i-ska-18",
-    "previousSlugs": [],
-    "description": "Juliusz Sosna i Ska — Przedsiębiorstwo budowlane. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Na Górze 10"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "newspaper-ad-18",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
-        "page": "6 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Juliusz Sosna i Ska. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_18/newspaper-ad-18/place_mvp0_18-newspaper-ad-18-5ad1bc82237a.jpg",
-            "thumbnailPath": "public/places/place_mvp0_18/newspaper-ad-18/place_mvp0_18-newspaper-ad-18-5ad1bc82237a-thumb.jpg",
-            "alt": "Ogłoszenie: Juliusz Sosna i Ska. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "5ad1bc82237a3f00d009cda8458810ca8d303bec3a78a043fee549da134de3a1",
-            "thumbnailSha256": "b0bdfb702e10682cbd926f64529a7c4892c888e0598078b34f79dbbd79490c26",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-18.jpg",
-              "originalSha256": "5ad1bc82237a3f00d009cda8458810ca8d303bec3a78a043fee549da134de3a1",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_19",
-    "name": "Roman Malke",
-    "slug": "roman-malke-19",
-    "previousSlugs": [],
-    "description": "Roman Malke — Skład obuwia. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Zamkowa 2"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "newspaper-ad-19",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
-        "page": "6 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Roman Malke. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_19/newspaper-ad-19/place_mvp0_19-newspaper-ad-19-79818debe51e.jpg",
-            "thumbnailPath": "public/places/place_mvp0_19/newspaper-ad-19/place_mvp0_19-newspaper-ad-19-79818debe51e-thumb.jpg",
-            "alt": "Ogłoszenie: Roman Malke. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "79818debe51ea0cd97a49136643362019c535007e05168cd7247127cc82a7fa8",
-            "thumbnailSha256": "b1071e56ee0cacd1060929c74cf28631d3c14969831500ad75bdb17174f5d904",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-19.jpg",
-              "originalSha256": "79818debe51ea0cd97a49136643362019c535007e05168cd7247127cc82a7fa8",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_2",
@@ -5355,7 +160,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "newspaper-ad-2",
         "title": "Sztandar Polski i Gazeta Rybnicka",
@@ -5366,12 +171,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Paweł Auer. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_2/newspaper-ad-2/place_mvp0_2-newspaper-ad-2-fa603dbbac2c.jpg",
             "thumbnailPath": "public/places/place_mvp0_2/newspaper-ad-2/place_mvp0_2-newspaper-ad-2-fa603dbbac2c-thumb.jpg",
@@ -5393,1978 +203,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_fa603dbbac2c6cfb3c295a91c654339e",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_20",
-    "name": "Be-Bi, H. Foltynowiczówna",
-    "slug": "be-bi-h-foltynowiczowna-20",
-    "previousSlugs": [],
-    "description": "Be-Bi, H. Foltynowiczówna — Niepodana branża. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "inne",
-        "name": "inne"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Rynkowa 2"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "newspaper-ad-20",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
-        "page": "6 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Be-Bi, H. Foltynowiczówna. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_20/newspaper-ad-20/place_mvp0_20-newspaper-ad-20-3f4f0254dde3.jpg",
-            "thumbnailPath": "public/places/place_mvp0_20/newspaper-ad-20/place_mvp0_20-newspaper-ad-20-3f4f0254dde3-thumb.jpg",
-            "alt": "Ogłoszenie: Be-Bi, H. Foltynowiczówna. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "3f4f0254dde30a32eec2ac2365b44bcc5189c443ede7fba567285b43a46caab7",
-            "thumbnailSha256": "3ed7f7a9df2afd9c689100d3d97b431269848cc082c2a164227dd23b038fdb13",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-20.jpg",
-              "originalSha256": "3f4f0254dde30a32eec2ac2365b44bcc5189c443ede7fba567285b43a46caab7",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2001",
-    "name": "Kościół Najświętszego Serca Pana Jezusa — Niedobczyce",
-    "slug": "kosciol-najswietszego-serca-pana-jezusa-niedobczyce-2001",
-    "previousSlugs": [],
-    "description": "Kościół Najświętszego Serca Pana Jezusa — Niedobczyce — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Niedobczyce, kościół NSPJ"
-      },
-      {
-        "type": "current",
-        "text": "Michała Wołodyjowskiego 1"
-      }
-    ],
-    "district": "Niedobczyce",
-    "location": {
-      "coordinates": {
-        "lat": 50.0673257,
-        "lng": 18.4969512
-      },
-      "precision": "building",
-      "explanation": "Zachowana świątynia. OSM identyfikuje obecny obrys; numer jest współczesny. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/278213116 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-niedobczyce-nspj-1",
-        "title": "Miasto Rybnik — Niedobczyce",
-        "url": "https://www.rybnik.eu/miasto/dzielnice-miasta/niedobczyce",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Miejski opis datuje budowę kościoła na 1921 r.; Niedobczyce włączono do Rybnika w 1975 r.",
-        "excerptType": "summary",
-        "note": "1921 · budowa; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2002",
-    "name": "Kościół św. Teresy od Dzieciątka Jezus — Chwałowice",
-    "slug": "kosciol-sw-teresy-od-dzieciatka-jezus-chwalowice-2002",
-    "previousSlugs": [],
-    "description": "Kościół św. Teresy od Dzieciątka Jezus — Chwałowice — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Chwałowice, kościół św. Teresy"
-      },
-      {
-        "type": "current",
-        "text": "Działkowców 1"
-      }
-    ],
-    "district": "Chwałowice",
-    "location": {
-      "coordinates": {
-        "lat": 50.0616493,
-        "lng": 18.5517916
-      },
-      "precision": "building",
-      "explanation": "Zachowany kościół. Punkt wskazuje współczesny obrys, nie cały teren parafii. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/278213120 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-chwalowice-teresa-1",
-        "title": "Parafia św. Teresy — Historia parafii",
-        "url": "https://www.chwalowice.wiara.org.pl/historia-parafii%2Ci276.html",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kościół wzniesiono w latach 1926–1928.",
-        "excerptType": "summary",
-        "note": "1926–1928 · budowa; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2003",
-    "name": "Kościół Chrystusa Króla — Golejów",
-    "slug": "kosciol-chrystusa-krola-golejow-2003",
-    "previousSlugs": [],
-    "description": "Kościół Chrystusa Króla — Golejów — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Golejów, kościół Chrystusa Króla"
-      },
-      {
-        "type": "current",
-        "text": "Komisji Edukacji Narodowej 17 (OSM)"
-      }
-    ],
-    "district": "Golejów",
-    "location": {
-      "coordinates": {
-        "lat": 50.1440604,
-        "lng": 18.5445401
-      },
-      "precision": "building",
-      "explanation": "Zachowana świątynia. Archiwum podaje adres parafii KEN 15, OSM numer kościoła 17; punkt wynika z geometrii kościoła, nie samego numeru. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/278058063 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-golejow-chrystus-krol-1",
-        "title": "Archiwum Archidiecezjalne — Golejów, Chrystusa Króla",
-        "url": "https://archiwum.archidiecezjakatowicka.pl/pl/metrics/parafia/43",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Budowę rozpoczęto w 1926 r.; kościół poświęcono 8 maja 1927 r.",
-        "excerptType": "summary",
-        "note": "1926–1927 · budowa i poświęcenie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2004",
-    "name": "Dawne miejsce kościoła św. Wawrzyńca — Boguszowice",
-    "slug": "dawne-miejsce-kosciola-sw-wawrzynca-boguszowice-2004",
-    "previousSlugs": [],
-    "description": "Dawne miejsce kościoła św. Wawrzyńca — Boguszowice — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Boguszowice, dawne miejsce kościoła św. Wawrzyńca"
-      }
-    ],
-    "district": "Boguszowice Stare",
-    "location": {
-      "coordinates": {
-        "lat": 50.065585,
-        "lng": 18.59971
-      },
-      "precision": "approximate",
-      "explanation": "Punkt pozostałości oznaczonych w OSM w Boguszowicach. Przybliża dawne miejsce; nie wskazuje dzisiejszego kościoła w Ligockiej Kuźni ani odtworzonego obrysu z 1932 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/1368641945 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-boguszowice-wawrzyniec-1",
-        "title": "Archiwum Archidiecezjalne — Boguszowice Stare, NSPJ",
-        "url": "https://archiwum.archidiecezjakatowicka.pl/pl/metrics/parafia/3",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Drewniany kościół św. Wawrzyńca pochodził z 1717 r.",
-        "excerptType": "summary",
-        "note": "1717 · drewniany kościół / 1975 · przeniesienie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      },
-      {
-        "id": "institution-boguszowice-wawrzyniec-2",
-        "title": "Miasto Rybnik — Zabytki",
-        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "W 1975 r. kościół przeniesiono z Boguszowic do Ligockiej Kuźni.",
-        "excerptType": "summary",
-        "note": "1717 · drewniany kościół / 1975 · przeniesienie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2005",
-    "name": "Kościół Najświętszego Serca Pana Jezusa — Boguszowice",
-    "slug": "kosciol-najswietszego-serca-pana-jezusa-boguszowice-2005",
-    "previousSlugs": [],
-    "description": "Kościół Najświętszego Serca Pana Jezusa — Boguszowice — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Boguszowice, nowy kościół NSPJ"
-      },
-      {
-        "type": "current",
-        "text": "Stanisława Małachowskiego 38"
-      }
-    ],
-    "district": "Boguszowice Stare",
-    "location": {
-      "coordinates": {
-        "lat": 50.0621911,
-        "lng": 18.5988231
-      },
-      "precision": "building",
-      "explanation": "Zachowany kościół; poświęcenie nastąpiło po dacie podkładu z 1932 r. Osobna karta opisuje dawną drewnianą świątynię. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/258407173 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-boguszowice-nspj-1",
-        "title": "Archiwum Archidiecezjalne — Boguszowice Stare, NSPJ",
-        "url": "https://archiwum.archidiecezjakatowicka.pl/pl/metrics/parafia/3",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Nowy murowany kościół poświęcono 19 maja 1935 r.",
-        "excerptType": "summary",
-        "note": "1935 · poświęcenie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2006",
-    "name": "Kościół Trójcy Przenajświętszej — Popielów",
-    "slug": "kosciol-trojcy-przenajswietszej-popielow-2006",
-    "previousSlugs": [],
-    "description": "Kościół Trójcy Przenajświętszej — Popielów — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Popielów, kościół Trójcy Przenajświętszej"
-      },
-      {
-        "type": "current",
-        "text": "Stanisława Konarskiego 6a"
-      }
-    ],
-    "district": "Popielów",
-    "location": {
-      "coordinates": {
-        "lat": 50.0531654,
-        "lng": 18.5167723
-      },
-      "precision": "building",
-      "explanation": "Zachowana świątynia. Powstała po dacie podkładu z 1932 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/105472200 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-popielow-trojca-1",
-        "title": "Encyklopedia historii Kościoła na Śląsku — Parafia w Popielowie",
-        "url": "https://silesia.edu.pl/index.php/Parafia_Tr%C3%B3jcy_Przenaj%C5%9Bwi%C4%99tszej_w_Popielowie",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Budowę rozpoczęto w 1933 r.; poświęcenie odbyło się 1 lipca 1934 r.; wieżę ukończono w 1935 r.",
-        "excerptType": "summary",
-        "note": "1933–1934 · budowa i poświęcenie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2007",
-    "name": "Dawny drewniany kościół św. Anny — Popielów",
-    "slug": "dawny-drewniany-kosciol-sw-anny-popielow-2007",
-    "previousSlugs": [],
-    "description": "Dawny drewniany kościół św. Anny — Popielów — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Popielów, teren dzisiejszego cmentarza"
-      }
-    ],
-    "district": "Popielów",
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-popielow-anna-1",
-        "title": "Encyklopedia historii Kościoła na Śląsku — Parafia w Popielowie",
-        "url": "https://silesia.edu.pl/index.php/Parafia_Tr%C3%B3jcy_Przenaj%C5%9Bwi%C4%99tszej_w_Popielowie",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kościół poświęcono 7 listopada 1723 r.; stał na terenie obecnego cmentarza i spłonął w 1942 r.",
-        "excerptType": "summary",
-        "note": "1723 · poświęcenie / 1942 · pożar; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2008",
-    "name": "Szkoła powszechna — Chwałowice (późniejsza SP13)",
-    "slug": "szkola-powszechna-chwalowice-pozniejsza-sp13-2008",
-    "previousSlugs": [],
-    "description": "Szkoła powszechna — Chwałowice (późniejsza SP13) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Chwałowice, pierwsza szkoła przy rozwidleniu 1 Maja i Kupieckiej"
-      },
-      {
-        "type": "historical",
-        "text": "Chwałowice, gmach szkolny z 1911 r."
-      }
-    ],
-    "district": "Chwałowice",
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-chwalowice-szkola-1",
-        "title": "SP13 — Historia szkoły w Chwałowicach",
-        "url": "https://www.sp13rybnik.pl/o-szkole/historia-szkoly.html",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Pierwszą szkołę otwarto 13 listopada 1879 r. przy rozwidleniu 1 Maja i Kupieckiej. Nowy, istniejący gmach powstał w 1911 r.; rozbudowano go w 1934 r.",
-        "excerptType": "summary",
-        "note": "1879 · pierwsza szkoła / 1911 · nowy gmach; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2009",
-    "name": "Szkoła przy Niedobczyckiej — Niedobczyce (późniejsza SP21)",
-    "slug": "szkola-przy-niedobczyckiej-niedobczyce-pozniejsza-sp21-2009",
-    "previousSlugs": [],
-    "description": "Szkoła przy Niedobczyckiej — Niedobczyce (późniejsza SP21) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Niedobczyce, budynek szkolny otwarty w 1904 r."
-      }
-    ],
-    "district": "Niedobczyce",
-    "location": {
-      "coordinates": {
-        "lat": 50.0703919,
-        "lng": 18.5004681
-      },
-      "precision": "approximate",
-      "explanation": "Punkt obecnego budynku szkolnego, obejmującego rozbudowy. Nie rozdzielono obrysów z 1904 i 1937 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/288951971 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-niedobczyce-szkola-21-1",
-        "title": "SP21 — Historia szkoły w Niedobczycach",
-        "url": "https://www.sp21.miastorybnik.pl/o-szkole/historia-szkoly.html",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Budynek rozpoczęty w 1901 r. otwarto 11 stycznia 1904 r. W 1937 r. dodano skrzydło.",
-        "excerptType": "summary",
-        "note": "1904 · otwarcie gmachu; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2010",
-    "name": "Szkoła przy kopalni Siwka — Niedobczyce (późniejsza SP22)",
-    "slug": "szkola-przy-kopalni-siwka-niedobczyce-pozniejsza-sp22-2010",
-    "previousSlugs": [],
-    "description": "Szkoła przy kopalni Siwka — Niedobczyce (późniejsza SP22) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Niedobczyce, szkoła przy kopalni Siwka"
-      },
-      {
-        "type": "current",
-        "text": "Górnośląska 108"
-      }
-    ],
-    "district": "Niedobczyce",
-    "location": {
-      "coordinates": {
-        "lat": 50.0594617,
-        "lng": 18.486899
-      },
-      "precision": "building",
-      "explanation": "Źródło szkolne identyfikuje dawny budynek; OSM oznacza go jako szkolny. Punkt dotyczy dawnej siedziby, bez założenia zachowania dawnej funkcji. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/153375436 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-niedobczyce-szkola-22-1",
-        "title": "SP22 — Historia szkoły w Niedobczycach",
-        "url": "https://www.sp22.miastorybnik.pl/o-szkole/historia-szkoly.html",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Szkołę otwarto 5 listopada 1912 r. w budynku przy dzisiejszej Górnośląskiej 108. Do Bocznej 17 przeniesiono ją w 1986 r.",
-        "excerptType": "summary",
-        "note": "1912 · otwarcie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2011",
-    "name": "Szkoła powszechna — Wielopole (późniejsza SP8)",
-    "slug": "szkola-powszechna-wielopole-pozniejsza-sp8-2011",
-    "previousSlugs": [],
-    "description": "Szkoła powszechna — Wielopole (późniejsza SP8) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Wielopole, dawny budynek szkolny"
-      }
-    ],
-    "district": "Wielopole",
-    "location": {
-      "coordinates": {
-        "lat": 50.1226228,
-        "lng": 18.5496974
-      },
-      "precision": "approximate",
-      "explanation": "Punkt całego współczesnego zespołu szkolnego; nie wyodrębniono bryły z 1886 r. z późniejszych rozbudów. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/1034863126 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-wielopole-szkola-1",
-        "title": "ZSP1 — Historia szkoły w Wielopolu",
-        "url": "https://www.zsp1.miastorybnik.pl/o-szkole/historia.html",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Szkoła powstała w 1886 r. Zachowano jej dawną część; rozbudowę przeprowadzono w latach 1982–1985.",
-        "excerptType": "summary",
-        "note": "1886 · szkoła; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2012",
-    "name": "Dawna szkoła — Golejów",
-    "slug": "dawna-szkola-golejow-2012",
-    "previousSlugs": [],
-    "description": "Dawna szkoła — Golejów — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Golejów, dawna szkoła"
-      }
-    ],
-    "district": "Golejów",
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-golejow-szkola-1",
-        "title": "ZSP4 — Historia szkół Golejowa i Grabowni",
-        "url": "https://www.zsp4.miastorybnik.pl/o-zespole/historia.html",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Nauczanie rozpoczęto w 1788 r. w pomieszczeniach dworskich; pierwszy budynek szkolny powstał w 1805 r.",
-        "excerptType": "summary",
-        "note": "1788 · początki / 1805 · budynek; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2013",
-    "name": "Szkoła filialna — Grabownia",
-    "slug": "szkola-filialna-grabownia-2013",
-    "previousSlugs": [],
-    "description": "Szkoła filialna — Grabownia — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Grabownia, dawna szkoła filialna"
-      }
-    ],
-    "district": "Grabownia",
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-grabownia-szkola-1",
-        "title": "ZSP4 — Historia szkół Golejowa i Grabowni",
-        "url": "https://www.zsp4.miastorybnik.pl/o-zespole/historia.html",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "W 1911 r. w Grabowni powstała szkoła filialna Golejowa; samodzielną placówką stała się w 1922 r.",
-        "excerptType": "summary",
-        "note": "1911 · szkoła; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2014",
-    "name": "Dawna szkoła — Ochojec",
-    "slug": "dawna-szkola-ochojec-2014",
-    "previousSlugs": [],
-    "description": "Dawna szkoła — Ochojec — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Ochojec, przy Rybnickiej"
-      }
-    ],
-    "district": "Ochojec",
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-ochojec-szkola-1",
-        "title": "ZSP3 — Historia szkoły w Ochojcu",
-        "url": "https://www.zsp3.miastorybnik.pl/o-szkole/historia-szkoly.html",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Pierwsze zajęcia około 1822 r. odbywały się w domu Rojka przy Rybnickiej. Około 1900 r. powstał budynek przy trasie Rybnik–Gliwice; szkoła korzystała z niego do 1995 r.",
-        "excerptType": "summary",
-        "note": "ok. 1822 · początki / ok. 1900 · gmach; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2015",
-    "name": "Dawna szkoła polska — Kamień",
-    "slug": "dawna-szkola-polska-kamien-2015",
-    "previousSlugs": [],
-    "description": "Dawna szkoła polska — Kamień — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Kamień, dawna szkoła przy Gminnej"
-      }
-    ],
-    "district": "Kamień",
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-kamien-szkola-1",
-        "title": "SP28 — Historia szkoły w Kamieniu",
-        "url": "https://www.sp28.miastorybnik.pl/szkola/historia-szkoly.html",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Uroczyste otwarcie polskiej szkoły odbyło się 31 stycznia 1924 r.; dawna siedziba stała przy Gminnej, w miejscu dzisiejszego przedszkola.",
-        "excerptType": "summary",
-        "note": "Historia wspomina też wcześniejsze nauczanie. Rok 1924 oznacza uroczyste otwarcie szkoły polskiej, nie pewną datę budowy.; 1924 · otwarcie szkoły polskiej; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2016",
-    "name": "Dawna szkoła — Kłokocin (dzisiejsze Przedszkole nr 21)",
-    "slug": "dawna-szkola-klokocin-dzisiejsze-przedszkole-nr-21-2016",
-    "previousSlugs": [],
-    "description": "Dawna szkoła — Kłokocin (dzisiejsze Przedszkole nr 21) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Kłokocin, stara szkoła z 1902 r."
-      },
-      {
-        "type": "current",
-        "text": "Bracka 9"
-      }
-    ],
-    "district": "Kłokocin",
-    "location": {
-      "coordinates": {
-        "lat": 50.0524151,
-        "lng": 18.6295932
-      },
-      "precision": "building",
-      "explanation": "Dawny budynek identyfikują historia szkoły i dzielnicy; współczesny numer potwierdza miejski wykaz. Nie użyto nowego gmachu SP19 z 1965 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/833792153 © OpenStreetMap contributors, ODbL 1.0"
-    },
-    "references": [
-      {
-        "id": "institution-klokocin-szkola-1",
-        "title": "SP19 — Historia szkoły w Kłokocinie",
-        "url": "https://sp19rybnik.szkolnastrona.pl/p%2C2%2Chistoria",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Dawny budynek szkolny z 1902 r. pełni później funkcję przedszkola.",
-        "excerptType": "summary",
-        "note": "1902 · otwarcie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      },
-      {
-        "id": "institution-klokocin-szkola-2",
-        "title": "Rada Dzielnicy Kłokocin — Historia dzielnicy",
-        "url": "https://klokocin.miastorybnik.pl/index.php/historia-dzielnicy",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Szkołę otwarto 2 września 1902 r.; od 1968 r. w dawnym budynku działa przedszkole.",
-        "excerptType": "summary",
-        "note": "1902 · otwarcie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      },
-      {
-        "id": "institution-klokocin-szkola-3",
-        "title": "Miasto Rybnik — Adresy szkół i przedszkoli (wykaz 2024)",
-        "url": "https://edukacja.rybnik.eu/wp-content/uploads/2024/11/Rybnickie-szkoly-i-przedszkola-%E2%80%93-dane-teleadresowe.htm",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wykaz podaje współczesny adres przedszkola: Bracka 9.",
-        "excerptType": "summary",
-        "note": "Źródło współczesnego adresu; nie stanowi dowodu działalności w 1902 r.; 1902 · otwarcie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2017",
-    "name": "Dawna szkoła — Zebrzydowice",
-    "slug": "dawna-szkola-zebrzydowice-2017",
-    "previousSlugs": [],
-    "description": "Dawna szkoła — Zebrzydowice — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Zebrzydowice, szkoła otwarta w 1908 r."
-      }
-    ],
-    "district": "Zebrzydowice",
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-zebrzydowice-szkola-1",
-        "title": "ZSP12 — Historia szkoły w Zebrzydowicach",
-        "url": "https://zsp12.miastorybnik.pl/historia/historia-szkoly/",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Budynek poświęcono 12 października 1908 r.; zajęcia rozpoczęto następnego dnia. Nową siedzibę otwarto 4 września 1978 r.",
-        "excerptType": "summary",
-        "note": "1908 · otwarcie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2018",
-    "name": "Szkoła powszechna — Zamysłów",
-    "slug": "szkola-powszechna-zamyslow-2018",
-    "previousSlugs": [],
-    "description": "Szkoła powszechna — Zamysłów — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Zamysłów, szkoła z lat 1905–1906"
-      }
-    ],
-    "district": "Zamysłów",
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-zamyslow-szkola-1",
-        "title": "ZSP9 — Historia szkoły w Zamysłowie",
-        "url": "https://www.zsp9.miastorybnik.pl/o-szkole/historia-szkoly.html",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Budynek ukończono pod koniec 1905 r.; naukę rozpoczęto w 1906 r. W 1945 r. szkoła została poważnie zniszczona.",
-        "excerptType": "summary",
-        "note": "1905–1906 · budowa i zajęcia; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2019",
-    "name": "Dawna szkoła — Chwałęcice",
-    "slug": "dawna-szkola-chwalecice-2019",
-    "previousSlugs": [],
-    "description": "Dawna szkoła — Chwałęcice — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Chwałęcice, dawna szkoła"
-      }
-    ],
-    "district": "Chwałęcice",
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-chwalecice-szkola-1",
-        "title": "ZSP15 — Historia szkoły w Chwałęcicach",
-        "url": "https://www.zsp15.miastorybnik.pl/o-zespole/szkola-podstawowa.html",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Dawny budynek szkoły powstał w 1880 r. z fundacji księcia raciborskiego. Nową szkołę budowano w latach 1965–1967.",
-        "excerptType": "summary",
-        "note": "1880 · budynek szkolny; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_2020",
-    "name": "Dawne szkoły — Boguszowice (późniejsza SP16)",
-    "slug": "dawne-szkoly-boguszowice-pozniejsza-sp16-2020",
-    "previousSlugs": [],
-    "description": "Dawne szkoły — Boguszowice (późniejsza SP16) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-    "tags": [
-      {
-        "id": "edukacja",
-        "name": "edukacja"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Boguszowice, szkoła z 1914 r."
-      },
-      {
-        "type": "historical",
-        "text": "Boguszowice, nowa szkoła otwarta w 1937 r."
-      }
-    ],
-    "district": "Boguszowice Stare",
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "institution-boguszowice-szkola-1",
-        "title": "TuRybnik — Przewodnik: Boguszowice Stare",
-        "url": "https://turybnik.pl/przewodnik/boguszowice-stare",
-        "page": null,
-        "publicationDate": null,
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Przewodnik opisuje budynek z 1914 r. jako późniejsze przedszkole oraz szkołę otwartą w 1937 r.",
-        "excerptType": "summary",
-        "note": "1914 · stara szkoła / 1937 · nowa szkoła; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_21",
-    "name": "Jan Kuśka",
-    "slug": "jan-kuska-21",
-    "previousSlugs": [],
-    "description": "Jan Kuśka — Przedsiębiorstwo blacharskie. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Wiejska 14a"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-004",
-        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
-        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=20",
-        "page": "20 (PDF)",
-        "publicationDate": {
-          "from": "1936",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kuśka Jan, ul. Wiejska 14a.",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "observation-008",
-        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
-        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=27",
-        "page": "27 (PDF)",
-        "publicationDate": {
-          "from": "1936",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kuśka Jan, ul. Wiejska 14a.",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "observation-032",
-        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
-        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=113",
-        "page": "113 (PDF)",
-        "publicationDate": {
-          "from": "1936",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kuśka Jan, ul. Wiejska.",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "observation-076",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=412",
-        "page": "412 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kuśka Jan, Wiejska 14 a",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-21",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
-        "page": "6 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Jan Kuśka. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_21/newspaper-ad-21/place_mvp0_21-newspaper-ad-21-80ab32c83c1e.jpg",
-            "thumbnailPath": "public/places/place_mvp0_21/newspaper-ad-21/place_mvp0_21-newspaper-ad-21-80ab32c83c1e-thumb.jpg",
-            "alt": "Ogłoszenie: Jan Kuśka. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "80ab32c83c1ee097a721ed041b2f1c1ee910fc94bf6bb8e73bfd61c4c3dfa4a4",
-            "thumbnailSha256": "184a71cf1cedb9cf6bf5b8bbac4b0300ef20726488a1050d296b6bfaef244fc3",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-21.jpg",
-              "originalSha256": "80ab32c83c1ee097a721ed041b2f1c1ee910fc94bf6bb8e73bfd61c4c3dfa4a4",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_22",
-    "name": "Wieczorkowie",
-    "slug": "wieczorkowie-22",
-    "previousSlugs": [],
-    "description": "Wieczorkowie — Restauracja. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Raciborska 11"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "newspaper-ad-22",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
-        "page": "6 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Wieczorkowie. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_22/newspaper-ad-22/place_mvp0_22-newspaper-ad-22-49b8f58a0d1b.jpg",
-            "thumbnailPath": "public/places/place_mvp0_22/newspaper-ad-22/place_mvp0_22-newspaper-ad-22-49b8f58a0d1b-thumb.jpg",
-            "alt": "Ogłoszenie: Wieczorkowie. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "49b8f58a0d1b43c96c565ed678740b3a853528c536cf50a7553aa49c842c4b67",
-            "thumbnailSha256": "9a0e29d08404b171789d9397b6d75186cb5a255ce9122a9d6f5d45d640f252d0",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-22.jpg",
-              "originalSha256": "49b8f58a0d1b43c96c565ed678740b3a853528c536cf50a7553aa49c842c4b67",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      },
-      {
-        "id": "observation-083",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=416",
-        "page": "416 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wieczorek P., Raciborska 11",
-        "excerptType": "transcription",
-        "note": "Zgodny adres i nazwisko, ale wpis dotyczy przedsiębiorstwa budowlanego, a ogłoszenie restauracji. Nie ustalono, czy chodzi o ten sam podmiot.; Powiązanie z tym miejscem jest przypuszczalne.",
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_23",
-    "name": "Wincenty Modlich",
-    "slug": "wincenty-modlich-23",
-    "previousSlugs": [],
-    "description": "Wincenty Modlich — Zakład szewsko-ortopedyczny. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Marszałka Piłsudskiego 7"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-016",
-        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
-        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=69",
-        "page": "69 (PDF)",
-        "publicationDate": {
-          "from": "1936",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Modlich Wincenty, ul. Piłsudskiego 7.",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-23",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
-        "page": "6 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Wincenty Modlich. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_23/newspaper-ad-23/place_mvp0_23-newspaper-ad-23-0ad8d269ea4d.jpg",
-            "thumbnailPath": "public/places/place_mvp0_23/newspaper-ad-23/place_mvp0_23-newspaper-ad-23-0ad8d269ea4d-thumb.jpg",
-            "alt": "Ogłoszenie: W. Modlich. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "0ad8d269ea4df6d5b5a3a174baa2448039f85a69049bf8e7e94636a57e2922ff",
-            "thumbnailSha256": "7a52c171993408a8e08b8f52662a1a97e4ae71bbeea1a4170c3f991d80560012",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-23.jpg",
-              "originalSha256": "0ad8d269ea4df6d5b5a3a174baa2448039f85a69049bf8e7e94636a57e2922ff",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_24",
-    "name": "Restauracja Obywatelska, Alojzy Gabor",
-    "slug": "restauracja-obywatelska-alojzy-gabor-24",
-    "previousSlugs": [],
-    "description": "Restauracja Obywatelska, Alojzy Gabor — Restauracja. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Plac Zamkowy 5"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-144",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=546",
-        "page": "546 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Gabor Al., Pl. Zamkowy",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-24",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
-        "page": "8 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Restauracja Obywatelska, Alojzy Gabor. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_24/newspaper-ad-24/place_mvp0_24-newspaper-ad-24-0c3d8e61102b.jpg",
-            "thumbnailPath": "public/places/place_mvp0_24/newspaper-ad-24/place_mvp0_24-newspaper-ad-24-0c3d8e61102b-thumb.jpg",
-            "alt": "Ogłoszenie: Restauracja Obywatelska, Alojzy Gabor. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "0c3d8e61102be99ae81a0a26a79d0ad3730bba42443dc4a02dbedaf08baac9b7",
-            "thumbnailSha256": "1d12fed37178b1ee2448b6b1693c123cc751eea0ca2dcd0f5d5a0fc5bcfa9702",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-24.jpg",
-              "originalSha256": "0c3d8e61102be99ae81a0a26a79d0ad3730bba42443dc4a02dbedaf08baac9b7",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_25",
-    "name": "Drogeria św. Walentego",
-    "slug": "drogeria-sw-walentego-25",
-    "previousSlugs": [],
-    "description": "Drogeria św. Walentego — Drogeria. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Gimnazjalna 9"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "newspaper-ad-25",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
-        "page": "8 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Drogeria św. Walentego. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_25/newspaper-ad-25/place_mvp0_25-newspaper-ad-25-9a2243c789e5.jpg",
-            "thumbnailPath": "public/places/place_mvp0_25/newspaper-ad-25/place_mvp0_25-newspaper-ad-25-9a2243c789e5-thumb.jpg",
-            "alt": "Ogłoszenie: Drogeria św. Walentego. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "9a2243c789e5e6e83943c55ff7c9e80e031b2ca6cd8c04fbdc43806d5b9bdb98",
-            "thumbnailSha256": "8f14b96bcb22f9f495d0ebb1d16c57f4162da8700041620d48e10631d21819c0",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-25.jpg",
-              "originalSha256": "9a2243c789e5e6e83943c55ff7c9e80e031b2ca6cd8c04fbdc43806d5b9bdb98",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_26",
-    "name": "Ludwik Tarara",
-    "slug": "ludwik-tarara-26",
-    "previousSlugs": [],
-    "description": "Ludwik Tarara — Zakład krawiecki. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Gliwicka 6"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-040",
-        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
-        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=117",
-        "page": "117 (PDF)",
-        "publicationDate": {
-          "from": "1936",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Tarara Ludwik, ul. Gliwicka.",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-26",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
-        "page": "8 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Ludwik Tarara. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_26/newspaper-ad-26/place_mvp0_26-newspaper-ad-26-d91b41498591.jpg",
-            "thumbnailPath": "public/places/place_mvp0_26/newspaper-ad-26/place_mvp0_26-newspaper-ad-26-d91b41498591-thumb.jpg",
-            "alt": "Ogłoszenie: L. Tarara. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "d91b414985915a0c20e1748c97eaaff13f4011f6e231c6284e9407167fffbc96",
-            "thumbnailSha256": "94f723f33ff49808ab9530e9ba2ae31550d104f05ece910561bfe1d715983e04",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-26.jpg",
-              "originalSha256": "d91b414985915a0c20e1748c97eaaff13f4011f6e231c6284e9407167fffbc96",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_27",
-    "name": "M. Kocur",
-    "slug": "m-kocur-27",
-    "previousSlugs": [],
-    "description": "M. Kocur — Pralnia i fabryka bielizny. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Wysoka 2"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-075",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=410",
-        "page": "410 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Pralnia i Fabryka bielizny i trykotaży M. KOCUR. Rybnik, Wysoka 2, tel. 1088",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-27",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
-        "page": "8 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie M. Kocur. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_27/newspaper-ad-27/place_mvp0_27-newspaper-ad-27-bea07376ebee.jpg",
-            "thumbnailPath": "public/places/place_mvp0_27/newspaper-ad-27/place_mvp0_27-newspaper-ad-27-bea07376ebee-thumb.jpg",
-            "alt": "Ogłoszenie: M. Kocur. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "bea07376ebee6cb5811379f7ba810635a7f32f6b3d8d9bc0f17b650fad91e282",
-            "thumbnailSha256": "b837137daad6dc9713b38349db61ddcf6055070eab37a7cfd9c2b12a8f4c88e4",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-27.jpg",
-              "originalSha256": "bea07376ebee6cb5811379f7ba810635a7f32f6b3d8d9bc0f17b650fad91e282",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_28",
-    "name": "Paschalis Nowak",
-    "slug": "paschalis-nowak-28",
-    "previousSlugs": [],
-    "description": "Paschalis Nowak — Kawiarnia i cukiernia. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Kościelna 5"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-092",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=448",
-        "page": "448 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Nowak P., Kościelna",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-28",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
-        "page": "8 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Paschalis Nowak. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_28/newspaper-ad-28/place_mvp0_28-newspaper-ad-28-f79a759d13ab.jpg",
-            "thumbnailPath": "public/places/place_mvp0_28/newspaper-ad-28/place_mvp0_28-newspaper-ad-28-f79a759d13ab-thumb.jpg",
-            "alt": "Ogłoszenie: Paschalis Nowak. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "f79a759d13ab5bdc7bfcd9b3f87c3c22d3497c2c72be330e38bd4c850d5849b6",
-            "thumbnailSha256": "556a841714ac34b169b930a945e354c256e955a40ee6da706781e23fdaa4a4fd",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-28.jpg",
-              "originalSha256": "f79a759d13ab5bdc7bfcd9b3f87c3c22d3497c2c72be330e38bd4c850d5849b6",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_29",
-    "name": "Drogeria i Perfumeria Warszawska",
-    "slug": "drogeria-i-perfumeria-warszawska-29",
-    "previousSlugs": [],
-    "description": "Drogeria i Perfumeria Warszawska — Drogeria i perfumeria. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Sobieskiego 19"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "newspaper-ad-29",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
-        "page": "8 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Drogeria i Perfumeria Warszawska. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_29/newspaper-ad-29/place_mvp0_29-newspaper-ad-29-a45abae1755f.jpg",
-            "thumbnailPath": "public/places/place_mvp0_29/newspaper-ad-29/place_mvp0_29-newspaper-ad-29-a45abae1755f-thumb.jpg",
-            "alt": "Ogłoszenie: Drogeria i Perfumeria Warszawska. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "a45abae1755f53bd37628fb1af54a352db346fdd2efc47905b347f365c1efd1f",
-            "thumbnailSha256": "4cbcf46539f4d7fae92f381a4ea5bae422d428785dad17d4cba061c8fe726616",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-29.jpg",
-              "originalSha256": "a45abae1755f53bd37628fb1af54a352db346fdd2efc47905b347f365c1efd1f",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_3",
@@ -7395,7 +246,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "newspaper-ad-3",
         "title": "Sztandar Polski i Gazeta Rybnicka",
@@ -7406,12 +257,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Firma Jan Łepiarczyk. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_3/newspaper-ad-3/place_mvp0_3-newspaper-ad-3-1253338a047a.jpg",
             "thumbnailPath": "public/places/place_mvp0_3/newspaper-ad-3/place_mvp0_3-newspaper-ad-3-1253338a047a-thumb.jpg",
@@ -7433,13 +289,2747 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_1253338a047a2be19bb5fe4fb3100452",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_4",
+    "name": "Jan Myśliwiec",
+    "slug": "jan-mysliwiec-4",
+    "previousSlugs": [],
+    "description": "Jan Myśliwiec — Konfekcja. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Rynek 14"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-151",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=453",
+        "page": "453 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "JAN MYŚLIWIEC. Skład konfekcji damskiej i męskiej oraz wszelkie artykuły damskie i męskie. Rybnik, Rynek / Tel. 14",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-4",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+        "page": "5 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Jan Myśliwiec. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_4/newspaper-ad-4/place_mvp0_4-newspaper-ad-4-013a2826e4f7.jpg",
+            "thumbnailPath": "public/places/place_mvp0_4/newspaper-ad-4/place_mvp0_4-newspaper-ad-4-013a2826e4f7-thumb.jpg",
+            "alt": "Ogłoszenie: Jan Myśliwiec. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "013a2826e4f7876602499f58493c29ac72a7b2eaf9d304594e25a69593eec82a",
+            "thumbnailSha256": "9ac9724ae84ba4b925b8dfe99bd0654c17b563814f8f1013ec4b032aedb4b257",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-04.jpg",
+              "originalSha256": "013a2826e4f7876602499f58493c29ac72a7b2eaf9d304594e25a69593eec82a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_013a2826e4f7876602499f58493c29ac",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_5",
+    "name": "Wojciech Kamiński",
+    "slug": "wojciech-kaminski-5",
+    "previousSlugs": [],
+    "description": "Wojciech Kamiński — Zakład fryzjerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Korfantego 11"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "newspaper-ad-5",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+        "page": "5 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Wojciech Kamiński. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_5/newspaper-ad-5/place_mvp0_5-newspaper-ad-5-e5f1344a675a.jpg",
+            "thumbnailPath": "public/places/place_mvp0_5/newspaper-ad-5/place_mvp0_5-newspaper-ad-5-e5f1344a675a-thumb.jpg",
+            "alt": "Ogłoszenie: Wojciech Kamiński. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "e5f1344a675a0c0aae14bccc8499c0fcd58864b2591b8a38f6c695a0261cfcdf",
+            "thumbnailSha256": "6f72d7db4dfd65abd625058ffabee5b622cd18d10152ef75b29390bca1cb6df8",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-05.jpg",
+              "originalSha256": "e5f1344a675a0c0aae14bccc8499c0fcd58864b2591b8a38f6c695a0261cfcdf",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_e5f1344a675a0c0aae14bccc8499c0fc",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "observation-086",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=436",
+        "page": "436 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kamieński W., Korfantego 11",
+        "excerptType": "transcription",
+        "note": "Zgodny inicjał, zawód i adres; w przewodniku nazwisko zapisano Kamieński, a w gazecie odczytano Kamiński. Powiązanie wymaga sprawdzenia.; Powiązanie z tym miejscem jest przypuszczalne.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_6",
+    "name": "Alojzy Borgiel",
+    "slug": "alojzy-borgiel-6",
+    "previousSlugs": [],
+    "description": "Alojzy Borgiel — Hurtowy i detaliczny skład nabiału. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Rynkowa 2"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "newspaper-ad-6",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+        "page": "5 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Alojzy Borgiel. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_6/newspaper-ad-6/place_mvp0_6-newspaper-ad-6-2ed44751f7e5.jpg",
+            "thumbnailPath": "public/places/place_mvp0_6/newspaper-ad-6/place_mvp0_6-newspaper-ad-6-2ed44751f7e5-thumb.jpg",
+            "alt": "Ogłoszenie: Alojzy Borgiel. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "2ed44751f7e56b06adf72a55856758b1144089751f010d0592b44e1ae368edb9",
+            "thumbnailSha256": "044537bd105a65031d741b49e083c61a9fd6ec5bf15a5cecf0b08efdad36b7da",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-06.jpg",
+              "originalSha256": "2ed44751f7e56b06adf72a55856758b1144089751f010d0592b44e1ae368edb9",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_2ed44751f7e56b06adf72a55856758b1",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_7",
+    "name": "Baltazar Kopyciok",
+    "slug": "baltazar-kopyciok-7",
+    "previousSlugs": [],
+    "description": "Baltazar Kopyciok — Zakład malarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Hallera 9a"
+      },
+      {
+        "type": "historical",
+        "text": "Hallera 9"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-102",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=468",
+        "page": "468 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kopyciok B., Hallera 9",
+        "excerptType": "transcription",
+        "note": "Przewodnik podaje Hallera 9, a ogłoszenie Hallera 9a. Zachowano obie wersje adresu.",
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-7",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+        "page": "5 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Baltazar Kopyciok. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_7/newspaper-ad-7/place_mvp0_7-newspaper-ad-7-266f4a1e4868.jpg",
+            "thumbnailPath": "public/places/place_mvp0_7/newspaper-ad-7/place_mvp0_7-newspaper-ad-7-266f4a1e4868-thumb.jpg",
+            "alt": "Ogłoszenie: Baltazar Kopyciok. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "266f4a1e48689933a0bc23f33e4e4a4e3cad5bb081015acd9c7125666dcead7f",
+            "thumbnailSha256": "d51b5b732161ea312f6cadbb9acf284180926119efc93cad293a36ccae0613fc",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-07.jpg",
+              "originalSha256": "266f4a1e48689933a0bc23f33e4e4a4e3cad5bb081015acd9c7125666dcead7f",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_266f4a1e48689933a0bc23f33e4e4a4e",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_8",
+    "name": "Piotr Kupczak / Hotel Śląski",
+    "slug": "piotr-kupczak-hotel-slaski-8",
+    "previousSlugs": [],
+    "description": "Piotr Kupczak / Hotel Śląski — Skład kolonialny i hotel. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Raciborska 23"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-116",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=506",
+        "page": "506 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kupczak P., Raciborska 23",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "observation-145",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=546",
+        "page": "546 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kupczak P., Raciborska 23",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-8",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+        "page": "5 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Piotr Kupczak / Hotel Śląski. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_8/newspaper-ad-8/place_mvp0_8-newspaper-ad-8-2959db66fa8c.jpg",
+            "thumbnailPath": "public/places/place_mvp0_8/newspaper-ad-8/place_mvp0_8-newspaper-ad-8-2959db66fa8c-thumb.jpg",
+            "alt": "Ogłoszenie: Piotr Kupczak / Hotel Śląski. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "2959db66fa8cb7101289370db371262724fe211ce6012d50c90ad41c0cba152b",
+            "thumbnailSha256": "d57a706c15502f00a48684d7e145de8c0e71ea9b1068bde65b3d330bc9ac93bd",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-08.jpg",
+              "originalSha256": "2959db66fa8cb7101289370db371262724fe211ce6012d50c90ad41c0cba152b",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_2959db66fa8cb7101289370db3712627",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_9",
+    "name": "Engelbert Rybka",
+    "slug": "engelbert-rybka-9",
+    "previousSlugs": [],
+    "description": "Engelbert Rybka — Wynajem samochodów. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Raciborska 12"
+      },
+      {
+        "type": "historical",
+        "text": "Raciborska 10"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-119",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=511",
+        "page": "511 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wynajęcie Samochodów W Kraju i Zagranicę ENGELBERT RYBKA. RYBNIK, Raciborska 10. Telefon Nr. 1072",
+        "excerptType": "transcription",
+        "note": "Przewodnik podaje Raciborską 10, a gazeta Raciborską 12. Zachowano obie wersje; nie ustalono przyczyny różnicy.",
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-9",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+        "page": "5 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Engelbert Rybka. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_9/newspaper-ad-9/place_mvp0_9-newspaper-ad-9-ff12cb4a3449.jpg",
+            "thumbnailPath": "public/places/place_mvp0_9/newspaper-ad-9/place_mvp0_9-newspaper-ad-9-ff12cb4a3449-thumb.jpg",
+            "alt": "Ogłoszenie: Engelbert Rybka. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "ff12cb4a34493ba5084f664bd53fc90057c4694ab97add61decbf94476a74cb5",
+            "thumbnailSha256": "3cc0b612d32c5b7d028ad0949dc78c4277934353930c1fea3f911b9a25caa062",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-09.jpg",
+              "originalSha256": "ff12cb4a34493ba5084f664bd53fc90057c4694ab97add61decbf94476a74cb5",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_ff12cb4a34493ba5084f664bd53fc900",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_10",
+    "name": "Rudolf Rojek",
+    "slug": "rudolf-rojek-10",
+    "previousSlugs": [],
+    "description": "Rudolf Rojek — Zakład elektrotechniczny. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Sobieskiego 14"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "newspaper-ad-10",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+        "page": "5 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Rudolf Rojek. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_10/newspaper-ad-10/place_mvp0_10-newspaper-ad-10-678d361e98a8.jpg",
+            "thumbnailPath": "public/places/place_mvp0_10/newspaper-ad-10/place_mvp0_10-newspaper-ad-10-678d361e98a8-thumb.jpg",
+            "alt": "Ogłoszenie: Rudolf Rojek. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "678d361e98a8d70a5b6f27b84c012d64d176f9a7074d697619a6a22310c13e7d",
+            "thumbnailSha256": "c80acf76c70ffb6c00d4420180d022b2c7d1d02b3139eca27e175dde43c3fdbb",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-10.jpg",
+              "originalSha256": "678d361e98a8d70a5b6f27b84c012d64d176f9a7074d697619a6a22310c13e7d",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_678d361e98a8d70a5b6f27b84c012d64",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_11",
+    "name": "Karol Jokel",
+    "slug": "karol-jokel-11",
+    "previousSlugs": [],
+    "description": "Karol Jokel — Mistrz rzeźnicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Rynek 12"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-068",
+        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
+        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=125",
+        "page": "125 (PDF)",
+        "publicationDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Jokel Karol, Rynek.",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "observation-117",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=509",
+        "page": "509 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Jokiel K., Rynek",
+        "excerptType": "transcription",
+        "note": "W przewodniku wariant nazwiska Jokiel; w księdze z 1936 r. i gazecie Jokel.",
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-11",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+        "page": "6 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Karol Jokel. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_11/newspaper-ad-11/place_mvp0_11-newspaper-ad-11-9461e173ac7b.jpg",
+            "thumbnailPath": "public/places/place_mvp0_11/newspaper-ad-11/place_mvp0_11-newspaper-ad-11-9461e173ac7b-thumb.jpg",
+            "alt": "Ogłoszenie: Karol Jokel. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "9461e173ac7b9f1bb5992982041ea5280cd92fd12fe53a32d4024de94705e0ea",
+            "thumbnailSha256": "7112a9a0d38168016927892493148210be15bcfcd6eb37211069523169a6836d",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-11.jpg",
+              "originalSha256": "9461e173ac7b9f1bb5992982041ea5280cd92fd12fe53a32d4024de94705e0ea",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_9461e173ac7b9f1bb5992982041ea528",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_12",
+    "name": "Feliks Ćwik",
+    "slug": "feliks-cwik-12",
+    "previousSlugs": [],
+    "description": "Feliks Ćwik — Konfekcja męska i dziecięca. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Marszałka Piłsudskiego 10"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-093",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=453",
+        "page": "453 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Ćwik F., Piłsudskiego 10",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-12",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+        "page": "6 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Feliks Ćwik. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_12/newspaper-ad-12/place_mvp0_12-newspaper-ad-12-8d311d5a3f4f.jpg",
+            "thumbnailPath": "public/places/place_mvp0_12/newspaper-ad-12/place_mvp0_12-newspaper-ad-12-8d311d5a3f4f-thumb.jpg",
+            "alt": "Ogłoszenie: Feliks Ćwik. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d311d5a3f4f894d39937c2f65f8c9f14b7b7f99fecead627be2e11ab864f4ee",
+            "thumbnailSha256": "20e1c566e3d7a3f2fc990b509448f736ea70ded67c945a1a4cd149cae9dc626c",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-12.jpg",
+              "originalSha256": "8d311d5a3f4f894d39937c2f65f8c9f14b7b7f99fecead627be2e11ab864f4ee",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d311d5a3f4f894d39937c2f65f8c9f1",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_13",
+    "name": "Wilhelm Syrek i Roman Lubos",
+    "slug": "wilhelm-syrek-i-roman-lubos-13",
+    "previousSlugs": [],
+    "description": "Wilhelm Syrek i Roman Lubos — Zakład krawiecki. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Marszałka Piłsudskiego 14"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-094",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=459",
+        "page": "459 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Zakład Krawiecki dla Pań i Panów W. Syrek i R. Lubos. Rybnik, ul. Piłsudskiego 14",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-13",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+        "page": "6 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Wilhelm Syrek i Roman Lubos. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_13/newspaper-ad-13/place_mvp0_13-newspaper-ad-13-1eac3c6fc1d5.jpg",
+            "thumbnailPath": "public/places/place_mvp0_13/newspaper-ad-13/place_mvp0_13-newspaper-ad-13-1eac3c6fc1d5-thumb.jpg",
+            "alt": "Ogłoszenie: Wilhelm Syrek i Roman Lubos. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "1eac3c6fc1d5cf750d98cbbf350bd96a71705631dc560bc08392f3e261c36f7f",
+            "thumbnailSha256": "8cd24a3057c7a40bce28d09bb5879b668d758e8e967383d5bf062f956b16c5fe",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-13.jpg",
+              "originalSha256": "1eac3c6fc1d5cf750d98cbbf350bd96a71705631dc560bc08392f3e261c36f7f",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_1eac3c6fc1d5cf750d98cbbf350bd96a",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_14",
+    "name": "Rodzina Hetman",
+    "slug": "rodzina-hetman-14",
+    "previousSlugs": [],
+    "description": "Rodzina Hetman — Skład kolonialny. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Marszałka Piłsudskiego 24"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "newspaper-ad-14",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+        "page": "6 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Rodzina Hetman. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_14/newspaper-ad-14/place_mvp0_14-newspaper-ad-14-9de3db52cfdb.jpg",
+            "thumbnailPath": "public/places/place_mvp0_14/newspaper-ad-14/place_mvp0_14-newspaper-ad-14-9de3db52cfdb-thumb.jpg",
+            "alt": "Ogłoszenie: Rodzina Hetman. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "9de3db52cfdb8b3112ad25d00333e9bacf725db0a8bfe07422f16706a4059d38",
+            "thumbnailSha256": "456b52932b8c291f28e58c8bda05f13b3cf5c1d02d7199ad7bd012ca56c31658",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-14.jpg",
+              "originalSha256": "9de3db52cfdb8b3112ad25d00333e9bacf725db0a8bfe07422f16706a4059d38",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_9de3db52cfdb8b3112ad25d00333e9ba",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_15",
+    "name": "Centrala Pończoch, K. Foltynowicz",
+    "slug": "centrala-ponczoch-k-foltynowicz-15",
+    "previousSlugs": [],
+    "description": "Centrala Pończoch, K. Foltynowicz — Odzież i pończochy. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Rynek 9"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-089",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=438",
+        "page": "438 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Poltynowicz K., Rynek 9",
+        "excerptType": "transcription",
+        "note": "W przewodniku odczyt Poltynowicz; w gazecie Foltynowicz. Powiązanie oparto na zgodnym inicjale, branży i adresie.",
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-15",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+        "page": "6 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Centrala Pończoch, K. Foltynowicz. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_15/newspaper-ad-15/place_mvp0_15-newspaper-ad-15-e31a53e36b92.jpg",
+            "thumbnailPath": "public/places/place_mvp0_15/newspaper-ad-15/place_mvp0_15-newspaper-ad-15-e31a53e36b92-thumb.jpg",
+            "alt": "Ogłoszenie: Centrala Pończoch, K. Foltynowicz. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "e31a53e36b9238ff76ba522b538db40bef16430298297f50f16cfdb114a7b24f",
+            "thumbnailSha256": "c5f1e61888236f002a43df9c7e22c39a55b94c54f8212b2d5cc2544ed2d89811",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-15.jpg",
+              "originalSha256": "e31a53e36b9238ff76ba522b538db40bef16430298297f50f16cfdb114a7b24f",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_e31a53e36b9238ff76ba522b538db40b",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_16",
+    "name": "Dzierżon i Ska, Jerzy Sroczyński",
+    "slug": "dzierzon-i-ska-jerzy-sroczynski-16",
+    "previousSlugs": [],
+    "description": "Dzierżon i Ska, Jerzy Sroczyński — Artykuły techniczne i drogeryjne. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Rynkowa 5"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "newspaper-ad-16",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+        "page": "6 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Dzierżon i Ska, Jerzy Sroczyński. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_16/newspaper-ad-16/place_mvp0_16-newspaper-ad-16-7991925cfeb9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_16/newspaper-ad-16/place_mvp0_16-newspaper-ad-16-7991925cfeb9-thumb.jpg",
+            "alt": "Ogłoszenie: Dzierżon i Ska, Jerzy Sroczyński. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "7991925cfeb903e96a037a70d1fcda8d93be27f553137d9b52e23651af20d9bd",
+            "thumbnailSha256": "e7b14ee61692b0952bfc4a25275dfd0b7ad496a8fd1a3a814bb0dfb6ac8ea743",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-16.jpg",
+              "originalSha256": "7991925cfeb903e96a037a70d1fcda8d93be27f553137d9b52e23651af20d9bd",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_7991925cfeb903e96a037a70d1fcda8d",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_17",
+    "name": "Jan Szafranek",
+    "slug": "jan-szafranek-17",
+    "previousSlugs": [],
+    "description": "Jan Szafranek — Zakład fryzjerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Mikołaja Reja 5"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-085",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=436",
+        "page": "436 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Szafranek Jan, Reja 5",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-17",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+        "page": "6 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Jan Szafranek. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_17/newspaper-ad-17/place_mvp0_17-newspaper-ad-17-87df07ece44f.jpg",
+            "thumbnailPath": "public/places/place_mvp0_17/newspaper-ad-17/place_mvp0_17-newspaper-ad-17-87df07ece44f-thumb.jpg",
+            "alt": "Ogłoszenie: Jan Szafranek. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "87df07ece44f1108e00af5e50b3bbb9af82b0f89569a4a8c972e8e0fa391c02e",
+            "thumbnailSha256": "3b6ed36b2c17c16d8a428ffdccb36f15e417057a3b5c6cfc865b58e127670c96",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-17.jpg",
+              "originalSha256": "87df07ece44f1108e00af5e50b3bbb9af82b0f89569a4a8c972e8e0fa391c02e",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_87df07ece44f1108e00af5e50b3bbb9a",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_18",
+    "name": "Juliusz Sosna i Ska",
+    "slug": "juliusz-sosna-i-ska-18",
+    "previousSlugs": [],
+    "description": "Juliusz Sosna i Ska — Przedsiębiorstwo budowlane. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Na Górze 10"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "newspaper-ad-18",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+        "page": "6 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Juliusz Sosna i Ska. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_18/newspaper-ad-18/place_mvp0_18-newspaper-ad-18-5ad1bc82237a.jpg",
+            "thumbnailPath": "public/places/place_mvp0_18/newspaper-ad-18/place_mvp0_18-newspaper-ad-18-5ad1bc82237a-thumb.jpg",
+            "alt": "Ogłoszenie: Juliusz Sosna i Ska. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "5ad1bc82237a3f00d009cda8458810ca8d303bec3a78a043fee549da134de3a1",
+            "thumbnailSha256": "b0bdfb702e10682cbd926f64529a7c4892c888e0598078b34f79dbbd79490c26",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-18.jpg",
+              "originalSha256": "5ad1bc82237a3f00d009cda8458810ca8d303bec3a78a043fee549da134de3a1",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_5ad1bc82237a3f00d009cda8458810ca",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_19",
+    "name": "Roman Malke",
+    "slug": "roman-malke-19",
+    "previousSlugs": [],
+    "description": "Roman Malke — Skład obuwia. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Zamkowa 2"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "newspaper-ad-19",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+        "page": "6 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Roman Malke. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_19/newspaper-ad-19/place_mvp0_19-newspaper-ad-19-79818debe51e.jpg",
+            "thumbnailPath": "public/places/place_mvp0_19/newspaper-ad-19/place_mvp0_19-newspaper-ad-19-79818debe51e-thumb.jpg",
+            "alt": "Ogłoszenie: Roman Malke. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "79818debe51ea0cd97a49136643362019c535007e05168cd7247127cc82a7fa8",
+            "thumbnailSha256": "b1071e56ee0cacd1060929c74cf28631d3c14969831500ad75bdb17174f5d904",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-19.jpg",
+              "originalSha256": "79818debe51ea0cd97a49136643362019c535007e05168cd7247127cc82a7fa8",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_79818debe51ea0cd97a4913664336201",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_20",
+    "name": "Be-Bi, H. Foltynowiczówna",
+    "slug": "be-bi-h-foltynowiczowna-20",
+    "previousSlugs": [],
+    "description": "Be-Bi, H. Foltynowiczówna — Niepodana branża. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Rynkowa 2"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "newspaper-ad-20",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+        "page": "6 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Be-Bi, H. Foltynowiczówna. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_20/newspaper-ad-20/place_mvp0_20-newspaper-ad-20-3f4f0254dde3.jpg",
+            "thumbnailPath": "public/places/place_mvp0_20/newspaper-ad-20/place_mvp0_20-newspaper-ad-20-3f4f0254dde3-thumb.jpg",
+            "alt": "Ogłoszenie: Be-Bi, H. Foltynowiczówna. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "3f4f0254dde30a32eec2ac2365b44bcc5189c443ede7fba567285b43a46caab7",
+            "thumbnailSha256": "3ed7f7a9df2afd9c689100d3d97b431269848cc082c2a164227dd23b038fdb13",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-20.jpg",
+              "originalSha256": "3f4f0254dde30a32eec2ac2365b44bcc5189c443ede7fba567285b43a46caab7",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_3f4f0254dde30a32eec2ac2365b44bcc",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_21",
+    "name": "Jan Kuśka",
+    "slug": "jan-kuska-21",
+    "previousSlugs": [],
+    "description": "Jan Kuśka — Przedsiębiorstwo blacharskie. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Wiejska 14a"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-004",
+        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
+        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=20",
+        "page": "20 (PDF)",
+        "publicationDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kuśka Jan, ul. Wiejska 14a.",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "observation-008",
+        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
+        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=27",
+        "page": "27 (PDF)",
+        "publicationDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kuśka Jan, ul. Wiejska 14a.",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "observation-032",
+        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
+        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=113",
+        "page": "113 (PDF)",
+        "publicationDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kuśka Jan, ul. Wiejska.",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "observation-076",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=412",
+        "page": "412 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kuśka Jan, Wiejska 14 a",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-21",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+        "page": "6 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Jan Kuśka. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_21/newspaper-ad-21/place_mvp0_21-newspaper-ad-21-80ab32c83c1e.jpg",
+            "thumbnailPath": "public/places/place_mvp0_21/newspaper-ad-21/place_mvp0_21-newspaper-ad-21-80ab32c83c1e-thumb.jpg",
+            "alt": "Ogłoszenie: Jan Kuśka. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "80ab32c83c1ee097a721ed041b2f1c1ee910fc94bf6bb8e73bfd61c4c3dfa4a4",
+            "thumbnailSha256": "184a71cf1cedb9cf6bf5b8bbac4b0300ef20726488a1050d296b6bfaef244fc3",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-21.jpg",
+              "originalSha256": "80ab32c83c1ee097a721ed041b2f1c1ee910fc94bf6bb8e73bfd61c4c3dfa4a4",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_80ab32c83c1ee097a721ed041b2f1c1e",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_22",
+    "name": "Wieczorkowie",
+    "slug": "wieczorkowie-22",
+    "previousSlugs": [],
+    "description": "Wieczorkowie — Restauracja. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Raciborska 11"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "newspaper-ad-22",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+        "page": "6 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Wieczorkowie. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_22/newspaper-ad-22/place_mvp0_22-newspaper-ad-22-49b8f58a0d1b.jpg",
+            "thumbnailPath": "public/places/place_mvp0_22/newspaper-ad-22/place_mvp0_22-newspaper-ad-22-49b8f58a0d1b-thumb.jpg",
+            "alt": "Ogłoszenie: Wieczorkowie. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "49b8f58a0d1b43c96c565ed678740b3a853528c536cf50a7553aa49c842c4b67",
+            "thumbnailSha256": "9a0e29d08404b171789d9397b6d75186cb5a255ce9122a9d6f5d45d640f252d0",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-22.jpg",
+              "originalSha256": "49b8f58a0d1b43c96c565ed678740b3a853528c536cf50a7553aa49c842c4b67",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_49b8f58a0d1b43c96c565ed678740b3a",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "observation-083",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=416",
+        "page": "416 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wieczorek P., Raciborska 11",
+        "excerptType": "transcription",
+        "note": "Zgodny adres i nazwisko, ale wpis dotyczy przedsiębiorstwa budowlanego, a ogłoszenie restauracji. Nie ustalono, czy chodzi o ten sam podmiot.; Powiązanie z tym miejscem jest przypuszczalne.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_23",
+    "name": "Wincenty Modlich",
+    "slug": "wincenty-modlich-23",
+    "previousSlugs": [],
+    "description": "Wincenty Modlich — Zakład szewsko-ortopedyczny. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Marszałka Piłsudskiego 7"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-016",
+        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
+        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=69",
+        "page": "69 (PDF)",
+        "publicationDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Modlich Wincenty, ul. Piłsudskiego 7.",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-23",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+        "page": "6 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Wincenty Modlich. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_23/newspaper-ad-23/place_mvp0_23-newspaper-ad-23-0ad8d269ea4d.jpg",
+            "thumbnailPath": "public/places/place_mvp0_23/newspaper-ad-23/place_mvp0_23-newspaper-ad-23-0ad8d269ea4d-thumb.jpg",
+            "alt": "Ogłoszenie: W. Modlich. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 6.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "0ad8d269ea4df6d5b5a3a174baa2448039f85a69049bf8e7e94636a57e2922ff",
+            "thumbnailSha256": "7a52c171993408a8e08b8f52662a1a97e4ae71bbeea1a4170c3f991d80560012",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-23.jpg",
+              "originalSha256": "0ad8d269ea4df6d5b5a3a174baa2448039f85a69049bf8e7e94636a57e2922ff",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_0ad8d269ea4df6d5b5a3a174baa24480",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_24",
+    "name": "Restauracja Obywatelska, Alojzy Gabor",
+    "slug": "restauracja-obywatelska-alojzy-gabor-24",
+    "previousSlugs": [],
+    "description": "Restauracja Obywatelska, Alojzy Gabor — Restauracja. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Plac Zamkowy 5"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-144",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=546",
+        "page": "546 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Gabor Al., Pl. Zamkowy",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-24",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+        "page": "8 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Restauracja Obywatelska, Alojzy Gabor. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_24/newspaper-ad-24/place_mvp0_24-newspaper-ad-24-0c3d8e61102b.jpg",
+            "thumbnailPath": "public/places/place_mvp0_24/newspaper-ad-24/place_mvp0_24-newspaper-ad-24-0c3d8e61102b-thumb.jpg",
+            "alt": "Ogłoszenie: Restauracja Obywatelska, Alojzy Gabor. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "0c3d8e61102be99ae81a0a26a79d0ad3730bba42443dc4a02dbedaf08baac9b7",
+            "thumbnailSha256": "1d12fed37178b1ee2448b6b1693c123cc751eea0ca2dcd0f5d5a0fc5bcfa9702",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-24.jpg",
+              "originalSha256": "0c3d8e61102be99ae81a0a26a79d0ad3730bba42443dc4a02dbedaf08baac9b7",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_0c3d8e61102be99ae81a0a26a79d0ad3",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_25",
+    "name": "Drogeria św. Walentego",
+    "slug": "drogeria-sw-walentego-25",
+    "previousSlugs": [],
+    "description": "Drogeria św. Walentego — Drogeria. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Gimnazjalna 9"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "newspaper-ad-25",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+        "page": "8 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Drogeria św. Walentego. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_25/newspaper-ad-25/place_mvp0_25-newspaper-ad-25-9a2243c789e5.jpg",
+            "thumbnailPath": "public/places/place_mvp0_25/newspaper-ad-25/place_mvp0_25-newspaper-ad-25-9a2243c789e5-thumb.jpg",
+            "alt": "Ogłoszenie: Drogeria św. Walentego. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "9a2243c789e5e6e83943c55ff7c9e80e031b2ca6cd8c04fbdc43806d5b9bdb98",
+            "thumbnailSha256": "8f14b96bcb22f9f495d0ebb1d16c57f4162da8700041620d48e10631d21819c0",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-25.jpg",
+              "originalSha256": "9a2243c789e5e6e83943c55ff7c9e80e031b2ca6cd8c04fbdc43806d5b9bdb98",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_9a2243c789e5e6e83943c55ff7c9e80e",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_26",
+    "name": "Ludwik Tarara",
+    "slug": "ludwik-tarara-26",
+    "previousSlugs": [],
+    "description": "Ludwik Tarara — Zakład krawiecki. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Gliwicka 6"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-040",
+        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
+        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=117",
+        "page": "117 (PDF)",
+        "publicationDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Tarara Ludwik, ul. Gliwicka.",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-26",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+        "page": "8 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Ludwik Tarara. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_26/newspaper-ad-26/place_mvp0_26-newspaper-ad-26-d91b41498591.jpg",
+            "thumbnailPath": "public/places/place_mvp0_26/newspaper-ad-26/place_mvp0_26-newspaper-ad-26-d91b41498591-thumb.jpg",
+            "alt": "Ogłoszenie: L. Tarara. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "d91b414985915a0c20e1748c97eaaff13f4011f6e231c6284e9407167fffbc96",
+            "thumbnailSha256": "94f723f33ff49808ab9530e9ba2ae31550d104f05ece910561bfe1d715983e04",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-26.jpg",
+              "originalSha256": "d91b414985915a0c20e1748c97eaaff13f4011f6e231c6284e9407167fffbc96",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_d91b414985915a0c20e1748c97eaaff1",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_27",
+    "name": "M. Kocur",
+    "slug": "m-kocur-27",
+    "previousSlugs": [],
+    "description": "M. Kocur — Pralnia i fabryka bielizny. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Wysoka 2"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-075",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=410",
+        "page": "410 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Pralnia i Fabryka bielizny i trykotaży M. KOCUR. Rybnik, Wysoka 2, tel. 1088",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-27",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+        "page": "8 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie M. Kocur. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_27/newspaper-ad-27/place_mvp0_27-newspaper-ad-27-bea07376ebee.jpg",
+            "thumbnailPath": "public/places/place_mvp0_27/newspaper-ad-27/place_mvp0_27-newspaper-ad-27-bea07376ebee-thumb.jpg",
+            "alt": "Ogłoszenie: M. Kocur. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "bea07376ebee6cb5811379f7ba810635a7f32f6b3d8d9bc0f17b650fad91e282",
+            "thumbnailSha256": "b837137daad6dc9713b38349db61ddcf6055070eab37a7cfd9c2b12a8f4c88e4",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-27.jpg",
+              "originalSha256": "bea07376ebee6cb5811379f7ba810635a7f32f6b3d8d9bc0f17b650fad91e282",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_bea07376ebee6cb5811379f7ba810635",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_28",
+    "name": "Paschalis Nowak",
+    "slug": "paschalis-nowak-28",
+    "previousSlugs": [],
+    "description": "Paschalis Nowak — Kawiarnia i cukiernia. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Kościelna 5"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-092",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=448",
+        "page": "448 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Nowak P., Kościelna",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "newspaper-ad-28",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+        "page": "8 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Paschalis Nowak. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_28/newspaper-ad-28/place_mvp0_28-newspaper-ad-28-f79a759d13ab.jpg",
+            "thumbnailPath": "public/places/place_mvp0_28/newspaper-ad-28/place_mvp0_28-newspaper-ad-28-f79a759d13ab-thumb.jpg",
+            "alt": "Ogłoszenie: Paschalis Nowak. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "f79a759d13ab5bdc7bfcd9b3f87c3c22d3497c2c72be330e38bd4c850d5849b6",
+            "thumbnailSha256": "556a841714ac34b169b930a945e354c256e955a40ee6da706781e23fdaa4a4fd",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-28.jpg",
+              "originalSha256": "f79a759d13ab5bdc7bfcd9b3f87c3c22d3497c2c72be330e38bd4c850d5849b6",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_f79a759d13ab5bdc7bfcd9b3f87c3c22",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_29",
+    "name": "Drogeria i Perfumeria Warszawska",
+    "slug": "drogeria-i-perfumeria-warszawska-29",
+    "previousSlugs": [],
+    "description": "Drogeria i Perfumeria Warszawska — Drogeria i perfumeria. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Sobieskiego 19"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "newspaper-ad-29",
+        "title": "Sztandar Polski i Gazeta Rybnicka",
+        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+        "page": "8 (PDF)",
+        "publicationDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wzmianka o podmiocie Drogeria i Perfumeria Warszawska. Dział: Ogłoszenie prasowe.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_29/newspaper-ad-29/place_mvp0_29-newspaper-ad-29-a45abae1755f.jpg",
+            "thumbnailPath": "public/places/place_mvp0_29/newspaper-ad-29/place_mvp0_29-newspaper-ad-29-a45abae1755f-thumb.jpg",
+            "alt": "Ogłoszenie: Drogeria i Perfumeria Warszawska. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
+            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "a45abae1755f53bd37628fb1af54a352db346fdd2efc47905b347f365c1efd1f",
+            "thumbnailSha256": "4cbcf46539f4d7fae92f381a4ea5bae422d428785dad17d4cba061c8fe726616",
+            "provenance": {
+              "title": "Sztandar Polski i Gazeta Rybnicka",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-29.jpg",
+              "originalSha256": "a45abae1755f53bd37628fb1af54a352db346fdd2efc47905b347f365c1efd1f",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_a45abae1755f53bd37628fb1af54a352",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_30",
@@ -7470,7 +3060,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-143",
         "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
@@ -7481,12 +3071,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Szostek A., 3 Maja 17",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "newspaper-ad-30",
@@ -7498,12 +3093,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Augustyn Szostek. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_30/newspaper-ad-30/place_mvp0_30-newspaper-ad-30-612627a7ac11.jpg",
             "thumbnailPath": "public/places/place_mvp0_30/newspaper-ad-30/place_mvp0_30-newspaper-ad-30-612627a7ac11-thumb.jpg",
@@ -7525,13 +3125,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_612627a7ac1183803a5e9424ecbf7c20",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_31",
@@ -7562,7 +3168,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "newspaper-ad-31",
         "title": "Sztandar Polski i Gazeta Rybnicka",
@@ -7573,12 +3179,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie A. Krakowczykowie. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_31/newspaper-ad-31/place_mvp0_31-newspaper-ad-31-6890f6686a84.jpg",
             "thumbnailPath": "public/places/place_mvp0_31/newspaper-ad-31/place_mvp0_31-newspaper-ad-31-6890f6686a84-thumb.jpg",
@@ -7600,13 +3211,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_6890f6686a8475b0f6bde1ca07ac6af5",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_32",
@@ -7641,7 +3258,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-080",
         "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
@@ -7652,12 +3269,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Aronstamm E., Sobieskiego 26",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-104",
@@ -7669,12 +3291,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Aronstamm E., Sobieskiego 22",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "newspaper-ad-32",
@@ -7686,12 +3313,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie E. Aronstamm. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_32/newspaper-ad-32/place_mvp0_32-newspaper-ad-32-c906a2872e32.jpg",
             "thumbnailPath": "public/places/place_mvp0_32/newspaper-ad-32/place_mvp0_32-newspaper-ad-32-c906a2872e32-thumb.jpg",
@@ -7713,13 +3345,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_c906a2872e3281bee49ea886934a1ece",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_33",
@@ -7750,7 +3388,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-023",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -7761,12 +3399,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wieczorek Augustyn, ul. Sobieskiego 23, tel. 1016.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "newspaper-ad-33",
@@ -7778,12 +3421,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Augustyn Wieczorek. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_33/newspaper-ad-33/place_mvp0_33-newspaper-ad-33-ff0e79919e9d.jpg",
             "thumbnailPath": "public/places/place_mvp0_33/newspaper-ad-33/place_mvp0_33-newspaper-ad-33-ff0e79919e9d-thumb.jpg",
@@ -7805,6 +3453,12 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_ff0e79919e9d87035db6c09c248a8618",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
@@ -7819,16 +3473,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "draft",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wieczorek A., Kościelna 23",
         "excerptType": "transcription",
         "note": "Księga z 1936 r. i gazeta podają Augustyna Wieczorka przy Sobieskiego 23. W tym wpisie inna ulica i tylko inicjał. Nie dodano adresu na mapę.; Powiązanie z tym miejscem jest przypuszczalne.",
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_34",
@@ -7866,7 +3525,7 @@ export const PLACES: readonly Place[] = [
       "precision": "building",
       "explanation": "Lokalizację domu towarowego potwierdza współczesne opracowanie historyczne. Punkt wskazuje przybliżony środek obecnego budynku, nie wejście do dawnego sklepu. mean of building outline vertices https://www.openstreetmap.org/way/244457433 © OpenStreetMap contributors, ODbL 1.0"
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-105",
         "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
@@ -7877,12 +3536,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Beyga C., Sobieskiego 18",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "newspaper-ad-34",
@@ -7894,12 +3558,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Dom Towarowy Czesław Beyga. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_34/newspaper-ad-34/place_mvp0_34-newspaper-ad-34-bf9cb66314ac.jpg",
             "thumbnailPath": "public/places/place_mvp0_34/newspaper-ad-34/place_mvp0_34-newspaper-ad-34-bf9cb66314ac-thumb.jpg",
@@ -7921,13 +3590,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_bf9cb66314ac633db661d4205e3037bd",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_35",
@@ -7958,7 +3633,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-148",
         "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
@@ -7969,12 +3644,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Zoremba J., Reja 5",
         "excerptType": "transcription",
         "note": "W przewodniku wariant nazwiska Zoremba, w gazecie Zaremba. Zgodny inicjał, branża i adres.",
-        "images": []
+        "materials": []
       },
       {
         "id": "newspaper-ad-35",
@@ -7986,12 +3666,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Jadwiga Zaremba. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_35/newspaper-ad-35/place_mvp0_35-newspaper-ad-35-e665b3cf7972.jpg",
             "thumbnailPath": "public/places/place_mvp0_35/newspaper-ad-35/place_mvp0_35-newspaper-ad-35-e665b3cf7972-thumb.jpg",
@@ -8013,13 +3698,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_e665b3cf79720422e19ad62e218924db",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_36",
@@ -8050,7 +3741,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-088",
         "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
@@ -8061,12 +3752,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Breslauer F., Piłsudskiego 14",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "newspaper-ad-36",
@@ -8078,12 +3774,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Franciszek Breslauer. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_36/newspaper-ad-36/place_mvp0_36-newspaper-ad-36-416698fabdfe.jpg",
             "thumbnailPath": "public/places/place_mvp0_36/newspaper-ad-36/place_mvp0_36-newspaper-ad-36-416698fabdfe-thumb.jpg",
@@ -8105,13 +3806,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_416698fabdfef53422e891711362cc26",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_37",
@@ -8142,7 +3849,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-147",
         "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
@@ -8153,12 +3860,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Łukaszczyk R., Sobieskiego 13",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "newspaper-ad-37",
@@ -8170,12 +3882,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie R. Łukaszczyk. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_37/newspaper-ad-37/place_mvp0_37-newspaper-ad-37-92d4732c1c38.jpg",
             "thumbnailPath": "public/places/place_mvp0_37/newspaper-ad-37/place_mvp0_37-newspaper-ad-37-92d4732c1c38-thumb.jpg",
@@ -8197,13 +3914,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_92d4732c1c386818764a0b51837b142c",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_38",
@@ -8234,7 +3957,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "newspaper-ad-38",
         "title": "Sztandar Polski i Gazeta Rybnicka",
@@ -8245,12 +3968,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Walenty Tkocz i Jan Bogocz. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_38/newspaper-ad-38/place_mvp0_38-newspaper-ad-38-05ccc3db58f1.jpg",
             "thumbnailPath": "public/places/place_mvp0_38/newspaper-ad-38/place_mvp0_38-newspaper-ad-38-05ccc3db58f1-thumb.jpg",
@@ -8272,6 +4000,12 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_05ccc3db58f1c63874d193d33ba20779",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
@@ -8286,16 +4020,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "draft",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Tkacz W., Hallera 22",
         "excerptType": "transcription",
         "note": "Gazeta wymienia Walentego Tkocza i Jana Bogocza; przewodnik W. Tkacza. Zgodny adres i inicjał, ale różnica nazwiska wymaga sprawdzenia.; Powiązanie z tym miejscem jest przypuszczalne.",
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_39",
@@ -8326,7 +4065,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-053",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -8337,12 +4076,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Szypuła Franciszek, ul. Sobieskiego.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-109",
@@ -8354,12 +4098,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Szypuła Fr., pierwszorzędna pracownia obuwia, ul. Sobieskiego 1",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "newspaper-ad-39",
@@ -8371,12 +4120,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Franciszek Szypuła. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_39/newspaper-ad-39/place_mvp0_39-newspaper-ad-39-451ccf1f847d.jpg",
             "thumbnailPath": "public/places/place_mvp0_39/newspaper-ad-39/place_mvp0_39-newspaper-ad-39-451ccf1f847d-thumb.jpg",
@@ -8398,105 +4152,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_451ccf1f847d3947b16fa42ee5b82ff7",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_4",
-    "name": "Jan Myśliwiec",
-    "slug": "jan-mysliwiec-4",
-    "previousSlugs": [],
-    "description": "Jan Myśliwiec — Konfekcja. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Rynek 14"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-151",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=453",
-        "page": "453 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "JAN MYŚLIWIEC. Skład konfekcji damskiej i męskiej oraz wszelkie artykuły damskie i męskie. Rybnik, Rynek / Tel. 14",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-4",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
-        "page": "5 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Jan Myśliwiec. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_4/newspaper-ad-4/place_mvp0_4-newspaper-ad-4-013a2826e4f7.jpg",
-            "thumbnailPath": "public/places/place_mvp0_4/newspaper-ad-4/place_mvp0_4-newspaper-ad-4-013a2826e4f7-thumb.jpg",
-            "alt": "Ogłoszenie: Jan Myśliwiec. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "013a2826e4f7876602499f58493c29ac72a7b2eaf9d304594e25a69593eec82a",
-            "thumbnailSha256": "9ac9724ae84ba4b925b8dfe99bd0654c17b563814f8f1013ec4b032aedb4b257",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-04.jpg",
-              "originalSha256": "013a2826e4f7876602499f58493c29ac72a7b2eaf9d304594e25a69593eec82a",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_40",
@@ -8531,7 +4199,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "newspaper-ad-40",
         "title": "Sztandar Polski i Gazeta Rybnicka",
@@ -8542,12 +4210,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Gawronowie. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_40/newspaper-ad-40/place_mvp0_40-newspaper-ad-40-e5b13ed138a6.jpg",
             "thumbnailPath": "public/places/place_mvp0_40/newspaper-ad-40/place_mvp0_40-newspaper-ad-40-e5b13ed138a6-thumb.jpg",
@@ -8569,6 +4242,12 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_e5b13ed138a6aff511c29852501b6d5a",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
@@ -8583,16 +4262,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "draft",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Gawron A., Rynek 17",
         "excerptType": "transcription",
         "note": "Gazeta wymienia Gawronów, przewodnik A. Gawrona. Zgodność nazwiska i adresu sugeruje powiązanie, ale nie rozstrzyga tożsamości.; Powiązanie z tym miejscem jest przypuszczalne.",
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_41",
@@ -8623,7 +4307,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "newspaper-ad-41",
         "title": "Sztandar Polski i Gazeta Rybnicka",
@@ -8634,40 +4318,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "draft",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Firma Karol (nazwisko niepewne). Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": "Nazwisko wymaga dalszego sprawdzenia. Pierwotny odczyt Kuśka nie jest pewny na skanie.",
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_41/newspaper-ad-41/place_mvp0_41-newspaper-ad-41-1f2ca20a9fec.jpg",
-            "thumbnailPath": "public/places/place_mvp0_41/newspaper-ad-41/place_mvp0_41-newspaper-ad-41-1f2ca20a9fec-thumb.jpg",
-            "alt": "Ogłoszenie: Firma Karol (nazwisko niepewne). Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 8.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "1f2ca20a9fec145dbe44958598dadfa2f55112b2bed58509c9944869f4262851",
-            "thumbnailSha256": "18cfbf547b9fed08bc8e0f89f51571f4fded01f213a5945bdc204f1c0ef47018",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-41.jpg",
-              "originalSha256": "1f2ca20a9fec145dbe44958598dadfa2f55112b2bed58509c9944869f4262851",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_42",
@@ -8698,7 +4363,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "newspaper-ad-42",
         "title": "Sztandar Polski i Gazeta Rybnicka",
@@ -8709,12 +4374,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-01-01",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Powszechny Zakład Ubezpieczeń Wzajemnych. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_42/newspaper-ad-42/place_mvp0_42-newspaper-ad-42-590a23855983.jpg",
             "thumbnailPath": "public/places/place_mvp0_42/newspaper-ad-42/place_mvp0_42-newspaper-ad-42-590a23855983-thumb.jpg",
@@ -8736,13 +4406,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_590a23855983e5ffbaff010043550a15",
+            "documentedDate": {
+              "from": "1938-01-01",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_43",
@@ -8773,7 +4449,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "newspaper-ad-43",
         "title": "Sztandar Polski i Gazeta Rybnicka",
@@ -8784,12 +4460,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-04-05",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Drogeria św. Antoniego. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_43/newspaper-ad-43/place_mvp0_43-newspaper-ad-43-3c626e3f4df4.jpg",
             "thumbnailPath": "public/places/place_mvp0_43/newspaper-ad-43/place_mvp0_43-newspaper-ad-43-3c626e3f4df4-thumb.jpg",
@@ -8811,13 +4492,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_3c626e3f4df4b0c24134e5983d322f8a",
+            "documentedDate": {
+              "from": "1938-04-05",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_44",
@@ -8848,7 +4535,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "newspaper-ad-44",
         "title": "Sztandar Polski i Gazeta Rybnicka",
@@ -8859,12 +4546,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-04-14",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Józef Dziura. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_44/newspaper-ad-44/place_mvp0_44-newspaper-ad-44-1440777318ea.jpg",
             "thumbnailPath": "public/places/place_mvp0_44/newspaper-ad-44/place_mvp0_44-newspaper-ad-44-1440777318ea-thumb.jpg",
@@ -8886,13 +4578,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_1440777318ea21607e78b088aa3c39e6",
+            "documentedDate": {
+              "from": "1938-04-14",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_45",
@@ -8923,7 +4621,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "newspaper-ad-45",
         "title": "Sztandar Polski i Gazeta Rybnicka",
@@ -8934,12 +4632,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-05-03",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Drukarnia Sztandaru Polskiego i Gazety Rybnickiej. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_45/newspaper-ad-45/place_mvp0_45-newspaper-ad-45-ee32b91c1fd1.jpg",
             "thumbnailPath": "public/places/place_mvp0_45/newspaper-ad-45/place_mvp0_45-newspaper-ad-45-ee32b91c1fd1-thumb.jpg",
@@ -8961,13 +4664,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_ee32b91c1fd1c6b205b3384f2dcda495",
+            "documentedDate": {
+              "from": "1938-05-03",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_46",
@@ -8998,7 +4707,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "newspaper-ad-46",
         "title": "Sztandar Polski i Gazeta Rybnicka",
@@ -9009,12 +4718,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-05-03",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Gliwicki i Ska. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_46/newspaper-ad-46/place_mvp0_46-newspaper-ad-46-b9b8322f137e.jpg",
             "thumbnailPath": "public/places/place_mvp0_46/newspaper-ad-46/place_mvp0_46-newspaper-ad-46-b9b8322f137e-thumb.jpg",
@@ -9036,13 +4750,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_b9b8322f137e9dac92f7a93ba4c44570",
+            "documentedDate": {
+              "from": "1938-05-03",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_47",
@@ -9073,7 +4793,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-157",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -9084,12 +4804,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "w Rybniku, Magistrat",
         "excerptType": "transcription",
         "note": "Reklama rozróżnia kasy miejskie i powiatowe. Z tą kartą powiązano wyłącznie kasę miejską; nie przypisano jej adresu kasy powiatowej.",
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-074",
@@ -9101,12 +4826,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Miejska Komunalna Kasa Oszczędności, Pl. Wolności 7",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "newspaper-ad-47",
@@ -9118,12 +4848,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938-12-29",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wzmianka o podmiocie Komunalna Kasa Oszczędności miasta Rybnika. Dział: Ogłoszenie prasowe.",
         "excerptType": "summary",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_47/newspaper-ad-47/place_mvp0_47-newspaper-ad-47-537d34e3dc47.jpg",
             "thumbnailPath": "public/places/place_mvp0_47/newspaper-ad-47/place_mvp0_47-newspaper-ad-47-537d34e3dc47-thumb.jpg",
@@ -9145,13 +4880,19 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_537d34e3dc47bf07ff0d826d81f25eb0",
+            "documentedDate": {
+              "from": "1938-12-29",
+              "to": null,
+              "approximate": false
             }
           }
         ]
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_48",
@@ -9182,7 +4923,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-001",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -9193,12 +4934,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Malinowski Władysław, ul. Dr. Grażyńskiego 14, telefon 21.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-006",
@@ -9210,16 +4956,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "inż. Malinowski W., ul. Dr. Grażyńskiego 14, tel. 21.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_49",
@@ -9254,7 +5005,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-002",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -9265,12 +5016,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Macioszek Wincenty, ul. Wiejska 36a, tel. 11-40.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-077",
@@ -9282,108 +5038,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Macioszek Wincenty, Wiejska 36",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_5",
-    "name": "Wojciech Kamiński",
-    "slug": "wojciech-kaminski-5",
-    "previousSlugs": [],
-    "description": "Wojciech Kamiński — Zakład fryzjerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Korfantego 11"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "newspaper-ad-5",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
-        "page": "5 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Wojciech Kamiński. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_5/newspaper-ad-5/place_mvp0_5-newspaper-ad-5-e5f1344a675a.jpg",
-            "thumbnailPath": "public/places/place_mvp0_5/newspaper-ad-5/place_mvp0_5-newspaper-ad-5-e5f1344a675a-thumb.jpg",
-            "alt": "Ogłoszenie: Wojciech Kamiński. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "e5f1344a675a0c0aae14bccc8499c0fcd58864b2591b8a38f6c695a0261cfcdf",
-            "thumbnailSha256": "6f72d7db4dfd65abd625058ffabee5b622cd18d10152ef75b29390bca1cb6df8",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-05.jpg",
-              "originalSha256": "e5f1344a675a0c0aae14bccc8499c0fcd58864b2591b8a38f6c695a0261cfcdf",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      },
-      {
-        "id": "observation-086",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=436",
-        "page": "436 (PDF)",
-        "publicationDate": {
+        "documentedDate": {
           "from": "1938",
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kamieński W., Korfantego 11",
+        "excerpt": "Macioszek Wincenty, Wiejska 36",
         "excerptType": "transcription",
-        "note": "Zgodny inicjał, zawód i adres; w przewodniku nazwisko zapisano Kamieński, a w gazecie odczytano Kamiński. Powiązanie wymaga sprawdzenia.; Powiązanie z tym miejscem jest przypuszczalne.",
-        "images": []
+        "note": null,
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_50",
@@ -9414,7 +5083,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-003",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -9425,12 +5094,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Szaforz Antoni, ul. Chwałowicka 2.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-009",
@@ -9442,16 +5116,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Szaforz Antoni, ul. Chwałowicka 2.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_51",
@@ -9482,7 +5161,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-005",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -9493,16 +5172,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Grzesik Antoni, ul. Strzelecka 7.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_52",
@@ -9533,7 +5217,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-007",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -9544,16 +5228,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Halek Józef, ul. Mikołowska 9.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_53",
@@ -9584,7 +5273,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-010",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -9595,16 +5284,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Kowol A., ul. Raciborska 7.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_54",
@@ -9635,7 +5329,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-011",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -9646,12 +5340,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Siedlaczek Tomasz, ul. Wiejska 5.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-027",
@@ -9663,12 +5362,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Siedlaczek Tomasz, ul. Wiejska 5.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-028",
@@ -9680,12 +5384,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Siedlaczek Tomasz, ul. Wiejska 5.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-029",
@@ -9697,12 +5406,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Siedlaczek Tomasz, ul. Wiejska 5.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-090",
@@ -9714,16 +5428,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "T. SIEDLACZEK. Rzeźbiarz-Sztukator i Kamieniarz. Przemysł sztucznokamienny. RYBNIK, Wiejska 5",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_55",
@@ -9754,7 +5473,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-012",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -9765,12 +5484,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Botor Paweł, ul. Piłsudskiego.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-022",
@@ -9782,16 +5506,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Botor Paweł, ul. Piłsudskiego.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_56",
@@ -9822,7 +5551,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-013",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -9833,12 +5562,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wilk Jan, ul. Bocznica Łony.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-048",
@@ -9850,12 +5584,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wilk Jan, Bocznica Łony.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-103",
@@ -9867,16 +5606,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wilk Jan",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_57",
@@ -9907,7 +5651,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-014",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -9918,12 +5662,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Holisz Wojciech, ul. Hallera 7.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-047",
@@ -9935,16 +5684,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Holisz Wojciech, ul. Hallera.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_58",
@@ -9975,7 +5729,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-015",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -9986,16 +5740,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Chmura Herman, ul. Piłsudskiego 8.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_59",
@@ -10026,7 +5785,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-017",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -10037,91 +5796,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Szypuła Wincenty, ul. Wodzisławska 1.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_6",
-    "name": "Alojzy Borgiel",
-    "slug": "alojzy-borgiel-6",
-    "previousSlugs": [],
-    "description": "Alojzy Borgiel — Hurtowy i detaliczny skład nabiału. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Rynkowa 2"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "newspaper-ad-6",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
-        "page": "5 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Alojzy Borgiel. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_6/newspaper-ad-6/place_mvp0_6-newspaper-ad-6-2ed44751f7e5.jpg",
-            "thumbnailPath": "public/places/place_mvp0_6/newspaper-ad-6/place_mvp0_6-newspaper-ad-6-2ed44751f7e5-thumb.jpg",
-            "alt": "Ogłoszenie: Alojzy Borgiel. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "2ed44751f7e56b06adf72a55856758b1144089751f010d0592b44e1ae368edb9",
-            "thumbnailSha256": "044537bd105a65031d741b49e083c61a9fd6ec5bf15a5cecf0b08efdad36b7da",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-06.jpg",
-              "originalSha256": "2ed44751f7e56b06adf72a55856758b1144089751f010d0592b44e1ae368edb9",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_60",
@@ -10152,7 +5841,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-018",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -10163,12 +5852,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Fojt Stanisław, ul. Mikołowska 7.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-135",
@@ -10180,16 +5874,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Fojt St., Mikołowska",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_61",
@@ -10220,7 +5919,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-019",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -10231,12 +5930,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Skrzypek Augustyn, ul. Zebrzydowska.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-112",
@@ -10248,16 +5952,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Skrzypek A., Zebrzydowska 57",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_62",
@@ -10288,7 +5997,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-020",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -10299,12 +6008,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Jokel Brunon, ul. Kościelna 3.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-156",
@@ -10316,16 +6030,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Jokiel B., Kościelna 3",
         "excerptType": "transcription",
         "note": "Wariant nazwiska Jokiel; zgodny inicjał, zawód i adres z księgi z 1936 r.",
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_63",
@@ -10356,7 +6075,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-021",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -10367,16 +6086,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Kajzer Paweł, ul. Ks. Szafranka.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_64",
@@ -10407,7 +6131,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-024",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -10418,12 +6142,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Goszyc Wilhelm, ul. 3-go Maja.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-120",
@@ -10435,16 +6164,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Goszyc W., Al. 3 Maja 1",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_65",
@@ -10471,14 +6205,11 @@ export const PLACES: readonly Place[] = [
     ],
     "district": null,
     "location": {
-      "coordinates": {
-        "lat": 50.09240489033962,
-        "lng": 18.530009969985116
-      },
-      "precision": "approximate",
-      "explanation": ""
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-025",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -10489,12 +6220,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Bracia Głowik, ul. św. Barbary 33.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-126",
@@ -10506,12 +6242,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Głowik J. i Głowik P., św. Barbary 33",
         "excerptType": "transcription",
         "note": null,
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_mvp0_65/observation-126/place_mvp0_65-observation-126-8d2fb5c919d9.jpg",
             "thumbnailPath": "public/places/place_mvp0_65/observation-126/place_mvp0_65-observation-126-8d2fb5c919d9-thumb.jpg",
@@ -10533,6 +6274,12 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-07",
               "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d2fb5c919d9d99c1ba996621fd28f30",
+            "documentedDate": {
+              "from": "1938",
+              "to": null,
+              "approximate": false
             }
           }
         ]
@@ -10547,40 +6294,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": null,
+        "verification": "draft",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Głowik Paweł — Rybnik; Główik Józef — Rybnik.",
         "excerptType": "transcription",
         "note": "Wzmianka o zdaniu egzaminów mistrzowskich przez dwóch stolarzy z Rybnika. Imiona odpowiadają inicjałom J. i P. ze spisu z 1938 r., ale brak adresu i informacji o wspólnym zakładzie. To przypuszczalne powiązanie osób, nie potwierdzenie działalności firmy w 1931 r.; Powiązanie z tym miejscem jest przypuszczalne.",
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_65/observation-150/place_mvp0_65-observation-150-908e7d3b9ea0.jpg",
-            "thumbnailPath": "public/places/place_mvp0_65/observation-150/place_mvp0_65-observation-150-908e7d3b9ea0-thumb.jpg",
-            "alt": "Fragment: Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku, 1936, strona PDF 99. Wpisy dla Rybnika.",
-            "credit": "Śląska Biblioteka Cyfrowa; Rzemieślnik Śląski, R. 3, nr 2",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "908e7d3b9ea0b02656323ef8c3e22466a3aaf213fd80d10b7b464a34b2ded347",
-            "thumbnailSha256": "af206596e442a45e581b3a076c9a34dcd3144cdfd4783d85eb54f4b5e24ab4dd",
-            "provenance": {
-              "title": "Rzemieślnik Śląski, R. 3, nr 2",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/293425",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/293425",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/craftsman-1931-02-10.jpg",
-              "originalSha256": "908e7d3b9ea0b02656323ef8c3e22466a3aaf213fd80d10b7b464a34b2ded347",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1931-02-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
+        "materials": []
       }
     ],
-    "locationVersion": 1,
-    "updatedAt": "2026-11-07T15:06:26.849Z"
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_66",
@@ -10611,7 +6335,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-026",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -10622,16 +6346,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Dziuba Stanisław, ul. Wodzisławska.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_67",
@@ -10662,7 +6391,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-030",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -10673,12 +6402,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Kuczera Józef, ul. św. Józefa 2.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-146",
@@ -10690,16 +6424,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Kuczera Józef, Mistrz zduński, ul. Józefa 2. Stawianie piecy wszelkiego rodzaju",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_68",
@@ -10730,7 +6469,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-031",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -10741,12 +6480,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Morgała Florjan, Aleja 3-go Maja, tel. 136.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-154",
@@ -10758,16 +6502,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "draft",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Margała F.",
         "excerptType": "transcription",
         "note": "W księdze z 1936 r. Florjan Morgała, w przewodniku Margała F. Brak adresu nie pozwala rozstrzygnąć tożsamości.; Powiązanie z tym miejscem jest przypuszczalne.",
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_69",
@@ -10798,7 +6547,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-033",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -10809,112 +6558,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Kuminek Józef, ul. Kościelna.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_7",
-    "name": "Baltazar Kopyciok",
-    "slug": "baltazar-kopyciok-7",
-    "previousSlugs": [],
-    "description": "Baltazar Kopyciok — Zakład malarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Hallera 9a"
-      },
-      {
-        "type": "historical",
-        "text": "Hallera 9"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-102",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=468",
-        "page": "468 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kopyciok B., Hallera 9",
-        "excerptType": "transcription",
-        "note": "Przewodnik podaje Hallera 9, a ogłoszenie Hallera 9a. Zachowano obie wersje adresu.",
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-7",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
-        "page": "5 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Baltazar Kopyciok. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_7/newspaper-ad-7/place_mvp0_7-newspaper-ad-7-266f4a1e4868.jpg",
-            "thumbnailPath": "public/places/place_mvp0_7/newspaper-ad-7/place_mvp0_7-newspaper-ad-7-266f4a1e4868-thumb.jpg",
-            "alt": "Ogłoszenie: Baltazar Kopyciok. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "266f4a1e48689933a0bc23f33e4e4a4e3cad5bb081015acd9c7125666dcead7f",
-            "thumbnailSha256": "d51b5b732161ea312f6cadbb9acf284180926119efc93cad293a36ccae0613fc",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-07.jpg",
-              "originalSha256": "266f4a1e48689933a0bc23f33e4e4a4e3cad5bb081015acd9c7125666dcead7f",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_70",
@@ -10945,7 +6603,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-034",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -10956,12 +6614,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Barwik Robert, pl. Wolności.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-099",
@@ -10973,12 +6636,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Barwik R.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-100",
@@ -10990,12 +6658,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Barwik R.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-101",
@@ -11007,16 +6680,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Barwik R.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_71",
@@ -11047,7 +6725,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-035",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11058,16 +6736,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Grębowicz Maksymilian, pl. Wolności.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_72",
@@ -11098,7 +6781,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-036",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11109,16 +6792,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wróbel Ludwik.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_73",
@@ -11149,7 +6837,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-037",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11160,16 +6848,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Malik Juljusz, ul. Kościuszki.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_74",
@@ -11200,7 +6893,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-038",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11211,12 +6904,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Gawełek Franciszek, ul. Wysoka.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-097",
@@ -11228,16 +6926,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Gawełek Fr., Wysoka 2",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_75",
@@ -11268,7 +6971,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-039",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11279,12 +6982,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Adamczyk Czesław, ul. M. Piłsudskiego.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-095",
@@ -11296,16 +7004,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Adamczyk Cz., Piłsudskiego 25",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_76",
@@ -11336,7 +7049,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-041",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11347,16 +7060,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Zimon Józef, ul. Przemysłowa 2.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_77",
@@ -11387,7 +7105,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-042",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11398,16 +7116,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Biliński Stanisław, ul. Łony.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_78",
@@ -11438,7 +7161,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-043",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11449,12 +7172,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Furmanowski Roman, ul. Wiejska.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-096",
@@ -11466,16 +7194,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Furmanowski Roman, Wiejska 11",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_79",
@@ -11506,7 +7239,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-044",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11517,125 +7250,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Leśnik Antoni, pl. Wolności.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_8",
-    "name": "Piotr Kupczak / Hotel Śląski",
-    "slug": "piotr-kupczak-hotel-slaski-8",
-    "previousSlugs": [],
-    "description": "Piotr Kupczak / Hotel Śląski — Skład kolonialny i hotel. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "handel",
-        "name": "handel"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Raciborska 23"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-116",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=506",
-        "page": "506 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kupczak P., Raciborska 23",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "observation-145",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=546",
-        "page": "546 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Kupczak P., Raciborska 23",
-        "excerptType": "transcription",
-        "note": null,
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-8",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
-        "page": "5 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Piotr Kupczak / Hotel Śląski. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_8/newspaper-ad-8/place_mvp0_8-newspaper-ad-8-2959db66fa8c.jpg",
-            "thumbnailPath": "public/places/place_mvp0_8/newspaper-ad-8/place_mvp0_8-newspaper-ad-8-2959db66fa8c-thumb.jpg",
-            "alt": "Ogłoszenie: Piotr Kupczak / Hotel Śląski. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "2959db66fa8cb7101289370db371262724fe211ce6012d50c90ad41c0cba152b",
-            "thumbnailSha256": "d57a706c15502f00a48684d7e145de8c0e71ea9b1068bde65b3d330bc9ac93bd",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-08.jpg",
-              "originalSha256": "2959db66fa8cb7101289370db371262724fe211ce6012d50c90ad41c0cba152b",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_80",
@@ -11666,7 +7295,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-045",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11677,16 +7306,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Sobik Ludwik, ul. Wodzisławska.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_81",
@@ -11717,7 +7351,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-046",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11728,16 +7362,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Ćwik Franciszek, Rynek.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_82",
@@ -11768,7 +7407,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-049",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11779,12 +7418,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Sznapkowa Marja, ul. Rynkowa.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-098",
@@ -11796,16 +7440,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Sznapkowa M., Rynkowa 1",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_83",
@@ -11836,7 +7485,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-050",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11847,12 +7496,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wilkowska Marja.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-091",
@@ -11864,16 +7518,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wilkowska M., Rynek 14",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_84",
@@ -11904,7 +7563,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-051",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11915,16 +7574,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Duda Konstanty, ul. Poprzeczna.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_85",
@@ -11959,7 +7623,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-052",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -11970,12 +7634,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Widenka Wiktor, ul. Przemysłowa.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-138",
@@ -11987,16 +7656,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Widenka W., Mikołowska 56",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_86",
@@ -12027,7 +7701,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-054",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12038,16 +7712,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Kozik Hubert, ul. Wodzisławska.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_87",
@@ -12078,7 +7757,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-055",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12089,16 +7768,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Knapik Oskar, ul. Szkolna.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_88",
@@ -12129,7 +7813,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-056",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12140,16 +7824,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wieczorek Wiktor, ul. Hallera 7.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_89",
@@ -12180,7 +7869,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-057",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12191,112 +7880,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Hasiński Walenty.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
-  },
-  {
-    "id": "place_mvp0_9",
-    "name": "Engelbert Rybka",
-    "slug": "engelbert-rybka-9",
-    "previousSlugs": [],
-    "description": "Engelbert Rybka — Wynajem samochodów. Miejsce odnotowane w źródłach zestawionych poniżej.",
-    "tags": [
-      {
-        "id": "inne",
-        "name": "inne"
-      }
-    ],
-    "period": {
-      "status": "confirmed",
-      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
-    },
-    "aliases": [],
-    "addresses": [
-      {
-        "type": "historical",
-        "text": "Raciborska 12"
-      },
-      {
-        "type": "historical",
-        "text": "Raciborska 10"
-      }
-    ],
-    "district": null,
-    "location": {
-      "coordinates": null,
-      "precision": "unknown",
-      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
-    },
-    "references": [
-      {
-        "id": "observation-119",
-        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
-        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=511",
-        "page": "511 (PDF)",
-        "publicationDate": {
-          "from": "1938",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wynajęcie Samochodów W Kraju i Zagranicę ENGELBERT RYBKA. RYBNIK, Raciborska 10. Telefon Nr. 1072",
-        "excerptType": "transcription",
-        "note": "Przewodnik podaje Raciborską 10, a gazeta Raciborską 12. Zachowano obie wersje; nie ustalono przyczyny różnicy.",
-        "images": []
-      },
-      {
-        "id": "newspaper-ad-9",
-        "title": "Sztandar Polski i Gazeta Rybnicka",
-        "url": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
-        "page": "5 (PDF)",
-        "publicationDate": {
-          "from": "1938-01-01",
-          "to": null,
-          "approximate": false
-        },
-        "historicalDate": null,
-        "accessedAt": "2026-11-03T00:00:00Z",
-        "excerpt": "Wzmianka o podmiocie Engelbert Rybka. Dział: Ogłoszenie prasowe.",
-        "excerptType": "summary",
-        "note": null,
-        "images": [
-          {
-            "storagePath": "public/places/place_mvp0_9/newspaper-ad-9/place_mvp0_9-newspaper-ad-9-ff12cb4a3449.jpg",
-            "thumbnailPath": "public/places/place_mvp0_9/newspaper-ad-9/place_mvp0_9-newspaper-ad-9-ff12cb4a3449-thumb.jpg",
-            "alt": "Ogłoszenie: Engelbert Rybka. Sztandar Polski i Gazeta Rybnicka, 1938, nr 1, strona PDF 5.",
-            "credit": "Śląska Biblioteka Cyfrowa; Sztandar Polski i Gazeta Rybnicka",
-            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
-            "sha256": "ff12cb4a34493ba5084f664bd53fc90057c4694ab97add61decbf94476a74cb5",
-            "thumbnailSha256": "3cc0b612d32c5b7d028ad0949dc78c4277934353930c1fea3f911b9a25caa062",
-            "provenance": {
-              "title": "Sztandar Polski i Gazeta Rybnicka",
-              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
-              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/ad-09.jpg",
-              "originalSha256": "ff12cb4a34493ba5084f664bd53fc90057c4694ab97add61decbf94476a74cb5",
-              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
-              "dateNote": "Wydanie 1938-01-01; wycinek przygotowany w MVP.0.",
-              "license": "Domena publiczna (public domain)",
-              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "copyrighted": false,
-              "rightsCheckedAt": "2026-11-07",
-              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
-            }
-          }
-        ]
-      }
-    ],
-    "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_90",
@@ -12327,7 +7925,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-058",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12338,16 +7936,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Wodach Franciszek.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_91",
@@ -12378,7 +7981,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-059",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12389,16 +7992,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Moses Józef, pl. Wolności.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_92",
@@ -12429,7 +8037,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-060",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12440,12 +8048,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Drozd Jan.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-137",
@@ -12457,16 +8070,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Drozd J., Korfantego 7",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_93",
@@ -12501,7 +8119,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-061",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12512,12 +8130,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Franke Franciszek, ul. Przemysłowa.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-136",
@@ -12529,16 +8152,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Franke Fr., Polna 5",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_94",
@@ -12573,7 +8201,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-062",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12584,12 +8212,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Mazur Paweł, ul. św. Jana.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-139",
@@ -12601,16 +8234,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Mazur P., Przemysłowa 28",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_95",
@@ -12641,7 +8279,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-063",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12652,12 +8290,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Mandrysz Wiktor jr., ul. Hallera.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-113",
@@ -12669,16 +8312,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Mandrysz W., Hallera 25",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_96",
@@ -12709,7 +8357,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-064",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12720,16 +8368,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Musioł Wincenty, kol. Zebrzydowice.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_97",
@@ -12760,7 +8413,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-065",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12771,12 +8424,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Kuśka Karol, ul. Mikołowska.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "observation-118",
@@ -12788,16 +8446,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Kuszka K., Mikołowska",
         "excerptType": "transcription",
         "note": "W przewodniku wariant nazwiska Kuszka; w księdze z 1936 r. Kuśka.",
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_98",
@@ -12828,7 +8491,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-066",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12839,16 +8502,21 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Dziura Franciszek, ul. M. Piłsudskiego.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_mvp0_99",
@@ -12879,7 +8547,7 @@ export const PLACES: readonly Place[] = [
       "precision": "unknown",
       "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
     },
-    "references": [
+    "mentions": [
       {
         "id": "observation-067",
         "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
@@ -12890,16 +8558,2097 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": false
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-03T00:00:00Z",
         "excerpt": "Galus Jan, Ligota.",
         "excerptType": "transcription",
         "note": null,
-        "images": []
+        "materials": []
       }
     ],
     "locationVersion": 0,
-    "updatedAt": "2026-11-03T00:00:00.000Z"
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_100",
+    "name": "Franciszek Kaniewski",
+    "slug": "franciszek-kaniewski-100",
+    "previousSlugs": [],
+    "description": "Franciszek Kaniewski — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Aleja 3 Maja (bez numeru)"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-069",
+        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
+        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=127",
+        "page": "127 (PDF)",
+        "publicationDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kaniewski Franciszek, ul. Aleja 3-go Maja.",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_101",
+    "name": "Maksymilian Kuśka",
+    "slug": "maksymilian-kuska-101",
+    "previousSlugs": [],
+    "description": "Maksymilian Kuśka — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Św. Barbary (bez numeru)"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-070",
+        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
+        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=127",
+        "page": "127 (PDF)",
+        "publicationDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kuśka Maksymilian, ul. św. Barbary.",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_102",
+    "name": "Rajmund Jonderko",
+    "slug": "rajmund-jonderko-102",
+    "previousSlugs": [],
+    "description": "Rajmund Jonderko — Skład skór. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Korfantego 4a"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-071",
+        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
+        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=128",
+        "page": "128 (PDF)",
+        "publicationDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Jonderko Rajmund, ul. Korfantego.",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "observation-121",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=513",
+        "page": "513 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Jonderko R., Korfantego 4-a",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_103",
+    "name": "Leon Kamiński",
+    "slug": "leon-kaminski-103",
+    "previousSlugs": [],
+    "description": "Leon Kamiński — Zakład złotniczy. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Łony 11"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-072",
+        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
+        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=129",
+        "page": "129 (PDF)",
+        "publicationDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kamiński Leon, ul. Łony 11.",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "observation-153",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=549",
+        "page": "549 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kamiński L., Łony 8",
+        "excerptType": "transcription",
+        "note": "Zgodny inicjał, nazwisko i branża, ale inny numer: księga z 1936 r. podaje Łony 11. Nie rozstrzygnięto tożsamości.; Powiązanie z tym miejscem jest przypuszczalne.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_104",
+    "name": "Rymag — Rybnicka Fabryka Maszyn",
+    "slug": "rymag-rybnicka-fabryka-maszyn-104",
+    "previousSlugs": [],
+    "description": "Rymag — Rybnicka Fabryka Maszyn — Fabryka maszyn. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "przemysl",
+        "name": "przemysł"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Hutnicza (bez numeru)"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-073",
+        "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
+        "url": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=153",
+        "page": "153 (PDF)",
+        "publicationDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1936",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Rymag. Rybnicka Fabryka Maszyn Sp. z o.o. w Rybniku G. Śl. Nr telefonów 69 i 125.",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "observation-149",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=551",
+        "page": "551 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Rybnicka Fabryka Maszyn, S-ka z o.o., Hutnicza",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_105",
+    "name": "Urban Skowron",
+    "slug": "urban-skowron-105",
+    "previousSlugs": [],
+    "description": "Urban Skowron — Zakład blacharski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Jankowicka 20"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-078",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=412",
+        "page": "412 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Skowron Urban, Jankowicka 20",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_106",
+    "name": "Fryderyk Vieweg",
+    "slug": "fryderyk-vieweg-106",
+    "previousSlugs": [],
+    "description": "Fryderyk Vieweg — Zakład blacharski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Plac Wolności 10"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-079",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=412",
+        "page": "412 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Vieweg Fryderyk, pl. Wolności 10",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_107",
+    "name": "Browar Rybnicki",
+    "slug": "browar-rybnicki-107",
+    "previousSlugs": [],
+    "description": "Browar Rybnicki — Browar. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Zamkowa 3"
+      },
+      {
+        "type": "historical",
+        "text": "Zamkowa 4"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-081",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=413",
+        "page": "413 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Browar Rybnicki, dawn. Müller H., Zamkowa 3",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "observation-152",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=546",
+        "page": "546 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Browar Rybnicki, Zamkowa 4",
+        "excerptType": "transcription",
+        "note": "W dziale Browary podano Zamkową 3, a w dziale Wyszynk trunków Zamkową 4. Wpisy mogą dotyczyć różnych części przedsiębiorstwa; nie rozstrzygnięto tego.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_108",
+    "name": "Faust — Krakowski Skład Futer",
+    "slug": "faust-krakowski-sklad-futer-108",
+    "previousSlugs": [],
+    "description": "Faust — Krakowski Skład Futer — Skład futer. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Sobieskiego 7"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-087",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=437",
+        "page": "437 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "KRAKOWSKI SKŁAD FUTER FAUST. RYBNIK, UL. SOBIESKIEGO 7",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_109",
+    "name": "Fr. Heidrich",
+    "slug": "fr-heidrich-109",
+    "previousSlugs": [],
+    "description": "Fr. Heidrich — Skład obuwia. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Rynek 12"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-107",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=482",
+        "page": "482 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Fr. Heidrich. SKŁAD OBUWIA. Rybnik, Rynek 12, tel. 1121",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_110",
+    "name": "W. Olszewski",
+    "slug": "w-olszewski-110",
+    "previousSlugs": [],
+    "description": "W. Olszewski — Pracownia obuwia ortopedycznego. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Hallera 7"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-108",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=482",
+        "page": "482 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "W. Olszewski, mistrz obuwniczy. Rybnik, Hallera 7. PRACOWNIA OBUWIA. Specj. obuwie ortopedyczne",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_111",
+    "name": "Maria Wilczek",
+    "slug": "maria-wilczek-111",
+    "previousSlugs": [],
+    "description": "Maria Wilczek — Skład obuwia. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Sobieskiego 20"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-110",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=482",
+        "page": "482 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Maria Wilczek. SKŁAD OBUWIA. Rybnik G. Śl., Sobieskiego nr. 20",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_112",
+    "name": "M. Zimon",
+    "slug": "m-zimon-112",
+    "previousSlugs": [],
+    "description": "M. Zimon — Hurtownia piwa i fabryka wody sodowej. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Raciborska 49a"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-114",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=494",
+        "page": "494 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "M. ZIMON. Hurtownia piwa i fabryka wody sodowej. Rybnik, Raciborska 49a",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_113",
+    "name": "H. Pachulla",
+    "slug": "h-pachulla-113",
+    "previousSlugs": [],
+    "description": "H. Pachulla — Warsztat radiowy i rowerowy. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Sobieskiego 5"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-115",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=498",
+        "page": "498 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Radio-Rowery-Warsztat H. PACHULLA. Rybnik Śl., ul. Sobieskiego 5",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_114",
+    "name": "Fr. Bartkowiak",
+    "slug": "fr-bartkowiak-114",
+    "previousSlugs": [],
+    "description": "Fr. Bartkowiak — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Poprzeczna 36"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-122",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+        "page": "519 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Bartkowiak Fr., Poprzeczna 36",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_114/observation-122/place_mvp0_114-observation-122-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_114/observation-122/place_mvp0_114-observation-122-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d2fb5c919d9d99c1ba996621fd28f30",
+            "documentedDate": {
+              "from": "1938",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_115",
+    "name": "M. Bohn",
+    "slug": "m-bohn-115",
+    "previousSlugs": [],
+    "description": "M. Bohn — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Mikołowska 49"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-123",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+        "page": "519 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Bohn M., Mikołowska 49",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_115/observation-123/place_mvp0_115-observation-123-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_115/observation-123/place_mvp0_115-observation-123-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d2fb5c919d9d99c1ba996621fd28f30",
+            "documentedDate": {
+              "from": "1938",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_116",
+    "name": "Wiktor Bonk",
+    "slug": "wiktor-bonk-116",
+    "previousSlugs": [],
+    "description": "Wiktor Bonk — Wytwórnia trumien. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Dworek (bez numeru)"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-124",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+        "page": "519 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wytwórnia trumien WIKTOR BONK. Rybnik — Dworek",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_116/observation-124/place_mvp0_116-observation-124-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_116/observation-124/place_mvp0_116-observation-124-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d2fb5c919d9d99c1ba996621fd28f30",
+            "documentedDate": {
+              "from": "1938",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_117",
+    "name": "Karol Broksch",
+    "slug": "karol-broksch-117",
+    "previousSlugs": [],
+    "description": "Karol Broksch — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Piasta 9"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-125",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+        "page": "519 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Broksch Karol, Piasta 9",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_117/observation-125/place_mvp0_117-observation-125-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_117/observation-125/place_mvp0_117-observation-125-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d2fb5c919d9d99c1ba996621fd28f30",
+            "documentedDate": {
+              "from": "1938",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_118",
+    "name": "L. Ficek",
+    "slug": "l-ficek-118",
+    "previousSlugs": [],
+    "description": "L. Ficek — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Cmentarna 7"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-127",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+        "page": "519 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Ficek L., Cmentarna 7",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_118/observation-127/place_mvp0_118-observation-127-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_118/observation-127/place_mvp0_118-observation-127-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d2fb5c919d9d99c1ba996621fd28f30",
+            "documentedDate": {
+              "from": "1938",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_119",
+    "name": "E. Herger",
+    "slug": "e-herger-119",
+    "previousSlugs": [],
+    "description": "E. Herger — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Piasta 17"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-128",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+        "page": "519 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Herger E., Piasta 17",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_119/observation-128/place_mvp0_119-observation-128-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_119/observation-128/place_mvp0_119-observation-128-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d2fb5c919d9d99c1ba996621fd28f30",
+            "documentedDate": {
+              "from": "1938",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_120",
+    "name": "Jerzy Hütter",
+    "slug": "jerzy-hutter-120",
+    "previousSlugs": [],
+    "description": "Jerzy Hütter — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Wysoka 4"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-129",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+        "page": "519 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Hütter Jerzy, Wysoka 4",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_120/observation-129/place_mvp0_120-observation-129-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_120/observation-129/place_mvp0_120-observation-129-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d2fb5c919d9d99c1ba996621fd28f30",
+            "documentedDate": {
+              "from": "1938",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_121",
+    "name": "P. Kostka",
+    "slug": "p-kostka-121",
+    "previousSlugs": [],
+    "description": "P. Kostka — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Sobieskiego 21"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-130",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+        "page": "519 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kostka P., Sobieskiego 21",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_121/observation-130/place_mvp0_121-observation-130-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_121/observation-130/place_mvp0_121-observation-130-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d2fb5c919d9d99c1ba996621fd28f30",
+            "documentedDate": {
+              "from": "1938",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_122",
+    "name": "Płaszyński (inicjał niepewny)",
+    "slug": "plaszynski-inicjal-niepewny-122",
+    "previousSlugs": [],
+    "description": "Płaszyński (inicjał niepewny) — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Rudzka 10"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-131",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+        "page": "519 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Płaszyński [inicjał niepewny], Rudzka 10",
+        "excerptType": "transcription",
+        "note": "Inicjał imienia nieczytelny; nie rozwijano go na podstawie OCR.",
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_122/observation-131/place_mvp0_122-observation-131-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_122/observation-131/place_mvp0_122-observation-131-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d2fb5c919d9d99c1ba996621fd28f30",
+            "documentedDate": {
+              "from": "1938",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_123",
+    "name": "B. Solarz",
+    "slug": "b-solarz-123",
+    "previousSlugs": [],
+    "description": "B. Solarz — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Piłsudskiego 8"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-132",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+        "page": "519 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Solarz B., Piłsudskiego 8",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_123/observation-132/place_mvp0_123-observation-132-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_123/observation-132/place_mvp0_123-observation-132-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d2fb5c919d9d99c1ba996621fd28f30",
+            "documentedDate": {
+              "from": "1938",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_124",
+    "name": "E. Solarz",
+    "slug": "e-solarz-124",
+    "previousSlugs": [],
+    "description": "E. Solarz — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Rynek 6"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-133",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+        "page": "519 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Solarz E., Rynek 6",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_124/observation-133/place_mvp0_124-observation-133-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_124/observation-133/place_mvp0_124-observation-133-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d2fb5c919d9d99c1ba996621fd28f30",
+            "documentedDate": {
+              "from": "1938",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_125",
+    "name": "W. Vieweg",
+    "slug": "w-vieweg-125",
+    "previousSlugs": [],
+    "description": "W. Vieweg — Zakład stolarski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Ks. Szafranka 4"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-134",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+        "page": "519 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Vieweg W., ks. Szafranka 4",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": [
+          {
+            "storagePath": "public/places/place_mvp0_125/observation-134/place_mvp0_125-observation-134-8d2fb5c919d9.jpg",
+            "thumbnailPath": "public/places/place_mvp0_125/observation-134/place_mvp0_125-observation-134-8d2fb5c919d9-thumb.jpg",
+            "alt": "Fragment: Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego, 1938, strona PDF 519. Wpisy dla Rybnika.",
+            "credit": "Śląska Biblioteka Cyfrowa; Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+            "rights": "Domena publiczna — oznaczenie Prawa w karcie konkretnego wydania ŚBC.",
+            "sha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+            "thumbnailSha256": "af0d1684482726fbe8c10458aec96b2e6f6895da15493221ec90a6c043ac23d9",
+            "provenance": {
+              "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+              "sourcePageUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalCollectionUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+              "originalImageUrl": "https://maciejkoch-project-1.web.app/images/history/sources/guide-1938-519.jpg",
+              "originalSha256": "8d2fb5c919d9d99c1ba996621fd28f30aa783b5612c0d376694b6f8869ba4a4a",
+              "author": "Autor wycinka nieustalony; wydanie oznaczone przez ŚBC jako domena publiczna",
+              "dateNote": "Wydanie 1938; wycinek przygotowany w MVP.0.",
+              "license": "Domena publiczna (public domain)",
+              "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-07",
+              "transformations": "Przeniesienie istniejącego wycinka JPEG z MVP.0 bez retuszu; miniatura do 480 px. originalSha256 opisuje wejściowy wycinek MVP.0, nie pełny PDF."
+            },
+            "materialId": "vis_8d2fb5c919d9d99c1ba996621fd28f30",
+            "documentedDate": {
+              "from": "1938",
+              "to": null,
+              "approximate": false
+            }
+          }
+        ]
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_126",
+    "name": "Gerard Jokel",
+    "slug": "gerard-jokel-126",
+    "previousSlugs": [],
+    "description": "Gerard Jokel — Zakład tapicerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Łony 9"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-140",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=530",
+        "page": "530 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "GERARD JOKEL. Mistrz tapicerski. RYBNIK, ul. Łony 9",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_127",
+    "name": "Karol Konkol",
+    "slug": "karol-konkol-127",
+    "previousSlugs": [],
+    "description": "Karol Konkol — Zakład tapicerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Św. Jana 2"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-141",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=530",
+        "page": "530 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Zakład mebli wyścielanych Karol Konkol, mistrz tapicerski. Rybnik, Świętego Jana 2",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_128",
+    "name": "Józef Szopa",
+    "slug": "jozef-szopa-128",
+    "previousSlugs": [],
+    "description": "Józef Szopa — Zakład tapicerski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "handel",
+        "name": "handel"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Istnienie w okresie międzywojennym potwierdza datowana wzmianka lub współczesne ogłoszenie/wpis adresowy."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Raciborska 5"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "observation-142",
+        "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+        "url": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=530",
+        "page": "530 (PDF)",
+        "publicationDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1938",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Specjalny warsztat wyrobów tapicerskich Józef Szopa. Rybnik, Raciborska 5. Tel. 197",
+        "excerptType": "transcription",
+        "note": null,
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
   },
   {
     "id": "place_sw_antoni",
@@ -12937,23 +10686,24 @@ export const PLACES: readonly Place[] = [
       "precision": "building",
       "explanation": ""
     },
-    "references": [
+    "mentions": [
       {
         "id": "parafia_historia",
         "title": "Historia parafii św. Antoniego",
         "url": "https://www.bazylika.rybnik.pl/historia.html",
         "page": null,
         "publicationDate": null,
-        "historicalDate": {
+        "documentedDate": {
           "from": "1903",
           "to": "1907",
           "approximate": false
         },
+        "verification": "draft",
         "accessedAt": "2026-11-05T12:00:00Z",
         "excerpt": "Parafia podaje rozpoczęcie budowy w 1903 roku oraz poświęcenie kościoła 29 września 1907 roku.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "sot_lokalizacja",
@@ -12961,12 +10711,13 @@ export const PLACES: readonly Place[] = [
         "url": "https://www.silesia.travel/culturalheritage/3273",
         "page": null,
         "publicationDate": null,
-        "historicalDate": null,
+        "documentedDate": null,
+        "verification": "draft",
         "accessedAt": "2026-11-05T12:00:00Z",
         "excerpt": "Karta obiektu wskazuje adres Mikołowska 4 i orientacyjną pozycję bazyliki.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "materials": []
       },
       {
         "id": "polona_1919",
@@ -12978,12 +10729,17 @@ export const PLACES: readonly Place[] = [
           "to": null,
           "approximate": true
         },
-        "historicalDate": null,
+        "documentedDate": {
+          "from": "1919",
+          "to": null,
+          "approximate": true
+        },
+        "verification": "verified",
         "accessedAt": "2026-11-05T12:26:30Z",
         "excerpt": "Kolorowana pocztówka przedstawia kościół św. Antoniego z dwiema wieżami i boczną elewacją.",
         "excerptType": "summary",
         "note": "Datowanie 1919 według korespondencji na pocztówce. Dokładna data wykonania fotografii oraz autor są nieustalone. Oryginał: Biblioteka Narodowa / Polona, obiekt 70420187; kopia cyfrowa udostępniona w Wikimedia Commons.",
-        "images": [
+        "materials": [
           {
             "storagePath": "public/places/place_sw_antoni/polona_1919/antoni-1919-v1.jpg",
             "thumbnailPath": "public/places/place_sw_antoni/polona_1919/antoni-1919-thumb-v1.jpg",
@@ -13005,6 +10761,12 @@ export const PLACES: readonly Place[] = [
               "copyrighted": false,
               "rightsCheckedAt": "2026-11-05",
               "transformations": "Complete postcard, resized to 1800px and 640px long edge; JPEG compression, no crop, retouching or recolouring."
+            },
+            "materialId": "vis_6cd2b79894d7085850655146707d9ddd",
+            "documentedDate": {
+              "from": "1919",
+              "to": null,
+              "approximate": true
             }
           }
         ]
@@ -13012,5 +10774,3650 @@ export const PLACES: readonly Place[] = [
     ],
     "locationVersion": 5,
     "updatedAt": "2026-11-07T14:35:50.027Z"
+  },
+  {
+    "id": "place_mvp0_1002",
+    "name": "Kościół Matki Bożej Bolesnej",
+    "slug": "kosciol-matki-bozej-bolesnej-1002",
+    "previousSlugs": [],
+    "description": "Kościół Matki Bożej Bolesnej — Kościół katolicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Kościół Matki Bożej Bolesnej"
+      },
+      {
+        "type": "current",
+        "text": "Franciszka Rybnickiego 2"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.097533,
+        "lng": 18.5420896
+      },
+      "precision": "building",
+      "explanation": "Zachowany kościół opisany w miejskim wykazie zabytków; punkt w obrysie dzisiejszej świątyni. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/236882053 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-mbb-1",
+        "title": "Miasto Rybnik — Zabytki",
+        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Budowa według projektu Franciszka Ilgnera w latach 1798–1801.",
+        "excerptType": "summary",
+        "note": "1798–1801 · budowa",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1003",
+    "name": "Dawny kościół farny Wniebowzięcia NMP",
+    "slug": "dawny-kosciol-farny-wniebowziecia-nmp-1003",
+    "previousSlugs": [],
+    "description": "Dawny kościół farny Wniebowzięcia NMP — Kościół / kaplica cmentarna. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Górka Kościelna, przy Gliwickiej"
+      },
+      {
+        "type": "current",
+        "text": "Gliwicka 8"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0995762,
+        "lng": 18.5450177
+      },
+      "precision": "building",
+      "explanation": "Punkt wskazuje zachowane prezbiterium. Dzisiejsza funkcja kościoła akademickiego nie jest funkcją z 1932 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/209433735 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-wnmp-1",
+        "title": "Miasto Rybnik — Zabytki",
+        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Gotyckie prezbiterium; nawę i wieżę rozebrano w 1797 r. Później kaplica cmentarna.",
+        "excerptType": "summary",
+        "note": "XV w. · zachowane prezbiterium",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1004",
+    "name": "Kościół ewangelicko-augsburski",
+    "slug": "kosciol-ewangelicko-augsburski-1004",
+    "previousSlugs": [],
+    "description": "Kościół ewangelicko-augsburski — Kościół ewangelicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Dawna Dworcowa / Grażyńskiego, przy kościele"
+      },
+      {
+        "type": "current",
+        "text": "Miejska 12"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0914629,
+        "lng": 18.5420565
+      },
+      "precision": "building",
+      "explanation": "Zachowany obiekt identyfikowany przez miejskie opracowanie. OSM określa obecny budynek, nie dawny numer posesji. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/232162513 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-ewangelicki-1",
+        "title": "Miasto Rybnik — Zabytki",
+        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Dawna sieciarnia zamkowa przystosowana do nabożeństw około 1791 r.",
+        "excerptType": "summary",
+        "note": "ok. 1791 · adaptacja",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1005",
+    "name": "Synagoga przy Zamkowej",
+    "slug": "synagoga-przy-zamkowej-1005",
+    "previousSlugs": [],
+    "description": "Synagoga przy Zamkowej — Synagoga. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Zamkowa, miejsce dawnej synagogi"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.094135,
+        "lng": 18.5421736
+      },
+      "precision": "approximate",
+      "explanation": "Punkt pochodzi z węzła tablicy pamiątkowej. Wskazuje otoczenie dawnej synagogi, nie ustalony środek ani obrys zniszczonego budynku. Współrzędne węzła OpenStreetMap. https://www.openstreetmap.org/node/10647135724 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-synagoga-1",
+        "title": "Jak święcono nową rybnicką synagogę…",
+        "url": "https://www.rybnicka.eu/aktualnosci/historia/Jak-swiecono-nowa-rybnicka-synagoge/idn:1250",
+        "page": null,
+        "publicationDate": {
+          "from": "2023-07-02",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Otwarcie 5 czerwca 1848 r.; spalenie przez Niemców w październiku 1939 r.",
+        "excerptType": "summary",
+        "note": "1848–1939",
+        "materials": []
+      },
+      {
+        "id": "institution-synagoga-2",
+        "title": "Miasto Rybnik — Tablice ku pamięci",
+        "url": "https://www.rybnik.eu/dla-mieszkancow/aktualnosci/aktualnosc/tablice-ku-pamieci",
+        "page": null,
+        "publicationDate": {
+          "from": "2017-07-05",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Tablica upamiętnia miejsce synagogi; ruiny rozebrano wiosną 1940 r.",
+        "excerptType": "summary",
+        "note": "1848–1939",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1006",
+    "name": "Dawny żydowski dom modlitw przy Raciborskiej",
+    "slug": "dawny-zydowski-dom-modlitw-przy-raciborskiej-1006",
+    "previousSlugs": [],
+    "description": "Dawny żydowski dom modlitw przy Raciborskiej — Dom modlitw. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Raciborska, okolice Skłodowskiej-Curie"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-stary-dom-modlitw-1",
+        "title": "Jak święcono nową rybnicką synagogę…",
+        "url": "https://www.rybnicka.eu/aktualnosci/historia/Jak-swiecono-nowa-rybnicka-synagoge/idn:1250",
+        "page": null,
+        "publicationDate": {
+          "from": "2023-07-02",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Drewniany dom modlitw działał jeszcze w 1848 r.; lokalizacja opisana orientacyjnie.",
+        "excerptType": "summary",
+        "note": "1848 · wzmianka",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1007",
+    "name": "Kościół św. Józefa na Smolnej",
+    "slug": "kosciol-sw-jozefa-na-smolnej-1007",
+    "previousSlugs": [],
+    "description": "Kościół św. Józefa na Smolnej — Kościół franciszkański. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Smolna, kościół franciszkanów"
+      },
+      {
+        "type": "current",
+        "text": "Wodzisławska 7"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0938898,
+        "lng": 18.5362899
+      },
+      "precision": "building",
+      "explanation": "Punkt przedstawia kościół ukończony w 1937 r., więc późniejszy od podkładu z 1932 r. Wcześniejsza kaplica mieściła się w innym budynku. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/105738602 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-jozef-1",
+        "title": "Śląscy Franciszkanie — Rybnik",
+        "url": "https://www.panewniki.pl/klasztory/rybnik/",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Budowę obecnego kościoła ukończono w 1937 r.; wcześniejszy kościół urządzono w stodole.",
+        "excerptType": "summary",
+        "note": "1937 · ukończenie",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1008",
+    "name": "Klasztor Franciszkanów",
+    "slug": "klasztor-franciszkanow-1008",
+    "previousSlugs": [],
+    "description": "Klasztor Franciszkanów — Klasztor. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Smolna, klasztor franciszkanów"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0939417,
+        "lng": 18.5365816
+      },
+      "precision": "approximate",
+      "explanation": "Zidentyfikowany zespół klasztorny; punkt reprezentuje współczesny budynek, a nie pomieszczenia pierwszej placówki z 1922 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/270432324 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-franciszkanie-1",
+        "title": "Śląscy Franciszkanie — Rybnik",
+        "url": "https://www.panewniki.pl/klasztory/rybnik/",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Placówka istnieje od 4 marca 1922 r.; budowę klasztoru rozpoczęto w 1927 r.",
+        "excerptType": "summary",
+        "note": "1922 · początek placówki",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1009",
+    "name": "Kaplica szpitalna św. Juliusza",
+    "slug": "kaplica-szpitalna-sw-juliusza-1009",
+    "previousSlugs": [],
+    "description": "Kaplica szpitalna św. Juliusza — Kaplica szpitalna. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Kaplica w zespole szpitala Juliusz"
+      },
+      {
+        "type": "current",
+        "text": "3 Maja 20"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0911129,
+        "lng": 18.5439181
+      },
+      "precision": "building",
+      "explanation": "Punkt wskazuje zachowaną kaplicę szpitalną; jej obecna desakralizacja nie opisuje funkcji przedwojennej. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/623770636 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-kaplica-juliusza-1",
+        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
+        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=95",
+        "page": "95 (PDF)",
+        "publicationDate": {
+          "from": "2019",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Centralna kaplica zespołu szpitalnego pochodzi z 1894 r.",
+        "excerptType": "summary",
+        "note": "1894 · kaplica",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1010",
+    "name": "Dawny cmentarz na Górce Kościelnej",
+    "slug": "dawny-cmentarz-na-gorce-koscielnej-1010",
+    "previousSlugs": [],
+    "description": "Dawny cmentarz na Górce Kościelnej — Cmentarz katolicki. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Górka Kościelna, przy dawnym kościele farnym"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0992133,
+        "lng": 18.5440984
+      },
+      "precision": "approximate",
+      "explanation": "Współczesny park wyznacza jedynie otoczenie dawnego cmentarza. Nie odtworzono jego granic ani kwater. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/209433745 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-cmentarz-gorka-1",
+        "title": "Miasto Rybnik — Zabytki",
+        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Najstarszy rybnicki cmentarz otaczał dawny kościół farny; zlikwidowany w latach 70. XX w.",
+        "excerptType": "summary",
+        "note": "do lat 70. XX w. · cmentarz",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1011",
+    "name": "Stary cmentarz żydowski",
+    "slug": "stary-cmentarz-zydowski-1011",
+    "previousSlugs": [],
+    "description": "Stary cmentarz żydowski — Cmentarz żydowski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Między Klasztorną, Wieniawskiego i 3 Maja"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0930522,
+        "lng": 18.5455075
+      },
+      "precision": "approximate",
+      "explanation": "Punkt reprezentuje dzisiejszy zieleniec na terenie opisanym przez muzeum. Nie jest odtworzeniem granic nekropolii. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/441954878 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-stary-cmentarz-zydowski-1",
+        "title": "Muzeum — Cmentarz żydowski w Rybniku",
+        "url": "https://www.muzeum.rybnik.pl/cmentarz-zydowski-w-rybniku",
+        "page": null,
+        "publicationDate": {
+          "from": "2014",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Cmentarz w trójkącie Klasztorna–Wieniawskiego–3 Maja; pochówki zamknięto 1 stycznia 1931 r., teren zniszczono w 1940 r.",
+        "excerptType": "summary",
+        "note": "1815 · założenie / 1931 · zamknięcie",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1012",
+    "name": "Nowy cmentarz żydowski przy Rudzkiej",
+    "slug": "nowy-cmentarz-zydowski-przy-rudzkiej-1012",
+    "previousSlugs": [],
+    "description": "Nowy cmentarz żydowski przy Rudzkiej — Cmentarz żydowski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Rudzka, na północ od nowego cmentarza ewangelickiego"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-nowy-cmentarz-zydowski-1",
+        "title": "NID / POLIN — Nowy cmentarz żydowski",
+        "url": "https://zabytek.pl/pl/obiekty/cmentarz-zydowski-nowy--2",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Urządzony po ugodzie z 1931 r.; pierwszy pochówek prawdopodobnie 28 stycznia 1932 r.",
+        "excerptType": "summary",
+        "note": "Nagłówek serwisu podaje 1925–1926, opis wiąże założenie z 1931 r. Zachowano rozbieżność; daty otwarcia nie uznano za pewną.; 1931–1932 · urządzenie",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1013",
+    "name": "Państwowe Gimnazjum — dzisiejsze I LO",
+    "slug": "panstwowe-gimnazjum-dzisiejsze-i-lo-1013",
+    "previousSlugs": [],
+    "description": "Państwowe Gimnazjum — dzisiejsze I LO — Gimnazjum ogólnokształcące. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Kościuszki, gmach gimnazjum"
+      },
+      {
+        "type": "current",
+        "text": "Tadeusza Kościuszki 5"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0968031,
+        "lng": 18.5497404
+      },
+      "precision": "building",
+      "explanation": "Historia szkoły wprost identyfikuje zachowany budynek I LO. Numer 5 jest adresem współczesnym. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/127080668 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-gimnazjum-1",
+        "title": "I LO — Historia szkoły",
+        "url": "https://1lo.rybnik.pl/szkola/historia",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Nowy gmach przy Kościuszki oddano w 1911 r.; polskie gimnazjum przejęło budynek w lipcu 1922 r.",
+        "excerptType": "summary",
+        "note": "1911 · gmach / 1922 · polskie gimnazjum",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1014",
+    "name": "Klasztor i szkoły Sióstr Urszulanek",
+    "slug": "klasztor-i-szkoly-siostr-urszulanek-1014",
+    "previousSlugs": [],
+    "description": "Klasztor i szkoły Sióstr Urszulanek — Szkoły żeńskie / klasztor. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "3 Maja, kompleks urszulański"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0906572,
+        "lng": 18.5436144
+      },
+      "precision": "approximate",
+      "explanation": "Punkt reprezentuje zachowany kompleks szkolny, rozbudowywany w różnych latach. Nie przypisuje wszystkich zajęć z 1923 r. do obecnego gmachu. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/237039713 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-urszulanki-1",
+        "title": "Szkoły Urszulańskie — 100 lat na 100%",
+        "url": "https://www.urszulanki.rybnik.pl/100-lat-na-100",
+        "page": null,
+        "publicationDate": {
+          "from": "2023",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Pierwsze lekcje odbyły się 10 września 1923 r.",
+        "excerptType": "summary",
+        "note": "1923 · początek nauczania",
+        "materials": []
+      },
+      {
+        "id": "institution-urszulanki-2",
+        "title": "Urszulanki Unii Rzymskiej — Rybnik",
+        "url": "https://www.osu.pl/Rybnik%2C473%2C0.html",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Miasto przekazało budynki przy 3 Maja; prowadzono kilka typów szkół.",
+        "excerptType": "summary",
+        "note": "1923 · początek nauczania",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1015",
+    "name": "Szkoła powszechna nr 1 im. Adama Mickiewicza",
+    "slug": "szkola-powszechna-nr-1-im-adama-mickiewicza-1015",
+    "previousSlugs": [],
+    "description": "Szkoła powszechna nr 1 im. Adama Mickiewicza — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Przy kościele Matki Bożej Bolesnej"
+      },
+      {
+        "type": "current",
+        "text": "Cmentarna 1"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0978063,
+        "lng": 18.5417029
+      },
+      "precision": "building",
+      "explanation": "Historia SP nr 9 identyfikuje zachowany budynek. Dawna „jedynka” nie jest dzisiejszą SP nr 1 im. Korczaka. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/237989507 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-jedynka-1",
+        "title": "SP nr 9 — Historia szkoły",
+        "url": "https://www.sp9.miastorybnik.pl/szkola/historia-szkoly.html",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Nowy neogotycki gmach ukończono w 1902 r.; później szkoła nosiła numer 9.",
+        "excerptType": "summary",
+        "note": "1902 · nowy gmach",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1016",
+    "name": "Szkoła powszechna na Smolnej",
+    "slug": "szkola-powszechna-na-smolnej-1016",
+    "previousSlugs": [],
+    "description": "Szkoła powszechna na Smolnej — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Wodzisławska, Smolna"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-smolna-1",
+        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
+        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+        "page": "25 (PDF)",
+        "publicationDate": {
+          "from": "2009-05-26",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Nowy gmach przy Wodzisławskiej powstał w 1913 r.",
+        "excerptType": "summary",
+        "note": "1913 · nowy budynek",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1017",
+    "name": "Szkoła powszechna na Paruszowcu–Piaskach",
+    "slug": "szkola-powszechna-na-paruszowcupiaskach-1017",
+    "previousSlugs": [],
+    "description": "Szkoła powszechna na Paruszowcu–Piaskach — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Paruszowiec–Piaski, adres nieustalony"
+      }
+    ],
+    "district": "Paruszowiec–Piaski",
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-paruszowiec-szkola-1",
+        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
+        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+        "page": "25 (PDF)",
+        "publicationDate": {
+          "from": "2009-05-26",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Szkoła na Paruszowcu–Piaskach powstała w 1910 r.",
+        "excerptType": "summary",
+        "note": "1906 / 1910 · rozbieżność źródeł",
+        "materials": []
+      },
+      {
+        "id": "institution-paruszowiec-szkola-2",
+        "title": "SP3 — Historia szkoły na Paruszowcu",
+        "url": "https://sp3.rybnik.pl/o-szkole/historia/",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Historia SP3 podaje pierwszy dzwonek w 1906 r.",
+        "excerptType": "summary",
+        "note": "Rozbieżność: opracowanie Michała Palicy podaje powstanie szkoły w 1910 r. Nie rozstrzygnięto, czy daty odnoszą się do tego samego etapu.; 1906 / 1910 · rozbieżność źródeł",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1018",
+    "name": "Szkoła powszechna nr 4 w Ligocie",
+    "slug": "szkola-powszechna-nr-4-w-ligocie-1018",
+    "previousSlugs": [],
+    "description": "Szkoła powszechna nr 4 w Ligocie — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Ligota, adres nieustalony"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-ligota-szkola-1",
+        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
+        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+        "page": "25 (PDF)",
+        "publicationDate": {
+          "from": "2009-05-26",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wymieniono „czwórkę” w Ligocie, kierowaną przez F. Mieszańca.",
+        "excerptType": "summary",
+        "note": "lata 30. XX w. · wzmianka",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1019",
+    "name": "Szkoła powszechna nr 5",
+    "slug": "szkola-powszechna-nr-5-1019",
+    "previousSlugs": [],
+    "description": "Szkoła powszechna nr 5 — Szkoła powszechna. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Mikołowska (bez numeru)"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-piatka-1",
+        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
+        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+        "page": "25 (PDF)",
+        "publicationDate": {
+          "from": "2009-05-26",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "W 1935 r. otwarto gmach „piątki” przy Mikołowskiej.",
+        "excerptType": "summary",
+        "note": "1935 · nowy gmach",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1020",
+    "name": "Szkoła Handlowa",
+    "slug": "szkola-handlowa-1020",
+    "previousSlugs": [],
+    "description": "Szkoła Handlowa — Szkoła zawodowa / handlowa. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Kościuszki (bez numeru)"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-handlowa-1",
+        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
+        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+        "page": "25 (PDF)",
+        "publicationDate": {
+          "from": "2009-05-26",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Nowy gmach szkoły handlowej przy Kościuszki datowano na 1938/1939.",
+        "excerptType": "summary",
+        "note": "1938/1939 · nowy gmach",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1021",
+    "name": "Szkoła Przysposobienia Kupieckiego",
+    "slug": "szkola-przysposobienia-kupieckiego-1021",
+    "previousSlugs": [],
+    "description": "Szkoła Przysposobienia Kupieckiego — Szkoła zawodowa / kupiecka. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Adres niepodany"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-kupiecka-1",
+        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
+        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+        "page": "25 (PDF)",
+        "publicationDate": {
+          "from": "2009-05-26",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wymieniona wśród przedwojennych szkół Rybnika.",
+        "excerptType": "summary",
+        "note": "lata 30. XX w. · wzmianka",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1022",
+    "name": "Szkoła Rolnicza",
+    "slug": "szkola-rolnicza-1022",
+    "previousSlugs": [],
+    "description": "Szkoła Rolnicza — Szkoła rolnicza. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Dawny budynek powojennej Szkoły Muzycznej"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-rolnicza-1",
+        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
+        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+        "page": "25 (PDF)",
+        "publicationDate": {
+          "from": "2009-05-26",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Mieściła się w nieistniejącym budynku późniejszej szkoły muzycznej.",
+        "excerptType": "summary",
+        "note": "lata 30. XX w. · wzmianka",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1023",
+    "name": "Rzemieślnicza Szkoła Zawodowa",
+    "slug": "rzemieslnicza-szkola-zawodowa-1023",
+    "previousSlugs": [],
+    "description": "Rzemieślnicza Szkoła Zawodowa — Szkoła zawodowa. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Adres niepodany"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-rzemieslnicza-szkola-1",
+        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
+        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+        "page": "25 (PDF)",
+        "publicationDate": {
+          "from": "2009-05-26",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Szkoła zawodowa finansowana przez magistrat.",
+        "excerptType": "summary",
+        "note": "lata 30. XX w. · wzmianka",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1024",
+    "name": "Niemiecka szkoła powszechna przy Chrobrego",
+    "slug": "niemiecka-szkola-powszechna-przy-chrobrego-1024",
+    "previousSlugs": [],
+    "description": "Niemiecka szkoła powszechna przy Chrobrego — Szkoła mniejszości niemieckiej. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Chrobrego (bez numeru)"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-niemiecka-szkola-1",
+        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
+        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+        "page": "25 (PDF)",
+        "publicationDate": {
+          "from": "2009-05-26",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wymieniono szkołę mniejszości niemieckiej przy Chrobrego.",
+        "excerptType": "summary",
+        "note": "lata 30. XX w. · wzmianka",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1025",
+    "name": "Kolegium Serafickie Franciszkanów",
+    "slug": "kolegium-serafickie-franciszkanow-1025",
+    "previousSlugs": [],
+    "description": "Kolegium Serafickie Franciszkanów — Niższe seminarium duchowne. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Smolna, kompleks klasztoru franciszkanów"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0939417,
+        "lng": 18.5365816
+      },
+      "precision": "approximate",
+      "explanation": "Punkt zespołu klasztornego, wspólny z kartą klasztoru. Nie ustalono rozmieszczenia dawnych klas. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/270432324 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-serafickie-1",
+        "title": "Śląscy Franciszkanie — Rybnik",
+        "url": "https://www.panewniki.pl/klasztory/rybnik/",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "W 1928 r. uczniowie III i IV klasy zamieszkali w nowym gmachu seminarium.",
+        "excerptType": "summary",
+        "note": "1928 · uczniowie w nowym gmachu",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1026",
+    "name": "Niższe Seminarium Duchowne Werbistów",
+    "slug": "nizsze-seminarium-duchowne-werbistow-1026",
+    "previousSlugs": [],
+    "description": "Niższe Seminarium Duchowne Werbistów — Szkoła średnia / seminarium. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Dom Misyjny Królowej Apostołów, dawny gmach"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-werbisci-seminarium-1",
+        "title": "Werbiści w Rybniku",
+        "url": "https://www.werbisci.pl/wiadomosci/polska/werbisci-w-rybniku",
+        "page": null,
+        "publicationDate": {
+          "from": "2023-05-04",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Seminarium otwarto w 1923 r.; nowy klasztor oddano w 1932 r.",
+        "excerptType": "summary",
+        "note": "1923 · otwarcie / 1932 · nowy gmach",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1027",
+    "name": "Szkoła Muzyczna braci Szafranków",
+    "slug": "szkola-muzyczna-braci-szafrankow-1027",
+    "previousSlugs": [],
+    "description": "Szkoła Muzyczna braci Szafranków — Szkoła muzyczna. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Kraszewskiego (bez numeru)"
+      },
+      {
+        "type": "historical",
+        "text": "Budynek „Polonia” — adres do wyjaśnienia"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-muzyczna-1",
+        "title": "PSM w Rybniku — Patroni szkoły",
+        "url": "https://www.gov.pl/web/psmrybnik/patroni-szkoly",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Początkowo przy Kraszewskiego; później w budynku „Polonia”.",
+        "excerptType": "summary",
+        "note": "Opracowanie szkoły wskazuje Chrobrego. Inne opracowania podają 3 Maja; relokacja wymaga dalszej kwerendy.; 1933 · założenie",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1028",
+    "name": "Filia Śląskiej Szkoły Muzycznej",
+    "slug": "filia-slaskiej-szkoly-muzycznej-1028",
+    "previousSlugs": [],
+    "description": "Filia Śląskiej Szkoły Muzycznej — Szkoła muzyczna. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Adres nieustalony"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-filia-muzyczna-1",
+        "title": "W rozmuzykowanym Rybniku",
+        "url": "https://www.rybnicka.eu/aktualnosci/kultura-i-rozrywka/W-rozmuzykowanym-Rybniku/idn:1385",
+        "page": null,
+        "publicationDate": {
+          "from": "2023",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Filia katowickiej Śląskiej Szkoły Muzycznej działała w Rybniku już w 1928 r.",
+        "excerptType": "summary",
+        "note": "1928 · działalność",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1029",
+    "name": "Kino Apollo — późniejszy Ślązak",
+    "slug": "kino-apollo-pozniejszy-slazak-1029",
+    "previousSlugs": [],
+    "description": "Kino Apollo — późniejszy Ślązak — Kino. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Adres nieustalony"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-apollo-1",
+        "title": "Rybnik w starym kinie",
+        "url": "https://sbc.org.pl/Content/306994/14A.pdf#page=19",
+        "page": "19 (PDF)",
+        "publicationDate": {
+          "from": "2013-04-02",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kino Stokłosów otwarto w 1932 r.; po wojnie działało jako Ślązak.",
+        "excerptType": "summary",
+        "note": "1932 · otwarcie",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1030",
+    "name": "Kino Helios",
+    "slug": "kino-helios-1030",
+    "previousSlugs": [],
+    "description": "Kino Helios — Kino. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Reja / plac Wolności"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-helios-1",
+        "title": "Rybnik w starym kinie",
+        "url": "https://sbc.org.pl/Content/306994/14A.pdf#page=19",
+        "page": "19 (PDF)",
+        "publicationDate": {
+          "from": "2013-04-02",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kino na rogu Reja i pl. Wolności; poprzednikiem było kino z 1910 r.",
+        "excerptType": "summary",
+        "note": "1910 · poprzednik / lata 30. · Helios",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1031",
+    "name": "Kino Pałac / Bałtyk / Wawel / Wanda / Świt",
+    "slug": "kino-palac-baltyk-wawel-wanda-swit-1031",
+    "previousSlugs": [],
+    "description": "Kino Pałac / Bałtyk / Wawel / Wanda / Świt — Kino. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Dr. Grażyńskiego (bez numeru)"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-swit-1",
+        "title": "Rybnik w starym kinie",
+        "url": "https://sbc.org.pl/Content/306994/14A.pdf#page=19",
+        "page": "19 (PDF)",
+        "publicationDate": {
+          "from": "2013-04-02",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Jedno kino przy Dworcowej/Grażyńskiego wielokrotnie zmieniało nazwę; po wojnie Górnik.",
+        "excerptType": "summary",
+        "note": "1920 · kino / 1938 · Świt",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1032",
+    "name": "Świerklaniec — hotel i sala spotkań",
+    "slug": "swierklaniec-hotel-i-sala-spotkan-1032",
+    "previousSlugs": [],
+    "description": "Świerklaniec — hotel i sala spotkań — Hotel / sala widowiskowa. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Świerklaniec, przy Sobieskiego"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0967958,
+        "lng": 18.5427156
+      },
+      "precision": "approximate",
+      "explanation": "OSM wskazuje parcelę współczesnego Świerklańca. Dawny budynek uległ częściowemu zawaleniu w 2021 r.; punkt nie dowodzi zachowania historycznej substancji. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/244470822 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-swierklaniec-1",
+        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
+        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=101",
+        "page": "101 (PDF)",
+        "publicationDate": {
+          "from": "2019",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Neobarokowy budynek zajazdu powstał u schyłku XIX w.",
+        "excerptType": "summary",
+        "note": "koniec XIX w. · gmach",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1033",
+    "name": "Towarzystwo Czytelni Ludowych w Rybniku",
+    "slug": "towarzystwo-czytelni-ludowych-w-rybniku-1033",
+    "previousSlugs": [],
+    "description": "Towarzystwo Czytelni Ludowych w Rybniku — Czytelnictwo / oświata. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Adres niepodany"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-tcl-1",
+        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
+        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+        "page": "25 (PDF)",
+        "publicationDate": {
+          "from": "2009-05-26",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Towarzystwo wymieniono jako instytucję wspierającą edukację rybniczan.",
+        "excerptType": "summary",
+        "note": "lata 30. XX w. · wzmianka",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1034",
+    "name": "Uniwersytet Powszechny w Rybniku",
+    "slug": "uniwersytet-powszechny-w-rybniku-1034",
+    "previousSlugs": [],
+    "description": "Uniwersytet Powszechny w Rybniku — Oświata dorosłych. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Adres niepodany"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-uniwersytet-powszechny-1",
+        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
+        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+        "page": "25 (PDF)",
+        "publicationDate": {
+          "from": "2009-05-26",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wymieniony obok TCL wśród instytucji edukacji pozaszkolnej.",
+        "excerptType": "summary",
+        "note": "lata 30. XX w. · wzmianka",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1035",
+    "name": "Świetlica Strzelecka",
+    "slug": "swietlica-strzelecka-1035",
+    "previousSlugs": [],
+    "description": "Świetlica Strzelecka — Świetlica / życie społeczne. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Adres niepodany"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-swietlica-strzelecka-1",
+        "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
+        "url": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+        "page": "25 (PDF)",
+        "publicationDate": {
+          "from": "2009-05-26",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Świetlicę wymieniono wśród miejsc wspomagających oświatę.",
+        "excerptType": "summary",
+        "note": "lata 30. XX w. · wzmianka",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1036",
+    "name": "Kolekcja historyczna o. Emila Drobnego",
+    "slug": "kolekcja-historyczna-o-emila-drobnego-1036",
+    "previousSlugs": [],
+    "description": "Kolekcja historyczna o. Emila Drobnego — Zbiory muzealne. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Adres ekspozycji nieustalony"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-kolekcja-drobnego-1",
+        "title": "Muzeum w Rybniku — Historia muzeum",
+        "url": "https://www.muzeum.rybnik.pl/historia-muzeum",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Przedwojenna kolekcja werbisty Emila Drobnego została rozproszona podczas wojny.",
+        "excerptType": "summary",
+        "note": "1930–1939 · kolekcja",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1037",
+    "name": "Biblioteka i czytelnia szkół urszulańskich",
+    "slug": "biblioteka-i-czytelnia-szkol-urszulanskich-1037",
+    "previousSlugs": [],
+    "description": "Biblioteka i czytelnia szkół urszulańskich — Biblioteka szkolna. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "kultura",
+        "name": "kultura"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "3 Maja, kompleks szkół urszulańskich"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0906572,
+        "lng": 18.5436144
+      },
+      "precision": "approximate",
+      "explanation": "Punkt reprezentuje kompleks szkół. Nie ustalono sali ani budynku przedwojennej biblioteki. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/237039713 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-biblioteka-urszulanek-1",
+        "title": "Biblioteka szkół urszulańskich — Historia",
+        "url": "https://bsip.miastorybnik.pl/zsu/historia.htm",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "W 1935 r. około 5 tys. tomów i 37 prenumerowanych tytułów.",
+        "excerptType": "summary",
+        "note": "1935 · księgozbiór",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1038",
+    "name": "Stary Ratusz",
+    "slug": "stary-ratusz-1038",
+    "previousSlugs": [],
+    "description": "Stary Ratusz — Ratusz. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "instytucja-publiczna",
+        "name": "instytucja publiczna"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Rynek, dawny ratusz"
+      },
+      {
+        "type": "current",
+        "text": "Rynek 18"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0959137,
+        "lng": 18.5415527
+      },
+      "precision": "building",
+      "explanation": "Węzeł OSM dzisiejszego muzeum identyfikuje dawny ratusz. Karta dotyczy budynku i dawnej funkcji, a nie muzeum z lat 30. Współrzędne węzła OpenStreetMap. https://www.openstreetmap.org/node/423200594 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-stary-ratusz-1",
+        "title": "Miasto Rybnik — Zabytki",
+        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Klasycystyczny gmach ratusza z 1822 r.",
+        "excerptType": "summary",
+        "note": "1822 · budowa",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1039",
+    "name": "Nowy Ratusz — Magistrat",
+    "slug": "nowy-ratusz-magistrat-1039",
+    "previousSlugs": [],
+    "description": "Nowy Ratusz — Magistrat — Urząd miejski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "instytucja-publiczna",
+        "name": "instytucja publiczna"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Nowy gmach Magistratu"
+      },
+      {
+        "type": "current",
+        "text": "Bolesława Chrobrego 2"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0935495,
+        "lng": 18.5423086
+      },
+      "precision": "building",
+      "explanation": "Zachowany budynek wskazany przez miejskie opracowanie; punkt w obecnym obrysie gmachu. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/260502088 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-magistrat-1",
+        "title": "Miasto Rybnik — Zabytki",
+        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Gmach władz miejskich wybudowany w latach 1927–1928.",
+        "excerptType": "summary",
+        "note": "1927–1928 · budowa",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1040",
+    "name": "Starostwo Powiatowe",
+    "slug": "starostwo-powiatowe-1040",
+    "previousSlugs": [],
+    "description": "Starostwo Powiatowe — Urząd powiatowy. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "instytucja-publiczna",
+        "name": "instytucja publiczna"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "3 Maja, gmach starostwa"
+      },
+      {
+        "type": "current",
+        "text": "3 Maja 31"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0898847,
+        "lng": 18.5449399
+      },
+      "precision": "building",
+      "explanation": "Zachowany budynek starostwa. Numer 31 pochodzi ze współczesnej identyfikacji OSM. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/237464684 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-starostwo-1",
+        "title": "Miasto Rybnik — Zabytki",
+        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Miejski wykaz datuje gmach na 1887 r.",
+        "excerptType": "summary",
+        "note": "1887 · budowa według wykazu",
+        "materials": []
+      },
+      {
+        "id": "institution-starostwo-2",
+        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
+        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=96",
+        "page": "96 (PDF)",
+        "publicationDate": {
+          "from": "2019",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Folder podaje budowę 1887–1893.",
+        "excerptType": "summary",
+        "note": "Rozbieżność datowania w dwóch miejskich opracowaniach zachowano; nie rozstrzygnięto daty ukończenia.; 1887 · budowa według wykazu",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1041",
+    "name": "Poczta Główna",
+    "slug": "poczta-glowna-1041",
+    "previousSlugs": [],
+    "description": "Poczta Główna — Poczta / łączność. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "instytucja-publiczna",
+        "name": "instytucja publiczna"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Gmach poczty przy Pocztowej"
+      },
+      {
+        "type": "current",
+        "text": "Pocztowa 2"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0938635,
+        "lng": 18.5414663
+      },
+      "precision": "building",
+      "explanation": "Punkt urzędu pocztowego w OSM; NID identyfikuje zachowany historyczny gmach. Współrzędne węzła OpenStreetMap. https://www.openstreetmap.org/node/3684056298 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-poczta-1",
+        "title": "NID — Poczta w Rybniku",
+        "url": "https://zabytek.pl/pl/obiekty/poczta-938889",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Gmach Poczty Królewskiej wzniesiony w latach 1902–1905; w międzywojniu także PKO.",
+        "excerptType": "summary",
+        "note": "1902–1905 · budowa",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1042",
+    "name": "Zamek — Sąd Grodzki",
+    "slug": "zamek-sad-grodzki-1042",
+    "previousSlugs": [],
+    "description": "Zamek — Sąd Grodzki — Zamek / sąd. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "instytucja-publiczna",
+        "name": "instytucja publiczna"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Zamek, siedziba sądu"
+      },
+      {
+        "type": "current",
+        "text": "Plac Mikołaja Kopernika 2"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.092946,
+        "lng": 18.5404286
+      },
+      "precision": "building",
+      "explanation": "Zachowany zamek identyfikowany w miejskim opracowaniu. Współrzędne reprezentują obecny obrys budynku. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/105738665 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-zamek-sad-1",
+        "title": "Miasto Rybnik — Zabytki",
+        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Od 1842 r. zamek był siedzibą Sądu Grodzkiego.",
+        "excerptType": "summary",
+        "note": "1842 · siedziba sądu",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1043",
+    "name": "Szpital Juliusza",
+    "slug": "szpital-juliusza-1043",
+    "previousSlugs": [],
+    "description": "Szpital Juliusza — Szpital. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Zespół szpitala Juliusz"
+      },
+      {
+        "type": "current",
+        "text": "Klasztorna 11"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0911992,
+        "lng": 18.5433981
+      },
+      "precision": "building",
+      "explanation": "Punkt pawilonu Juliusz w zachowanym kompleksie szpitalnym; nie wskazuje wszystkich historycznych oddziałów. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/237090745 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-szpital-juliusz-1",
+        "title": "Edukatorium Juliusz — Historia miejsca",
+        "url": "https://www.juliusz.eu/o-edukatorium",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Szpital ukończono wiosną 1869 r.",
+        "excerptType": "summary",
+        "note": "1869 · otwarcie",
+        "materials": []
+      },
+      {
+        "id": "institution-szpital-juliusz-2",
+        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
+        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=95",
+        "page": "95 (PDF)",
+        "publicationDate": {
+          "from": "2019",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Najstarszą część szpitala oddano do użytku w 1869 r.",
+        "excerptType": "summary",
+        "note": "1869 · otwarcie",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1044",
+    "name": "Prowincjonalny Zakład dla Psychicznie Chorych",
+    "slug": "prowincjonalny-zaklad-dla-psychicznie-chorych-1044",
+    "previousSlugs": [],
+    "description": "Prowincjonalny Zakład dla Psychicznie Chorych — Szpital psychiatryczny. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Rudzka Góra, przy trakcie do Gliwic"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.1027722,
+        "lng": 18.5457623
+      },
+      "precision": "approximate",
+      "explanation": "Punkt reprezentuje jeden z budynków współczesnego zespołu szpitalnego. Nie ustalono, który pawilon odpowiadał konkretnej funkcji w 1932 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/232440843 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-szpital-psychiatryczny-1",
+        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
+        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=103",
+        "page": "103 (PDF)",
+        "publicationDate": {
+          "from": "2019",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Działalność rozpoczęto 18 maja 1886 r.",
+        "excerptType": "summary",
+        "note": "1886 · rozpoczęcie działalności",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1045",
+    "name": "Stacja kolejowa Rybnik",
+    "slug": "stacja-kolejowa-rybnik-1045",
+    "previousSlugs": [],
+    "description": "Stacja kolejowa Rybnik — Stacja kolejowa. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Dworzec kolejowy Rybnik"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.0891826,
+        "lng": 18.5472959
+      },
+      "precision": "approximate",
+      "explanation": "Punkt reprezentuje obecny budynek dworca. Data uruchomienia stacji nie jest datą powstania całej obecnej bryły. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/240279537 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-stacja-rybnik-1",
+        "title": "Miasto Rybnik — 170 lat kolei w Rybniku",
+        "url": "https://www.rybnik.eu/dla-mieszkancow/aktualnosci/aktualnosc/170-lat-kolei-w-rybniku-od-konia-do-parowozu-jak-drogi-zelazne-wplynely-na-rozwoj-rybnika",
+        "page": null,
+        "publicationDate": {
+          "from": "2026-09-12",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Stację i linię uruchomiono 1 października 1856 r.",
+        "excerptType": "summary",
+        "note": "1856 · uruchomienie",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1046",
+    "name": "Przystanek kolejowy Rybnik-Paruszowiec",
+    "slug": "przystanek-kolejowy-rybnik-paruszowiec-1046",
+    "previousSlugs": [],
+    "description": "Przystanek kolejowy Rybnik-Paruszowiec — Przystanek kolejowy. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Paruszowiec, przystanek kolejowy"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.1023344,
+        "lng": 18.5649393
+      },
+      "precision": "approximate",
+      "explanation": "Punkt obecnego budynku przystanku. Nie odtworzono historycznego układu peronów. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/232227707 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-stacja-paruszowiec-1",
+        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
+        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=91",
+        "page": "91 (PDF)",
+        "publicationDate": {
+          "from": "2019",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Przystanek otwarto 16 lipca 1912 r.",
+        "excerptType": "summary",
+        "note": "1912 · otwarcie",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1047",
+    "name": "Park Kozie Góry — Haasenheide",
+    "slug": "park-kozie-gory-haasenheide-1047",
+    "previousSlugs": [],
+    "description": "Park Kozie Góry — Haasenheide — Park miejski. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Haasenheide, przy Chwałowickiej"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50.082343,
+        "lng": 18.5456192
+      },
+      "precision": "approximate",
+      "explanation": "Punkt dzisiejszego parku, bez rekonstrukcji historycznych granic. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/105700860 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-kozie-gory-1",
+        "title": "Miasto Rybnik — Dziedzictwo kulturowe",
+        "url": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=99",
+        "page": "99 (PDF)",
+        "publicationDate": {
+          "from": "2019",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Darowizna gruntu w 1888 r.; powiększenie parku w 1905 r.",
+        "excerptType": "summary",
+        "note": "1888 / 1905 · kształtowanie parku",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_1048",
+    "name": "Żydowski dom sierot",
+    "slug": "zydowski-dom-sierot-1048",
+    "previousSlugs": [],
+    "description": "Żydowski dom sierot — Dom sierot. Miejsce odnotowane w źródłach zestawionych poniżej.",
+    "tags": [
+      {
+        "id": "inne",
+        "name": "inne"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Adres nieustalony"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-dom-sierot-1",
+        "title": "POLIN — Historia społeczności Rybnika",
+        "url": "https://sztetl.org.pl/pl/miejscowosci/r/68-rybnik/99-historia-spolecznosci/137964-historia-spolecznosci",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Budynek kupiła gmina katowicka w 1922 r.; w 1927 r. sprzedano go Śląskiej Izbie Rolniczej.",
+        "excerptType": "summary",
+        "note": "1922 / 1927 · zmiany własności",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2001",
+    "name": "Kościół Najświętszego Serca Pana Jezusa — Niedobczyce",
+    "slug": "kosciol-najswietszego-serca-pana-jezusa-niedobczyce-2001",
+    "previousSlugs": [],
+    "description": "Kościół Najświętszego Serca Pana Jezusa — Niedobczyce — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Niedobczyce, kościół NSPJ"
+      },
+      {
+        "type": "current",
+        "text": "Michała Wołodyjowskiego 1"
+      }
+    ],
+    "district": "Niedobczyce",
+    "location": {
+      "coordinates": {
+        "lat": 50.0673257,
+        "lng": 18.4969512
+      },
+      "precision": "building",
+      "explanation": "Zachowana świątynia. OSM identyfikuje obecny obrys; numer jest współczesny. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/278213116 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-niedobczyce-nspj-1",
+        "title": "Miasto Rybnik — Niedobczyce",
+        "url": "https://www.rybnik.eu/miasto/dzielnice-miasta/niedobczyce",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Miejski opis datuje budowę kościoła na 1921 r.; Niedobczyce włączono do Rybnika w 1975 r.",
+        "excerptType": "summary",
+        "note": "1921 · budowa; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2002",
+    "name": "Kościół św. Teresy od Dzieciątka Jezus — Chwałowice",
+    "slug": "kosciol-sw-teresy-od-dzieciatka-jezus-chwalowice-2002",
+    "previousSlugs": [],
+    "description": "Kościół św. Teresy od Dzieciątka Jezus — Chwałowice — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Chwałowice, kościół św. Teresy"
+      },
+      {
+        "type": "current",
+        "text": "Działkowców 1"
+      }
+    ],
+    "district": "Chwałowice",
+    "location": {
+      "coordinates": {
+        "lat": 50.0616493,
+        "lng": 18.5517916
+      },
+      "precision": "building",
+      "explanation": "Zachowany kościół. Punkt wskazuje współczesny obrys, nie cały teren parafii. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/278213120 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-chwalowice-teresa-1",
+        "title": "Parafia św. Teresy — Historia parafii",
+        "url": "https://www.chwalowice.wiara.org.pl/historia-parafii%2Ci276.html",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kościół wzniesiono w latach 1926–1928.",
+        "excerptType": "summary",
+        "note": "1926–1928 · budowa; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2003",
+    "name": "Kościół Chrystusa Króla — Golejów",
+    "slug": "kosciol-chrystusa-krola-golejow-2003",
+    "previousSlugs": [],
+    "description": "Kościół Chrystusa Króla — Golejów — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Golejów, kościół Chrystusa Króla"
+      },
+      {
+        "type": "current",
+        "text": "Komisji Edukacji Narodowej 17 (OSM)"
+      }
+    ],
+    "district": "Golejów",
+    "location": {
+      "coordinates": {
+        "lat": 50.1440604,
+        "lng": 18.5445401
+      },
+      "precision": "building",
+      "explanation": "Zachowana świątynia. Archiwum podaje adres parafii KEN 15, OSM numer kościoła 17; punkt wynika z geometrii kościoła, nie samego numeru. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/278058063 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-golejow-chrystus-krol-1",
+        "title": "Archiwum Archidiecezjalne — Golejów, Chrystusa Króla",
+        "url": "https://archiwum.archidiecezjakatowicka.pl/pl/metrics/parafia/43",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Budowę rozpoczęto w 1926 r.; kościół poświęcono 8 maja 1927 r.",
+        "excerptType": "summary",
+        "note": "1926–1927 · budowa i poświęcenie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2004",
+    "name": "Dawne miejsce kościoła św. Wawrzyńca — Boguszowice",
+    "slug": "dawne-miejsce-kosciola-sw-wawrzynca-boguszowice-2004",
+    "previousSlugs": [],
+    "description": "Dawne miejsce kościoła św. Wawrzyńca — Boguszowice — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Boguszowice, dawne miejsce kościoła św. Wawrzyńca"
+      }
+    ],
+    "district": "Boguszowice Stare",
+    "location": {
+      "coordinates": {
+        "lat": 50.065585,
+        "lng": 18.59971
+      },
+      "precision": "approximate",
+      "explanation": "Punkt pozostałości oznaczonych w OSM w Boguszowicach. Przybliża dawne miejsce; nie wskazuje dzisiejszego kościoła w Ligockiej Kuźni ani odtworzonego obrysu z 1932 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/1368641945 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-boguszowice-wawrzyniec-1",
+        "title": "Archiwum Archidiecezjalne — Boguszowice Stare, NSPJ",
+        "url": "https://archiwum.archidiecezjakatowicka.pl/pl/metrics/parafia/3",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Drewniany kościół św. Wawrzyńca pochodził z 1717 r.",
+        "excerptType": "summary",
+        "note": "1717 · drewniany kościół / 1975 · przeniesienie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      },
+      {
+        "id": "institution-boguszowice-wawrzyniec-2",
+        "title": "Miasto Rybnik — Zabytki",
+        "url": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "W 1975 r. kościół przeniesiono z Boguszowic do Ligockiej Kuźni.",
+        "excerptType": "summary",
+        "note": "1717 · drewniany kościół / 1975 · przeniesienie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2005",
+    "name": "Kościół Najświętszego Serca Pana Jezusa — Boguszowice",
+    "slug": "kosciol-najswietszego-serca-pana-jezusa-boguszowice-2005",
+    "previousSlugs": [],
+    "description": "Kościół Najświętszego Serca Pana Jezusa — Boguszowice — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Boguszowice, nowy kościół NSPJ"
+      },
+      {
+        "type": "current",
+        "text": "Stanisława Małachowskiego 38"
+      }
+    ],
+    "district": "Boguszowice Stare",
+    "location": {
+      "coordinates": {
+        "lat": 50.0621911,
+        "lng": 18.5988231
+      },
+      "precision": "building",
+      "explanation": "Zachowany kościół; poświęcenie nastąpiło po dacie podkładu z 1932 r. Osobna karta opisuje dawną drewnianą świątynię. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/258407173 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-boguszowice-nspj-1",
+        "title": "Archiwum Archidiecezjalne — Boguszowice Stare, NSPJ",
+        "url": "https://archiwum.archidiecezjakatowicka.pl/pl/metrics/parafia/3",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Nowy murowany kościół poświęcono 19 maja 1935 r.",
+        "excerptType": "summary",
+        "note": "1935 · poświęcenie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2006",
+    "name": "Kościół Trójcy Przenajświętszej — Popielów",
+    "slug": "kosciol-trojcy-przenajswietszej-popielow-2006",
+    "previousSlugs": [],
+    "description": "Kościół Trójcy Przenajświętszej — Popielów — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Popielów, kościół Trójcy Przenajświętszej"
+      },
+      {
+        "type": "current",
+        "text": "Stanisława Konarskiego 6a"
+      }
+    ],
+    "district": "Popielów",
+    "location": {
+      "coordinates": {
+        "lat": 50.0531654,
+        "lng": 18.5167723
+      },
+      "precision": "building",
+      "explanation": "Zachowana świątynia. Powstała po dacie podkładu z 1932 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/105472200 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-popielow-trojca-1",
+        "title": "Encyklopedia historii Kościoła na Śląsku — Parafia w Popielowie",
+        "url": "https://silesia.edu.pl/index.php/Parafia_Tr%C3%B3jcy_Przenaj%C5%9Bwi%C4%99tszej_w_Popielowie",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Budowę rozpoczęto w 1933 r.; poświęcenie odbyło się 1 lipca 1934 r.; wieżę ukończono w 1935 r.",
+        "excerptType": "summary",
+        "note": "1933–1934 · budowa i poświęcenie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2007",
+    "name": "Dawny drewniany kościół św. Anny — Popielów",
+    "slug": "dawny-drewniany-kosciol-sw-anny-popielow-2007",
+    "previousSlugs": [],
+    "description": "Dawny drewniany kościół św. Anny — Popielów — Kościół katolicki. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Popielów, teren dzisiejszego cmentarza"
+      }
+    ],
+    "district": "Popielów",
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-popielow-anna-1",
+        "title": "Encyklopedia historii Kościoła na Śląsku — Parafia w Popielowie",
+        "url": "https://silesia.edu.pl/index.php/Parafia_Tr%C3%B3jcy_Przenaj%C5%9Bwi%C4%99tszej_w_Popielowie",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Kościół poświęcono 7 listopada 1723 r.; stał na terenie obecnego cmentarza i spłonął w 1942 r.",
+        "excerptType": "summary",
+        "note": "1723 · poświęcenie / 1942 · pożar; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2008",
+    "name": "Szkoła powszechna — Chwałowice (późniejsza SP13)",
+    "slug": "szkola-powszechna-chwalowice-pozniejsza-sp13-2008",
+    "previousSlugs": [],
+    "description": "Szkoła powszechna — Chwałowice (późniejsza SP13) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Chwałowice, pierwsza szkoła przy rozwidleniu 1 Maja i Kupieckiej"
+      },
+      {
+        "type": "historical",
+        "text": "Chwałowice, gmach szkolny z 1911 r."
+      }
+    ],
+    "district": "Chwałowice",
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-chwalowice-szkola-1",
+        "title": "SP13 — Historia szkoły w Chwałowicach",
+        "url": "https://www.sp13rybnik.pl/o-szkole/historia-szkoly.html",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Pierwszą szkołę otwarto 13 listopada 1879 r. przy rozwidleniu 1 Maja i Kupieckiej. Nowy, istniejący gmach powstał w 1911 r.; rozbudowano go w 1934 r.",
+        "excerptType": "summary",
+        "note": "1879 · pierwsza szkoła / 1911 · nowy gmach; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2009",
+    "name": "Szkoła przy Niedobczyckiej — Niedobczyce (późniejsza SP21)",
+    "slug": "szkola-przy-niedobczyckiej-niedobczyce-pozniejsza-sp21-2009",
+    "previousSlugs": [],
+    "description": "Szkoła przy Niedobczyckiej — Niedobczyce (późniejsza SP21) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Niedobczyce, budynek szkolny otwarty w 1904 r."
+      }
+    ],
+    "district": "Niedobczyce",
+    "location": {
+      "coordinates": {
+        "lat": 50.0703919,
+        "lng": 18.5004681
+      },
+      "precision": "approximate",
+      "explanation": "Punkt obecnego budynku szkolnego, obejmującego rozbudowy. Nie rozdzielono obrysów z 1904 i 1937 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/288951971 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-niedobczyce-szkola-21-1",
+        "title": "SP21 — Historia szkoły w Niedobczycach",
+        "url": "https://www.sp21.miastorybnik.pl/o-szkole/historia-szkoly.html",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Budynek rozpoczęty w 1901 r. otwarto 11 stycznia 1904 r. W 1937 r. dodano skrzydło.",
+        "excerptType": "summary",
+        "note": "1904 · otwarcie gmachu; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2010",
+    "name": "Szkoła przy kopalni Siwka — Niedobczyce (późniejsza SP22)",
+    "slug": "szkola-przy-kopalni-siwka-niedobczyce-pozniejsza-sp22-2010",
+    "previousSlugs": [],
+    "description": "Szkoła przy kopalni Siwka — Niedobczyce (późniejsza SP22) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Niedobczyce, szkoła przy kopalni Siwka"
+      },
+      {
+        "type": "current",
+        "text": "Górnośląska 108"
+      }
+    ],
+    "district": "Niedobczyce",
+    "location": {
+      "coordinates": {
+        "lat": 50.0594617,
+        "lng": 18.486899
+      },
+      "precision": "building",
+      "explanation": "Źródło szkolne identyfikuje dawny budynek; OSM oznacza go jako szkolny. Punkt dotyczy dawnej siedziby, bez założenia zachowania dawnej funkcji. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/153375436 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-niedobczyce-szkola-22-1",
+        "title": "SP22 — Historia szkoły w Niedobczycach",
+        "url": "https://www.sp22.miastorybnik.pl/o-szkole/historia-szkoly.html",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Szkołę otwarto 5 listopada 1912 r. w budynku przy dzisiejszej Górnośląskiej 108. Do Bocznej 17 przeniesiono ją w 1986 r.",
+        "excerptType": "summary",
+        "note": "1912 · otwarcie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2011",
+    "name": "Szkoła powszechna — Wielopole (późniejsza SP8)",
+    "slug": "szkola-powszechna-wielopole-pozniejsza-sp8-2011",
+    "previousSlugs": [],
+    "description": "Szkoła powszechna — Wielopole (późniejsza SP8) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Wielopole, dawny budynek szkolny"
+      }
+    ],
+    "district": "Wielopole",
+    "location": {
+      "coordinates": {
+        "lat": 50.1226228,
+        "lng": 18.5496974
+      },
+      "precision": "approximate",
+      "explanation": "Punkt całego współczesnego zespołu szkolnego; nie wyodrębniono bryły z 1886 r. z późniejszych rozbudów. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/1034863126 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-wielopole-szkola-1",
+        "title": "ZSP1 — Historia szkoły w Wielopolu",
+        "url": "https://www.zsp1.miastorybnik.pl/o-szkole/historia.html",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Szkoła powstała w 1886 r. Zachowano jej dawną część; rozbudowę przeprowadzono w latach 1982–1985.",
+        "excerptType": "summary",
+        "note": "1886 · szkoła; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2012",
+    "name": "Dawna szkoła — Golejów",
+    "slug": "dawna-szkola-golejow-2012",
+    "previousSlugs": [],
+    "description": "Dawna szkoła — Golejów — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Golejów, dawna szkoła"
+      }
+    ],
+    "district": "Golejów",
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-golejow-szkola-1",
+        "title": "ZSP4 — Historia szkół Golejowa i Grabowni",
+        "url": "https://www.zsp4.miastorybnik.pl/o-zespole/historia.html",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Nauczanie rozpoczęto w 1788 r. w pomieszczeniach dworskich; pierwszy budynek szkolny powstał w 1805 r.",
+        "excerptType": "summary",
+        "note": "1788 · początki / 1805 · budynek; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2013",
+    "name": "Szkoła filialna — Grabownia",
+    "slug": "szkola-filialna-grabownia-2013",
+    "previousSlugs": [],
+    "description": "Szkoła filialna — Grabownia — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Grabownia, dawna szkoła filialna"
+      }
+    ],
+    "district": "Grabownia",
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-grabownia-szkola-1",
+        "title": "ZSP4 — Historia szkół Golejowa i Grabowni",
+        "url": "https://www.zsp4.miastorybnik.pl/o-zespole/historia.html",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "W 1911 r. w Grabowni powstała szkoła filialna Golejowa; samodzielną placówką stała się w 1922 r.",
+        "excerptType": "summary",
+        "note": "1911 · szkoła; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2014",
+    "name": "Dawna szkoła — Ochojec",
+    "slug": "dawna-szkola-ochojec-2014",
+    "previousSlugs": [],
+    "description": "Dawna szkoła — Ochojec — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Ochojec, przy Rybnickiej"
+      }
+    ],
+    "district": "Ochojec",
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-ochojec-szkola-1",
+        "title": "ZSP3 — Historia szkoły w Ochojcu",
+        "url": "https://www.zsp3.miastorybnik.pl/o-szkole/historia-szkoly.html",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Pierwsze zajęcia około 1822 r. odbywały się w domu Rojka przy Rybnickiej. Około 1900 r. powstał budynek przy trasie Rybnik–Gliwice; szkoła korzystała z niego do 1995 r.",
+        "excerptType": "summary",
+        "note": "ok. 1822 · początki / ok. 1900 · gmach; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2015",
+    "name": "Dawna szkoła polska — Kamień",
+    "slug": "dawna-szkola-polska-kamien-2015",
+    "previousSlugs": [],
+    "description": "Dawna szkoła polska — Kamień — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Kamień, dawna szkoła przy Gminnej"
+      }
+    ],
+    "district": "Kamień",
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-kamien-szkola-1",
+        "title": "SP28 — Historia szkoły w Kamieniu",
+        "url": "https://www.sp28.miastorybnik.pl/szkola/historia-szkoly.html",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Uroczyste otwarcie polskiej szkoły odbyło się 31 stycznia 1924 r.; dawna siedziba stała przy Gminnej, w miejscu dzisiejszego przedszkola.",
+        "excerptType": "summary",
+        "note": "Historia wspomina też wcześniejsze nauczanie. Rok 1924 oznacza uroczyste otwarcie szkoły polskiej, nie pewną datę budowy.; 1924 · otwarcie szkoły polskiej; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2016",
+    "name": "Dawna szkoła — Kłokocin (dzisiejsze Przedszkole nr 21)",
+    "slug": "dawna-szkola-klokocin-dzisiejsze-przedszkole-nr-21-2016",
+    "previousSlugs": [],
+    "description": "Dawna szkoła — Kłokocin (dzisiejsze Przedszkole nr 21) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Kłokocin, stara szkoła z 1902 r."
+      },
+      {
+        "type": "current",
+        "text": "Bracka 9"
+      }
+    ],
+    "district": "Kłokocin",
+    "location": {
+      "coordinates": {
+        "lat": 50.0524151,
+        "lng": 18.6295932
+      },
+      "precision": "building",
+      "explanation": "Dawny budynek identyfikują historia szkoły i dzielnicy; współczesny numer potwierdza miejski wykaz. Nie użyto nowego gmachu SP19 z 1965 r. Środek obwiedni geometrii OSM; punkt reprezentuje obiekt lub obszar, nie obrys historycznej posesji. https://www.openstreetmap.org/way/833792153 © OpenStreetMap contributors, ODbL 1.0"
+    },
+    "mentions": [
+      {
+        "id": "institution-klokocin-szkola-1",
+        "title": "SP19 — Historia szkoły w Kłokocinie",
+        "url": "https://sp19rybnik.szkolnastrona.pl/p%2C2%2Chistoria",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Dawny budynek szkolny z 1902 r. pełni później funkcję przedszkola.",
+        "excerptType": "summary",
+        "note": "1902 · otwarcie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      },
+      {
+        "id": "institution-klokocin-szkola-2",
+        "title": "Rada Dzielnicy Kłokocin — Historia dzielnicy",
+        "url": "https://klokocin.miastorybnik.pl/index.php/historia-dzielnicy",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Szkołę otwarto 2 września 1902 r.; od 1968 r. w dawnym budynku działa przedszkole.",
+        "excerptType": "summary",
+        "note": "1902 · otwarcie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      },
+      {
+        "id": "institution-klokocin-szkola-3",
+        "title": "Miasto Rybnik — Adresy szkół i przedszkoli (wykaz 2024)",
+        "url": "https://edukacja.rybnik.eu/wp-content/uploads/2024/11/Rybnickie-szkoly-i-przedszkola-%E2%80%93-dane-teleadresowe.htm",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Wykaz podaje współczesny adres przedszkola: Bracka 9.",
+        "excerptType": "summary",
+        "note": "Źródło współczesnego adresu; nie stanowi dowodu działalności w 1902 r.; 1902 · otwarcie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2017",
+    "name": "Dawna szkoła — Zebrzydowice",
+    "slug": "dawna-szkola-zebrzydowice-2017",
+    "previousSlugs": [],
+    "description": "Dawna szkoła — Zebrzydowice — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Zebrzydowice, szkoła otwarta w 1908 r."
+      }
+    ],
+    "district": "Zebrzydowice",
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-zebrzydowice-szkola-1",
+        "title": "ZSP12 — Historia szkoły w Zebrzydowicach",
+        "url": "https://zsp12.miastorybnik.pl/historia/historia-szkoly/",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Budynek poświęcono 12 października 1908 r.; zajęcia rozpoczęto następnego dnia. Nową siedzibę otwarto 4 września 1978 r.",
+        "excerptType": "summary",
+        "note": "1908 · otwarcie; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2018",
+    "name": "Szkoła powszechna — Zamysłów",
+    "slug": "szkola-powszechna-zamyslow-2018",
+    "previousSlugs": [],
+    "description": "Szkoła powszechna — Zamysłów — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Zamysłów, szkoła z lat 1905–1906"
+      }
+    ],
+    "district": "Zamysłów",
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-zamyslow-szkola-1",
+        "title": "ZSP9 — Historia szkoły w Zamysłowie",
+        "url": "https://www.zsp9.miastorybnik.pl/o-szkole/historia-szkoly.html",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Budynek ukończono pod koniec 1905 r.; naukę rozpoczęto w 1906 r. W 1945 r. szkoła została poważnie zniszczona.",
+        "excerptType": "summary",
+        "note": "1905–1906 · budowa i zajęcia; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2019",
+    "name": "Dawna szkoła — Chwałęcice",
+    "slug": "dawna-szkola-chwalecice-2019",
+    "previousSlugs": [],
+    "description": "Dawna szkoła — Chwałęcice — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Chwałęcice, dawna szkoła"
+      }
+    ],
+    "district": "Chwałęcice",
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-chwalecice-szkola-1",
+        "title": "ZSP15 — Historia szkoły w Chwałęcicach",
+        "url": "https://www.zsp15.miastorybnik.pl/o-zespole/szkola-podstawowa.html",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Dawny budynek szkoły powstał w 1880 r. z fundacji księcia raciborskiego. Nową szkołę budowano w latach 1965–1967.",
+        "excerptType": "summary",
+        "note": "1880 · budynek szkolny; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
+  },
+  {
+    "id": "place_mvp0_2020",
+    "name": "Dawne szkoły — Boguszowice (późniejsza SP16)",
+    "slug": "dawne-szkoly-boguszowice-pozniejsza-sp16-2020",
+    "previousSlugs": [],
+    "description": "Dawne szkoły — Boguszowice (późniejsza SP16) — Szkoła powszechna. Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+    "tags": [
+      {
+        "id": "edukacja",
+        "name": "edukacja"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Kwalifikacja dotychczasowych wzmianek do okresu międzywojennego wymaga oceny; nie oznacza to braku dowodów w materiałach."
+    },
+    "aliases": [],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Boguszowice, szkoła z 1914 r."
+      },
+      {
+        "type": "historical",
+        "text": "Boguszowice, nowa szkoła otwarta w 1937 r."
+      }
+    ],
+    "district": "Boguszowice Stare",
+    "location": {
+      "coordinates": null,
+      "precision": "unknown",
+      "explanation": "Lokalizacja historyczna nieustalona. Współczesnych adresów kandydackich nie traktujemy jako potwierdzenia posesji."
+    },
+    "mentions": [
+      {
+        "id": "institution-boguszowice-szkola-1",
+        "title": "TuRybnik — Przewodnik: Boguszowice Stare",
+        "url": "https://turybnik.pl/przewodnik/boguszowice-stare",
+        "page": null,
+        "publicationDate": null,
+        "documentedDate": null,
+        "verification": "draft",
+        "accessedAt": "2026-11-03T00:00:00Z",
+        "excerpt": "Przewodnik opisuje budynek z 1914 r. jako późniejsze przedszkole oraz szkołę otwartą w 1937 r.",
+        "excerptType": "summary",
+        "note": "1914 · stara szkoła / 1937 · nowa szkoła; Dzielnica dzisiejszego Rybnika. Karta nie oznacza przynależności tej miejscowości do miasta w roku opisanej wzmianki.",
+        "materials": []
+      }
+    ],
+    "locationVersion": 0,
+    "updatedAt": "2026-11-03T00:00:00Z"
   }
 ];

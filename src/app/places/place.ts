@@ -2,7 +2,7 @@ import type { z } from 'zod';
 import type {
   partialDateSchema,
   locationSchema,
-  referenceSchema,
+  mentionSchema,
   publicPlaceSchema,
   locationDtoSchema,
   readRequestSchema,
@@ -16,7 +16,7 @@ type DeepReadonly<T> = T extends readonly unknown[]
     : T;
 export type PartialDate = DeepReadonly<NonNullable<z.infer<typeof partialDateSchema>>>;
 export type PlaceLocation = DeepReadonly<z.infer<typeof locationSchema>>;
-export type PlaceReference = DeepReadonly<z.infer<typeof referenceSchema>>;
+export type PlaceMention = DeepReadonly<z.infer<typeof mentionSchema>>;
 export type Place = DeepReadonly<z.infer<typeof publicPlaceSchema>>;
 export type LocationDto = DeepReadonly<z.infer<typeof locationDtoSchema>>;
 export type ReadLocationsRequest = z.infer<typeof readRequestSchema>;

@@ -1,3 +1,4 @@
+import { catalogSchema } from '../../../functions/src/contracts/places.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtemp, writeFile, readFile, rm, symlink } from 'node:fs/promises';
@@ -45,21 +46,21 @@ class Store {
 
 test('late publication can evidence 1932; earlier unresolved material remains dated 1890; graph and candidates persist', () => {
   const d = validateWorkspace(fixture());
-  assert.equal(d.materials[1].publicationDate.from, '1950');
-  assert.equal(d.materials[1].historicalDate.from, '1932');
-  assert.equal(d.materials[0].historicalDate, null);
+  assert.equal(d.documents[1].publicationDate.from, '1950');
+  assert.equal(d.documents[1].historicalDate.from, '1932');
+  assert.equal(d.documents[0].historicalDate, null);
   assert.equal(d.sources[2].discoveredFrom[0].sourceId, 'src_b');
   assert.equal(d.candidates[0].status, 'pending');
 });
 test('reject broken links, tags, periods, rights approval, duplicate synonyms, decisions and ancestry cycles', () => {
   for (const change of [
     (d) => (d.places[0].tags = []),
-    (d) => (d.places[0].period.evidence = []),
-    (d) => d.places[0].materialIds.push('missing'),
-    (d) => (d.materials[0].rights.publicationApproved = true),
+    (d) => (d.mentions[0].verification = 'draft'),
+    (d) => d.places[0].mentionIds.push('missing'),
+    (d) => (d.documents[0].rights.publicationApproved = true),
     (d) => d.tags[1].synonyms.push('usługi'),
     (d) => (d.candidates[0].status = 'rejected'),
-    (d) => (d.materials[0].parentMaterialId = 'mat_a'),
+    (d) => (d.documents[0].parentDocumentId = 'mat_a'),
     (d) => (d.places[0].period.status = 'outside'),
   ]) {
     const d = fixture();
@@ -70,7 +71,6 @@ test('reject broken links, tags, periods, rights approval, duplicate synonyms, d
   d.places[0].period = {
     status: 'probable',
     explanation: 'Konkretny opis ciągłości; potrzebny dowód z lat 1918–1939.',
-    evidence: [],
   };
   assert.equal(validateWorkspace(d).places[0].period.status, 'probable');
   d.places[0].period.status = 'unverified';
@@ -87,8 +87,12 @@ test('publication is explicit, excludes unknown-rights images and protects live 
   const result = projectPlace(p, d);
   assert.equal(result.period.status, 'probable');
   assert.equal(result.tags.length, 2);
-  assert.deepEqual(result.references[0].images, []);
+  assert.deepEqual(result.mentions[0].materials, []);
   assert.equal(result.findings, undefined);
+  assert.equal(result.questions, undefined);
+  assert.equal(result.relatedPlaces, undefined);
+  assert.equal(result.mentionIds, undefined);
+  catalogSchema.parse([result]);
   const live = {
     location: {
       coordinates: { lat: 50, lng: 18 },
@@ -243,18 +247,18 @@ test('lost head-write acknowledgement can be retried without overwriting concurr
 
 test('own scans preserve missing web provenance and allow a local documentary rights proof', () => {
   const d = fixture(),
-    m = d.materials[0];
+    m = d.documents[0];
   m.rights = {
     status: 'public-domain',
     basis: 'Fikcyjny dowód w skanie dokumentacji',
     evidenceUrl: null,
-    evidenceMaterialId: 'mat_b',
+    evidenceDocumentId: 'mat_b',
     checkedAt: '2026-11-08T08:00:00Z',
     credit: 'Fikcyjne archiwum',
     publicationApproved: true,
   };
-  assert.equal(validateWorkspace(d).materials[0].rights.evidenceUrl, null);
-  const image = JSON.parse(requireFixtureImage());
+  assert.equal(validateWorkspace(d).documents[0].rights.evidenceUrl, null);
+  const { materialId, documentedDate, ...image } = JSON.parse(requireFixtureImage());
   for (const field of [
     'sourcePageUrl',
     'originalCollectionUrl',
@@ -269,7 +273,7 @@ function requireFixtureImage() {
   return JSON.stringify(
     JSON.parse(
       readFileSync(new URL('../../../data/places.test-data.json', import.meta.url)),
-    ).flatMap((p) => p.references.flatMap((r) => r.images))[0],
+    ).flatMap((p) => p.mentions.flatMap((r) => r.materials))[0],
   );
 }
 
@@ -304,30 +308,45 @@ test('a 1938 contemporary advertisement proves activity without a fabricated his
 test('internal unknown/restricted copies are retained and never become public images', async (t) => {
   const { capture } = await import('../capture.mjs');
   const d = fixture();
-  d.materials[1].rights.status = 'restricted';
+  d.documents[1].rights.status = 'restricted';
   const root = await workspace(t, d);
   const input = join(root, 'sample.pdf');
   await writeFile(input, '%PDF-1.4\ninternal fixture');
-  const first = await capture({ root, materialId: 'mat_a', input, apply: true });
-  const second = await capture({ root, materialId: 'mat_b', input, apply: true });
+  const first = await capture({
+    root,
+    materialId: 'mat_a',
+    collection: 'documents',
+    input,
+    apply: true,
+  });
+  const second = await capture({
+    root,
+    materialId: 'mat_b',
+    collection: 'documents',
+    input,
+    apply: true,
+  });
   assert.equal(first.path, second.path);
   const stored = await loadWorkspace(root);
-  assert.equal(stored.materials[0].files.length, 1);
-  assert.equal(stored.materials[1].files.length, 1);
-  assert.equal(stored.materials[0].rights.status, 'unknown');
+  assert.equal(stored.documents[0].files.length, 1);
+  assert.equal(stored.documents[1].files.length, 1);
+  assert.equal(stored.documents[0].rights.status, 'unknown');
   stored.places[0].publicationApproved = true;
-  assert.ok(projectPlace(stored.places[0], stored).references.every((r) => r.images.length === 0));
-  stored.materials[1].rights.publicationApproved = true;
+  assert.ok(projectPlace(stored.places[0], stored).mentions.every((r) => r.materials.length === 0));
+  stored.documents[1].rights.publicationApproved = true;
   assert.throws(() => validateWorkspace(stored));
-  await capture({ root, materialId: 'mat_a', input, apply: true });
-  assert.equal((await loadWorkspace(root)).materials[0].files.length, 1);
+  await capture({ root, materialId: 'mat_a', collection: 'documents', input, apply: true });
+  assert.equal((await loadWorkspace(root)).documents[0].files.length, 1);
   await writeFile(input, '<html>not a PDF</html>');
-  await assert.rejects(capture({ root, materialId: 'mat_a', input, apply: true }), /format/);
+  await assert.rejects(
+    capture({ root, materialId: 'mat_a', collection: 'documents', input, apply: true }),
+    /format/,
+  );
 });
 
 test('publication label never extends crop approval to a new full-page scan', async () => {
   const { publicationNotice } = await import('../../../tools/research-viewer/publication.mjs');
-  const m = fixture().materials[0];
+  const m = fixture().documents[0];
   m.rights.status = 'public-domain';
   m.rights.publicationApproved = true;
   m.publicationImages = [{ sha256: 'crop', thumbnailSha256: 'thumb' }];
@@ -335,4 +354,77 @@ test('publication label never extends crop approval to a new full-page scan', as
   assert.equal(publicationNotice(m, { sha256: 'full-page' }).approved, false);
   m.rights.status = 'restricted';
   assert.equal(publicationNotice(m, { sha256: 'crop' }).approved, false);
+});
+
+test('documented dates retain separate 1920, 1928, 1945 evidence; no inferred continuity', async () => {
+  const { documentedDates, materialMatchesMention } = await import('../chronology.mjs');
+  const base = fixture().mentions[0];
+  const mentions = ['1920', '1928', '1945'].map((year, i) => ({
+    ...base,
+    id: 'mention_' + i,
+    documentedDate: { from: year, to: null, approximate: false },
+    verification: 'verified',
+  }));
+  assert.deepEqual(
+    documentedDates(mentions).map((x) => x.date.from),
+    ['1920', '1928', '1945'],
+  );
+  const visual = {
+    classification: 'historical',
+    originalDate: { from: '1928', to: null, approximate: false },
+    depictedDate: null,
+    sourceDocumentIds: [base.evidence[0].documentId],
+  };
+  assert.equal(materialMatchesMention(visual, mentions[1]), true);
+  assert.equal(materialMatchesMention(visual, mentions[0]), false);
+  assert.equal(
+    materialMatchesMention(
+      { ...visual, originalDate: { from: '2023', to: null, approximate: false } },
+      mentions[1],
+    ),
+    false,
+  );
+  assert.equal(
+    materialMatchesMention({ ...visual, classification: 'source-copy' }, mentions[1]),
+    false,
+  );
+  assert.equal(
+    materialMatchesMention({ ...visual, sourceDocumentIds: ['unrelated'] }, mentions[1]),
+    false,
+  );
+  const d = fixture();
+  d.mentions[0].verification = 'verified';
+  d.mentions[0].documentedDate = null;
+  assert.throws(() => validateWorkspace(d));
+});
+
+test('historical publication keeps material identity and relocates legacy image paths consistently', async () => {
+  const { publicationImages } = await import('../assets.mjs');
+  const d = fixture(),
+    p = d.places[0],
+    mention = d.mentions.find((m) => p.mentionIds.includes(m.id) && m.verification === 'verified');
+  const sample = JSON.parse(readFileSync('data/places.test-data.json', 'utf8'))[0].mentions.flatMap(
+    (m) => m.materials,
+  )[0];
+  assert.ok(sample);
+  const { materialId, documentedDate, ...image } = sample;
+  const visual = {
+    id: 'vis_test',
+    classification: 'historical',
+    sourceDocumentIds: [mention.evidence[0].documentId],
+    originalDate: mention.documentedDate,
+    depictedDate: null,
+    rights: { publicationApproved: true },
+    publicationImages: [image],
+  };
+  d.materials.push(visual);
+  mention.materialIds.push(visual.id);
+  p.publicationApproved = true;
+  const result = projectPlace(p, d),
+    published = result.mentions.find((m) => m.id === mention.id).materials[0];
+  assert.equal(published.materialId, visual.id);
+  assert.deepEqual(published.documentedDate, mention.documentedDate);
+  assert.equal(published.storagePath, publicationImages(visual)[0].storagePath);
+  assert.ok(published.storagePath.startsWith('public/materials/vis_test/'));
+  catalogSchema.parse([result]);
 });

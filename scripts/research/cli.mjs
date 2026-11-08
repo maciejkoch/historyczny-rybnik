@@ -50,6 +50,7 @@ try {
       await capture({
         root,
         materialId: value('material'),
+        collection: value('collection') || 'materials',
         input: value('input'),
         role: value('role') || 'original',
         derivedFrom: value('derived-from') || null,

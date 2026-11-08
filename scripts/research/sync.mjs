@@ -18,7 +18,7 @@ const allowedPath = z
     (s) =>
       s === 'config.json' ||
       s === 'tags.json' ||
-      /^(sources|materials|places|candidates|out-of-period|research)\/[a-zA-Z0-9_-]+\.json$/.test(
+      /^(sources|documents|mentions|materials|places|candidates|out-of-period|research)\/[a-zA-Z0-9_-]+\.json$/.test(
         s,
       ) ||
       /^files\/(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_.-]+$/.test(s),

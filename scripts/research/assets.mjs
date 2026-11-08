@@ -1,22 +1,34 @@
 import { readFile } from 'node:fs/promises';
 import { extname } from 'node:path';
 import { loadWorkspace, safePath, hash } from './workspace.mjs';
+export function publicationImages(material) {
+  return material.publicationImages.map((image) => ({
+    ...image,
+    storagePath: `public/materials/${material.id}/${image.sha256}${extname(image.storagePath)}`,
+    thumbnailPath: `public/materials/${material.id}/${image.thumbnailSha256}${extname(image.thumbnailPath)}`,
+  }));
+}
 export async function prepareAssets(root) {
   const d = await loadWorkspace(root),
     used = new Set(
       d.places
         .filter((p) => p.publicationApproved)
-        .flatMap((p) => p.findings.flatMap((f) => f.evidence.map((e) => e.materialId))),
+        .flatMap((p) =>
+          p.mentionIds.flatMap((id) =>
+            d.mentions
+              .filter((m) => m.id === id && m.verification === 'verified')
+              .flatMap((m) => m.materialIds),
+          ),
+        ),
     );
   const assets = new Map();
   for (const m of d.materials.filter((m) => used.has(m.id) && m.rights.publicationApproved))
-    for (const image of m.publicationImages)
+    for (const image of publicationImages(m))
       for (const [key, checksum] of [
         ['storagePath', 'sha256'],
         ['thumbnailPath', 'thumbnailSha256'],
       ]) {
         const path = image[key];
-        if (path.startsWith('public/places/')) continue; // Already published legacy copies are preserved, not re-uploaded.
         if (!path.startsWith(`public/materials/${m.id}/`))
           throw new Error('Public asset belongs to another material');
         const file = m.files.find((f) => f.sha256 === image[checksum]);

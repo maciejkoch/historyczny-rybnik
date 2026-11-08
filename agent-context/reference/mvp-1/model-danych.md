@@ -186,3 +186,5 @@ Decyzja fazy 3: Firestore Standard, baza `places-dev` w `europe-central2`. Utwor
 Pilnujemy rozmiaru dokumentu: limit Firestore Native wynosi 1 MiB. Przy imporcie sprawdzamy wielkość i odrzucamy zbyt duże rekordy; nie usuwamy danych po cichu. Jeżeli realne referencje zaczną zbliżać się do limitu, dopiero wtedy rozważymy ich wydzielenie do podkolekcji.
 
 Źródła zasad technicznych: [model dokumentowy i limit rozmiaru](https://firebase.google.com/docs/firestore/data-model), [transakcje Firestore](https://firebase.google.com/docs/firestore/manage-data/transactions). Są to odnośniki do uzasadnienia ograniczeń, nie dodatkowe wymagania funkcjonalne.
+
+Aktualizacja wdrażanego kontraktu: mentions zastępuje references. Wzmianka przechowuje documentedDate i verification; materiały mają własne datowanie zgodne z okresem wzmianki. Pełna prywatna struktura sources/documents/mentions/materials oraz zasady migracji są opisane w data/places/README.md i TECHNICAL.md.

@@ -27,3 +27,15 @@ Podgląd https://historyczny-rybnik-dev-1.web.app/ udostępniono z rewizji 105e6
 ## Korekta po uwadze właściciela o Sztandarze z 1938
 
 Początkowa migracja zbyt mechanicznie wymagała historicalDate. Poprawiono ją: datowane współczesne ogłoszenia i spisy adresowe dowodzą działalności w czasie wydania, przy zachowaniu niepewności identyfikacji. Nowy test odróżnia reklamę 1938 od retrospektywnego artykułu i ogłoszenia 1950. Skrypt correct-period.mjs sprawdza zgodność oryginalnych referencji z ustaleniami i koryguje kwalifikację bez utraty ID/plików. Wynik: 128 miejsc confirmed, 68 oczekujących na ocenę innych wzmianek. Brak oceny nie jest stwierdzeniem braku dowodów.
+
+## Model datowanych wzmianek — 8 listopada 2026
+
+Schemat prywatny 3 rozdziela documents, mentions i materiały wizualne. Miejsce wskazuje mentionIds; data udokumentowana wynika wyłącznie z verified wzmianek. Obraz musi mieścić się w dacie wzmianki i pochodzić z jej dokumentu dowodowego. Kopie późniejszych opracowań, obrazy bez datowania i współczesne fotografie zachowano poza galerią historyczną. Prawa i zgody publikacji nie zostały rozszerzone.
+
+Migracja prywatna: 200 miejsc, 44 źródła, 432 dokumenty, 561 wzmianek (262 verified, 294 draft, 5 conflicting), 225 obrazów; 126 obrazów przypisanych do verified wzmianek w galerii historycznej. Wszystkie binarne pliki zachowano. Oryginał metadanych przed migracją znajduje się lokalnie w `.local/workspace-v2-before-mentions.json`; wcześniejsza rewizja Storage: `41d072c11fec0b826b3d04a6ef8dbcdc2fdce8458220cc98bf0d8ee0d08a110f`. Rejestr migracji: run_mentions_structure_20261108. Nie przeprowadzono nowej kampanii historycznej.
+
+Kod publiczny oraz plikowy katalog 196 miejsc przeszły jawną migrację references → mentions / images → materials. Runtime wymaga nowego kontraktu. Testy: kontrakty, prywatność 5, backend 17, warsztat 13 PASS; pełny build 200 tras PASS z istniejącym ostrzeżeniem budżetu (~943 kB). Odbiór lokalnego viewer: Darda pokazuje udokumentowane 1936/1938, odpowiednie skany i osobne sprzeczności z 1935; artykuł 2008 nie staje się obrazem międzywojennym.
+
+Ta aktualizacja nie zmienia Firestore ani wdrożonego backendu/Hostingu. Przed wdrożeniem nowego kontraktu wymagane jest skoordynowane przeniesienie istniejących rekordów wspólnego places-dev przez snapshot --migrate-legacy i standardowy import zachowujący lokalizacje/wersje, następnie deployment backendu i podglądów. Nie importować do bazy prywatnych nowych ustaleń ani materiałów bez osobnej decyzji publikacyjnej. Dotychczasowy podgląd dev-1 używa poprzedniej rewizji kontraktu. CONTRIBUTING i SECURITY sprawdzono, zmiana zasad niepotrzebna.
+
+Prywatną migrację zsynchronizowano ze Storage: rewizja `7e0bbb3b85ba4686306314011550b23f2f4d69ce82d82412ff0deccca9493850`. Porównanie ze snapshotem wejściowym potwierdza zachowanie 293 zarejestrowanych ścieżek plików z identycznym SHA-256.

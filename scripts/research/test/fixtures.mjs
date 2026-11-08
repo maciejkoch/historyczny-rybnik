@@ -1,7 +1,8 @@
+import { restructureWorkspace } from '../restructure.mjs';
 export const stamp = '2026-11-08T08:00:00Z';
 export const unknownLocation = { coordinates: null, precision: 'unknown', explanation: null };
 const date = (year) => ({ from: year, to: null, approximate: false });
-export function fixture() {
+function oldFixture() {
   const sources = ['a', 'b', 'c'].map((id, i) => ({
     id: 'src_' + id,
     updatedAt: stamp,
@@ -150,4 +151,8 @@ export function fixture() {
       },
     ],
   };
+}
+
+export function fixture() {
+  return restructureWorkspace(oldFixture());
 }

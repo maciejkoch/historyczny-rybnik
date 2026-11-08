@@ -38,17 +38,17 @@ test('public and stored records have distinct strict contracts', () => {
 
 test('catalogue preserves byte limits, uniqueness and ownership of images', () => {
   const oversized = structuredClone(places[0]);
-  oversized.references = Array.from({ length: 100 }, (_, i) => ({
-    ...oversized.references[0],
+  oversized.mentions = Array.from({ length: 100 }, (_, i) => ({
+    ...oversized.mentions[0],
     id: `ref_${i}`,
     excerpt: 'ą'.repeat(10000),
-    images: [],
+    materials: [],
   }));
   assert.equal(placeSchema.safeParse(oversized).success, false);
   assert.equal(catalogSchema.safeParse([...places, places[0]]).success, false);
   for (const key of ['storagePath', 'thumbnailPath']) {
     const place = structuredClone(places[0]);
-    const image = place.references.find((r) => r.images.length).images[0];
+    const image = place.mentions.find((r) => r.materials.length).materials[0];
     image[key] = image[key].replace(`/places/${place.id}/`, '/places/another/');
     assert.equal(placeSchema.safeParse(place).success, false);
   }

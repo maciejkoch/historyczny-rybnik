@@ -25,7 +25,7 @@ test('image provenance rejects invalid URLs, hashes, rights dates and unknown fi
   ];
   for (const mutate of mutations) {
     const data = structuredClone(testData);
-    const image = data[0].references.find((ref) => ref.images.length).images[0];
+    const image = data[0].mentions.find((ref) => ref.materials.length).materials[0];
     mutate(image);
     assert.throws(() => validateCatalog(data));
   }
@@ -41,7 +41,7 @@ test('reject unknown fields, invalid paths, oversized document, collisions', () 
   for (const mutate of [
     (p) => (p.private = 'secret'),
     (p) => (p.description = 'x'.repeat(20001)),
-    (p) => (p.references[0].url = 'javascript:alert(1)'),
+    (p) => (p.mentions[0].url = 'javascript:alert(1)'),
     (p) => p.previousSlugs.push(p.slug),
   ]) {
     const data = structuredClone(testData);

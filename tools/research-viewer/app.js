@@ -1,3 +1,4 @@
+import { documentedDates } from '/chronology.mjs';
 import { publicationNotice } from '/publication.mjs';
 import * as maplibregl from '/vendor/maplibre-gl.mjs';
 const $ = (id) => document.getElementById(id);
@@ -7,13 +8,19 @@ const names = {
   candidates: 'Kandydaci',
   'out-of-period': 'Do sprawdzenia / inne lata',
   sources: 'Źródła',
-  materials: 'Materiały',
+  materials: 'Materiały historyczne',
+  documents: 'Dokumenty źródłowe',
+  mentions: 'Wzmianki',
+  'source-copies': 'Kopie źródeł',
+  unidentified: 'Do rozpoznania / inne okresy',
   research: 'Badania',
   tags: 'Tagi',
   map: 'Mapa 1932',
   graph: 'Sieć źródeł',
 };
 const states = {
+  verified: 'Zweryfikowane',
+  draft: 'Robocze',
   uncertain: 'Niepewne',
   conflicting: 'Sprzeczne',
   summary: 'Streszczenie',
@@ -49,8 +56,8 @@ const button = (label, action, cls = 'btn btn-sm btn-outline') => {
   b.onclick = action;
   return b;
 };
-const status = (r) => r.period?.status || r.rights?.status || r.status || '';
-const title = (r) => r.name || r.title || r.context || r.id;
+const status = (r) => r.period?.status || r.rights?.status || r.verification || r.status || '';
+const title = (r) => r.name || r.title || r.context || r.text?.slice(0, 100) || r.id;
 const normalize = (s) =>
   s
     .toLocaleLowerCase('pl')
@@ -77,11 +84,13 @@ function find(id) {
     'out-of-period',
     'sources',
     'materials',
+    'documents',
+    'mentions',
     'candidates',
     'research',
     'tags',
   ]) {
-    const r = data[key].find((r) => r.id === id);
+    const r = data[key]?.find((r) => r.id === id);
     if (r) return { key, r };
   }
   return null;
@@ -105,9 +114,43 @@ function dated(d) {
 function evidence(parent, items) {
   for (const e of items) {
     const p = node('p');
-    p.append(ref(e.materialId), node('span', ' · ' + e.locator + (e.note ? ' · ' + e.note : '')));
+    p.append(ref(e.documentId), node('span', ' · ' + e.locator + (e.note ? ' · ' + e.note : '')));
     parent.append(p);
   }
+}
+function visualRecord(m) {
+  const docs = m.sourceDocumentIds.map((id) => data.documents.find((d) => d.id === id));
+  const mentions = data.mentions.filter((x) => x.materialIds.includes(m.id));
+  return {
+    ...m,
+    sourceId: docs[0].sourceId,
+    url: docs[0].url,
+    placeIds: [
+      ...new Set(
+        mentions.length ? mentions.map((x) => x.placeId) : docs.flatMap((d) => d.placeIds),
+      ),
+    ],
+  };
+}
+function historicalMaterials() {
+  const linked = new Set(
+    data.mentions.filter((m) => m.verification === 'verified').flatMap((m) => m.materialIds),
+  );
+  return data.materials
+    .filter((m) => m.classification === 'historical' && linked.has(m.id))
+    .map(visualRecord);
+}
+function rowsFor(key) {
+  if (key === 'materials') return historicalMaterials();
+  if (key === 'source-copies')
+    return data.documents.filter(
+      (d) => d.temporalContext !== 'contemporary' && !['photo', 'map'].includes(d.kind),
+    );
+  if (key === 'unidentified') {
+    const linked = new Set(historicalMaterials().map((m) => m.id));
+    return data.materials.filter((m) => !linked.has(m.id)).map(visualRecord);
+  }
+  return data[key] || [];
 }
 function archiveNotice(material, file = null) {
   const notice = publicationNotice(material, file);
@@ -123,9 +166,11 @@ function imageGallery(parent, materials, showPlaces = false) {
     for (const f of preferred) {
       if (seen.has(f.sha256)) continue;
       seen.add(f.sha256);
-      const group = (showPlaces ? data.materials : materials).filter((other) =>
-        other.files.some((file) => file.sha256 === f.sha256),
-      );
+      const group = (
+        showPlaces && materials.some((m) => m.sourceDocumentIds)
+          ? data.materials.map(visualRecord)
+          : materials
+      ).filter((other) => other.files.some((file) => file.sha256 === f.sha256));
       const card = node('figure', undefined, 'card bg-base-200 border border-base-300 p-4 my-4');
       const url = '/files/' + f.path.slice(6).split('/').map(encodeURIComponent).join('/');
       const img = node('img', undefined, 'h-64 w-full object-contain rounded-box mb-3');
@@ -207,22 +252,57 @@ function detail(key, r) {
     if (r.dateNote) box.append(node('p', r.dateNote));
   }
   if (r.materialIds?.length) {
-    heading(box, 'Skany i obrazki');
-    imageGallery(box, r.materialIds.map((id) => find(id)?.r).filter(Boolean));
+    heading(box, 'Materiały tej wzmianki');
+    imageGallery(
+      box,
+      r.materialIds.map((id) => visualRecord(find(id).r)),
+    );
   }
-  if (r.findings) {
-    heading(box, 'Ustalenia i dowody');
-    for (const f of r.findings) {
-      box.append(
-        node('p', f.text, 'font-medium'),
-        node('p', states[f.status] || f.status, 'text-sm opacity-60'),
+  if (r.mentionIds) {
+    const mentions = r.mentionIds.map((id) => find(id).r);
+    heading(box, 'Udokumentowane daty');
+    const dates = documentedDates(mentions);
+    for (const item of dates) {
+      const row = node('p', dated(item.date) + ' · ');
+      for (const id of item.mentionIds) row.append(ref(id));
+      box.append(row);
+    }
+    if (!dates.length) box.append(node('p', 'Brak datowanych, zweryfikowanych wzmianek.'));
+    for (const verification of ['verified', 'draft', 'conflicting']) {
+      const rows = mentions
+        .filter((m) => m.verification === verification)
+        .sort((a, b) => (a.documentedDate?.from || '').localeCompare(b.documentedDate?.from || ''));
+      if (!rows.length) continue;
+      heading(
+        box,
+        verification === 'verified'
+          ? 'Zweryfikowane wzmianki'
+          : verification === 'draft'
+            ? 'Wzmianki robocze'
+            : 'Sprzeczności do wyjaśnienia',
       );
-      evidence(box, f.evidence);
+      for (const m of rows) {
+        box.append(node('p', dated(m.documentedDate) + ' — ' + m.text), ref(m.id));
+        evidence(box, m.evidence);
+        if (m.materialIds.length)
+          imageGallery(
+            box,
+            m.materialIds.map((id) => visualRecord(find(id).r)),
+          );
+      }
     }
   }
-  if (r.period?.evidence.length) {
-    heading(box, 'Podstawa kwalifikacji okresu');
-    evidence(box, r.period.evidence);
+  if (r.documentedDate !== undefined) {
+    heading(box, 'Data, której dotyczy wzmianka');
+    box.append(node('p', dated(r.documentedDate)), node('p', r.verificationNote));
+  }
+  if (r.sourceDocumentIds) {
+    heading(box, 'Dokumenty źródłowe');
+    for (const id of r.sourceDocumentIds) box.append(ref(id));
+    box.append(
+      node('p', 'Datowanie materiału: ' + dated(r.depictedDate || r.originalDate)),
+      node('p', r.datingNote),
+    );
   }
   if (r.evidence) {
     heading(box, 'Wzmianki źródłowe');
@@ -243,7 +323,7 @@ function detail(key, r) {
     for (const rel of r.relatedPlaces) {
       const p = node('p');
       p.append(ref(rel.placeId), node('span', rel.note ? ' — ' + rel.note : ''));
-      if (rel.materialId) p.append(ref(rel.materialId));
+      if (rel.documentId) p.append(ref(rel.documentId));
       box.append(p);
     }
   }
@@ -257,15 +337,15 @@ function detail(key, r) {
   }
   if (key === 'sources') {
     heading(box, 'Materiały tego źródła');
-    for (const m of data.materials.filter((m) => m.sourceId === r.id)) box.append(ref(m.id));
+    for (const m of data.documents.filter((m) => m.sourceId === r.id)) box.append(ref(m.id));
   }
   if (r.sourceId) {
     heading(box, 'Źródło');
     box.append(ref(r.sourceId));
   }
-  if (r.parentMaterialId) {
+  if (r.parentDocumentId) {
     heading(box, 'Materiał nadrzędny');
-    box.append(ref(r.parentMaterialId));
+    box.append(ref(r.parentDocumentId));
   }
   if (r.content) {
     heading(box, 'Treść / odczyt');
@@ -283,7 +363,7 @@ function detail(key, r) {
       node('p', 'Sprawdzono: ' + (r.rights.checkedAt || 'nie sprawdzono')),
       node('p', 'Publikacja: ' + (r.rights.publicationApproved ? 'dopuszczona' : 'niedopuszczona')),
     );
-    if (r.rights.evidenceMaterialId) box.append(ref(r.rights.evidenceMaterialId));
+    if (r.rights.evidenceDocumentId) box.append(ref(r.rights.evidenceDocumentId));
     if (r.rights.evidenceUrl) box.append(link(r.rights.evidenceUrl, 'Dowód praw ↗'));
   }
   if (r.files?.length) {
@@ -363,7 +443,7 @@ function overview() {
       'card bg-base-100 p-5 text-left border border-base-300',
     );
     card.append(
-      node('span', String(data[key].length), 'font-serif text-4xl'),
+      node('span', String(rowsFor(key).length), 'font-serif text-4xl'),
       node('span', names[key], 'text-sm opacity-70 mt-2'),
     );
     grid.append(card);
@@ -406,7 +486,7 @@ function render() {
       ? [...data.places, ...data['out-of-period'], ...data.candidates]
       : view === 'graph'
         ? data.sources
-        : data[view],
+        : rowsFor(view),
   );
   $('count').textContent = `${rows.length} rekordów`;
   $('cards').replaceChildren();
@@ -418,7 +498,7 @@ function render() {
     renderGraph(rows);
     return;
   }
-  if (view === 'materials') {
+  if (['materials', 'source-copies', 'unidentified'].includes(view)) {
     imageGallery($('cards'), rows, true);
     const withoutImages = rows.filter(
       (m) => !m.files.some((f) => /\.(png|jpg|jpeg|webp)$/i.test(f.path)),
@@ -448,7 +528,11 @@ function render() {
         node('p', states[status(r)] || status(r), 'badge badge-outline text-xs h-auto py-1'),
       );
     card.append(
-      node('p', (r.description || r.reason || r.summary || '').slice(0, 180), 'text-sm opacity-70'),
+      node(
+        'p',
+        (r.description || r.reason || r.summary || r.text || '').slice(0, 180),
+        'text-sm opacity-70',
+      ),
     );
     if (view === 'tags')
       card.append(
@@ -482,9 +566,7 @@ function select(key) {
   $('status').replaceChildren(node('option', 'Wszystkie stany'));
   $('status').firstChild.value = '';
   const rows =
-    key === 'map'
-      ? [...data.places, ...data['out-of-period'], ...data.candidates]
-      : data[key] || [];
+    key === 'map' ? [...data.places, ...data['out-of-period'], ...data.candidates] : rowsFor(key);
   for (const state of new Set(rows.map(status).filter(Boolean))) {
     const o = node('option', states[state] || state);
     o.value = state;

@@ -6,6 +6,7 @@ import { loadWorkspace, safePath, hash, atomicWrite } from './workspace.mjs';
 export async function capture({
   root,
   materialId,
+  collection = 'materials',
   input,
   role = 'original',
   derivedFrom = null,
@@ -13,7 +14,8 @@ export async function capture({
   apply = false,
 }) {
   const data = await loadWorkspace(root);
-  const material = data.materials.find((m) => m.id === materialId);
+  if (!['documents', 'materials'].includes(collection)) throw new Error('Invalid collection');
+  const material = data[collection].find((m) => m.id === materialId);
   if (!material) throw new Error('Unknown material');
   if (!['original', 'scan', 'crop', 'thumbnail'].includes(role)) throw new Error('Invalid role');
   if ((await stat(input)).size > 200000000) throw new Error('File too large');
@@ -31,7 +33,7 @@ export async function capture({
           : bytes.subarray(0, 4).toString() === 'RIFF' &&
             bytes.subarray(8, 12).toString() === 'WEBP';
   if (!valid) throw new Error('File content does not match format');
-  const all = data.materials.flatMap((m) => m.files);
+  const all = [...data.documents, ...data.materials].flatMap((m) => m.files);
   if (derivedFrom && !all.some((f) => f.path === derivedFrom)) throw new Error('Missing original');
   if (['scan', 'crop', 'thumbnail'].includes(role) && (!derivedFrom || !transformations))
     throw new Error('Derived copy requires original and transformations');
@@ -53,7 +55,7 @@ export async function capture({
       material.files.push({ path, sha256: sum, role, derivedFrom, transformations });
       material.updatedAt = new Date().toISOString();
       await atomicWrite(
-        await safePath(root, `materials/${material.id}.json`),
+        await safePath(root, `${collection}/${material.id}.json`),
         JSON.stringify(material, null, 2) + '\n',
       );
     }

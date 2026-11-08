@@ -7,3 +7,5 @@ Backend Firebase Functions. `src/` zawiera API, obsługę usług i walidację; `
 Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
 
 Publiczny kontrakt miejsca używa tags i period; nowa wspólna ścieżka obrazów to public/materials. Prywatny warsztat nie jest przechowywany w dokumentach places. Szczegóły w data/places/README.md.
+
+Publiczny kontrakt miejsca używa mentions z documentedDate i verification oraz materiałami o własnych datach; odrzuca materiały poza okresem wzmianki. Migracja dawnych references jest jawna; zwykły odczyt nie toleruje starego kontraktu.

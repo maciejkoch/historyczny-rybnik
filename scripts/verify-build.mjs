@@ -20,7 +20,7 @@ for (const place of catalogue) {
   assert.match(html, /screen-place/);
   assert.ok(html.includes(place.name)); assert.ok(html.includes(place.description));
   assert.match(html, /rel="canonical"/); assert.match(html, /og:title/);
-  for (const ref of place.references) assert.ok(html.includes(ref.title));
+  for (const ref of place.mentions) assert.ok(html.includes(ref.title));
 }
 assert.match(readFileSync(`${root}/sitemap.xml`, 'utf8'), /bazylika-sw-antoniego/);
 assert.ok(existsSync(`${root}/maplibre/maplibre-gl-worker.mjs`));

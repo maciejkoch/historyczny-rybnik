@@ -42,7 +42,7 @@ export async function loadWorkspace(root = defaultRoot, { verifyFiles = true } =
   }
   const parsed = validateWorkspace(data);
   if (verifyFiles)
-    for (const m of parsed.materials)
+    for (const m of [...parsed.documents, ...parsed.materials])
       for (const f of m.files) {
         const bytes = await readFile(await safePath(root, f.path));
         if (hash(bytes) !== f.sha256) throw new Error(`File checksum mismatch: ${f.path}`);
@@ -55,7 +55,7 @@ export async function initWorkspace(root = defaultRoot) {
     await mkdir(await safePath(root, key), { recursive: true });
   for (const [name, value] of Object.entries({
     'config.json': {
-      schemaVersion: 2,
+      schemaVersion: 3,
       city: 'Rybnik',
       period: { from: 1918, to: 1939, flexible: true },
     },

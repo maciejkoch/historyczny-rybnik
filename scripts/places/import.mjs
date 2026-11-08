@@ -11,7 +11,7 @@ if (
   throw new Error('Dev import requires the reviewed church and 1–400 validated places');
 console.log(
   JSON.stringify(
-    places.map(({ id, slug, references }) => ({ id, slug, references: references.length })),
+    places.map(({ id, slug, mentions }) => ({ id, slug, mentions: mentions.length })),
     null,
     2,
   ),

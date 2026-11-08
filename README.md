@@ -40,3 +40,5 @@ Potwierdzone w źródłach wycinki domeny publicznej są stopniowo podłączane 
 Warsztat badań ma projektowy skill, prywatne dane źródeł/materiałów/miejsc, synchronizację ze Storage i [lokalną przeglądarkę](data/places/README.md) (`npm run research:view`). Każde badanie kontynuuje wcześniejsze ustalenia; publikacja zatwierdzonych treści pozostaje osobnym etapem. Karty pokazują tagi i brak potwierdzenia istnienia w okresie międzywojennym.
 
 Lokalny warsztat: widok Materiały pokazuje galerię skanów i wycinków z miejscami, źródłami oraz stanem praw. Prywatna archiwizacja jest niezależna od zgody na publikację.
+
+Miejsce ma opis redakcyjny, udokumentowane daty i zweryfikowane wzmianki z właściwymi materiałami historycznymi. Lokalny warsztat rozdziela historyczne obrazy, kopie źródeł oraz materiały do rozpoznania; współczesne zdjęcia nie ilustrują dawnych wzmianek.

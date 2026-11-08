@@ -81,3 +81,5 @@ Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_
 `research/legacy-period.mjs` kwalifikuje wcześniejsze wzmianki: datowanie treści oraz jawnie rozpoznane współczesne ogłoszenia i spisy adresowe, z zachowaniem niepewności identyfikacji.
 
 `research capture --material=ID --input=plik [--role=original|scan|crop|thumbnail] [--derived-from=files/...] [--transformations=opis] [--apply]` (`research/capture.mjs`): podgląd/zapis wewnętrznej kopii z deduplikacją SHA-256 i pochodzeniem, bez zmiany praw publikacyjnych.
+
+`research/chronology.mjs` wylicza udokumentowane daty bez interpolacji lat oraz sprawdza zgodność źródła/datowania obrazu ze wzmianką. `research/restructure.mjs` jawnie przekształca schemat 2 → 3. `capture --collection=documents|materials` wybiera rekord docelowy.

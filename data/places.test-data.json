@@ -5,7 +5,11 @@
     "slug": "bazylika-sw-antoniego-padewskiego",
     "previousSlugs": [],
     "description": "Neogotycki kościół zaprojektowany przez Ludwiga Schneidera. Budowę rozpoczęto w 1903 roku, a świątynię poświęcono 29 września 1907 roku. Od 1993 roku ma tytuł bazyliki mniejszej.",
-    "aliases": ["Kościół świętego Antoniego", "Bazylika św. Antoniego", "Rybnicka katedra"],
+    "aliases": [
+      "Kościół świętego Antoniego",
+      "Bazylika św. Antoniego",
+      "Rybnicka katedra"
+    ],
     "addresses": [
       {
         "type": "current",
@@ -21,23 +25,38 @@
       "precision": "approximate",
       "explanation": "Punkt obiektu według portalu Śląskiej Organizacji Turystycznej (silesia.travel, obiekt 3273). Wskazanie orientacyjne, nie pomiar geodezyjny."
     },
-    "references": [
+    "published": true,
+    "locationVersion": 0,
+    "createdAt": "2026-11-05T12:00:00Z",
+    "updatedAt": "2026-11-05T12:00:00Z",
+    "tags": [
+      {
+        "id": "obiekt-sakralny",
+        "name": "obiekt sakralny"
+      }
+    ],
+    "period": {
+      "status": "unverified",
+      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
+    },
+    "mentions": [
       {
         "id": "parafia_historia",
         "title": "Historia parafii św. Antoniego",
         "url": "https://www.bazylika.rybnik.pl/historia.html",
         "page": null,
         "publicationDate": null,
-        "historicalDate": {
-          "to": "1907",
-          "approximate": false,
-          "from": "1903"
-        },
         "accessedAt": "2026-11-05T12:00:00Z",
         "excerpt": "Parafia podaje rozpoczęcie budowy w 1903 roku oraz poświęcenie kościoła 29 września 1907 roku.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "documentedDate": {
+          "to": "1907",
+          "approximate": false,
+          "from": "1903"
+        },
+        "verification": "draft",
+        "materials": []
       },
       {
         "id": "sot_lokalizacja",
@@ -45,12 +64,13 @@
         "url": "https://www.silesia.travel/culturalheritage/3273",
         "page": null,
         "publicationDate": null,
-        "historicalDate": null,
         "accessedAt": "2026-11-05T12:00:00Z",
         "excerpt": "Karta obiektu wskazuje adres Mikołowska 4 i orientacyjną pozycję bazyliki.",
         "excerptType": "summary",
         "note": null,
-        "images": []
+        "documentedDate": null,
+        "verification": "draft",
+        "materials": []
       },
       {
         "id": "polona_1919",
@@ -62,12 +82,17 @@
           "approximate": true,
           "from": "1919"
         },
-        "historicalDate": null,
         "accessedAt": "2026-11-05T12:26:30Z",
         "excerpt": "Kolorowana pocztówka przedstawia kościół św. Antoniego z dwiema wieżami i boczną elewacją.",
         "excerptType": "summary",
         "note": "Datowanie 1919 według korespondencji na pocztówce. Dokładna data wykonania fotografii oraz autor są nieustalone. Oryginał: Biblioteka Narodowa / Polona, obiekt 70420187; kopia cyfrowa udostępniona w Wikimedia Commons.",
-        "images": [
+        "documentedDate": {
+          "to": null,
+          "approximate": true,
+          "from": "1919"
+        },
+        "verification": "verified",
+        "materials": [
           {
             "storagePath": "public/places/place_sw_antoni/polona_1919/antoni-1919-v1.jpg",
             "thumbnailPath": "public/places/place_sw_antoni/polona_1919/antoni-1919-thumb-v1.jpg",
@@ -89,24 +114,16 @@
               "transformations": "Complete postcard, resized to 1800px and 640px long edge; JPEG compression, no crop, retouching or recolouring."
             },
             "sha256": "6cd2b79894d7085850655146707d9ddd233abfbc3e596748d34af58ad9ea2473",
-            "thumbnailSha256": "6e85b4c6a2fcef8e19c1834f1040be9c0f13bd58ccb0cdbb07f6100e85583823"
+            "thumbnailSha256": "6e85b4c6a2fcef8e19c1834f1040be9c0f13bd58ccb0cdbb07f6100e85583823",
+            "materialId": "vis_6cd2b79894d7085850655146707d9ddd",
+            "documentedDate": {
+              "to": null,
+              "approximate": true,
+              "from": "1919"
+            }
           }
         ]
       }
-    ],
-    "published": true,
-    "locationVersion": 0,
-    "createdAt": "2026-11-05T12:00:00Z",
-    "updatedAt": "2026-11-05T12:00:00Z",
-    "tags": [
-      {
-        "id": "obiekt-sakralny",
-        "name": "obiekt sakralny"
-      }
-    ],
-    "period": {
-      "status": "unverified",
-      "explanation": "Przeniesiono z wcześniejszego katalogu; kwalifikacja do okresu międzywojennego wymaga sprawdzenia konkretnych wzmianek."
-    }
+    ]
   }
 ]

@@ -1,3 +1,4 @@
+import { materialMatchesMention } from './chronology.mjs';
 import { z } from 'zod';
 import {
   idSchema as id,
@@ -23,15 +24,14 @@ export const filePath = z
   .string()
   .regex(/^files\/(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_.-]+$/)
   .refine((s) => !s.split('/').some((p) => p === '.' || p === '..'));
-const evidence = z.strictObject({ materialId: id, locator: text, note: text.nullable() });
+const evidence = z.strictObject({ documentId: id, locator: text, note: text.nullable() });
 export const periodSchema = z.strictObject({
   status: z.enum(['confirmed', 'probable', 'unverified', 'outside']),
   explanation: text,
-  evidence: z.array(evidence),
 });
 const tag = z.strictObject({ id, name: text, description: text, synonyms: z.array(text) });
 export const configSchema = z.strictObject({
-  schemaVersion: z.literal(2),
+  schemaVersion: z.literal(3),
   city: z.literal('Rybnik'),
   period: z.strictObject({ from: z.literal(1918), to: z.literal(1939), flexible: z.literal(true) }),
 });
@@ -55,7 +55,7 @@ export const sourceSchema = z.strictObject({
   checkedAt: timestampSchema.nullable(),
   discoveredFrom: z.array(z.strictObject({ sourceId: id, locator: text, note: text.nullable() })),
 });
-export const materialSchema = z.strictObject({
+export const documentSchema = z.strictObject({
   ...base,
   title: text,
   kind: z.enum(['article', 'newspaper', 'book', 'photo', 'map', 'scan', 'other']),
@@ -72,13 +72,13 @@ export const materialSchema = z.strictObject({
   content: z.string().max(200000),
   contentType: z.enum(['quote', 'transcription', 'ocr', 'summary']),
   placeIds: ids,
-  parentMaterialId: id.nullable(),
+  parentDocumentId: id.nullable(),
   publicationImages: z.array(imageSchema).max(100),
   rights: z.strictObject({
     status: z.enum(['public-domain', 'licensed', 'restricted', 'unknown']),
     basis: text.nullable(),
     evidenceUrl: url.nullable(),
-    evidenceMaterialId: id.nullable().optional(),
+    evidenceDocumentId: id.nullable().optional(),
     checkedAt: timestampSchema.nullable(),
     credit: text.nullable(),
     publicationApproved: z.boolean(),
@@ -93,6 +93,38 @@ export const materialSchema = z.strictObject({
     }),
   ),
 });
+export const materialSchema = z.strictObject({
+  ...base,
+  title: text,
+  kind: z.enum(['scan', 'photo', 'postcard', 'map', 'advertisement', 'other']),
+  sourceDocumentIds: ids.min(1),
+  originalDate: date,
+  depictedDate: date,
+  datingNote: text,
+  classification: z.enum(['historical', 'source-copy', 'unidentified', 'outside-period']),
+  rights: documentSchema.shape.rights,
+  files: documentSchema.shape.files.min(1),
+  publicationImages: z.array(imageSchema).max(100),
+});
+export const mentionSchema = z
+  .strictObject({
+    ...base,
+    placeId: id,
+    text,
+    documentedDate: date,
+    verification: z.enum(['verified', 'draft', 'conflicting']),
+    verificationNote: text,
+    verifiedAt: timestampSchema.nullable(),
+    evidence: z.array(evidence).min(1),
+    materialIds: ids,
+  })
+  .superRefine((m, ctx) => {
+    if (m.verification === 'verified' && (!m.documentedDate || !m.verifiedAt))
+      ctx.addIssue({
+        code: 'custom',
+        message: 'Verified mention requires documented date and verification time',
+      });
+  });
 export const placeSchema = z.strictObject({
   ...base,
   name: text,
@@ -107,17 +139,9 @@ export const placeSchema = z.strictObject({
   createdAt: timestampSchema,
   tags: ids.min(1),
   period: periodSchema,
-  materialIds: ids,
-  findings: z.array(
-    z.strictObject({
-      id,
-      text,
-      status: z.enum(['confirmed', 'uncertain', 'conflicting']),
-      evidence: z.array(evidence).min(1),
-    }),
-  ),
+  mentionIds: ids,
   relatedPlaces: z.array(
-    z.strictObject({ placeId: id, note: text.nullable(), materialId: id.nullable() }),
+    z.strictObject({ placeId: id, note: text.nullable(), documentId: id.nullable() }),
   ),
   questions: z.array(text),
   publicationApproved: z.boolean(),
@@ -152,7 +176,16 @@ export const researchSchema = z.strictObject({
   ),
   changes: z.array(
     z.strictObject({
-      collection: z.enum(['sources', 'materials', 'places', 'candidates', 'out-of-period', 'tags']),
+      collection: z.enum([
+        'sources',
+        'documents',
+        'mentions',
+        'materials',
+        'places',
+        'candidates',
+        'out-of-period',
+        'tags',
+      ]),
       id,
       action: z.enum(['added', 'updated', 'moved']),
     }),
@@ -170,6 +203,8 @@ export const researchSchema = z.strictObject({
 });
 export const schemas = {
   sources: sourceSchema,
+  documents: documentSchema,
+  mentions: mentionSchema,
   materials: materialSchema,
   places: placeSchema,
   'out-of-period': placeSchema,
@@ -194,7 +229,7 @@ export function validateWorkspace(input) {
   const need = (set, id) => {
     if (!set.has(id)) throw new Error(`Broken reference: ${id}`);
   };
-  const ev = (e) => need(sets.materials, e.materialId);
+  const ev = (e) => need(sets.documents, e.documentId);
   const labels = new Set();
   for (const t of data.tags)
     for (const name of [t.name, ...t.synonyms]) {
@@ -210,38 +245,58 @@ export function validateWorkspace(input) {
     }
   const sourceUrls = data.sources.map((s) => s.url).filter(Boolean);
   if (new Set(sourceUrls).size !== sourceUrls.length) throw new Error('Duplicate source URL');
+  const documents = new Map(data.documents.map((m) => [m.id, m]));
   const materials = new Map(data.materials.map((m) => [m.id, m]));
+  const mentions = new Map(data.mentions.map((m) => [m.id, m]));
   for (const s of data.sources) for (const d of s.discoveredFrom) need(sets.sources, d.sourceId);
-  for (const m of data.materials) {
-    need(sets.sources, m.sourceId);
-    m.placeIds.forEach((p) => need(allPlaces, p));
-    if (m.parentMaterialId) need(sets.materials, m.parentMaterialId);
-    if (m.rights.evidenceMaterialId) need(sets.materials, m.rights.evidenceMaterialId);
+  for (const d of data.documents) {
+    need(sets.sources, d.sourceId);
+    d.placeIds.forEach((p) => need(allPlaces, p));
+    if (d.parentDocumentId) need(sets.documents, d.parentDocumentId);
+    const visited = new Set([d.id]);
+    let parent = d.parentDocumentId;
+    while (parent) {
+      if (visited.has(parent)) throw new Error('Document ancestry cycle');
+      visited.add(parent);
+      parent = documents.get(parent).parentDocumentId;
+    }
+  }
+  for (const m of [...data.documents, ...data.materials]) {
+    if (m.rights.evidenceDocumentId) need(sets.documents, m.rights.evidenceDocumentId);
     if (
       m.rights.publicationApproved &&
       (m.rights.status !== 'public-domain' ||
         !m.rights.basis ||
-        (!m.rights.evidenceUrl && !m.rights.evidenceMaterialId) ||
+        (!m.rights.evidenceUrl && !m.rights.evidenceDocumentId) ||
         !m.rights.checkedAt ||
         !m.rights.credit)
     )
       throw new Error(`Publication rights not evidenced: ${m.id}`);
-    const visited = new Set([m.id]);
-    let parent = m.parentMaterialId;
-    while (parent) {
-      if (visited.has(parent)) throw new Error('Material ancestry cycle');
-      visited.add(parent);
-      parent = materials.get(parent).parentMaterialId;
+  }
+  for (const m of data.materials) {
+    m.sourceDocumentIds.forEach((id) => need(sets.documents, id));
+    if (m.classification === 'historical' && !(m.depictedDate || m.originalDate))
+      throw new Error('Historical material requires dating');
+    if (m.classification !== 'historical' && m.rights.publicationApproved)
+      throw new Error('Only historical material can be approved');
+  }
+  for (const m of data.mentions) {
+    need(allPlaces, m.placeId);
+    m.evidence.forEach(ev);
+    for (const id of m.materialIds) {
+      need(sets.materials, id);
+      if (!materialMatchesMention(materials.get(id), m))
+        throw new Error('Material does not match verified mention period');
     }
   }
   const paths = new Map();
-  for (const m of data.materials)
+  for (const m of [...data.documents, ...data.materials])
     for (const f of m.files) {
       if (paths.has(f.path) && paths.get(f.path) !== f.sha256)
         throw new Error('Conflicting file hash');
       paths.set(f.path, f.sha256);
     }
-  for (const m of data.materials)
+  for (const m of [...data.documents, ...data.materials])
     for (const f of m.files)
       if (f.derivedFrom && !paths.has(f.derivedFrom))
         throw new Error(`Missing original file: ${f.derivedFrom}`);
@@ -252,17 +307,29 @@ export function validateWorkspace(input) {
       slugs.add(slug);
     }
     p.tags.forEach((t) => need(sets.tags, t));
-    p.materialIds.forEach((m) => need(sets.materials, m));
-    if (new Set(p.findings.map((f) => f.id)).size !== p.findings.length)
-      throw new Error('Duplicate finding ID');
-    p.period.evidence.forEach(ev);
-    p.findings.forEach((f) => f.evidence.forEach(ev));
+    for (const id of p.mentionIds) {
+      need(sets.mentions, id);
+      if (mentions.get(id).placeId !== p.id) throw new Error('Mention belongs to another place');
+    }
+
     for (const r of p.relatedPlaces) {
       need(allPlaces, r.placeId);
       if (r.placeId === p.id) throw new Error('Self relation');
-      if (r.materialId) need(sets.materials, r.materialId);
+      if (r.documentId) need(sets.documents, r.documentId);
     }
-    if (p.period.status === 'confirmed' && !p.period.evidence.length)
+    if (
+      p.period.status === 'confirmed' &&
+      !p.mentionIds.some((id) => {
+        const m = mentions.get(id);
+        return (
+          m.verification === 'verified' &&
+          m.documentedDate &&
+          Number(m.documentedDate.from.slice(0, 4)) <= data.config.period.to &&
+          Number((m.documentedDate.to || m.documentedDate.from).slice(0, 4)) >=
+            data.config.period.from
+        );
+      })
+    )
       throw new Error(`No period evidence: ${p.id}`);
     if (data.places.includes(p) !== ['confirmed', 'probable'].includes(p.period.status))
       throw new Error(`Wrong period folder: ${p.id}`);
