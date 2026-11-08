@@ -10,7 +10,7 @@ import { MobileNavigation } from '../layout/mobile-navigation/mobile-navigation'
   selector: 'app-about',
   imports: [RouterLink, PortalHeader, PortalFooter, MobileNavigation],
   templateUrl: './about.html',
-  styleUrl: './about.css',
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class About {
