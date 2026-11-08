@@ -10,6 +10,8 @@ Mapa grupuje pobliskie miejsca przy oddaleniu, z liczbą miejsc i przybliżaniem
 
 Wyszukiwarka ma filtr „Bez lokalizacji”, łączony z wpisaną nazwą, adresem lub dzielnicą.
 
+`app/about/` zawiera publiczną stronę „O nas” pod `/o-nas`, z treścią SSG i odnośnikiem w menu globalnym.
+
 Karta miejsca pokazuje płaskie tagi i adnotację, gdy period nie potwierdza istnienia w okresie międzywojennym. Prywatny warsztat i jego przeglądarka są poza src i publicznym buildem.
 
 `app/atlas/atlas.routes.ts` ładuje atlas i katalog jako osobny pakiet tras. Zachowuje statyczny HTML kart i współdzieloną instancję atlasu przy przejściach mapa/wyszukiwanie/miejsce; `AtlasReuse` identyfikuje te trasy przez data.atlas.

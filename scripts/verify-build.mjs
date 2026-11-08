@@ -78,3 +78,15 @@ assert.match(privacy, /180 dni/);
 assert.match(privacy, /noindex/);
 assert.doesNotMatch(home, /<script[^>]+src=[\"'][^\"']*(google|recaptcha)/);
 console.log('Verified static privacy page and no embedded Google scripts.');
+
+const about = readFileSync(`${root}/o-nas/index.html`, 'utf8');
+assert.match(about, /<title>O nas — Historyczny Rybnik<\/title>/);
+assert.match(about, /<h1[^>]*>O nas<\/h1>/);
+assert.match(about, /Historia oparta na źródłach/);
+assert.match(about, /name="description" content="Poznaj ideę Historycznego Rybnika/);
+assert.match(about, /rel="canonical" href="https:\/\/historyczny-rybnik-dev.web.app\/o-nas"/);
+assert.match(about, /noindex/);
+assert.match(home, /href="\/o-nas"/);
+assert.match(readFileSync(`${root}/sitemap.xml`, 'utf8'), /\/o-nas<\/loc>/);
+assert.doesNotMatch(about, /<script[^>]+src=["'][^"']*(google|recaptcha)/);
+console.log('Verified static about page, metadata, menu link and sitemap.');

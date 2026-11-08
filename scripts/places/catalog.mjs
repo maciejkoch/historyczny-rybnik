@@ -30,7 +30,7 @@ export function generate(input) {
   const origin = 'https://historyczny-rybnik-dev.web.app';
   writeFileSync(
     'public/sitemap.xml',
-    `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['/', ...places.map((p) => '/miejsca/' + p.slug)].map((path) => `<url><loc>${origin}${path}</loc></url>`).join('')}</urlset>`,
+    `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['/', '/o-nas', ...places.map((p) => '/miejsca/' + p.slug)].map((path) => `<url><loc>${origin}${path}</loc></url>`).join('')}</urlset>`,
   );
   const config = JSON.parse(readFileSync('firebase.dev.json', 'utf8'));
   config.hosting.public = resolve(config.hosting.public);
