@@ -19,7 +19,7 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 | [places/snapshot.mjs](places/snapshot.mjs) | Pobiera opublikowane miejsca z Firestore do ignorowanego `.local/places.snapshot.json`. |
 | [places/upload-assets.mjs](places/upload-assets.mjs) | Sprawdza SHA-256 i rozmiary obrazów; z `--apply` publikuje nowe, niezmienne pliki w bucket dev. |
 | [privacy/consent.test.mjs](privacy/consent.test.mjs) | Testuje zgody, przechowywanie ustawień i warunki ładowania usług Google. |
-| [verify-build.mjs](verify-build.mjs) | Sprawdza artefakty SSG, treść i metadane stron, 404, noindex oraz konfigurację Hosting. |
+| [verify-build.mjs](verify-build.mjs) | Sprawdza artefakty SSG, treść i metadane stron (także „O nas”), 404, noindex oraz konfigurację Hosting. |
 
 Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduły `catalog.mjs` i `firestore.mjs` są używane przez pozostałe skrypty; nie są osobnymi poleceniami operatora.
 

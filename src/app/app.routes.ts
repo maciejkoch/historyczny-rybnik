@@ -1,9 +1,11 @@
+import { About } from './about/about';
 import { Routes } from '@angular/router';
 import { Atlas } from './atlas/atlas';
 import { NotFound } from './not-found/not-found';
 import { PrivacyPolicy } from './privacy/privacy-policy/privacy-policy';
 import { PLACES } from './places/catalog.generated';
 export const routes: Routes = [
+  { path: 'o-nas', component: About, title: 'O nas — Historyczny Rybnik' },
   {
     path: 'prywatnosc',
     component: PrivacyPolicy,
