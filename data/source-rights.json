@@ -1,0 +1,2888 @@
+{
+  "schemaVersion": 1,
+  "policy": "Public domain only; verify exact edition, never infer rights from repository or title.",
+  "sources": {
+    "sbc-edition-3074": {
+      "title": "Przewodnik gospodarczy województw: kieleckiego, krakowskiego i śląskiego 1938",
+      "editionId": "3074",
+      "status": "public-domain",
+      "checkedAt": "2026-11-07",
+      "evidenceUrl": "https://www.sbc.org.pl/dlibra/publication/edition/3074",
+      "evidenceField": "Prawa",
+      "evidenceText": "Domena publiczna (public domain)",
+      "scope": "Exact digitized edition; no blanket approval for other editions or later additions.",
+      "method": "Publisher metadata read in browser, object description panel",
+      "materials": [
+        {
+          "placeId": "place_mvp0_65",
+          "referenceId": "observation-126",
+          "legacyPath": "images/history/sources/guide-1938-519.jpg"
+        },
+        {
+          "placeId": "place_mvp0_114",
+          "referenceId": "observation-122",
+          "legacyPath": "images/history/sources/guide-1938-519.jpg"
+        },
+        {
+          "placeId": "place_mvp0_115",
+          "referenceId": "observation-123",
+          "legacyPath": "images/history/sources/guide-1938-519.jpg"
+        },
+        {
+          "placeId": "place_mvp0_116",
+          "referenceId": "observation-124",
+          "legacyPath": "images/history/sources/guide-1938-519.jpg"
+        },
+        {
+          "placeId": "place_mvp0_117",
+          "referenceId": "observation-125",
+          "legacyPath": "images/history/sources/guide-1938-519.jpg"
+        },
+        {
+          "placeId": "place_mvp0_118",
+          "referenceId": "observation-127",
+          "legacyPath": "images/history/sources/guide-1938-519.jpg"
+        },
+        {
+          "placeId": "place_mvp0_119",
+          "referenceId": "observation-128",
+          "legacyPath": "images/history/sources/guide-1938-519.jpg"
+        },
+        {
+          "placeId": "place_mvp0_120",
+          "referenceId": "observation-129",
+          "legacyPath": "images/history/sources/guide-1938-519.jpg"
+        },
+        {
+          "placeId": "place_mvp0_121",
+          "referenceId": "observation-130",
+          "legacyPath": "images/history/sources/guide-1938-519.jpg"
+        },
+        {
+          "placeId": "place_mvp0_122",
+          "referenceId": "observation-131",
+          "legacyPath": "images/history/sources/guide-1938-519.jpg"
+        },
+        {
+          "placeId": "place_mvp0_123",
+          "referenceId": "observation-132",
+          "legacyPath": "images/history/sources/guide-1938-519.jpg"
+        },
+        {
+          "placeId": "place_mvp0_124",
+          "referenceId": "observation-133",
+          "legacyPath": "images/history/sources/guide-1938-519.jpg"
+        },
+        {
+          "placeId": "place_mvp0_125",
+          "referenceId": "observation-134",
+          "legacyPath": "images/history/sources/guide-1938-519.jpg"
+        }
+      ]
+    },
+    "sbc-edition-293425": {
+      "title": "Rzemieślnik Śląski, 1931, R. 3, Nr. 2",
+      "editionId": "293425",
+      "status": "public-domain",
+      "checkedAt": "2026-11-07",
+      "evidenceUrl": "https://www.sbc.org.pl/dlibra/publication/edition/293425",
+      "evidenceField": "Prawa",
+      "evidenceText": "Domena publiczna (public domain)",
+      "scope": "Exact digitized edition; no blanket approval for other editions or later additions.",
+      "method": "Publisher metadata read in browser, object description panel",
+      "materials": [
+        {
+          "placeId": "place_mvp0_65",
+          "referenceId": "observation-150",
+          "legacyPath": "images/history/sources/craftsman-1931-02-10.jpg"
+        }
+      ]
+    },
+    "sbc-edition-256172": {
+      "title": "Sztandar Polski i Gazeta Rybnicka, 1938, nr 1",
+      "editionId": "256172",
+      "status": "public-domain",
+      "checkedAt": "2026-11-07",
+      "evidenceUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256172",
+      "evidenceField": "Prawa",
+      "evidenceText": "Domena publiczna (public domain)",
+      "scope": "Exact digitized edition; no blanket approval for other editions or later additions.",
+      "method": "Publisher metadata read in browser, object description panel",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1",
+          "referenceId": "newspaper-ad-1",
+          "legacyPath": "images/history/ad-01.jpg"
+        },
+        {
+          "placeId": "place_mvp0_2",
+          "referenceId": "newspaper-ad-2",
+          "legacyPath": "images/history/ad-02.jpg"
+        },
+        {
+          "placeId": "place_mvp0_3",
+          "referenceId": "newspaper-ad-3",
+          "legacyPath": "images/history/ad-03.jpg"
+        },
+        {
+          "placeId": "place_mvp0_4",
+          "referenceId": "newspaper-ad-4",
+          "legacyPath": "images/history/ad-04.jpg"
+        },
+        {
+          "placeId": "place_mvp0_5",
+          "referenceId": "newspaper-ad-5",
+          "legacyPath": "images/history/ad-05.jpg"
+        },
+        {
+          "placeId": "place_mvp0_6",
+          "referenceId": "newspaper-ad-6",
+          "legacyPath": "images/history/ad-06.jpg"
+        },
+        {
+          "placeId": "place_mvp0_7",
+          "referenceId": "newspaper-ad-7",
+          "legacyPath": "images/history/ad-07.jpg"
+        },
+        {
+          "placeId": "place_mvp0_8",
+          "referenceId": "newspaper-ad-8",
+          "legacyPath": "images/history/ad-08.jpg"
+        },
+        {
+          "placeId": "place_mvp0_9",
+          "referenceId": "newspaper-ad-9",
+          "legacyPath": "images/history/ad-09.jpg"
+        },
+        {
+          "placeId": "place_mvp0_10",
+          "referenceId": "newspaper-ad-10",
+          "legacyPath": "images/history/ad-10.jpg"
+        },
+        {
+          "placeId": "place_mvp0_11",
+          "referenceId": "newspaper-ad-11",
+          "legacyPath": "images/history/ad-11.jpg"
+        },
+        {
+          "placeId": "place_mvp0_12",
+          "referenceId": "newspaper-ad-12",
+          "legacyPath": "images/history/ad-12.jpg"
+        },
+        {
+          "placeId": "place_mvp0_13",
+          "referenceId": "newspaper-ad-13",
+          "legacyPath": "images/history/ad-13.jpg"
+        },
+        {
+          "placeId": "place_mvp0_14",
+          "referenceId": "newspaper-ad-14",
+          "legacyPath": "images/history/ad-14.jpg"
+        },
+        {
+          "placeId": "place_mvp0_15",
+          "referenceId": "newspaper-ad-15",
+          "legacyPath": "images/history/ad-15.jpg"
+        },
+        {
+          "placeId": "place_mvp0_16",
+          "referenceId": "newspaper-ad-16",
+          "legacyPath": "images/history/ad-16.jpg"
+        },
+        {
+          "placeId": "place_mvp0_17",
+          "referenceId": "newspaper-ad-17",
+          "legacyPath": "images/history/ad-17.jpg"
+        },
+        {
+          "placeId": "place_mvp0_18",
+          "referenceId": "newspaper-ad-18",
+          "legacyPath": "images/history/ad-18.jpg"
+        },
+        {
+          "placeId": "place_mvp0_19",
+          "referenceId": "newspaper-ad-19",
+          "legacyPath": "images/history/ad-19.jpg"
+        },
+        {
+          "placeId": "place_mvp0_20",
+          "referenceId": "newspaper-ad-20",
+          "legacyPath": "images/history/ad-20.jpg"
+        },
+        {
+          "placeId": "place_mvp0_21",
+          "referenceId": "newspaper-ad-21",
+          "legacyPath": "images/history/ad-21.jpg"
+        },
+        {
+          "placeId": "place_mvp0_22",
+          "referenceId": "newspaper-ad-22",
+          "legacyPath": "images/history/ad-22.jpg"
+        },
+        {
+          "placeId": "place_mvp0_23",
+          "referenceId": "newspaper-ad-23",
+          "legacyPath": "images/history/ad-23.jpg"
+        },
+        {
+          "placeId": "place_mvp0_24",
+          "referenceId": "newspaper-ad-24",
+          "legacyPath": "images/history/ad-24.jpg"
+        },
+        {
+          "placeId": "place_mvp0_25",
+          "referenceId": "newspaper-ad-25",
+          "legacyPath": "images/history/ad-25.jpg"
+        },
+        {
+          "placeId": "place_mvp0_26",
+          "referenceId": "newspaper-ad-26",
+          "legacyPath": "images/history/ad-26.jpg"
+        },
+        {
+          "placeId": "place_mvp0_27",
+          "referenceId": "newspaper-ad-27",
+          "legacyPath": "images/history/ad-27.jpg"
+        },
+        {
+          "placeId": "place_mvp0_28",
+          "referenceId": "newspaper-ad-28",
+          "legacyPath": "images/history/ad-28.jpg"
+        },
+        {
+          "placeId": "place_mvp0_29",
+          "referenceId": "newspaper-ad-29",
+          "legacyPath": "images/history/ad-29.jpg"
+        },
+        {
+          "placeId": "place_mvp0_30",
+          "referenceId": "newspaper-ad-30",
+          "legacyPath": "images/history/ad-30.jpg"
+        },
+        {
+          "placeId": "place_mvp0_31",
+          "referenceId": "newspaper-ad-31",
+          "legacyPath": "images/history/ad-31.jpg"
+        },
+        {
+          "placeId": "place_mvp0_32",
+          "referenceId": "newspaper-ad-32",
+          "legacyPath": "images/history/ad-32.jpg"
+        },
+        {
+          "placeId": "place_mvp0_33",
+          "referenceId": "newspaper-ad-33",
+          "legacyPath": "images/history/ad-33.jpg"
+        },
+        {
+          "placeId": "place_mvp0_34",
+          "referenceId": "newspaper-ad-34",
+          "legacyPath": "images/history/ad-34.jpg"
+        },
+        {
+          "placeId": "place_mvp0_35",
+          "referenceId": "newspaper-ad-35",
+          "legacyPath": "images/history/ad-35.jpg"
+        },
+        {
+          "placeId": "place_mvp0_36",
+          "referenceId": "newspaper-ad-36",
+          "legacyPath": "images/history/ad-36.jpg"
+        },
+        {
+          "placeId": "place_mvp0_37",
+          "referenceId": "newspaper-ad-37",
+          "legacyPath": "images/history/ad-37.jpg"
+        },
+        {
+          "placeId": "place_mvp0_38",
+          "referenceId": "newspaper-ad-38",
+          "legacyPath": "images/history/ad-38.jpg"
+        },
+        {
+          "placeId": "place_mvp0_39",
+          "referenceId": "newspaper-ad-39",
+          "legacyPath": "images/history/ad-39.jpg"
+        },
+        {
+          "placeId": "place_mvp0_40",
+          "referenceId": "newspaper-ad-40",
+          "legacyPath": "images/history/ad-40.jpg"
+        },
+        {
+          "placeId": "place_mvp0_41",
+          "referenceId": "newspaper-ad-41",
+          "legacyPath": "images/history/ad-41.jpg"
+        },
+        {
+          "placeId": "place_mvp0_42",
+          "referenceId": "newspaper-ad-42",
+          "legacyPath": "images/history/ad-42.jpg"
+        }
+      ]
+    },
+    "sbc-edition-256198": {
+      "title": "Sztandar Polski i Gazeta Rybnicka, 1938, nr 40",
+      "editionId": "256198",
+      "status": "public-domain",
+      "checkedAt": "2026-11-07",
+      "evidenceUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256198",
+      "evidenceField": "Prawa",
+      "evidenceText": "Domena publiczna (public domain)",
+      "scope": "Exact digitized edition; no blanket approval for other editions or later additions.",
+      "method": "Publisher metadata read in browser, object description panel",
+      "materials": [
+        {
+          "placeId": "place_mvp0_43",
+          "referenceId": "newspaper-ad-43",
+          "legacyPath": "images/history/ad-43.jpg"
+        }
+      ]
+    },
+    "sbc-edition-256202": {
+      "title": "Sztandar Polski i Gazeta Rybnicka, 1938, nr 45",
+      "editionId": "256202",
+      "status": "public-domain",
+      "checkedAt": "2026-11-07",
+      "evidenceUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256202",
+      "evidenceField": "Prawa",
+      "evidenceText": "Domena publiczna (public domain)",
+      "scope": "Exact digitized edition; no blanket approval for other editions or later additions.",
+      "method": "Publisher metadata read in browser, object description panel",
+      "materials": [
+        {
+          "placeId": "place_mvp0_44",
+          "referenceId": "newspaper-ad-44",
+          "legacyPath": "images/history/ad-44.jpg"
+        }
+      ]
+    },
+    "sbc-edition-256207": {
+      "title": "Sztandar Polski i Gazeta Rybnicka, 1938, nr 52",
+      "editionId": "256207",
+      "status": "public-domain",
+      "checkedAt": "2026-11-07",
+      "evidenceUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256207",
+      "evidenceField": "Prawa",
+      "evidenceText": "Domena publiczna (public domain)",
+      "scope": "Exact digitized edition; no blanket approval for other editions or later additions.",
+      "method": "Publisher metadata read in browser, object description panel",
+      "materials": [
+        {
+          "placeId": "place_mvp0_45",
+          "referenceId": "newspaper-ad-45",
+          "legacyPath": "images/history/ad-45.jpg"
+        },
+        {
+          "placeId": "place_mvp0_46",
+          "referenceId": "newspaper-ad-46",
+          "legacyPath": "images/history/ad-46.jpg"
+        }
+      ]
+    },
+    "sbc-edition-256298": {
+      "title": "Sztandar Polski i Gazeta Rybnicka, 1938, nr 150",
+      "editionId": "256298",
+      "status": "public-domain",
+      "checkedAt": "2026-11-07",
+      "evidenceUrl": "https://www.sbc.org.pl/dlibra/publication/edition/256298",
+      "evidenceField": "Prawa",
+      "evidenceText": "Domena publiczna (public domain)",
+      "scope": "Exact digitized edition; no blanket approval for other editions or later additions.",
+      "method": "Publisher metadata read in browser, object description panel",
+      "materials": [
+        {
+          "placeId": "place_mvp0_47",
+          "referenceId": "newspaper-ad-47",
+          "legacyPath": "images/history/ad-47.jpg"
+        }
+      ]
+    },
+    "sbc-edition-14535": {
+      "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku (1936)",
+      "editionId": "14535",
+      "status": "unconfirmed",
+      "checkedAt": "2026-11-07",
+      "evidenceUrl": "https://www.sbc.org.pl/dlibra/publication/edition/14535",
+      "evidenceField": "Opis",
+      "evidenceText": null,
+      "reason": "No rights statement visible in object description; age alone not treated as confirmation.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_11",
+          "referenceId": "observation-068",
+          "legacyPath": "images/history/sources/craft-1936-125.jpg"
+        },
+        {
+          "placeId": "place_mvp0_21",
+          "referenceId": "observation-004",
+          "legacyPath": "images/history/sources/craft-1936-20.jpg"
+        },
+        {
+          "placeId": "place_mvp0_21",
+          "referenceId": "observation-008",
+          "legacyPath": "images/history/sources/craft-1936-27.jpg"
+        },
+        {
+          "placeId": "place_mvp0_21",
+          "referenceId": "observation-032",
+          "legacyPath": "images/history/sources/craft-1936-113.jpg"
+        },
+        {
+          "placeId": "place_mvp0_23",
+          "referenceId": "observation-016",
+          "legacyPath": "images/history/sources/craft-1936-69.jpg"
+        },
+        {
+          "placeId": "place_mvp0_26",
+          "referenceId": "observation-040",
+          "legacyPath": "images/history/sources/craft-1936-117.jpg"
+        },
+        {
+          "placeId": "place_mvp0_33",
+          "referenceId": "observation-023",
+          "legacyPath": "images/history/sources/craft-1936-87.jpg"
+        },
+        {
+          "placeId": "place_mvp0_39",
+          "referenceId": "observation-053",
+          "legacyPath": "images/history/sources/craft-1936-122.jpg"
+        },
+        {
+          "placeId": "place_mvp0_48",
+          "referenceId": "observation-001",
+          "legacyPath": "images/history/sources/craft-1936-17.jpg"
+        },
+        {
+          "placeId": "place_mvp0_48",
+          "referenceId": "observation-006",
+          "legacyPath": "images/history/sources/craft-1936-24.jpg"
+        },
+        {
+          "placeId": "place_mvp0_49",
+          "referenceId": "observation-002",
+          "legacyPath": "images/history/sources/craft-1936-20.jpg"
+        },
+        {
+          "placeId": "place_mvp0_50",
+          "referenceId": "observation-003",
+          "legacyPath": "images/history/sources/craft-1936-20.jpg"
+        },
+        {
+          "placeId": "place_mvp0_50",
+          "referenceId": "observation-009",
+          "legacyPath": "images/history/sources/craft-1936-29.jpg"
+        },
+        {
+          "placeId": "place_mvp0_51",
+          "referenceId": "observation-005",
+          "legacyPath": "images/history/sources/craft-1936-24.jpg"
+        },
+        {
+          "placeId": "place_mvp0_52",
+          "referenceId": "observation-007",
+          "legacyPath": "images/history/sources/craft-1936-27.jpg"
+        },
+        {
+          "placeId": "place_mvp0_53",
+          "referenceId": "observation-010",
+          "legacyPath": "images/history/sources/craft-1936-36.jpg"
+        },
+        {
+          "placeId": "place_mvp0_54",
+          "referenceId": "observation-011",
+          "legacyPath": "images/history/sources/craft-1936-39.jpg"
+        },
+        {
+          "placeId": "place_mvp0_54",
+          "referenceId": "observation-027",
+          "legacyPath": "images/history/sources/craft-1936-103.jpg"
+        },
+        {
+          "placeId": "place_mvp0_54",
+          "referenceId": "observation-028",
+          "legacyPath": "images/history/sources/craft-1936-106.jpg"
+        },
+        {
+          "placeId": "place_mvp0_54",
+          "referenceId": "observation-029",
+          "legacyPath": "images/history/sources/craft-1936-106.jpg"
+        },
+        {
+          "placeId": "place_mvp0_55",
+          "referenceId": "observation-012",
+          "legacyPath": "images/history/sources/craft-1936-39.jpg"
+        },
+        {
+          "placeId": "place_mvp0_55",
+          "referenceId": "observation-022",
+          "legacyPath": "images/history/sources/craft-1936-81.jpg"
+        },
+        {
+          "placeId": "place_mvp0_56",
+          "referenceId": "observation-013",
+          "legacyPath": "images/history/sources/craft-1936-60.jpg"
+        },
+        {
+          "placeId": "place_mvp0_56",
+          "referenceId": "observation-048",
+          "legacyPath": "images/history/sources/craft-1936-119.jpg"
+        },
+        {
+          "placeId": "place_mvp0_57",
+          "referenceId": "observation-014",
+          "legacyPath": "images/history/sources/craft-1936-60.jpg"
+        },
+        {
+          "placeId": "place_mvp0_57",
+          "referenceId": "observation-047",
+          "legacyPath": "images/history/sources/craft-1936-119.jpg"
+        },
+        {
+          "placeId": "place_mvp0_58",
+          "referenceId": "observation-015",
+          "legacyPath": "images/history/sources/craft-1936-62.jpg"
+        },
+        {
+          "placeId": "place_mvp0_59",
+          "referenceId": "observation-017",
+          "legacyPath": "images/history/sources/craft-1936-69.jpg"
+        },
+        {
+          "placeId": "place_mvp0_60",
+          "referenceId": "observation-018",
+          "legacyPath": "images/history/sources/craft-1936-69.jpg"
+        },
+        {
+          "placeId": "place_mvp0_61",
+          "referenceId": "observation-019",
+          "legacyPath": "images/history/sources/craft-1936-76.jpg"
+        },
+        {
+          "placeId": "place_mvp0_62",
+          "referenceId": "observation-020",
+          "legacyPath": "images/history/sources/craft-1936-76.jpg"
+        },
+        {
+          "placeId": "place_mvp0_63",
+          "referenceId": "observation-021",
+          "legacyPath": "images/history/sources/craft-1936-81.jpg"
+        },
+        {
+          "placeId": "place_mvp0_64",
+          "referenceId": "observation-024",
+          "legacyPath": "images/history/sources/craft-1936-89.jpg"
+        },
+        {
+          "placeId": "place_mvp0_65",
+          "referenceId": "observation-025",
+          "legacyPath": "images/history/sources/craft-1936-99.jpg"
+        },
+        {
+          "placeId": "place_mvp0_66",
+          "referenceId": "observation-026",
+          "legacyPath": "images/history/sources/craft-1936-99.jpg"
+        },
+        {
+          "placeId": "place_mvp0_67",
+          "referenceId": "observation-030",
+          "legacyPath": "images/history/sources/craft-1936-108.jpg"
+        },
+        {
+          "placeId": "place_mvp0_68",
+          "referenceId": "observation-031",
+          "legacyPath": "images/history/sources/craft-1936-108.jpg"
+        },
+        {
+          "placeId": "place_mvp0_69",
+          "referenceId": "observation-033",
+          "legacyPath": "images/history/sources/craft-1936-114.jpg"
+        },
+        {
+          "placeId": "place_mvp0_70",
+          "referenceId": "observation-034",
+          "legacyPath": "images/history/sources/craft-1936-114.jpg"
+        },
+        {
+          "placeId": "place_mvp0_71",
+          "referenceId": "observation-035",
+          "legacyPath": "images/history/sources/craft-1936-116.jpg"
+        },
+        {
+          "placeId": "place_mvp0_72",
+          "referenceId": "observation-036",
+          "legacyPath": "images/history/sources/craft-1936-117.jpg"
+        },
+        {
+          "placeId": "place_mvp0_73",
+          "referenceId": "observation-037",
+          "legacyPath": "images/history/sources/craft-1936-117.jpg"
+        },
+        {
+          "placeId": "place_mvp0_74",
+          "referenceId": "observation-038",
+          "legacyPath": "images/history/sources/craft-1936-117.jpg"
+        },
+        {
+          "placeId": "place_mvp0_75",
+          "referenceId": "observation-039",
+          "legacyPath": "images/history/sources/craft-1936-117.jpg"
+        },
+        {
+          "placeId": "place_mvp0_76",
+          "referenceId": "observation-041",
+          "legacyPath": "images/history/sources/craft-1936-117.jpg"
+        },
+        {
+          "placeId": "place_mvp0_77",
+          "referenceId": "observation-042",
+          "legacyPath": "images/history/sources/craft-1936-117.jpg"
+        },
+        {
+          "placeId": "place_mvp0_78",
+          "referenceId": "observation-043",
+          "legacyPath": "images/history/sources/craft-1936-117.jpg"
+        },
+        {
+          "placeId": "place_mvp0_79",
+          "referenceId": "observation-044",
+          "legacyPath": "images/history/sources/craft-1936-118.jpg"
+        },
+        {
+          "placeId": "place_mvp0_80",
+          "referenceId": "observation-045",
+          "legacyPath": "images/history/sources/craft-1936-118.jpg"
+        },
+        {
+          "placeId": "place_mvp0_81",
+          "referenceId": "observation-046",
+          "legacyPath": "images/history/sources/craft-1936-119.jpg"
+        },
+        {
+          "placeId": "place_mvp0_82",
+          "referenceId": "observation-049",
+          "legacyPath": "images/history/sources/craft-1936-120.jpg"
+        },
+        {
+          "placeId": "place_mvp0_83",
+          "referenceId": "observation-050",
+          "legacyPath": "images/history/sources/craft-1936-120.jpg"
+        },
+        {
+          "placeId": "place_mvp0_84",
+          "referenceId": "observation-051",
+          "legacyPath": "images/history/sources/craft-1936-122.jpg"
+        },
+        {
+          "placeId": "place_mvp0_85",
+          "referenceId": "observation-052",
+          "legacyPath": "images/history/sources/craft-1936-122.jpg"
+        },
+        {
+          "placeId": "place_mvp0_86",
+          "referenceId": "observation-054",
+          "legacyPath": "images/history/sources/craft-1936-122.jpg"
+        },
+        {
+          "placeId": "place_mvp0_87",
+          "referenceId": "observation-055",
+          "legacyPath": "images/history/sources/craft-1936-122.jpg"
+        },
+        {
+          "placeId": "place_mvp0_88",
+          "referenceId": "observation-056",
+          "legacyPath": "images/history/sources/craft-1936-122.jpg"
+        },
+        {
+          "placeId": "place_mvp0_89",
+          "referenceId": "observation-057",
+          "legacyPath": "images/history/sources/craft-1936-122.jpg"
+        },
+        {
+          "placeId": "place_mvp0_90",
+          "referenceId": "observation-058",
+          "legacyPath": "images/history/sources/craft-1936-122.jpg"
+        },
+        {
+          "placeId": "place_mvp0_91",
+          "referenceId": "observation-059",
+          "legacyPath": "images/history/sources/craft-1936-122.jpg"
+        },
+        {
+          "placeId": "place_mvp0_92",
+          "referenceId": "observation-060",
+          "legacyPath": "images/history/sources/craft-1936-122.jpg"
+        },
+        {
+          "placeId": "place_mvp0_93",
+          "referenceId": "observation-061",
+          "legacyPath": "images/history/sources/craft-1936-122.jpg"
+        },
+        {
+          "placeId": "place_mvp0_94",
+          "referenceId": "observation-062",
+          "legacyPath": "images/history/sources/craft-1936-122.jpg"
+        },
+        {
+          "placeId": "place_mvp0_95",
+          "referenceId": "observation-063",
+          "legacyPath": "images/history/sources/craft-1936-124.jpg"
+        },
+        {
+          "placeId": "place_mvp0_96",
+          "referenceId": "observation-064",
+          "legacyPath": "images/history/sources/craft-1936-124.jpg"
+        },
+        {
+          "placeId": "place_mvp0_97",
+          "referenceId": "observation-065",
+          "legacyPath": "images/history/sources/craft-1936-125.jpg"
+        },
+        {
+          "placeId": "place_mvp0_98",
+          "referenceId": "observation-066",
+          "legacyPath": "images/history/sources/craft-1936-125.jpg"
+        },
+        {
+          "placeId": "place_mvp0_99",
+          "referenceId": "observation-067",
+          "legacyPath": "images/history/sources/craft-1936-125.jpg"
+        },
+        {
+          "placeId": "place_mvp0_100",
+          "referenceId": "observation-069",
+          "legacyPath": "images/history/sources/craft-1936-127.jpg"
+        },
+        {
+          "placeId": "place_mvp0_101",
+          "referenceId": "observation-070",
+          "legacyPath": "images/history/sources/craft-1936-127.jpg"
+        },
+        {
+          "placeId": "place_mvp0_102",
+          "referenceId": "observation-071",
+          "legacyPath": "images/history/sources/craft-1936-128.jpg"
+        },
+        {
+          "placeId": "place_mvp0_103",
+          "referenceId": "observation-072",
+          "legacyPath": "images/history/sources/craft-1936-129.jpg"
+        },
+        {
+          "placeId": "place_mvp0_104",
+          "referenceId": "observation-073",
+          "legacyPath": "images/history/sources/craft-1936-153.jpg"
+        }
+      ]
+    },
+    "publication-newspaper-1938": {
+      "title": "Sztandar Polski i Gazeta Rybnicka",
+      "sourceUrl": "https://sbc.org.pl/dlibra/publication/270808",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1",
+          "referenceId": "newspaper-ad-1",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_2",
+          "referenceId": "newspaper-ad-2",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_3",
+          "referenceId": "newspaper-ad-3",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_4",
+          "referenceId": "newspaper-ad-4",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_5",
+          "referenceId": "newspaper-ad-5",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_6",
+          "referenceId": "newspaper-ad-6",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_7",
+          "referenceId": "newspaper-ad-7",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_8",
+          "referenceId": "newspaper-ad-8",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_9",
+          "referenceId": "newspaper-ad-9",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_10",
+          "referenceId": "newspaper-ad-10",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=5",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_11",
+          "referenceId": "newspaper-ad-11",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_12",
+          "referenceId": "newspaper-ad-12",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_13",
+          "referenceId": "newspaper-ad-13",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_14",
+          "referenceId": "newspaper-ad-14",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_15",
+          "referenceId": "newspaper-ad-15",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_16",
+          "referenceId": "newspaper-ad-16",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_17",
+          "referenceId": "newspaper-ad-17",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_18",
+          "referenceId": "newspaper-ad-18",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_19",
+          "referenceId": "newspaper-ad-19",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_20",
+          "referenceId": "newspaper-ad-20",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_21",
+          "referenceId": "newspaper-ad-21",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_22",
+          "referenceId": "newspaper-ad-22",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_23",
+          "referenceId": "newspaper-ad-23",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=6",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_24",
+          "referenceId": "newspaper-ad-24",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_25",
+          "referenceId": "newspaper-ad-25",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_26",
+          "referenceId": "newspaper-ad-26",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_27",
+          "referenceId": "newspaper-ad-27",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_28",
+          "referenceId": "newspaper-ad-28",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_29",
+          "referenceId": "newspaper-ad-29",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_30",
+          "referenceId": "newspaper-ad-30",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_31",
+          "referenceId": "newspaper-ad-31",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_32",
+          "referenceId": "newspaper-ad-32",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_33",
+          "referenceId": "newspaper-ad-33",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_34",
+          "referenceId": "newspaper-ad-34",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_35",
+          "referenceId": "newspaper-ad-35",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_36",
+          "referenceId": "newspaper-ad-36",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_37",
+          "referenceId": "newspaper-ad-37",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_38",
+          "referenceId": "newspaper-ad-38",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_39",
+          "referenceId": "newspaper-ad-39",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_40",
+          "referenceId": "newspaper-ad-40",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_41",
+          "referenceId": "newspaper-ad-41",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=8",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_42",
+          "referenceId": "newspaper-ad-42",
+          "sourceUrl": "https://sbc.org.pl/Content/256172/PDF/iv4456-1938-01.pdf#page=2",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_43",
+          "referenceId": "newspaper-ad-43",
+          "sourceUrl": "https://sbc.org.pl/Content/256198/PDF/iv4456-1938-40.pdf#page=3",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_44",
+          "referenceId": "newspaper-ad-44",
+          "sourceUrl": "https://sbc.org.pl/Content/256202/PDF/iv4456-1938-45.pdf#page=4",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_45",
+          "referenceId": "newspaper-ad-45",
+          "sourceUrl": "https://sbc.org.pl/Content/256207/PDF/iv4456-1938-52.pdf#page=2",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_46",
+          "referenceId": "newspaper-ad-46",
+          "sourceUrl": "https://sbc.org.pl/Content/256207/PDF/iv4456-1938-52.pdf#page=3",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_47",
+          "referenceId": "newspaper-ad-47",
+          "sourceUrl": "https://sbc.org.pl/Content/256298/PDF/iv4456-1938-150.pdf#page=3",
+          "hasLegacyImage": true
+        }
+      ]
+    },
+    "publication-craft-1936": {
+      "title": "Księga adresowa polskiego rzemiosła i drobnego przemysłu na Śląsku",
+      "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_11",
+          "referenceId": "observation-068",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=125",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_21",
+          "referenceId": "observation-004",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=20",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_21",
+          "referenceId": "observation-008",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=27",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_21",
+          "referenceId": "observation-032",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=113",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_23",
+          "referenceId": "observation-016",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=69",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_26",
+          "referenceId": "observation-040",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=117",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_33",
+          "referenceId": "observation-023",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=87",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_39",
+          "referenceId": "observation-053",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=122",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_47",
+          "referenceId": "observation-157",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=1",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_48",
+          "referenceId": "observation-001",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=17",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_48",
+          "referenceId": "observation-006",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=24",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_49",
+          "referenceId": "observation-002",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=20",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_50",
+          "referenceId": "observation-003",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=20",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_50",
+          "referenceId": "observation-009",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=29",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_51",
+          "referenceId": "observation-005",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=24",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_52",
+          "referenceId": "observation-007",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=27",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_53",
+          "referenceId": "observation-010",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=36",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_54",
+          "referenceId": "observation-011",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=39",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_54",
+          "referenceId": "observation-027",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=103",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_54",
+          "referenceId": "observation-028",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=106",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_54",
+          "referenceId": "observation-029",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=106",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_55",
+          "referenceId": "observation-012",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=39",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_55",
+          "referenceId": "observation-022",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=81",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_56",
+          "referenceId": "observation-013",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=60",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_56",
+          "referenceId": "observation-048",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=119",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_57",
+          "referenceId": "observation-014",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=60",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_57",
+          "referenceId": "observation-047",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=119",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_58",
+          "referenceId": "observation-015",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=62",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_59",
+          "referenceId": "observation-017",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=69",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_60",
+          "referenceId": "observation-018",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=69",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_61",
+          "referenceId": "observation-019",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=76",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_62",
+          "referenceId": "observation-020",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=76",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_63",
+          "referenceId": "observation-021",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=81",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_64",
+          "referenceId": "observation-024",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=89",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_65",
+          "referenceId": "observation-025",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=99",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_66",
+          "referenceId": "observation-026",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=99",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_67",
+          "referenceId": "observation-030",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=108",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_68",
+          "referenceId": "observation-031",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=108",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_69",
+          "referenceId": "observation-033",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=114",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_70",
+          "referenceId": "observation-034",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=114",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_71",
+          "referenceId": "observation-035",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=116",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_72",
+          "referenceId": "observation-036",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=117",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_73",
+          "referenceId": "observation-037",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=117",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_74",
+          "referenceId": "observation-038",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=117",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_75",
+          "referenceId": "observation-039",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=117",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_76",
+          "referenceId": "observation-041",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=117",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_77",
+          "referenceId": "observation-042",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=117",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_78",
+          "referenceId": "observation-043",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=117",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_79",
+          "referenceId": "observation-044",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=118",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_80",
+          "referenceId": "observation-045",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=118",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_81",
+          "referenceId": "observation-046",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=119",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_82",
+          "referenceId": "observation-049",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=120",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_83",
+          "referenceId": "observation-050",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=120",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_84",
+          "referenceId": "observation-051",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=122",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_85",
+          "referenceId": "observation-052",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=122",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_86",
+          "referenceId": "observation-054",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=122",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_87",
+          "referenceId": "observation-055",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=122",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_88",
+          "referenceId": "observation-056",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=122",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_89",
+          "referenceId": "observation-057",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=122",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_90",
+          "referenceId": "observation-058",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=122",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_91",
+          "referenceId": "observation-059",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=122",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_92",
+          "referenceId": "observation-060",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=122",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_93",
+          "referenceId": "observation-061",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=122",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_94",
+          "referenceId": "observation-062",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=122",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_95",
+          "referenceId": "observation-063",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=124",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_96",
+          "referenceId": "observation-064",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=124",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_97",
+          "referenceId": "observation-065",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=125",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_98",
+          "referenceId": "observation-066",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=125",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_99",
+          "referenceId": "observation-067",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=125",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_100",
+          "referenceId": "observation-069",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=127",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_101",
+          "referenceId": "observation-070",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=127",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_102",
+          "referenceId": "observation-071",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=128",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_103",
+          "referenceId": "observation-072",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=129",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_104",
+          "referenceId": "observation-073",
+          "sourceUrl": "https://sbc.org.pl/Content/14535/PDF/14535.pdf#page=153",
+          "hasLegacyImage": true
+        }
+      ]
+    },
+    "publication-guide-1938": {
+      "title": "Przewodnik gospodarczy województw kieleckiego, krakowskiego i śląskiego",
+      "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1",
+          "referenceId": "observation-082",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=414",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1",
+          "referenceId": "observation-084",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=417",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_4",
+          "referenceId": "observation-151",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=453",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_5",
+          "referenceId": "observation-086",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=436",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_7",
+          "referenceId": "observation-102",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=468",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_8",
+          "referenceId": "observation-116",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=506",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_8",
+          "referenceId": "observation-145",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=546",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_9",
+          "referenceId": "observation-119",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=511",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_11",
+          "referenceId": "observation-117",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=509",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_12",
+          "referenceId": "observation-093",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=453",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_13",
+          "referenceId": "observation-094",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=459",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_15",
+          "referenceId": "observation-089",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=438",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_17",
+          "referenceId": "observation-085",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=436",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_21",
+          "referenceId": "observation-076",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=412",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_22",
+          "referenceId": "observation-083",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=416",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_24",
+          "referenceId": "observation-144",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=546",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_27",
+          "referenceId": "observation-075",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=410",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_28",
+          "referenceId": "observation-092",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=448",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_30",
+          "referenceId": "observation-143",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=538",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_32",
+          "referenceId": "observation-080",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=413",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_32",
+          "referenceId": "observation-104",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=469",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_33",
+          "referenceId": "observation-155",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=538",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_34",
+          "referenceId": "observation-105",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=469",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_35",
+          "referenceId": "observation-148",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=548",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_36",
+          "referenceId": "observation-088",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=438",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_37",
+          "referenceId": "observation-147",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=548",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_38",
+          "referenceId": "observation-111",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=483",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_39",
+          "referenceId": "observation-109",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=482",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_40",
+          "referenceId": "observation-106",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=482",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_47",
+          "referenceId": "observation-074",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=409",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_49",
+          "referenceId": "observation-077",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=412",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_54",
+          "referenceId": "observation-090",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=445",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_56",
+          "referenceId": "observation-103",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=468",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_60",
+          "referenceId": "observation-135",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=524",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_61",
+          "referenceId": "observation-112",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=491",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_62",
+          "referenceId": "observation-156",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=491",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_64",
+          "referenceId": "observation-120",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=512",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_65",
+          "referenceId": "observation-126",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_67",
+          "referenceId": "observation-146",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=547",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_68",
+          "referenceId": "observation-154",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=547",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_70",
+          "referenceId": "observation-099",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=427",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_70",
+          "referenceId": "observation-100",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=442",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_70",
+          "referenceId": "observation-101",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=462",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_74",
+          "referenceId": "observation-097",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=459",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_75",
+          "referenceId": "observation-095",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=459",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_78",
+          "referenceId": "observation-096",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=459",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_82",
+          "referenceId": "observation-098",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=461",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_83",
+          "referenceId": "observation-091",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=447",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_85",
+          "referenceId": "observation-138",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=524",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_92",
+          "referenceId": "observation-137",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=524",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_93",
+          "referenceId": "observation-136",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=524",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_94",
+          "referenceId": "observation-139",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=524",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_95",
+          "referenceId": "observation-113",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=491",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_97",
+          "referenceId": "observation-118",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=509",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_102",
+          "referenceId": "observation-121",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=513",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_103",
+          "referenceId": "observation-153",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=549",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_104",
+          "referenceId": "observation-149",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=551",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_105",
+          "referenceId": "observation-078",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=412",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_106",
+          "referenceId": "observation-079",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=412",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_107",
+          "referenceId": "observation-081",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=413",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_107",
+          "referenceId": "observation-152",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=546",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_108",
+          "referenceId": "observation-087",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=437",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_109",
+          "referenceId": "observation-107",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=482",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_110",
+          "referenceId": "observation-108",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=482",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_111",
+          "referenceId": "observation-110",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=482",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_112",
+          "referenceId": "observation-114",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=494",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_113",
+          "referenceId": "observation-115",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=498",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_114",
+          "referenceId": "observation-122",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_115",
+          "referenceId": "observation-123",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_116",
+          "referenceId": "observation-124",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_117",
+          "referenceId": "observation-125",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_118",
+          "referenceId": "observation-127",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_119",
+          "referenceId": "observation-128",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_120",
+          "referenceId": "observation-129",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_121",
+          "referenceId": "observation-130",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_122",
+          "referenceId": "observation-131",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_123",
+          "referenceId": "observation-132",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_124",
+          "referenceId": "observation-133",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_125",
+          "referenceId": "observation-134",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=519",
+          "hasLegacyImage": true
+        },
+        {
+          "placeId": "place_mvp0_126",
+          "referenceId": "observation-140",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=530",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_127",
+          "referenceId": "observation-141",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=530",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_128",
+          "referenceId": "observation-142",
+          "sourceUrl": "https://sbc.org.pl/Content/3074/iii362434.pdf#page=530",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-craftsman-1931-02": {
+      "title": "Rzemieślnik Śląski, R. 3, nr 2",
+      "sourceUrl": "https://sbc.org.pl/Content/293425/PDF/iii4256-1931-02-0001.pdf",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_65",
+          "referenceId": "observation-150",
+          "sourceUrl": "https://sbc.org.pl/Content/293425/PDF/iii4256-1931-02-0001.pdf#page=10",
+          "hasLegacyImage": true
+        }
+      ]
+    },
+    "publication-city-monuments": {
+      "title": "Miasto Rybnik — Zabytki",
+      "sourceUrl": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_sw_antoni",
+          "referenceId": "institution-antoni-2",
+          "sourceUrl": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1002",
+          "referenceId": "institution-mbb-1",
+          "sourceUrl": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1003",
+          "referenceId": "institution-wnmp-1",
+          "sourceUrl": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1004",
+          "referenceId": "institution-ewangelicki-1",
+          "sourceUrl": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1010",
+          "referenceId": "institution-cmentarz-gorka-1",
+          "sourceUrl": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1038",
+          "referenceId": "institution-stary-ratusz-1",
+          "sourceUrl": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1039",
+          "referenceId": "institution-magistrat-1",
+          "sourceUrl": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1040",
+          "referenceId": "institution-starostwo-1",
+          "sourceUrl": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1042",
+          "referenceId": "institution-zamek-sad-1",
+          "sourceUrl": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_2004",
+          "referenceId": "institution-boguszowice-wawrzyniec-2",
+          "sourceUrl": "https://www.rybnik.eu/miasto/o-miescie/zabytki",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-city-plaques": {
+      "title": "Miasto Rybnik — Tablice ku pamięci",
+      "sourceUrl": "https://www.rybnik.eu/dla-mieszkancow/aktualnosci/aktualnosc/tablice-ku-pamieci",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1005",
+          "referenceId": "institution-synagoga-2",
+          "sourceUrl": "https://www.rybnik.eu/dla-mieszkancow/aktualnosci/aktualnosc/tablice-ku-pamieci",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-schools-palica-2009": {
+      "title": "Nauczyciele i szkoły przedwojennego Rybnika, cz. I",
+      "sourceUrl": "https://sbc.org.pl/Content/306529/PDF/21A.pdf",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1016",
+          "referenceId": "institution-smolna-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1017",
+          "referenceId": "institution-paruszowiec-szkola-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1018",
+          "referenceId": "institution-ligota-szkola-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1019",
+          "referenceId": "institution-piatka-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1020",
+          "referenceId": "institution-handlowa-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1021",
+          "referenceId": "institution-kupiecka-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1022",
+          "referenceId": "institution-rolnicza-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1023",
+          "referenceId": "institution-rzemieslnicza-szkola-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1024",
+          "referenceId": "institution-niemiecka-szkola-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1033",
+          "referenceId": "institution-tcl-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1034",
+          "referenceId": "institution-uniwersytet-powszechny-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1035",
+          "referenceId": "institution-swietlica-strzelecka-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306529/PDF/21A.pdf#page=25",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-cinemas-palica-2013": {
+      "title": "Rybnik w starym kinie",
+      "sourceUrl": "https://sbc.org.pl/Content/306994/14A.pdf",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1029",
+          "referenceId": "institution-apollo-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306994/14A.pdf#page=19",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1030",
+          "referenceId": "institution-helios-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306994/14A.pdf#page=19",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1031",
+          "referenceId": "institution-swit-1",
+          "sourceUrl": "https://sbc.org.pl/Content/306994/14A.pdf#page=19",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-city-heritage-2019": {
+      "title": "Miasto Rybnik — Dziedzictwo kulturowe",
+      "sourceUrl": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1009",
+          "referenceId": "institution-kaplica-juliusza-1",
+          "sourceUrl": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=95",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1032",
+          "referenceId": "institution-swierklaniec-1",
+          "sourceUrl": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=101",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1040",
+          "referenceId": "institution-starostwo-2",
+          "sourceUrl": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=96",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1043",
+          "referenceId": "institution-szpital-juliusz-2",
+          "sourceUrl": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=95",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1044",
+          "referenceId": "institution-szpital-psychiatryczny-1",
+          "sourceUrl": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=103",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1046",
+          "referenceId": "institution-stacja-paruszowiec-1",
+          "sourceUrl": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=91",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1047",
+          "referenceId": "institution-kozie-gory-1",
+          "sourceUrl": "https://www.rybnik.eu/fileadmin/user_files/rewitalizacja/Folder_Dziedzictwo-Kulturowe_16-12-2019_Web.pdf#page=99",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-school-i-lo-history": {
+      "title": "I LO — Historia szkoły",
+      "sourceUrl": "https://1lo.rybnik.pl/szkola/historia",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1013",
+          "referenceId": "institution-gimnazjum-1",
+          "sourceUrl": "https://1lo.rybnik.pl/szkola/historia",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-school-sp9-history": {
+      "title": "SP nr 9 — Historia szkoły",
+      "sourceUrl": "https://www.sp9.miastorybnik.pl/szkola/historia-szkoly.html",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1015",
+          "referenceId": "institution-jedynka-1",
+          "sourceUrl": "https://www.sp9.miastorybnik.pl/szkola/historia-szkoly.html",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-ursulines-history": {
+      "title": "Urszulanki Unii Rzymskiej — Rybnik",
+      "sourceUrl": "https://www.osu.pl/Rybnik%2C473%2C0.html",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1014",
+          "referenceId": "institution-urszulanki-2",
+          "sourceUrl": "https://www.osu.pl/Rybnik%2C473%2C0.html",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-ursulines-centenary": {
+      "title": "Szkoły Urszulańskie — 100 lat na 100%",
+      "sourceUrl": "https://www.urszulanki.rybnik.pl/100-lat-na-100",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1014",
+          "referenceId": "institution-urszulanki-1",
+          "sourceUrl": "https://www.urszulanki.rybnik.pl/100-lat-na-100",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-franciscans-history": {
+      "title": "Śląscy Franciszkanie — Rybnik",
+      "sourceUrl": "https://www.panewniki.pl/klasztory/rybnik/",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1007",
+          "referenceId": "institution-jozef-1",
+          "sourceUrl": "https://www.panewniki.pl/klasztory/rybnik/",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1008",
+          "referenceId": "institution-franciszkanie-1",
+          "sourceUrl": "https://www.panewniki.pl/klasztory/rybnik/",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1025",
+          "referenceId": "institution-serafickie-1",
+          "sourceUrl": "https://www.panewniki.pl/klasztory/rybnik/",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-svd-rybnik-2023": {
+      "title": "Werbiści w Rybniku",
+      "sourceUrl": "https://www.werbisci.pl/wiadomosci/polska/werbisci-w-rybniku",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1026",
+          "referenceId": "institution-werbisci-seminarium-1",
+          "sourceUrl": "https://www.werbisci.pl/wiadomosci/polska/werbisci-w-rybniku",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-music-school-patrons": {
+      "title": "PSM w Rybniku — Patroni szkoły",
+      "sourceUrl": "https://www.gov.pl/web/psmrybnik/patroni-szkoly",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1027",
+          "referenceId": "institution-muzyczna-1",
+          "sourceUrl": "https://www.gov.pl/web/psmrybnik/patroni-szkoly",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-museum-history": {
+      "title": "Muzeum w Rybniku — Historia muzeum",
+      "sourceUrl": "https://www.muzeum.rybnik.pl/historia-muzeum",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1036",
+          "referenceId": "institution-kolekcja-drobnego-1",
+          "sourceUrl": "https://www.muzeum.rybnik.pl/historia-muzeum",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-nid-post-office": {
+      "title": "NID — Poczta w Rybniku",
+      "sourceUrl": "https://zabytek.pl/pl/obiekty/poczta-938889",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1041",
+          "referenceId": "institution-poczta-1",
+          "sourceUrl": "https://zabytek.pl/pl/obiekty/poczta-938889",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-juliusz-history": {
+      "title": "Edukatorium Juliusz — Historia miejsca",
+      "sourceUrl": "https://www.juliusz.eu/o-edukatorium",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1043",
+          "referenceId": "institution-szpital-juliusz-1",
+          "sourceUrl": "https://www.juliusz.eu/o-edukatorium",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-synagogue-ploszaj-2023": {
+      "title": "Jak święcono nową rybnicką synagogę…",
+      "sourceUrl": "https://www.rybnicka.eu/aktualnosci/historia/Jak-swiecono-nowa-rybnicka-synagoge/idn:1250",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1005",
+          "referenceId": "institution-synagoga-1",
+          "sourceUrl": "https://www.rybnicka.eu/aktualnosci/historia/Jak-swiecono-nowa-rybnicka-synagoge/idn:1250",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_1006",
+          "referenceId": "institution-stary-dom-modlitw-1",
+          "sourceUrl": "https://www.rybnicka.eu/aktualnosci/historia/Jak-swiecono-nowa-rybnicka-synagoge/idn:1250",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-museum-jewish-cemetery": {
+      "title": "Muzeum — Cmentarz żydowski w Rybniku",
+      "sourceUrl": "https://www.muzeum.rybnik.pl/cmentarz-zydowski-w-rybniku",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1011",
+          "referenceId": "institution-stary-cmentarz-zydowski-1",
+          "sourceUrl": "https://www.muzeum.rybnik.pl/cmentarz-zydowski-w-rybniku",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-nid-new-jewish-cemetery": {
+      "title": "NID / POLIN — Nowy cmentarz żydowski",
+      "sourceUrl": "https://zabytek.pl/pl/obiekty/cmentarz-zydowski-nowy--2",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1012",
+          "referenceId": "institution-nowy-cmentarz-zydowski-1",
+          "sourceUrl": "https://zabytek.pl/pl/obiekty/cmentarz-zydowski-nowy--2",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-city-railway-170": {
+      "title": "Miasto Rybnik — 170 lat kolei w Rybniku",
+      "sourceUrl": "https://www.rybnik.eu/dla-mieszkancow/aktualnosci/aktualnosc/170-lat-kolei-w-rybniku-od-konia-do-parowozu-jak-drogi-zelazne-wplynely-na-rozwoj-rybnika",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1045",
+          "referenceId": "institution-stacja-rybnik-1",
+          "sourceUrl": "https://www.rybnik.eu/dla-mieszkancow/aktualnosci/aktualnosc/170-lat-kolei-w-rybniku-od-konia-do-parowozu-jak-drogi-zelazne-wplynely-na-rozwoj-rybnika",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-museum-antoni-history": {
+      "title": "Muzeum — 100 lat kościoła św. Antoniego",
+      "sourceUrl": "https://www.muzeum.rybnik.pl/100-lat-kosciola-p-w-sw-antoniego-padewskiego-w-rybniku-wystawa",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_sw_antoni",
+          "referenceId": "institution-antoni-1",
+          "sourceUrl": "https://www.muzeum.rybnik.pl/100-lat-kosciola-p-w-sw-antoniego-padewskiego-w-rybniku-wystawa",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-ursuline-library-history": {
+      "title": "Biblioteka szkół urszulańskich — Historia",
+      "sourceUrl": "https://bsip.miastorybnik.pl/zsu/historia.htm",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1037",
+          "referenceId": "institution-biblioteka-urszulanek-1",
+          "sourceUrl": "https://bsip.miastorybnik.pl/zsu/historia.htm",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-polin-rybnik-community": {
+      "title": "POLIN — Historia społeczności Rybnika",
+      "sourceUrl": "https://sztetl.org.pl/pl/miejscowosci/r/68-rybnik/99-historia-spolecznosci/137964-historia-spolecznosci",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1048",
+          "referenceId": "institution-dom-sierot-1",
+          "sourceUrl": "https://sztetl.org.pl/pl/miejscowosci/r/68-rybnik/99-historia-spolecznosci/137964-historia-spolecznosci",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-music-world-2023": {
+      "title": "W rozmuzykowanym Rybniku",
+      "sourceUrl": "https://www.rybnicka.eu/aktualnosci/kultura-i-rozrywka/W-rozmuzykowanym-Rybniku/idn:1385",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1028",
+          "referenceId": "institution-filia-muzyczna-1",
+          "sourceUrl": "https://www.rybnicka.eu/aktualnosci/kultura-i-rozrywka/W-rozmuzykowanym-Rybniku/idn:1385",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-city-niedobczyce": {
+      "title": "Miasto Rybnik — Niedobczyce",
+      "sourceUrl": "https://www.rybnik.eu/miasto/dzielnice-miasta/niedobczyce",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2001",
+          "referenceId": "institution-niedobczyce-nspj-1",
+          "sourceUrl": "https://www.rybnik.eu/miasto/dzielnice-miasta/niedobczyce",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-chwalowice-parish-history": {
+      "title": "Parafia św. Teresy — Historia parafii",
+      "sourceUrl": "https://www.chwalowice.wiara.org.pl/historia-parafii%2Ci276.html",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2002",
+          "referenceId": "institution-chwalowice-teresa-1",
+          "sourceUrl": "https://www.chwalowice.wiara.org.pl/historia-parafii%2Ci276.html",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-archdiocese-golejow": {
+      "title": "Archiwum Archidiecezjalne — Golejów, Chrystusa Króla",
+      "sourceUrl": "https://archiwum.archidiecezjakatowicka.pl/pl/metrics/parafia/43",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2003",
+          "referenceId": "institution-golejow-chrystus-krol-1",
+          "sourceUrl": "https://archiwum.archidiecezjakatowicka.pl/pl/metrics/parafia/43",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-archdiocese-boguszowice": {
+      "title": "Archiwum Archidiecezjalne — Boguszowice Stare, NSPJ",
+      "sourceUrl": "https://archiwum.archidiecezjakatowicka.pl/pl/metrics/parafia/3",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2004",
+          "referenceId": "institution-boguszowice-wawrzyniec-1",
+          "sourceUrl": "https://archiwum.archidiecezjakatowicka.pl/pl/metrics/parafia/3",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_2005",
+          "referenceId": "institution-boguszowice-nspj-1",
+          "sourceUrl": "https://archiwum.archidiecezjakatowicka.pl/pl/metrics/parafia/3",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-popielow-parish-history": {
+      "title": "Encyklopedia historii Kościoła na Śląsku — Parafia w Popielowie",
+      "sourceUrl": "https://silesia.edu.pl/index.php/Parafia_Tr%C3%B3jcy_Przenaj%C5%9Bwi%C4%99tszej_w_Popielowie",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2006",
+          "referenceId": "institution-popielow-trojca-1",
+          "sourceUrl": "https://silesia.edu.pl/index.php/Parafia_Tr%C3%B3jcy_Przenaj%C5%9Bwi%C4%99tszej_w_Popielowie",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_2007",
+          "referenceId": "institution-popielow-anna-1",
+          "sourceUrl": "https://silesia.edu.pl/index.php/Parafia_Tr%C3%B3jcy_Przenaj%C5%9Bwi%C4%99tszej_w_Popielowie",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-sp13-history": {
+      "title": "SP13 — Historia szkoły w Chwałowicach",
+      "sourceUrl": "https://www.sp13rybnik.pl/o-szkole/historia-szkoly.html",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2008",
+          "referenceId": "institution-chwalowice-szkola-1",
+          "sourceUrl": "https://www.sp13rybnik.pl/o-szkole/historia-szkoly.html",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-sp21-history": {
+      "title": "SP21 — Historia szkoły w Niedobczycach",
+      "sourceUrl": "https://www.sp21.miastorybnik.pl/o-szkole/historia-szkoly.html",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2009",
+          "referenceId": "institution-niedobczyce-szkola-21-1",
+          "sourceUrl": "https://www.sp21.miastorybnik.pl/o-szkole/historia-szkoly.html",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-sp22-history": {
+      "title": "SP22 — Historia szkoły w Niedobczycach",
+      "sourceUrl": "https://www.sp22.miastorybnik.pl/o-szkole/historia-szkoly.html",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2010",
+          "referenceId": "institution-niedobczyce-szkola-22-1",
+          "sourceUrl": "https://www.sp22.miastorybnik.pl/o-szkole/historia-szkoly.html",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-zsp1-history": {
+      "title": "ZSP1 — Historia szkoły w Wielopolu",
+      "sourceUrl": "https://www.zsp1.miastorybnik.pl/o-szkole/historia.html",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2011",
+          "referenceId": "institution-wielopole-szkola-1",
+          "sourceUrl": "https://www.zsp1.miastorybnik.pl/o-szkole/historia.html",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-zsp4-history": {
+      "title": "ZSP4 — Historia szkół Golejowa i Grabowni",
+      "sourceUrl": "https://www.zsp4.miastorybnik.pl/o-zespole/historia.html",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2012",
+          "referenceId": "institution-golejow-szkola-1",
+          "sourceUrl": "https://www.zsp4.miastorybnik.pl/o-zespole/historia.html",
+          "hasLegacyImage": false
+        },
+        {
+          "placeId": "place_mvp0_2013",
+          "referenceId": "institution-grabownia-szkola-1",
+          "sourceUrl": "https://www.zsp4.miastorybnik.pl/o-zespole/historia.html",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-zsp3-history": {
+      "title": "ZSP3 — Historia szkoły w Ochojcu",
+      "sourceUrl": "https://www.zsp3.miastorybnik.pl/o-szkole/historia-szkoly.html",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2014",
+          "referenceId": "institution-ochojec-szkola-1",
+          "sourceUrl": "https://www.zsp3.miastorybnik.pl/o-szkole/historia-szkoly.html",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-sp28-history": {
+      "title": "SP28 — Historia szkoły w Kamieniu",
+      "sourceUrl": "https://www.sp28.miastorybnik.pl/szkola/historia-szkoly.html",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2015",
+          "referenceId": "institution-kamien-szkola-1",
+          "sourceUrl": "https://www.sp28.miastorybnik.pl/szkola/historia-szkoly.html",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-sp19-history": {
+      "title": "SP19 — Historia szkoły w Kłokocinie",
+      "sourceUrl": "https://sp19rybnik.szkolnastrona.pl/p%2C2%2Chistoria",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2016",
+          "referenceId": "institution-klokocin-szkola-1",
+          "sourceUrl": "https://sp19rybnik.szkolnastrona.pl/p%2C2%2Chistoria",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-klokocin-history": {
+      "title": "Rada Dzielnicy Kłokocin — Historia dzielnicy",
+      "sourceUrl": "https://klokocin.miastorybnik.pl/index.php/historia-dzielnicy",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2016",
+          "referenceId": "institution-klokocin-szkola-2",
+          "sourceUrl": "https://klokocin.miastorybnik.pl/index.php/historia-dzielnicy",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-city-education-addresses-2024": {
+      "title": "Miasto Rybnik — Adresy szkół i przedszkoli (wykaz 2024)",
+      "sourceUrl": "https://edukacja.rybnik.eu/wp-content/uploads/2024/11/Rybnickie-szkoly-i-przedszkola-%E2%80%93-dane-teleadresowe.htm",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2016",
+          "referenceId": "institution-klokocin-szkola-3",
+          "sourceUrl": "https://edukacja.rybnik.eu/wp-content/uploads/2024/11/Rybnickie-szkoly-i-przedszkola-%E2%80%93-dane-teleadresowe.htm",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-zsp12-history": {
+      "title": "ZSP12 — Historia szkoły w Zebrzydowicach",
+      "sourceUrl": "https://zsp12.miastorybnik.pl/historia/historia-szkoly/",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2017",
+          "referenceId": "institution-zebrzydowice-szkola-1",
+          "sourceUrl": "https://zsp12.miastorybnik.pl/historia/historia-szkoly/",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-zsp9-history": {
+      "title": "ZSP9 — Historia szkoły w Zamysłowie",
+      "sourceUrl": "https://www.zsp9.miastorybnik.pl/o-szkole/historia-szkoly.html",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2018",
+          "referenceId": "institution-zamyslow-szkola-1",
+          "sourceUrl": "https://www.zsp9.miastorybnik.pl/o-szkole/historia-szkoly.html",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-zsp15-history": {
+      "title": "ZSP15 — Historia szkoły w Chwałęcicach",
+      "sourceUrl": "https://www.zsp15.miastorybnik.pl/o-zespole/szkola-podstawowa.html",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2019",
+          "referenceId": "institution-chwalecice-szkola-1",
+          "sourceUrl": "https://www.zsp15.miastorybnik.pl/o-zespole/szkola-podstawowa.html",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-boguszowice-guide": {
+      "title": "TuRybnik — Przewodnik: Boguszowice Stare",
+      "sourceUrl": "https://turybnik.pl/przewodnik/boguszowice-stare",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_2020",
+          "referenceId": "institution-boguszowice-szkola-1",
+          "sourceUrl": "https://turybnik.pl/przewodnik/boguszowice-stare",
+          "hasLegacyImage": false
+        }
+      ]
+    },
+    "publication-sp3-history": {
+      "title": "SP3 — Historia szkoły na Paruszowcu",
+      "sourceUrl": "https://sp3.rybnik.pl/o-szkole/historia/",
+      "status": "not-reviewed",
+      "checkedAt": null,
+      "reason": "Publication-level discovery entry; consult exact edition entries before reuse.",
+      "materials": [
+        {
+          "placeId": "place_mvp0_1017",
+          "referenceId": "institution-paruszowiec-szkola-2",
+          "sourceUrl": "https://sp3.rybnik.pl/o-szkole/historia/",
+          "hasLegacyImage": false
+        }
+      ]
+    }
+  }
+}

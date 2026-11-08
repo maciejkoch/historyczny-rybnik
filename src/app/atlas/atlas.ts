@@ -131,6 +131,7 @@ export class Atlas {
   }
   readonly locations = inject(Locations);
   readonly consent = inject(Consent);
+  readonly withoutLocation = signal(false);
   readonly query = signal(this.route.snapshot.queryParamMap.get('q') ?? '');
   readonly screen = computed<'map' | 'search' | 'place'>(() => this.params()['screen'] ?? 'map');
   readonly hasDetails = computed(() => this.screen() === 'place');
@@ -166,6 +167,7 @@ export class Atlas {
   readonly results = computed(() => {
     const words = normalizeSearch(this.query()).trim().split(/\s+/);
     return this.places().filter((place) => {
+      if (this.withoutLocation() && place.location.coordinates !== null) return false;
       const haystack = normalizeSearch(
         [
           place.name,

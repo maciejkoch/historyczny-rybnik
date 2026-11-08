@@ -31,8 +31,12 @@ export class Locations {
       'placesDevRead',
     );
     return async () => {
-      const request = readRequestSchema.parse({ ids: PLACES.map((p) => p.id) });
-      return parseReadResponse((await read(request)).data, request.ids).places;
+      const places: LocationDto[] = [];
+      for (let offset = 0; offset < PLACES.length; offset += 100) {
+        const request = readRequestSchema.parse({ ids: PLACES.slice(offset, offset + 100).map((p) => p.id) });
+        places.push(...parseReadResponse((await read(request)).data, request.ids).places);
+      }
+      return places;
     };
   }
   async update(request: import('./place').UpdateLocationRequest): Promise<void> {

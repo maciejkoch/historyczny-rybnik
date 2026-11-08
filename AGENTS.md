@@ -28,3 +28,9 @@ Szczegóły: [środowiska](agent-context/reference/mvp-1/srodowiska.md).
 
 - Skille w `.agents/skills/`: `rybnik-create-task` przygotowuje i tworzy zadania, `rybnik-start-task` rozpoczyna i wznawia pracę, a `rybnik-finish-task` scala PR, wdraża main na integracyjny dev i zamyka zadanie. [Użycie i ograniczenia](agent-context/github-projects/skille-github-projects.md).
 - Odczytuj aktualne zasady i pola tablicy. Planowanych środowisk nie traktuj jako wdrożonych; brak zależności lub rezerwacji zgłoś przed zależną operacją.
+
+# Prawa do materiałów źródłowych
+
+- Przed weryfikacją kolejnego materiału odczytaj `data/source-rights.json`. Wykorzystuj wcześniejszą decyzję tylko w jej zapisanym zakresie (konkretne wydanie/obiekt), bez rozszerzania jej na bibliotekę, rocznik lub tytuł.
+- Nowe źródło lub wydanie dodaj do indeksu z powiązaniami miejsc i referencji; wynik sprawdzenia zapisz wraz z datą i bezpośrednim dowodem. Brak potwierdzenia zapisuj jako niepotwierdzony.
+- Decyzja właściciela z 7 listopada 2026: na tym etapie publikujemy kopie tylko materiałów z potwierdzoną domeną publiczną. Zweryfikowane materiały dodawaj do dev Storage i dokumentów miejsc, zachowując sumy oraz pochodzenie. Produkcja wymaga osobnego zlecenia.

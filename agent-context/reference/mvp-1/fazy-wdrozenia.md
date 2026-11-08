@@ -4,6 +4,17 @@ Data: 5 listopada 2026. Status: **podział będący podstawą [szczegółowego p
 
 Założenia: [zakres produktu](README.md), [technika](technika.md), [model danych](model-danych.md). Budujemy Angular SSG + Firebase Hosting + Functions. Jedna kolekcja `places`, bez historii zmian lokalizacji.
 
+## Aktualna kolejność — decyzja właściciela z 7 listopada 2026
+
+Najpierw przygotowujemy cały katalog na dev, potem uruchamiamy produkcję z zaakceptowanymi danymi. Zachowujemy numery faz jako identyfikatory istniejących zadań; kolejność realizacji to **1 → 2 → 3 → 4 → 6 (dane na dev) → 5 (wydanie produkcyjne)**. Ten zapis zastępuje poniższe wcześniejsze zależności faz 5–6 i ograniczenie katalogu do jednego kościoła do końca fazy 5.
+
+- **Faza 6:** inwentaryzacja, weryfikacja źródeł i praw do plików, uporządkowanie i walidacja całego katalogu, kontrolowany import do `places-dev` i dev Storage oraz build, wdrożenie i odbiór na zarezerwowanym dev-N. Nie wymaga działającej produkcji. Raport obejmuje również rekordy wyłączone i miejsca bez pozycji.
+- Źródłem późniejszego importu jest zweryfikowany plik katalogu i zestaw dozwolonych plików. Zachowujemy stabilne ID, slugi i ID kościoła; jawnie rozstrzygamy konflikty lokalizacji. Nie kopiujemy całej bazy dev ani danych testowych do produkcji.
+- **Faza 5:** po odbiorze katalogu na dev przygotowujemy zasoby produkcyjne, kopie i odtworzenie, monitoring, domenę i indeksowanie. Kontrolowany import zaakceptowanego katalogu i plików do produkcji, dostosowanie odnośników do plików oraz publikacja HTML, indeksu, sitemapy i przekierowań należą do tej fazy. Odbiór obejmuje pełny katalog i odłożone testy manualne fazy 4. To wydanie zamyka MVP.1.
+- Produkcję nadal publikujemy wyłącznie na osobne, wyraźne zlecenie wydania. Zmiana kolejności nie uruchamia importu ani wdrożenia i nie dodaje nowych funkcji aplikacji.
+
+Poniższy pierwotny podział zachowano jako szczegółowy opis prac; przy sprzeczności zakresu środowisk lub kolejności obowiązuje decyzja powyżej.
+
 ## Podział
 
 | Faza | Działający rezultat | Deployment |
