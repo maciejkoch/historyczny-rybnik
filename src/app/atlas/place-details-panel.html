@@ -1,5 +1,15 @@
 @if (place(); as place) {
   <h1 id="place-title" tabindex="-1">{{ place.name }}</h1>
+  <div class="flex flex-wrap gap-2 my-3">
+    @for (tag of place.tags; track tag.id) {
+      <span class="badge badge-outline">{{ tag.name }}</span>
+    }
+  </div>
+  @if (place.period.status !== 'confirmed') {
+    <p class="alert alert-warning">
+      Brak potwierdzenia istnienia w okresie międzywojennym. {{ place.period.explanation }}
+    </p>
+  }
   <p class="intro">{{ place.description }}</p>
   @for (address of place.addresses; track address.text) {
     <p>
@@ -26,12 +36,20 @@
   <p class="muted">
     Wersja pozycji: {{ place.locationVersion }} · Aktualizacja: {{ place.updatedAt }}
   </p>
-  <h2>Źródła i wzmianki</h2>
-  @for (ref of place.references; track ref.id) {
+  <h2>Udokumentowane daty</h2>
+  <div class="flex flex-wrap gap-2 my-3">
+    @for (value of documentedDates(); track value.from + (value.to || '')) {
+      <span class="badge badge-outline">{{ date(value) }}</span>
+    } @empty {
+      <p>Brak zweryfikowanych dat.</p>
+    }
+  </div>
+  <h2>Wzmianki</h2>
+  @for (ref of verifiedMentions(); track ref.id) {
     <article class="reference">
       <h3>{{ ref.title }}</h3>
       <p class="muted">
-        Wydanie: {{ date(ref.publicationDate) }}<br />Dotyczy: {{ date(ref.historicalDate) }}
+        Wydanie: {{ date(ref.publicationDate) }}<br />Dotyczy: {{ date(ref.documentedDate) }}
         @if (ref.page) {
           · str. {{ ref.page }}
         }
@@ -43,7 +61,7 @@
       @if (ref.url) {
         <a [href]="ref.url" target="_blank" rel="noopener noreferrer">Otwórz źródło ↗</a>
       }
-      @for (image of ref.images; track image.storagePath) {
+      @for (image of ref.materials; track image.storagePath) {
         <figure class="reference-image">
           <button
             type="button"
@@ -56,8 +74,25 @@
           <figcaption>{{ image.credit }} · {{ image.rights }}</figcaption>
         </figure>
       } @empty {
-        <p class="muted">Źródło dostępne bez kopii skanu.</p>
+        <p class="muted">Brak zatwierdzonego materiału historycznego dla tej wzmianki.</p>
       }
     </article>
+  }
+  @if (draftMentions().length) {
+    <details class="collapse collapse-arrow bg-base-200 mt-4">
+      <summary class="collapse-title">Wzmianki robocze — wymagają weryfikacji</summary>
+      <div class="collapse-content">
+        @for (ref of draftMentions(); track ref.id) {
+          <article>
+            <h3>{{ ref.title }}</h3>
+            <p>{{ ref.excerpt }}</p>
+            <p>{{ date(ref.documentedDate) }}</p>
+            @if (ref.url) {
+              <a [href]="ref.url" target="_blank" rel="noopener noreferrer">Otwórz źródło ↗</a>
+            }
+          </article>
+        }
+      </div>
+    </details>
   }
 }

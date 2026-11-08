@@ -1,12 +1,17 @@
 import { readFileSync } from 'node:fs';
+import { preserveLiveFields } from './import-policy.mjs';
 import { validateCatalog } from '../../functions/src/validation.mjs';
-const input = process.argv.find((arg) => arg.endsWith('.json')) || 'data/places.test-data.json';
+const input = process.argv.find((arg) => arg.endsWith('.json')) || '.local/research.catalog.json';
 const places = validateCatalog(JSON.parse(readFileSync(input, 'utf8')));
-if (!places.length || places.length > 400 || !places.some((p) => p.id === 'place_sw_antoni' && p.published))
+if (
+  !places.length ||
+  places.length > 400 ||
+  !places.some((p) => p.id === 'place_sw_antoni' && p.published)
+)
   throw new Error('Dev import requires the reviewed church and 1–400 validated places');
 console.log(
   JSON.stringify(
-    places.map(({ id, slug, references }) => ({ id, slug, references: references.length })),
+    places.map(({ id, slug, mentions }) => ({ id, slug, mentions: mentions.length })),
     null,
     2,
   ),
@@ -34,12 +39,7 @@ await db.runTransaction(async (tx) => {
       createdAt: Timestamp.fromDate(new Date(place.createdAt)),
       updatedAt: Timestamp.fromDate(new Date(place.updatedAt)),
     };
-    if (current) {
-      const prior = current.data();
-      for (const key of ['location', 'locationVersion', 'createdAt', 'updatedAt'])
-        value[key] = prior[key];
-    }
-    tx.set(db.collection('places').doc(id), value);
+    tx.set(db.collection('places').doc(id), preserveLiveFields(value, current?.data()));
   }
 });
 console.log(`Imported ${places.length} places; live locations preserved.`);

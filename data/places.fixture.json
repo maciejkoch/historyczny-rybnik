@@ -1,0 +1,119 @@
+[
+  {
+    "id": "fixture_place",
+    "name": "Fikcyjny zakład testowy",
+    "slug": "fikcyjny-zaklad-testowy",
+    "previousSlugs": [
+      "fikcyjna-stara-nazwa"
+    ],
+    "description": "Fikcyjny rekord do testów i CI. Nie opisuje rzeczywistego miejsca.",
+    "aliases": [
+      "Fikcyjna nazwa"
+    ],
+    "addresses": [
+      {
+        "type": "historical",
+        "text": "Fikcyjna ulica 1"
+      }
+    ],
+    "district": null,
+    "location": {
+      "coordinates": {
+        "lat": 50,
+        "lng": 18
+      },
+      "precision": "approximate",
+      "explanation": "Fikcyjny punkt testowy."
+    },
+    "published": true,
+    "locationVersion": 0,
+    "createdAt": "2026-11-05T12:00:00Z",
+    "updatedAt": "2026-11-05T12:00:00Z",
+    "tags": [
+      {
+        "id": "fixture_tag",
+        "name": "fikcyjny tag"
+      }
+    ],
+    "period": {
+      "status": "confirmed",
+      "explanation": "Fikcyjne potwierdzenie do testów."
+    },
+    "mentions": [
+      {
+        "id": "fixture_text",
+        "title": "Fikcyjny spis testowy",
+        "url": "https://example.org/fixture",
+        "page": "1",
+        "publicationDate": {
+          "from": "1932",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1932",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-05T12:00:00Z",
+        "excerpt": "Fikcyjny zakład testowy figuruje w fikcyjnym spisie.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": []
+      },
+      {
+        "id": "fixture_image",
+        "title": "Fikcyjny spis testowy",
+        "url": "https://example.org/fixture",
+        "page": "1",
+        "publicationDate": {
+          "from": "1932",
+          "to": null,
+          "approximate": false
+        },
+        "documentedDate": {
+          "from": "1932",
+          "to": null,
+          "approximate": false
+        },
+        "verification": "verified",
+        "accessedAt": "2026-11-05T12:00:00Z",
+        "excerpt": "Fikcyjny zakład testowy figuruje w fikcyjnym spisie.",
+        "excerptType": "summary",
+        "note": null,
+        "materials": [
+          {
+            "materialId": "fixture_material",
+            "documentedDate": {
+              "from": "1932",
+              "to": null,
+              "approximate": false
+            },
+            "storagePath": "public/places/fixture_place/fixture_image/image.jpg",
+            "thumbnailPath": "public/places/fixture_place/fixture_image/thumb.jpg",
+            "alt": "Fikcyjna ilustracja testowa",
+            "credit": "Fikcyjne archiwum testowe",
+            "rights": "Fikcyjna podstawa praw — wyłącznie test kontraktu",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "thumbnailSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "provenance": {
+              "title": "Fikcyjny dokument testowy",
+              "sourcePageUrl": "https://example.org/fixture",
+              "originalCollectionUrl": "https://example.org/collection",
+              "originalImageUrl": "https://example.org/image.jpg",
+              "originalSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+              "author": "Fikcyjny autor",
+              "dateNote": "Fikcyjne datowanie 1932",
+              "license": "Fikcyjna licencja testowa",
+              "licenseUrl": "https://example.org/license",
+              "copyrighted": false,
+              "rightsCheckedAt": "2026-11-05",
+              "transformations": "Fikcyjne dane wariantu do testów, bez rzeczywistego pliku."
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

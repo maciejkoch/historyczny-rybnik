@@ -1,0 +1,86 @@
+@import 'tailwindcss';
+@source './index.html';
+@source './app.js';
+@plugin 'daisyui' {
+  themes: light --default;
+  logs: false;
+  include:
+    navbar, button, input, select, modal, card, badge, menu, alert, rootscrollgutter, properties;
+}
+@plugin 'daisyui/theme' {
+  name: 'light';
+  default: true;
+  color-scheme: light;
+  --color-base-100: #faf8f2;
+  --color-base-200: #f0f1ec;
+  --color-base-300: #dadfd7;
+  --color-base-content: #203b32;
+  --color-primary: #245947;
+  --color-primary-content: #faf8f2;
+}
+#map {
+  height: 65vh;
+  min-height: 360px;
+}
+#detail-body p {
+  margin-block: 0.6rem;
+}
+#detail-body h3 {
+  font-family: Georgia, serif;
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+}
+#detail-body pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 28rem;
+  overflow: auto;
+}
+#graph-panel svg {
+  width: 100%;
+  height: 480px;
+  background: #faf8f2;
+  border-radius: 1rem;
+}
+#graph-panel line {
+  stroke: #829a8d;
+  stroke-width: 2;
+}
+.map-marker {
+  background: #245947;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+.map-marker.probable {
+  background: #a37422;
+}
+.map-marker.unverified,
+.map-marker.outside {
+  background: #718079;
+}
+.map-marker.candidate {
+  background: #644786;
+  border-radius: 4px;
+}
+@media (max-width: 700px) {
+  body > div {
+    flex-direction: column;
+  }
+  aside {
+    width: 100% !important;
+  }
+  #nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  aside > p {
+    display: none;
+  }
+  main {
+    padding: 1rem !important;
+  }
+}

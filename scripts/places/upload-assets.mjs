@@ -8,14 +8,14 @@ const { GoogleAuth, OAuth2Client } = require('google-auth-library');
 const bucket = 'historyczny-rybnik-dev-files';
 const directory = process.argv.find((arg) => arg.startsWith('--directory='))?.slice(12);
 if (!directory) throw new Error('Specify --directory=/path/to/reviewed-images');
-const input = process.env['PLACES_SNAPSHOT'] || 'data/places.test-data.json';
+const input = process.env['PLACES_SNAPSHOT'] || '.local/research.catalog.json';
 const places = validateCatalog(JSON.parse(readFileSync(input, 'utf8')));
 // The place document is the single manifest for paths, hashes and provenance.
 const assets = places
   .filter((p) => p.published)
   .flatMap((p) =>
-    p.references.flatMap((ref) =>
-      ref.images.flatMap((image) => [
+    p.mentions.flatMap((ref) =>
+      ref.materials.flatMap((image) => [
         { storagePath: image.storagePath, sha256: image.sha256, image },
         { storagePath: image.thumbnailPath, sha256: image.thumbnailSha256, image },
       ]),

@@ -1,7 +1,13 @@
 # data
 
-Dane wejściowe publikowanego katalogu i materiałów miejsc. Służą przygotowaniu oraz weryfikacji statycznej treści. Procedury importu i snapshotu są w `scripts/places/`; dane robocze agenta nie należą do tego katalogu.
+Repozytorium przechowuje wyłącznie `places.fixture.json`: w pełni fikcyjny rekord miejsca, wzmianek, praw i metadanych ilustracji do testów oraz offline builda CI. Nie opisuje rzeczywistego miejsca i nie służy do importu ani wdrażania danych dev. Fikcyjne ścieżki obrazów służą walidacji kontraktu; nie wskazują opublikowanych plików.
 
-`places.catalog.json` to pełny katalog dev (196 miejsc) z MVP.0. `places.test-data.json` pozostaje małym zestawem CI. Raport mapowania i ograniczenia publikacji: `agent-context/full-catalog/`.
+Rzeczywisty katalog i obrazy pozostają poza Git:
 
-source-rights.json jest indeksem weryfikacji praw: źródła i konkretne wydania, status, data, dowód oraz powiązane miejsca i referencje. Przed sprawdzeniem kolejnego materiału odczytaj indeks; korzystaj z decyzji tylko w zapisanym zakresie wydania. Brak wpisu lub status not-reviewed/unconfirmed nie zezwala na publikację kopii. W tym zadaniu dopuszczamy wyłącznie domenę publiczną potwierdzoną w metadanych źródła. Nie uznajemy całej biblioteki ani tytułu czasopisma za domenę publiczną.
+- `places/` — prywatny warsztat synchronizowany ze Storage; wersjonowany jest tylko jego [README](places/README.md).
+- `.local/places.snapshot.json` w root repo — aktualny odczyt Firestore do builda dev i baza eksportu.
+- `.local/research.catalog.json` — zatwierdzony eksport warsztatu do importu.
+- `.local/places.catalog.json` — zachowana lokalna kopia wcześniejszego pełnego katalogu; nie jest domyślnym wejściem builda.
+- `.local/source-rights.json` — zachowany indeks dawnych decyzji praw do jawnej migracji; jego kopia jest w prywatnym warsztacie jako files/legacy-source-rights.json. Nowe decyzje należą do warsztatu.
+
+Wygenerowany moduł katalogu, indeks wyszukiwania, sitemap i konfiguracje Hosting z przekierowaniami również są ignorowane przez Git. Build dev pobiera świeży snapshot; CI nie potrzebuje dostępu do danych ani chmury. Historia Git nie jest przepisywana.
