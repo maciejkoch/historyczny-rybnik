@@ -228,6 +228,7 @@ export class Atlas {
       canonical.href = url;
     });
     afterNextRender(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
       effect(
         () => {
           this.consent.google();
