@@ -37,8 +37,8 @@ export class AtlasMap {
   readonly placeSelected = output<Place>();
   readonly backgroundClicked = output<void>();
   readonly state = signal<'loading' | 'ready' | 'error'>('loading');
-  readonly historyEnabled = signal(false);
-  readonly opacity = signal(35);
+  readonly historyEnabled = signal(HISTORICAL_MAP.available);
+  readonly opacity = signal(60);
   readonly layerControlsCollapsed = signal(false);
   readonly historyError = signal(false);
   readonly outsideCoverage = signal(false);

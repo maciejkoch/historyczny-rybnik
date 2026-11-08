@@ -13,7 +13,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 
 ## Mechanizmy i struktura
 
-- Angular generuje publiczny HTML i hydratację; MapLibre jest uruchamiany wyłącznie w przeglądarce. Podkład to OpenFreeMap, plan historyczny jest serwowany jako lokalne kafelki.
+- Angular generuje publiczny HTML i hydratację; MapLibre jest uruchamiany wyłącznie w przeglądarce. Podkład to OpenFreeMap, plan historyczny jest serwowany jako lokalne kafelki. Dostępny plan 1932 jest domyślnie włączony z kryciem 60%; zapisane ustawienia warstwy, odczytywane zgodnie ze zgodą na preferencje, mają pierwszeństwo.
 - Trasy: `/` (mapa), `/szukaj`, `/miejsca/:slug` dla opublikowanych miejsc, `/o-nas`, `/prywatnosc` i 404. Hosting nie stosuje globalnego fallbacku SPA.
 - Katalog do statycznego builda jest walidowany i przygotowywany przez `places:prepare`. Bieżące pozycje mogą pochodzić z API; bez zgody na usługi Google aplikacja korzysta ze snapshotu.
 - Komponenty panelu i mapy są w `src/app/atlas/` i `src/app/atlas-map/`; `src/app/places/` obsługuje katalog i pozycje, `src/app/privacy/` zgody i politykę prywatności. Stan interfejsu korzysta z Signals.
