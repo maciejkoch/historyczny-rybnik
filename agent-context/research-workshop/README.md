@@ -1,5 +1,7 @@
 # Warsztat badań — odbiór implementacji
 
+Późniejsze rozszerzenie skilla: [delegowanie do Luny — weryfikacja 9 listopada 2026](luna-weryfikacja.md).
+
 8 listopada 2026. Baza gałęzi `codex/research-workshop`: aktualny przy starcie `origin/main` 488301d60a3f5b6c73fca5589c48af1acf1271ef (PR #15 scalony). Osobny worktree `/private/tmp/rybnik-research-workshop`; zastane zmiany pierwotnego checkoutu zachowane. Dev-1 atomowo zarezerwowany dla pozycji PVTI_lAHOAP5vmM4BqYSzzhG6otg, bez publikacji przeglądarki lokalnej.
 
 ## Rezultat i sprawdzenia
