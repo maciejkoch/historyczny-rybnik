@@ -63,6 +63,11 @@ export class AtlasMap {
   private readonly consent = inject(Consent);
   private map?: LibreMap;
   private markers: Marker[] = [];
+  private markerGroups: { marker: Marker; members: string[]; coordinates: [number, number] }[] = [];
+  private outgoingMarkers: Marker[] = [];
+  private markerDrawVersion = 0;
+  private markerZoom?: number;
+  private markerSignature = '';
   private resizeObserver?: ResizeObserver;
   private loadingTimeout?: ReturnType<typeof setTimeout>;
   private backgroundClickTimeout?: ReturnType<typeof setTimeout>;
@@ -216,7 +221,9 @@ export class AtlasMap {
   private async renderMarkers(): Promise<void> {
     const map = this.map;
     if (!map || this.state() !== 'ready') return;
+    const version = ++this.markerDrawVersion;
     const { Marker } = await import('maplibre-gl');
+    if (map !== this.map || version !== this.markerDrawVersion || this.destroyRef.destroyed) return;
     this.draftMarker?.remove();
     const draft = this.draftPoint();
     if (this.editing() && draft)
@@ -238,6 +245,8 @@ export class AtlasMap {
           },
         })),
     };
+    this.markerZoom = undefined;
+    this.markerSignature = '';
     const source = map.getSource<GeoJSONSource>('places-clustered');
     if (source) source.setData(data);
     else {
@@ -261,12 +270,49 @@ export class AtlasMap {
   private async drawClusterMarkers(): Promise<void> {
     const map = this.map;
     if (!map?.getSource('places-clustered') || this.state() !== 'ready') return;
+    const version = ++this.markerDrawVersion;
+    const source = map.getSource<GeoJSONSource>('places-clustered')!;
     const { Marker } = await import('maplibre-gl');
-    if (map !== this.map || this.destroyRef.destroyed) return;
-    this.markers.forEach((marker) => marker.remove());
+    if (map !== this.map || version !== this.markerDrawVersion || this.destroyRef.destroyed) return;
+    const features = map.querySourceFeatures('places-clustered');
+    const members = new Map<number, string[]>();
+    try {
+      const clusters = new Map(features.filter((f) => f.properties['cluster']).map((f) => [Number(f.properties['cluster_id']), f]));
+      await Promise.all([...clusters.values()].map(async (f) => {
+        const id = Number(f.properties['cluster_id']);
+        const leaves = await source.getClusterLeaves(id, Number(f.properties['point_count']), 0);
+        members.set(id, leaves.map((leaf) => String(leaf.properties?.['placeId'])));
+      }));
+    } catch {
+      // Source was replaced while resolving cluster membership; its next data event redraws.
+      return;
+    }
+    if (map !== this.map || version !== this.markerDrawVersion || this.destroyRef.destroyed) return;
+    const signature = JSON.stringify({
+      features: features.filter((f) => f.geometry.type === 'Point').map((f) => [
+        f.properties['cluster'] ? `c${f.properties['cluster_id']}` : `p${f.properties['placeId']}`,
+        f.geometry.type === 'Point' ? f.geometry.coordinates : [],
+        f.properties['point_count'],
+      ]).sort((a, b) => String(a[0]).localeCompare(String(b[0]))),
+      selected: this.selected()?.id,
+      editing: this.editing(),
+    });
+    if (signature === this.markerSignature) {
+      this.markerZoom = map.getZoom();
+      return;
+    }
+    this.markerSignature = signature;
+    this.outgoingMarkers.forEach((marker) => marker.remove());
+    this.outgoingMarkers = [];
+    const previous = this.markerGroups;
+    const previousMarkers = this.markers;
+    const zoom = map.getZoom();
+    const animate = this.markerZoom !== undefined && Math.abs(zoom - this.markerZoom) > 0.01 && this.motionDuration() > 0 && !this.editing();
+    this.markerZoom = zoom;
     this.markers = [];
+    this.markerGroups = [];
     const seen = new Set<string>();
-    const add = (coordinates: number[], place?: Place, clusterId?: number, count?: number) => {
+    const add = (coordinates: number[], place?: Place, clusterId?: number, count?: number, ids: string[] = []) => {
       const button = document.createElement('button');
       button.type = 'button';
       button.disabled = this.editing();
@@ -316,13 +362,13 @@ export class AtlasMap {
           }
         }
       });
-      this.markers.push(
-        new Marker({ element: button, anchor: count ? 'center' : 'bottom' })
-          .setLngLat([coordinates[0], coordinates[1]])
-          .addTo(map),
-      );
+      const marker = new Marker({ element: button, anchor: count ? 'center' : 'bottom' })
+        .setLngLat([coordinates[0], coordinates[1]])
+        .addTo(map);
+      this.markers.push(marker);
+      if (ids.length) this.markerGroups.push({ marker, members: ids, coordinates: [coordinates[0], coordinates[1]] });
     };
-    for (const feature of map.querySourceFeatures('places-clustered')) {
+    for (const feature of features) {
       if (feature.geometry.type !== 'Point') continue;
       const properties = feature.properties;
       const key = properties['cluster']
@@ -336,15 +382,58 @@ export class AtlasMap {
           undefined,
           properties['cluster_id'],
           properties['point_count'],
+          members.get(Number(properties['cluster_id'])) ?? [],
         );
       else {
         const place = this.places().find((p) => p.id === properties['placeId']);
-        if (place) add(feature.geometry.coordinates, place);
+        if (place) add(feature.geometry.coordinates, place, undefined, undefined, [place.id]);
       }
     }
     const selected = this.selected();
     if (selected?.location.coordinates)
       add([selected.location.coordinates.lng, selected.location.coordinates.lat], selected);
+
+    const bestMatch = (ids: string[], candidates: typeof previous) =>
+      candidates.reduce<(typeof previous)[number] | undefined>((best, candidate) => {
+        const common = candidate.members.filter((id) => ids.includes(id)).length;
+        const bestCommon = best ? best.members.filter((id) => ids.includes(id)).length : 0;
+        return common > bestCommon ? candidate : best;
+      }, undefined);
+    const duration = this.motionDuration();
+    for (const current of this.markerGroups) {
+      const from = bestMatch(current.members, previous);
+      if (!animate || !from || (from.members.length === current.members.length && from.members.every((id) => current.members.includes(id)))) continue;
+      const origin = map.project(from.coordinates);
+      const target = map.project(current.coordinates);
+      current.marker.getElement().animate(
+        [{ translate: `${origin.x - target.x}px ${origin.y - target.y}px`, opacity: 0 }, { translate: '0px 0px', opacity: 1 }],
+        { duration, easing: 'ease-out' },
+      );
+    }
+    for (const old of previous) {
+      const to = bestMatch(old.members, this.markerGroups);
+      if (!animate || !to || (old.members.length === to.members.length && old.members.every((id) => to.members.includes(id)))) {
+        old.marker.remove();
+        continue;
+      }
+      const button = old.marker.getElement();
+      button.style.pointerEvents = 'none';
+      button.tabIndex = -1;
+      button.setAttribute('aria-hidden', 'true');
+      const origin = map.project(old.coordinates);
+      const target = map.project(to.coordinates);
+      this.outgoingMarkers.push(old.marker);
+      const animation = button.animate(
+        [{ translate: '0px 0px', opacity: 1 }, { translate: `${target.x - origin.x}px ${target.y - origin.y}px`, opacity: 0 }],
+        { duration, easing: 'ease-in' },
+      );
+      animation.onfinish = () => {
+        old.marker.remove();
+        this.outgoingMarkers = this.outgoingMarkers.filter((marker) => marker !== old.marker);
+      };
+    }
+    // Selected markers are outside clustering and are replaced without transition.
+    for (const marker of previousMarkers) if (!previous.some((group) => group.marker === marker)) marker.remove();
   }
 
   private addHistoricalMap(): void {
@@ -531,8 +620,14 @@ export class AtlasMap {
     clearTimeout(this.loadingTimeout);
     clearTimeout(this.backgroundClickTimeout);
     this.resizeObserver?.disconnect();
+    ++this.markerDrawVersion;
     this.markers.forEach((marker) => marker.remove());
+    this.outgoingMarkers.forEach((marker) => marker.remove());
     this.markers = [];
+    this.outgoingMarkers = [];
+    this.markerGroups = [];
+    this.markerZoom = undefined;
+    this.markerSignature = '';
     this.map?.remove();
     this.map = undefined;
   }
