@@ -13,7 +13,7 @@
     "places:prepare": "node scripts/places/prepare.mjs",
     "places:import": "node scripts/places/import.mjs",
     "places:snapshot": "node scripts/places/snapshot.mjs",
-    "test": "npm run check:contracts && npm run test:privacy && npm --prefix functions test && npm run test:research",
+    "test": "node --experimental-strip-types --test scripts/maps/cluster-visibility.test.mjs && npm run check:contracts && npm run test:privacy && npm --prefix functions test && npm run test:research",
     "test:emulator": "firebase emulators:exec --config firebase.backend.dev.json --project demo-historyczny-rybnik --only firestore,storage \"npm --prefix functions run test:emulator\"",
     "deploy:backend:dev": "firebase deploy --config firebase.backend.dev.json --project historyczny-rybnik --only functions:places-dev,firestore:places-dev,storage:places-dev,auth",
     "places:upload-assets": "node scripts/places/upload-assets.mjs",

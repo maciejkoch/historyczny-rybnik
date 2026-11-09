@@ -20,6 +20,7 @@ import { Place } from '../places/place';
 import { HISTORICAL_MAP, INITIAL_CENTER } from './map-config';
 import { HISTORY_CORNERS } from './history-extent';
 import { MARKER_CATEGORIES, markerCategory, markerIcon } from './place-markers';
+import { visibleClusterCandidates } from './cluster-visibility';
 
 @Component({
   selector: 'app-atlas-map',
@@ -274,10 +275,10 @@ export class AtlasMap {
     const source = map.getSource<GeoJSONSource>('places-clustered')!;
     const { Marker } = await import('maplibre-gl');
     if (map !== this.map || version !== this.markerDrawVersion || this.destroyRef.destroyed) return;
-    const features = map.querySourceFeatures('places-clustered');
+    const queriedFeatures = map.querySourceFeatures('places-clustered');
     const members = new Map<number, string[]>();
     try {
-      const clusters = new Map(features.filter((f) => f.properties['cluster']).map((f) => [Number(f.properties['cluster_id']), f]));
+      const clusters = new Map(queriedFeatures.filter((f) => f.properties['cluster']).map((f) => [Number(f.properties['cluster_id']), f]));
       await Promise.all([...clusters.values()].map(async (f) => {
         const id = Number(f.properties['cluster_id']);
         const leaves = await source.getClusterLeaves(id, Number(f.properties['point_count']), 0);
@@ -288,6 +289,16 @@ export class AtlasMap {
       return;
     }
     if (map !== this.map || version !== this.markerDrawVersion || this.destroyRef.destroyed) return;
+    const features = visibleClusterCandidates(queriedFeatures
+      .filter((f) => f.geometry.type === 'Point')
+      .map((feature) => ({
+        key: feature.properties['cluster'] ? `c${feature.properties['cluster_id']}` : `p${feature.properties['placeId']}`,
+        tileZoom: (feature as typeof feature & { tile?: { z: number } }).tile?.z ?? 0,
+        members: feature.properties['cluster']
+          ? members.get(Number(feature.properties['cluster_id'])) ?? []
+          : [String(feature.properties['placeId'])],
+        value: feature,
+      }))).map((candidate) => candidate.value);
     const signature = JSON.stringify({
       features: features.filter((f) => f.geometry.type === 'Point').map((f) => [
         f.properties['cluster'] ? `c${f.properties['cluster_id']}` : `p${f.properties['placeId']}`,
@@ -427,10 +438,15 @@ export class AtlasMap {
         [{ translate: '0px 0px', opacity: 1 }, { translate: `${target.x - origin.x}px ${target.y - origin.y}px`, opacity: 0 }],
         { duration, easing: 'ease-in' },
       );
-      animation.onfinish = () => {
+      const removeOutgoing = () => {
+        clearTimeout(fallback);
         old.marker.remove();
         this.outgoingMarkers = this.outgoingMarkers.filter((marker) => marker !== old.marker);
       };
+      // A cancelled animation does not fire finish; the timeout also covers browser interruptions.
+      const fallback = setTimeout(removeOutgoing, duration + 150);
+      animation.onfinish = removeOutgoing;
+      animation.oncancel = removeOutgoing;
     }
     // Selected markers are outside clustering and are replaced without transition.
     for (const marker of previousMarkers) if (!previous.some((group) => group.marker === marker)) marker.remove();
