@@ -2,6 +2,8 @@
 
 Prywatny zbiór JSON i plików, ignorowany przez Git, synchronizowany 1:1 ze Storage. Rybnik, domyślnie 1918–1939 (elastycznie), plan 1932. Badanie nie publikuje danych. Kontrakt: [schema.mjs](../../scripts/research/model/schema.mjs), schemat 3.
 
+[Skill badawczy](../../.agents/skills/rybnik-research-places/SKILL.md) domyślnie deleguje wyszukiwanie i robocze wpisy do `gpt-6-luna` (`high`). Model główny pobiera warsztat przed delegacją, po zakończeniu badacza weryfikuje dowody i prawa oraz waliduje i wysyła wynik. Agenci zapisują sekwencyjnie; Luna nie synchronizuje zbioru i nie zatwierdza nowych wzmianek ani praw. Brak Luny jest zgłaszany bez cichej zmiany modelu.
+
 ## Struktura
 
 | Folder | Znaczenie |

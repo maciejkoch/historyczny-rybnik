@@ -128,6 +128,8 @@ Indeks .local/source-rights.json zapisuje decyzje praw na poziomie konkretnego w
 
 ## Warsztat badań historycznych
 
+Skill `rybnik-research-places` zleca zbieranie źródeł i robocze wpisy jednemu subagentowi `gpt-6-luna` z reasoning `high`, bez dziedziczenia historii rozmowy. Model główny wykonuje pull, po zakończeniu badacza sprawdza dowody, datowanie, tożsamość i prawa, a następnie waliduje i synchronizuje wynik. Zapisy do warsztatu są sekwencyjne. Brak dostępnej Luny/delegacji jest zgłaszany bez automatycznego użycia droższego modelu. To instrukcja delegowania w skillu, bez globalnej zmiany konfiguracji Codex; [użycie](.agents/README.md).
+
 Prywatny `data/places/`, schemat 3: sources (kolekcje), documents (konkretne źródła i ich kopie), mentions (datowane fakty o jednym miejscu), materials (odrębne obrazy), places/out-of-period, candidates i research. Miejsce wskazuje mentionIds. Wzmianka ma documentedDate, verified/draft/conflicting, verifiedAt, evidence z documentId/locator oraz materialIds. Zweryfikowana wzmianka wymaga daty i czasu sprawdzenia. Daty miejsca są wyliczane ze zweryfikowanych wzmianek, bez interpolowania ciągłości pomiędzy latami.
 
 Obraz ma własne originalDate/depictedDate, źródłowe dokumenty, uzasadnienie datowania i klasyfikację historical/source-copy/unidentified/outside-period. Powiązanie z verified wzmianką wymaga historycznej klasyfikacji, zgodnego dokumentu i datowania mieszczącego się w jej okresie. Skany późniejszych opracowań pozostają kopiami źródeł; współczesne/nieustalone zdjęcia są poza galerią historyczną. Pliki współdzielimy po SHA-256. Archiwizacja prywatna nie zależy od praw publikacyjnych; eksport nadal wymaga potwierdzonej domeny publicznej i zgody na konkretny wariant.
