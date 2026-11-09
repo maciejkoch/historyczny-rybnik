@@ -18,7 +18,7 @@ Prywatny zbiór JSON i plików, ignorowany przez Git, synchronizowany 1:1 ze Sto
 | research | Przebieg badań, źródła, brak wyników, zmiany, leads i ograniczenia. |
 | files | Oryginały, obrazy stron, wycinki i miniatury; wspólne ścieżki oraz SHA-256 bez powielania identycznych bajtów. |
 
-`config.json` określa miasto i zakres, `tags.json` zawiera płaski słownik. Każde miejsce ma minimum jeden tag. Nazwy rekordów: `<id>.json`. ID nie zmienia się z nazwą ani URL. Walidacja sprawdza także powiązania, zgodność datowania, prawa i sumy plików.
+`config.json` określa miasto i zakres, `tags.json` zawiera płaski słownik. Każde miejsce ma minimum jeden tag. Pierwszy tag jest główny i określa ikonę znacznika mapy; kolejność pozostałych tagów nie nadaje im pierwszeństwa. Tag „stacja benzynowa” obejmuje też historyczne punkty sprzedaży paliw; nie utrzymujemy osobnego tagu „sprzedaż paliw”. Nazwy rekordów: `<id>.json`. ID nie zmienia się z nazwą ani URL. Walidacja sprawdza także powiązania, zgodność datowania, prawa i sumy plików.
 
 ## Daty i weryfikacja
 

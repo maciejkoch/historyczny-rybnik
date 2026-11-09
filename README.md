@@ -45,3 +45,5 @@ Lokalny warsztat: widok Materiały pokazuje galerię skanów i wycinków z miejs
 Miejsce ma opis redakcyjny, udokumentowane daty i zweryfikowane wzmianki z właściwymi materiałami historycznymi. Lokalny warsztat rozdziela historyczne obrazy, kopie źródeł oraz materiały do rozpoznania; współczesne zdjęcia nie ilustrują dawnych wzmianek.
 
 Rzeczywiste dane miejsc i wygenerowane katalogi pozostają poza Git. Testy i CI używają wyłącznie fikcyjnych danych; build dev pobiera aktualny snapshot z Firestore.
+
+Znaczniki mapy pokazują ikonę pierwszego (głównego) tagu miejsca. Zielony oznacza dokładną lokalizację (wskazany budynek), bursztynowy z przerywanym obrysem — przybliżoną. Wspólny panel „Mapa i legenda” zawiera ustawienia planu oraz objaśnienia ikon, kolorów i grup. Domyślnie jest zwinięty na telefonie i otwarty na komputerze; wybór można zapamiętać osobno dla obu układów po zgodzie na preferencje.

@@ -15,3 +15,5 @@ Wyszukiwarka ma filtr „Bez lokalizacji”, łączony z wpisaną nazwą, adrese
 Karta miejsca pokazuje płaskie tagi i adnotację, gdy period nie potwierdza istnienia w okresie międzywojennym. Prywatny warsztat i jego przeglądarka są poza src i publicznym buildem.
 
 `app/atlas/atlas.routes.ts` ładuje atlas i katalog jako osobny pakiet tras. Zachowuje statyczny HTML kart i współdzieloną instancję atlasu przy przejściach mapa/wyszukiwanie/miejsce; `AtlasReuse` identyfikuje te trasy przez data.atlas.
+
+`atlas-map/place-markers.ts` zawiera mapowanie pierwszego tagu na ikonę; symbole markerów i legendy współdzielą style globalne. Panel „Mapa i legenda” łączy istniejące sterowanie planem z objaśnieniem dziewięciu ikon, dokładności i grup. Na telefonie domyślnie zwinięty, na desktopie otwarty; preferencje układów są osobne.

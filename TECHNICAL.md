@@ -145,3 +145,9 @@ Lokalna przeglądarka HTML/CSS/JS działa tylko na 127.0.0.1:4319, tylko do odcz
 Narzędzia `scripts/research/` są pogrupowane w model, workspace, sync, migrations, publication, viewer i test. `cli.mjs` pozostaje wspólnym wejściem operatora; polecenia npm zachowują nazwy. Spis modułów: scripts/research/README.md.
 
 Rzeczywiste katalogi i indeks dawnych praw są poza Git. Wersjonowany jest tylko fikcyjny data/places.fixture.json. Generator tworzy ignorowane src/app/places/catalog.generated.ts, public/search-index.json i public/sitemap.xml. Szablony firebase.dev*.json pozostają stałe; przekierowania z katalogu są zapisywane do ignorowanych .local/firebase.dev*.json z bezwzględną ścieżką Hosting. Deploy dev i preview używają tych wygenerowanych konfiguracji. Start/watch najpierw przygotowują katalog, więc świeży checkout nie wymaga śledzonego modułu generated.
+
+## Ikony i legenda mapy
+
+`atlas-map/place-markers.ts` mapuje wyłącznie pierwszy tag miejsca na lokalną ikonę Lucide; nieznany tag otrzymuje ikonę „Inne”. Dziewięć SVG w `public/icons/places/` pochodzi z lucide-static 0.468.0 (ISC, z zachowaną licencją); biały obrys ma szerokość 2,6 w viewBox 24. Ikona ma 30 px, bryła znacznika 38 px, a natywny przycisk 44 × 54 px. Wspólne style symbolu w `src/styles.css` obsługują markery DOM MapLibre i próbki legendy. `building` ma kolor zielony; `approximate` bursztynowy i przerywany obrys. Zaznaczenie dodaje obwódkę bez zmiany koloru dokładności. Grupy mają neutralny licznik i przybliżają mapę.
+
+Jeden rozwijany panel zawiera warstwy i legendę (details daisyUI). Escape zwija panel i przenosi fokus na przełącznik. Panel jest przewijany wewnątrz obszaru mapy. Domyślnie zamknięty poniżej 1100 px, otwarty od 1100 px. Zgoda na preferencje pozwala zapamiętać `collapsedMobile` i `collapsedDesktop` w istniejącym kluczu warstw; dawny wspólny `collapsed` nie nadpisuje nowych ustawień domyślnych. Respektowane pozostają zapisane włączenie i krycie planu.

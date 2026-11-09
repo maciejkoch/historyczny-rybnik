@@ -1,45 +1,205 @@
 <div class="map-frame">
   <div #canvas class="map-canvas"></div>
   <div class="map-controls">
-    <div class="layers-panel" [class.is-collapsed]="layerControlsCollapsed()">
-      <button type="button" class="btn btn-square layers-collapse" [attr.aria-label]="layerControlsCollapsed() ? 'Rozwiń ustawienia planu' : 'Zwiń ustawienia planu'" [attr.aria-expanded]="!layerControlsCollapsed()" aria-controls="history-layer-controls" (click)="toggleLayerControls()">
+    <div
+      class="layers-panel"
+      [class.is-collapsed]="layerControlsCollapsed()"
+      (keydown.escape)="closeLayerControls()"
+    >
+      <button
+        type="button"
+        class="btn btn-square layers-collapse"
+        #layerControlsToggle
+        [attr.aria-label]="
+          layerControlsCollapsed() ? 'Rozwiń warstwy i legendę mapy' : 'Zwiń warstwy i legendę mapy'
+        "
+        [attr.aria-expanded]="!layerControlsCollapsed()"
+        aria-controls="map-layer-controls"
+        (click)="toggleLayerControls()"
+      >
         @if (layerControlsCollapsed()) {
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5Z"/><path d="M9 3v16M15 5v16"/></svg>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            aria-hidden="true"
+          >
+            <path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5Z" />
+            <path d="M9 3v16M15 5v16" />
+          </svg>
         } @else {
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            aria-hidden="true"
+          >
+            <path d="m14 6-6 6 6 6" />
+          </svg>
         }
       </button>
-      <fieldset id="history-layer-controls" class="layer-controls">
-        <legend class="sr-only">Warstwy mapy</legend>
-        <label class="layer-toggle"><input type="checkbox" class="toggle toggle-primary toggle-sm" [checked]="historyEnabled()" [disabled]="!historyAvailable || state() !== 'ready'" (change)="toggleHistory($event)" /><span>Plan z 1932 r.</span></label>
-        @if (historyAvailable) {
-          <div class="opacity-field" [class.layer-off]="!historyEnabled()">
-            <label for="history-opacity">Krycie planu <output for="history-opacity">{{ opacity() }}%</output></label>
-            <input id="history-opacity" class="range range-primary range-xs" aria-label="Krycie planu" type="range" min="0" max="100" step="1" [value]="opacity()" [disabled]="!historyEnabled() || state() !== 'ready'" [attr.aria-valuetext]="opacity() + ' procent'" (input)="changeOpacity($event)" />
+      <div id="map-layer-controls" class="layer-controls">
+        <h2 class="pr-10 text-base font-semibold">Mapa i legenda</h2>
+        <fieldset class="mt-3">
+          <legend class="sr-only">Warstwy mapy</legend>
+          <label class="layer-toggle"
+            ><input
+              type="checkbox"
+              class="toggle toggle-primary toggle-sm"
+              [checked]="historyEnabled()"
+              [disabled]="!historyAvailable || state() !== 'ready'"
+              (change)="toggleHistory($event)"
+            /><span>Plan z 1932 r.</span></label
+          >
+          @if (historyAvailable) {
+            <div class="opacity-field" [class.layer-off]="!historyEnabled()">
+              <label for="history-opacity"
+                >Krycie planu <output for="history-opacity">{{ opacity() }}%</output></label
+              >
+              <input
+                id="history-opacity"
+                class="range range-primary range-xs"
+                aria-label="Krycie planu"
+                type="range"
+                min="0"
+                max="100"
+                step="1"
+                [value]="opacity()"
+                [disabled]="!historyEnabled() || state() !== 'ready'"
+                [attr.aria-valuetext]="opacity() + ' procent'"
+                (input)="changeOpacity($event)"
+              />
+            </div>
+            <p class="layer-note">
+              Dopasowanie przybliżone. Przerywana linia wyznacza zasięg planu.
+            </p>
+            <button
+              type="button"
+              class="btn btn-ghost btn-sm coverage-button"
+              [disabled]="!historyEnabled() || state() !== 'ready'"
+              (click)="showCoverage()"
+            >
+              Pokaż cały plan ↗
+            </button>
+          } @else {
+            <p class="layer-note">Plan oczekuje na potwierdzenie możliwości publikacji.</p>
+          }
+        </fieldset>
+        <details class="collapse collapse-arrow mt-3 border-t border-base-300 rounded-none" open>
+          <summary class="collapse-title min-h-11 px-0 py-3 text-sm font-semibold">Legenda</summary>
+          <div class="collapse-content px-0 pb-1 text-sm">
+            <h3 class="mb-2 font-semibold">Dokładność lokalizacji</h3>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3">
+                <span
+                  class="place-marker-symbol shrink-0"
+                  data-precision="building"
+                  aria-hidden="true"
+                  ><img src="/icons/places/map-pin.svg" width="30" height="30" alt="" /></span
+                ><span
+                  >Dokładna lokalizacja<br /><span class="text-xs text-[var(--color-muted)]"
+                    >Wskazany budynek</span
+                  ></span
+                >
+              </li>
+              <li class="flex items-center gap-3">
+                <span
+                  class="place-marker-symbol shrink-0"
+                  data-precision="approximate"
+                  aria-hidden="true"
+                  ><img src="/icons/places/map-pin.svg" width="30" height="30" alt="" /></span
+                ><span
+                  >Przybliżona lokalizacja<br /><span class="text-xs text-[var(--color-muted)]"
+                    >Przerywany obrys</span
+                  ></span
+                >
+              </li>
+            </ul>
+            <h3 class="mt-5 mb-2 font-semibold">Kategorie miejsc</h3>
+            <ul class="grid grid-cols-2 gap-x-3 gap-y-3">
+              @for (category of markerCategories; track category.id) {
+                <li class="flex items-center gap-2 min-w-0">
+                  <span
+                    class="place-marker-symbol shrink-0"
+                    data-precision="building"
+                    aria-hidden="true"
+                    ><img [src]="markerIcon(category.icon)" width="30" height="30" alt="" /></span
+                  ><span>{{ category.name }}</span>
+                </li>
+              }
+            </ul>
+            <p class="mt-4 text-xs text-[var(--color-muted)]">
+              Ikona oznacza główny tag miejsca. Miejsca bez ustalonej lokalizacji znajdziesz w
+              wyszukiwarce — nie mają znacznika.
+            </p>
+            <div class="mt-3 flex items-center gap-3">
+              <span
+                class="place-cluster btn btn-circle pointer-events-none shrink-0"
+                aria-hidden="true"
+                >3</span
+              ><span>Grupa pobliskich miejsc. Wybierz ją, aby przybliżyć mapę.</span>
+            </div>
           </div>
-          <p class="layer-note">Dopasowanie przybliżone. Przerywana linia wyznacza zasięg planu.</p>
-          <button type="button" class="btn btn-ghost btn-sm coverage-button" [disabled]="!historyEnabled() || state() !== 'ready'" (click)="showCoverage()">Pokaż cały plan ↗</button>
-        } @else {
-          <p class="layer-note">Plan oczekuje na potwierdzenie możliwości publikacji.</p>
-        }
-      </fieldset>
+        </details>
+      </div>
     </div>
     <div class="navigation-controls" role="group" aria-label="Sterowanie mapą">
-      <button type="button" class="btn btn-square" aria-label="Przybliż mapę" [disabled]="state() !== 'ready'" (click)="zoom(1)">+</button>
-      <button type="button" class="btn btn-square" aria-label="Oddal mapę" [disabled]="state() !== 'ready'" (click)="zoom(-1)">−</button>
-      <button type="button" class="btn btn-square" aria-label="Wróć do centrum Rybnika" [disabled]="state() !== 'ready'" (click)="resetView()">⌂</button>
+      <button
+        type="button"
+        class="btn btn-square"
+        aria-label="Przybliż mapę"
+        [disabled]="state() !== 'ready'"
+        (click)="zoom(1)"
+      >
+        +
+      </button>
+      <button
+        type="button"
+        class="btn btn-square"
+        aria-label="Oddal mapę"
+        [disabled]="state() !== 'ready'"
+        (click)="zoom(-1)"
+      >
+        −
+      </button>
+      <button
+        type="button"
+        class="btn btn-square"
+        aria-label="Wróć do centrum Rybnika"
+        [disabled]="state() !== 'ready'"
+        (click)="resetView()"
+      >
+        ⌂
+      </button>
     </div>
   </div>
   @if (state() === 'loading') {
-    <div class="map-message" role="status"><span class="loading loading-spinner loading-sm" aria-hidden="true"></span> Ładowanie mapy…</div>
+    <div class="map-message" role="status">
+      <span class="loading loading-spinner loading-sm" aria-hidden="true"></span> Ładowanie mapy…
+    </div>
   }
   @if (state() === 'error') {
-    <div class="map-message map-error" role="alert"><h2>Mapa jest niedostępna</h2><p>Nie udało się uruchomić WebGL lub pobrać podkładu. Nadal możesz przeglądać punkty w panelu.</p><button class="btn btn-outline" type="button" (click)="initialize()">Spróbuj ponownie</button></div>
+    <div class="map-message map-error" role="alert">
+      <h2>Mapa jest niedostępna</h2>
+      <p>
+        Nie udało się uruchomić WebGL lub pobrać podkładu. Nadal możesz przeglądać punkty w panelu.
+      </p>
+      <button class="btn btn-outline" type="button" (click)="initialize()">Spróbuj ponownie</button>
+    </div>
   }
   @if (historyEnabled() && outsideCoverage()) {
-    <div class="coverage-message" role="status">Środek widoku jest poza zasięgiem planu. <button type="button" class="btn btn-sm btn-ghost" (click)="showCoverage()">Pokaż zasięg</button></div>
+    <div class="coverage-message" role="status">
+      Środek widoku jest poza zasięgiem planu.
+      <button type="button" class="btn btn-sm btn-ghost" (click)="showCoverage()">
+        Pokaż zasięg
+      </button>
+    </div>
   }
   @if (historyEnabled() && historyError()) {
-    <div class="coverage-message" role="alert">Nie udało się pobrać planu. Wyłącz nakładkę, aby korzystać z mapy współczesnej.</div>
+    <div class="coverage-message" role="alert">
+      Nie udało się pobrać planu. Wyłącz nakładkę, aby korzystać z mapy współczesnej.
+    </div>
   }
 </div>
