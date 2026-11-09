@@ -1,4 +1,5 @@
 import { Consent } from '../privacy/consent';
+import { DOCUMENT, NgTemplateOutlet } from '@angular/common';
 import {
   afterNextRender,
   afterRenderEffect,
@@ -18,9 +19,11 @@ import type { Map as LibreMap, Marker, GeoJSONSource } from 'maplibre-gl';
 import { Place } from '../places/place';
 import { HISTORICAL_MAP, INITIAL_CENTER } from './map-config';
 import { HISTORY_CORNERS } from './history-extent';
+import { MARKER_CATEGORIES, markerCategory, markerIcon } from './place-markers';
 
 @Component({
   selector: 'app-atlas-map',
+  imports: [NgTemplateOutlet],
   templateUrl: './atlas-map.html',
   styleUrl: './atlas-map.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -39,11 +42,23 @@ export class AtlasMap {
   readonly state = signal<'loading' | 'ready' | 'error'>('loading');
   readonly historyEnabled = signal(HISTORICAL_MAP.available);
   readonly opacity = signal(60);
-  readonly layerControlsCollapsed = signal(false);
+  readonly layerControlsCollapsed = signal(true);
+  readonly compactLayout = signal(true);
+  readonly mobileLegendOpen = signal(false);
+  readonly controlsTab = signal<'layers' | 'legend'>('layers');
+  readonly markerCategories = MARKER_CATEGORIES;
+  readonly markerIcon = markerIcon;
+  private compactViewport?: MediaQueryList;
+  private collapsedDesktop?: boolean;
   readonly historyError = signal(false);
   readonly outsideCoverage = signal(false);
   readonly historyAvailable = HISTORICAL_MAP.available;
   private readonly container = viewChild.required<ElementRef<HTMLElement>>('canvas');
+  private readonly layerControlsToggle =
+    viewChild.required<ElementRef<HTMLButtonElement>>('layerControlsToggle');
+  private readonly controlsDialog = viewChild<ElementRef<HTMLDialogElement>>('controlsDialog');
+  private readonly legendToggle = viewChild<ElementRef<HTMLButtonElement>>('legendToggle');
+  private readonly document = inject(DOCUMENT);
   private readonly destroyRef = inject(DestroyRef);
   private readonly consent = inject(Consent);
   private map?: LibreMap;
@@ -55,7 +70,20 @@ export class AtlasMap {
 
   constructor() {
     afterNextRender(() => {
+      this.compactViewport = matchMedia('(max-width: 1099px)');
       this.restoreLayerPreferences();
+      const updateControls = () => {
+        this.closeMobileLegend(false);
+        this.compactLayout.set(this.compactViewport!.matches);
+        this.layerControlsCollapsed.set(
+          this.compactViewport!.matches || (this.collapsedDesktop ?? false),
+        );
+      };
+      updateControls();
+      this.compactViewport.addEventListener('change', updateControls);
+      this.destroyRef.onDestroy(() =>
+        this.compactViewport?.removeEventListener('change', updateControls),
+      );
       void this.initialize();
     });
     afterRenderEffect(() => {
@@ -89,6 +117,7 @@ export class AtlasMap {
       if (this.state() === 'ready') void this.renderMarkers();
     });
     this.destroyRef.onDestroy(() => {
+      this.closeMobileLegend(false);
       ++this.generation;
       this.cleanup();
     });
@@ -243,20 +272,27 @@ export class AtlasMap {
       button.disabled = this.editing();
       button.style.pointerEvents = this.editing() ? 'none' : '';
       button.tabIndex = this.editing() ? -1 : 0;
-      button.className = count
-        ? 'place-marker btn btn-circle btn-primary min-w-11 min-h-11'
-        : 'place-marker';
+      button.className = count ? 'place-cluster btn btn-circle min-w-11 min-h-11' : 'place-marker';
       if (place) button.dataset['placeId'] = place.id;
-      button.textContent = count
-        ? String(count)
-        : place?.location.precision === 'approximate'
-          ? '≈'
-          : '•';
+      if (count) button.textContent = String(count);
+      else if (place) {
+        const symbol = document.createElement('span');
+        symbol.className = 'place-marker-symbol';
+        symbol.dataset['precision'] = place.location.precision;
+        symbol.setAttribute('aria-hidden', 'true');
+        const icon = document.createElement('img');
+        icon.src = markerIcon(markerCategory(place).icon);
+        icon.alt = '';
+        icon.width = 22;
+        icon.height = 22;
+        symbol.append(icon);
+        button.append(symbol);
+      }
       button.setAttribute(
         'aria-label',
         count
           ? `Grupa ${count} miejsc — przybliż mapę`
-          : `${place!.name} — ${place!.location.precision === 'approximate' ? 'pozycja przybliżona' : 'budynek'}`,
+          : `${place!.name} — ${markerCategory(place!).name}, ${place!.location.precision === 'building' ? 'dokładna lokalizacja, wskazany budynek' : 'przybliżona lokalizacja'}`,
       );
       if (place) button.setAttribute('aria-pressed', String(this.selected()?.id === place.id));
       button.addEventListener('click', async (event) => {
@@ -281,7 +317,9 @@ export class AtlasMap {
         }
       });
       this.markers.push(
-        new Marker({ element: button }).setLngLat([coordinates[0], coordinates[1]]).addTo(map),
+        new Marker({ element: button, anchor: count ? 'center' : 'bottom' })
+          .setLngLat([coordinates[0], coordinates[1]])
+          .addTo(map),
       );
     };
     for (const feature of map.querySourceFeatures('places-clustered')) {
@@ -365,7 +403,55 @@ export class AtlasMap {
 
   toggleLayerControls(): void {
     this.layerControlsCollapsed.update((collapsed) => !collapsed);
-    this.saveLayerPreferences();
+    if (!this.compactLayout()) {
+      this.collapsedDesktop = this.layerControlsCollapsed();
+      this.saveLayerPreferences();
+    }
+  }
+
+  openMobileLegend(): void {
+    this.layerControlsCollapsed.set(true);
+    this.controlsDialog()?.nativeElement.showModal();
+    this.mobileLegendOpen.set(true);
+    this.document.documentElement.classList.add('map-settings-open');
+  }
+
+  closeLayerControls(): void {
+    if (this.layerControlsCollapsed()) return;
+    this.toggleLayerControls();
+    this.layerControlsToggle().nativeElement.focus();
+  }
+
+  closeMobileLegend(restoreFocus = true): void {
+    const wasOpen = this.mobileLegendOpen();
+    this.mobileLegendOpen.set(false);
+    const dialog = this.controlsDialog()?.nativeElement;
+    if (dialog?.open) dialog.close();
+    this.document.documentElement.classList.remove('map-settings-open');
+    if (wasOpen && restoreFocus && !this.destroyRef.destroyed)
+      this.legendToggle()?.nativeElement.focus();
+  }
+
+  onControlsTabKeydown(event: KeyboardEvent): void {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    const next =
+      event.key === 'Home'
+        ? 'layers'
+        : event.key === 'End'
+          ? 'legend'
+          : this.controlsTab() === 'layers'
+            ? 'legend'
+            : 'layers';
+    this.controlsTab.set(next);
+    (event.currentTarget as HTMLElement)
+      .querySelector<HTMLButtonElement>(`[data-tab="${next}"]`)
+      ?.focus();
+  }
+
+  showCoverageFromControls(): void {
+    this.showCoverage();
+    if (this.compactLayout()) this.closeLayerControls();
   }
 
   private restoreLayerPreferences(): void {
@@ -374,9 +460,8 @@ export class AtlasMap {
         this.consent.readPreference('historyczny-rybnik.layers.v1') ?? 'null',
       );
       if (!saved || typeof saved !== 'object') return;
-      if ('collapsed' in saved && typeof saved.collapsed === 'boolean') {
-        this.layerControlsCollapsed.set(saved.collapsed);
-      }
+      if ('collapsedDesktop' in saved && typeof saved.collapsedDesktop === 'boolean')
+        this.collapsedDesktop = saved.collapsedDesktop;
       if ('enabled' in saved && typeof saved.enabled === 'boolean') {
         this.historyEnabled.set(saved.enabled && this.historyAvailable);
       }
@@ -397,7 +482,7 @@ export class AtlasMap {
       this.consent.writePreference(
         'historyczny-rybnik.layers.v1',
         JSON.stringify({
-          collapsed: this.layerControlsCollapsed(),
+          collapsedDesktop: this.collapsedDesktop,
           enabled: this.historyEnabled(),
           opacity: this.opacity(),
         }),

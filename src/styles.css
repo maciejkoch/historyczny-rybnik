@@ -52,11 +52,21 @@ h1, h2 { font-family: var(--font-display); font-weight: 500; }
 .btn { min-height: 44px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-.place-marker { width: 40px; height: 40px; border-radius: 50%; border: 3px solid #FAF8F2; background: #245947; color: #FAF8F2; font: 600 16px var(--font-sans); cursor: pointer; box-shadow: 0 2px 8px #203b3233; }
-.place-marker[aria-pressed="true"] { background: #FAF8F2; color: #245947; border-color: #245947; box-shadow: 0 0 0 5px #24594733; }
+/* Markers are DOM nodes owned by MapLibre; legend samples share these styles. */
+.place-marker { width: 44px; height: 46px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.place-marker-symbol { --marker-fill: var(--color-marker); position: relative; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; }
+.place-marker-symbol::before { content: ''; position: absolute; inset: 0; box-sizing: border-box; border-radius: 50% 50% 50% 4px; transform: rotate(-45deg); background: var(--marker-fill); border: 2px solid var(--color-base-100); box-shadow: 0 2px 8px #203b3233; }
+.place-marker-symbol[data-precision="approximate"] { --marker-fill: #a96516; }
+.place-marker-symbol[data-precision="approximate"]::before { outline: 1px dashed var(--color-base-content); outline-offset: 3px; }
+.place-marker-symbol img { position: relative; width: 22px; height: 22px; max-width: none; }
+.place-marker[aria-pressed="true"] .place-marker-symbol::before { box-shadow: 0 0 0 5px var(--color-base-100), 0 0 0 7px var(--color-base-content); }
+.place-marker:disabled { cursor: default; }
+.place-cluster.btn { background: var(--color-base-100); color: var(--color-base-content); border: 2px solid var(--color-base-content); font-weight: 600; box-shadow: 0 2px 8px #203b3233; }
 .maplibregl-ctrl-attrib { font-family: var(--font-sans); font-size: 11px; }
 .maplibregl-ctrl button { min-width: 44px; min-height: 44px; }
 
 .privacy-settings { min-height: 44px; text-decoration: underline; text-underline-offset: .2em; cursor: pointer; }
 
 html.portal-menu-open { overflow: hidden; }
+
+html.map-settings-open { overflow: hidden; }
