@@ -28,6 +28,8 @@
 }
 .details-actions {
   display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 .details-jump {
   display: none;
@@ -203,16 +205,13 @@
   }
   .details-header {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 1rem;
+    top: 0.5rem;
     z-index: 2;
     padding: 0;
   }
   .details-content {
     padding-top: 1rem;
-  }
-  .details-actions button {
-    font-size: 1.8rem;
   }
   .details-sidebar.panel-collapsed .details-header {
     position: static;
