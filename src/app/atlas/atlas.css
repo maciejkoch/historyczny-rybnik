@@ -31,6 +31,22 @@
   align-items: center;
   gap: 0.25rem;
 }
+.panel-toggle,
+.details-actions .btn {
+  background-color: var(--color-base-100);
+}
+.panel-toggle:hover,
+.details-actions .btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-primary-content);
+}
+.category-icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  background-color: currentColor;
+  mask: center / contain no-repeat;
+}
 .details-jump {
   display: none;
 }
@@ -189,10 +205,13 @@
   }
   .search-toolbar {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 0.5rem;
+    right: 1rem;
     z-index: 2;
     min-height: 0;
+  }
+  .panel-collapsed .search-toolbar {
+    right: 0.5rem;
   }
   .search-toolbar .panel-toggle {
     position: static;
@@ -215,6 +234,7 @@
   }
   .details-sidebar.panel-collapsed .details-header {
     position: static;
+    margin-top: 0.5rem;
     padding: 0;
   }
 }

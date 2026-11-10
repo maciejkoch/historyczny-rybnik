@@ -20,6 +20,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { Consent } from '../privacy/consent';
 import { PanelLayout } from './panel-layout';
 import { AtlasMap } from '../atlas-map/atlas-map';
+import { markerCategory, markerIcon } from '../atlas-map/place-markers';
 import { PLACES } from '../places/catalog.generated';
 import { Locations } from '../places/locations';
 import { normalizeSearch, Place } from '../places/place';
@@ -51,6 +52,8 @@ export class Atlas {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   readonly account = inject(Account);
+  readonly markerCategory = markerCategory;
+  readonly markerIcon = markerIcon;
   readonly editing = signal(false);
   readonly draftPoint = signal<{ lat: number; lng: number } | null>(null);
   readonly precision = signal<'building' | 'approximate'>('approximate');
