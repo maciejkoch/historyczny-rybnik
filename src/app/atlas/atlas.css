@@ -113,6 +113,9 @@
       var(--panel-width, 410px) var(--separator-width, 8px) minmax(320px, 1fr)
       calc(var(--details-width, 0px) + var(--details-separator-width, 0px));
     height: calc(100svh - var(--mobile-header-height, 76px));
+    min-height: 0;
+    grid-template-rows: minmax(0, 1fr);
+    overflow: clip;
   }
   .sidebar,
   .details-sidebar {
