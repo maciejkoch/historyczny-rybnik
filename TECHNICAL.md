@@ -293,3 +293,5 @@ Rzeczywiste katalogi i indeks dawnych praw są poza Git. Wersjonowany jest tylko
 ## Mapa
 
 Aplikacja używa MapLibre GL JS 6.16.0: źródeł i warstw wektorowych, rastrowych oraz GeoJSON, znaczników HTML, kamery, kontrolek i zdarzeń mapy. Grupowanie wykorzystuje klastrowanie GeoJSON MapLibre; własna obsługa znaczników i animacji grup znajduje się w `src/app/atlas-map/group-markers.ts`, a rozstrzyganie nakładających się grup w `src/app/atlas-map/cluster-visibility.ts`.
+
+Domyślna kamera i przycisk powrotu mapy używają wspólnego punktu na Rynku. Kontrolka atrybucji MapLibre zachowuje dane źródeł i domyślny responsywny tryb: na wąskiej mapie po przesunięciu zwija się do przycisku informacji. Działania edycji lokalizacji są wyświetlane w sekcji lokalizacji karty.

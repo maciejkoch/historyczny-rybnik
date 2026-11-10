@@ -136,3 +136,10 @@ h3 {
     margin-top: 0;
   }
 }
+
+.search-intro .divider {
+  margin-block: 1rem;
+}
+.search-intro h1 {
+  padding-right: 2rem;
+}

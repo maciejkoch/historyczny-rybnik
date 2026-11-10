@@ -52,3 +52,7 @@ pdfimages -f 3 -l 3 -j source.pdf /tmp/rybnik-page
 ```
 
 Wymagany Poppler (`pdfimages`). Inna wersja pliku wejściowego jest odrzucana przez kontrolę SHA-256. Codzienny build npm korzysta z gotowych kafelków i nie wymaga Pythona ani pobierania źródła.
+
+## Atrybucja na wąskim ekranie — 10 listopada 2026
+
+[OpenStreetMap Foundation](https://osmfoundation.org/wiki/Licence/Attribution_Guidelines) wymaga wskazania OpenStreetMap i dostępu do informacji o licencji; dla map interaktywnych dopuszcza zwinięcie po interakcji z mapą, z możliwością ponownego wyświetlenia. [OpenFreeMap](https://openfreemap.org/) wymaga atrybucji OpenMapTiles i OpenStreetMap. [MapLibre](https://maplibre.org/maplibre-gl-js/docs/API/type-aliases/AttributionControlOptions/) opisuje standardowe responsywne zwijanie na wąskich mapach. Zachowujemy pełne dane źródeł, w tym planu MBC, i stosujemy standardową kontrolkę: początkowo rozwiniętą, a po przesunięciu mapy zwijaną na wąskim ekranie. Nie usuwamy atrybucji.

@@ -27,7 +27,6 @@ import { PlaceSearchPanel } from './place-search-panel';
 import { PlaceDetailsPanel } from './place-details-panel';
 import { MobileNavigation } from '../layout/mobile-navigation/mobile-navigation';
 import { PortalHeader } from '../layout/portal-header/portal-header';
-import { PortalFooter } from '../layout/portal-footer/portal-footer';
 @Component({
   selector: 'app-atlas',
   imports: [
@@ -37,7 +36,6 @@ import { PortalFooter } from '../layout/portal-footer/portal-footer';
     PlaceDetailsPanel,
     MobileNavigation,
     PortalHeader,
-    PortalFooter,
   ],
   templateUrl: './atlas.html',
   styleUrls: ['./atlas.css', './atlas-mobile.css'],
