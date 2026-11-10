@@ -6,14 +6,14 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 
 - Angular 22.2 (core 22.2.4, CLI/build/SSR 22.2.5), TypeScript 6.0, RxJS 7.8.
 - Tailwind CSS 4.3.4 i daisyUI 5.7.50; fonty Lora i Source Sans 3 z lokalnych pakietów Fontsource.
-- MapLibre GL JS 6.16.0, podkład OpenFreeMap i własne kafelki planu z 1932 r.
+- MapLibre GL JS 6.16.0.
 - Statyczne generowanie HTML (SSG), hydratacja w przeglądarce i klasyczny Firebase Hosting.
 - Node 22.23.2 z `.nvmrc`, npm 12.0.2. Dokładne zależności: `package.json` i `package-lock.json`.
 - Firebase JS 12.19.0 i Zod 4.6.6; backend Firebase Functions, Firestore, Storage, Google Auth i App Check.
 
 ## Mechanizmy i struktura
 
-- Angular generuje publiczny HTML i hydratację; MapLibre jest uruchamiany wyłącznie w przeglądarce. Podkład to OpenFreeMap, plan historyczny jest serwowany jako lokalne kafelki. Dostępny plan 1932 jest domyślnie włączony z kryciem 60%; zapisane ustawienia warstwy, odczytywane zgodnie ze zgodą na preferencje, mają pierwszeństwo.
+- Angular generuje publiczny HTML i hydratację; mapa jest uruchamiana wyłącznie w przeglądarce.
 - Trasy: `/` (mapa), `/szukaj`, `/miejsca/:slug` dla opublikowanych miejsc, `/o-nas`, `/prywatnosc` i 404. Hosting nie stosuje globalnego fallbacku SPA.
 - Katalog do statycznego builda jest walidowany i przygotowywany przez `places:prepare`. Bieżące pozycje mogą pochodzić z API; bez zgody na usługi Google aplikacja korzysta ze snapshotu.
 - Komponenty panelu i mapy są w `src/app/atlas/` i `src/app/atlas-map/`; `src/app/places/` obsługuje katalog i pozycje, `src/app/privacy/` zgody i politykę prywatności. Stan interfejsu korzysta z Signals.
@@ -30,7 +30,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 | `app/atlas/atlas.ts` | Łączy stan trasy, wyszukiwania, wybranego miejsca i lokalizacji. Ustawia metadane, zarządza nawigacją, przewijaniem i powiększaniem skanów. |
 | `app/atlas/place-*-panel.*` | Osobne widoki wyników wyszukiwania i szczegółów miejsca. |
 | `app/atlas/panel-layout.ts` | Układ i rozmiar paneli oraz ustawienia zapamiętywane zgodnie ze zgodą użytkownika. |
-| `app/atlas-map/` | MapLibre, znaczniki, historyczna warstwa rastrowa, zasięg i komunikaty błędów. |
+| `app/atlas-map/` | Mapa i jej znaczniki. |
 | `app/places/` | Typy, normalizacja wyszukiwania, wygenerowany katalog, konfiguracja Firebase i odczyt pozycji. `AtlasReuse` zachowuje instancję atlasu między jego trasami. |
 | `app/about/` | Publiczna strona „O nas”, prerenderowana pod `/o-nas`, z metadanymi i wspólnym układem portalu. Desktop udostępnia przycisk Mapa, telefon również Znajdź miejsce. App ustawia przewinięcie okna na górę po wyrenderowaniu każdej zmiany ścieżki, także Wstecz/Dalej; zmiana samego zapytania nie przesuwa widoku. Atlas zeruje właściwy panel przy przejściu do wyszukiwarki lub karty na desktopie. |
 | `app/privacy/` | Serwis zgód, baner i polityka prywatności. Wycofanie zgody Google przeładowuje stronę, aby zatrzymać SDK i odświeżanie tokenów. |
@@ -104,7 +104,7 @@ Szczegóły: [środowiska dev i produkcja](agent-context/reference/mvp-1/srodowi
 
 ## Testy i utrzymanie
 
-`npm test` sprawdza kontrakty, prywatność i backend. `npm run test:emulator` weryfikuje API i reguły w emulatorach Firestore/Storage. Przy zmianach georeferencji uruchamiamy testy opisane w [scripts/maps/README.md](scripts/maps/README.md).
+`npm test` sprawdza mapę, kontrakty, prywatność, backend i warsztat. `npm run test:emulator` weryfikuje API i reguły w emulatorach Firestore/Storage. Przy zmianach georeferencji uruchamiamy testy opisane w [scripts/maps/README.md](scripts/maps/README.md).
 
 Szczegóły zgód i ich odbioru: [cookie-consent.md](agent-context/reference/mvp-1/cookie-consent.md). Aktualizujemy ten dokument razem ze zmianami technologii, mechanizmów, struktury i procedur. Sama dokumentacja nie wymaga deploymentu.
 
@@ -119,8 +119,6 @@ Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne
 ## Pełny katalog na dev
 
 Ignorowany snapshot `.local/places.snapshot.json` jest wejściem builda dev. Baza dev zawiera 200 miejsc (196 przeniesionych z MVP.0 i cztery punkty sprzedaży benzyny), ze stabilnymi ID i zachowanym rekordem `place_sw_antoni`. Build przyjmuje pełny walidowany snapshot, a odczyt lokalizacji dzieli katalog na żądania po maksymalnie 100 ID. Import dev obsługuje do 400 miejsc w jednej transakcji, zachowuje istniejące lokalizacje, wersje i daty; odrzuca pominięcie istniejących dokumentów. Produkcja pozostaje oddzielnym zadaniem.
-
-AtlasMap korzysta z klastrowanego źródła GeoJSON MapLibre (promień 50 px, maksymalny zoom grupowania 15) i markerów HTML z natywnymi przyciskami. Grupa przybliża do getClusterExpansionZoom; przejścia grup i punktów podczas zmiany zoomu korzystają ze wspólnego członkostwa punktów i animacji DOM. Preferencja ograniczenia ruchu wyłącza animacje, starsze asynchroniczne wyniki są odrzucane, a grupy z nakładających się kafelków różnych zoomów są deduplikowane; wybrany punkt pozostaje poza grupami. Edycja wyłącza przyciski, a podgląd punktu nie wchodzi do grupowania.
 
 Filtr „Bez lokalizacji” używa aktualnych danych Locations (lub snapshotu przy niedostępnym odczycie) i wybiera miejsca z `location.coordinates === null`. Łączy się z wyszukiwaniem tekstowym; zmienia listę wyników, a stan pozostaje w pamięci atlasu.
 
@@ -146,10 +144,6 @@ Narzędzia `scripts/research/` są pogrupowane w model, workspace, sync, migrati
 
 Rzeczywiste katalogi i indeks dawnych praw są poza Git. Wersjonowany jest tylko fikcyjny data/places.fixture.json. Generator tworzy ignorowane src/app/places/catalog.generated.ts, public/search-index.json i public/sitemap.xml. Szablony firebase.dev*.json pozostają stałe; przekierowania z katalogu są zapisywane do ignorowanych .local/firebase.dev*.json z bezwzględną ścieżką Hosting. Deploy dev i preview używają tych wygenerowanych konfiguracji. Start/watch najpierw przygotowują katalog, więc świeży checkout nie wymaga śledzonego modułu generated.
 
-## Ikony i legenda mapy
+## Mapa
 
-`atlas-map/place-markers.ts` mapuje wyłącznie pierwszy tag miejsca na lokalną ikonę Lucide; nieznany tag otrzymuje ikonę „Inne”. Dziewięć SVG w `public/icons/places/` pochodzi z lucide-static 0.468.0 (ISC, z zachowaną licencją); biały obrys ma szerokość 2,6 w viewBox 24. Ikona ma 22 px, bryła znacznika 32 px, a natywny przycisk 44 × 46 px. Wspólne style symbolu w `src/styles.css` obsługują markery DOM MapLibre i próbki legendy. `building` ma kolor zielony; `approximate` bursztynowy i przerywany obrys. Zaznaczenie dodaje obwódkę bez zmiany koloru dokładności. Grupy mają neutralny licznik i przybliżają mapę.
-
-Desktop (od 1100 px) korzysta z rozwijanego panelu, domyślnie otwartego, z zakładkami „Warstwy” i „Legenda”. Na mobile są dwa osobne przyciski: mapa rozwija niewielki panel warstw bez zasłony i blokowania mapy, a legenda otwiera natywny dialog daisyUI. Oba widoki są domyślnie zamknięte. Krycie planu zmienia się przy widocznej mapie. Treści warstw i legendy są współdzielone przez NgTemplateOutlet. Modal legendy uwzględnia nagłówek, dolną nawigację, dynamiczną wysokość viewportu i safe-area. Tytuł i zamknięcie pozostają widoczne; przewija się wyłącznie treść. Natywny dialog blokuje tło i zatrzymuje fokus; Escape, przycisk i tło zamykają legendę z powrotem do jej przycisku. Zmiana breakpointu zamyka modal i usuwa blokadę przewijania. „Pokaż cały plan” zwija mobilny panel warstw. Strzałki oraz Home/End przełączają i fokusują zakładki desktopowe.
-
-Zgoda na preferencje pozwala zapamiętać `collapsedDesktop` w istniejącym kluczu warstw; mobilny modal nie otwiera się automatycznie na podstawie dawnych `collapsedMobile`/`collapsed`. Respektowane pozostają zapisane włączenie i krycie planu.
+Aplikacja używa MapLibre GL JS 6.16.0: źródeł i warstw wektorowych, rastrowych oraz GeoJSON, znaczników HTML, kamery, kontrolek i zdarzeń mapy. Grupowanie wykorzystuje klastrowanie GeoJSON MapLibre; własna obsługa znaczników i animacji grup znajduje się w `src/app/atlas-map/group-markers.ts`, a rozstrzyganie nakładających się grup w `src/app/atlas-map/cluster-visibility.ts`.
