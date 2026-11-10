@@ -36,6 +36,7 @@
   <p class="muted">
     Wersja pozycji: {{ place.locationVersion }} · Aktualizacja: {{ place.updatedAt }}
   </p>
+  <ng-content select="[location-actions]" />
   <h2>Udokumentowane daty</h2>
   <div class="flex flex-wrap gap-2 my-3">
     @for (value of documentedDates(); track value.from + (value.to || '')) {

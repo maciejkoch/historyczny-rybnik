@@ -16,3 +16,9 @@ a {
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
+
+@media (max-width: 1099px) {
+  :host {
+    display: none;
+  }
+}

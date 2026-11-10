@@ -28,6 +28,24 @@
 }
 .details-actions {
   display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.panel-toggle,
+.details-actions .btn {
+  background-color: var(--color-base-100);
+}
+.panel-toggle:hover,
+.details-actions .btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-primary-content);
+}
+.category-icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  background-color: currentColor;
+  mask: center / contain no-repeat;
 }
 .details-jump {
   display: none;
@@ -36,7 +54,6 @@
   position: absolute;
   top: 1.5rem;
   right: 0.4rem;
-  width: 2rem;
   font-size: 1.8rem;
 }
 .panel-separator {
@@ -96,6 +113,9 @@
       var(--panel-width, 410px) var(--separator-width, 8px) minmax(320px, 1fr)
       calc(var(--details-width, 0px) + var(--details-separator-width, 0px));
     height: calc(100svh - var(--mobile-header-height, 76px));
+    min-height: 0;
+    grid-template-rows: minmax(0, 1fr);
+    overflow: clip;
   }
   .sidebar,
   .details-sidebar {
@@ -180,4 +200,44 @@
   padding: 0.5rem;
   border: 1px solid var(--color-line);
   border-radius: 0.3rem;
+}
+
+@media (min-width: 1100px) {
+  .sidebar {
+    position: relative;
+  }
+  .search-toolbar {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    z-index: 2;
+    min-height: 0;
+  }
+  .panel-collapsed .search-toolbar {
+    right: 0.5rem;
+  }
+  .search-toolbar .panel-toggle {
+    position: static;
+  }
+  .search-panel {
+    padding-top: 0.5rem;
+  }
+  .details-inner {
+    position: relative;
+  }
+  .details-header {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    z-index: 2;
+    padding: 0;
+  }
+  .details-content {
+    padding-top: 1rem;
+  }
+  .details-sidebar.panel-collapsed .details-header {
+    position: static;
+    margin-top: 0.5rem;
+    padding: 0;
+  }
 }

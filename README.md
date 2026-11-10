@@ -6,10 +6,10 @@ Aplikacja do poznawania historii Rybnika przez mapę i miejsca.
 ## Dostępne funkcje
 
 - Strona „O nas” z opisem portalu, map i pracy na źródłach, dostępna z menu pod `/o-nas`.
-- Mapa współczesnego Rybnika z przesuwaniem i przybliżaniem.
+- Mapa współczesnego Rybnika z przesuwaniem i przybliżaniem; widok początkowy i przycisk powrotu centrują ją na Rynku.
 - Plan miasta z 1932 r., domyślnie włączony z kryciem 60%, z regulacją przezroczystości i oznaczeniem zasięgu. Zapisane preferencje użytkownika mają pierwszeństwo.
 - Wyszukiwanie miejsc i karta bazyliki św. Antoniego z opisem, źródłami oraz osobnym adresem.
-- Przełączanie mapy, wyszukiwania i szczegółów miejsca na telefonie i komputerze.
+- Przełączanie mapy, wyszukiwania i szczegółów miejsca na telefonie i komputerze; zwinięte panele na komputerze mają ikonę wyszukiwania i ikonę głównego tagu wybranego miejsca.
 - Ustawienia prywatności: osobne zgody na zapamiętywanie ustawień i bieżące pozycje z usług Google. Bez zgody aplikacja korzysta z opublikowanego snapshotu.
 - Globalne menu we wspólnym górnym nagłówku: panel z prawej na telefonie i menu rozwijane na komputerze. Mapa i wyszukiwanie są oddzielone od polityki prywatności oraz ustawień cookies.
 

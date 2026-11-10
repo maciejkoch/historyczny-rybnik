@@ -159,7 +159,7 @@ export class AtlasMap {
       // Temporary diagnostic for reviewing historical tile zoom levels.
       const logZoom = () => console.info(`[Mapa] Zoom: ${map.getZoom().toFixed(2)}`);
       map.on('zoomend', logZoom);
-      map.addControl(new libre.AttributionControl({ compact: false }), 'bottom-right');
+      map.addControl(new libre.AttributionControl(), 'bottom-right');
       map.addControl(new libre.ScaleControl({ unit: 'metric' }), 'bottom-left');
       map
         .getCanvas()

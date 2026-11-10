@@ -20,15 +20,43 @@
   <div class="sidebar">
     <div class="search-toolbar">
       <button
-        class="btn btn-ghost btn-square panel-toggle"
+        class="btn btn-outline btn-square panel-toggle"
         type="button"
         data-panel-toggle
-        aria-controls="tresc panel-footer"
+        aria-controls="tresc"
         [attr.aria-expanded]="!searchLayout.isCollapsed()"
         [attr.aria-label]="searchLayout.isCollapsed() ? 'Rozwiń wyszukiwarkę' : 'Zwiń wyszukiwarkę'"
+        [attr.title]="searchLayout.isCollapsed() ? 'Rozwiń wyszukiwarkę' : 'Zwiń wyszukiwarkę'"
         (click)="searchLayout.toggle()"
       >
-        <span aria-hidden="true">{{ searchLayout.isCollapsed() ? '›' : '‹' }}</span>
+        @if (searchLayout.isCollapsed()) {
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            aria-hidden="true"
+          >
+            <circle cx="10" cy="10" r="6" />
+            <path d="m15 15 5 5" />
+          </svg>
+        } @else {
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+        }
       </button>
     </div>
     <main
@@ -51,9 +79,7 @@
       @if (locations.status() === 'disabled') {
         <p class="muted">
           Pokazujemy ostatnio opublikowane pozycje. Pobieranie bieżących pozycji włączysz w
-          <button type="button" class="privacy-settings" (click)="consent.openSettings()">
-            ustawieniach prywatności</button
-          >.
+          ustawieniach prywatności w menu.
         </p>
       }
       @if (locations.status() === 'error') {
@@ -63,12 +89,6 @@
         </p>
       }
     </main>
-    <footer
-      appPortalFooter
-      id="panel-footer"
-      class="panel-footer"
-      [hidden]="searchLayout.isCollapsed()"
-    ></footer>
   </div>
   <div
     class="panel-separator"
@@ -165,27 +185,69 @@
     </div>
     <div class="details-inner">
       <header class="details-header">
-        <span [hidden]="detailsLayout.isCollapsed()" class="eyebrow">Szczegóły miejsca</span>
         <div class="details-actions">
           <button
-            class="btn btn-ghost btn-square"
+            class="btn btn-outline btn-square"
             type="button"
             data-panel-toggle
             aria-controls="szczegoly"
             [attr.aria-expanded]="!detailsLayout.isCollapsed()"
-            [attr.aria-label]="detailsLayout.isCollapsed() ? 'Rozwiń szczegóły' : 'Zwiń szczegóły'"
+            [attr.aria-label]="
+              detailsLayout.isCollapsed()
+                ? 'Rozwiń kartę: ' + (selected()?.name || 'miejsce')
+                : 'Zwiń szczegóły'
+            "
+            [attr.title]="
+              detailsLayout.isCollapsed()
+                ? 'Rozwiń kartę: ' + (selected()?.name || 'miejsce')
+                : 'Zwiń szczegóły'
+            "
             (click)="detailsLayout.toggle()"
           >
-            {{ detailsLayout.isCollapsed() ? '‹' : '›' }}
+            @if (detailsLayout.isCollapsed()) {
+              @if (selected(); as place) {
+                <span
+                  class="category-icon"
+                  [style.mask-image]="'url(' + markerIcon(markerCategory(place).icon) + ')'"
+                  aria-hidden="true"
+                ></span>
+              }
+            } @else {
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            }
           </button>
           <button
-            class="btn btn-ghost btn-square"
+            class="btn btn-outline btn-square"
             type="button"
             aria-label="Zamknij szczegóły"
+            title="Zamknij szczegóły"
             [hidden]="detailsLayout.isCollapsed()"
             (click)="close()"
           >
-            ×
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
           </button>
         </div>
       </header>
@@ -197,52 +259,60 @@
         aria-label="Opis miejsca"
         [hidden]="detailsLayout.isCollapsed()"
       >
-        @if (selected()) {
-          @if (account.user() && !account.admin()) {
-            <p>Edycja lokalizacji jest obecnie dostępna tylko dla administratorów.</p>
-          } @else if (!editing()) {
-            <button class="btn btn-outline" type="button" (click)="startEditing()">
-              {{ account.user() ? 'Popraw lokalizację' : 'Zaloguj się, aby poprawić lokalizację' }}
-            </button>
-          } @else {
-            <fieldset [disabled]="saving()" class="location-editor">
-              <legend>Popraw lokalizację</legend>
-              <p>Kliknij punkt na mapie. Podgląd nie jest jeszcze zapisany.</p>
-              @if (draftPoint(); as point) {
-                <p class="text-xs text-muted">
-                  Współrzędne: {{ point.lat.toFixed(6) }}, {{ point.lng.toFixed(6) }}
-                </p>
+        <app-place-details-panel [place]="selected()" (imageOpened)="enlarged.set($event)">
+          <div location-actions>
+            @if (selected()) {
+              @if (account.user() && !account.admin()) {
+                <p>Edycja lokalizacji jest obecnie dostępna tylko dla administratorów.</p>
+              } @else if (!editing()) {
+                <button class="btn btn-outline" type="button" (click)="startEditing()">
+                  {{
+                    account.user() ? 'Popraw lokalizację' : 'Zaloguj się, aby poprawić lokalizację'
+                  }}
+                </button>
+              } @else {
+                <fieldset [disabled]="saving()" class="location-editor">
+                  <legend>Popraw lokalizację</legend>
+                  <p>Kliknij punkt na mapie. Podgląd nie jest jeszcze zapisany.</p>
+                  @if (draftPoint(); as point) {
+                    <p class="text-xs text-muted">
+                      Współrzędne: {{ point.lat.toFixed(6) }}, {{ point.lng.toFixed(6) }}
+                    </p>
+                  }
+                  <label
+                    >Dokładność
+                    <select
+                      [value]="precision()"
+                      (change)="precision.set($any($event.target).value)"
+                    >
+                      <option value="approximate">Przybliżona</option>
+                      <option value="building">Wskazany budynek</option>
+                    </select></label
+                  >
+                  <label
+                    >Komentarz (opcjonalnie)
+                    <textarea
+                      maxlength="2000"
+                      [value]="explanation()"
+                      (input)="explanation.set($any($event.target).value)"
+                    ></textarea>
+                  </label>
+                  <p>Zapis od razu opublikuje nową lokalizację.</p>
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    [disabled]="needsRestart() || !draftPoint()"
+                    (click)="saveLocation()"
+                  >
+                    {{ saving() ? 'Zapisywanie…' : 'Zapisz lokalizację' }}
+                  </button>
+                  <button class="btn" type="button" (click)="cancelEditing()">Anuluj</button>
+                </fieldset>
               }
-              <label
-                >Dokładność
-                <select [value]="precision()" (change)="precision.set($any($event.target).value)">
-                  <option value="approximate">Przybliżona</option>
-                  <option value="building">Wskazany budynek</option>
-                </select></label
-              >
-              <label
-                >Komentarz (opcjonalnie)
-                <textarea
-                  maxlength="2000"
-                  [value]="explanation()"
-                  (input)="explanation.set($any($event.target).value)"
-                ></textarea>
-              </label>
-              <p>Zapis od razu opublikuje nową lokalizację.</p>
-              <button
-                class="btn btn-primary"
-                type="button"
-                [disabled]="needsRestart() || !draftPoint()"
-                (click)="saveLocation()"
-              >
-                {{ saving() ? 'Zapisywanie…' : 'Zapisz lokalizację' }}
-              </button>
-              <button class="btn" type="button" (click)="cancelEditing()">Anuluj</button>
-            </fieldset>
-          }
-          <p role="status">{{ editMessage() }}</p>
-        }
-        <app-place-details-panel [place]="selected()" (imageOpened)="enlarged.set($event)" />
+              <p role="status">{{ editMessage() }}</p>
+            }
+          </div>
+        </app-place-details-panel>
       </section>
     </div>
   </aside>

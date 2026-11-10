@@ -20,6 +20,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { Consent } from '../privacy/consent';
 import { PanelLayout } from './panel-layout';
 import { AtlasMap } from '../atlas-map/atlas-map';
+import { markerCategory, markerIcon } from '../atlas-map/place-markers';
 import { PLACES } from '../places/catalog.generated';
 import { Locations } from '../places/locations';
 import { normalizeSearch, Place } from '../places/place';
@@ -27,7 +28,6 @@ import { PlaceSearchPanel } from './place-search-panel';
 import { PlaceDetailsPanel } from './place-details-panel';
 import { MobileNavigation } from '../layout/mobile-navigation/mobile-navigation';
 import { PortalHeader } from '../layout/portal-header/portal-header';
-import { PortalFooter } from '../layout/portal-footer/portal-footer';
 @Component({
   selector: 'app-atlas',
   imports: [
@@ -37,7 +37,6 @@ import { PortalFooter } from '../layout/portal-footer/portal-footer';
     PlaceDetailsPanel,
     MobileNavigation,
     PortalHeader,
-    PortalFooter,
   ],
   templateUrl: './atlas.html',
   styleUrls: ['./atlas.css', './atlas-mobile.css'],
@@ -53,6 +52,8 @@ export class Atlas {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   readonly account = inject(Account);
+  readonly markerCategory = markerCategory;
+  readonly markerIcon = markerIcon;
   readonly editing = signal(false);
   readonly draftPoint = signal<{ lat: number; lng: number } | null>(null);
   readonly precision = signal<'building' | 'approximate'>('approximate');
