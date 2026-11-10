@@ -8,6 +8,7 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 | --- | --- |
 | [maps/prepare_history.py](maps/prepare_history.py) | Dopasowuje skan planu, generuje kafelki WebP, manifest i granice nakładki. |
 | [maps/register_scans.py](maps/register_scans.py) | Wyznacza kandydatów punktów dopasowania na podstawie lokalnych obrazów odniesienia; narzędzie opcjonalne. |
+| [maps/cluster-visibility.test.mjs](maps/cluster-visibility.test.mjs) | Sprawdza usuwanie nakładających się grup kafelków różnych poziomów. |
 | [maps/test_georeference.py](maps/test_georeference.py) | Testuje georeferencję, transformację odwrotną i walidację punktów. |
 | [places/catalog.mjs](places/catalog.mjs) | Moduł generatora publicznego katalogu, indeksu wyszukiwania, sitemapy i przekierowań; usuwa pola niepubliczne. |
 | [places/check-live.mjs](places/check-live.mjs) | Sprawdza działające API dev, App Check, Google Auth i konflikt wersji. Wykonuje rzeczywisty zapis lokalizacji testowego kościoła; wymaga tokenów w środowisku. |
@@ -19,6 +20,7 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 | [places/snapshot.mjs](places/snapshot.mjs) | Pobiera opublikowane miejsca z Firestore do ignorowanego `.local/places.snapshot.json`. |
 | [places/upload-assets.mjs](places/upload-assets.mjs) | Sprawdza SHA-256 i rozmiary obrazów; z `--apply` publikuje nowe, niezmienne pliki w bucket dev. |
 | [privacy/consent.test.mjs](privacy/consent.test.mjs) | Testuje zgody, przechowywanie ustawień i warunki ładowania usług Google. |
+| [test.mjs](test.mjs) | Uruchamia kolejno testy mapy, kontraktów, prywatności, backendu i warsztatu; zatrzymuje się po pierwszym błędzie. |
 | [verify-build.mjs](verify-build.mjs) | Sprawdza artefakty SSG, treść i metadane stron (także „O nas”), 404, noindex oraz konfigurację Hosting. |
 
 Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduły `catalog.mjs` i `firestore.mjs` są używane przez pozostałe skrypty; nie są osobnymi poleceniami operatora.
@@ -38,7 +40,8 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduł
 | `npm run places:prepare` | Generowanie katalogu z pliku wejściowego. |
 | `npm run places:import` | Walidacja i opcjonalny import katalogu do bazy dev. |
 | `npm run places:snapshot` | Pobranie snapshotu opublikowanych miejsc. |
-| `npm test` | Sprawdzenie kontraktów, prywatności i testów backendu. |
+| `npm test` | Testy mapy, kontraktów, prywatności, backendu i warsztatu. |
+| `npm run test:maps` | Testy grupowania i widoczności znaczników mapy. |
 | `npm run test:emulator` | Testy API i reguł w emulatorach Firestore/Storage. |
 | `npm run deploy:backend:dev` | Publikacja Functions, reguł Firestore/Storage i konfiguracji Auth dev. |
 | `npm run places:upload-assets` | Kontrola i opcjonalna publikacja obrazów. |

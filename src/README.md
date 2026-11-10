@@ -6,7 +6,7 @@ Kod Angulara, konfiguracja i style. `app/atlas/` zawiera panele, `app/atlas-map/
 
 Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
 
-Mapa grupuje pobliskie miejsca przy oddaleniu, z liczbą miejsc i przybliżaniem po wyborze grupy. Wybrane miejsce zachowuje osobny znacznik.
+Mapa grupuje pobliskie miejsca przy oddaleniu, animuje zmianę grup, pokazuje liczbę miejsc i przybliża po wyborze grupy. `app/atlas-map/group-markers.ts` zarządza znacznikami i przejściami grup, a `cluster-visibility.ts` rozstrzyga nakładanie się wyników kafelków. Wybrane miejsce zachowuje osobny znacznik.
 
 Wyszukiwarka ma filtr „Bez lokalizacji”, łączony z wpisaną nazwą, adresem lub dzielnicą.
 
@@ -15,3 +15,5 @@ Wyszukiwarka ma filtr „Bez lokalizacji”, łączony z wpisaną nazwą, adrese
 Karta miejsca pokazuje płaskie tagi i adnotację, gdy period nie potwierdza istnienia w okresie międzywojennym. Prywatny warsztat i jego przeglądarka są poza src i publicznym buildem.
 
 `app/atlas/atlas.routes.ts` ładuje atlas i katalog jako osobny pakiet tras. Zachowuje statyczny HTML kart i współdzieloną instancję atlasu przy przejściach mapa/wyszukiwanie/miejsce; `AtlasReuse` identyfikuje te trasy przez data.atlas.
+
+`atlas-map/place-markers.ts` zawiera mapowanie pierwszego tagu na ikonę; symbole markerów i legendy współdzielą style globalne. Treści „Warstwy”/„Legenda” są współdzielone przez NgTemplateOutlet: desktop ma rozwijany panel z zakładkami, a mobile dwa przyciski — mały panel warstw bez zasłaniania mapy i osobny natywny dialog daisyUI z legendą. Nagłówek modalu pozostaje widoczny, przewija się wyłącznie treść; zamknięcie przywraca fokus na przycisk legendy. Znaczniki 32 px zawierają ikony 22 px i zachowują obszar dotyku 44 × 46 px.

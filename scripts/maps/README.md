@@ -14,6 +14,7 @@ nie są częścią workflow `build.yml`.
 
 | Plik | Przeznaczenie |
 | --- | --- |
+| `cluster-visibility.test.mjs` | Testuje widoczność i deduplikację grup punktów z kafelków; uruchamiany przez `npm run test:maps` i `npm test`. |
 | `prepare_history.py` | Dopasowuje skan na podstawie punktów kontrolnych i generuje kafelki XYZ WebP dla zoomów 10–18, manifest z sumami SHA-256 i granice nakładki w `src/app/atlas-map/history-extent.ts`. |
 | `history-controls.json` | Zweryfikowane punkty dopasowania i osobne punkty walidacyjne, parametry skanu oraz dane poprzedniego dopasowania do porównań. |
 | `test_georeference.py` | Sprawdza transformację i jej odwrotność, zgodność z punktami walidacyjnymi oraz odrzucanie błędnych danych. |

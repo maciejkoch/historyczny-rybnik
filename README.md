@@ -32,7 +32,7 @@ Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne
 
 Katalog dev zawiera 200 miejsc: 196 przeniesionych z MVP.0 i cztery punkty sprzedaży benzyny potwierdzone w źródłach. Lokalizacje kandydackie pozostają nieustalone; kopie dawnych wycinków bez potwierdzonej podstawy publikacji są wyłączone, referencje zawierają odnośniki do źródeł.
 
-Przy oddaleniu mapy pobliskie miejsca łączą się w grupy z liczbą punktów. Kliknięcie grupy przybliża mapę; wybrane miejsce pozostaje widoczne osobno.
+Przy oddaleniu mapy pobliskie miejsca łączą się w grupy z liczbą punktów. Kliknięcie grupy przybliża mapę, a zmiana grupowania jest animowana; wybrane miejsce pozostaje widoczne osobno.
 
 Wyszukiwarka ma filtr „Bez lokalizacji”, łączony z wpisaną nazwą, adresem lub dzielnicą.
 
@@ -45,3 +45,5 @@ Lokalny warsztat: widok Materiały pokazuje galerię skanów i wycinków z miejs
 Miejsce ma opis redakcyjny, udokumentowane daty i zweryfikowane wzmianki z właściwymi materiałami historycznymi. Lokalny warsztat rozdziela historyczne obrazy, kopie źródeł oraz materiały do rozpoznania; współczesne zdjęcia nie ilustrują dawnych wzmianek.
 
 Rzeczywiste dane miejsc i wygenerowane katalogi pozostają poza Git. Testy i CI używają wyłącznie fikcyjnych danych; build dev pobiera aktualny snapshot z Firestore.
+
+Znaczniki mapy pokazują ikonę pierwszego (głównego) tagu miejsca. Zielony oznacza dokładną lokalizację (wskazany budynek), bursztynowy z przerywanym obrysem — przybliżoną. „Mapa i legenda” ma zakładki „Warstwy” i „Legenda” z ustawieniami planu oraz objaśnieniami ikon, kolorów i grup. Na telefonie są osobne przyciski: mapa rozwija mały panel planu, pozwalając obserwować zmianę krycia, a legenda otwiera osobny modal ze stale widocznym zamknięciem i przewijaną treścią. Na komputerze zakładki są w panelu, domyślnie otwartym; jego zwinięcie można zapamiętać po zgodzie na preferencje.
