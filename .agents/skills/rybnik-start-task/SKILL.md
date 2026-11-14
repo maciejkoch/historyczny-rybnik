@@ -54,6 +54,18 @@ z instrukcjami repozytorium.
 - Sprawdź lokalne zmiany, także nieśledzone pliki. Nie wykonuj automatycznego resetu, stashowania, czyszczenia ani nadpisania plików. Użyj czystego checkoutu/worktree, jeśli lokalne zmiany mogłyby wejść do nowej pracy. Wznowienie w brudnym worktree jest dopuszczalne po potwierdzeniu, że zmiany należą do tego zadania.
 - Wznawiaj ustaloną gałąź i rezerwację. Nie twórz wariantów z kolejnym sufiksem tylko dlatego, że branch już istnieje. Worktree zajęty przez innego agenta wymaga koordynacji przed edycją.
 
+## Sposób odbioru
+
+Przed implementacją zmiany aplikacji ustal, czy właściciel chce sprawdzać ją
+lokalnie, czy oczekuje automatycznego wdrożenia na zarezerwowany dev. Jeśli
+odpowiedź wynika już z instrukcji lub wcześniejszego wyboru w tej sesji, nie
+pytaj ponownie. W przeciwnym razie zapytaj i zaczekaj na odpowiedź przed
+implementacją; w tym czasie możesz wykonać niezależne czynności przygotowawcze.
+Zapisz wybór w zadaniu. Lokalny odbiór nie upoważnia do wdrożenia. Gdy właściciel
+zmieni wybór, zastosuj nowy i zatrzymaj rozpoczętą zależną operację, jeśli to
+możliwe. Przy odbiorze lokalnym uruchom aplikację i podaj adres oraz sposób
+ponownego uruchomienia. Nie rezerwuj slotu tylko na potrzeby lokalnego odbioru.
+
 ## Branch i środowisko
 
 Ustal bazę i nazewnictwo z dokumentacji. Jeśli nie ma konwencji, nową gałąź
@@ -62,7 +74,7 @@ nazwij `codex/<krótki-slug-zadania>` od aktualnego domyślnego brancha repozyto
 Sprawdź lokalne i zdalne branche oraz worktree przed utworzeniem. Nie zmieniaj
 bazy istniejącej pracy automatycznie.
 
-Rezerwuj wyłącznie według **wdrożonego** procesu opisanego w aktualnej
+Gdy wybrano wdrożenie na dev, rezerwuj wyłącznie według **wdrożonego** procesu opisanego w aktualnej
 dokumentacji środowisk. Odczytaj schemat pola `Środowisko`, wszystkie aktywne
 rezerwacje i udokumentowane adresy/polecenia. Nie zakładaj, że dev-1/dev-2/dev-3
 istnieją, nie konstruuj ich URL-i i nie traktuj stałego dev integracyjnego jako
@@ -109,8 +121,8 @@ brancha/rezerwacji i nie cofaj cudzych zmian. Błąd dostępu lub niepewny wynik
 zapisu oznacza wstrzymanie mutacji do wyjaśnienia.
 
 Kontynuuj zadanie zgodnie z aktualną dokumentacją: dobierz sprawdzenia do ryzyka,
-aktualizuj dokumentację, wdrażaj zmiany aplikacji do właściwego dev i zweryfikuj
-URL. Uwzględnij wspólny backend dev i wpływ zmian danych na inne podglądy.
+aktualizuj dokumentację i wykonaj wybrany sposób odbioru. Przy wyborze dev wdrażaj
+zmiany do właściwego slotu i zweryfikuj URL; przy wyborze lokalnym nie wdrażaj. Uwzględnij wspólny backend dev i wpływ zmian danych na inne podglądy.
 Zaktualizuj powiązania rzeczywistym SHA wdrożenia i PR. Po utworzeniu PR do zadania
 (albo wykryciu PR utworzonego przez właściciela) zapisz jego link i ustaw status
 pozycji Projects na `In review`, również dla draft PR. Odczytaj ID opcji na żywo

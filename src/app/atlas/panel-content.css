@@ -9,7 +9,9 @@ p {
   line-height: 1.6;
 }
 .intro {
-  font-size: 1.125rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin: 0.35rem 0 0;
 }
 .divider {
   margin: 2.1rem 0;
@@ -37,7 +39,7 @@ h2 {
 .place-list {
   padding: 0;
   list-style: none;
-  margin: 1rem 0;
+  margin: 0;
 }
 .place-button {
   display: flex;
@@ -59,8 +61,48 @@ h2 {
   font-size: 0.75rem;
   margin-top: 0.15rem;
 }
-.place-button > span:last-child {
+.place-copy {
+  min-width: 0;
+  flex: 1;
+}
+.place-copy strong {
+  font-weight: 600;
+}
+.place-arrow {
   margin-left: auto;
+}
+.tag-icon {
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+  background: currentColor;
+  mask: center / contain no-repeat;
+}
+.tag-filters {
+  margin-top: 1.25rem;
+  border: 0;
+  padding: 0;
+}
+.tag-filters .btn {
+  height: 32px;
+  min-height: 32px;
+}
+.tag-filters legend {
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+.results-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--color-line);
+  margin: 0;
+  padding-bottom: 0.6rem;
+}
+.results-heading span {
+  color: var(--color-muted);
+  font-size: 0.85rem;
 }
 .place-number {
   display: grid;
@@ -128,18 +170,19 @@ h3 {
 }
 
 @media (max-width: 1099px) {
-  :host(.mobile-page) .search-intro,
-  :host(.mobile-page) .section-number {
-    display: none;
-  }
   :host(.mobile-page) h2 {
     margin-top: 0;
   }
 }
 
-.search-intro .divider {
-  margin-block: 1rem;
-}
 .search-intro h1 {
-  padding-right: 4rem;
+  margin-bottom: 0;
+}
+.search-intro {
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 1100px) {
+  .search-intro h1 {
+    padding-right: 3rem;
+  }
 }

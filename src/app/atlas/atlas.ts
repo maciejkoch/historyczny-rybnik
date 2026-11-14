@@ -23,7 +23,8 @@ import { AtlasMap } from '../atlas-map/atlas-map';
 import { markerCategory, markerIcon } from '../atlas-map/place-markers';
 import { PLACES } from '../places/catalog.generated';
 import { Locations } from '../places/locations';
-import { normalizeSearch, Place } from '../places/place';
+import { Place } from '../places/place';
+import { filterPlaces } from '../places/place-filter';
 import { PlaceSearchPanel } from './place-search-panel';
 import { PlaceDetailsPanel } from './place-details-panel';
 import { MobileNavigation } from '../layout/mobile-navigation/mobile-navigation';
@@ -133,6 +134,8 @@ export class Atlas {
   readonly locations = inject(Locations);
   readonly consent = inject(Consent);
   readonly withoutLocation = signal(false);
+  readonly selectedTag = signal('');
+  private returnToSearch = false;
   readonly query = signal(this.route.snapshot.queryParamMap.get('q') ?? '');
   readonly screen = computed<'map' | 'search' | 'place'>(() => this.params()['screen'] ?? 'map');
   readonly hasDetails = computed(() => this.screen() === 'place');
@@ -165,21 +168,17 @@ export class Atlas {
         (place) => place.slug === (this.params()['slug'] ?? this.lastSelectedSlug()),
       ) ?? null,
   );
-  readonly results = computed(() => {
-    const words = normalizeSearch(this.query()).trim().split(/\s+/);
-    return this.places().filter((place) => {
-      if (this.withoutLocation() && place.location.coordinates !== null) return false;
-      const haystack = normalizeSearch(
-        [
-          place.name,
-          ...place.aliases,
-          ...place.addresses.map((a) => a.text),
-          place.district ?? '',
-        ].join(' '),
-      );
-      return words.every((word) => haystack.includes(word));
-    });
+  readonly tags = computed(() => {
+    const tags = new Map<string, { id: string; name: string }>();
+    for (const place of this.places()) {
+      const tag = place.tags[0];
+      if (tag) tags.set(tag.id, tag);
+    }
+    return [...tags.values()].sort((a, b) => a.name.localeCompare(b.name, 'pl'));
   });
+  readonly results = computed(() =>
+    filterPlaces(this.places(), this.query(), this.selectedTag(), this.withoutLocation()),
+  );
   readonly enlarged = signal<{ url: string; alt: string } | null>(null);
   private readonly searchPanel = viewChild<ElementRef<HTMLElement>>('searchPanel');
   private readonly detailsPanel = viewChild<ElementRef<HTMLElement>>('detailsPanel');
@@ -201,7 +200,7 @@ export class Atlas {
       const title = place
         ? `${place.name} — Historyczny Rybnik`
         : data['screen'] === 'search'
-          ? 'Znajdź miejsce — Historyczny Rybnik'
+          ? 'Miejsca — Historyczny Rybnik'
           : 'Historyczny Rybnik — miejsca i ich historie';
       const description =
         place?.description ??
@@ -342,6 +341,7 @@ export class Atlas {
   select(place: Place): void {
     if (this.saving() || this.editing()) return;
     this.cancelEditing();
+    if (this.screen() !== 'place') this.returnToSearch = this.screen() === 'search';
     const path = '/miejsca/' + place.slug;
     if (this.currentPath === path) {
       this.detailsLayout()?.expand();
@@ -374,7 +374,8 @@ export class Atlas {
   }
 
   close(): void {
-    this.searchLayout()?.expand();
-    void this.router.navigate(['/']);
+    void this.router.navigate([this.returnToSearch ? '/szukaj' : '/'], {
+      queryParams: this.returnToSearch ? { q: this.query() || null } : {},
+    });
   }
 }

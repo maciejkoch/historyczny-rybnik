@@ -25,8 +25,8 @@
         data-panel-toggle
         aria-controls="tresc"
         [attr.aria-expanded]="!searchLayout.isCollapsed()"
-        [attr.aria-label]="searchLayout.isCollapsed() ? 'Rozwiń wyszukiwarkę' : 'Zwiń wyszukiwarkę'"
-        [attr.title]="searchLayout.isCollapsed() ? 'Rozwiń wyszukiwarkę' : 'Zwiń wyszukiwarkę'"
+        [attr.aria-label]="searchLayout.isCollapsed() ? 'Rozwiń panel miejsc' : 'Zwiń panel miejsc'"
+        [attr.title]="searchLayout.isCollapsed() ? 'Rozwiń panel miejsc' : 'Zwiń panel miejsc'"
         (click)="searchLayout.toggle()"
       >
         @if (searchLayout.isCollapsed()) {
@@ -68,6 +68,9 @@
     >
       <app-place-search-panel
         [query]="query()"
+        [tags]="tags()"
+        [selectedTag]="selectedTag()"
+        (tagChanged)="selectedTag.set($event)"
         [withoutLocation]="withoutLocation()"
         (withoutLocationChanged)="withoutLocation.set($event)"
         [mobilePage]="screen() === 'search'"
@@ -76,18 +79,6 @@
         (queryChanged)="updateQuery($event)"
         (placeSelected)="select($event)"
       />
-      @if (locations.status() === 'disabled') {
-        <p class="muted">
-          Pokazujemy ostatnio opublikowane pozycje. Pobieranie bieżących pozycji włączysz w
-          ustawieniach prywatności w menu.
-        </p>
-      }
-      @if (locations.status() === 'error') {
-        <p role="status" class="muted">
-          Bieżące pozycje są niedostępne. Mapa pokazuje ostatni dostępny stan; opisy i wyszukiwanie
-          nadal działają.
-        </p>
-      }
     </main>
   </div>
   <div
@@ -95,7 +86,7 @@
     role="separator"
     tabindex="0"
     aria-orientation="vertical"
-    aria-label="Szerokość wyszukiwarki"
+    aria-label="Szerokość panelu miejsc"
     aria-controls="tresc"
     [hidden]="searchLayout.isCollapsed()"
     [attr.aria-valuemin]="searchLayout.minWidth"
@@ -127,7 +118,7 @@
     (transitionend)="finishSheetTransition($event)"
   >
     <app-atlas-map
-      [places]="places()"
+      [places]="results()"
       [editing]="editing()"
       [draftPoint]="draftPoint()"
       (pointPicked)="pickPoint($event)"

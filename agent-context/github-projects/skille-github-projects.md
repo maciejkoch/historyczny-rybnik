@@ -53,7 +53,7 @@ Użyj $rybnik-start-task i wznów zadanie <link lub ID> na istniejącym branchu.
 
 Sama propozycja/ocena gotowości niczego nie zapisuje. Polecenie utworzenia lub
 rozpoczęcia obejmuje odpowiednie zapisy pozycji Projects, lecz nie publikowanie
-komentarzy/review. Po starcie agent kontynuuje zlecone zadanie zgodnie z zasadami
+komentarzy/review. Przed implementacją aplikacji skill ustala wybór odbioru lokalnego albo automatycznego wdrożenia na zarezerwowany dev, o ile właściciel nie podał go wcześniej. Po starcie agent kontynuuje zlecone zadanie zgodnie z zasadami
 projektu. Brak dostępu zgłasza bez proszenia o tokeny w rozmowie.
 
 ## Bieżące ograniczenia i zależności

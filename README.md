@@ -34,7 +34,7 @@ Katalog dev zawiera 200 miejsc: 196 przeniesionych z MVP.0 i cztery punkty sprze
 
 Przy oddaleniu mapy pobliskie miejsca łączą się w grupy z liczbą punktów. Kliknięcie grupy przybliża mapę, a zmiana grupowania jest animowana; wybrane miejsce pozostaje widoczne osobno.
 
-Wyszukiwarka ma filtr „Bez lokalizacji”, łączony z wpisaną nazwą, adresem lub dzielnicą.
+Panel „Miejsca” wyszukuje fragment nazwy i pozwala łączyć jeden główny tag z filtrem „Bez lokalizacji”. Wyniki pokazują tagi oraz dostępny adres historyczny; mapa pokazuje te same wyniki.
 
 Potwierdzone w źródłach wycinki domeny publicznej są stopniowo podłączane do kart na dev. Źródła bez potwierdzonego statusu pozostają dostępne przez linki.
 
