@@ -142,7 +142,7 @@ test('public requests reflect database edits, exclude drafts and handle redirect
   );
 });
 
-test('gallery is opt-in for legacy API clients and included in SSR', async () => {
+test('gallery is included in API responses and SSR', async () => {
   const image = structuredClone(
     fixture.mentions.find((mention) => mention.materials.length).materials[0],
   );
@@ -162,16 +162,11 @@ test('gallery is opt-in for legacy API clients and included in SSR', async () =>
     rendered = context.place;
     return new Response('ok');
   };
-  const legacy = publicWeb(db, render);
+  const handler = publicWeb(db, render);
   assert.equal(
-    'materials' in (await request(legacy, '/api/public-places/' + fixture.slug)).body,
-    false,
-  );
-  assert.equal(
-    (await request(legacy, '/api/public-places/' + fixture.slug + '?materials=1')).body.materials
-      .length,
+    (await request(handler, '/api/public-places/' + fixture.slug)).body.materials.length,
     1,
   );
-  await request(legacy, '/miejsca/' + fixture.slug);
+  await request(handler, '/miejsca/' + fixture.slug);
   assert.equal(rendered.materials.length, 1);
 });

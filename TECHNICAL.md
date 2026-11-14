@@ -63,7 +63,7 @@ Aktualny kontrakt katalogu, publicznej projekcji i prywatnego warsztatu oraz prz
 
 Publiczne miejsce może mieć niezależną galerię `materials`, odczytywaną jako pustą dla starszych rekordów. Jedno zdjęcie główne jest wyświetlane bez kadrowania nad treścią; miniatury otwierają PhotoSwipe ładowany na żądanie. Materiały wzmianek nadal są wyświetlane przy wzmiankach. Eksport warsztatu zachowuje galerię z bazowego katalogu; upload i edycja galerii nie są częścią tej funkcji.
 
-Odczyt szczegółów z `?materials=1` jawnie zwraca galerię. Odpowiedź API bez tego parametru pomija nowe pole, aby starsze klienty zachowały zgodność ze ścisłym kontraktem. Renderery SSR przekazują pełny rekord; wydanie SSR i Hostingu musi pochodzić z tego samego builda. Import nie dopisuje pustej galerii do rekordów, które nie miały tego pola.
+API szczegółów i renderery SSR zwracają pełny publiczny rekord wraz z galerią. Wydanie SSR i Hostingu musi pochodzić z tego samego builda.
 
 ## Katalog lokalny `.local/`
 

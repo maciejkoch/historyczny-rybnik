@@ -55,10 +55,9 @@ export class PublicPlaces {
       return place ? publicPlaceSchema.parse(place) : null;
     }
     try {
-      const response = await fetch(
-        '/api/public-places/' + encodeURIComponent(slug) + '?materials=1',
-        { cache: 'no-store' },
-      );
+      const response = await fetch('/api/public-places/' + encodeURIComponent(slug), {
+        cache: 'no-store',
+      });
       if (response.status === 404) {
         this.detailStatus.set('missing');
         return null;

@@ -110,11 +110,6 @@ test('publication is explicit, excludes unknown-rights images and protects live 
     updatedAt: 'new',
   };
   assert.deepEqual(preserveLiveFields(result, live).location, live.location);
-  assert.equal('materials' in preserveLiveFields({ ...result, materials: [] }, live), false);
-  assert.deepEqual(
-    preserveLiveFields({ ...result, materials: [] }, { ...live, materials: [] }).materials,
-    [],
-  );
   assert.deepEqual(
     preserveLiveFields(preserveLiveFields(result, live), live),
     preserveLiveFields(result, live),
