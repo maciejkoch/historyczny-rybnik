@@ -1,20 +1,36 @@
-<div class="search-intro">
-  <h1>Miasto zapisane<br />w miejscach.</h1>
-  <p class="intro">Porównaj dzisiejszy Rybnik z planem z 1932 roku.</p>
-  <div class="divider"></div>
-</div>
 <section aria-labelledby="search-title">
-  <span class="section-number">01 / ODKRYWAJ MAPĘ</span>
-  <h2 id="search-title">Znajdź miejsce</h2>
-  <label for="place-search">Nazwa, dawny adres lub dzielnica</label>
+  <h1 id="search-title">Miejsca</h1>
+  <label for="place-search" class="sr-only">Szukaj po nazwie</label>
   <input
     id="place-search"
     class="input input-bordered search"
     type="search"
     autocomplete="off"
+    placeholder="Szukaj po nazwie"
     [value]="query()"
     (input)="queryChanged.emit($any($event.target).value)"
   />
+  <fieldset class="tag-filters">
+    <legend>Filtruj według tagu</legend>
+    <div class="flex flex-wrap gap-2">
+      @for (tag of tags(); track tag.id) {
+        <button
+          type="button"
+          class="btn btn-outline btn-sm rounded-full"
+          [class.btn-primary]="selectedTag() === tag.id"
+          [attr.aria-pressed]="selectedTag() === tag.id"
+          (click)="tagChanged.emit(selectedTag() === tag.id ? '' : tag.id)"
+        >
+          <span
+            class="tag-icon"
+            [style.mask-image]="'url(' + markerIcon(markerCategory({ tags: [tag] }).icon) + ')'"
+            aria-hidden="true"
+          ></span>
+          {{ tag.name }}
+        </button>
+      }
+    </div>
+  </fieldset>
   <label class="flex items-center gap-3 cursor-pointer py-3">
     <input
       type="checkbox"
@@ -24,7 +40,9 @@
     />
     Bez lokalizacji
   </label>
-  <p class="muted" role="status">Wyniki: {{ results().length }}</p>
+  <p class="results-heading" role="status">
+    <strong>Miejsca</strong><span>{{ results().length }} wyników</span>
+  </p>
   <ul class="place-list">
     @for (place of results(); track place.id) {
       <li>
@@ -34,15 +52,24 @@
           [attr.data-place]="place.id"
           [attr.aria-current]="selectedId() === place.id ? 'true' : null"
           (click)="choose($event, place)"
-          ><span class="place-number" aria-hidden="true">↗</span
-          ><span
-            >{{ place.name
-            }}<small>{{ place.addresses[0]?.text ?? 'Adres nieustalony' }}</small></span
-          ></a
         >
+          <span class="place-number" aria-hidden="true"
+            ><span
+              class="tag-icon"
+              [style.mask-image]="'url(' + markerIcon(markerCategory(place).icon) + ')'"
+            ></span
+          ></span>
+          <span class="place-copy"
+            ><strong>{{ place.name }}</strong
+            ><small>{{ tagNames(place) }}</small>
+            @if (historicalAddress(place); as address) {
+              <small>{{ address }}</small>
+            }</span
+          ><span class="place-arrow" aria-hidden="true">›</span>
+        </a>
       </li>
     } @empty {
-      <li>Nie znaleziono miejsca. Spróbuj innej nazwy lub adresu.</li>
+      <li class="muted">Nie znaleziono miejsc. Zmień nazwę lub filtry.</li>
     }
   </ul>
 </section>

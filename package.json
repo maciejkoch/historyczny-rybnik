@@ -14,6 +14,7 @@
     "places:import": "node scripts/places/import.mjs",
     "places:snapshot": "node scripts/places/snapshot.mjs",
     "test": "node scripts/test.mjs",
+    "test:places-filter": "node --test scripts/places/place-filter.test.mjs",
     "test:maps": "node --experimental-strip-types --test scripts/maps/cluster-visibility.test.mjs",
     "test:emulator": "firebase emulators:exec --config firebase.backend.dev.json --project demo-historyczny-rybnik --only firestore,storage \"npm --prefix functions run test:emulator\"",
     "deploy:backend:dev": "firebase deploy --config firebase.backend.dev.json --project historyczny-rybnik --only functions:places-dev,firestore:places-dev,storage:places-dev,auth",

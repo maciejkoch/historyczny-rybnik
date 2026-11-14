@@ -90,3 +90,5 @@ Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_
 Rzeczywiste dane katalogu są poza Git: `places:snapshot` zapisuje `.local/places.snapshot.json`, eksport warsztatu `.local/research.catalog.json`. Import i uploader domyślnie używają tego eksportu; `check-live.mjs` wymaga rzeczywistego snapshotu z lokalizacją sprawdzanego miejsca. `research export --baseline=plik.json` nadpisuje domyślną bazę snapshotu.
 
 Domyślny build i CI korzystają wyłącznie z `data/places.fixture.json` (fikcyjne dane). `start` i `watch` najpierw wykonują `places:prepare`, więc działają w świeżym checkoutcie bez wygenerowanego katalogu. Generator zapisuje ignorowane catalog.generated.ts, public/search-index.json, public/sitemap.xml oraz `.local/firebase.dev.json` z przekierowaniami i bezwzględnym katalogiem Hosting. Nie modyfikuje wersjonowanych konfiguracji Firebase. `preview` używa tej wygenerowanej konfiguracji; `deploy:dev-N` po świeżym snapshocie i buildzie tworzy `.local/firebase.dev-N.json` dla właściwej witryny.
+
+- `npm run test:places-filter` — testuje filtrowanie miejsc po nazwie, głównym tagu i lokalizacji; jest częścią `npm test`.
