@@ -101,7 +101,7 @@ export const imageSchema = z.strictObject({
     dateNote: text(500),
     license: text(500),
     licenseUrl: httpsUrl.nullable(),
-    copyrighted: z.boolean(),
+    copyrighted: z.boolean().nullable(),
     rightsCheckedAt: historicalDateSchema.refine(
       (v) => /^\d{4}-\d{2}-\d{2}$/.test(v),
       'Full date required',

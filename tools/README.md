@@ -4,4 +4,6 @@ Lokalne narzędzia właściciela, poza aplikacją i Hosting. `research-viewer/` 
 
 Galerie lokalnych obrazów pokazują powiązane miejsca, źródła i ostrzeżenia o prawach. Karta miejsca prezentuje materiały przypisane do jego wzmianek.
 
+Oznaczenie zatwierdzenia dotyczy konkretnego wariantu i opiera się na zapisanym oświadczeniu przekazującego; nie wymaga ustalonego źródła ani domeny publicznej.
+
 Galeria Materiały historyczne pokazuje tylko obrazy właściwe dla datowanych verified wzmianek. Dokumenty źródłowe, kopie późniejszych opracowań i materiały nierozpoznane/innych okresów mają osobne widoki. Karta miejsca zawiera wyliczoną chronologię i oddziela wzmianki robocze.

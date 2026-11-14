@@ -40,7 +40,7 @@ Czytaj istniejące miejsca, wzmianki, dokumenty, materiały, źródła, kandydat
 
 Zawsze zapisuj dostępny skan/obraz prywatnie, także przy prawach unknown/restricted. Nie obchodź ograniczeń dostępu; nieudane pobranie zapisz do ponowienia. Oryginał przechowuj raz po SHA-256, współdziel ścieżkę i zachowuj źródło, stronę oraz pochodzenie wycinków. Kopie późniejszych źródeł zapisuj w documents; nie przypinaj ich jako historycznych ilustracji wzmianki. `research capture --collection=documents|materials` opisuje README.
 
-Status praw, podstawa, dowód, checkedAt i credit dotyczą konkretnego materiału. Nie zgaduj praw ani nie przenoś zgody z wycinka na całą stronę lub inne zdjęcie. Nieznane dane pozostają null. Lokalny podgląd wyraźnie ostrzega o nieustalonych/ograniczonych prawach i braku zatwierdzenia. Zapis prywatny nie nadaje zgody publikacyjnej. Eksport dopuszcza tylko zatwierdzone historyczne materiały z udokumentowaną domeną publiczną, we właściwej zweryfikowanej wzmiance. Import do bazy i publikacja są odrębną operacją operatora — nie wykonuj ich w ramach badania.
+Status praw, podstawa, checkedAt i credit dotyczą konkretnego materiału. Nie zgaduj praw ani nie przenoś zgody z wycinka na całą stronę lub inne zdjęcie. Nieznane dane pozostają null. Publikacja nie wymaga domeny publicznej ani niezależnego dowodu; osoba przekazująca materiał potwierdza prawo do udostępnienia. Zapisz jej oświadczenie i datę, a dostępne źródło i dowody zachowaj bez dopowiadania nieznanych informacji. Zapis prywatny nie nadaje zgody publikacyjnej. Powiązanie ze wzmianką nadal wymaga właściwego datowania i weryfikacji historycznej. Import do bazy i publikacja są odrębną operacją operatora — nie wykonuj ich w ramach badania.
 
 ## Zakończenie
 

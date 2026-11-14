@@ -49,6 +49,13 @@ test('place gallery accepts legacy records and validates ownership, dimensions a
   };
   assert.equal(placeSchema.safeParse({ ...places[0], materials: [material] }).success, true);
   assert.equal(
+    placeSchema.safeParse({
+      ...places[0],
+      materials: [{ ...material, provenance: { ...material.provenance, copyrighted: null } }],
+    }).success,
+    true,
+  );
+  assert.equal(
     placeSchema.safeParse({ ...places[0], materials: [{ ...material, width: 0 }] }).success,
     false,
   );

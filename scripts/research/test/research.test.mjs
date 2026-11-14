@@ -84,7 +84,7 @@ test('reject broken links, tags, periods, rights approval, duplicate synonyms, d
   d.places = [];
   assert.equal(validateWorkspace(d)['out-of-period'][0].id, 'place_a');
 });
-test('publication is explicit, excludes unknown-rights images and protects live location on repeated import', () => {
+test('publication is explicit, excludes unapproved images and protects live location on repeated import', () => {
   const d = validateWorkspace(fixture()),
     p = d.places[0];
   assert.throws(() => projectPlace(p, d));
@@ -311,7 +311,7 @@ test('a 1938 contemporary advertisement proves activity without a fabricated his
   );
 });
 
-test('internal unknown/restricted copies are retained and never become public images', async (t) => {
+test('unapproved unknown/restricted copies are retained without becoming public images', async (t) => {
   const { capture } = await import('../workspace/capture.mjs');
   const d = fixture();
   d.documents[1].rights.status = 'restricted';
@@ -358,8 +358,25 @@ test('publication label never extends crop approval to a new full-page scan', as
   m.publicationImages = [{ sha256: 'crop', thumbnailSha256: 'thumb' }];
   assert.equal(publicationNotice(m, { sha256: 'crop' }).approved, true);
   assert.equal(publicationNotice(m, { sha256: 'full-page' }).approved, false);
-  m.rights.status = 'restricted';
-  assert.equal(publicationNotice(m, { sha256: 'crop' }).approved, false);
+  m.rights.status = 'unknown';
+  assert.equal(publicationNotice(m, { sha256: 'crop' }).approved, true);
+  assert.equal(publicationNotice(m, { sha256: 'full-page' }).approved, false);
+});
+
+test('a dated contributor declaration permits publication when source and rights status are unknown', () => {
+  const d = fixture();
+  d.documents[0].rights = {
+    status: 'unknown',
+    basis: 'Oświadczenie przekazującego o prawie do publikacji',
+    evidenceUrl: null,
+    evidenceDocumentId: null,
+    checkedAt: '2026-11-14T12:00:00Z',
+    credit: null,
+    publicationApproved: true,
+  };
+  assert.doesNotThrow(() => validateWorkspace(d));
+  d.documents[0].rights.basis = null;
+  assert.throws(() => validateWorkspace(d));
 });
 
 test('documented dates retain separate 1920, 1928, 1945 evidence; no inferred continuity', async () => {

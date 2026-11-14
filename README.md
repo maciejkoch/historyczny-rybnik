@@ -37,7 +37,7 @@ Przy oddaleniu mapy pobliskie miejsca łączą się w grupy z liczbą punktów. 
 
 Panel „Miejsca” wyszukuje fragment nazwy i pozwala łączyć jeden główny tag z filtrem „Bez lokalizacji”. Wyniki pokazują tagi oraz dostępny adres historyczny; mapa pokazuje te same wyniki.
 
-Potwierdzone w źródłach wycinki domeny publicznej są stopniowo podłączane do kart na dev. Źródła bez potwierdzonego statusu pozostają dostępne przez linki.
+Materiały są podłączane do kart na dev wraz z dostępnym źródłem i informacją o prawach. Osoba przekazująca materiał odpowiada za prawo do jego udostępnienia.
 
 Warsztat badań ma projektowy skill, prywatne dane źródeł/materiałów/miejsc, synchronizację ze Storage i [lokalną przeglądarkę](data/places/README.md) (`npm run research:view`). Każde badanie kontynuuje wcześniejsze ustalenia; publikacja zatwierdzonych treści pozostaje osobnym etapem. Karty pokazują tagi i brak potwierdzenia istnienia w okresie międzywojennym.
 
