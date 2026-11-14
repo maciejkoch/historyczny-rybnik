@@ -159,6 +159,10 @@ const placeFields = {
   updatedAt: timestampSchema,
 };
 const basePlaceSchema = z.strictObject(placeFields);
+export const publicSummarySchema = basePlaceSchema.pick({
+  id: true, name: true, slug: true, tags: true, aliases: true, addresses: true,
+  district: true, location: true, locationVersion: true, updatedAt: true,
+});
 /** @param {{id: string, mentions: {id: string, documentedDate: {from:string,to:string|null,approximate:boolean}|null, verification:string, materials: {storagePath:string,thumbnailPath:string,documentedDate:{from:string,to:string|null,approximate:boolean}}[]}[]}} place
  * @param {z.RefinementCtx} ctx */
 function placeRelations(place, ctx) {

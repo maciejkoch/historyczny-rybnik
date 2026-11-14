@@ -52,6 +52,10 @@ h1, h2 { font-family: var(--font-display); font-weight: 500; }
 .btn { min-height: 44px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
+/* Applied before hydration so prerendered skeletons do not flash on a quick load. */
+.places-skeleton { opacity: 0; animation: show-places-skeleton 0s linear 250ms forwards; }
+@keyframes show-places-skeleton { to { opacity: 1; } }
+
 /* Markers are DOM nodes owned by MapLibre; legend samples share these styles. */
 .place-marker { width: 44px; height: 46px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; cursor: pointer; }
 .place-marker-symbol { --marker-fill: var(--color-marker); position: relative; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; }

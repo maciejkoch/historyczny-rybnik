@@ -2,6 +2,35 @@
   <h1>Miasto zapisane w miejscach.</h1>
   <p class="intro">Porównaj dzisiejszy Rybnik z planem z 1932 roku.</p>
 </div>
+@if (status() === 'loading') {
+  <div class="places-skeleton" role="status" aria-label="Ładowanie listy miejsc">
+    <div aria-hidden="true">
+      <div class="skeleton skeleton-search"></div>
+      <div class="skeleton skeleton-filter-label"></div>
+      <div class="skeleton-filters">
+        <div class="skeleton skeleton-filter"></div>
+        <div class="skeleton skeleton-filter"></div>
+        <div class="skeleton skeleton-filter"></div>
+      </div>
+      <div class="skeleton skeleton-location"></div>
+      <div class="skeleton skeleton-results-heading"></div>
+      @for (row of [1, 2, 3, 4, 5]; track row) {
+        <div class="skeleton-row">
+          <div class="skeleton skeleton-icon"></div>
+          <div class="skeleton-lines">
+            <div class="skeleton skeleton-name"></div>
+            <div class="skeleton skeleton-detail"></div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+} @else if (status() === 'error') {
+  <div role="alert">
+    <p>Nie udało się pobrać miejsc.</p>
+    <button class="btn" type="button" (click)="retry.emit()">Spróbuj ponownie</button>
+  </div>
+} @else {
 <section aria-label="Miejsca">
   <label for="place-search" class="sr-only">Szukaj po nazwie</label>
   <input
@@ -76,3 +105,4 @@
     }
   </ul>
 </section>
+}

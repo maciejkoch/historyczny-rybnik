@@ -27,7 +27,7 @@
           },
           {
             "key": "Cache-Control",
-            "value": "no-cache"
+            "value": "no-store"
           }
         ]
       },
@@ -41,7 +41,37 @@
         ]
       }
     ],
-    "redirects": []
+    "redirects": [],
+    "rewrites": [
+      {
+        "source": "/miejsca/**",
+        "function": {
+          "functionId": "placesDevWeb",
+          "region": "europe-central2"
+        }
+      },
+      {
+        "source": "/api/public-places",
+        "function": {
+          "functionId": "placesDevWeb",
+          "region": "europe-central2"
+        }
+      },
+      {
+        "source": "/api/public-places/**",
+        "function": {
+          "functionId": "placesDevWeb",
+          "region": "europe-central2"
+        }
+      },
+      {
+        "source": "/sitemap.xml",
+        "function": {
+          "functionId": "placesDevWeb",
+          "region": "europe-central2"
+        }
+      }
+    ]
   },
   "emulators": {
     "hosting": {

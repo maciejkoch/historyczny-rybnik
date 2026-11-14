@@ -67,6 +67,8 @@
       [hidden]="searchLayout.isCollapsed()"
     >
       <app-place-search-panel
+        [status]="publicPlaces.status()"
+        (retry)="publicPlaces.load()"
         [query]="query()"
         [tags]="tags()"
         [selectedTag]="selectedTag()"
@@ -250,6 +252,11 @@
         aria-label="Opis miejsca"
         [hidden]="detailsLayout.isCollapsed()"
       >
+        @if (!selected() && publicPlaces.detailStatus() === 'missing') {
+          <p role="status">Nie znaleziono tego miejsca.</p>
+        } @else if (!selected() && publicPlaces.detailStatus() === 'error') {
+          <p role="alert">Nie udało się pobrać miejsca. Odśwież stronę, aby spróbować ponownie.</p>
+        }
         <app-place-details-panel [place]="selected()" (imageOpened)="enlarged.set($event)">
           <div location-actions>
             @if (selected()) {

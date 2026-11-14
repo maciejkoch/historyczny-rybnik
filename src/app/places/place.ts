@@ -4,6 +4,7 @@ import type {
   locationSchema,
   mentionSchema,
   publicPlaceSchema,
+  publicSummarySchema,
   locationDtoSchema,
   readRequestSchema,
   writeRequestSchema,
@@ -17,6 +18,7 @@ type DeepReadonly<T> = T extends readonly unknown[]
 export type PartialDate = DeepReadonly<NonNullable<z.infer<typeof partialDateSchema>>>;
 export type PlaceLocation = DeepReadonly<z.infer<typeof locationSchema>>;
 export type PlaceMention = DeepReadonly<z.infer<typeof mentionSchema>>;
+export type PlaceSummary = DeepReadonly<z.infer<typeof publicSummarySchema>>;
 export type Place = DeepReadonly<z.infer<typeof publicPlaceSchema>>;
 export type LocationDto = DeepReadonly<z.infer<typeof locationDtoSchema>>;
 export type ReadLocationsRequest = z.infer<typeof readRequestSchema>;

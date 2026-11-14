@@ -1,7 +1,44 @@
 {
-  "indexes": [],
+  "indexes": [
+    {
+      "collectionGroup": "places",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "published",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "slug",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "places",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "published",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "previousSlugs",
+          "arrayConfig": "CONTAINS"
+        }
+      ]
+    }
+  ],
   "fieldOverrides": [
-    { "collectionGroup": "places", "fieldPath": "description", "indexes": [] },
-    { "collectionGroup": "places", "fieldPath": "references", "indexes": [] }
+    {
+      "collectionGroup": "places",
+      "fieldPath": "description",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "places",
+      "fieldPath": "references",
+      "indexes": []
+    }
   ]
 }
