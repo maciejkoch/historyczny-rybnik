@@ -8,7 +8,6 @@ import {
   effect,
   DestroyRef,
   ElementRef,
-  Injector,
   inject,
   signal,
   viewChild,
@@ -17,13 +16,12 @@ import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { Meta, Title } from '@angular/platform-browser';
-import { Consent } from '../privacy/consent';
 import { PanelLayout } from './panel-layout';
 import { AtlasMap } from '../atlas-map/atlas-map';
 import { markerCategory, markerIcon } from '../atlas-map/place-markers';
-import { PLACES } from '../places/catalog.generated';
+import { PublicPlaces } from '../places/public-places';
 import { Locations } from '../places/locations';
-import { Place } from '../places/place';
+import { Place, PlaceSummary } from '../places/place';
 import { filterPlaces } from '../places/place-filter';
 import { PlaceSearchPanel } from './place-search-panel';
 import { PlaceDetailsPanel } from './place-details-panel';
@@ -44,7 +42,6 @@ import { PortalHeader } from '../layout/portal-header/portal-header';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Atlas {
-  private readonly injector = inject(Injector);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly params = toSignal(this.route.data, { initialValue: this.route.snapshot.data });
@@ -70,9 +67,11 @@ export class Atlas {
       return;
     }
     if (!this.account.admin()) return;
-    await this.locations.refresh();
+    const selected = this.selected();
+    if (selected) await this.locations.refresh([selected.id]);
     const place = this.selected();
-    if (!place || this.locations.status() !== 'ready') {
+    if (!place || this.locations.status() !== 'ready' ||
+        !this.locations.current().some((current) => current.id === place.id)) {
       this.editMessage.set('Nie można pobrać bieżącej pozycji. Spróbuj ponownie.');
       return;
     }
@@ -119,7 +118,7 @@ export class Atlas {
       this.cancelEditing();
       this.editMessage.set('Lokalizacja została zapisana.');
     } catch (error) {
-      await this.locations.refresh();
+      await this.locations.refresh([this.editId]);
       const code = (error as { code?: string }).code;
       this.editMessage.set(
         code === 'functions/aborted'
@@ -132,7 +131,7 @@ export class Atlas {
     }
   }
   readonly locations = inject(Locations);
-  readonly consent = inject(Consent);
+  readonly publicPlaces = inject(PublicPlaces);
   readonly withoutLocation = signal(false);
   readonly selectedTag = signal('');
   private returnToSearch = false;
@@ -142,32 +141,18 @@ export class Atlas {
   readonly sheetOpen = signal(this.route.snapshot.data['screen'] === 'place');
   readonly sheetAnimating = signal(false);
   readonly headerHeight = signal(74);
-  private readonly lastSelectedSlug = signal<string | null>(
-    this.route.snapshot.data['slug'] ?? null,
-  );
-  readonly places = computed<readonly Place[]>(() =>
-    PLACES.map((place) => {
+  readonly places = computed<readonly PlaceSummary[]>(() =>
+    this.publicPlaces.summaries().map((place) => {
       const current = this.locations.current().find((value) => value.id === place.id);
-      return current
-        ? { ...place, ...current }
-        : this.locations.status() === 'ready'
-          ? {
-              ...place,
-              location: {
-                coordinates: null,
-                precision: 'unknown',
-                explanation: place.location.explanation,
-              },
-            }
-          : place;
+      return current ? { ...place, ...current } : place;
     }),
   );
-  readonly selected = computed(
-    () =>
-      this.places().find(
-        (place) => place.slug === (this.params()['slug'] ?? this.lastSelectedSlug()),
-      ) ?? null,
-  );
+  readonly selected = computed<Place | null>(() => {
+    const place = this.params()['place'] as Place | null | undefined;
+    if (!place) return null;
+    const current = this.locations.current().find((value) => value.id === place.id);
+    return current ? { ...place, ...current } : place;
+  });
   readonly tags = computed(() => {
     const tags = new Map<string, { id: string; name: string }>();
     for (const place of this.places()) {
@@ -195,8 +180,7 @@ export class Atlas {
   private handledNavigation: object | null = null;
   constructor() {
     this.route.data.pipe(takeUntilDestroyed()).subscribe((data) => {
-      const place = PLACES.find((p) => p.slug === data['slug']);
-      if (place) this.lastSelectedSlug.set(place.slug);
+      const place = data['place'] as Place | null | undefined;
       const title = place
         ? `${place.name} — Historyczny Rybnik`
         : data['screen'] === 'search'
@@ -226,13 +210,7 @@ export class Atlas {
       canonical.href = url;
     });
     afterNextRender(() => {
-      effect(
-        () => {
-          this.consent.google();
-          void this.locations.refresh();
-        },
-        { injector: this.injector },
-      );
+      void this.publicPlaces.load();
       const header = this.brandHeader()?.nativeElement;
       const observer = new ResizeObserver(() => {
         if (header) this.headerHeight.set(header.getBoundingClientRect().height);
@@ -338,7 +316,7 @@ export class Atlas {
       ?.focus({ preventScroll: true });
   }
 
-  select(place: Place): void {
+  select(place: PlaceSummary): void {
     if (this.saving() || this.editing()) return;
     this.cancelEditing();
     if (this.screen() !== 'place') this.returnToSearch = this.screen() === 'search';

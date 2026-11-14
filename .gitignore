@@ -76,3 +76,6 @@ functions/node_modules/
 # Historical catalogue copies and one-off migration inputs
 /agent-context/full-catalog/*
 !/agent-context/full-catalog/README.md
+
+# Generated Angular SSR bundle for Firebase Functions
+/functions/ssr/

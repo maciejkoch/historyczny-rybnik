@@ -9,3 +9,5 @@ Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne
 Publiczny kontrakt miejsca używa tags i period; nowa wspólna ścieżka obrazów to public/materials. Prywatny warsztat nie jest przechowywany w dokumentach places. Szczegóły w data/places/README.md.
 
 Publiczny kontrakt miejsca używa mentions z documentedDate i verification oraz materiałami o własnych datach; odrzuca materiały poza okresem wzmianki. Migracja dawnych references jest jawna; zwykły odczyt nie toleruje starego kontraktu.
+
+`public-places.mjs` odczytuje wyłącznie opublikowane miejsca i ogranicza katalog do pól potrzebnych mapie. `public-web.mjs` obsługuje publiczny odczyt, sitemapę i SSR; `placesDevWeb` używa konta build ograniczonego do bazy dev, odpowiedzi no-store i noindex. Zapis nadal wymaga Auth i App Check.

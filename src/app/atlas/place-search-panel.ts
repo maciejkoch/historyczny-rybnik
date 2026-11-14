@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
-import { Place } from '../places/place';
+import { PlaceSummary } from '../places/place';
 import { markerCategory, markerIcon } from '../atlas-map/place-markers';
 
 @Component({
@@ -19,20 +19,20 @@ export class PlaceSearchPanel {
   readonly query = input('');
   readonly withoutLocation = input(false);
   readonly withoutLocationChanged = output<boolean>();
-  readonly results = input<readonly Place[]>([]);
+  readonly results = input<readonly PlaceSummary[]>([]);
   readonly selectedId = input<string>();
   readonly queryChanged = output<string>();
-  readonly placeSelected = output<Place>();
+  readonly placeSelected = output<PlaceSummary>();
 
-  tagNames(place: Place): string {
+  tagNames(place: PlaceSummary): string {
     return place.tags.map((tag) => tag.name).join(' · ');
   }
 
-  historicalAddress(place: Place): string | undefined {
+  historicalAddress(place: PlaceSummary): string | undefined {
     return place.addresses.find((address) => address.type === 'historical')?.text;
   }
 
-  choose(event: MouseEvent, place: Place): void {
+  choose(event: MouseEvent, place: PlaceSummary): void {
     if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)
       return;
     event.preventDefault();

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run places:prepare && ng serve",
-    "build": "npm run places:prepare && ng build && node scripts/verify-build.mjs",
+    "build": "npm run places:prepare && ng build && node scripts/places/package-ssr.mjs && node scripts/verify-build.mjs",
     "watch": "npm run places:prepare && ng build --watch --configuration development",
     "preview": "npm run build && firebase hosting:channel:deploy faza-1 --project historyczny-rybnik --expires 30d --config .local/firebase.dev.json",
     "emulate": "firebase emulators:start --only hosting --config firebase.dev.json --project historyczny-rybnik",
@@ -17,7 +17,7 @@
     "test:places-filter": "node --test scripts/places/place-filter.test.mjs",
     "test:maps": "node --experimental-strip-types --test scripts/maps/cluster-visibility.test.mjs",
     "test:emulator": "firebase emulators:exec --config firebase.backend.dev.json --project demo-historyczny-rybnik --only firestore,storage \"npm --prefix functions run test:emulator\"",
-    "deploy:backend:dev": "firebase deploy --config firebase.backend.dev.json --project historyczny-rybnik --only functions:places-dev,firestore:places-dev,storage:places-dev,auth",
+    "deploy:backend:dev": "npm run build && firebase deploy --config firebase.backend.dev.json --project historyczny-rybnik --only functions:places-dev,firestore:places-dev,storage:places-dev,auth",
     "places:upload-assets": "node scripts/places/upload-assets.mjs",
     "check:contracts": "tsc -p tsconfig.contracts.json",
     "test:privacy": "node --test scripts/privacy/consent.test.mjs",

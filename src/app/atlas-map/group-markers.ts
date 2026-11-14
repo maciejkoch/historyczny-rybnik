@@ -1,7 +1,7 @@
 /** Zarządza znacznikami MapLibre, ich grupowaniem, animacjami i sprzątaniem. */
 import type { FeatureCollection, Point } from 'geojson';
 import type { Map as LibreMap, Marker, GeoJSONSource } from 'maplibre-gl';
-import type { Place } from '../places/place';
+import type { PlaceSummary } from '../places/place';
 import { markerCategory, markerIcon } from './place-markers';
 import { visibleClusterCandidates } from './cluster-visibility';
 
@@ -9,12 +9,12 @@ interface GroupMarkersOptions {
   map: LibreMap;
   document: Document;
   isReady: () => boolean;
-  places: () => readonly Place[];
-  selected: () => Place | null;
+  places: () => readonly PlaceSummary[];
+  selected: () => PlaceSummary | null;
   draftPoint: () => { lat: number; lng: number } | null;
   editing: () => boolean;
   motionDuration: () => number;
-  onPlaceSelected: (place: Place) => void;
+  onPlaceSelected: (place: PlaceSummary) => void;
   cancelBackgroundClick: () => void;
 }
 
@@ -33,10 +33,10 @@ export class GroupMarkers {
     this.map = options.map;
   }
 
-  private places(): readonly Place[] {
+  private places(): readonly PlaceSummary[] {
     return this.options.places();
   }
-  private selected(): Place | null {
+  private selected(): PlaceSummary | null {
     return this.options.selected();
   }
   private draftPoint(): { lat: number; lng: number } | null {
@@ -49,7 +49,7 @@ export class GroupMarkers {
     return this.options.motionDuration();
   }
 
-  updateSelection(selected: Place | null): void {
+  updateSelection(selected: PlaceSummary | null): void {
     this.markers.forEach((marker) =>
       marker
         .getElement()
@@ -189,7 +189,7 @@ export class GroupMarkers {
     const seen = new Set<string>();
     const add = (
       coordinates: number[],
-      place?: Place,
+      place?: PlaceSummary,
       clusterId?: number,
       count?: number,
       ids: string[] = [],

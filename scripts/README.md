@@ -10,18 +10,19 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 | [maps/register_scans.py](maps/register_scans.py) | Wyznacza kandydatów punktów dopasowania na podstawie lokalnych obrazów odniesienia; narzędzie opcjonalne. |
 | [maps/cluster-visibility.test.mjs](maps/cluster-visibility.test.mjs) | Sprawdza usuwanie nakładających się grup kafelków różnych poziomów. |
 | [maps/test_georeference.py](maps/test_georeference.py) | Testuje georeferencję, transformację odwrotną i walidację punktów. |
-| [places/catalog.mjs](places/catalog.mjs) | Moduł generatora publicznego katalogu, indeksu wyszukiwania, sitemapy i przekierowań; usuwa pola niepubliczne. |
+| [places/catalog.mjs](places/catalog.mjs) | Waliduje wejście i generuje konfigurację Hosting; dynamiczne dane, sitemapę i przekierowania obsługuje backend. |
 | [places/check-live.mjs](places/check-live.mjs) | Sprawdza działające API dev, App Check, Google Auth i konflikt wersji. Wykonuje rzeczywisty zapis lokalizacji testowego kościoła; wymaga tokenów w środowisku. |
 | [places/deploy-dev.mjs](places/deploy-dev.mjs) | Pobiera snapshot, buduje frontend i publikuje Hosting dev; wymaga uprawnień operatora. |
 | [places/deploy-prod.mjs](places/deploy-prod.mjs) | Blokuje publikację produkcji do przygotowania konfiguracji fazy 5; obecnie nie wdraża niczego. |
 | [places/firestore.mjs](places/firestore.mjs) | Moduł połączenia do jawnie wybranej bazy dev lub emulatora; obsługuje ADC i impersonację przez logowanie Firebase CLI. |
 | [places/import.mjs](places/import.mjs) | Waliduje i importuje katalog do dev, zachowując bieżącą pozycję; domyślnie podgląd, zapis przez `--apply`. |
+| [places/package-ssr.mjs](places/package-ssr.mjs) | Pakuje wygenerowany serwer Angulara do funkcji. |
 | [places/prepare.mjs](places/prepare.mjs) | Waliduje wejście builda i generuje pliki katalogu; domyślnie używa fikcyjnego zestawu CI, a PLACES_SNAPSHOT wybiera rzeczywisty snapshot. |
 | [places/snapshot.mjs](places/snapshot.mjs) | Pobiera opublikowane miejsca z Firestore do ignorowanego `.local/places.snapshot.json`. |
 | [places/upload-assets.mjs](places/upload-assets.mjs) | Sprawdza SHA-256 i rozmiary obrazów; z `--apply` publikuje nowe, niezmienne pliki w bucket dev. |
 | [privacy/consent.test.mjs](privacy/consent.test.mjs) | Testuje zgody, przechowywanie ustawień i warunki ładowania usług Google. |
 | [test.mjs](test.mjs) | Uruchamia kolejno testy mapy, kontraktów, prywatności, backendu i warsztatu; zatrzymuje się po pierwszym błędzie. |
-| [verify-build.mjs](verify-build.mjs) | Sprawdza artefakty SSG, treść i metadane stron (także „O nas”), 404, noindex oraz konfigurację Hosting. |
+| [verify-build.mjs](verify-build.mjs) | Sprawdza statyczne strony, SSR fikcyjnego miejsca, 404, noindex i zasoby. |
 
 Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduły `catalog.mjs` i `firestore.mjs` są używane przez pozostałe skrypty; nie są osobnymi poleceniami operatora.
 
@@ -43,7 +44,7 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduł
 | `npm test` | Testy mapy, kontraktów, prywatności, backendu i warsztatu. |
 | `npm run test:maps` | Testy grupowania i widoczności znaczników mapy. |
 | `npm run test:emulator` | Testy API i reguł w emulatorach Firestore/Storage. |
-| `npm run deploy:backend:dev` | Publikacja Functions, reguł Firestore/Storage i konfiguracji Auth dev. |
+| `npm run deploy:backend:dev` | Build i publikacja Functions wraz z SSR, reguł Firestore/Storage i konfiguracji Auth dev. |
 | `npm run places:upload-assets` | Kontrola i opcjonalna publikacja obrazów. |
 | `npm run check:contracts` | Ścisłe sprawdzenie typów wspólnych kontraktów bez generowania plików. |
 | `npm run test:privacy` | Testy zgód i prywatności. |
@@ -64,12 +65,12 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduł
 
 ## Równoległe środowiska
 
-- `npm run deploy:dev-1`, `deploy:dev-2`, `deploy:dev-3`: snapshot wspólnego backendu dev, build i publikacja wyłącznie wskazanej witryny. Konfiguracja przejmuje aktualne przekierowania wygenerowane przez build; `/deployment.json` zapisuje slot, branch, SHA i czas.
+- `npm run deploy:dev-1`, `deploy:dev-2`, `deploy:dev-3`: snapshot wspólnego backendu dev, build i publikacja wyłącznie wskazanej witryny. Adresy kart i sitemapę obsługuje funkcja SSR; `/deployment.json` zapisuje slot, branch, SHA i czas.
 - `npm run environment -- reserve|release dev-1|dev-2|dev-3 <ID pozycji Projects>`: `scripts/places/environment.mjs` tworzy atomową blokadę w zdalnej gałęzi `env-lock/<slot>` lub zwalnia wyłącznie blokadę tego zadania. Pole Projects aktualizuje operator osobno.
 
 `npm run auth:admin -- show|grant|revoke UID [--apply] [--firebase-cli]` uruchamia `infra/admin-role.mjs`. Bez `--apply` grant/revoke to podgląd. Wymaga ADC lub lokalnego logowania Firebase CLI z uprawnieniem zarządzania Auth; zachowuje pozostałe custom claims. Auth i role są wspólne dla projektu. Zmiany ról wykonuje jeden operator naraz.
 
-Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_SNAPSHOT`; `places:import` przyjmuje 1–400 miejsc z zachowaniem bazyliki i bieżących lokalizacji. `verify-build.mjs` sprawdza karty wejściowego snapshotu, także pełnego katalogu.
+Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_SNAPSHOT`; `places:import` przyjmuje 1–400 miejsc z zachowaniem bazyliki i bieżących lokalizacji. `verify-build.mjs` sprawdza SSR fikcyjnej karty.
 
 ## Warsztat badań
 
@@ -89,6 +90,6 @@ Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_
 
 Rzeczywiste dane katalogu są poza Git: `places:snapshot` zapisuje `.local/places.snapshot.json`, eksport warsztatu `.local/research.catalog.json`. Import i uploader domyślnie używają tego eksportu; `check-live.mjs` wymaga rzeczywistego snapshotu z lokalizacją sprawdzanego miejsca. `research export --baseline=plik.json` nadpisuje domyślną bazę snapshotu.
 
-Domyślny build i CI korzystają wyłącznie z `data/places.fixture.json` (fikcyjne dane). `start` i `watch` najpierw wykonują `places:prepare`, więc działają w świeżym checkoutcie bez wygenerowanego katalogu. Generator zapisuje ignorowane catalog.generated.ts, public/search-index.json, public/sitemap.xml oraz `.local/firebase.dev.json` z przekierowaniami i bezwzględnym katalogiem Hosting. Nie modyfikuje wersjonowanych konfiguracji Firebase. `preview` używa tej wygenerowanej konfiguracji; `deploy:dev-N` po świeżym snapshocie i buildzie tworzy `.local/firebase.dev-N.json` dla właściwej witryny.
+Domyślny build i CI korzystają wyłącznie z `data/places.fixture.json` (fikcyjne dane). `start` i `watch` najpierw wykonują `places:prepare`, więc działają w świeżym checkoutcie bez wygenerowanego katalogu. Generator zapisuje ignorowane catalog.generated.ts oraz `.local/firebase.dev.json` z bezwzględnym katalogiem Hosting; sitemap i przekierowania są dynamiczne. Nie modyfikuje wersjonowanych konfiguracji Firebase. `preview` używa tej wygenerowanej konfiguracji; `deploy:dev-N` po świeżym snapshocie i buildzie tworzy `.local/firebase.dev-N.json` dla właściwej witryny.
 
 - `npm run test:places-filter` — testuje filtrowanie miejsc po nazwie, głównym tagu i lokalizacji; jest częścią `npm test`.

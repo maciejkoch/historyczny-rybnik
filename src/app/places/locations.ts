@@ -1,6 +1,5 @@
 import { Consent } from '../privacy/consent';
 import { inject, Injectable, signal } from '@angular/core';
-import { PLACES } from './catalog.generated';
 import { LocationDto } from './place';
 import { FIREBASE_DEV } from './runtime-config';
 @Injectable({ providedIn: 'root' })
@@ -8,8 +7,8 @@ export class Locations {
   private readonly consent = inject(Consent);
   readonly current = signal<readonly LocationDto[]>([]);
   readonly status = signal<'loading' | 'ready' | 'error' | 'disabled'>('loading');
-  private reader?: Promise<() => Promise<readonly LocationDto[]>>;
-  private async initialize(): Promise<() => Promise<readonly LocationDto[]>> {
+  private reader?: Promise<(ids: readonly string[]) => Promise<readonly LocationDto[]>>;
+  private async initialize(): Promise<(ids: readonly string[]) => Promise<readonly LocationDto[]>> {
     const [
       { initializeApp, getApps },
       { initializeAppCheck, ReCaptchaEnterpriseProvider },
@@ -30,10 +29,10 @@ export class Locations {
       getFunctions(app, 'europe-central2'),
       'placesDevRead',
     );
-    return async () => {
+    return async (ids) => {
       const places: LocationDto[] = [];
-      for (let offset = 0; offset < PLACES.length; offset += 100) {
-        const request = readRequestSchema.parse({ ids: PLACES.slice(offset, offset + 100).map((p) => p.id) });
+      for (let offset = 0; offset < ids.length; offset += 100) {
+        const request = readRequestSchema.parse({ ids: ids.slice(offset, offset + 100) });
         places.push(...parseReadResponse((await read(request)).data, request.ids).places);
       }
       return places;
@@ -56,7 +55,7 @@ export class Locations {
     const saved = locationDtoSchema.parse(result.data);
     this.current.update((values) => [...values.filter((value) => value.id !== saved.id), saved]);
   }
-  async refresh(): Promise<void> {
+  async refresh(ids: readonly string[]): Promise<void> {
     if (!this.consent.google()) {
       this.status.set('disabled');
       return;
@@ -65,7 +64,7 @@ export class Locations {
     try {
       this.reader ??= this.initialize();
       const read = await this.reader;
-      this.current.set(await read());
+      this.current.set(await read(ids));
       this.status.set('ready');
     } catch {
       this.status.set('error');

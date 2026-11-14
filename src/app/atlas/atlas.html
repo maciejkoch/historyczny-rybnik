@@ -66,6 +66,12 @@
       tabindex="-1"
       [hidden]="searchLayout.isCollapsed()"
     >
+      @if (publicPlaces.status() === 'loading') {
+        <p role="status">Wczytywanie miejsc…</p>
+      } @else if (publicPlaces.status() === 'error') {
+        <p role="alert">Nie udało się pobrać miejsc.</p>
+        <button class="btn" type="button" (click)="publicPlaces.load()">Spróbuj ponownie</button>
+      }
       <app-place-search-panel
         [query]="query()"
         [tags]="tags()"
@@ -250,6 +256,11 @@
         aria-label="Opis miejsca"
         [hidden]="detailsLayout.isCollapsed()"
       >
+        @if (!selected() && publicPlaces.detailStatus() === 'missing') {
+          <p role="status">Nie znaleziono tego miejsca.</p>
+        } @else if (!selected() && publicPlaces.detailStatus() === 'error') {
+          <p role="alert">Nie udało się pobrać miejsca. Odśwież stronę, aby spróbować ponownie.</p>
+        }
         <app-place-details-panel [place]="selected()" (imageOpened)="enlarged.set($event)">
           <div location-actions>
             @if (selected()) {

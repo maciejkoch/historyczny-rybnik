@@ -1,11 +1,11 @@
-import { normalizeSearch, type Place } from './place';
+import { normalizeSearch, type PlaceSummary } from './place';
 
 export function filterPlaces(
-  places: readonly Place[],
+  places: readonly PlaceSummary[],
   query: string,
   tag: string,
   withoutLocation: boolean,
-): readonly Place[] {
+): readonly PlaceSummary[] {
   const term = normalizeSearch(query).trim();
   return places.filter(
     (place) =>

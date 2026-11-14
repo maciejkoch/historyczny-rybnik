@@ -59,12 +59,8 @@ test('generator works without a real catalogue and keeps Hosting templates uncha
   const generated = JSON.parse(readFileSync(join(directory, '.local/firebase.dev.json')));
   assert.equal(generated.hosting.site, template.hosting.site);
   assert.ok(isAbsolute(generated.hosting.public));
-  assert.equal(generated.hosting.redirects[0].destination, '/miejsca/' + testData[0].slug);
-  const index = JSON.parse(readFileSync(join(directory, 'public/search-index.json')));
-  assert.deepEqual(
-    index.map((p) => p.id),
-    ['fixture_place'],
-  );
+  assert.deepEqual(generated.hosting.redirects, []);
+  assert.equal(isAbsolute(generated.hosting.public), true);
   assert.match(
     readFileSync(join(directory, 'src/app/places/catalog.generated.ts'), 'utf8'),
     /fixture_place/,

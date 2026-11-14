@@ -14,21 +14,23 @@ assert.match(search, /noindex/);
 assert.ok(search.includes('https://historyczny-rybnik-dev.web.app/szukaj'));
 
 assert.doesNotMatch(home, /Dane przykładowe/);
-const catalogue = JSON.parse(
-  readFileSync(process.env['PLACES_SNAPSHOT'] || 'data/places.fixture.json', 'utf8'),
+assert.ok(!existsSync(`${root}/sitemap.xml`), 'Dynamic sitemap must not be shadowed by a static file');
+assert.ok(!existsSync(`${root}/miejsca`), 'Dynamic place routes must not be shadowed by static HTML');
+assert.ok(existsSync('functions/ssr/server.mjs'), 'SSR bundle is required by the function');
+const [{ published, createdAt, ...fixturePlace }] = JSON.parse(
+  readFileSync('data/places.fixture.json', 'utf8'),
 );
-for (const place of catalogue) {
-  const html = readFileSync(`${root}/miejsca/${place.slug}/index.html`, 'utf8');
-  assert.match(html, /screen-place/);
-  assert.ok(html.includes(place.name));
-  assert.ok(html.includes(place.description));
-  assert.match(html, /rel="canonical"/);
-  assert.match(html, /og:title/);
-  for (const ref of place.mentions) assert.ok(html.includes(ref.title));
-}
-const sitemap = readFileSync(`${root}/sitemap.xml`, 'utf8');
-for (const place of catalogue.filter((p) => p.published))
-  assert.ok(sitemap.includes('/miejsca/' + place.slug));
+const { renderPlace } = await import('../functions/ssr/server.mjs');
+const response = await renderPlace(
+  new Request('https://historyczny-rybnik-dev.web.app/miejsca/' + fixturePlace.slug),
+  { place: fixturePlace },
+);
+assert.equal(response.status, 200);
+const rendered = await response.text();
+assert.ok(rendered.includes(fixturePlace.name));
+assert.ok(rendered.includes(fixturePlace.description));
+assert.match(rendered, /rel="canonical"/);
+assert.match(rendered, /ng-state/);
 assert.ok(existsSync(`${root}/maplibre/maplibre-gl-worker.mjs`));
 assert.ok(existsSync(`${root}/maps/rybnik-style.json`));
 assert.match(home, /noindex/);
@@ -87,6 +89,6 @@ assert.match(about, /name="description" content="Poznaj ideę Historycznego Rybn
 assert.match(about, /rel="canonical" href="https:\/\/historyczny-rybnik-dev.web.app\/o-nas"/);
 assert.match(about, /noindex/);
 assert.match(home, /href="\/o-nas"/);
-assert.match(readFileSync(`${root}/sitemap.xml`, 'utf8'), /\/o-nas<\/loc>/);
+
 assert.doesNotMatch(about, /<script[^>]+src=["'][^"']*(google|recaptcha)/);
-console.log('Verified static about page, metadata, menu link and sitemap.');
+console.log('Verified static about page and dynamically rendered fixture place.');

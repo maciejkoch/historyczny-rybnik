@@ -7,7 +7,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 - Angular 22.2 (core 22.2.4, CLI/build/SSR 22.2.5), TypeScript 6.0, RxJS 7.8.
 - Tailwind CSS 4.3.4 i daisyUI 5.7.50; fonty Lora i Source Sans 3 z lokalnych pakietów Fontsource.
 - MapLibre GL JS 6.16.0.
-- Statyczne generowanie HTML (SSG), hydratacja w przeglądarce i klasyczny Firebase Hosting.
+- Hybrydowe renderowanie: statyczne strony SSG, SSR kart miejsc w Firebase Functions i hydratacja; klasyczny Firebase Hosting.
 - Node 22.23.2 z `.nvmrc`, npm 12.0.2. Dokładne zależności: `package.json` i `package-lock.json`.
 - Firebase JS 12.19.0 i Zod 4.6.6; backend Firebase Functions, Firestore, Storage, Google Auth i App Check.
 
@@ -15,7 +15,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 
 - Angular generuje publiczny HTML i hydratację; mapa jest uruchamiana wyłącznie w przeglądarce.
 - Trasy: `/` (mapa), `/szukaj`, `/miejsca/:slug` dla opublikowanych miejsc, `/o-nas`, `/prywatnosc` i 404. Hosting nie stosuje globalnego fallbacku SPA.
-- Katalog do statycznego builda jest walidowany i przygotowywany przez `places:prepare`. Bieżące pozycje mogą pochodzić z API; bez zgody na usługi Google aplikacja korzysta ze snapshotu.
+- Mapa i wyszukiwarka pobierają publiczny katalog przy otwarciu. Karta miejsca jest renderowana na serwerze z bieżących danych; otwarte strony nie są automatycznie odświeżane. Logowanie i edycja nadal wymagają zgody Google.
 - Komponenty panelu i mapy są w `src/app/atlas/` i `src/app/atlas-map/`; `src/app/places/` obsługuje katalog i pozycje, `src/app/privacy/` zgody i politykę prywatności. Stan interfejsu korzysta z Signals.
 - `functions/` zawiera backend i jego testy; `functions/src/contracts/` współdzielone kontrakty. `data/` przechowuje dane do publikacji, a `infra/` konfigurację infrastruktury.
 - `public/` zawiera zasoby, `scripts/` narzędzia budowania i danych, `.github/` CI. `agent-context/` zawiera materiały robocze oraz zachowane plany, źródła i opisy szczegółowe w `reference/`.
@@ -25,8 +25,8 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 
 | Obszar | Odpowiedzialność |
 | --- | --- |
-| `src/main.ts`, `main.server.ts`, `app.config*.ts` | Start przeglądarki i SSG, konfiguracja Angulara, routera i hydratacji. |
-| `app.routes.ts`, `app.routes.server.ts` | Publiczne adresy oraz wybór stron generowanych podczas builda. Lista kart wynika z katalogu. Atlas i jego katalog są ładowane przez osobny pakiet tras atlas/atlas.routes.ts; SSG nadal generuje wszystkie karty. Reuse rozpoznaje te trasy po data.atlas, bez wciągania komponentu atlasu do pakietu startowego. |
+| `src/main.ts`, `main.server.ts`, `app.config*.ts` | Start przeglądarki, SSG i SSR, konfiguracja Angulara, routera i hydratacji. |
+| `app.routes.ts`, `app.routes.server.ts` | Trasy statyczne i parametryczna trasa SSR `/miejsca/:slug`; atlas pozostaje ładowany osobno, a reuse rozpoznaje go po `data.atlas`. |
 | `app/atlas/atlas.ts` | Łączy stan trasy, wyszukiwania, wybranego miejsca i lokalizacji. Ustawia metadane, zarządza nawigacją, przewijaniem i powiększaniem skanów. |
 | `app/atlas/place-*-panel.*` | Osobne widoki wyników wyszukiwania i szczegółów miejsca. |
 | `app/atlas/panel-layout.ts` | Układ i rozmiar paneli oraz ustawienia zapamiętywane zgodnie ze zgodą użytkownika. |
@@ -36,14 +36,15 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 | `app/privacy/` | Serwis zgód, baner i polityka prywatności. Wycofanie zgody Google przeładowuje stronę, aby zatrzymać SDK i odświeżanie tokenów. |
 | `app/layout/` | Wspólny nagłówek, stopka, nawigacja mobilna i menu globalne. `PortalMenu` otacza wspólny układ aplikacji standardową strukturą Drawer daisyUI (`drawer-toggle`, `drawer-content`, `drawer-side`, `drawer-overlay`) i współdzieli listę odnośników z Dropdown daisyUI na Popover API oraz CSS Anchor Positioning. Stan nagłówka i menu łączy `PortalMenuState`. Wspólny nagłówek jest przyklejony do góry; na desktopie zajmuje pełną szerokość nad mapą i panelami. Dropdown otwiera się pod hamburgerem i pomija odnośnik Miejsca, ponieważ wyszukiwarka jest dostępna w panelu. Na telefonie menu zachowuje Mapa/Miejsca; tło jest nieaktywne dzięki `inert`, przewijanie strony jest blokowane, a fokus wraca do hamburgera. Przejścia otwierania i zamykania pochodzą z daisyUI. |
 
-Przepływ danych: plik katalogu → walidacja i `places:prepare` → `catalog.generated.ts`, indeks wyszukiwania, sitemap i przekierowania → prerender HTML → hydratacja. W przeglądarce `Atlas` łączy katalog z bieżącymi pozycjami z `Locations`; filtrowanie porównuje fragment nazwy bez rozróżniania polskich znaków i wielkości liter oraz uwzględnia główny tag i brak lokalizacji; lista i mapa korzystają z tych samych wyników.
+Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje → SSR karty lub API lekkiego katalogu → mapa i wyszukiwarka. SSR przekazuje szczegóły przez TransferState do hydratacji. Na trasach wewnętrznych szczegóły pobiera przeglądarka; brak miejsca oznacza 404, dawny slug przekierowanie, a błąd serwera 503. Dynamiczne odpowiedzi używają no-store i dev noindex. Statyczne strony pozostają prerenderowane.
 
-`Locations` ładuje Firebase i App Check dopiero po zgodzie Google. Wywołuje `placesDevRead` i waliduje odpowiedź wspólnym kontraktem Zod. Bez zgody lub przy błędzie odczytu punktem odniesienia pozostaje opublikowany snapshot. `catalog.generated.ts` jest wynikiem generatora, nie miejscem ręcznej edycji treści.
+`Locations` ładuje Firebase i App Check dopiero po zgodzie Google i pobiera bieżącą wersję przed edycją. Publiczny katalog i karty są dostępne niezależnie od zgody; nowe API nie zmienia chronionego API zapisu.
 
 ## Architektura backendu
 
 | Obszar | Odpowiedzialność |
 | --- | --- |
+| `functions/src/public-places.mjs`, `public-web.mjs` | Jawne, walidowane projekcje publiczne; dynamiczny katalog, karta, sitemap i SSR. |
 | `functions/src/index.mjs` | Inicjalizuje Admin SDK i bazę `places-dev`, eksportuje callable API `placesDevRead` i `placesDevUpdate` w regionie `europe-central2`. Konfiguruje App Check, CORS, konto usługi i limity zasobów. |
 | `functions/src/service.mjs` | Realizuje odczyt publicznych pozycji i transakcyjny zapis lokalizacji, autoryzację, konflikty wersji oraz mapowanie danych Firestore na odpowiedź API. |
 | `functions/src/validation.mjs` | Udostępnia walidację wejścia i katalogu oraz wspólny format błędów walidacji. |
@@ -218,7 +219,7 @@ npm run build
 npm run emulate
 ```
 
-Build przygotowuje katalog miejsc i generuje statyczne pliki w `dist/historyczny-rybnik/browser`. Offline build nie wymaga połączenia z usługami danych; runtime może pobierać bieżące pozycje z API. `npm run build` sprawdza też prerender strony głównej, 404 i blokadę indeksowania preview. Fonty Lora i Source Sans 3 (również latin-ext z polskimi znakami) są bundlowane lokalnie z pakietów Fontsource; ich licencje znajdują się w `public/fonts`.
+Build generuje statyczne pliki w `dist/historyczny-rybnik/browser` i serwer Angulara w `functions/ssr`. Offline używa fikcyjnego katalogu, a bieżące treści są pobierane w runtime. `npm run build` sprawdza też prerender strony głównej, 404 i blokadę indeksowania preview. Fonty Lora i Source Sans 3 (również latin-ext z polskimi znakami) są bundlowane lokalnie z pakietów Fontsource; ich licencje znajdują się w `public/fonts`.
 
 ## Środowiska i publikacja
 
@@ -264,9 +265,9 @@ Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne
 
 ## Pełny katalog na dev
 
-Ignorowany snapshot `.local/places.snapshot.json` jest wejściem builda dev. Baza dev zawiera 200 miejsc (196 przeniesionych z MVP.0 i cztery punkty sprzedaży benzyny), ze stabilnymi ID i zachowanym rekordem `place_sw_antoni`. Build przyjmuje pełny walidowany snapshot, a odczyt lokalizacji dzieli katalog na żądania po maksymalnie 100 ID. Import dev obsługuje do 400 miejsc w jednej transakcji, zachowuje istniejące lokalizacje, wersje i daty; odrzuca pominięcie istniejących dokumentów. Produkcja pozostaje oddzielnym zadaniem.
+Ignorowany snapshot `.local/places.snapshot.json` jest wejściem builda dev. Baza dev zawiera 200 miejsc (196 przeniesionych z MVP.0 i cztery punkty sprzedaży benzyny), ze stabilnymi ID i zachowanym rekordem `place_sw_antoni`. Build waliduje snapshot; publiczny katalog jest pobierany w runtime, a odczyt lokalizacji przed edycją dotyczy wybranego miejsca. Import dev obsługuje do 400 miejsc w jednej transakcji, zachowuje istniejące lokalizacje, wersje i daty; odrzuca pominięcie istniejących dokumentów. Produkcja pozostaje oddzielnym zadaniem.
 
-Filtr „Bez lokalizacji” używa aktualnych danych Locations (lub snapshotu przy niedostępnym odczycie) i wybiera miejsca z `location.coordinates === null`. Łączy się z wyszukiwaniem tekstowym; zmienia listę wyników, a stan pozostaje w pamięci atlasu.
+Filtr „Bez lokalizacji” używa publicznego katalogu pobranego przy otwarciu i wybiera miejsca z `location.coordinates === null`. Łączy się z wyszukiwaniem tekstowym; zmienia listę wyników, a stan pozostaje w pamięci atlasu.
 
 Indeks .local/source-rights.json zapisuje decyzje praw na poziomie konkretnego wydania i odwołania materiałów. Publiczne dokumenty places zachowują pochodzenie, datę sprawdzenia oraz sumy wycinka i miniatury. originalSha256 nowych obrazów opisuje odziedziczony wycinek MVP.0 (jawnie w transformations), nie pełny PDF. Indeks nie jest dodatkową kolekcją ani manifestem plików.
 
@@ -288,7 +289,7 @@ Lokalna przeglądarka HTML/CSS/JS działa tylko na 127.0.0.1:4319, tylko do odcz
 
 Narzędzia `scripts/research/` są pogrupowane w model, workspace, sync, migrations, publication, viewer i test. `cli.mjs` pozostaje wspólnym wejściem operatora; polecenia npm zachowują nazwy. Spis modułów: scripts/research/README.md.
 
-Rzeczywiste katalogi i indeks dawnych praw są poza Git. Wersjonowany jest tylko fikcyjny data/places.fixture.json. Generator tworzy ignorowane src/app/places/catalog.generated.ts, public/search-index.json i public/sitemap.xml. Szablony firebase.dev*.json pozostają stałe; przekierowania z katalogu są zapisywane do ignorowanych .local/firebase.dev*.json z bezwzględną ścieżką Hosting. Deploy dev i preview używają tych wygenerowanych konfiguracji. Start/watch najpierw przygotowują katalog, więc świeży checkout nie wymaga śledzonego modułu generated.
+Rzeczywiste katalogi i indeks dawnych praw są poza Git. Wersjonowany jest tylko fikcyjny data/places.fixture.json. Generator tworzy ignorowane src/app/places/catalog.generated.ts i konfigurację .local/firebase.dev*.json; sitemap i przekierowania są dynamiczne. Szablony firebase.dev*.json pozostają stałe. Deploy dev i preview używają tych wygenerowanych konfiguracji. Start/watch najpierw przygotowują katalog, więc świeży checkout nie wymaga śledzonego modułu generated.
 
 ## Mapa
 

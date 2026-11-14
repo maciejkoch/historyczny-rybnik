@@ -15,7 +15,7 @@ import {
   viewChild,
 } from '@angular/core';
 import type { Map as LibreMap } from 'maplibre-gl';
-import { Place } from '../places/place';
+import { PlaceSummary } from '../places/place';
 import { HISTORICAL_MAP, INITIAL_CENTER } from './map-config';
 import { HISTORY_CORNERS } from './history-extent';
 import { MARKER_CATEGORIES, markerIcon } from './place-markers';
@@ -32,11 +32,11 @@ export class AtlasMap {
   readonly editing = input(false);
   readonly draftPoint = input<{ lat: number; lng: number } | null>(null);
   readonly pointPicked = output<{ lat: number; lng: number }>();
-  readonly places = input<readonly Place[]>([]);
-  readonly selected = input<Place | null>(null);
+  readonly places = input<readonly PlaceSummary[]>([]);
+  readonly selected = input<PlaceSummary | null>(null);
   readonly focusSelected = input(true);
   readonly layoutAnimating = input(false);
-  readonly placeSelected = output<Place>();
+  readonly placeSelected = output<PlaceSummary>();
   readonly backgroundClicked = output<void>();
   readonly state = signal<'loading' | 'ready' | 'error'>('loading');
   readonly historyEnabled = signal(HISTORICAL_MAP.available);
