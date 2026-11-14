@@ -13,6 +13,7 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 | [places/catalog.mjs](places/catalog.mjs) | Waliduje wejście i generuje konfigurację Hosting; dynamiczne dane, sitemapę i przekierowania obsługuje backend. |
 | [places/check-live.mjs](places/check-live.mjs) | Sprawdza działające API dev, App Check, Google Auth i konflikt wersji. Wykonuje rzeczywisty zapis lokalizacji testowego kościoła; wymaga tokenów w środowisku. |
 | [places/deploy-dev.mjs](places/deploy-dev.mjs) | Pobiera snapshot, buduje frontend i publikuje Hosting dev; wymaga uprawnień operatora. |
+| [places/deploy-backend-dev.mjs](places/deploy-backend-dev.mjs) | Wdraża backend dev; opcjonalnie samą funkcję API ze sprawdzonym dotychczasowym rendererem SSR. |
 | [places/deploy-prod.mjs](places/deploy-prod.mjs) | Blokuje publikację produkcji do przygotowania konfiguracji fazy 5; obecnie nie wdraża niczego. |
 | [places/firestore.mjs](places/firestore.mjs) | Moduł połączenia do jawnie wybranej bazy dev lub emulatora; obsługuje ADC i impersonację przez logowanie Firebase CLI. |
 | [places/import.mjs](places/import.mjs) | Waliduje i importuje katalog do dev, zachowując bieżącą pozycję; domyślnie podgląd, zapis przez `--apply`. |
@@ -47,6 +48,8 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduł
 | `npm run test:maps` | Testy grupowania i widoczności znaczników mapy. |
 | `npm run test:emulator` | Testy API i reguł w emulatorach Firestore/Storage. |
 | `npm run deploy:backend:dev` | Build i publikacja wspólnych Functions, reguł Firestore/Storage i konfiguracji Auth dev; nie aktualizuje funkcji SSR slotów. |
+
+`npm run deploy:backend:dev -- --preserve-renderer=/ścieżka/do/checkoutu` aktualizuje wyłącznie `placesDevWeb`, zachowując renderer z podanego checkoutu po porównaniu nazw jego zasobów z działającą stroną integracyjną. Tryb służy etapowej aktualizacji API; starszy frontend nie musi obsługiwać nowej odpowiedzi.
 | `npm run places:upload-assets` | Kontrola i opcjonalna publikacja obrazów. |
 | `npm run check:contracts` | Ścisłe sprawdzenie typów wspólnych kontraktów bez generowania plików. |
 | `npm run test:privacy` | Testy zgód i prywatności. |

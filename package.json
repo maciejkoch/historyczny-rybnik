@@ -18,7 +18,7 @@
     "test:slot-ssr": "node --test scripts/places/slot-ssr.test.mjs",
     "test:maps": "node --experimental-strip-types --test scripts/maps/cluster-visibility.test.mjs",
     "test:emulator": "firebase emulators:exec --config firebase.backend.dev.json --project demo-historyczny-rybnik --only firestore,storage \"npm --prefix functions run test:emulator\"",
-    "deploy:backend:dev": "npm run build && firebase deploy --config firebase.backend.dev.json --project historyczny-rybnik --only functions:places-dev:placesDevRead,functions:places-dev:placesDevUpdate,functions:places-dev:placesDevWeb,firestore:places-dev,storage:places-dev,auth",
+    "deploy:backend:dev": "node scripts/places/deploy-backend-dev.mjs",
     "places:upload-assets": "node scripts/places/upload-assets.mjs",
     "check:contracts": "tsc -p tsconfig.contracts.json",
     "test:privacy": "node --test scripts/privacy/consent.test.mjs",

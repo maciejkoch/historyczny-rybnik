@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { readPublicPlace, readPublicSummaries } from '../src/public-places.mjs';
 import { publicWeb } from '../src/public-web.mjs';
+import { renderContext } from '../src/render-context.mjs';
 
 const [fixture] = JSON.parse(
   readFileSync(new URL('../../data/places.fixture.json', import.meta.url)),
@@ -169,4 +170,10 @@ test('gallery is included in API responses and SSR', async () => {
   );
   await request(handler, '/miejsca/' + fixture.slug);
   assert.equal(rendered.materials.length, 1);
+});
+
+test('staged shared API keeps the existing SSR bundle renderable', () => {
+  const context = { place: { id: 'place', materials: [{ id: 'image' }] } };
+  assert.deepEqual(renderContext({}, context), { place: { id: 'place' } });
+  assert.equal(renderContext({ supportsPlaceGallery: true }, context), context);
 });

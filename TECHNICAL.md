@@ -65,6 +65,8 @@ Publiczne miejsce może mieć niezależną galerię `materials`, odczytywaną ja
 
 API szczegółów i renderery SSR zwracają pełny publiczny rekord wraz z galerią. Wydanie SSR i Hostingu musi pochodzić z tego samego builda.
 
+Przy etapowej aktualizacji wspólnego API można zachować aktualnie wdrożony renderer SSR: `deploy:backend:dev -- --preserve-renderer=<checkout>` porównuje jego zasoby z działającą stroną i aktualizuje wyłącznie `placesDevWeb`. Adapter usuwa `materials` z kontekstu wyłącznie dla starszego pakietu SSR bez znacznika obsługi galerii; odpowiedź API nadal zawiera pełny rekord. Nowe buildy deklarują obsługę galerii. Nie zapewnia to zgodności starszego kodu przeglądarki z nowym kontraktem API.
+
 ## Katalog lokalny `.local/`
 
 To generowany, ignorowany przez Git katalog danych roboczych. Nadal jest używany: `places:snapshot` zapisuje `.local/places.snapshot.json`, a `deploy:dev` buduje z tego pliku. Nie usuwamy go jako zbędnego elementu procesu. Sam snapshot można odtworzyć; inne zastane pliki lokalne wymagają osobnej oceny przed usunięciem. Nowe notatki i skrypty agenta trafiają do `agent-context/`.
