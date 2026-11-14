@@ -29,11 +29,20 @@ const webOptions = {
   memory: '512MiB',
   timeoutSeconds: 30,
 };
-const webHandler = publicWeb(db, async (request, context) => {
+const render = async (request, context) => {
   const { renderPlace } = await import('../ssr/server.mjs');
   return renderPlace(request, context);
-});
-export const placesDevWeb = onRequest(webOptions, webHandler);
-export const placesDevWeb1 = onRequest(webOptions, webHandler);
-export const placesDevWeb2 = onRequest(webOptions, webHandler);
-export const placesDevWeb3 = onRequest(webOptions, webHandler);
+};
+export const placesDevWeb = onRequest(webOptions, publicWeb(db, render));
+export const placesDevWeb1 = onRequest(
+  webOptions,
+  publicWeb(db, render, { renderMaterials: true }),
+);
+export const placesDevWeb2 = onRequest(
+  webOptions,
+  publicWeb(db, render, { renderMaterials: true }),
+);
+export const placesDevWeb3 = onRequest(
+  webOptions,
+  publicWeb(db, render, { renderMaterials: true }),
+);

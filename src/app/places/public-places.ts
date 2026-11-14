@@ -1,6 +1,16 @@
-import { Injectable, REQUEST_CONTEXT, TransferState, inject, makeStateKey, signal } from '@angular/core';
+import {
+  Injectable,
+  REQUEST_CONTEXT,
+  TransferState,
+  inject,
+  makeStateKey,
+  signal,
+} from '@angular/core';
 import { ResolveFn } from '@angular/router';
-import { publicPlaceSchema, publicSummarySchema } from '../../../functions/src/contracts/places.mjs';
+import {
+  publicPlaceSchema,
+  publicSummarySchema,
+} from '../../../functions/src/contracts/places.mjs';
 import { z } from 'zod';
 import type { Place, PlaceSummary } from './place';
 
@@ -19,7 +29,12 @@ export class PublicPlaces {
     try {
       const response = await fetch('/api/public-places', { cache: 'no-store' });
       if (!response.ok) throw new Error('Catalogue unavailable');
-      this.summaries.set(z.array(publicSummarySchema).max(1000).parse(await response.json()));
+      this.summaries.set(
+        z
+          .array(publicSummarySchema)
+          .max(1000)
+          .parse(await response.json()),
+      );
       this.status.set('ready');
     } catch {
       this.status.set('error');
@@ -40,7 +55,10 @@ export class PublicPlaces {
       return place ? publicPlaceSchema.parse(place) : null;
     }
     try {
-      const response = await fetch('/api/public-places/' + encodeURIComponent(slug), { cache: 'no-store' });
+      const response = await fetch(
+        '/api/public-places/' + encodeURIComponent(slug) + '?materials=1',
+        { cache: 'no-store' },
+      );
       if (response.status === 404) {
         this.detailStatus.set('missing');
         return null;

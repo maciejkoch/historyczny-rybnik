@@ -1,7 +1,7 @@
 import { readPublicPlace, readPublicSummaries } from './public-places.mjs';
 
 const origin = 'https://historyczny-rybnik-dev.web.app';
-export function publicWeb(db, render) {
+export function publicWeb(db, render, { renderMaterials = false } = {}) {
   return async (req, res) => {
     res.set('Cache-Control', 'no-store');
     res.set('X-Robots-Tag', 'noindex, nofollow');
@@ -13,17 +13,27 @@ export function publicWeb(db, render) {
       if (url.pathname === '/sitemap.xml') {
         const places = await readPublicSummaries(db);
         const paths = ['/', '/o-nas', ...places.map((place) => '/miejsca/' + place.slug)];
-        return res.type('application/xml').send('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
-          paths.map((path) => '<url><loc>' + origin + path + '</loc></url>').join('') + '</urlset>');
+        return res
+          .type('application/xml')
+          .send(
+            '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
+              paths.map((path) => '<url><loc>' + origin + path + '</loc></url>').join('') +
+              '</urlset>',
+          );
       }
       const match = /^\/(api\/public-places|miejsca)\/([^/]+)$/.exec(url.pathname);
       if (!match) return res.status(404).end();
       const place = await readPublicPlace(db, decodeURIComponent(match[2]));
       if (!place) return res.status(404).end();
-      if (match[1] === 'api/public-places') return res.json(place);
+      if (match[1] === 'api/public-places') {
+        if (url.searchParams.get('materials') === '1') return res.json(place);
+        const { materials, ...legacyPlace } = place;
+        return res.json(legacyPlace);
+      }
       if (match[2] !== place.slug) return res.redirect(301, '/miejsca/' + place.slug);
       const request = new Request(origin + url.pathname + url.search, { method: req.method });
-      const result = await render(request, { place });
+      const { materials, ...legacyPlace } = place;
+      const result = await render(request, { place: renderMaterials ? place : legacyPlace });
       if (!result) return res.status(404).end();
       res.status(result.status);
       for (const [name, value] of result.headers) {

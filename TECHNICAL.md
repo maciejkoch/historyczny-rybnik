@@ -63,6 +63,8 @@ Aktualny kontrakt katalogu, publicznej projekcji i prywatnego warsztatu oraz prz
 
 Publiczne miejsce może mieć niezależną galerię `materials`, odczytywaną jako pustą dla starszych rekordów. Jedno zdjęcie główne jest wyświetlane bez kadrowania nad treścią; miniatury otwierają PhotoSwipe ładowany na żądanie. Materiały wzmianek nadal są wyświetlane przy wzmiankach. Eksport warsztatu zachowuje galerię z bazowego katalogu; upload i edycja galerii nie są częścią tej funkcji.
 
+Odczyt szczegółów z `?materials=1` jawnie zwraca galerię. Dotychczasowa odpowiedź API bez tego parametru pomija nowe pole, aby starsze klienty zachowały zgodność ze ścisłym kontraktem. Wspólny renderer integracyjny przekazuje starszy kształt danych; renderer slotu przekazuje również galerię.
+
 ## Katalog lokalny `.local/`
 
 To generowany, ignorowany przez Git katalog danych roboczych. Nadal jest używany: `places:snapshot` zapisuje `.local/places.snapshot.json`, a `deploy:dev` buduje z tego pliku. Nie usuwamy go jako zbędnego elementu procesu. Sam snapshot można odtworzyć; inne zastane pliki lokalne wymagają osobnej oceny przed usunięciem. Nowe notatki i skrypty agenta trafiają do `agent-context/`.
