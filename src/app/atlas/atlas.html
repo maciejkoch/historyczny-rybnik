@@ -66,13 +66,9 @@
       tabindex="-1"
       [hidden]="searchLayout.isCollapsed()"
     >
-      @if (publicPlaces.status() === 'loading') {
-        <p role="status">Wczytywanie miejsc…</p>
-      } @else if (publicPlaces.status() === 'error') {
-        <p role="alert">Nie udało się pobrać miejsc.</p>
-        <button class="btn" type="button" (click)="publicPlaces.load()">Spróbuj ponownie</button>
-      }
       <app-place-search-panel
+        [status]="publicPlaces.status()"
+        (retry)="publicPlaces.load()"
         [query]="query()"
         [tags]="tags()"
         [selectedTag]="selectedTag()"

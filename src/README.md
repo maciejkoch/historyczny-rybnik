@@ -8,7 +8,7 @@ Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne
 
 Mapa grupuje pobliskie miejsca przy oddaleniu, animuje zmianę grup, pokazuje liczbę miejsc i przybliża po wyborze grupy. `app/atlas-map/group-markers.ts` zarządza znacznikami i przejściami grup, a `cluster-visibility.ts` rozstrzyga nakładanie się wyników kafelków. Wybrane miejsce zachowuje osobny znacznik.
 
-Panel miejsc filtruje nazwę, główny tag i brak lokalizacji; wyniki na liście i mapie są spójne.
+Panel miejsc filtruje nazwę, główny tag i brak lokalizacji; wyniki na liście i mapie są spójne. Podczas pobierania katalogu pod nagłówkiem pokazuje szkielet zamiast filtrów i wyników; pojawia się on po 250 ms, aby nie migać przy szybkim odczycie.
 
 `app/about/` zawiera publiczną stronę „O nas” pod `/o-nas`, z treścią SSG i odnośnikiem w menu globalnym.
 

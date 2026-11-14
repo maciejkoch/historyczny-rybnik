@@ -12,6 +12,8 @@ import { markerCategory, markerIcon } from '../atlas-map/place-markers';
 export class PlaceSearchPanel {
   readonly markerCategory = markerCategory;
   readonly markerIcon = markerIcon;
+  readonly status = input<'loading' | 'ready' | 'error'>('loading');
+  readonly retry = output<void>();
   readonly tags = input<readonly { id: string; name: string }[]>([]);
   readonly selectedTag = input('');
   readonly tagChanged = output<string>();

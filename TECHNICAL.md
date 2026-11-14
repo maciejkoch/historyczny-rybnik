@@ -28,7 +28,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 | `src/main.ts`, `main.server.ts`, `app.config*.ts` | Start przeglądarki, SSG i SSR, konfiguracja Angulara, routera i hydratacji. |
 | `app.routes.ts`, `app.routes.server.ts` | Trasy statyczne i parametryczna trasa SSR `/miejsca/:slug`; atlas pozostaje ładowany osobno, a reuse rozpoznaje go po `data.atlas`. |
 | `app/atlas/atlas.ts` | Łączy stan trasy, wyszukiwania, wybranego miejsca i lokalizacji. Ustawia metadane, zarządza nawigacją, przewijaniem i powiększaniem skanów. |
-| `app/atlas/place-*-panel.*` | Osobne widoki wyników wyszukiwania i szczegółów miejsca. |
+| `app/atlas/place-*-panel.*` | Osobne widoki wyników wyszukiwania i szczegółów miejsca; panel miejsc pokazuje szkielet po 250 ms pobierania katalogu i ponowienie przy błędzie. |
 | `app/atlas/panel-layout.ts` | Układ i rozmiar paneli oraz ustawienia zapamiętywane zgodnie ze zgodą użytkownika. |
 | `app/atlas-map/` | Mapa i jej znaczniki. |
 | `app/places/` | Typy, normalizacja wyszukiwania, wygenerowany katalog, konfiguracja Firebase i odczyt pozycji. `AtlasReuse` zachowuje instancję atlasu między jego trasami. |
