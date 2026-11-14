@@ -1,5 +1,8 @@
-<section aria-labelledby="search-title">
-  <h1 id="search-title">Miejsca</h1>
+<div class="search-intro">
+  <h1>Miasto zapisane w miejscach.</h1>
+  <p class="intro">Porównaj dzisiejszy Rybnik z planem z 1932 roku.</p>
+</div>
+<section aria-label="Miejsca">
   <label for="place-search" class="sr-only">Szukaj po nazwie</label>
   <input
     id="place-search"
@@ -16,7 +19,7 @@
       @for (tag of tags(); track tag.id) {
         <button
           type="button"
-          class="btn btn-outline btn-sm rounded-full"
+          class="btn btn-outline btn-xs rounded-full"
           [class.btn-primary]="selectedTag() === tag.id"
           [attr.aria-pressed]="selectedTag() === tag.id"
           (click)="tagChanged.emit(selectedTag() === tag.id ? '' : tag.id)"

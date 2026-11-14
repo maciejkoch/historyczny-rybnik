@@ -9,7 +9,9 @@ p {
   line-height: 1.6;
 }
 .intro {
-  font-size: 1.125rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin: 0.35rem 0 0;
 }
 .divider {
   margin: 2.1rem 0;
@@ -81,6 +83,10 @@ h2 {
   margin-top: 1.25rem;
   border: 0;
   padding: 0;
+}
+.tag-filters .btn {
+  height: 32px;
+  min-height: 32px;
 }
 .tag-filters legend {
   font-weight: 600;
@@ -164,18 +170,19 @@ h3 {
 }
 
 @media (max-width: 1099px) {
-  :host(.mobile-page) .search-intro,
-  :host(.mobile-page) .section-number {
-    display: none;
-  }
   :host(.mobile-page) h2 {
     margin-top: 0;
   }
 }
 
-.search-intro .divider {
-  margin-block: 1rem;
-}
 .search-intro h1 {
-  padding-right: 4rem;
+  margin-bottom: 0;
+}
+.search-intro {
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 1100px) {
+  .search-intro h1 {
+    padding-right: 3rem;
+  }
 }

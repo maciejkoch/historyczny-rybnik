@@ -5,11 +5,11 @@ import assert from 'node:assert/strict';
 const root = 'dist/historyczny-rybnik/browser';
 copyFileSync(`${root}/404/index.html`, `${root}/404.html`);
 const home = readFileSync(`${root}/index.html`, 'utf8');
-assert.match(home, /id="search-title">Miejsca/);
+assert.match(home, /Miasto zapisane/);
 assert.match(home, /screen-map/);
 const search = readFileSync(`${root}/szukaj/index.html`, 'utf8');
 assert.match(search, /screen-search/);
-assert.match(search, /id="search-title">Miejsca/);
+assert.match(search, /Miasto zapisane/);
 assert.match(search, /noindex/);
 assert.ok(search.includes('https://historyczny-rybnik-dev.web.app/szukaj'));
 

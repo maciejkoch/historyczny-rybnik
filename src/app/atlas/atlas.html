@@ -79,18 +79,6 @@
         (queryChanged)="updateQuery($event)"
         (placeSelected)="select($event)"
       />
-      @if (locations.status() === 'disabled') {
-        <p class="muted">
-          Pokazujemy ostatnio opublikowane pozycje. Pobieranie bieżących pozycji włączysz w
-          ustawieniach prywatności w menu.
-        </p>
-      }
-      @if (locations.status() === 'error') {
-        <p role="status" class="muted">
-          Bieżące pozycje są niedostępne. Mapa pokazuje ostatni dostępny stan; opisy i wyszukiwanie
-          nadal działają.
-        </p>
-      }
     </main>
   </div>
   <div
