@@ -106,3 +106,9 @@ Po utworzeniu powiązanego PR, także draftu, `rybnik-start-task` zapisuje link 
 Wywołaj `Użyj $rybnik-finish-task i zakończ zadanie <link lub ID>`. Kolejność: kontrole → merge → czysty aktualny main → `deploy:dev` → odbiór → zwolnienie rezerwacji → `Done`. Nieudane wdrożenie pozostawia zadanie otwarte. Ponowienie wznawia brakujące kroki. Skill nie publikuje produkcji.
 
 Walidacja `rybnik-finish-task`: poprawny format, odnośniki i kontrola przebiegu dla PR otwartego, już scalonego, nieudanego wdrożenia i częściowo zwolnionej rezerwacji. Zmiana instrukcji nie wymaga dodatkowego builda aplikacji.
+
+## Delegowanie rozpoznania
+
+Start i zakończenie zlecają jednemu podagentowi `gpt-6-luna` wieloźródłowe rozpoznanie, jeśli delegowanie jest dostępne i dozwolone, bez mutacji i bez pełnej historii. Agent główny weryfikuje dowody oraz aktualny stan przed zmianami. Przy pojedynczym prostym odczycie lub braku narzędzia, modelu albo możliwości delegowania proces prowadzi jeden agent.
+
+Oceniając skuteczność procesu, porównuj podobne zadania: model i poziom rozumowania, zakres, widoczne zużycie, liczbę wywołań, największe wyniki narzędzi oraz poprawność i kompletność odczytów. Oddziel zajętość kontekstu, limit subskrypcji i koszt API; zapisuj tylko dostępne miary i nie zakładaj oszczędności bez pomiaru.

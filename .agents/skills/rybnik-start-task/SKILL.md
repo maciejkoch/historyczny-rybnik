@@ -12,6 +12,14 @@ Polecenie podjęcia pracy obejmuje status i zapis powiązań zadania na tablicy;
 nie obejmuje komentarzy/review. Produkcja wymaga osobnego wyraźnego zlecenia.
 Sama prośba o ocenę gotowości jest tylko odczytem.
 
+## Opcjonalne rozpoznanie przez podagenta
+
+Jeśli delegowanie jest dostępne i dozwolone, a rozpoznanie wymaga zebrania danych z kilku niezależnych źródeł, zleć je jednemu podagentowi `gpt-6-luna`, wyłącznie do odczytu, z minimalnym kontekstem i bez historii rozmowy. Przy pojedynczym prostym odczycie albo braku modelu, narzędzia lub możliwości delegowania wykonaj odczyty samodzielnie. Nie deleguj operacji zmieniających stan.
+
+Zleć zebranie źródeł i stanu zadania, zależności, PR, kontroli i rezerwacji odpowiednio do etapu; dla startu również branchy i worktree, dla zakończenia head SHA, uwag review i blokad. Raport ma zawierać identyfikatory, linki, czas odczytu, kompletność stron oraz błędy i niepewności; brak dostępu nie jest potwierdzeniem braku danych. Nie przekazuj sekretów.
+
+Agent główny ocenia dowody i odpowiada za pełny proces. Przed każdą zależną mutacją ponawia wymagane świeże kontrole, zwłaszcza head SHA PR, stan main i właściciela rezerwacji; wynik raportu nie jest blokadą ani zgodą na operację. Nie pomijaj wymagań dokumentacji, bezpieczeństwa ani weryfikacji.
+
 ## Odczyt zadania i aktualnych zasad
 
 Preferuj konektor GitHub; jeśli nie obsługuje Projects, użyj istniejącego

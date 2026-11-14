@@ -8,6 +8,7 @@ Przeczytaj [TECHNICAL.md](TECHNICAL.md), [SECURITY.md](SECURITY.md), ten plik i 
 
 Poniższe punkty utrzymują istniejące konwencje repozytorium; kolejne zasady uzgadniamy z właścicielem projektu.
 
+- Nazwy plików i katalogów oraz identyfikatory i komentarze w kodzie zapisujemy po angielsku. Treść dokumentacji Markdown piszemy po polsku. Nazwy własne, teksty widoczne użytkownikom i wymagane przez narzędzia nazwy plików zachowują właściwy język lub wymaganą formę.
 - Format określają `.editorconfig` i `.prettierrc`: UTF-8, dwie spacje, pojedyncze cudzysłowy w TypeScript i końcowy znak nowej linii.
 - Zachowujemy ścisłe sprawdzanie TypeScript i szablonów Angulara ustawione w `tsconfig.json`.
 - Kontynuujemy istniejący podział na komponenty standalone, Signals i `OnPush`. Kod mapy wymagający przeglądarki pozostaje poza wykonaniem SSG.

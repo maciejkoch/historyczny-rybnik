@@ -4,6 +4,7 @@ Materiały przeniesione z dawnego `docs/`, zachowane jako kontekst do pracy: szc
 
 ## Co tu znajdziesz
 
+- `place-schema.md` — aktualny kontrakt miejsca i warsztatu oraz przykład rekordu; czytaj przy zmianach danych.
 - `mvp-1/README.md` — zakres i plan produktu; nie jest listą gotowych funkcji.
 - `mvp-1/technika.md` i `model-danych.md` — projekt docelowych rozwiązań, także jeszcze niewdrożonych. Stan bieżący jest w TECHNICAL.
 - `mvp-1/ux-ui.md` oraz materiały marki — kierunek interfejsu i identyfikacji.
