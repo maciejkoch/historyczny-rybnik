@@ -12,6 +12,14 @@ dev, aktualizację zadania i zwolnienie jego rezerwacji. Nie proś ponownie o zg
 na te kroki. Nie obejmuje produkcji, komentarzy ani wystawiania review.
 Prośba wyłącznie o sprawdzenie gotowości niczego nie zmienia.
 
+## Opcjonalne rozpoznanie przez podagenta
+
+W pilotażu, jeśli delegowanie jest dostępne i dozwolone, a zakres odczytów uzasadnia jego koszt, zleć jednemu podagentowi `gpt-6-luna` rozpoznanie wyłącznie do odczytu, z minimalnym kontekstem i bez historii rozmowy. Przy prostym zadaniu, braku modelu lub narzędzia wykonaj odczyty samodzielnie. Nie deleguj operacji zmieniających stan.
+
+Zleć zebranie źródeł i stanu zadania, zależności, PR, kontroli i rezerwacji odpowiednio do etapu; dla startu również branchy i worktree, dla zakończenia head SHA, uwag review i blokad. Raport ma zawierać identyfikatory, linki, czas odczytu, kompletność stron oraz błędy i niepewności; brak dostępu nie jest potwierdzeniem braku danych. Nie przekazuj sekretów.
+
+Agent główny ocenia dowody i odpowiada za pełny proces. Przed każdą zależną mutacją ponawia wymagane świeże kontrole, zwłaszcza head SHA PR, stan main i właściciela rezerwacji; wynik raportu nie jest blokadą ani zgodą na operację. Nie pomijaj wymagań dokumentacji, bezpieczeństwa ani weryfikacji.
+
 ## Ustal zadanie i stan
 
 Przeczytaj aktualne `AGENTS.md`, `README.md`, `TECHNICAL.md`, `CONTRIBUTING.md`,
