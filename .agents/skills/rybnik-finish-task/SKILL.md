@@ -65,7 +65,8 @@ bez przedstawiania niewykonanego testu jako zaliczonego.
    (lokalny operator zgodnie z dokumentacją może użyć `PLACES_USE_FIREBASE_CLI=1`).
    Nigdy `deploy:prod`, ogólny `firebase deploy` ani publikacja backendu jako
    domyślny krok kończenia. Potrzebną publikację backendu wykonuj tylko w zakresie
-   zadania i zgodnie z jego dokumentacją oraz koordynacją wspólnych usług.
+   zadania i zgodnie z jego dokumentacją oraz koordynacją wspólnych usług. Weryfikuj
+   powiązanie SSR i Hostingu zgodnie z aktualnym opisem środowisk.
 6. Sprawdź https://historyczny-rybnik-dev.web.app/: HTTPS, noindex, prawdziwe 404,
    zmienione zachowanie i zależne usługi. Odczytaj `/deployment.json` i potwierdź
    `environment: dev` oraz SHA checkoutu. Nie uznawaj samego sukcesu polecenia za

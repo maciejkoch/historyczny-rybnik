@@ -61,6 +61,8 @@ Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje �
 
 Aktualny kontrakt katalogu, publicznej projekcji i prywatnego warsztatu oraz przykład rekordu opisuje [schemat miejsca](agent-context/reference/place-schema.md). Źródłem prawdy są schematy w kodzie.
 
+Publiczne miejsce może mieć niezależną galerię `materials`, odczytywaną jako pustą dla starszych rekordów. Jedno zdjęcie główne jest wyświetlane bez kadrowania nad treścią; miniatury otwierają PhotoSwipe ładowany na żądanie. Materiały wzmianek nadal są wyświetlane przy wzmiankach. Eksport warsztatu zachowuje galerię z bazowego katalogu; upload i edycja galerii nie są częścią tej funkcji.
+
 ## Katalog lokalny `.local/`
 
 To generowany, ignorowany przez Git katalog danych roboczych. Nadal jest używany: `places:snapshot` zapisuje `.local/places.snapshot.json`, a `deploy:dev` buduje z tego pliku. Nie usuwamy go jako zbędnego elementu procesu. Sam snapshot można odtworzyć; inne zastane pliki lokalne wymagają osobnej oceny przed usunięciem. Nowe notatki i skrypty agenta trafiają do `agent-context/`.
@@ -87,6 +89,8 @@ Build generuje statyczne pliki w `dist/historyczny-rybnik/browser` i serwer Angu
 | Produkcja — wydania | https://historyczny.rybnik.pl/ | `historyczny-rybnik` | `npm run deploy:prod` (obecnie blokowane) |
 
 Dev jest osobną witryną Hosting ze swoim kanałem live, dlatego nie wygasa i ma stały adres. Konfiguracja `firebase.dev.json` wskazuje dev, a `firebase.json` produkcję. `deploy:dev` pobiera snapshot przez serwerowe ADC i buduje z niego aplikację; lokalny operator używa `PLACES_USE_FIREBASE_CLI=1 npm run deploy:dev`. Backend dev: `npm run deploy:backend:dev`. Nie konfigurujemy automatycznych deploymentów CI ani poświadczeń w repo.
+
+Skrypt wdrożenia wiąże Hosting ze zbudowaną funkcją SSR przy użyciu pinTag: integracyjny dev używa `placesDevWeb`, sloty `placesDevWeb1`, `placesDevWeb2`, `placesDevWeb3`. Publiczne API i sitemapę obsługuje wspólna funkcja `placesDevWeb`. Każda funkcja korzysta z tej samej bazy dev. Stan faktycznych migracji slotów opisuje dokument środowisk.
 
 Ustalenie z 5 listopada 2026: bieżące prace publikujemy na dev. Skrypt `deploy:prod` obecnie przerywa pracę bez publikacji, dopóki faza 5 nie przygotuje backendu, domeny i indeksowania produkcji. Produkcję publikujemy na wyraźne zlecenie wydania; dodanie polecenia nie oznacza publikacji obecnego szkieletu. Indeksowanie produkcji włączamy w fazie 5; obecny build ma noindex. Logowanie CLI: `npx firebase login`.
 

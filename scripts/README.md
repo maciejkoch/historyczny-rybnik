@@ -17,6 +17,8 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 | [places/firestore.mjs](places/firestore.mjs) | Moduł połączenia do jawnie wybranej bazy dev lub emulatora; obsługuje ADC i impersonację przez logowanie Firebase CLI. |
 | [places/import.mjs](places/import.mjs) | Waliduje i importuje katalog do dev, zachowując bieżącą pozycję; domyślnie podgląd, zapis przez `--apply`. |
 | [places/package-ssr.mjs](places/package-ssr.mjs) | Pakuje wygenerowany serwer Angulara do funkcji. |
+| [places/slot-ssr.mjs](places/slot-ssr.mjs) | Wybiera funkcję SSR slotu i przypina jej rewizję do Hostingu. |
+| [places/slot-ssr.test.mjs](places/slot-ssr.test.mjs) | Sprawdza izolację przekierowań SSR slotów. |
 | [places/prepare.mjs](places/prepare.mjs) | Waliduje wejście builda i generuje pliki katalogu; domyślnie używa fikcyjnego zestawu CI, a PLACES_SNAPSHOT wybiera rzeczywisty snapshot. |
 | [places/snapshot.mjs](places/snapshot.mjs) | Pobiera opublikowane miejsca z Firestore do ignorowanego `.local/places.snapshot.json`. |
 | [places/upload-assets.mjs](places/upload-assets.mjs) | Sprawdza SHA-256 i rozmiary obrazów; z `--apply` publikuje nowe, niezmienne pliki w bucket dev. |
@@ -44,7 +46,7 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduł
 | `npm test` | Testy mapy, kontraktów, prywatności, backendu i warsztatu. |
 | `npm run test:maps` | Testy grupowania i widoczności znaczników mapy. |
 | `npm run test:emulator` | Testy API i reguł w emulatorach Firestore/Storage. |
-| `npm run deploy:backend:dev` | Build i publikacja Functions wraz z SSR, reguł Firestore/Storage i konfiguracji Auth dev. |
+| `npm run deploy:backend:dev` | Build i publikacja wspólnych Functions, reguł Firestore/Storage i konfiguracji Auth dev; nie aktualizuje funkcji SSR slotów. |
 | `npm run places:upload-assets` | Kontrola i opcjonalna publikacja obrazów. |
 | `npm run check:contracts` | Ścisłe sprawdzenie typów wspólnych kontraktów bez generowania plików. |
 | `npm run test:privacy` | Testy zgód i prywatności. |
@@ -65,7 +67,7 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduł
 
 ## Równoległe środowiska
 
-- `npm run deploy:dev-1`, `deploy:dev-2`, `deploy:dev-3`: snapshot wspólnego backendu dev, build i publikacja wyłącznie wskazanej witryny. Adresy kart i sitemapę obsługuje funkcja SSR; `/deployment.json` zapisuje slot, branch, SHA i czas.
+- `npm run deploy:dev-1`, `deploy:dev-2`, `deploy:dev-3`: snapshot wspólnego backendu, build i publikacja wskazanej witryny z jej funkcją SSR przypiętą przez pinTag. Publiczne API i sitemapę nadal obsługuje wspólna funkcja. `/deployment.json` zapisuje slot, branch, SHA i czas.
 - `npm run environment -- reserve|release dev-1|dev-2|dev-3 <ID pozycji Projects>`: `scripts/places/environment.mjs` tworzy atomową blokadę w zdalnej gałęzi `env-lock/<slot>` lub zwalnia wyłącznie blokadę tego zadania. Pole Projects aktualizuje operator osobno.
 
 `npm run auth:admin -- show|grant|revoke UID [--apply] [--firebase-cli]` uruchamia `infra/admin-role.mjs`. Bez `--apply` grant/revoke to podgląd. Wymaga ADC lub lokalnego logowania Firebase CLI z uprawnieniem zarządzania Auth; zachowuje pozostałe custom claims. Auth i role są wspólne dla projektu. Zmiany ról wykonuje jeden operator naraz.
@@ -75,8 +77,10 @@ Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_
 ## Warsztat badań
 
 - `npm run research -- init|validate|migrate|export|assets|pull|push|restore|report`: `research/cli.mjs`; pełna procedura, flagi i odzyskiwanie w [warsztacie](../data/places/README.md). Operacje chmurowe i eksport domyślnie mają podgląd; zapis przez --apply.
+- `research export` zachowuje niezależne materiały galerii z katalogu bazowego.
 - `npm run research:view`: `research/viewer/server.mjs`, lokalny serwer tylko do odczytu 127.0.0.1:4319.
 - `npm run test:research`: testy modelu, publikacji, synchronizacji, odzyskania i serwera z `research/test/`; włączone do npm test.
+- `npm run test:slot-ssr`: sprawdza przypisanie funkcji SSR i zachowanie wspólnych przekierowań API dla każdego slotu; włączone do npm test.
 - Foldery `research/model/`, `workspace/`, `sync/`, `migrations/`, `publication/`, `viewer/` i `test/`: pełny spis modułów oraz ich role opisuje [README narzędzi](research/README.md). `research/cli.mjs` pozostaje wspólnym wejściem.
 - `places/import-policy.mjs`: wspólna, testowana ochrona live location/version/timestamps przy imporcie. `places:snapshot -- --migrate-legacy` wykonuje jawne mapowanie wcześniejszego category na tags/period oraz references/images na mentions/materials dla jednorazowej migracji; zwykły snapshot wymaga nowego kontraktu.
 

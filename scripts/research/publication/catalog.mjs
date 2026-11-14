@@ -74,7 +74,10 @@ export async function exportCatalog({
   const byId = new Map(prior.map((p) => [p.id, p]));
   const changed = [];
   for (const p of data.places.filter((p) => p.publicationApproved)) {
-    byId.set(p.id, projectPlace(p, data));
+    const projected = projectPlace(p, data);
+    // The workshop does not yet edit place galleries; preserve the published gallery.
+    projected.materials = byId.get(p.id)?.materials ?? [];
+    byId.set(p.id, projected);
     changed.push(p.id);
   }
   const result = catalogSchema.parse([...byId.values()]);

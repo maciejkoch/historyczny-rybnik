@@ -26,6 +26,8 @@ Wynik publikacji dev, 5 listopada 2026: `npm run deploy:dev` zakończone sukcese
 
 Stały `dev` jest środowiskiem integracji ukończonych zmian. Zadania publikujemy do przypisanego slotu. Lokalny operator ustawia `PLACES_USE_FIREBASE_CLI=1`. Każdy slot ma osobny kanał live i noindex. Canonical i sitemap pozostają skierowane na integracyjny dev. Wszystkie sloty korzystają ze wspólnej bazy places-dev, bucketa historyczny-rybnik-dev-files, Functions places-dev i Google Auth. Zmiany backendu i danych wpływają na wszystkie podglądy; koordynuj je z wykonawcami aktywnych zadań.
 
+Wersjonowanie SSR: polecenia wdrożenia przypinają rewizję funkcji renderującej do wydania Hosting przez pinTag. Integracyjny dev używa `placesDevWeb`, zaś dev-1/2/3 odpowiednio `placesDevWeb1/2/3`; API i sitemapa nadal korzystają ze wspólnej funkcji. SSR i statyczne pliki pochodzą z tego samego builda. Funkcje slotów są wdrażane przy pierwszym wdrożeniu danego slotu; do tego czasu istniejący slot korzysta z poprzedniej konfiguracji. Po publikacji sprawdź HTML karty oraz wskazane przez niego zasoby. `deploy:backend:dev` nie wdraża funkcji slotów. pinTag chroni przypięte wydanie również przy zmianach wspólnej funkcji; ma limit tagów Cloud Run, opisany w dokumentacji Firebase Hosting.
+
 ### Rezerwacja i zwolnienie
 
 1. Odczytaj wszystkie pozycje Projects (także rezerwacje zadań Done) i `git ls-remote origin 'refs/heads/env-lock/*'`. Slot jest wolny tylko przy braku pola i blokady. Rozbieżność wymaga wyjaśnienia.

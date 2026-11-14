@@ -12,9 +12,7 @@ import {
 } from '../src/contracts/places.mjs';
 import { readLocations, updateLocation } from '../src/service.mjs';
 
-const places = JSON.parse(
-  readFileSync(new URL('../../data/places.fixture.json', import.meta.url)),
-);
+const places = JSON.parse(readFileSync(new URL('../../data/places.fixture.json', import.meta.url)));
 const { published, createdAt, ...publicPlace } = places[0];
 const dto = {
   id: places[0].id,
@@ -24,7 +22,7 @@ const dto = {
 };
 
 test('public and stored records have distinct strict contracts', () => {
-  assert.deepEqual(publicCatalogSchema.parse([publicPlace]), [publicPlace]);
+  assert.deepEqual(publicCatalogSchema.parse([publicPlace]), [{ ...publicPlace, materials: [] }]);
   assert.equal(publicPlaceSchema.safeParse(places[0]).success, false);
   assert.equal(placeSchema.safeParse(publicPlace).success, false);
   for (const change of [
@@ -34,6 +32,48 @@ test('public and stored records have distinct strict contracts', () => {
     { location: { ...dto.location, explanation: 'x'.repeat(2001) } },
   ])
     assert.equal(placeSchema.safeParse({ ...places[0], ...change }).success, false);
+});
+
+test('place gallery accepts legacy records and validates ownership, dimensions and primary photo', () => {
+  assert.deepEqual(placeSchema.parse(places[0]).materials, []);
+  const image = structuredClone(places[0].mentions.find((m) => m.materials.length).materials[0]);
+  delete image.documentedDate;
+  const material = {
+    ...image,
+    materialId: 'gallery_item',
+    storagePath: 'public/materials/gallery_item/image.webp',
+    thumbnailPath: 'public/materials/gallery_item/thumb.webp',
+    width: 800,
+    height: 1200,
+    isPrimary: true,
+  };
+  assert.equal(placeSchema.safeParse({ ...places[0], materials: [material] }).success, true);
+  assert.equal(
+    placeSchema.safeParse({ ...places[0], materials: [{ ...material, width: 0 }] }).success,
+    false,
+  );
+  assert.equal(
+    placeSchema.safeParse({
+      ...places[0],
+      materials: [{ ...material, storagePath: 'public/materials/other/image.webp' }],
+    }).success,
+    false,
+  );
+  assert.equal(
+    placeSchema.safeParse({
+      ...places[0],
+      materials: [
+        material,
+        {
+          ...material,
+          materialId: 'other',
+          storagePath: 'public/materials/other/image.webp',
+          thumbnailPath: 'public/materials/other/thumb.webp',
+        },
+      ],
+    }).success,
+    false,
+  );
 });
 
 test('catalogue preserves byte limits, uniqueness and ownership of images', () => {

@@ -1,5 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
+import { resolve } from 'node:path';
+import { configureSlotSsr } from './slot-ssr.mjs';
 const run = (command, args, env = process.env) => {
   const result = spawnSync(command, args, { stdio: 'inherit', env });
   if (result.status !== 0) process.exit(result.status ?? 1);
@@ -12,9 +14,24 @@ run(process.execPath, ['scripts/places/snapshot.mjs', ...operator], {
   GCLOUD_PROJECT: 'historyczny-rybnik',
 });
 run('npm', ['run', 'build'], { ...process.env, PLACES_SNAPSHOT: '.local/places.snapshot.json' });
-if (target !== 'dev') {
+{
   const config = JSON.parse(readFileSync('.local/firebase.dev.json', 'utf8'));
-  config.hosting.site = `historyczny-rybnik-${target}`;
+  config.functions = [
+    {
+      source: resolve('functions'),
+      codebase: 'places-dev',
+      runtime: 'nodejs22',
+      ignore: ['node_modules', 'test', '*.log'],
+    },
+  ];
+  if (target === 'dev') {
+    const route = config.hosting.rewrites.find((rewrite) => rewrite.source === '/miejsca/**');
+    if (!route?.function || route.function.functionId !== 'placesDevWeb')
+      throw new Error('Unexpected SSR rewrite');
+    route.function.pinTag = true;
+  } else {
+    configureSlotSsr(config, target);
+  }
   writeFileSync(`.local/firebase.${target}.json`, JSON.stringify(config, null, 2) + '\n');
 }
 const revision = spawnSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' });

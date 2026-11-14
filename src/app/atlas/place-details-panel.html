@@ -1,5 +1,22 @@
 @if (place(); as place) {
   <h1 id="place-title" tabindex="-1">{{ place.name }}</h1>
+  @if (primaryMaterial(); as primary) {
+    <figure class="primary-image">
+      <button
+        type="button"
+        (click)="openGallery(place.materials.indexOf(primary))"
+        [attr.aria-label]="'Powiększ: ' + primary.alt"
+      >
+        <img [src]="imageUrl(primary.storagePath)" [alt]="primary.alt" />
+      </button>
+      <figcaption>
+        {{ primary.credit }}
+        @if (primary.provenance.sourcePageUrl; as source) {
+          · <a [href]="source" target="_blank" rel="noopener noreferrer">Źródło ↗</a>
+        }
+      </figcaption>
+    </figure>
+  }
   <div class="flex flex-wrap gap-2 my-3">
     @for (tag of place.tags; track tag.id) {
       <span class="badge badge-outline">{{ tag.name }}</span>
@@ -12,31 +29,51 @@
   }
   <p class="intro">{{ place.description }}</p>
   @for (address of place.addresses; track address.text) {
-    <p>
-      {{ address.type === 'current' ? 'Adres współczesny' : 'Adres historyczny' }}:
-      {{ address.text }}
-    </p>
+    @if (address.type === 'historical') {
+      <p>Adres historyczny: {{ address.text }}</p>
+    }
   }
-  @if (place.district) {
-    <p class="muted">Dzielnica: {{ place.district }}</p>
+  <div class="location-row">
+    <span
+      class="badge location-badge"
+      [class.location-exact]="place.location.precision === 'building'"
+      [class.location-approximate]="place.location.precision === 'approximate'"
+      [class.location-unknown]="place.location.precision === 'unknown'"
+    >
+      {{
+        place.location.coordinates
+          ? place.location.precision === 'building'
+            ? 'Dokładna lokalizacja'
+            : 'Przybliżona lokalizacja'
+          : 'Brak lokalizacji'
+      }}
+    </span>
+    <ng-content select="[location-actions]" />
+  </div>
+  @if (place.materials.length) {
+    <section aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Galeria</h2>
+      <div class="gallery-grid">
+        @for (material of place.materials; track material.materialId; let index = $index) {
+          <figure>
+            <button
+              type="button"
+              (click)="openGallery(index)"
+              [attr.aria-label]="'Powiększ: ' + material.alt"
+            >
+              <img loading="lazy" [src]="imageUrl(material.thumbnailPath)" [alt]="material.alt" />
+            </button>
+            <figcaption>
+              {{ material.credit }}
+              @if (material.provenance.sourcePageUrl; as source) {
+                · <a [href]="source" target="_blank" rel="noopener noreferrer">Źródło ↗</a>
+              }
+            </figcaption>
+          </figure>
+        }
+      </div>
+    </section>
   }
-  <h2>Lokalizacja</h2>
-  <p>
-    {{
-      place.location.coordinates
-        ? place.location.precision === 'building'
-          ? 'Wskazany budynek'
-          : 'Pozycja przybliżona'
-        : 'Pozycja nieustalona — miejsce nie ma znacznika na mapie.'
-    }}
-  </p>
-  @if (place.location.explanation) {
-    <p class="muted">{{ place.location.explanation }}</p>
-  }
-  <p class="muted">
-    Wersja pozycji: {{ place.locationVersion }} · Aktualizacja: {{ place.updatedAt }}
-  </p>
-  <ng-content select="[location-actions]" />
   <h2>Udokumentowane daty</h2>
   <div class="flex flex-wrap gap-2 my-3">
     @for (value of documentedDates(); track value.from + (value.to || '')) {
@@ -49,19 +86,10 @@
   @for (ref of verifiedMentions(); track ref.id) {
     <article class="reference">
       <h3>{{ ref.title }}</h3>
-      <p class="muted">
-        Wydanie: {{ date(ref.publicationDate) }}<br />Dotyczy: {{ date(ref.documentedDate) }}
-        @if (ref.page) {
-          · str. {{ ref.page }}
-        }
-      </p>
+      @if (ref.publicationDate) {
+        <p class="muted">Data źródła: {{ date(ref.publicationDate) }}</p>
+      }
       <p>{{ ref.excerpt }}</p>
-      @if (ref.note) {
-        <p class="muted">{{ ref.note }}</p>
-      }
-      @if (ref.url) {
-        <a [href]="ref.url" target="_blank" rel="noopener noreferrer">Otwórz źródło ↗</a>
-      }
       @for (image of ref.materials; track image.storagePath) {
         <figure class="reference-image">
           <button
@@ -74,8 +102,9 @@
           </button>
           <figcaption>{{ image.credit }} · {{ image.rights }}</figcaption>
         </figure>
-      } @empty {
-        <p class="muted">Brak zatwierdzonego materiału historycznego dla tej wzmianki.</p>
+      }
+      @if (ref.url) {
+        <a [href]="ref.url" target="_blank" rel="noopener noreferrer">Otwórz źródło ↗</a>
       }
     </article>
   }
@@ -86,8 +115,10 @@
         @for (ref of draftMentions(); track ref.id) {
           <article>
             <h3>{{ ref.title }}</h3>
+            @if (ref.publicationDate) {
+              <p class="muted">Data źródła: {{ date(ref.publicationDate) }}</p>
+            }
             <p>{{ ref.excerpt }}</p>
-            <p>{{ date(ref.documentedDate) }}</p>
             @if (ref.url) {
               <a [href]="ref.url" target="_blank" rel="noopener noreferrer">Otwórz źródło ↗</a>
             }

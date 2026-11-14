@@ -4,6 +4,7 @@ import { spawnSync } from 'node:child_process';
 const steps = [
   ['run', 'test:maps'],
   ['run', 'test:places-filter'],
+  ['run', 'test:slot-ssr'],
   ['run', 'check:contracts'],
   ['run', 'test:privacy'],
   ['--prefix', 'functions', 'test'],

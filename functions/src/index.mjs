@@ -21,14 +21,19 @@ const options = {
 };
 export const placesDevRead = onCall(options, (request) => readLocations(db, request));
 export const placesDevUpdate = onCall(options, (request) => updateLocation(db, request));
-export const placesDevWeb = onRequest({
+const webOptions = {
   region: 'europe-central2',
   serviceAccount: 'places-dev-build@historyczny-rybnik.iam.gserviceaccount.com',
   maxInstances: 3,
   minInstances: 0,
   memory: '512MiB',
   timeoutSeconds: 30,
-}, publicWeb(db, async (request, context) => {
+};
+const webHandler = publicWeb(db, async (request, context) => {
   const { renderPlace } = await import('../ssr/server.mjs');
   return renderPlace(request, context);
-}));
+});
+export const placesDevWeb = onRequest(webOptions, webHandler);
+export const placesDevWeb1 = onRequest(webOptions, webHandler);
+export const placesDevWeb2 = onRequest(webOptions, webHandler);
+export const placesDevWeb3 = onRequest(webOptions, webHandler);

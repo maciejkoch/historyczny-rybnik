@@ -130,7 +130,7 @@ zapisu oznacza wstrzymanie mutacji do wyjaśnienia.
 
 Kontynuuj zadanie zgodnie z aktualną dokumentacją: dobierz sprawdzenia do ryzyka,
 aktualizuj dokumentację i wykonaj wybrany sposób odbioru. Przy wyborze dev wdrażaj
-zmiany do właściwego slotu i zweryfikuj URL; przy wyborze lokalnym nie wdrażaj. Uwzględnij wspólny backend dev i wpływ zmian danych na inne podglądy.
+zmiany do właściwego slotu i zweryfikuj URL; przy wyborze lokalnym nie wdrażaj. Przy wdrożeniu stosuj opisane w dokumentacji powiązanie SSR z Hostingiem. Uwzględnij wspólny backend dev i wpływ zmian danych na inne podglądy.
 Zaktualizuj powiązania rzeczywistym SHA wdrożenia i PR. Po utworzeniu PR do zadania
 (albo wykryciu PR utworzonego przez właściciela) zapisz jego link i ustaw status
 pozycji Projects na `In review`, również dla draft PR. Odczytaj ID opcji na żywo

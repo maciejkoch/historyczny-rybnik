@@ -109,6 +109,12 @@ export const imageSchema = z.strictObject({
     transformations: text(2000),
   }),
 });
+export const placeMaterialSchema = imageSchema.extend({
+  materialId: idSchema,
+  width: z.number().int().positive().max(30000),
+  height: z.number().int().positive().max(30000),
+  isPrimary: z.boolean(),
+});
 const referenceUrl = text(2000).refine((value) => {
   try {
     const u = new URL(value);
@@ -154,18 +160,47 @@ const placeFields = {
     .max(30),
   district: text(200).nullable(),
   location: locationSchema,
+  materials: z.array(placeMaterialSchema).max(100).default([]),
   mentions: z.array(mentionSchema).max(100),
   locationVersion: versionSchema,
   updatedAt: timestampSchema,
 };
 const basePlaceSchema = z.strictObject(placeFields);
 export const publicSummarySchema = basePlaceSchema.pick({
-  id: true, name: true, slug: true, tags: true, aliases: true, addresses: true,
-  district: true, location: true, locationVersion: true, updatedAt: true,
+  id: true,
+  name: true,
+  slug: true,
+  tags: true,
+  aliases: true,
+  addresses: true,
+  district: true,
+  location: true,
+  locationVersion: true,
+  updatedAt: true,
 });
-/** @param {{id: string, mentions: {id: string, documentedDate: {from:string,to:string|null,approximate:boolean}|null, verification:string, materials: {storagePath:string,thumbnailPath:string,documentedDate:{from:string,to:string|null,approximate:boolean}}[]}[]}} place
+/** @param {{id: string, materials: {materialId:string,isPrimary:boolean,storagePath:string,thumbnailPath:string}[], mentions: {id: string, documentedDate: {from:string,to:string|null,approximate:boolean}|null, verification:string, materials: {storagePath:string,thumbnailPath:string,documentedDate:{from:string,to:string|null,approximate:boolean}}[]}[]}} place
  * @param {z.RefinementCtx} ctx */
 function placeRelations(place, ctx) {
+  if (place.materials.filter((material) => material.isPrimary).length > 1)
+    ctx.addIssue({
+      code: 'custom',
+      message: 'Only one primary material is allowed',
+      path: ['materials'],
+    });
+  if (
+    new Set(place.materials.map((material) => material.materialId)).size !== place.materials.length
+  )
+    ctx.addIssue({ code: 'custom', message: 'Duplicate material', path: ['materials'] });
+  place.materials.forEach((material, index) => {
+    for (const key of /** @type {const} */ (['storagePath', 'thumbnailPath'])) {
+      if (!material[key].startsWith(`public/materials/${material.materialId}/`))
+        ctx.addIssue({
+          code: 'custom',
+          message: 'Asset belongs to another material',
+          path: ['materials', index, key],
+        });
+    }
+  });
   const refs = new Set();
   place.mentions.forEach((ref, index) => {
     if (refs.has(ref.id))
