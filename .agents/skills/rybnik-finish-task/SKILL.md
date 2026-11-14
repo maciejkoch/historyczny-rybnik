@@ -14,7 +14,7 @@ Prośba wyłącznie o sprawdzenie gotowości niczego nie zmienia.
 
 ## Opcjonalne rozpoznanie przez podagenta
 
-W pilotażu, jeśli delegowanie jest dostępne i dozwolone, a zakres odczytów uzasadnia jego koszt, zleć jednemu podagentowi `gpt-6-luna` rozpoznanie wyłącznie do odczytu, z minimalnym kontekstem i bez historii rozmowy. Przy prostym zadaniu, braku modelu lub narzędzia wykonaj odczyty samodzielnie. Nie deleguj operacji zmieniających stan.
+Jeśli delegowanie jest dostępne i dozwolone, a rozpoznanie wymaga zebrania danych z kilku niezależnych źródeł, zleć je jednemu podagentowi `gpt-6-luna`, wyłącznie do odczytu, z minimalnym kontekstem i bez historii rozmowy. Przy pojedynczym prostym odczycie albo braku modelu, narzędzia lub możliwości delegowania wykonaj odczyty samodzielnie. Nie deleguj operacji zmieniających stan.
 
 Zleć zebranie źródeł i stanu zadania, zależności, PR, kontroli i rezerwacji odpowiednio do etapu; dla startu również branchy i worktree, dla zakończenia head SHA, uwag review i blokad. Raport ma zawierać identyfikatory, linki, czas odczytu, kompletność stron oraz błędy i niepewności; brak dostępu nie jest potwierdzeniem braku danych. Nie przekazuj sekretów.
 

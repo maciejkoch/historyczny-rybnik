@@ -107,8 +107,8 @@ Wywołaj `Użyj $rybnik-finish-task i zakończ zadanie <link lub ID>`. Kolejnoś
 
 Walidacja `rybnik-finish-task`: poprawny format, odnośniki i kontrola przebiegu dla PR otwartego, już scalonego, nieudanego wdrożenia i częściowo zwolnionej rezerwacji. Zmiana instrukcji nie wymaga dodatkowego builda aplikacji.
 
-## Pilotaż oszczędnego rozpoznania
+## Delegowanie rozpoznania
 
-Start i zakończenie mogą zlecić jednemu podagentowi `gpt-6-luna` niezależne odczyty, bez mutacji i bez pełnej historii. Agent główny weryfikuje dowody oraz aktualny stan przed zmianami. Delegowanie jest opcjonalne, zależne od dostępności i sensu dla zadania. Przy braku narzędzia lub modelu proces kontynuuje jeden agent.
+Start i zakończenie zlecają jednemu podagentowi `gpt-6-luna` wieloźródłowe rozpoznanie, jeśli delegowanie jest dostępne i dozwolone, bez mutacji i bez pełnej historii. Agent główny weryfikuje dowody oraz aktualny stan przed zmianami. Przy pojedynczym prostym odczycie lub braku narzędzia, modelu albo możliwości delegowania proces prowadzi jeden agent.
 
-Porównuj 3–5 podobnych zadań przed pilotażem i po nim: model i poziom rozumowania, zakres, widoczne zużycie, liczbę wywołań, największe wyniki narzędzi oraz poprawność i kompletność odczytów. Oddziel zajętość kontekstu, limit subskrypcji i koszt API; zapisuj tylko dostępne miary i nie zakładaj oszczędności bez pomiaru.
+Oceniając skuteczność procesu, porównuj podobne zadania: model i poziom rozumowania, zakres, widoczne zużycie, liczbę wywołań, największe wyniki narzędzi oraz poprawność i kompletność odczytów. Oddziel zajętość kontekstu, limit subskrypcji i koszt API; zapisuj tylko dostępne miary i nie zakładaj oszczędności bez pomiaru.
