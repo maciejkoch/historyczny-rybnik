@@ -12,7 +12,7 @@
 
 # Środowiska wdrożeniowe
 
-- Zmiany zadania publikuj na przypisany dev-1, dev-2 lub dev-3 po atomowej rezerwacji; polecenia i proces w dokumentacji środowisk. Stały dev (`npm run deploy:dev`) służy integracji ukończonych zmian. Sprawdź działający adres po wdrożeniu.
+- Przed implementacją zmiany aplikacji ustal z właścicielem, czy odbiór ma być lokalny, czy przez automatyczne wdrożenie na dev; nie pytaj ponownie, jeśli wybór już wynika z kontekstu. Przy lokalnym odbiorze nie publikuj zmiany bez późniejszego zlecenia. Przy wyborze dev publikuj na przypisany dev-1, dev-2 lub dev-3 po atomowej rezerwacji i sprawdź adres; polecenia i proces w dokumentacji środowisk. Stały dev (`npm run deploy:dev`) służy integracji ukończonych zmian.
 - Produkcja to https://historyczny.rybnik.pl/, witryna Hosting `historyczny-rybnik`. Publikuj ją tylko na osobne, wyraźne zlecenie wydania produkcyjnego, poleceniem `npm run deploy:prod`.
 - Dev używa szablonu `firebase.dev.json` i generowanych poza Git konfiguracji `.local/firebase.dev*.json`, produkcja `firebase.json`. Nie zamieniaj identyfikatorów witryn i nie używaj ogólnego `firebase deploy` do bieżących prac.
 - Dev pozostaje noindex. Konfiguracja indeksowania produkcji jest zadaniem fazy 5.
