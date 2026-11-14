@@ -59,7 +59,7 @@ Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje �
 
 ## Schemat miejsca
 
-Aktualny kontrakt katalogu, publicznej projekcji i prywatnego warsztatu oraz przykład rekordu opisuje [schemat miejsca](agent-context/reference/schemat-miejsca.md). Źródłem prawdy są schematy w kodzie.
+Aktualny kontrakt katalogu, publicznej projekcji i prywatnego warsztatu oraz przykład rekordu opisuje [schemat miejsca](agent-context/reference/place-schema.md). Źródłem prawdy są schematy w kodzie.
 
 ## Katalog lokalny `.local/`
 
