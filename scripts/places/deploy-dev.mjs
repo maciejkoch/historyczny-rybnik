@@ -45,6 +45,20 @@ writeFileSync(
     deployedAt: new Date().toISOString(),
   }) + '\n',
 );
+// Bootstrap or update only this target. Existing pinned Hosting releases continue
+// serving their pinned revision until the new Hosting release is published.
+const ssrFunction = target === 'dev' ? 'placesDevWeb' : `placesDevWeb${target.slice(-1)}`;
+run('npx', [
+  'firebase',
+  'deploy',
+  '--only',
+  `functions:places-dev:${ssrFunction}`,
+  '--config',
+  'firebase.backend.dev.json',
+  '--project',
+  'historyczny-rybnik',
+  '--non-interactive',
+]);
 run('npx', [
   'firebase',
   'deploy',
