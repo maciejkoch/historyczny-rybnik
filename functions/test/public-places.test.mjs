@@ -142,7 +142,7 @@ test('public requests reflect database edits, exclude drafts and handle redirect
   );
 });
 
-test('gallery is opt-in for API and SSR preserves the matching frontend contract', async () => {
+test('gallery is opt-in for legacy API clients and included in SSR', async () => {
   const image = structuredClone(
     fixture.mentions.find((mention) => mention.materials.length).materials[0],
   );
@@ -173,7 +173,5 @@ test('gallery is opt-in for API and SSR preserves the matching frontend contract
     1,
   );
   await request(legacy, '/miejsca/' + fixture.slug);
-  assert.equal('materials' in rendered, false);
-  await request(publicWeb(db, render, { renderMaterials: true }), '/miejsca/' + fixture.slug);
   assert.equal(rendered.materials.length, 1);
 });

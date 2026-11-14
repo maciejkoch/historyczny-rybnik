@@ -110,6 +110,11 @@ test('publication is explicit, excludes unknown-rights images and protects live 
     updatedAt: 'new',
   };
   assert.deepEqual(preserveLiveFields(result, live).location, live.location);
+  assert.equal('materials' in preserveLiveFields({ ...result, materials: [] }, live), false);
+  assert.deepEqual(
+    preserveLiveFields({ ...result, materials: [] }, { ...live, materials: [] }).materials,
+    [],
+  );
   assert.deepEqual(
     preserveLiveFields(preserveLiveFields(result, live), live),
     preserveLiveFields(result, live),
@@ -277,9 +282,9 @@ test('own scans preserve missing web provenance and allow a local documentary ri
 });
 function requireFixtureImage() {
   return JSON.stringify(
-    JSON.parse(
-      readFileSync(new URL('../../../data/places.fixture.json', import.meta.url)),
-    ).flatMap((p) => p.mentions.flatMap((r) => r.materials))[0],
+    JSON.parse(readFileSync(new URL('../../../data/places.fixture.json', import.meta.url))).flatMap(
+      (p) => p.mentions.flatMap((r) => r.materials),
+    )[0],
   );
 }
 

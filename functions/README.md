@@ -12,6 +12,6 @@ Publiczny kontrakt miejsca używa mentions z documentedDate i verification oraz 
 
 Osobne `materials` miejsca przechowuje dane galerii i najwyżej jedno zdjęcie główne. Dla istniejącego dokumentu bez tego pola odczyt zwraca pustą tablicę.
 
-API szczegółów zwraca materiały na żądanie `?materials=1`; odpowiedź bez tego parametru nie dodaje pola do starszego kontraktu. Renderer integracyjny otrzymuje starszą projekcję, a renderery slotów pełną.
+API szczegółów zwraca materiały na żądanie `?materials=1`; odpowiedź bez tego parametru nie dodaje pola do starszego kontraktu. Renderery SSR otrzymują pełną projekcję.
 
 `public-places.mjs` odczytuje wyłącznie opublikowane miejsca i ogranicza katalog do pól potrzebnych mapie. `public-web.mjs` obsługuje publiczny odczyt, sitemapę i SSR; `placesDevWeb` używa konta build ograniczonego do bazy dev, odpowiedzi no-store i noindex. Zapis nadal wymaga Auth i App Check.

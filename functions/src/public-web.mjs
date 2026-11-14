@@ -1,7 +1,7 @@
 import { readPublicPlace, readPublicSummaries } from './public-places.mjs';
 
 const origin = 'https://historyczny-rybnik-dev.web.app';
-export function publicWeb(db, render, { renderMaterials = false } = {}) {
+export function publicWeb(db, render) {
   return async (req, res) => {
     res.set('Cache-Control', 'no-store');
     res.set('X-Robots-Tag', 'noindex, nofollow');
@@ -32,8 +32,7 @@ export function publicWeb(db, render, { renderMaterials = false } = {}) {
       }
       if (match[2] !== place.slug) return res.redirect(301, '/miejsca/' + place.slug);
       const request = new Request(origin + url.pathname + url.search, { method: req.method });
-      const { materials, ...legacyPlace } = place;
-      const result = await render(request, { place: renderMaterials ? place : legacyPlace });
+      const result = await render(request, { place });
       if (!result) return res.status(404).end();
       res.status(result.status);
       for (const [name, value] of result.headers) {

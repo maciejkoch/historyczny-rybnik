@@ -34,15 +34,6 @@ const render = async (request, context) => {
   return renderPlace(request, context);
 };
 export const placesDevWeb = onRequest(webOptions, publicWeb(db, render));
-export const placesDevWeb1 = onRequest(
-  webOptions,
-  publicWeb(db, render, { renderMaterials: true }),
-);
-export const placesDevWeb2 = onRequest(
-  webOptions,
-  publicWeb(db, render, { renderMaterials: true }),
-);
-export const placesDevWeb3 = onRequest(
-  webOptions,
-  publicWeb(db, render, { renderMaterials: true }),
-);
+export const placesDevWeb1 = onRequest(webOptions, publicWeb(db, render));
+export const placesDevWeb2 = onRequest(webOptions, publicWeb(db, render));
+export const placesDevWeb3 = onRequest(webOptions, publicWeb(db, render));

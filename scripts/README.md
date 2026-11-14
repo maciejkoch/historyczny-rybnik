@@ -24,7 +24,7 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 | [places/upload-assets.mjs](places/upload-assets.mjs) | Sprawdza SHA-256 i rozmiary obrazów; z `--apply` publikuje nowe, niezmienne pliki w bucket dev. |
 | [privacy/consent.test.mjs](privacy/consent.test.mjs) | Testuje zgody, przechowywanie ustawień i warunki ładowania usług Google. |
 | [test.mjs](test.mjs) | Uruchamia kolejno testy mapy, kontraktów, prywatności, backendu i warsztatu; zatrzymuje się po pierwszym błędzie. |
-| [verify-build.mjs](verify-build.mjs) | Sprawdza statyczne strony, SSR fikcyjnego miejsca, 404, noindex i zasoby. |
+| [verify-build.mjs](verify-build.mjs) | Sprawdza statyczne strony, SSR fikcyjnego miejsca i jego galerii, 404, noindex i zasoby. |
 
 Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduły `catalog.mjs` i `firestore.mjs` są używane przez pozostałe skrypty; nie są osobnymi poleceniami operatora.
 
@@ -82,7 +82,7 @@ Aktualizacja katalogu: `places:prepare` przyjmuje pełny snapshot przez `PLACES_
 - `npm run test:research`: testy modelu, publikacji, synchronizacji, odzyskania i serwera z `research/test/`; włączone do npm test.
 - `npm run test:slot-ssr`: sprawdza przypisanie funkcji SSR i zachowanie wspólnych przekierowań API dla każdego slotu; włączone do npm test.
 - Foldery `research/model/`, `workspace/`, `sync/`, `migrations/`, `publication/`, `viewer/` i `test/`: pełny spis modułów oraz ich role opisuje [README narzędzi](research/README.md). `research/cli.mjs` pozostaje wspólnym wejściem.
-- `places/import-policy.mjs`: wspólna, testowana ochrona live location/version/timestamps przy imporcie. `places:snapshot -- --migrate-legacy` wykonuje jawne mapowanie wcześniejszego category na tags/period oraz references/images na mentions/materials dla jednorazowej migracji; zwykły snapshot wymaga nowego kontraktu.
+- `places/import-policy.mjs`: wspólna, testowana ochrona live location/version/timestamps przy imporcie; nie dopisuje pustej galerii do starszych rekordów. `places:snapshot -- --migrate-legacy` wykonuje jawne mapowanie wcześniejszego category na tags/period oraz references/images na mentions/materials dla jednorazowej migracji; zwykły snapshot wymaga nowego kontraktu.
 
 `research hydrate [--apply] [--firebase-cli]` (`research/workspace/hydrate.mjs`): podgląd/pobranie już opublikowanych zatwierdzonych obrazów dev do lokalnego warsztatu, z kontrolą SHA-256.
 
