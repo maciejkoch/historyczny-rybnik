@@ -31,7 +31,7 @@ Każdy może zalogować się przez Google. Edycja lokalizacji jest obecnie dost�
 
 Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
 
-Katalog dev zawiera 200 miejsc: 196 przeniesionych z MVP.0 i cztery punkty sprzedaży benzyny potwierdzone w źródłach. Lokalizacje kandydackie pozostają nieustalone; kopie dawnych wycinków bez potwierdzonej podstawy publikacji są wyłączone, referencje zawierają odnośniki do źródeł.
+Baza dev zawiera 200 opublikowanych miejsc: 196 przeniesionych z MVP.0 i cztery punkty sprzedaży benzyny potwierdzone w źródłach. Lokalizacje kandydackie pozostają nieustalone; kopie dawnych wycinków bez potwierdzonej podstawy publikacji są wyłączone, referencje zawierają odnośniki do źródeł.
 
 Przy oddaleniu mapy pobliskie miejsca łączą się w grupy z liczbą punktów. Kliknięcie grupy przybliża mapę, a zmiana grupowania jest animowana; wybrane miejsce pozostaje widoczne osobno.
 
@@ -45,6 +45,6 @@ Lokalny warsztat: widok Materiały pokazuje galerię skanów i wycinków z miejs
 
 Miejsce ma opis redakcyjny, udokumentowane daty i zweryfikowane wzmianki z właściwymi materiałami historycznymi. Lokalny warsztat rozdziela historyczne obrazy, kopie źródeł oraz materiały do rozpoznania; współczesne zdjęcia nie ilustrują dawnych wzmianek.
 
-Karty miejsc zawierają aktualną treść podczas otwarcia; mapa i wyszukiwarka pobierają bieżący katalog przy załadowaniu aplikacji. Otwarte strony nie odświeżają się automatycznie. Rzeczywiste dane miejsc pozostają poza Git; testy i CI używają danych fikcyjnych.
+Karty miejsc są renderowane z aktualnych danych z bazy; mapa i wyszukiwarka pobierają listę przez publiczne API przy załadowaniu aplikacji. Otwarte strony nie odświeżają się automatycznie. Baza jest jedynym źródłem danych aplikacji; fikcyjne rekordy pozostają wyłącznie w testach i CI.
 
 Znaczniki mapy pokazują ikonę pierwszego (głównego) tagu miejsca. Zielony oznacza dokładną lokalizację (wskazany budynek), bursztynowy z przerywanym obrysem — przybliżoną. „Mapa i legenda” ma zakładki „Warstwy” i „Legenda” z ustawieniami planu oraz objaśnieniami ikon, kolorów i grup. Na telefonie są osobne przyciski: mapa rozwija mały panel planu, pozwalając obserwować zmianę krycia, a legenda otwiera osobny modal ze stale widocznym zamknięciem i przewijaną treścią. Na komputerze zakładki są w panelu, domyślnie otwartym; jego zwinięcie można zapamiętać po zgodzie na preferencje.

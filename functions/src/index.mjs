@@ -3,7 +3,6 @@ import { getFirestore } from 'firebase-admin/firestore';
 import { onCall, onRequest } from 'firebase-functions/v2/https';
 import { readLocations, updateLocation } from './service.mjs';
 import { publicWeb } from './public-web.mjs';
-import { renderContext } from './render-context.mjs';
 initializeApp();
 const db = getFirestore('places-dev');
 const options = {
@@ -32,7 +31,7 @@ const webOptions = {
 };
 const render = async (request, context) => {
   const bundle = await import('../ssr/server.mjs');
-  return bundle.renderPlace(request, renderContext(bundle, context));
+  return bundle.renderPlace(request, context);
 };
 export const placesDevWeb = onRequest(webOptions, publicWeb(db, render));
 export const placesDevWeb1 = onRequest(webOptions, publicWeb(db, render));

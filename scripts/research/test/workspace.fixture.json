@@ -1,0 +1,349 @@
+{
+  "config": {
+    "schemaVersion": 3,
+    "city": "Rybnik",
+    "period": {
+      "from": 1918,
+      "to": 1939,
+      "flexible": true
+    }
+  },
+  "tags": [
+    {
+      "id": "uslugi",
+      "name": "usługi",
+      "description": "Usługi",
+      "synonyms": []
+    },
+    {
+      "id": "fryzjer",
+      "name": "fryzjer",
+      "description": "Fryzjer",
+      "synonyms": [
+        "zakład fryzjerski"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "src_a",
+      "updatedAt": "2026-11-08T08:00:00Z",
+      "name": "Fikcyjne źródło a",
+      "url": "https://example.org/a",
+      "description": "Wyłącznie fixture testowe",
+      "owner": null,
+      "topics": [
+        "Rybnik"
+      ],
+      "geography": [
+        "Rybnik"
+      ],
+      "coverage": null,
+      "languages": [
+        "pl"
+      ],
+      "resourceTypes": [
+        "gazety"
+      ],
+      "searchInstructions": null,
+      "ocr": "unknown",
+      "access": "public",
+      "accessNote": null,
+      "rightsNote": null,
+      "rightsUrl": null,
+      "checkedAt": null,
+      "discoveredFrom": []
+    },
+    {
+      "id": "src_b",
+      "updatedAt": "2026-11-08T08:00:00Z",
+      "name": "Fikcyjne źródło b",
+      "url": "https://example.org/b",
+      "description": "Wyłącznie fixture testowe",
+      "owner": null,
+      "topics": [
+        "Rybnik"
+      ],
+      "geography": [
+        "Rybnik"
+      ],
+      "coverage": null,
+      "languages": [
+        "pl"
+      ],
+      "resourceTypes": [
+        "gazety"
+      ],
+      "searchInstructions": null,
+      "ocr": "unknown",
+      "access": "public",
+      "accessNote": null,
+      "rightsNote": null,
+      "rightsUrl": null,
+      "checkedAt": null,
+      "discoveredFrom": [
+        {
+          "sourceId": "src_a",
+          "locator": "Przypis 1",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "src_c",
+      "updatedAt": "2026-11-08T08:00:00Z",
+      "name": "Fikcyjne źródło c",
+      "url": "https://example.org/c",
+      "description": "Wyłącznie fixture testowe",
+      "owner": null,
+      "topics": [
+        "Rybnik"
+      ],
+      "geography": [
+        "Rybnik"
+      ],
+      "coverage": null,
+      "languages": [
+        "pl"
+      ],
+      "resourceTypes": [
+        "gazety"
+      ],
+      "searchInstructions": null,
+      "ocr": "unknown",
+      "access": "public",
+      "accessNote": null,
+      "rightsNote": null,
+      "rightsUrl": null,
+      "checkedAt": null,
+      "discoveredFrom": [
+        {
+          "sourceId": "src_b",
+          "locator": "Przypis 1",
+          "note": null
+        }
+      ]
+    }
+  ],
+  "materials": [],
+  "places": [
+    {
+      "id": "place_a",
+      "updatedAt": "2026-11-08T08:00:00Z",
+      "name": "Fikcyjne miejsce A",
+      "slug": "fikcyjne-a",
+      "previousSlugs": [],
+      "description": "Przykład testowy",
+      "aliases": [],
+      "addresses": [],
+      "district": null,
+      "location": {
+        "coordinates": {
+          "lat": 50.096,
+          "lng": 18.542
+        },
+        "precision": "approximate",
+        "explanation": "Fixture"
+      },
+      "locationVersion": 0,
+      "createdAt": "2026-11-08T08:00:00Z",
+      "tags": [
+        "uslugi",
+        "fryzjer"
+      ],
+      "period": {
+        "status": "confirmed",
+        "explanation": "Artykuł 1950 wprost opisuje rok 1932"
+      },
+      "relatedPlaces": [],
+      "questions": [],
+      "publicationApproved": false,
+      "mentionIds": [
+        "men_b0b79e6279ccd92a4cc9fabd9424b18e"
+      ]
+    }
+  ],
+  "out-of-period": [],
+  "candidates": [
+    {
+      "id": "candidate_c",
+      "updatedAt": "2026-11-08T08:00:00Z",
+      "name": "Fikcyjny sąsiad C",
+      "reason": "Wspomniany w artykule",
+      "context": "Badanie A",
+      "evidence": [
+        {
+          "documentId": "mat_b",
+          "locator": "str. 17",
+          "note": null
+        }
+      ],
+      "relatedPlaceIds": [
+        "place_a"
+      ],
+      "possibleDuplicateIds": [],
+      "location": {
+        "coordinates": null,
+        "precision": "unknown",
+        "explanation": null
+      },
+      "status": "pending",
+      "decisionNote": null,
+      "resolvedPlaceId": null
+    }
+  ],
+  "research": [
+    {
+      "id": "run_a",
+      "updatedAt": "2026-11-08T08:00:00Z",
+      "context": "Fikcyjne badanie fryzjerów",
+      "startedAt": "2026-11-08T08:00:00Z",
+      "completedAt": "2026-11-08T08:00:00Z",
+      "placeIds": [
+        "place_a"
+      ],
+      "searches": [
+        {
+          "query": "A przed 1950",
+          "sourceId": "src_b",
+          "locator": "str.17",
+          "outcome": "found",
+          "note": "Opisuje 1932"
+        },
+        {
+          "query": "A po 1890",
+          "sourceId": "src_a",
+          "locator": null,
+          "outcome": "no-results",
+          "note": "Nie znaleziono dalszych dat"
+        }
+      ],
+      "changes": [
+        {
+          "collection": "places",
+          "id": "place_a",
+          "action": "added"
+        },
+        {
+          "collection": "candidates",
+          "id": "candidate_c",
+          "action": "added"
+        }
+      ],
+      "leads": [
+        {
+          "url": "https://example.org/c",
+          "sourceId": "src_c",
+          "note": "Sprawdzić dalszą bibliografię",
+          "status": "pending"
+        }
+      ],
+      "limitations": [
+        "Prawa materiałów nieustalone"
+      ],
+      "summary": "Fikcyjne badanie: dodano A i kandydata C, odkryto źródła B i C."
+    }
+  ],
+  "documents": [
+    {
+      "id": "mat_a",
+      "updatedAt": "2026-11-08T08:00:00Z",
+      "title": "Fikcyjny materiał a",
+      "kind": "article",
+      "sourceId": "src_a",
+      "url": "https://example.org/material/a",
+      "identifier": null,
+      "author": null,
+      "publicationDate": {
+        "from": "1890",
+        "to": null,
+        "approximate": false
+      },
+      "historicalDate": null,
+      "dateNote": null,
+      "locator": "17",
+      "description": "Dane testowe",
+      "content": "Testowy odczyt",
+      "contentType": "summary",
+      "placeIds": [
+        "place_a"
+      ],
+      "publicationImages": [],
+      "rights": {
+        "status": "unknown",
+        "basis": null,
+        "evidenceUrl": null,
+        "checkedAt": null,
+        "credit": null,
+        "publicationApproved": false,
+        "evidenceDocumentId": null
+      },
+      "files": [],
+      "parentDocumentId": null
+    },
+    {
+      "id": "mat_b",
+      "updatedAt": "2026-11-08T08:00:00Z",
+      "title": "Fikcyjny materiał b",
+      "kind": "article",
+      "sourceId": "src_b",
+      "url": "https://example.org/material/b",
+      "identifier": null,
+      "author": null,
+      "publicationDate": {
+        "from": "1950",
+        "to": null,
+        "approximate": false
+      },
+      "historicalDate": {
+        "from": "1932",
+        "to": null,
+        "approximate": false
+      },
+      "dateNote": null,
+      "locator": "17",
+      "description": "Dane testowe",
+      "content": "Testowy odczyt",
+      "contentType": "summary",
+      "placeIds": [
+        "place_a"
+      ],
+      "publicationImages": [],
+      "rights": {
+        "status": "unknown",
+        "basis": null,
+        "evidenceUrl": null,
+        "checkedAt": null,
+        "credit": null,
+        "publicationApproved": false,
+        "evidenceDocumentId": null
+      },
+      "files": [],
+      "parentDocumentId": null
+    }
+  ],
+  "mentions": [
+    {
+      "id": "men_b0b79e6279ccd92a4cc9fabd9424b18e",
+      "updatedAt": "2026-11-08T08:00:00Z",
+      "placeId": "place_a",
+      "text": "Fikcyjny zakład istniał w 1932",
+      "documentedDate": {
+        "from": "1932",
+        "to": null,
+        "approximate": false
+      },
+      "verification": "verified",
+      "verificationNote": "Zachowano wcześniejszą potwierdzoną ocenę źródła i konkretne datowanie.",
+      "verifiedAt": "2026-11-08T08:00:00Z",
+      "evidence": [
+        {
+          "documentId": "mat_b",
+          "locator": "str. 17",
+          "note": null
+        }
+      ],
+      "materialIds": []
+    }
+  ]
+}

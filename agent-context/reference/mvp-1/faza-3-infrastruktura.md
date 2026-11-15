@@ -12,16 +12,16 @@ Callable `placesDevUpdate({placeId,expectedLocationVersion,location})` wymaga Go
 
 ## Dane i build
 
-Jedyny rekord faz 3–5: `place_sw_antoni`, bazylika św. Antoniego Padewskiego. `data/places.fixture.json` zawiera dane testowe do testów i powtarzalnego builda offline oraz opcjonalnego importu na dev. Wdrożenie dev korzysta ze snapshotu Firestore. Opis to własne streszczenie informacji parafii. Adres i orientacyjny punkt 50.098064, 18.549650 pochodzą z karty Śląskiej Organizacji Turystycznej (osadzony `trackPoiList`, obiekt 3273). Dokładność: `approximate`, bez udawania pomiaru budynku. Pierwotny odbiór miał `images: []`. Na późniejsze zlecenie właściciela dodano jedną pocztówkę oznaczoną domeną publiczną, z miniaturą i powiększeniem w Storage. [Źródło, prawa i test Storage](zdjecie-bazyliki-1919.md).
+Historyczny zapis wdrożenia fazy 3; aktualne źródło danych aplikacji opisuje [TECHNICAL.md](../../../TECHNICAL.md). `data/places.fixture.json` jest używany wyłącznie przez testy. SSR i publiczne API pobierają dane z bazy podczas działania; build i wdrożenie nie korzystają ze snapshotu. Opis to własne streszczenie informacji parafii. Adres i orientacyjny punkt 50.098064, 18.549650 pochodzą z karty Śląskiej Organizacji Turystycznej (osadzony `trackPoiList`, obiekt 3273). Dokładność: `approximate`, bez udawania pomiaru budynku. [Źródło, prawa i test Storage](zdjecie-bazyliki-1919.md).
 
 - https://www.bazylika.rybnik.pl/historia.html
 - https://www.silesia.travel/culturalheritage/3273
 
 `npm run places:import` sprawdza dane bez zapisu. `npm run places:import -- --apply` wymaga jawnego `GCLOUD_PROJECT` i serwerowego ADC. Import jest ponawialny; zachowuje aktualną pozycję, wersję i czasy istniejącego dokumentu. Odrzuca katalog z innymi dokumentami. Nie usuwa dokumentów ani nie nadpisuje zmian użytkowników.
 
-`npm run places:snapshot` pobiera publiczne dokumenty serwerowo do `.local/places.snapshot.json`. Zmienna `PLACES_SNAPSHOT=.local/places.snapshot.json` wybiera ten jeden plik jako wejście builda. Snapshot i poświadczenia są ignorowane przez Git. Walidator odrzuca dodatkowe pola zamiast umieszczać je w artefaktach.
+`npm run places:snapshot` pobiera publiczne dokumenty do `.local/places.snapshot.json` wyłącznie jako punkt odniesienia dla eksportu warsztatu i narzędzi operatora. Build i deploy nie odczytują snapshotu. Walidator odrzuca dodatkowe pola.
 
-`npm run build` generuje HTML `/`, karty i 404, indeks wyszukiwania, sitemapę oraz przekierowania ze starych slugów. Domyślne wejście offline nie potwierdza importu ani wdrożenia backendu. Build nie inicjalizuje mapy, Auth ani App Check. Dev pozostaje noindex; canonical i sitemap wskazują dev. W fazie 5 potrzebna osobna konfiguracja origin i indeksowania.
+`npm run build` generuje statyczne strony informacyjne i serwer SSR. Nie ładuje danych miejsc ani nie łączy się z bazą; dynamiczne dane szczegółów pobiera SSR/API w runtime. Dev pozostaje noindex.
 
 ## Testy i dostęp
 
@@ -29,7 +29,7 @@ Jedyny rekord faz 3–5: `place_sw_antoni`, bazylika św. Antoniego Padewskiego.
 
 `npm run test:emulator`: prawdziwe transakcje Firestore, równoczesny zapis, drafty, Auth, kontrola App Check w handlerach, zabronione pola i usuwanie. Testuje też blokadę bezpośrednich operacji Firestore i prywatnych plików Storage. Firebase CLI ładuje reguły i sprawdza ich składnię w emulatorach. Test lokalny nie dowodzi weryfikacji prawdziwych tokenów App Check — konieczny osobny odbiór na wdrożeniu.
 
-Firestore: wszystkie odczyty i zapisy przeglądarki zabronione, w tym podkolekcje. Storage: tylko odczyt `public/places/{placeId}/{referenceId}/{file}` bez logowania; pozostałe operacje zabronione. Backend/importer używają IAM, które omija reguły klienta. Nie ma bezpośredniego SDK Firestore we frontendzie.
+Firestore: wszystkie odczyty i zapisy przeglądarki zabronione, w tym podkolekcje. Storage udostępnia publiczne pliki tylko pod `public/materials/{materialId}/{file}`; operacje zapisu klienta są zabronione. Backend/importer używają IAM, które omija reguły klienta. Nie ma bezpośredniego SDK Firestore we frontendzie.
 
 Oceniono próby listowania draftów, obcego odczytu/zapisu, nadpisania pól, dodania właściciela/roli, manipulacji czasem/wersją, przepełnienia i dostępu do podkolekcji: każda bezpośrednia operacja klienta jest odcięta regułą `false`. Walidacja biznesowa działa osobno w API. Publiczna ścieżka Storage jest przeznaczona wyłącznie na pliki dopuszczone do publikacji przez importer.
 
@@ -51,7 +51,7 @@ Limit funkcji `maxInstances: 3`, minimum 0 ogranicza równoległość; alert bud
 - App Check: reCAPTCHA Enterprise, domeny `historyczny-rybnik-dev.web.app`, `localhost`, TTL 1h, egzekwowanie w obu callable. Publiczne klucze konfiguracji są w `runtime-config.ts`, tokeny debug nigdy tam nie trafiają.
 - Auth: Google, domena `historyczny-rybnik.firebaseapp.com`, autoryzowane przekierowania dev i localhost. Auth jest współdzielone z przyszłą produkcją na wyraźną decyzję właściciela.
 - Osobne konta i role: [manifest IAM](../../../infra/iam.dev.json). Wszystkie wiązania ról danych mają warunek nazwy bazy `places-dev`. API nie może tworzyć/usuwać dokumentów ani listować kolekcji; konto builda nie może zapisywać. Importer ma tworzenie i aktualizację, bez usuwania. `datastore.databases.get` jest uprawnieniem transakcji, nie administrowania bazą.
-- Operator może impersonować konta `places-dev-import` i `places-dev-build` bez plików kluczy. Lokalnie: `GCLOUD_PROJECT=historyczny-rybnik npm run places:import -- --apply --firebase-cli`. Build snapshotu: `GCLOUD_PROJECT=historyczny-rybnik npm run places:snapshot -- --firebase-cli`. Publikacja: `PLACES_USE_FIREBASE_CLI=1 npm run deploy:dev`. CI używa ADC/WIF dla `places-dev-build`; bieżący workflow PR buduje offline bez dostępu do chmury.
+- Operator może impersonować konta `places-dev-import` i `places-dev-build` bez plików kluczy. Aktualne polecenia wdrożeń i rezerwacji środowisk są w [dokumentacji środowisk](../srodowiska.md). Build aplikacji działa bez dostępu do bazy; snapshot służy wyłącznie warsztatowi i narzędziom operatora.
 - Budżet: 10 PLN/miesiąc wyłącznie dla projektu `301143182490`, alerty 50%, 90%, 100% do domyślnych odbiorców IAM konta billingowego. Artifact Registry `gcf-artifacts` w Warszawie usuwa obrazy starsze niż 1 dzień.
 
 `node scripts/places/check-live.mjs` sprawdza odmowę bez App Check, błędny App Check, brak Auth, zapis przy prawidłowych tokenach, konflikt i ponowny odczyt. `APP_CHECK_TOKEN` i `FIREBASE_ID_TOKEN` podaje operator z lokalnej sesji. Skrypt ponownie zapisuje zatwierdzoną pozycję; zwiększa wersję, ale nie przesuwa kościoła. Nie tworzy publicznego endpointu testowego.
