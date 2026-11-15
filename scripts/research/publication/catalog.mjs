@@ -60,6 +60,7 @@ export function projectPlace(p, data) {
     }),
     period: { status: period.status, explanation: period.explanation },
     published: true,
+    materials: [],
     mentions,
   };
 }
