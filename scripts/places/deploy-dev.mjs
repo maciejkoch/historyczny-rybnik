@@ -8,12 +8,7 @@ const run = (command, args, env = process.env) => {
 };
 const target = process.argv[2] || 'dev';
 if (!['dev', 'dev-1', 'dev-2', 'dev-3'].includes(target)) throw new Error('Unknown dev target');
-const operator = process.env['PLACES_USE_FIREBASE_CLI'] === '1' ? ['--firebase-cli'] : [];
-run(process.execPath, ['scripts/places/snapshot.mjs', ...operator], {
-  ...process.env,
-  GCLOUD_PROJECT: 'historyczny-rybnik',
-});
-run('npm', ['run', 'build'], { ...process.env, PLACES_SNAPSHOT: '.local/places.snapshot.json' });
+run('npm', ['run', 'build']);
 {
   const config = JSON.parse(readFileSync('.local/firebase.dev.json', 'utf8'));
   config.functions = [

@@ -283,34 +283,6 @@ function requireFixtureImage() {
   );
 }
 
-test('a 1938 contemporary advertisement proves activity without a fabricated historicalDate', async () => {
-  const { legacyPeriod } = await import('../migrations/legacy-period.mjs');
-  const ref = {
-    id: 'ad',
-    title: 'Sztandar Polski i Gazeta Rybnicka',
-    excerpt: 'Wzmianka o firmie A. Dział: Ogłoszenie prasowe.',
-    excerptType: 'summary',
-    publicationDate: { from: '1938', to: null, approximate: false },
-    historicalDate: null,
-    note: null,
-  };
-  assert.equal(legacyPeriod([ref]).status, 'confirmed');
-  assert.equal(ref.historicalDate, null);
-  assert.equal(
-    legacyPeriod([{ ...ref, excerpt: 'Artykuł wspomina rok 1890.' }]).status,
-    'unverified',
-  );
-  assert.equal(
-    legacyPeriod([{ ...ref, publicationDate: { from: '1950', to: null, approximate: false } }])
-      .status,
-    'unverified',
-  );
-  assert.equal(
-    legacyPeriod([{ ...ref, note: 'Powiązanie z tym miejscem jest przypuszczalne.' }]).status,
-    'probable',
-  );
-});
-
 test('unapproved unknown/restricted copies are retained without becoming public images', async (t) => {
   const { capture } = await import('../workspace/capture.mjs');
   const d = fixture();
@@ -421,7 +393,7 @@ test('documented dates retain separate 1920, 1928, 1945 evidence; no inferred co
   assert.throws(() => validateWorkspace(d));
 });
 
-test('historical publication keeps material identity and relocates legacy image paths consistently', async () => {
+test('historical publication keeps material identity and image paths consistently', async () => {
   const { publicationImages } = await import('../publication/assets.mjs');
   const d = fixture(),
     p = d.places[0],

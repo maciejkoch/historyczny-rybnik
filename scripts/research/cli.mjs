@@ -35,15 +35,6 @@ try {
         2,
       ),
     );
-  } else if (command === 'migrate') {
-    const { migrate } = await import('./migrations/import-catalog.mjs');
-    console.log(
-      await migrate({
-        root,
-        input: value('input') || '.local/places.snapshot.json',
-        apply: args.includes('--apply'),
-      }),
-    );
   } else if (command === 'capture') {
     const { capture } = await import('./workspace/capture.mjs');
     console.log(
@@ -99,7 +90,7 @@ try {
     );
   } else
     throw new Error(
-      'Użycie: research init|validate|capture|hydrate|migrate|export|pull|push|restore|report [--root=...] [--apply]',
+      'Użycie: research init|validate|capture|hydrate|export|pull|push|restore|report [--root=...] [--apply]',
     );
 } catch (e) {
   console.error(e.message);

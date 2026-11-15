@@ -65,7 +65,7 @@ Każda rewizja zawiera identyczne ścieżki i bajty, manifest SHA-256 i rozmiary
 
 ## Migracja i publikacja
 
-`migrations/workspace-v2-v3.mjs` jawnie przekształca schemat 2 w 3: wcześniejsze materiały stają się dokumentami, ustalenia wzmiankami, obrazy otrzymują odrębne rekordy i kwalifikację. Nie przyznaje automatycznie weryfikacji niepewnym faktom. `migrate` tworzy warsztat z katalogu tylko w pustym zbiorze. Stare ID dokumentów zachowujemy; nowe wzmianki i materiały mają trwałe ID. Pliki i decyzje praw pozostają zachowane; kopie wejścia i stare rewizje umożliwiają odtworzenie migracji.
+Warsztat działa wyłącznie na aktualnym schemacie 3. Nie utrzymujemy konwertera starszego schematu ani importu starego katalogu; testy korzystają bezpośrednio z danych schematu 3.
 
 Publiczny kontrakt miejsca używa mentions z documentedDate, verification, źródłem i materials z własnym datowaniem. `upgradePlace` jawnie migruje dawne references — zwykły odczyt pozostaje ścisły. Nowe badania nie włączają publicationApproved. Eksport wymaga zatwierdzonego miejsca i datowanych verified wzmianek, zachowuje resztę wskazanego katalogu, nie usuwa istniejących rekordów. Import chroni live location/version/timestamps transakcyjnie.
 

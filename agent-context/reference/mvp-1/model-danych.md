@@ -1,4 +1,4 @@
-> Aktualizacja 8 listopada 2026: poniższy dokument zachowuje wcześniejszy projekt MVP. Publiczny kontrakt używa teraz płaskich tags i period. Prywatny warsztat ma osobne źródła, materiały, kandydatów i historię badań; nowy model i procedury opisano w [data/places/README](../../../data/places/README.md) i TECHNICAL. Wcześniejsze zakazy osobnego rejestru materiałów dotyczą dawnego zakresu i nie opisują nowego warsztatu.
+> Zapis historyczny dawnego modelu `references/images`; nie jest bieżącą specyfikacją. Aktualny model opisuje [schemat miejsca](../place-schema.md), a działanie aplikacji [TECHNICAL.md](../../../TECHNICAL.md).
 
 # MVP.1 — model danych
 
@@ -145,7 +145,7 @@ Wycinki i miniatury przechowujemy pod `public/places/{placeId}/{referenceId}/...
 
 Każdy obraz zawiera `sha256` i `thumbnailSha256` publikowanych wariantów oraz obiekt `provenance`: tytuł, stronę źródłową, kolekcję oryginału, URL i SHA-256 oryginału, autora, wyjaśnienie datowania, nazwę i URL licencji lub oznaczenia praw, status `copyrighted`, datę sprawdzenia `rightsCheckedAt` (`YYYY-MM-DD`) i opis przekształceń `transformations`. Nieznanego autora lub datowania nie uzupełniamy domysłem — niepewność opisujemy tekstowo. Wszystkie te pola są publiczne.
 
-Dane te zapisujemy w Firestore przez importer; `data/places.fixture.json` zawiera dane testowe dla testów i buildów CI; może też służyć do jawnego importu testowego na dev. Wdrożenie dev pobiera aktualny snapshot Firestore. Nie utrzymujemy osobnego manifestu assetów ani pliku JSON z metadanymi źródła. Pliki binarne są w Storage, poza repozytorium. Do ponownego uploadu operator dostarcza lokalne kopie; skrypt sprawdza ich sumy względem dokumentu miejsca.
+Dane były zapisywane w Firestore przez importer. Obecnie fixture jest używany wyłącznie w testach, a aplikacja czyta Firestore przez API/SSR w runtime. Pliki binarne pozostają w Storage, poza repozytorium.
 
 - Nie zapisujemy obrazów jako base64 w Firestore.
 - Referencja może mieć sam opis i link, bez plików.

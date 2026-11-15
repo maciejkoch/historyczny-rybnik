@@ -1,4 +1,6 @@
-# Odbiór fazy 3
+# Odbiór fazy 3 — raport historyczny
+
+Wyniki poniżej dokumentują wydanie z 5 listopada 2026 i nie opisują aktualnego builda ani architektury danych. Bieżący stan jest w [TECHNICAL.md](../../../TECHNICAL.md).
 
 Data: 5 listopada 2026. Środowisko: stały dev, https://historyczny-rybnik-dev.web.app/. Gałąź `codex/mvp-phase-3`, PR do `main` (po scaleniu fazy 2). Commit aplikacji wdrożonej na dev: `3d3c930cea23476cef534b9a4314f89faf01fb57`. Późniejszy commit dokumentacji/testów nie zmienia artefaktów aplikacji.
 

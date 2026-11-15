@@ -160,7 +160,7 @@ const placeFields = {
     .max(30),
   district: text(200).nullable(),
   location: locationSchema,
-  materials: z.array(placeMaterialSchema).max(100).default([]),
+  materials: z.array(placeMaterialSchema).max(100),
   mentions: z.array(mentionSchema).max(100),
   locationVersion: versionSchema,
   updatedAt: timestampSchema,
@@ -242,10 +242,7 @@ function placeRelations(place, ctx) {
           path: ['mentions', index, 'materials', imageIndex],
         });
       for (const key of /** @type {const} */ (['storagePath', 'thumbnailPath'])) {
-        if (
-          !image[key].startsWith(`public/places/${place.id}/${ref.id}/`) &&
-          !image[key].startsWith('public/materials/')
-        )
+        if (!image[key].startsWith('public/materials/'))
           ctx.addIssue({
             code: 'custom',
             message: 'Asset belongs to another place or reference',
