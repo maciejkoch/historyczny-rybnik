@@ -17,7 +17,7 @@ if (!arg) {
     '--project',
     'historyczny-rybnik',
     '--only',
-    'functions:places-dev:placesDevRead,functions:places-dev:placesDevUpdate,functions:places-dev:placesDevWeb,firestore:places-dev,storage:places-dev,auth',
+    'functions:places-dev:placesDevRead,functions:places-dev:placesDevUpdate,functions:places-dev:placesDevCreate,functions:places-dev:placesDevSave,functions:places-dev:placesDevWeb,firestore:places-dev,storage:places-dev,auth',
   ]);
 } else {
   const root = resolve(arg.slice('--preserve-renderer='.length));
@@ -49,7 +49,7 @@ if (!arg) {
       '--project',
       'historyczny-rybnik',
       '--only',
-      'functions:places-dev:placesDevWeb',
+      'functions:places-dev:placesDevWeb,functions:places-dev:placesDevCreate,functions:places-dev:placesDevSave',
       '--non-interactive',
     ]);
   } finally {

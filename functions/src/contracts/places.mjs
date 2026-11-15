@@ -258,6 +258,18 @@ function placeRelations(place, ctx) {
   if (new TextEncoder().encode(JSON.stringify(place)).byteLength > 700000)
     ctx.addIssue({ code: 'custom', message: 'Document too large' });
 }
+export const publicPlaceContentSchema = basePlaceSchema
+  .omit({ id: true, locationVersion: true, updatedAt: true })
+  .superRefine((place, ctx) => {
+    if (place.previousSlugs.includes(place.slug))
+      ctx.addIssue({
+        code: 'custom',
+        message: 'Current slug cannot be previous slug',
+        path: ['slug'],
+      });
+    if (new Set(place.previousSlugs).size !== place.previousSlugs.length)
+      ctx.addIssue({ code: 'custom', message: 'Duplicate previous slug', path: ['previousSlugs'] });
+  });
 export const publicPlaceSchema = basePlaceSchema.superRefine(placeRelations);
 export const placeSchema = z
   .strictObject({ ...placeFields, published: z.boolean(), createdAt: timestampSchema })
@@ -295,6 +307,12 @@ export const writeRequestSchema = z.strictObject({
   placeId: idSchema,
   expectedLocationVersion: versionSchema.max(Number.MAX_SAFE_INTEGER - 1),
   location: knownLocationSchema,
+});
+export const createPlaceRequestSchema = publicPlaceContentSchema;
+export const updatePlaceRequestSchema = z.strictObject({
+  placeId: idSchema,
+  expectedUpdatedAt: timestampSchema,
+  place: publicPlaceContentSchema,
 });
 export const locationDtoSchema = z.strictObject({
   id: idSchema,

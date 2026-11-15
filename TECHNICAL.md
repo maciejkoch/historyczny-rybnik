@@ -45,8 +45,8 @@ Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje �
 | Obszar | Odpowiedzialność |
 | --- | --- |
 | `functions/src/public-places.mjs`, `public-web.mjs` | Jawne, walidowane projekcje publiczne; dynamiczny katalog, karta, sitemap i SSR. |
-| `functions/src/index.mjs` | Inicjalizuje Admin SDK i bazę `places-dev`, eksportuje callable API `placesDevRead` i `placesDevUpdate` w regionie `europe-central2`. Konfiguruje App Check, CORS, konto usługi i limity zasobów. |
-| `functions/src/service.mjs` | Realizuje odczyt publicznych pozycji i transakcyjny zapis lokalizacji, autoryzację, konflikty wersji oraz mapowanie danych Firestore na odpowiedź API. |
+| `functions/src/index.mjs` | Inicjalizuje Admin SDK i bazę `places-dev`, eksportuje callable API `placesDevRead`, `placesDevUpdate`, `placesDevCreate` i `placesDevSave` w regionie `europe-central2`. Konfiguruje App Check, CORS, konto usługi i limity zasobów. |
+| `functions/src/service.mjs` | Realizuje odczyt publicznych pozycji oraz transakcyjny zapis lokalizacji i pełnej karty, autoryzację, kontrolę wersji i unikalności slugów oraz mapowanie danych Firestore na odpowiedź API. |
 | `functions/src/validation.mjs` | Udostępnia walidację wejścia i katalogu oraz wspólny format błędów walidacji. |
 | `functions/src/contracts/places.mjs` | Schematy Zod współdzielone przez backend, frontend i skrypty publikacji; obejmują katalog, żądania i odpowiedzi. |
 | `functions/test/` | Testy logiki, kontraktów i walidacji oraz testy API i reguł w emulatorach. |
@@ -55,7 +55,7 @@ Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje �
 
 `placesDevRead`: App Check → walidacja listy identyfikatorów → odczyt opublikowanych dokumentów `places` → odpowiedź z lokalizacją, wersją i czasem aktualizacji. Nie wymaga zalogowanego użytkownika.
 
-`placesDevUpdate`: App Check i Google Auth → walidacja → transakcja porównująca `expectedLocationVersion` → zapis współrzędnych, zwiększenie wersji i czas serwera. Konflikt zwraca `aborted`; po zapisie API odczytuje bieżący stan dokumentu. Nie zapisuje historii pozycji. Account inicjalizuje Google Auth wyłącznie w przeglądarce po zgodzie na Google. Na desktopie nagłówek pokazuje nazwę użytkownika i rolę obok hamburgera. PortalMenu udostępnia na obu urządzeniach sekcje: konto i logowanie/wylogowanie, nawigacja, prywatność. Nagłówek pokazuje komunikaty błędów, Atlas podgląd punktu, dokładność, opcjonalny komentarz i zapis przez Locations.update. Zapis porównuje wersję z początku edycji; błąd wymaga sprawdzenia bieżącej pozycji i ponownego rozpoczęcia edycji. Bez dodatkowych kolekcji i blokad.
+`placesDevUpdate`: App Check, Google Auth i rola administratora → walidacja → transakcja porównująca `expectedLocationVersion` → zapis współrzędnych, zwiększenie wersji i czas serwera. `placesDevCreate` i `placesDevSave` wymagają tych samych uprawnień oraz walidują pełny kontrakt miejsca. Zapis edycji porównuje `expectedUpdatedAt`, sprawdza kolizje bieżących i poprzednich slugów, zachowuje pola techniczne, podnosi `locationVersion` przy zmianie lokalizacji i nadaje `updatedAt` po stronie serwera. Konflikt zwraca `aborted`; po zapisie API odczytuje bieżący stan dokumentu. Nie zapisuje historii. Account inicjalizuje Google Auth i App Check wyłącznie w przeglądarce po zgodzie na Google. W panelu „Miejsca” administrator może rozpocząć tworzenie karty, a z karty otworzyć Signal Form. Formularz obejmuje pola redakcyjne, tagi, adresy, lokalizację, wzmianki i materiały. Zapis wywołuje `Locations.savePlace`; edycja wzmiankowych materiałów nie przesyła plików do Storage.
 
 ## Schemat miejsca
 
@@ -125,9 +125,9 @@ Szczegóły zgód i ich odbioru: [cookie-consent.md](agent-context/reference/mvp
 
 Trzy witryny `historyczny-rybnik-dev-1`, `-2`, `-3` mają osobne konfiguracje `firebase.dev-N.json` i polecenia `deploy:dev-N`. Współdzielą istniejący backend dev; domeny dopuszczono w CORS, Auth i App Check. Atomowe blokady `env-lock/dev-N` oraz pole Środowisko w Projects określają rezerwacje. Pełny proces: [środowiska](agent-context/reference/mvp-1/srodowiska.md). Stały dev służy integracji.
 
-Rola administratora: custom claim `admin: true` w Firebase Auth. Rejestracja i przeglądanie są publiczne; zapis lokalizacji wymaga Google Auth, App Check i roli admina. Rola dociera do klienta przy wydaniu nowego tokenu, np. po ponownym logowaniu. Odebranie roli nie unieważnia już wydanego tokenu (ważnego do około godziny).
+Rola administratora: custom claim `admin: true` w Firebase Auth. Rejestracja i przeglądanie są publiczne; zapis lokalizacji oraz tworzenie i edycja kart wymagają Google Auth, App Check i roli admina, sprawdzanej niezależnie po stronie Functions. Rola dociera do klienta przy wydaniu nowego tokenu, np. po ponownym logowaniu. Odebranie roli nie unieważnia już wydanego tokenu (ważnego do około godziny).
 
-Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
+Podczas edycji karty wybór miejsca na mapie jest jawnie uruchamiany z formularza. Współrzędne można też wpisać bezpośrednio. Przyciski Zapisz i Anuluj są przyklejone do dołu karty. Zapis pełnej karty aktualizuje jednocześnie wersję lokalizacji tylko wtedy, gdy zmienił się punkt, dokładność lub wyjaśnienie.
 
 ## Pełny katalog na dev
 

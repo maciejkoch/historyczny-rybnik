@@ -7,6 +7,8 @@ import {
   timestampSchema,
   readRequestSchema,
   writeRequestSchema,
+  createPlaceRequestSchema,
+  updatePlaceRequestSchema,
 } from './contracts/places.mjs';
 export const ValidationError = z.ZodError;
 export const validatePlace = (value) => placeSchema.parse(value);
@@ -15,3 +17,5 @@ export const partialDate = (value) => partialDateSchema.parse(value);
 export const timestamp = (value) => timestampSchema.parse(value);
 export const readRequest = (value) => readRequestSchema.parse(value).ids;
 export const writeRequest = (value) => writeRequestSchema.parse(value);
+export const createPlaceRequest = (value) => createPlaceRequestSchema.parse(value);
+export const updatePlaceRequest = (value) => updatePlaceRequestSchema.parse(value);

@@ -2,9 +2,9 @@
 
 Kod Angulara, konfiguracja i style. `app/atlas/` zawiera panele, `app/atlas-map/` mapę, `app/places/` katalog i pozycje, `app/privacy/` zgody i politykę prywatności. `app/layout/` udostępnia wspólny nagłówek, stopkę, mobilny toolbar oraz globalne menu z nawigacją i oddzielną sekcją prywatności. Współdzielone kontrakty danych są w `functions/src/contracts/`. Punkty wejścia obsługują przeglądarkę, strony prerenderowane i SSR kart miejsc.
 
-`places/account.ts` obsługuje Google Auth i rolę admina. Nagłówek pokazuje konto obok hamburgera na desktopie; wspólne menu udostępnia sekcję konta i akcje logowania na obu urządzeniach. Atlas obsługuje edycję lokalizacji.
+`places/account.ts` obsługuje Google Auth i rolę administratora. Nagłówek pokazuje konto obok hamburgera na desktopie; wspólne menu udostępnia sekcję konta i akcje logowania na obu urządzeniach. Administrator może z panelu Miejsca dodać kartę albo edytować istniejącą przez Signal Form z przyklejonymi przyciskami zapisu i anulowania.
 
-Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
+Edytor obejmuje pola karty, istniejące i nowe tagi, lokalizację, adresy, wzmianki i materiały galerii. Wskazanie punktu uruchamia się przyciskiem w formularzu; galerię i wzmianki można edytować jako JSON, bez uploadu plików.
 
 Mapa grupuje pobliskie miejsca przy oddaleniu, animuje zmianę grup, pokazuje liczbę miejsc i przybliża po wyborze grupy. `app/atlas-map/group-markers.ts` zarządza znacznikami i przejściami grup, a `cluster-visibility.ts` rozstrzyga nakładanie się wyników kafelków. Wybrane miejsce zachowuje osobny znacznik.
 

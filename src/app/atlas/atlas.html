@@ -6,16 +6,16 @@
   class="atlas-shell"
   appPanelLayout
   #searchLayout="panelLayout"
-  [split]="hasDetails()"
+  [split]="panelVisible()"
   [class.screen-map]="screen() === 'map'"
   [class.screen-search]="screen() === 'search'"
   [class.screen-place]="screen() === 'place'"
-  [class.has-details]="hasDetails()"
+  [class.has-details]="panelVisible()"
   [class.sheet-open]="sheetOpen()"
   [class.sheet-animating]="sheetAnimating()"
   [style.--mobile-header-height]="headerHeight() + 'px'"
-  [style.--details-width]="hasDetails() ? detailsLayout.panelWidth() + 'px' : '0px'"
-  [style.--details-separator-width]="hasDetails() && !detailsLayout.isCollapsed() ? '8px' : '0px'"
+  [style.--details-width]="panelVisible() ? detailsLayout.panelWidth() + 'px' : '0px'"
+  [style.--details-separator-width]="panelVisible() && !detailsLayout.isCollapsed() ? '8px' : '0px'"
 >
   <div class="sidebar">
     <div class="search-toolbar">
@@ -64,23 +64,27 @@
       id="tresc"
       class="content-panel search-panel"
       tabindex="-1"
-      [hidden]="searchLayout.isCollapsed()"
+      [hidden]="searchLayout.isCollapsed() || editing()"
     >
-      <app-place-search-panel
-        [status]="publicPlaces.status()"
-        (retry)="publicPlaces.load()"
-        [query]="query()"
-        [tags]="tags()"
-        [selectedTag]="selectedTag()"
-        (tagChanged)="selectedTag.set($event)"
-        [withoutLocation]="withoutLocation()"
-        (withoutLocationChanged)="withoutLocation.set($event)"
-        [mobilePage]="screen() === 'search'"
-        [results]="results()"
-        [selectedId]="selected()?.id"
-        (queryChanged)="updateQuery($event)"
-        (placeSelected)="select($event)"
-      />
+      @if (!editing()) {
+        <app-place-search-panel
+          [status]="publicPlaces.status()"
+          [canEdit]="account.admin()"
+          (addPlace)="startCreatingPlace()"
+          (retry)="publicPlaces.load()"
+          [query]="query()"
+          [tags]="tags()"
+          [selectedTag]="selectedTag()"
+          (tagChanged)="selectedTag.set($event)"
+          [withoutLocation]="withoutLocation()"
+          (withoutLocationChanged)="withoutLocation.set($event)"
+          [mobilePage]="screen() === 'search'"
+          [results]="results()"
+          [selectedId]="selected()?.id"
+          (queryChanged)="updateQuery($event)"
+          (placeSelected)="select($event)"
+        />
+      }
     </main>
   </div>
   <div
@@ -121,7 +125,7 @@
   >
     <app-atlas-map
       [places]="results()"
-      [editing]="editing()"
+      [editing]="mapPointPicking()"
       [draftPoint]="draftPoint()"
       (pointPicked)="pickPoint($event)"
       [selected]="selected()"
@@ -147,11 +151,13 @@
     #detailsLayout="panelLayout"
     side="right"
     [split]="true"
-    [hidden]="!hasDetails() && !sheetAnimating()"
-    [inert]="!hasDetails() || !sheetOpen()"
-    [attr.aria-hidden]="!hasDetails() ? 'true' : null"
+    [hidden]="!panelVisible() && !sheetAnimating()"
+    [inert]="!panelVisible() || !sheetOpen()"
+    [attr.aria-hidden]="!panelVisible() ? 'true' : null"
     (transitionend)="finishSheetTransition($event)"
-    aria-label="Szczegóły miejsca"
+    [attr.aria-label]="
+      editing() ? (creatingPlace() ? 'Dodawanie miejsca' : 'Edycja miejsca') : 'Szczegóły miejsca'
+    "
   >
     <div
       class="panel-separator details-separator"
@@ -187,12 +193,14 @@
             [attr.aria-expanded]="!detailsLayout.isCollapsed()"
             [attr.aria-label]="
               detailsLayout.isCollapsed()
-                ? 'Rozwiń kartę: ' + (selected()?.name || 'miejsce')
+                ? 'Rozwiń kartę: ' +
+                  (selected()?.name || (creatingPlace() ? 'nowe miejsce' : 'miejsce'))
                 : 'Zwiń szczegóły'
             "
             [attr.title]="
               detailsLayout.isCollapsed()
-                ? 'Rozwiń kartę: ' + (selected()?.name || 'miejsce')
+                ? 'Rozwiń kartę: ' +
+                  (selected()?.name || (creatingPlace() ? 'nowe miejsce' : 'miejsce'))
                 : 'Zwiń szczegóły'
             "
             (click)="detailsLayout.toggle()"
@@ -252,67 +260,28 @@
         aria-label="Opis miejsca"
         [hidden]="detailsLayout.isCollapsed()"
       >
-        @if (!selected() && publicPlaces.detailStatus() === 'missing') {
+        @if (editing()) {
+          <app-place-editor
+            [place]="editorPlace()"
+            [tags]="allTags()"
+            [pickedPoint]="draftPoint()"
+            [pickingPoint]="mapPointPicking()"
+            (requestPoint)="mapPointPicking.set(true)"
+            (cancel)="cancelEditing()"
+            (saved)="savePlace($event)"
+          />
+        } @else if (!selected() && publicPlaces.detailStatus() === 'missing') {
           <p role="status">Nie znaleziono tego miejsca.</p>
         } @else if (!selected() && publicPlaces.detailStatus() === 'error') {
           <p role="alert">Nie udało się pobrać miejsca. Odśwież stronę, aby spróbować ponownie.</p>
+        } @else {
+          <app-place-details-panel
+            [place]="selected()"
+            [canEdit]="account.admin()"
+            (editRequested)="startEditing()"
+            (imageOpened)="enlarged.set($event)"
+          />
         }
-        <app-place-details-panel [place]="selected()" (imageOpened)="enlarged.set($event)">
-          <div location-actions>
-            @if (selected()) {
-              @if (account.user() && !account.admin()) {
-                <p>Edycja lokalizacji jest obecnie dostępna tylko dla administratorów.</p>
-              } @else if (!editing()) {
-                <button class="btn btn-outline" type="button" (click)="startEditing()">
-                  {{
-                    account.user() ? 'Popraw lokalizację' : 'Zaloguj się, aby poprawić lokalizację'
-                  }}
-                </button>
-              } @else {
-                <fieldset [disabled]="saving()" class="location-editor">
-                  <legend>Popraw lokalizację</legend>
-                  <p>Kliknij punkt na mapie. Podgląd nie jest jeszcze zapisany.</p>
-                  @if (draftPoint(); as point) {
-                    <p class="text-xs text-muted">
-                      Współrzędne: {{ point.lat.toFixed(6) }}, {{ point.lng.toFixed(6) }}
-                    </p>
-                  }
-                  <label
-                    >Dokładność
-                    <select
-                      [value]="precision()"
-                      (change)="precision.set($any($event.target).value)"
-                    >
-                      <option value="approximate">Przybliżona</option>
-                      <option value="building">Wskazany budynek</option>
-                    </select></label
-                  >
-                  <label
-                    >Komentarz (opcjonalnie)
-                    <textarea
-                      maxlength="2000"
-                      [value]="explanation()"
-                      (input)="explanation.set($any($event.target).value)"
-                    ></textarea>
-                  </label>
-                  <p>Zapis od razu opublikuje nową lokalizację.</p>
-                  <button
-                    class="btn btn-primary"
-                    type="button"
-                    [disabled]="needsRestart() || !draftPoint()"
-                    (click)="saveLocation()"
-                  >
-                    {{ saving() ? 'Zapisywanie…' : 'Zapisz lokalizację' }}
-                  </button>
-                  <button class="btn" type="button" (click)="cancelEditing()">Anuluj</button>
-                </fieldset>
-              }
-              @if (editMessage()) {
-                <p role="status">{{ editMessage() }}</p>
-              }
-            }
-          </div>
-        </app-place-details-panel>
       </section>
     </div>
   </aside>

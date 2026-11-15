@@ -1,0 +1,238 @@
+<form
+  class="place-editor"
+  aria-labelledby="place-editor-title"
+  novalidate
+  (submit)="$event.preventDefault(); save()"
+>
+  <header class="editor-heading">
+    <p class="eyebrow">{{ isNew ? 'Nowa karta' : 'Edycja karty' }}</p>
+    <h1 id="place-editor-title">{{ isNew ? 'Dodaj miejsce' : 'Edytuj miejsce' }}</h1>
+  </header>
+
+  <fieldset class="editor-fields" [disabled]="saving()">
+    <legend class="sr-only">Pola karty miejsca</legend>
+    <label class="form-control">
+      <span class="label-text">Nazwa miejsca</span>
+      <input
+        class="input input-bordered w-full"
+        [formField]="editorForm.name"
+        (input)="nameChanged($any($event.target).value)"
+      />
+      @if (editorForm.name().invalid() && editorForm.name().touched()) {
+        <span class="text-error">{{ editorForm.name().errors()[0].message }}</span>
+      }
+    </label>
+
+    <label class="form-control">
+      <span class="label-text">Adres karty</span>
+      <input
+        class="input input-bordered w-full"
+        [formField]="editorForm.slug"
+        (input)="slugChanged($any($event.target).value)"
+      />
+      <span class="label-text-alt">Małe litery, cyfry i łączniki.</span>
+      @if (editorForm.slug().invalid() && editorForm.slug().touched()) {
+        <span class="text-error">{{ editorForm.slug().errors()[0].message }}</span>
+      }
+    </label>
+
+    <label class="form-control">
+      <span class="label-text">Opis</span>
+      <textarea
+        class="textarea textarea-bordered w-full"
+        rows="5"
+        [formField]="editorForm.description"
+      ></textarea>
+      @if (editorForm.description().invalid() && editorForm.description().touched()) {
+        <span class="text-error">{{ editorForm.description().errors()[0].message }}</span>
+      }
+    </label>
+
+    <fieldset class="editor-section">
+      <legend>Tagi</legend>
+      <div class="tag-options">
+        @for (tag of allTags(); track tag.id) {
+          <label class="label cursor-pointer justify-start gap-2">
+            <input
+              class="checkbox checkbox-primary checkbox-sm"
+              type="checkbox"
+              [checked]="isTagSelected(tag.id)"
+              (change)="toggleTag(tag.id)"
+            />
+            <span>{{ tag.name }}</span>
+          </label>
+        }
+      </div>
+      <div class="join new-tag">
+        <label class="sr-only" for="new-place-tag">Nowy tag</label>
+        <input
+          id="new-place-tag"
+          class="input input-bordered join-item"
+          [value]="newTagName()"
+          (input)="newTagName.set($any($event.target).value)"
+          (keydown.enter)="$event.preventDefault(); addTag()"
+          placeholder="Dodaj nowy tag"
+        />
+        <button class="btn btn-outline join-item" type="button" (click)="addTag()">
+          Dodaj tag
+        </button>
+      </div>
+      <p class="text-xs opacity-70">Pierwszy wybrany tag będzie głównym tagiem miejsca.</p>
+    </fieldset>
+
+    <fieldset class="editor-section">
+      <legend>Okres międzywojenny</legend>
+      <label class="form-control">
+        <span class="label-text">Ocena</span>
+        <select class="select select-bordered w-full" [formField]="editorForm.periodStatus">
+          <option value="confirmed">Potwierdzone</option>
+          <option value="probable">Prawdopodobne</option>
+          <option value="unverified">Niezweryfikowane</option>
+        </select>
+      </label>
+      <label class="form-control">
+        <span class="label-text">Uzasadnienie</span>
+        <textarea
+          class="textarea textarea-bordered w-full"
+          rows="3"
+          [formField]="editorForm.periodExplanation"
+        ></textarea>
+        @if (editorForm.periodExplanation().invalid() && editorForm.periodExplanation().touched()) {
+          <span class="text-error">{{ editorForm.periodExplanation().errors()[0].message }}</span>
+        }
+      </label>
+    </fieldset>
+
+    <label class="form-control">
+      <span class="label-text">Dzielnica</span>
+      <input class="input input-bordered w-full" [formField]="editorForm.district" />
+    </label>
+
+    <label class="form-control">
+      <span class="label-text">Inne nazwy — każda w osobnym wierszu</span>
+      <textarea
+        class="textarea textarea-bordered w-full"
+        rows="3"
+        [formField]="editorForm.aliases"
+      ></textarea>
+    </label>
+
+    <label class="form-control">
+      <span class="label-text">Poprzednie adresy kart — każdy w osobnym wierszu</span>
+      <textarea
+        class="textarea textarea-bordered w-full"
+        rows="2"
+        [formField]="editorForm.previousSlugs"
+      ></textarea>
+    </label>
+
+    <fieldset class="editor-section">
+      <legend>Lokalizacja</legend>
+      <label class="label cursor-pointer justify-start gap-3">
+        <input
+          class="checkbox checkbox-primary"
+          type="checkbox"
+          [checked]="model().locationMode === 'known'"
+          (change)="setLocationMode($any($event.target).checked)"
+        />
+        <span>Dodaj punkt na mapie</span>
+      </label>
+      @if (model().locationMode === 'known') {
+        <button class="btn btn-outline" type="button" (click)="requestPoint.emit()">
+          Wskaż punkt na mapie
+        </button>
+        @if (pickingPoint()) {
+          <p class="alert" role="status">Kliknij wybrane miejsce na mapie.</p>
+        }
+        <div class="coordinate-grid">
+          <label class="form-control"
+            ><span class="label-text">Szerokość</span
+            ><input
+              class="input input-bordered"
+              inputmode="decimal"
+              [value]="model().latitude"
+              (input)="setCoordinate('latitude', $any($event.target).value)"
+          /></label>
+          <label class="form-control"
+            ><span class="label-text">Długość</span
+            ><input
+              class="input input-bordered"
+              inputmode="decimal"
+              [value]="model().longitude"
+              (input)="setCoordinate('longitude', $any($event.target).value)"
+          /></label>
+        </div>
+        <label class="form-control">
+          <span class="label-text">Dokładność</span>
+          <select class="select select-bordered w-full" [formField]="editorForm.precision">
+            <option value="approximate">Przybliżona</option>
+            <option value="building">Wskazany budynek</option>
+          </select>
+        </label>
+      }
+      <label class="form-control">
+        <span class="label-text">Wyjaśnienie lokalizacji</span>
+        <textarea
+          class="textarea textarea-bordered w-full"
+          rows="2"
+          [formField]="editorForm.locationExplanation"
+        ></textarea>
+      </label>
+      <p class="text-xs opacity-70">
+        Po kliknięciu „Wskaż punkt na mapie” wybierz miejsce kliknięciem na mapie.
+      </p>
+    </fieldset>
+
+    <label class="form-control">
+      <span class="label-text">Adresy (JSON)</span>
+      <span class="text-xs opacity-70"
+        >Lista obiektów z polami type („historical” lub „current”) i text.</span
+      >
+      <textarea
+        class="textarea textarea-bordered json-editor"
+        rows="6"
+        [formField]="editorForm.addressesJson"
+        spellcheck="false"
+      ></textarea>
+    </label>
+
+    <label class="form-control">
+      <span class="label-text">Wzmianki, źródła i materiały źródłowe (JSON)</span>
+      <span class="text-xs opacity-70"
+        >Zachowaj wymagane pola kontraktu miejsca. Dane muszą przejść walidację przed zapisem.</span
+      >
+      <textarea
+        class="textarea textarea-bordered json-editor"
+        rows="12"
+        [formField]="editorForm.mentionsJson"
+        spellcheck="false"
+      ></textarea>
+    </label>
+
+    <label class="form-control">
+      <span class="label-text">Galeria miejsca (JSON)</span>
+      <span class="text-xs opacity-70"
+        >Lista metadanych galerii. Ten formularz nie przesyła plików do Storage.</span
+      >
+      <textarea
+        class="textarea textarea-bordered json-editor"
+        rows="12"
+        [formField]="editorForm.materialsJson"
+        spellcheck="false"
+      ></textarea>
+    </label>
+  </fieldset>
+
+  @if (message()) {
+    <p class="alert alert-error" role="alert">{{ message() }}</p>
+  }
+
+  <footer class="editor-actions">
+    <button class="btn btn-primary" type="button" [disabled]="saving()" (click)="save()">
+      {{ saving() ? 'Zapisywanie…' : 'Zapisz miejsce' }}
+    </button>
+    <button class="btn btn-outline" type="button" [disabled]="saving()" (click)="cancel.emit()">
+      Anuluj
+    </button>
+  </footer>
+</form>

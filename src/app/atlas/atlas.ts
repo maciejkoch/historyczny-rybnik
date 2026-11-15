@@ -25,6 +25,7 @@ import { Place, PlaceSummary } from '../places/place';
 import { filterPlaces } from '../places/place-filter';
 import { PlaceSearchPanel } from './place-search-panel';
 import { PlaceDetailsPanel } from './place-details-panel';
+import { PlaceEditor } from './place-editor';
 import { MobileNavigation } from '../layout/mobile-navigation/mobile-navigation';
 import { PortalHeader } from '../layout/portal-header/portal-header';
 @Component({
@@ -34,6 +35,7 @@ import { PortalHeader } from '../layout/portal-header/portal-header';
     PanelLayout,
     PlaceSearchPanel,
     PlaceDetailsPanel,
+    PlaceEditor,
     MobileNavigation,
     PortalHeader,
   ],
@@ -53,82 +55,71 @@ export class Atlas {
   readonly markerCategory = markerCategory;
   readonly markerIcon = markerIcon;
   readonly editing = signal(false);
+  readonly creatingPlace = signal(false);
+  readonly editorPlace = signal<Place | null>(null);
+  readonly mapPointPicking = signal(false);
+  readonly placeOverride = signal<Place | null>(null);
   readonly draftPoint = signal<{ lat: number; lng: number } | null>(null);
-  readonly precision = signal<'building' | 'approximate'>('approximate');
-  readonly explanation = signal('');
-  readonly saving = signal(false);
-  readonly needsRestart = signal(false);
-  readonly editMessage = signal('');
-  private editVersion = 0;
-  private editId = '';
+  readonly panelVisible = computed(() => this.hasDetails() || this.editing());
   async startEditing(): Promise<void> {
     if (!this.account.user()) {
       await this.account.toggle();
       return;
     }
     if (!this.account.admin()) return;
-    const selected = this.selected();
-    if (selected) await this.locations.refresh([selected.id]);
     const place = this.selected();
-    if (!place || this.locations.status() !== 'ready' ||
-        !this.locations.current().some((current) => current.id === place.id)) {
-      this.editMessage.set('Nie można pobrać bieżącej pozycji. Spróbuj ponownie.');
+    if (!place) return;
+    this.editorPlace.set(place);
+    this.creatingPlace.set(false);
+    this.mapPointPicking.set(false);
+    this.draftPoint.set(null);
+    this.editing.set(true);
+    this.detailsLayout()?.expand();
+    if (!this.isDesktop()) this.sheetOpen.set(true);
+    requestAnimationFrame(() => this.focusDetails());
+  }
+
+  async startCreatingPlace(): Promise<void> {
+    if (!this.account.user()) {
+      await this.account.toggle();
       return;
     }
-    this.needsRestart.set(false);
-    this.editVersion = place.locationVersion;
-    this.editId = place.id;
-    this.draftPoint.set(place.location.coordinates);
-    this.precision.set(place.location.precision === 'building' ? 'building' : 'approximate');
-    this.explanation.set(place.location.explanation ?? '');
-    this.editMessage.set('');
+    if (!this.account.admin()) return;
+    this.returnToSearch = this.screen() !== 'map';
+    this.editorPlace.set(null);
+    this.creatingPlace.set(true);
+    this.mapPointPicking.set(false);
+    this.draftPoint.set(null);
     this.editing.set(true);
+    this.detailsLayout()?.expand();
+    if (!this.isDesktop()) this.sheetOpen.set(true);
+    requestAnimationFrame(() => this.focusDetails());
   }
+
   cancelEditing(): void {
     this.editing.set(false);
+    this.creatingPlace.set(false);
+    this.editorPlace.set(null);
+    this.mapPointPicking.set(false);
     this.draftPoint.set(null);
   }
+
   pickPoint(point: { lat: number; lng: number }): void {
-    if (this.editing() && !this.saving()) this.draftPoint.set(point);
-  }
-  async saveLocation(): Promise<void> {
-    const point = this.draftPoint();
-    if (
-      this.needsRestart() ||
-      this.saving() ||
-      !point ||
-      !Number.isFinite(point.lat) ||
-      !Number.isFinite(point.lng) ||
-      Math.abs(point.lat) > 90 ||
-      Math.abs(point.lng) > 180 ||
-      !this.account.admin()
-    )
-      return;
-    this.saving.set(true);
-    try {
-      await this.locations.update({
-        placeId: this.editId,
-        expectedLocationVersion: this.editVersion,
-        location: {
-          coordinates: point,
-          precision: this.precision(),
-          explanation: this.explanation().trim(),
-        },
-      });
-      this.cancelEditing();
-      this.editMessage.set('Lokalizacja została zapisana.');
-    } catch (error) {
-      await this.locations.refresh([this.editId]);
-      const code = (error as { code?: string }).code;
-      this.editMessage.set(
-        code === 'functions/aborted'
-          ? 'Lokalizacja została zmieniona. Anuluj edycję i spróbuj ponownie.'
-          : 'Nie udało się potwierdzić zapisu. Sprawdź bieżącą pozycję przed ponowieniem.',
-      );
-      this.needsRestart.set(true);
-    } finally {
-      this.saving.set(false);
+    if (this.mapPointPicking()) {
+      this.draftPoint.set(point);
+      this.mapPointPicking.set(false);
     }
+  }
+
+  async savePlace(place: Place): Promise<void> {
+    if (!this.account.admin()) return;
+    const wasNew = this.creatingPlace();
+    const previousSlug = this.editorPlace()?.slug;
+    this.publicPlaces.upsert(place);
+    this.placeOverride.set(place);
+    this.cancelEditing();
+    if (wasNew || (previousSlug !== undefined && previousSlug !== place.slug))
+      await this.router.navigate(['/miejsca', place.slug]);
   }
   readonly locations = inject(Locations);
   readonly publicPlaces = inject(PublicPlaces);
@@ -150,6 +141,8 @@ export class Atlas {
   readonly selected = computed<Place | null>(() => {
     const place = this.params()['place'] as Place | null | undefined;
     if (!place) return null;
+    const override = this.placeOverride();
+    if (override?.id === place.id) return override;
     const current = this.locations.current().find((value) => value.id === place.id);
     return current ? { ...place, ...current } : place;
   });
@@ -159,6 +152,11 @@ export class Atlas {
       const tag = place.tags[0];
       if (tag) tags.set(tag.id, tag);
     }
+    return [...tags.values()].sort((a, b) => a.name.localeCompare(b.name, 'pl'));
+  });
+  readonly allTags = computed(() => {
+    const tags = new Map<string, { id: string; name: string }>();
+    for (const place of this.places()) for (const tag of place.tags) tags.set(tag.id, tag);
     return [...tags.values()].sort((a, b) => a.name.localeCompare(b.name, 'pl'));
   });
   readonly results = computed(() =>
@@ -238,6 +236,7 @@ export class Atlas {
       if (event instanceof NavigationStart) {
         this.cancelEditing();
         const target = event.url.split(/[?#]/)[0];
+        if (this.placeOverride()?.slug !== target.split('/').at(-1)) this.placeOverride.set(null);
         this.animateNextNavigation =
           !this.isDesktop() &&
           !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
@@ -314,10 +313,13 @@ export class Atlas {
     this.detailsPanel()
       ?.nativeElement.querySelector<HTMLElement>('#place-title')
       ?.focus({ preventScroll: true });
+    this.detailsPanel()
+      ?.nativeElement.querySelector<HTMLElement>('#place-editor-title')
+      ?.focus({ preventScroll: true });
   }
 
   select(place: PlaceSummary): void {
-    if (this.saving() || this.editing()) return;
+    if (this.editing()) return;
     this.cancelEditing();
     if (this.screen() !== 'place') this.returnToSearch = this.screen() === 'search';
     const path = '/miejsca/' + place.slug;

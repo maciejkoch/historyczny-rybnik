@@ -1,5 +1,12 @@
 @if (place(); as place) {
-  <h1 id="place-title" tabindex="-1">{{ place.name }}</h1>
+  <div class="flex items-start justify-between gap-3">
+    <h1 id="place-title" tabindex="-1">{{ place.name }}</h1>
+    @if (canEdit()) {
+      <button class="btn btn-outline btn-sm shrink-0" type="button" (click)="editRequested.emit()">
+        Edytuj miejsce
+      </button>
+    }
+  </div>
   @if (primaryMaterial(); as primary) {
     <figure class="primary-image">
       <button
@@ -48,7 +55,6 @@
           : 'Brak lokalizacji'
       }}
     </span>
-    <ng-content select="[location-actions]" />
   </div>
   @if (place.materials.length) {
     <section aria-labelledby="gallery-title">

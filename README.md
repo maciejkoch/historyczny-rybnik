@@ -14,7 +14,7 @@ Aplikacja do poznawania historii Rybnika przez mapę i miejsca.
 - Ustawienia prywatności: osobne zgody na zapamiętywanie ustawień oraz usługi Google do logowania i edycji. Aktualne opublikowane miejsca są dostępne także bez zgody.
 - Globalne menu we wspólnym górnym nagłówku: panel z prawej na telefonie i menu rozwijane na komputerze. Mapa i wyszukiwanie są oddzielone od polityki prywatności oraz ustawień cookies.
 
-Administratorzy zalogowani przez Google mogą poprawiać lokalizację: wskazać punkt, określić dokładność i opcjonalny komentarz oraz jawnie zapisać zmianę. Logowanie i wylogowanie są dostępne w sekcji konta u góry menu. Na komputerze nazwa użytkownika jest także widoczna obok hamburgera. Zapis sprawdza wersję pozycji, bez blokad edycji.
+Administrator zalogowany przez Google może dodać miejsce z panelu „Miejsca” albo edytować kartę. Formularz obejmuje pola widoczne na karcie, tagi istniejące i nowe oraz wskazanie punktu na mapie. Przyciski zapisu i anulowania pozostają widoczne podczas przewijania. Logowanie i wylogowanie są dostępne w sekcji konta u góry menu.
 
 ## Dokumentacja
 
@@ -27,9 +27,9 @@ Administratorzy zalogowani przez Google mogą poprawiać lokalizację: wskazać 
 
 Opis funkcji aktualizujemy w tej samej zmianie, która zmienia zachowanie aplikacji.
 
-Każdy może zalogować się przez Google. Edycja lokalizacji jest obecnie dostępna tylko dla administratorów; rolami zarządza operator.
+Każdy może zalogować się przez Google. Edycja lokalizacji i kart jest dostępna tylko dla administratorów; rolami zarządza operator.
 
-Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
+Zapis miejsca wymaga roli administratora, Google Auth i App Check. Backend sprawdza wersję rekordu i unikalność adresu karty; zmiany treści lub lokalizacji są od razu publiczne. Wzmianki i dane galerii można edytować w formularzu jako walidowany JSON; przesyłanie plików galerii pozostaje osobną operacją.
 
 Katalog dev zawiera 200 miejsc: 196 przeniesionych z MVP.0 i cztery punkty sprzedaży benzyny potwierdzone w źródłach. Lokalizacje kandydackie pozostają nieustalone; kopie dawnych wycinków bez potwierdzonej podstawy publikacji są wyłączone, referencje zawierają odnośniki do źródeł.
 

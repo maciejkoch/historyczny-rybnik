@@ -4,67 +4,67 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 
 ## Pliki w scripts/
 
-| Plik | Rola |
-| --- | --- |
-| [maps/prepare_history.py](maps/prepare_history.py) | Dopasowuje skan planu, generuje kafelki WebP, manifest i granice nakładki. |
-| [maps/register_scans.py](maps/register_scans.py) | Wyznacza kandydatów punktów dopasowania na podstawie lokalnych obrazów odniesienia; narzędzie opcjonalne. |
-| [maps/cluster-visibility.test.mjs](maps/cluster-visibility.test.mjs) | Sprawdza usuwanie nakładających się grup kafelków różnych poziomów. |
-| [maps/test_georeference.py](maps/test_georeference.py) | Testuje georeferencję, transformację odwrotną i walidację punktów. |
-| [places/catalog.mjs](places/catalog.mjs) | Waliduje wejście i generuje konfigurację Hosting; dynamiczne dane, sitemapę i przekierowania obsługuje backend. |
-| [places/check-live.mjs](places/check-live.mjs) | Sprawdza działające API dev, App Check, Google Auth i konflikt wersji. Wykonuje rzeczywisty zapis lokalizacji testowego kościoła; wymaga tokenów w środowisku. |
-| [places/deploy-dev.mjs](places/deploy-dev.mjs) | Pobiera snapshot, buduje frontend i publikuje Hosting dev; wymaga uprawnień operatora. |
-| [places/deploy-backend-dev.mjs](places/deploy-backend-dev.mjs) | Wdraża backend dev; opcjonalnie samą funkcję API ze sprawdzonym dotychczasowym rendererem SSR. |
-| [places/deploy-prod.mjs](places/deploy-prod.mjs) | Blokuje publikację produkcji do przygotowania konfiguracji fazy 5; obecnie nie wdraża niczego. |
-| [places/firestore.mjs](places/firestore.mjs) | Moduł połączenia do jawnie wybranej bazy dev lub emulatora; obsługuje ADC i impersonację przez logowanie Firebase CLI. |
-| [places/import.mjs](places/import.mjs) | Waliduje i importuje katalog do dev, zachowując bieżącą pozycję; domyślnie podgląd, zapis przez `--apply`. |
-| [places/package-ssr.mjs](places/package-ssr.mjs) | Pakuje wygenerowany serwer Angulara do funkcji. |
-| [places/slot-ssr.mjs](places/slot-ssr.mjs) | Wybiera funkcję SSR slotu i przypina jej rewizję do Hostingu. |
-| [places/slot-ssr.test.mjs](places/slot-ssr.test.mjs) | Sprawdza izolację przekierowań SSR slotów. |
-| [places/prepare.mjs](places/prepare.mjs) | Waliduje wejście builda i generuje pliki katalogu; domyślnie używa fikcyjnego zestawu CI, a PLACES_SNAPSHOT wybiera rzeczywisty snapshot. |
-| [places/snapshot.mjs](places/snapshot.mjs) | Pobiera opublikowane miejsca z Firestore do ignorowanego `.local/places.snapshot.json`. |
-| [places/upload-assets.mjs](places/upload-assets.mjs) | Sprawdza SHA-256 i rozmiary obrazów; z `--apply` publikuje nowe, niezmienne pliki w bucket dev. |
-| [privacy/consent.test.mjs](privacy/consent.test.mjs) | Testuje zgody, przechowywanie ustawień i warunki ładowania usług Google. |
-| [test.mjs](test.mjs) | Uruchamia kolejno testy mapy, kontraktów, prywatności, backendu i warsztatu; zatrzymuje się po pierwszym błędzie. |
-| [verify-build.mjs](verify-build.mjs) | Sprawdza statyczne strony, SSR fikcyjnego miejsca i jego galerii, 404, noindex i zasoby. |
+| Plik                                                                 | Rola                                                                                                                                                           |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [maps/prepare_history.py](maps/prepare_history.py)                   | Dopasowuje skan planu, generuje kafelki WebP, manifest i granice nakładki.                                                                                     |
+| [maps/register_scans.py](maps/register_scans.py)                     | Wyznacza kandydatów punktów dopasowania na podstawie lokalnych obrazów odniesienia; narzędzie opcjonalne.                                                      |
+| [maps/cluster-visibility.test.mjs](maps/cluster-visibility.test.mjs) | Sprawdza usuwanie nakładających się grup kafelków różnych poziomów.                                                                                            |
+| [maps/test_georeference.py](maps/test_georeference.py)               | Testuje georeferencję, transformację odwrotną i walidację punktów.                                                                                             |
+| [places/catalog.mjs](places/catalog.mjs)                             | Waliduje wejście i generuje konfigurację Hosting; dynamiczne dane, sitemapę i przekierowania obsługuje backend.                                                |
+| [places/check-live.mjs](places/check-live.mjs)                       | Sprawdza działające API dev, App Check, Google Auth i konflikt wersji. Wykonuje rzeczywisty zapis lokalizacji testowego kościoła; wymaga tokenów w środowisku. |
+| [places/deploy-dev.mjs](places/deploy-dev.mjs)                       | Pobiera snapshot, buduje frontend i publikuje Hosting dev; wymaga uprawnień operatora.                                                                         |
+| [places/deploy-backend-dev.mjs](places/deploy-backend-dev.mjs)       | Wdraża backend dev; opcjonalnie samą funkcję API ze sprawdzonym dotychczasowym rendererem SSR.                                                                 |
+| [places/deploy-prod.mjs](places/deploy-prod.mjs)                     | Blokuje publikację produkcji do przygotowania konfiguracji fazy 5; obecnie nie wdraża niczego.                                                                 |
+| [places/firestore.mjs](places/firestore.mjs)                         | Moduł połączenia do jawnie wybranej bazy dev lub emulatora; obsługuje ADC i impersonację przez logowanie Firebase CLI.                                         |
+| [places/import.mjs](places/import.mjs)                               | Waliduje i importuje katalog do dev, zachowując bieżącą pozycję; domyślnie podgląd, zapis przez `--apply`.                                                     |
+| [places/package-ssr.mjs](places/package-ssr.mjs)                     | Pakuje wygenerowany serwer Angulara do funkcji.                                                                                                                |
+| [places/slot-ssr.mjs](places/slot-ssr.mjs)                           | Wybiera funkcję SSR slotu i przypina jej rewizję do Hostingu.                                                                                                  |
+| [places/slot-ssr.test.mjs](places/slot-ssr.test.mjs)                 | Sprawdza izolację przekierowań SSR slotów.                                                                                                                     |
+| [places/prepare.mjs](places/prepare.mjs)                             | Waliduje wejście builda i generuje pliki katalogu; domyślnie używa fikcyjnego zestawu CI, a PLACES_SNAPSHOT wybiera rzeczywisty snapshot.                      |
+| [places/snapshot.mjs](places/snapshot.mjs)                           | Pobiera opublikowane miejsca z Firestore do ignorowanego `.local/places.snapshot.json`.                                                                        |
+| [places/upload-assets.mjs](places/upload-assets.mjs)                 | Sprawdza SHA-256 i rozmiary obrazów; z `--apply` publikuje nowe, niezmienne pliki w bucket dev.                                                                |
+| [privacy/consent.test.mjs](privacy/consent.test.mjs)                 | Testuje zgody, przechowywanie ustawień i warunki ładowania usług Google.                                                                                       |
+| [test.mjs](test.mjs)                                                 | Uruchamia kolejno testy mapy, kontraktów, prywatności, backendu i warsztatu; zatrzymuje się po pierwszym błędzie.                                              |
+| [verify-build.mjs](verify-build.mjs)                                 | Sprawdza statyczne strony, SSR fikcyjnego miejsca i jego galerii, 404, noindex i zasoby.                                                                       |
 
 Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). Moduły `catalog.mjs` i `firestore.mjs` są używane przez pozostałe skrypty; nie są osobnymi poleceniami operatora.
 
 ## Polecenia npm w root
 
-| Polecenie | Co uruchamia |
-| --- | --- |
-| `npm run ng` | Angular CLI. |
-| `npm start` | Lokalny serwer Angular. |
-| `npm run build` | Przygotowanie katalogu, build Angular i weryfikacja artefaktów. |
-| `npm run watch` | Build deweloperski w trybie obserwacji. |
-| `npm run preview` | Build i publikacja 30-dniowego kanału Hosting `faza-1`. |
-| `npm run emulate` | Lokalny emulator Hosting z konfiguracją dev. |
-| `npm run deploy:dev` | Snapshot, build i publikacja Hosting dev. |
-| `npm run deploy:prod` | Obecnie blokada publikacji produkcji. |
-| `npm run places:prepare` | Generowanie katalogu z pliku wejściowego. |
-| `npm run places:import` | Walidacja i opcjonalny import katalogu do bazy dev. |
-| `npm run places:snapshot` | Pobranie snapshotu opublikowanych miejsc. |
-| `npm test` | Testy mapy, kontraktów, prywatności, backendu i warsztatu. |
-| `npm run test:maps` | Testy grupowania i widoczności znaczników mapy. |
-| `npm run test:emulator` | Testy API i reguł w emulatorach Firestore/Storage. |
-| `npm run deploy:backend:dev` | Build i publikacja wspólnych Functions, reguł Firestore/Storage i konfiguracji Auth dev; nie aktualizuje funkcji SSR slotów. |
+| Polecenie                    | Co uruchamia                                                                                                                                                             |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `npm run ng`                 | Angular CLI.                                                                                                                                                             |
+| `npm start`                  | Lokalny serwer Angular.                                                                                                                                                  |
+| `npm run build`              | Przygotowanie katalogu, build Angular i weryfikacja artefaktów.                                                                                                          |
+| `npm run watch`              | Build deweloperski w trybie obserwacji.                                                                                                                                  |
+| `npm run preview`            | Build i publikacja 30-dniowego kanału Hosting `faza-1`.                                                                                                                  |
+| `npm run emulate`            | Lokalny emulator Hosting z konfiguracją dev.                                                                                                                             |
+| `npm run deploy:dev`         | Snapshot, build i publikacja Hosting dev.                                                                                                                                |
+| `npm run deploy:prod`        | Obecnie blokada publikacji produkcji.                                                                                                                                    |
+| `npm run places:prepare`     | Generowanie katalogu z pliku wejściowego.                                                                                                                                |
+| `npm run places:import`      | Walidacja i opcjonalny import katalogu do bazy dev.                                                                                                                      |
+| `npm run places:snapshot`    | Pobranie snapshotu opublikowanych miejsc.                                                                                                                                |
+| `npm test`                   | Testy mapy, kontraktów, prywatności, backendu i warsztatu.                                                                                                               |
+| `npm run test:maps`          | Testy grupowania i widoczności znaczników mapy.                                                                                                                          |
+| `npm run test:emulator`      | Testy API i reguł w emulatorach Firestore/Storage.                                                                                                                       |
+| `npm run deploy:backend:dev` | Build i publikacja wspólnych Functions (w tym `placesDevCreate` i `placesDevSave`), reguł Firestore/Storage i konfiguracji Auth dev; nie aktualizuje funkcji SSR slotów. |
 
-`npm run deploy:backend:dev -- --preserve-renderer=/ścieżka/do/checkoutu` aktualizuje wyłącznie `placesDevWeb`, zachowując renderer z podanego checkoutu po porównaniu nazw jego zasobów z działającą stroną integracyjną. Tryb służy etapowej aktualizacji API; starszy frontend nie musi obsługiwać nowej odpowiedzi.
+`npm run deploy:backend:dev -- --preserve-renderer=/ścieżka/do/checkoutu` aktualizuje publiczne API i callable zapisu miejsc, zachowując renderer SSR z podanego checkoutu po porównaniu jego zasobów z działającą stroną integracyjną. Tryb służy etapowej aktualizacji API bez zmiany renderera wspólnego dla slotów.
 | `npm run places:upload-assets` | Kontrola i opcjonalna publikacja obrazów. |
 | `npm run check:contracts` | Ścisłe sprawdzenie typów wspólnych kontraktów bez generowania plików. |
 | `npm run test:privacy` | Testy zgód i prywatności. |
 
 ## Backend i testy poza scripts/
 
-| Plik / polecenie | Rola |
-| --- | --- |
-| [functions/test/contracts.test.mjs](../functions/test/contracts.test.mjs) | Zgodność i współdzielenie kontraktów danych. |
-| [functions/test/catalog.test.mjs](../functions/test/catalog.test.mjs) | Walidacja i generowanie publicznego katalogu. |
-| [functions/test/validation.test.mjs](../functions/test/validation.test.mjs) | Walidacja danych wejściowych. |
-| [functions/test/api.emulator.mjs](../functions/test/api.emulator.mjs) | Odczyt, zapis i konflikty API w emulatorze. |
-| [functions/test/rules.emulator.mjs](../functions/test/rules.emulator.mjs) | Reguły dostępu Firestore i Storage w emulatorach. |
-| `npm --prefix functions test` | `node --test test/*.test.mjs` |
-| `npm --prefix functions run test:emulator` | `node --test test/*.emulator.mjs` |
+| Plik / polecenie                                                            | Rola                                              |
+| --------------------------------------------------------------------------- | ------------------------------------------------- |
+| [functions/test/contracts.test.mjs](../functions/test/contracts.test.mjs)   | Zgodność i współdzielenie kontraktów danych.      |
+| [functions/test/catalog.test.mjs](../functions/test/catalog.test.mjs)       | Walidacja i generowanie publicznego katalogu.     |
+| [functions/test/validation.test.mjs](../functions/test/validation.test.mjs) | Walidacja danych wejściowych.                     |
+| [functions/test/api.emulator.mjs](../functions/test/api.emulator.mjs)       | Odczyt, zapis i konflikty API w emulatorze.       |
+| [functions/test/rules.emulator.mjs](../functions/test/rules.emulator.mjs)   | Reguły dostępu Firestore i Storage w emulatorach. |
+| `npm --prefix functions test`                                               | `node --test test/*.test.mjs`                     |
+| `npm --prefix functions run test:emulator`                                  | `node --test test/*.emulator.mjs`                 |
 
 `functions/src/` to kod uruchamianego backendu, opisany w [TECHNICAL.md](../TECHNICAL.md). Jednorazowe materiały agenta należą do `agent-context/`; wygenerowane zależności i pliki robocze nie należą do tego spisu.
 

@@ -31,78 +31,83 @@
     <button class="btn" type="button" (click)="retry.emit()">Spróbuj ponownie</button>
   </div>
 } @else {
-<section aria-label="Miejsca">
-  <label for="place-search" class="sr-only">Szukaj po nazwie</label>
-  <input
-    id="place-search"
-    class="input input-bordered search"
-    type="search"
-    autocomplete="off"
-    placeholder="Szukaj po nazwie"
-    [value]="query()"
-    (input)="queryChanged.emit($any($event.target).value)"
-  />
-  <fieldset class="tag-filters">
-    <legend>Filtruj według tagu</legend>
-    <div class="flex flex-wrap gap-2">
-      @for (tag of tags(); track tag.id) {
-        <button
-          type="button"
-          class="btn btn-outline btn-xs rounded-full"
-          [class.btn-primary]="selectedTag() === tag.id"
-          [attr.aria-pressed]="selectedTag() === tag.id"
-          (click)="tagChanged.emit(selectedTag() === tag.id ? '' : tag.id)"
-        >
-          <span
-            class="tag-icon"
-            [style.mask-image]="'url(' + markerIcon(markerCategory({ tags: [tag] }).icon) + ')'"
-            aria-hidden="true"
-          ></span>
-          {{ tag.name }}
-        </button>
-      }
-    </div>
-  </fieldset>
-  <label class="flex items-center gap-3 cursor-pointer py-3">
+  <section aria-label="Miejsca">
+    <label for="place-search" class="sr-only">Szukaj po nazwie</label>
     <input
-      type="checkbox"
-      class="checkbox checkbox-primary checkbox-sm"
-      [checked]="withoutLocation()"
-      (change)="withoutLocationChanged.emit($any($event.target).checked)"
+      id="place-search"
+      class="input input-bordered search"
+      type="search"
+      autocomplete="off"
+      placeholder="Szukaj po nazwie"
+      [value]="query()"
+      (input)="queryChanged.emit($any($event.target).value)"
     />
-    Bez lokalizacji
-  </label>
-  <p class="results-heading" role="status">
-    <strong>Miejsca</strong><span>{{ results().length }} wyników</span>
-  </p>
-  <ul class="place-list">
-    @for (place of results(); track place.id) {
-      <li>
-        <a
-          class="place-button"
-          [href]="'/miejsca/' + place.slug"
-          [attr.data-place]="place.id"
-          [attr.aria-current]="selectedId() === place.id ? 'true' : null"
-          (click)="choose($event, place)"
-        >
-          <span class="place-number" aria-hidden="true"
-            ><span
+    <fieldset class="tag-filters">
+      <legend>Filtruj według tagu</legend>
+      <div class="flex flex-wrap gap-2">
+        @for (tag of tags(); track tag.id) {
+          <button
+            type="button"
+            class="btn btn-outline btn-xs rounded-full"
+            [class.btn-primary]="selectedTag() === tag.id"
+            [attr.aria-pressed]="selectedTag() === tag.id"
+            (click)="tagChanged.emit(selectedTag() === tag.id ? '' : tag.id)"
+          >
+            <span
               class="tag-icon"
-              [style.mask-image]="'url(' + markerIcon(markerCategory(place).icon) + ')'"
-            ></span
-          ></span>
-          <span class="place-copy"
-            ><strong>{{ place.name }}</strong
-            ><small>{{ tagNames(place) }}</small>
-            @if (historicalAddress(place); as address) {
-              <small>{{ address }}</small>
-            }</span
-          ><span class="place-arrow" aria-hidden="true">›</span>
-        </a>
-      </li>
-    } @empty {
-      <li class="muted">Nie znaleziono miejsc. Zmień nazwę lub filtry.</li>
+              [style.mask-image]="'url(' + markerIcon(markerCategory({ tags: [tag] }).icon) + ')'"
+              aria-hidden="true"
+            ></span>
+            {{ tag.name }}
+          </button>
+        }
+      </div>
+    </fieldset>
+    <label class="flex items-center gap-3 cursor-pointer py-3">
+      <input
+        type="checkbox"
+        class="checkbox checkbox-primary checkbox-sm"
+        [checked]="withoutLocation()"
+        (change)="withoutLocationChanged.emit($any($event.target).checked)"
+      />
+      Bez lokalizacji
+    </label>
+    <p class="results-heading" role="status">
+      <strong>Miejsca</strong><span>{{ results().length }} wyników</span>
+    </p>
+    @if (canEdit()) {
+      <button class="btn btn-primary btn-sm my-2 w-full" type="button" (click)="addPlace.emit()">
+        Dodaj miejsce
+      </button>
     }
-  </ul>
-</section>
+    <ul class="place-list">
+      @for (place of results(); track place.id) {
+        <li>
+          <a
+            class="place-button"
+            [href]="'/miejsca/' + place.slug"
+            [attr.data-place]="place.id"
+            [attr.aria-current]="selectedId() === place.id ? 'true' : null"
+            (click)="choose($event, place)"
+          >
+            <span class="place-number" aria-hidden="true"
+              ><span
+                class="tag-icon"
+                [style.mask-image]="'url(' + markerIcon(markerCategory(place).icon) + ')'"
+              ></span
+            ></span>
+            <span class="place-copy"
+              ><strong>{{ place.name }}</strong
+              ><small>{{ tagNames(place) }}</small>
+              @if (historicalAddress(place); as address) {
+                <small>{{ address }}</small>
+              }</span
+            ><span class="place-arrow" aria-hidden="true">›</span>
+          </a>
+        </li>
+      } @empty {
+        <li class="muted">Nie znaleziono miejsc. Zmień nazwę lub filtry.</li>
+      }
+    </ul>
+  </section>
 }
