@@ -17,6 +17,7 @@
       }
     ],
     "district": null,
+    "materials": [],
     "location": {
       "coordinates": {
         "lat": 50,
@@ -90,8 +91,8 @@
               "to": null,
               "approximate": false
             },
-            "storagePath": "public/places/fixture_place/fixture_image/image.jpg",
-            "thumbnailPath": "public/places/fixture_place/fixture_image/thumb.jpg",
+            "storagePath": "public/materials/fixture_image/image.jpg",
+            "thumbnailPath": "public/materials/fixture_image/thumb.jpg",
             "alt": "Fikcyjna ilustracja testowa",
             "credit": "Fikcyjne archiwum testowe",
             "rights": "Fikcyjna podstawa praw — wyłącznie test kontraktu",

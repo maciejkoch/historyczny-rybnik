@@ -22,7 +22,7 @@ const dto = {
 };
 
 test('public and stored records have distinct strict contracts', () => {
-  assert.deepEqual(publicCatalogSchema.parse([publicPlace]), [{ ...publicPlace, materials: [] }]);
+  assert.deepEqual(publicCatalogSchema.parse([publicPlace]), [publicPlace]);
   assert.equal(publicPlaceSchema.safeParse(places[0]).success, false);
   assert.equal(placeSchema.safeParse(publicPlace).success, false);
   for (const change of [
@@ -34,8 +34,10 @@ test('public and stored records have distinct strict contracts', () => {
     assert.equal(placeSchema.safeParse({ ...places[0], ...change }).success, false);
 });
 
-test('place gallery accepts legacy records and validates ownership, dimensions and primary photo', () => {
-  assert.deepEqual(placeSchema.parse(places[0]).materials, []);
+test('place gallery requires materials and validates ownership, dimensions and primary photo', () => {
+  const missingMaterials = structuredClone(places[0]);
+  delete missingMaterials.materials;
+  assert.equal(placeSchema.safeParse(missingMaterials).success, false);
   const image = structuredClone(places[0].mentions.find((m) => m.materials.length).materials[0]);
   delete image.documentedDate;
   const material = {
@@ -96,7 +98,7 @@ test('catalogue preserves byte limits, uniqueness and ownership of images', () =
   for (const key of ['storagePath', 'thumbnailPath']) {
     const place = structuredClone(places[0]);
     const image = place.mentions.find((r) => r.materials.length).materials[0];
-    image[key] = image[key].replace(`/places/${place.id}/`, '/places/another/');
+    image[key] = image[key].replace('public/materials/', 'public/materials/another/');
     assert.equal(placeSchema.safeParse(place).success, false);
   }
 });

@@ -55,7 +55,7 @@ Każdy element `materials` zawiera wszystkie pola `imageSchema` oraz `materialId
 
 | Pole materiału | Typ i ograniczenia |
 | --- | --- |
-| `storagePath`, `thumbnailPath` | Ścieżki do obrazu i miniatury, do 500 znaków; `public/materials/<id>/<plik>` lub starsze `public/places/<placeId>/<mentionId>/<plik>`. Plik: litery ASCII, cyfry, `_`, `-` i rozszerzenie `webp`, `png` lub `jpg`. Starsza ścieżka musi odpowiadać miejscu i wzmiance. |
+| `storagePath`, `thumbnailPath` | Ścieżki do obrazu i miniatury, do 500 znaków; `public/materials/<id>/<plik>`. Plik: litery ASCII, cyfry, `_`, `-` i rozszerzenie `webp`, `png` lub `jpg`. |
 | `alt`, `credit` | Niepuste teksty do 500 znaków: opis alternatywny i podpis/atrybucja. |
 | `rights` | Niepusty opis praw do 2000 znaków. |
 | `sha256`, `thumbnailSha256` | Sumy obrazu i miniatury: 64 małe znaki szesnastkowe. |

@@ -5,7 +5,6 @@ import {
 } from '@angular/ssr/node';
 
 const engine = new AngularNodeAppEngine({ allowedHosts: ['historyczny-rybnik-dev.web.app'] });
-export const supportsPlaceGallery = true;
 export const renderPlace = (request: Request, context: unknown) => engine.handle(request, context);
 
 // Angular's builder requires a Node request handler entry point.

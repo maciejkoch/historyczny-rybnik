@@ -40,7 +40,6 @@ await test('all direct Firestore access denied even authenticated', async () => 
 });
 await test('public reviewed asset readable; private assets and writes denied', async () => {
   await env.withSecurityRulesDisabled(async (c) => {
-    await uploadBytes(ref(c.storage(), 'public/places/a/b/test.webp'), new Uint8Array([1, 2]));
     await uploadBytes(
       ref(c.storage(), 'public/materials/material-a/test.webp'),
       new Uint8Array([1, 2]),
@@ -49,7 +48,7 @@ await test('public reviewed asset readable; private assets and writes denied', a
     await uploadBytes(ref(c.storage(), 'private/test.webp'), new Uint8Array([1, 2]));
   });
   const storage = env.unauthenticatedContext().storage();
-  await assertSucceeds(getBytes(ref(storage, 'public/places/a/b/test.webp')));
+  await assertFails(getBytes(ref(storage, 'public/places/a/b/test.webp')));
   await assertFails(getBytes(ref(storage, 'private/test.webp')));
   await assertSucceeds(getBytes(ref(storage, 'public/materials/material-a/test.webp')));
   for (const context of [

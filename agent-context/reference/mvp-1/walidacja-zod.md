@@ -1,4 +1,6 @@
-# Wspólna walidacja Zod
+# Wspólna walidacja Zod — raport historyczny
+
+Ten raport dotyczy dawnego kontraktu katalogu. Aktualne kontrakty są w `functions/src/contracts/places.mjs`; bieżący przepływ opisuje [TECHNICAL.md](../../../TECHNICAL.md).
 
 Schematy w `functions/src/contracts/places.mjs` są współdzielone przez klienta,
 Functions i skrypty importu/snapshotu/generowania katalogu. Moduł nie importuje
