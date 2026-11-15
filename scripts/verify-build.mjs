@@ -14,8 +14,14 @@ assert.match(search, /noindex/);
 assert.ok(search.includes('https://historyczny-rybnik-dev.web.app/szukaj'));
 
 assert.doesNotMatch(home, /Dane przykładowe/);
-assert.ok(!existsSync(`${root}/sitemap.xml`), 'Dynamic sitemap must not be shadowed by a static file');
-assert.ok(!existsSync(`${root}/miejsca`), 'Dynamic place routes must not be shadowed by static HTML');
+assert.ok(
+  !existsSync(`${root}/sitemap.xml`),
+  'Dynamic sitemap must not be shadowed by a static file',
+);
+assert.ok(
+  !existsSync(`${root}/miejsca`),
+  'Dynamic place routes must not be shadowed by static HTML',
+);
 assert.ok(existsSync('functions/ssr/server.mjs'), 'SSR bundle is required by the function');
 const [{ published, createdAt, ...fixturePlace }] = JSON.parse(
   readFileSync('data/places.fixture.json', 'utf8'),
@@ -31,6 +37,32 @@ assert.ok(rendered.includes(fixturePlace.name));
 assert.ok(rendered.includes(fixturePlace.description));
 assert.match(rendered, /rel="canonical"/);
 assert.match(rendered, /ng-state/);
+const image = structuredClone(
+  fixturePlace.mentions.find((mention) => mention.materials.length).materials[0],
+);
+delete image.documentedDate;
+const galleryPlace = {
+  ...fixturePlace,
+  materials: [
+    {
+      ...image,
+      materialId: 'gallery_fixture',
+      storagePath: 'public/materials/gallery_fixture/image.webp',
+      thumbnailPath: 'public/materials/gallery_fixture/thumb.webp',
+      width: 800,
+      height: 1200,
+      isPrimary: true,
+    },
+  ],
+};
+const galleryResponse = await renderPlace(
+  new Request('https://historyczny-rybnik-dev.web.app/miejsca/' + fixturePlace.slug),
+  { place: galleryPlace },
+);
+const galleryHtml = await galleryResponse.text();
+assert.equal(galleryResponse.status, 200);
+assert.match(galleryHtml, /id="gallery-title"/);
+assert.ok(galleryHtml.includes(image.alt));
 assert.ok(existsSync(`${root}/maplibre/maplibre-gl-worker.mjs`));
 assert.ok(existsSync(`${root}/maps/rybnik-style.json`));
 assert.match(home, /noindex/);

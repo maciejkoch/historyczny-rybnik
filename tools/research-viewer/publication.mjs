@@ -2,10 +2,17 @@
 export function publicationNotice(material, file = null) {
   const r = material.rights;
   const approved =
-    r.status === 'public-domain' &&
     r.publicationApproved &&
     (!file ||
       material.publicationImages.some((i) => [i.sha256, i.thumbnailSha256].includes(file.sha256)));
+  if (approved)
+    return {
+      approved: true,
+      tone: 'success',
+      text: file
+        ? 'Ten wariant obrazu jest zatwierdzony do publikacji na podstawie oświadczenia przekazującego.'
+        : 'Zatwierdzono wybrane warianty obrazów na podstawie oświadczenia przekazującego.',
+    };
   if (r.status === 'unknown')
     return {
       approved: false,
@@ -24,11 +31,4 @@ export function publicationNotice(material, file = null) {
       tone: 'warning',
       text: `${r.status === 'public-domain' ? 'Domena publiczna' : 'Licencja'} — ${file ? 'ten obraz nie jest zatwierdzony do publikacji' : 'publikacja niezatwierdzona'}. Kopia do użytku wewnętrznego.`,
     };
-  return {
-    approved: true,
-    tone: 'success',
-    text: file
-      ? 'Ten wariant obrazu jest zatwierdzony do publikacji; zachowaj źródło i oznaczenie praw.'
-      : 'Zatwierdzono wybrane warianty obrazów. Zgoda nie obejmuje automatycznie pozostałych plików.',
-  };
 }

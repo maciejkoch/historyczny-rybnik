@@ -10,4 +10,8 @@ Publiczny kontrakt miejsca używa tags i period; nowa wspólna ścieżka obrazó
 
 Publiczny kontrakt miejsca używa mentions z documentedDate i verification oraz materiałami o własnych datach; odrzuca materiały poza okresem wzmianki. Migracja dawnych references jest jawna; zwykły odczyt nie toleruje starego kontraktu.
 
+Osobne `materials` miejsca przechowuje dane galerii i najwyżej jedno zdjęcie główne. Dla istniejącego dokumentu bez tego pola odczyt zwraca pustą tablicę.
+
+API szczegółów i renderery SSR otrzymują pełną projekcję miejsca wraz z galerią.
+
 `public-places.mjs` odczytuje wyłącznie opublikowane miejsca i ogranicza katalog do pól potrzebnych mapie. `public-web.mjs` obsługuje publiczny odczyt, sitemapę i SSR; `placesDevWeb` używa konta build ograniczonego do bazy dev, odpowiedzi no-store i noindex. Zapis nadal wymaga Auth i App Check.

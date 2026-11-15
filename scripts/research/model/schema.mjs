@@ -263,22 +263,13 @@ export function validateWorkspace(input) {
   }
   for (const m of [...data.documents, ...data.materials]) {
     if (m.rights.evidenceDocumentId) need(sets.documents, m.rights.evidenceDocumentId);
-    if (
-      m.rights.publicationApproved &&
-      (m.rights.status !== 'public-domain' ||
-        !m.rights.basis ||
-        (!m.rights.evidenceUrl && !m.rights.evidenceDocumentId) ||
-        !m.rights.checkedAt ||
-        !m.rights.credit)
-    )
-      throw new Error(`Publication rights not evidenced: ${m.id}`);
+    if (m.rights.publicationApproved && (!m.rights.basis || !m.rights.checkedAt))
+      throw new Error(`Publication requires a dated rights declaration: ${m.id}`);
   }
   for (const m of data.materials) {
     m.sourceDocumentIds.forEach((id) => need(sets.documents, id));
     if (m.classification === 'historical' && !(m.depictedDate || m.originalDate))
       throw new Error('Historical material requires dating');
-    if (m.classification !== 'historical' && m.rights.publicationApproved)
-      throw new Error('Only historical material can be approved');
   }
   for (const m of data.mentions) {
     need(allPlaces, m.placeId);

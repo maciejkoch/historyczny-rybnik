@@ -4,7 +4,7 @@ Opis bieżących kontraktów; źródłem prawdy są wskazane schematy kodu. Czyt
 
 ## Schemat miejsca
 
-Źródłem obowiązującego kontraktu jest [functions/src/contracts/places.mjs](../../functions/src/contracts/places.mjs). `placeSchema` opisuje rekord katalogowy używany przy imporcie i snapshotach kolekcji Firestore `places`; `publicPlaceSchema` opisuje projekcję do frontendu/SSG, bez `published` i `createdAt`. Schematy są ścisłe: wszystkie wymienione pola są wymagane, także tablice puste i pola dopuszczające `null`; dodatkowe pola są odrzucane. Poniższe limity dotyczą kontraktu publicznego/katalogowego, nie prywatnego warsztatu.
+Źródłem obowiązującego kontraktu jest [functions/src/contracts/places.mjs](../../functions/src/contracts/places.mjs). `placeSchema` opisuje rekord katalogowy używany przy imporcie i snapshotach kolekcji Firestore `places`; `publicPlaceSchema` opisuje projekcję do frontendu/SSR, bez `published` i `createdAt`. Schematy są ścisłe: pola są wymagane, także tablice puste i pola dopuszczające `null`, z wyjątkiem `materials` miejsca, które przy braku jest odczytywane jako pusta tablica; dodatkowe pola są odrzucane. Poniższe limity dotyczą kontraktu publicznego/katalogowego, nie prywatnego warsztatu.
 
 ### Pola rekordu katalogowego
 
@@ -21,6 +21,7 @@ Opis bieżących kontraktów; źródłem prawdy są wskazane schematy kodu. Czyt
 | `addresses` | Maks. 30 obiektów `{ type, text }`; type: `historical` lub `current`, tekst do 500 znaków. | Adresy historyczne i współczesne. |
 | `district` | Niepusty tekst do 200 znaków lub `null`. | Dzielnica, jeśli ustalona. |
 | `location` | Wariant znany albo nieustalony, opisany niżej. | Bieżąca lokalizacja miejsca. |
+| `materials` | Maks. 100 materiałów z unikalnym `materialId`, najwyżej jeden `isPrimary: true`; brak pola oznacza pustą tablicę. | Galeria miejsca, niezależna od wzmianek. |
 | `mentions` | Maks. 100 wzmianek, bez powtórzeń `id` w obrębie miejsca. | Datowane informacje wraz ze źródłami i materiałami. |
 | `locationVersion` | Liczba całkowita od 0 do `Number.MAX_SAFE_INTEGER`. | Wersja do kontroli konfliktów zapisu lokalizacji. |
 | `updatedAt` | Znacznik czasu UTC. | Czas aktualizacji. |
@@ -62,7 +63,9 @@ Każdy element `materials` zawiera wszystkie pola `imageSchema` oraz `materialId
 | `materialId` | Trwały identyfikator materiału. |
 | `documentedDate` | Niepusta data historyczna obrazu. |
 
-`provenance` zawiera wymagane pola: `title` (do 500 znaków), `sourcePageUrl`, `originalCollectionUrl`, `originalImageUrl` (HTTPS bez danych logowania, do 2000 znaków, albo `null`), `originalSha256` (suma SHA-256), `author` (do 500 znaków albo `null`), `dateNote` i `license` (do 500 znaków), `licenseUrl` (HTTPS albo `null`), `copyrighted` (boolean), `rightsCheckedAt` (pełna data `YYYY-MM-DD`) i `transformations` (do 2000 znaków). Wartości tekstowe inne niż `null` są niepuste. Sama zgodność z kontraktem nie zatwierdza praw: publikacja kopii wymaga potwierdzonej domeny publicznej i zgody na konkretny wariant według zasad warsztatu.
+`provenance` zawiera wymagane pola: `title` (do 500 znaków), `sourcePageUrl`, `originalCollectionUrl`, `originalImageUrl` (HTTPS bez danych logowania, do 2000 znaków, albo `null`), `originalSha256` (suma SHA-256), `author` (do 500 znaków albo `null`), `dateNote` i `license` (do 500 znaków), `licenseUrl` (HTTPS albo `null`), `copyrighted` (boolean lub `null`, gdy nieustalone), `rightsCheckedAt` (pełna data `YYYY-MM-DD`) i `transformations` (do 2000 znaków). Wartości tekstowe inne niż `null` są niepuste. Prawo do udostępnienia potwierdza osoba przekazująca materiał; nieznane źródło i status praw zapisujemy zgodnie z prawdą, bez wymogu domeny publicznej.
+
+Materiał w galerii miejsca korzysta z tego samego `imageSchema` i zawiera `materialId`, dodatnie całkowite `width` i `height` obrazu oraz boolean `isPrimary`. Obie ścieżki muszą należeć do `public/materials/<materialId>/`. `credit` podaje tekst źródła, a `provenance.sourcePageUrl` może wskazywać jego stronę. Galeria miejsca nie wymaga daty wzmianki. Eksport warsztatu zachowuje galerię z katalogu bazowego; nie zapewnia jeszcze edycji ani uploadu tych materiałów.
 
 ### Przykład rekordu katalogowego
 

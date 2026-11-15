@@ -33,8 +33,8 @@ Szczegóły: [środowiska](agent-context/reference/mvp-1/srodowiska.md).
 # Prawa do materiałów źródłowych
 
 - Przed weryfikacją materiału odczytaj rejestr praw w prywatnym warsztacie `data/places/materials/`; dla dawnych publikacji sprawdź także wejściowy `.local/source-rights.json`. Wykorzystuj wcześniejszą decyzję tylko w jej zapisanym zakresie (konkretne wydanie/obiekt), bez rozszerzania jej na bibliotekę, rocznik lub tytuł.
-- Nowe źródło lub wydanie dodaj do warsztatu z powiązaniami miejsc i materiałów; wynik sprawdzenia zapisz wraz z datą i bezpośrednim dowodem. Brak potwierdzenia zapisuj jako niepotwierdzony.
-- Decyzja właściciela z 7 listopada 2026: na tym etapie publikujemy kopie tylko materiałów z potwierdzoną domeną publiczną. Zweryfikowane materiały dodawaj do dev Storage i dokumentów miejsc, zachowując sumy oraz pochodzenie. Produkcja wymaga osobnego zlecenia.
+- Nowe rozpoznane źródło lub wydanie dodaj do warsztatu z powiązaniami miejsc i materiałów. Zapisuj znane informacje o prawach, pochodzeniu i dacie; nieznanych danych nie wymyślaj.
+- Decyzja właściciela z 14 listopada 2026 zastępuje ograniczenie z 7 listopada: materiały mogą być publikowane również poza domeną publiczną. Osoba przekazująca materiał odpowiada za prawo do jego udostępnienia; zapisz jej potwierdzenie i datę dla konkretnego materiału. Nie wymagaj niezależnego dowodu ani znanego źródła jako warunku publikacji. Zachowuj sumy i dostępne pochodzenie. Produkcja wymaga osobnego zlecenia.
 
 # Warsztat badań miejsc
 

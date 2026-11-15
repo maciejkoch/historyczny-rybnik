@@ -61,6 +61,12 @@ Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje �
 
 Aktualny kontrakt katalogu, publicznej projekcji i prywatnego warsztatu oraz przykład rekordu opisuje [schemat miejsca](agent-context/reference/place-schema.md). Źródłem prawdy są schematy w kodzie.
 
+Publiczne miejsce może mieć niezależną galerię `materials`, odczytywaną jako pustą dla starszych rekordów. Jedno zdjęcie główne jest wyświetlane bez kadrowania nad treścią; miniatury otwierają PhotoSwipe ładowany na żądanie. Materiały wzmianek nadal są wyświetlane przy wzmiankach. Eksport warsztatu zachowuje galerię z bazowego katalogu; upload i edycja galerii nie są częścią tej funkcji.
+
+API szczegółów i renderery SSR zwracają pełny publiczny rekord wraz z galerią. Wydanie SSR i Hostingu musi pochodzić z tego samego builda.
+
+Przy etapowej aktualizacji wspólnego API można zachować aktualnie wdrożony renderer SSR: `deploy:backend:dev -- --preserve-renderer=<checkout>` porównuje jego zasoby z działającą stroną i aktualizuje wyłącznie `placesDevWeb`. Adapter usuwa `materials` z kontekstu wyłącznie dla starszego pakietu SSR bez znacznika obsługi galerii; odpowiedź API nadal zawiera pełny rekord. Nowe buildy deklarują obsługę galerii. Nie zapewnia to zgodności starszego kodu przeglądarki z nowym kontraktem API.
+
 ## Katalog lokalny `.local/`
 
 To generowany, ignorowany przez Git katalog danych roboczych. Nadal jest używany: `places:snapshot` zapisuje `.local/places.snapshot.json`, a `deploy:dev` buduje z tego pliku. Nie usuwamy go jako zbędnego elementu procesu. Sam snapshot można odtworzyć; inne zastane pliki lokalne wymagają osobnej oceny przed usunięciem. Nowe notatki i skrypty agenta trafiają do `agent-context/`.
@@ -87,6 +93,8 @@ Build generuje statyczne pliki w `dist/historyczny-rybnik/browser` i serwer Angu
 | Produkcja — wydania | https://historyczny.rybnik.pl/ | `historyczny-rybnik` | `npm run deploy:prod` (obecnie blokowane) |
 
 Dev jest osobną witryną Hosting ze swoim kanałem live, dlatego nie wygasa i ma stały adres. Konfiguracja `firebase.dev.json` wskazuje dev, a `firebase.json` produkcję. `deploy:dev` pobiera snapshot przez serwerowe ADC i buduje z niego aplikację; lokalny operator używa `PLACES_USE_FIREBASE_CLI=1 npm run deploy:dev`. Backend dev: `npm run deploy:backend:dev`. Nie konfigurujemy automatycznych deploymentów CI ani poświadczeń w repo.
+
+Skrypt wdrożenia wiąże Hosting ze zbudowaną funkcją SSR przy użyciu pinTag: integracyjny dev używa `placesDevWeb`, sloty `placesDevWeb1`, `placesDevWeb2`, `placesDevWeb3`. Publiczne API i sitemapę obsługuje wspólna funkcja `placesDevWeb`. Każda funkcja korzysta z tej samej bazy dev. Stan faktycznych migracji slotów opisuje dokument środowisk.
 
 Ustalenie z 5 listopada 2026: bieżące prace publikujemy na dev. Skrypt `deploy:prod` obecnie przerywa pracę bez publikacji, dopóki faza 5 nie przygotuje backendu, domeny i indeksowania produkcji. Produkcję publikujemy na wyraźne zlecenie wydania; dodanie polecenia nie oznacza publikacji obecnego szkieletu. Indeksowanie produkcji włączamy w fazie 5; obecny build ma noindex. Logowanie CLI: `npx firebase login`.
 
@@ -135,7 +143,7 @@ Skill `rybnik-research-places` zleca zbieranie źródeł i robocze wpisy jednemu
 
 Prywatny `data/places/`, schemat 3: sources (kolekcje), documents (konkretne źródła i ich kopie), mentions (datowane fakty o jednym miejscu), materials (odrębne obrazy), places/out-of-period, candidates i research. Miejsce wskazuje mentionIds. Wzmianka ma documentedDate, verified/draft/conflicting, verifiedAt, evidence z documentId/locator oraz materialIds. Zweryfikowana wzmianka wymaga daty i czasu sprawdzenia. Daty miejsca są wyliczane ze zweryfikowanych wzmianek, bez interpolowania ciągłości pomiędzy latami.
 
-Obraz ma własne originalDate/depictedDate, źródłowe dokumenty, uzasadnienie datowania i klasyfikację historical/source-copy/unidentified/outside-period. Powiązanie z verified wzmianką wymaga historycznej klasyfikacji, zgodnego dokumentu i datowania mieszczącego się w jej okresie. Skany późniejszych opracowań pozostają kopiami źródeł; współczesne/nieustalone zdjęcia są poza galerią historyczną. Pliki współdzielimy po SHA-256. Archiwizacja prywatna nie zależy od praw publikacyjnych; eksport nadal wymaga potwierdzonej domeny publicznej i zgody na konkretny wariant.
+Obraz ma własne originalDate/depictedDate, źródłowe dokumenty, uzasadnienie datowania i klasyfikację historical/source-copy/unidentified/outside-period. Powiązanie z verified wzmianką wymaga historycznej klasyfikacji, zgodnego dokumentu i datowania mieszczącego się w jej okresie. Skany późniejszych opracowań pozostają kopiami źródeł; współczesne/nieustalone zdjęcia są poza galerią historyczną. Pliki współdzielimy po SHA-256. Archiwizacja prywatna nie zależy od praw publikacyjnych; zatwierdzenie konkretnego wariantu wymaga datowanego oświadczenia przekazującego o prawie do udostępnienia.
 
 Publiczna projekcja Firestore/SSG używa mentions zamiast references: documentedDate, verification, dane źródła i materials z własnym datowaniem. Kontrakt odrzuca materiał spoza dat wzmianki. Nowy eksport zawiera tylko verified wzmianki; jawna migracja dawnych rekordów zachowuje robocze wpisy oddzielnie. Import nadal chroni lokalizację, wersję i daty transakcyjnie. Nie ma automatycznego importu ani publikacji wyników badania.
 

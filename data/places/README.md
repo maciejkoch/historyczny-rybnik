@@ -36,7 +36,7 @@ Klasyfikacja: historical, source-copy, unidentified, outside-period. Do wzmianki
 
 Zapisujemy wszystkie dostępne materiały prywatnie, również przy unknown/restricted. Nie obchodzimy kontroli dostępu. Oryginał zapisujemy raz po SHA-256; kopie stron i wycinki mają derivedFrom i transformations. Nieudane pobrania odnotowujemy. Prawa do publikacji nie blokują archiwizacji i nie są przez nią nadawane.
 
-Publikacja obrazu wymaga odrębnego zatwierdzenia konkretnego wariantu, potwierdzonej domeny publicznej, podstawy, dowodu (evidenceUrl/evidenceDocumentId), daty sprawdzenia i podpisu. Nie przenosimy zgody z wycinka na całą stronę. Eksport pobiera tylko publicationImages historycznych materiałów właściwych dla zweryfikowanej wzmianki; nie kopiuje prywatnego archiwum.
+Publikacja obrazu wymaga zatwierdzenia konkretnego wariantu oraz zapisanego z datą oświadczenia osoby przekazującej, że ma prawo go udostępnić. Domena publiczna, niezależny dowód i znane źródło nie są wymagane; jeżeli są znane, zapisujemy je zgodnie z prawdą. Nie przenosimy zgody z wycinka na całą stronę. Eksport wzmianek pobiera tylko publicationImages historycznych materiałów właściwych dla zweryfikowanej wzmianki; nie kopiuje prywatnego archiwum.
 
 ```sh
 npm run research -- init

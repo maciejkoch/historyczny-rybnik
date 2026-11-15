@@ -13,8 +13,13 @@ export function publicWeb(db, render) {
       if (url.pathname === '/sitemap.xml') {
         const places = await readPublicSummaries(db);
         const paths = ['/', '/o-nas', ...places.map((place) => '/miejsca/' + place.slug)];
-        return res.type('application/xml').send('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
-          paths.map((path) => '<url><loc>' + origin + path + '</loc></url>').join('') + '</urlset>');
+        return res
+          .type('application/xml')
+          .send(
+            '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
+              paths.map((path) => '<url><loc>' + origin + path + '</loc></url>').join('') +
+              '</urlset>',
+          );
       }
       const match = /^\/(api\/public-places|miejsca)\/([^/]+)$/.exec(url.pathname);
       if (!match) return res.status(404).end();
