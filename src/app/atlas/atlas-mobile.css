@@ -41,7 +41,7 @@
   }
   .sheet-open .details-inner {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
   .sheet-animating .map-region {
     transition: height 280ms ease;

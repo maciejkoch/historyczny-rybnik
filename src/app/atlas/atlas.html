@@ -266,7 +266,7 @@
             [tags]="allTags()"
             [pickedPoint]="draftPoint()"
             [pickingPoint]="mapPointPicking()"
-            (requestPoint)="mapPointPicking.set(true)"
+            (requestPoint)="startPickingMapPoint()"
             (cancel)="cancelEditing()"
             (saved)="savePlace($event)"
           />

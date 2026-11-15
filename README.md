@@ -29,7 +29,7 @@ Opis funkcji aktualizujemy w tej samej zmianie, która zmienia zachowanie aplika
 
 Każdy może zalogować się przez Google. Edycja lokalizacji i kart jest dostępna tylko dla administratorów; rolami zarządza operator.
 
-Zapis miejsca wymaga roli administratora, Google Auth i App Check. Backend sprawdza wersję rekordu i unikalność adresu karty; zmiany treści lub lokalizacji są od razu publiczne. Wzmianki i dane galerii można edytować w formularzu jako walidowany JSON; przesyłanie plików galerii pozostaje osobną operacją.
+Zapis miejsca wymaga roli administratora, Google Auth i App Check. Backend sprawdza wersję rekordu i unikalność adresu karty; zmiany treści lub lokalizacji są od razu publiczne. Administrator edytuje wzmianki i materiały w formularzach. Obrazy galerii i wzmianki może przesłać po potwierdzeniu prawa do udostępnienia; formularz zapisuje pochodzenie, wymagane metadane oraz sumy kontrolne.
 
 Baza dev zawiera 200 opublikowanych miejsc: 196 przeniesionych z MVP.0 i cztery punkty sprzedaży benzyny potwierdzone w źródłach. Lokalizacje kandydackie pozostają nieustalone; kopie dawnych wycinków bez potwierdzonej podstawy publikacji są wyłączone, referencje zawierają odnośniki do źródeł.
 

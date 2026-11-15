@@ -108,6 +108,17 @@ export class Atlas {
     if (this.mapPointPicking()) {
       this.draftPoint.set(point);
       this.mapPointPicking.set(false);
+      if (!this.isDesktop())
+        requestAnimationFrame(() =>
+          this.detailsPanel()?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+        );
+    }
+  }
+
+  startPickingMapPoint(): void {
+    this.mapPointPicking.set(true);
+    if (!this.isDesktop()) {
+      this.mapRegion()?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 

@@ -48,6 +48,21 @@
   font-weight: 700;
 }
 
+.material-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-width: 0;
+  padding-block: 0.35rem;
+}
+
+.material-row > span,
+.material-row .label span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .tag-options {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
@@ -76,7 +91,7 @@
 
 .editor-actions {
   position: sticky;
-  z-index: 2;
+  z-index: 20;
   bottom: 0;
   display: flex;
   gap: 0.75rem;
@@ -94,6 +109,7 @@
 
   .editor-actions {
     position: fixed;
+    z-index: 50;
     right: 0;
     bottom: var(--mobile-toolbar-height, 61px);
     left: 0;

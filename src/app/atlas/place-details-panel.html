@@ -36,9 +36,10 @@
   }
   <p class="intro">{{ place.description }}</p>
   @for (address of place.addresses; track address.text) {
-    @if (address.type === 'historical') {
-      <p>Adres historyczny: {{ address.text }}</p>
-    }
+    <p>
+      {{ address.type === 'historical' ? 'Adres historyczny' : 'Aktualny adres' }}:
+      {{ address.text }}
+    </p>
   }
   <div class="location-row">
     <span
