@@ -1,8 +1,21 @@
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
-    // Only reviewed copies with publication rights are imported under public/.
-    match /public/materials/{materialId}/{file} { allow read: if true; allow write: if false; }
+    match /public/materials/{materialId}/{file} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && resource == null
+        && request.auth.token.get('admin', false) == true
+        && request.auth.token.firebase.sign_in_provider == 'google.com'
+        && materialId.matches('^[a-zA-Z0-9_-]{1,100}$')
+        && file.matches('^[a-zA-Z0-9_-]+[.](webp|png|jpg)$')
+        && request.resource.size > 0
+        && request.resource.size <= 10 * 1024 * 1024
+        && ((file.matches('.*[.]webp$') && request.resource.contentType == 'image/webp')
+          || (file.matches('.*[.]png$') && request.resource.contentType == 'image/png')
+          || (file.matches('.*[.]jpg$') && request.resource.contentType == 'image/jpeg'));
+      allow update, delete: if false;
+    }
     match /{path=**} { allow read, write: if false; }
   }
 }

@@ -1,6 +1,6 @@
 import { Consent } from '../privacy/consent';
 import { inject, Injectable, signal } from '@angular/core';
-import { LocationDto } from './place';
+import { LocationDto, Place, PlaceContent } from './place';
 import { FIREBASE_DEV } from './runtime-config';
 @Injectable({ providedIn: 'root' })
 export class Locations {
@@ -54,6 +54,39 @@ export class Locations {
     )(writeRequestSchema.parse(request));
     const saved = locationDtoSchema.parse(result.data);
     this.current.update((values) => [...values.filter((value) => value.id !== saved.id), saved]);
+  }
+  async savePlace(place: PlaceContent, existing?: Place): Promise<Place> {
+    if (!this.consent.google()) throw new Error('Google consent required');
+    this.reader ??= this.initialize();
+    await this.reader;
+    const [{ getFunctions, httpsCallable }, { getApp }, contracts] = await Promise.all([
+      import('firebase/functions'),
+      import('firebase/app'),
+      import('../../../functions/src/contracts/places.mjs'),
+    ]);
+    const parsed = contracts.publicPlaceContentSchema.parse(place);
+    const callable = httpsCallable(
+      getFunctions(getApp(), 'europe-central2'),
+      existing ? 'placesDevSave' : 'placesDevCreate',
+    );
+    const request = existing
+      ? contracts.updatePlaceRequestSchema.parse({
+          placeId: existing.id,
+          expectedUpdatedAt: existing.updatedAt,
+          place: parsed,
+        })
+      : contracts.createPlaceRequestSchema.parse(parsed);
+    const saved = contracts.publicPlaceSchema.parse((await callable(request)).data);
+    this.current.update((values) => [
+      ...values.filter((value) => value.id !== saved.id),
+      {
+        id: saved.id,
+        location: saved.location,
+        locationVersion: saved.locationVersion,
+        updatedAt: saved.updatedAt,
+      },
+    ]);
+    return saved;
   }
   async refresh(ids: readonly string[]): Promise<void> {
     if (!this.consent.google()) {

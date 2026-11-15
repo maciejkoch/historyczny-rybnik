@@ -1,0 +1,675 @@
+<form
+  class="place-editor"
+  aria-labelledby="place-editor-title"
+  novalidate
+  (submit)="$event.preventDefault(); save()"
+>
+  <header class="editor-heading">
+    <p class="eyebrow">{{ isNew ? 'Nowa karta' : 'Edycja karty' }}</p>
+    <h1 id="place-editor-title">{{ isNew ? 'Dodaj miejsce' : 'Edytuj miejsce' }}</h1>
+  </header>
+
+  <fieldset class="editor-fields" [disabled]="saving()">
+    <legend class="sr-only">Pola karty miejsca</legend>
+    <label class="form-control">
+      <span class="label-text">Nazwa miejsca</span>
+      <input
+        class="input input-bordered w-full"
+        [formField]="editorForm.name"
+        (input)="nameChanged($any($event.target).value)"
+      />
+      @if (editorForm.name().invalid() && editorForm.name().touched()) {
+        <span class="text-error">{{ editorForm.name().errors()[0].message }}</span>
+      }
+    </label>
+
+    <label class="form-control">
+      <span class="label-text">Adres karty</span>
+      <input
+        class="input input-bordered w-full"
+        [formField]="editorForm.slug"
+        (input)="slugChanged($any($event.target).value)"
+      />
+      <span class="label-text-alt">Małe litery, cyfry i łączniki.</span>
+      @if (editorForm.slug().invalid() && editorForm.slug().touched()) {
+        <span class="text-error">{{ editorForm.slug().errors()[0].message }}</span>
+      }
+    </label>
+
+    <label class="form-control">
+      <span class="label-text">Opis</span>
+      <textarea
+        class="textarea textarea-bordered w-full"
+        rows="5"
+        [formField]="editorForm.description"
+      ></textarea>
+      @if (editorForm.description().invalid() && editorForm.description().touched()) {
+        <span class="text-error">{{ editorForm.description().errors()[0].message }}</span>
+      }
+    </label>
+
+    <fieldset class="editor-section">
+      <legend>Tagi</legend>
+      <div class="tag-options">
+        @for (tag of allTags(); track tag.id) {
+          <label class="label cursor-pointer justify-start gap-2">
+            <input
+              class="checkbox checkbox-primary checkbox-sm"
+              type="checkbox"
+              [checked]="isTagSelected(tag.id)"
+              (change)="toggleTag(tag.id)"
+            />
+            <span>{{ tag.name }}</span>
+          </label>
+        }
+      </div>
+      <div class="join new-tag">
+        <label class="sr-only" for="new-place-tag">Nowy tag</label>
+        <input
+          id="new-place-tag"
+          class="input input-bordered join-item"
+          [value]="newTagName()"
+          (input)="newTagName.set($any($event.target).value)"
+          (keydown.enter)="$event.preventDefault(); addTag()"
+          placeholder="Dodaj nowy tag"
+        />
+        <button class="btn btn-outline join-item" type="button" (click)="addTag()">
+          Dodaj tag
+        </button>
+      </div>
+      <p class="text-xs opacity-70">Pierwszy wybrany tag będzie głównym tagiem miejsca.</p>
+    </fieldset>
+
+    <fieldset class="editor-section">
+      <legend>Okres międzywojenny</legend>
+      <label class="form-control">
+        <span class="label-text">Ocena</span>
+        <select class="select select-bordered w-full" [formField]="editorForm.periodStatus">
+          <option value="confirmed">Potwierdzone</option>
+          <option value="probable">Prawdopodobne</option>
+          <option value="unverified">Niezweryfikowane</option>
+        </select>
+      </label>
+      <label class="form-control">
+        <span class="label-text">Uzasadnienie</span>
+        <textarea
+          class="textarea textarea-bordered w-full"
+          rows="3"
+          [formField]="editorForm.periodExplanation"
+        ></textarea>
+        @if (editorForm.periodExplanation().invalid() && editorForm.periodExplanation().touched()) {
+          <span class="text-error">{{ editorForm.periodExplanation().errors()[0].message }}</span>
+        }
+      </label>
+    </fieldset>
+
+    <label class="form-control">
+      <span class="label-text">Dzielnica</span>
+      <input class="input input-bordered w-full" [formField]="editorForm.district" />
+    </label>
+
+    <label class="form-control">
+      <span class="label-text">Inne nazwy — każda w osobnym wierszu</span>
+      <textarea
+        class="textarea textarea-bordered w-full"
+        rows="3"
+        [formField]="editorForm.aliases"
+      ></textarea>
+    </label>
+
+    <label class="form-control">
+      <span class="label-text">Poprzednie adresy kart — każdy w osobnym wierszu</span>
+      <textarea
+        class="textarea textarea-bordered w-full"
+        rows="2"
+        [formField]="editorForm.previousSlugs"
+      ></textarea>
+    </label>
+
+    <fieldset class="editor-section">
+      <legend>Lokalizacja</legend>
+      <label class="label cursor-pointer justify-start gap-3">
+        <input
+          class="checkbox checkbox-primary"
+          type="checkbox"
+          [checked]="model().locationMode === 'known'"
+          (change)="setLocationMode($any($event.target).checked)"
+        />
+        <span>Dodaj punkt na mapie</span>
+      </label>
+      @if (model().locationMode === 'known') {
+        <button class="btn btn-outline" type="button" (click)="requestPoint.emit()">
+          Wskaż punkt na mapie
+        </button>
+        @if (pickingPoint()) {
+          <p class="alert" role="status">Kliknij wybrane miejsce na mapie.</p>
+        }
+        <div class="coordinate-grid">
+          <label class="form-control"
+            ><span class="label-text">Szerokość</span
+            ><input
+              class="input input-bordered"
+              inputmode="decimal"
+              [value]="model().latitude"
+              (input)="setCoordinate('latitude', $any($event.target).value)"
+          /></label>
+          <label class="form-control"
+            ><span class="label-text">Długość</span
+            ><input
+              class="input input-bordered"
+              inputmode="decimal"
+              [value]="model().longitude"
+              (input)="setCoordinate('longitude', $any($event.target).value)"
+          /></label>
+        </div>
+        <label class="form-control">
+          <span class="label-text">Dokładność</span>
+          <select class="select select-bordered w-full" [formField]="editorForm.precision">
+            <option value="approximate">Przybliżona</option>
+            <option value="building">Wskazany budynek</option>
+          </select>
+        </label>
+      }
+      <label class="form-control">
+        <span class="label-text">Wyjaśnienie lokalizacji</span>
+        <textarea
+          class="textarea textarea-bordered w-full"
+          rows="2"
+          [formField]="editorForm.locationExplanation"
+        ></textarea>
+      </label>
+      <p class="text-xs opacity-70">
+        Po kliknięciu „Wskaż punkt na mapie” wybierz miejsce kliknięciem na mapie.
+      </p>
+    </fieldset>
+
+    <label class="form-control">
+      <span class="label-text">Adres historyczny</span>
+      <textarea
+        class="textarea textarea-bordered w-full"
+        rows="2"
+        [formField]="editorForm.historicalAddress"
+      ></textarea>
+      <span class="text-xs opacity-70">Każdy adres w osobnym wierszu.</span>
+    </label>
+    <label class="form-control">
+      <span class="label-text">Aktualny adres</span>
+      <textarea
+        class="textarea textarea-bordered w-full"
+        rows="2"
+        [formField]="editorForm.currentAddress"
+      ></textarea>
+      <span class="text-xs opacity-70">Każdy adres w osobnym wierszu.</span>
+    </label>
+
+    <fieldset class="editor-section">
+      <legend>Wzmianki i źródła</legend>
+      @for (mention of model().mentions; track mention.id; let i = $index) {
+        <fieldset class="editor-section">
+          <legend>Wzmianka {{ i + 1 }}</legend>
+          <label class="form-control"
+            ><span>Tytuł źródła</span
+            ><input
+              class="input input-bordered w-full"
+              [value]="mention.title"
+              (input)="updateMention(i, 'title', $any($event.target).value)"
+          /></label>
+          <label class="form-control"
+            ><span>Adres źródła</span
+            ><input
+              class="input input-bordered w-full"
+              type="url"
+              [value]="mention.url ?? ''"
+              (input)="updateMention(i, 'url', $any($event.target).value)"
+          /></label>
+          <label class="form-control"
+            ><span>Strona źródła</span
+            ><input
+              class="input input-bordered w-full"
+              [value]="mention.page ?? ''"
+              (input)="updateMention(i, 'page', $any($event.target).value)"
+          /></label>
+          <label class="form-control"
+            ><span>Data publikacji</span
+            ><input
+              class="input input-bordered w-full"
+              type="date"
+              [value]="mention.publicationDate?.from ?? ''"
+              (input)="updateMentionDate(i, 'publicationDate', $any($event.target).value)"
+          /></label>
+          <label class="form-control"
+            ><span>Koniec zakresu publikacji</span
+            ><input
+              class="input input-bordered w-full"
+              type="date"
+              [value]="mention.publicationDate?.to ?? ''"
+              (input)="updateMentionDateEnd(i, 'publicationDate', $any($event.target).value)"
+          /></label>
+          <label class="label cursor-pointer justify-start gap-2"
+            ><input
+              class="checkbox checkbox-sm"
+              type="checkbox"
+              [checked]="mention.publicationDate?.approximate ?? false"
+              (change)="
+                toggleMentionDateApproximate(i, 'publicationDate', $any($event.target).checked)
+              "
+            /><span>Data publikacji jest przybliżona</span></label
+          >
+          <label class="form-control"
+            ><span>Data wydarzenia</span
+            ><input
+              class="input input-bordered w-full"
+              type="date"
+              [value]="mention.documentedDate?.from ?? ''"
+              (input)="updateMentionDate(i, 'documentedDate', $any($event.target).value)"
+          /></label>
+          <label class="form-control"
+            ><span>Koniec zakresu wydarzenia</span
+            ><input
+              class="input input-bordered w-full"
+              type="date"
+              [value]="mention.documentedDate?.to ?? ''"
+              (input)="updateMentionDateEnd(i, 'documentedDate', $any($event.target).value)"
+          /></label>
+          <label class="label cursor-pointer justify-start gap-2"
+            ><input
+              class="checkbox checkbox-sm"
+              type="checkbox"
+              [checked]="mention.documentedDate?.approximate ?? false"
+              (change)="
+                toggleMentionDateApproximate(i, 'documentedDate', $any($event.target).checked)
+              "
+            /><span>Data wydarzenia jest przybliżona</span></label
+          >
+          <label class="form-control"
+            ><span>Status</span
+            ><select
+              class="select select-bordered w-full"
+              [value]="mention.verification"
+              (change)="updateMention(i, 'verification', $any($event.target).value)"
+            >
+              <option value="draft">Robocza</option>
+              <option value="verified">Zweryfikowana</option>
+              <option value="conflicting">Sprzeczna</option>
+            </select></label
+          >
+          <label class="form-control"
+            ><span>Treść</span
+            ><textarea
+              class="textarea textarea-bordered w-full"
+              [value]="mention.excerpt"
+              (input)="updateMention(i, 'excerpt', $any($event.target).value)"
+            ></textarea>
+          </label>
+          <label class="form-control"
+            ><span>Rodzaj treści</span
+            ><select
+              class="select select-bordered w-full"
+              [value]="mention.excerptType"
+              (change)="updateMention(i, 'excerptType', $any($event.target).value)"
+            >
+              <option value="summary">Streszczenie</option>
+              <option value="quote">Cytat</option>
+              <option value="transcription">Transkrypcja</option>
+            </select></label
+          >
+          <label class="form-control"
+            ><span>Uwagi</span
+            ><textarea
+              class="textarea textarea-bordered w-full"
+              [value]="mention.note ?? ''"
+              (input)="updateMention(i, 'note', $any($event.target).value)"
+            ></textarea>
+          </label>
+          @for (material of mention.materials; track material.materialId) {
+            <div class="material-row">
+              <span>{{ material.alt }} · {{ material.provenance.title }}</span
+              ><button
+                class="btn btn-ghost btn-sm"
+                type="button"
+                (click)="removeMentionMaterial(i, material.materialId)"
+              >
+                Odłącz od wzmianki
+              </button>
+            </div>
+            <label class="form-control"
+              ><span>Opis alternatywny</span
+              ><input
+                class="input input-bordered w-full"
+                [value]="material.alt"
+                (input)="
+                  updateImageMetadata(i, material.materialId, 'alt', $any($event.target).value)
+                "
+            /></label>
+            <label class="form-control"
+              ><span>Podpis</span
+              ><input
+                class="input input-bordered w-full"
+                [value]="material.credit"
+                (input)="
+                  updateImageMetadata(i, material.materialId, 'credit', $any($event.target).value)
+                "
+            /></label>
+            <label class="form-control"
+              ><span>Prawa do udostępnienia</span
+              ><textarea
+                class="textarea textarea-bordered w-full"
+                [value]="material.rights"
+                (input)="
+                  updateImageMetadata(i, material.materialId, 'rights', $any($event.target).value)
+                "
+              ></textarea>
+            </label>
+            <label class="form-control"
+              ><span>Tytuł źródła</span
+              ><input
+                class="input input-bordered w-full"
+                [value]="material.provenance.title"
+                (input)="
+                  updateImageMetadata(
+                    i,
+                    material.materialId,
+                    'sourceTitle',
+                    $any($event.target).value
+                  )
+                "
+            /></label>
+            <label class="form-control"
+              ><span>Strona źródłowa</span
+              ><input
+                class="input input-bordered w-full"
+                type="url"
+                [value]="material.provenance.sourcePageUrl ?? ''"
+                (input)="
+                  updateImageMetadata(
+                    i,
+                    material.materialId,
+                    'sourcePageUrl',
+                    $any($event.target).value
+                  )
+                "
+            /></label>
+            <label class="form-control"
+              ><span>Data oryginału</span
+              ><input
+                class="input input-bordered w-full"
+                [value]="material.provenance.dateNote"
+                (input)="
+                  updateImageMetadata(i, material.materialId, 'dateNote', $any($event.target).value)
+                "
+            /></label>
+            <label class="form-control"
+              ><span>Licencja</span
+              ><input
+                class="input input-bordered w-full"
+                [value]="material.provenance.license"
+                (input)="
+                  updateImageMetadata(i, material.materialId, 'license', $any($event.target).value)
+                "
+            /></label>
+          }
+          <button class="btn btn-outline btn-error" type="button" (click)="removeMention(i)">
+            Usuń wzmiankę
+          </button>
+        </fieldset>
+      }
+      <button class="btn btn-outline" type="button" (click)="addMention()">Dodaj wzmiankę</button>
+    </fieldset>
+
+    <fieldset class="editor-section">
+      <legend>Galeria miejsca</legend>
+      @for (material of model().materials; track material.materialId) {
+        <div class="material-row">
+          <label class="label cursor-pointer justify-start gap-2"
+            ><input
+              class="radio radio-primary radio-sm"
+              type="radio"
+              name="primary-material"
+              [checked]="material.isPrimary"
+              (change)="setPrimaryMaterial(material.materialId)"
+            /><span>{{ material.alt }} · {{ material.provenance.title }}</span></label
+          >
+          <button
+            class="btn btn-ghost btn-sm"
+            type="button"
+            (click)="removeGalleryMaterial(material.materialId)"
+          >
+            Odłącz od karty
+          </button>
+        </div>
+        <label class="form-control"
+          ><span>Opis alternatywny</span
+          ><input
+            class="input input-bordered w-full"
+            [value]="material.alt"
+            (input)="
+              updateImageMetadata(null, material.materialId, 'alt', $any($event.target).value)
+            "
+        /></label>
+        <label class="form-control"
+          ><span>Podpis</span
+          ><input
+            class="input input-bordered w-full"
+            [value]="material.credit"
+            (input)="
+              updateImageMetadata(null, material.materialId, 'credit', $any($event.target).value)
+            "
+        /></label>
+        <label class="form-control"
+          ><span>Prawa do udostępnienia</span
+          ><textarea
+            class="textarea textarea-bordered w-full"
+            [value]="material.rights"
+            (input)="
+              updateImageMetadata(null, material.materialId, 'rights', $any($event.target).value)
+            "
+          ></textarea>
+        </label>
+        <label class="form-control"
+          ><span>Tytuł źródła</span
+          ><input
+            class="input input-bordered w-full"
+            [value]="material.provenance.title"
+            (input)="
+              updateImageMetadata(
+                null,
+                material.materialId,
+                'sourceTitle',
+                $any($event.target).value
+              )
+            "
+        /></label>
+        <label class="form-control"
+          ><span>Strona źródłowa</span
+          ><input
+            class="input input-bordered w-full"
+            type="url"
+            [value]="material.provenance.sourcePageUrl ?? ''"
+            (input)="
+              updateImageMetadata(
+                null,
+                material.materialId,
+                'sourcePageUrl',
+                $any($event.target).value
+              )
+            "
+        /></label>
+        <label class="form-control"
+          ><span>Data oryginału</span
+          ><input
+            class="input input-bordered w-full"
+            [value]="material.provenance.dateNote"
+            (input)="
+              updateImageMetadata(null, material.materialId, 'dateNote', $any($event.target).value)
+            "
+        /></label>
+        <label class="form-control"
+          ><span>Licencja</span
+          ><input
+            class="input input-bordered w-full"
+            [value]="material.provenance.license"
+            (input)="
+              updateImageMetadata(null, material.materialId, 'license', $any($event.target).value)
+            "
+        /></label>
+      }
+      @if (!model().materials.length) {
+        <p>Brak materiałów w galerii.</p>
+      }
+    </fieldset>
+
+    <fieldset class="editor-section" [disabled]="uploading()">
+      <legend>Dodaj materiał</legend>
+      <label class="form-control"
+        ><span>Dodaj do</span
+        ><select
+          class="select select-bordered w-full"
+          [value]="uploadDraft().target"
+          (change)="uploadDraft.update((d) => ({ ...d, target: $any($event.target).value }))"
+        >
+          <option value="gallery">Galeria miejsca</option>
+          @for (mention of model().mentions; track mention.id) {
+            <option [value]="mention.id">Wzmianka: {{ mention.title || 'bez tytułu' }}</option>
+          }
+        </select></label
+      >
+      <label class="form-control"
+        ><span>Plik obrazu (JPEG, PNG lub WebP, do 10 MB)</span
+        ><input
+          class="file-input file-input-bordered w-full"
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          (change)="setUploadFile($any($event.target).files?.[0] ?? null)"
+      /></label>
+      <label class="form-control"
+        ><span>Opis alternatywny</span
+        ><input
+          class="input input-bordered w-full"
+          [value]="uploadDraft().alt"
+          (input)="updateUpload('alt', $any($event.target).value)"
+      /></label>
+      <label class="form-control"
+        ><span>Podpis / autor materiału</span
+        ><input
+          class="input input-bordered w-full"
+          [value]="uploadDraft().credit"
+          (input)="updateUpload('credit', $any($event.target).value)"
+      /></label>
+      <label class="form-control"
+        ><span>Potwierdzenie prawa do udostępnienia</span
+        ><textarea
+          class="textarea textarea-bordered w-full"
+          [value]="uploadDraft().rights"
+          (input)="updateUpload('rights', $any($event.target).value)"
+          placeholder="Opisz podstawę prawa lub zgodę przekazującego"
+        ></textarea>
+      </label>
+      <label class="form-control"
+        ><span>Tytuł źródła / kolekcji</span
+        ><input
+          class="input input-bordered w-full"
+          [value]="uploadDraft().sourceTitle"
+          (input)="updateUpload('sourceTitle', $any($event.target).value)"
+      /></label>
+      <label class="form-control"
+        ><span>Strona źródłowa (HTTPS)</span
+        ><input
+          class="input input-bordered w-full"
+          type="url"
+          [value]="uploadDraft().sourcePageUrl"
+          (input)="updateUpload('sourcePageUrl', $any($event.target).value)"
+      /></label>
+      <label class="form-control"
+        ><span>URL kolekcji (HTTPS)</span
+        ><input
+          class="input input-bordered w-full"
+          type="url"
+          [value]="uploadDraft().originalCollectionUrl"
+          (input)="updateUpload('originalCollectionUrl', $any($event.target).value)"
+      /></label>
+      <label class="form-control"
+        ><span>URL oryginału (HTTPS)</span
+        ><input
+          class="input input-bordered w-full"
+          type="url"
+          [value]="uploadDraft().originalImageUrl"
+          (input)="updateUpload('originalImageUrl', $any($event.target).value)"
+      /></label>
+      <label class="form-control"
+        ><span>Autor oryginału</span
+        ><input
+          class="input input-bordered w-full"
+          [value]="uploadDraft().author"
+          (input)="updateUpload('author', $any($event.target).value)"
+      /></label>
+      <label class="form-control"
+        ><span>Data lub opis daty oryginału</span
+        ><input
+          class="input input-bordered w-full"
+          [value]="uploadDraft().dateNote"
+          (input)="updateUpload('dateNote', $any($event.target).value)"
+      /></label>
+      <label class="form-control"
+        ><span>Licencja / informacja o prawach</span
+        ><input
+          class="input input-bordered w-full"
+          [value]="uploadDraft().license"
+          (input)="updateUpload('license', $any($event.target).value)"
+      /></label>
+      <label class="form-control"
+        ><span>URL licencji (HTTPS)</span
+        ><input
+          class="input input-bordered w-full"
+          type="url"
+          [value]="uploadDraft().licenseUrl"
+          (input)="updateUpload('licenseUrl', $any($event.target).value)"
+      /></label>
+      <label class="label cursor-pointer justify-start gap-2"
+        ><input
+          class="checkbox checkbox-primary"
+          type="checkbox"
+          [checked]="rightsConfirmed()"
+          (change)="rightsConfirmed.set($any($event.target).checked)"
+        /><span>Potwierdzam, że mam prawo do publicznego udostępnienia tego pliku.</span></label
+      >
+      <p class="text-xs opacity-70">
+        Plik zostanie przekonwertowany do WebP, a suma SHA-256 oryginału i kopii zostanie zapisana z
+        pochodzeniem. Upload jest publiczny; zapisz kartę, aby podłączyć materiał.
+      </p>
+      <p class="text-xs opacity-70">
+        Odłączenie materiału od karty nie usuwa pliku z publicznego Storage.
+      </p>
+      <button
+        class="btn btn-outline"
+        type="button"
+        [disabled]="uploading()"
+        (click)="uploadMaterial()"
+      >
+        {{ uploading() ? 'Przesyłanie…' : 'Prześlij materiał' }}
+      </button>
+    </fieldset>
+  </fieldset>
+
+  @if (message()) {
+    <p class="alert alert-error" role="alert">{{ message() }}</p>
+  }
+
+  <footer class="editor-actions">
+    <button
+      class="btn btn-primary"
+      type="button"
+      [disabled]="saving() || uploading()"
+      (click)="save()"
+    >
+      {{ saving() ? 'Zapisywanie…' : 'Zapisz miejsce' }}
+    </button>
+    <button
+      class="btn btn-outline"
+      type="button"
+      [disabled]="saving() || uploading()"
+      (click)="cancel.emit()"
+    >
+      Anuluj
+    </button>
+  </footer>
+</form>

@@ -16,7 +16,7 @@ import {
   getFirestore,
   connectFirestoreEmulator,
 } from 'firebase/firestore';
-import { ref, uploadBytes, getBytes } from 'firebase/storage';
+import { ref, uploadBytes, getBytes, deleteObject } from 'firebase/storage';
 const env = await initializeTestEnvironment({
   projectId: 'demo-historyczny-rybnik',
   firestore: { rules: readFileSync(new URL('../../firestore.rules', import.meta.url), 'utf8') },
@@ -38,7 +38,7 @@ await test('all direct Firestore access denied even authenticated', async () => 
     await assertFails(setDoc(doc(db, 'places/x/history/y'), { author: 'alice' }));
   }
 });
-await test('public reviewed asset readable; private assets and writes denied', async () => {
+await test('public asset readable; only Google administrators can create bounded images', async () => {
   await env.withSecurityRulesDisabled(async (c) => {
     await uploadBytes(
       ref(c.storage(), 'public/materials/material-a/test.webp'),
@@ -67,6 +67,36 @@ await test('public reviewed asset readable; private assets and writes denied', a
     );
   }
   await assertFails(uploadBytes(ref(storage, 'public/places/a/b/new.webp'), new Uint8Array([1])));
+  const admin = env
+    .authenticatedContext('editor', {
+      admin: true,
+      firebase: { sign_in_provider: 'google.com' },
+    })
+    .storage();
+  const image = ref(admin, 'public/materials/material-b/image.webp');
+  await assertSucceeds(uploadBytes(image, new Uint8Array([1, 2]), { contentType: 'image/webp' }));
+  await assertFails(deleteObject(image));
+  await assertFails(uploadBytes(image, new Uint8Array([3]), { contentType: 'image/webp' }));
+  await assertFails(
+    uploadBytes(ref(admin, 'public/materials/material-b/fake.jpg'), new Uint8Array([1]), {
+      contentType: 'text/html',
+    }),
+  );
+  await assertFails(
+    uploadBytes(
+      ref(admin, 'public/materials/material-b/large.png'),
+      new Uint8Array(10 * 1024 * 1024 + 1),
+      { contentType: 'image/png' },
+    ),
+  );
+  const regular = env
+    .authenticatedContext('regular', { firebase: { sign_in_provider: 'google.com' } })
+    .storage();
+  await assertFails(
+    uploadBytes(ref(regular, 'public/materials/material-b/other.webp'), new Uint8Array([1]), {
+      contentType: 'image/webp',
+    }),
+  );
 });
 
 await test('named places-dev database also denies every direct client operation', async () => {

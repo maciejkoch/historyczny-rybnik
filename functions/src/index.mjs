@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import { onCall, onRequest } from 'firebase-functions/v2/https';
-import { readLocations, updateLocation } from './service.mjs';
+import { readLocations, updateLocation, createPlace, updatePlace } from './service.mjs';
 import { publicWeb } from './public-web.mjs';
 initializeApp();
 const db = getFirestore('places-dev');
@@ -21,6 +21,8 @@ const options = {
 };
 export const placesDevRead = onCall(options, (request) => readLocations(db, request));
 export const placesDevUpdate = onCall(options, (request) => updateLocation(db, request));
+export const placesDevCreate = onCall(options, (request) => createPlace(db, request));
+export const placesDevSave = onCall(options, (request) => updatePlace(db, request));
 const webOptions = {
   region: 'europe-central2',
   serviceAccount: 'places-dev-build@historyczny-rybnik.iam.gserviceaccount.com',

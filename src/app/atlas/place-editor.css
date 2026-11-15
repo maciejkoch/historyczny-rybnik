@@ -1,0 +1,118 @@
+:host {
+  display: block;
+}
+
+.place-editor {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 1rem 6.5rem;
+}
+
+.editor-heading h1 {
+  margin: 0;
+}
+
+.eyebrow {
+  margin: 0 0 0.25rem;
+  color: var(--color-base-content);
+  opacity: 0.65;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.form-control {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.editor-fields {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+.editor-section {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--color-base-content) 18%, transparent);
+  border-radius: 0.75rem;
+}
+
+.editor-section legend {
+  padding-inline: 0.35rem;
+  font-weight: 700;
+}
+
+.material-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-width: 0;
+  padding-block: 0.35rem;
+}
+
+.material-row > span,
+.material-row .label span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.tag-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  max-height: 14rem;
+  overflow: auto;
+}
+
+.new-tag,
+.new-tag input {
+  min-width: 0;
+}
+
+.coordinate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.json-editor {
+  min-height: 9rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  white-space: pre;
+}
+
+.editor-actions {
+  position: sticky;
+  z-index: 20;
+  bottom: 0;
+  display: flex;
+  gap: 0.75rem;
+  margin: 0 -1rem -6.5rem;
+  padding: 0.75rem 1rem max(0.75rem, env(safe-area-inset-bottom));
+  background: color-mix(in srgb, var(--color-base-100) 94%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--color-base-content) 18%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+@media (max-width: 1099px) {
+  .place-editor {
+    padding-bottom: calc(8rem + var(--mobile-toolbar-height, 61px));
+  }
+
+  .editor-actions {
+    position: fixed;
+    z-index: 50;
+    right: 0;
+    bottom: var(--mobile-toolbar-height, 61px);
+    left: 0;
+    margin: 0;
+  }
+}

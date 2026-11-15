@@ -13,6 +13,7 @@ export class PlaceSearchPanel {
   readonly markerCategory = markerCategory;
   readonly markerIcon = markerIcon;
   readonly status = input<'loading' | 'ready' | 'error'>('loading');
+  readonly canEdit = input(false);
   readonly retry = output<void>();
   readonly tags = input<readonly { id: string; name: string }[]>([]);
   readonly selectedTag = input('');
@@ -25,6 +26,7 @@ export class PlaceSearchPanel {
   readonly selectedId = input<string>();
   readonly queryChanged = output<string>();
   readonly placeSelected = output<PlaceSummary>();
+  readonly addPlace = output<void>();
 
   tagNames(place: PlaceSummary): string {
     return place.tags.map((tag) => tag.name).join(' · ');

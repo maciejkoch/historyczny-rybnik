@@ -32,6 +32,8 @@ Cały rekord po serializacji JSON może mieć maks. 700 000 bajtów UTF-8. Katal
 
 **Lokalizacja:** znana ma postać `{ coordinates: { lat, lng }, precision, explanation }`, gdzie `lat` jest w zakresie −90…90, `lng` −180…180, `precision` to `building` albo `approximate`, a `explanation` jest tekstem do 2000 znaków (może być pusty). Nieustalona lokalizacja ma `{ coordinates: null, precision: "unknown", explanation: null }` lub niepuste wyjaśnienie do 2000 znaków. API edycji przyjmuje wyłącznie znaną lokalizację i wymaga `expectedLocationVersion`; zapis zwiększa wersję i ustawia czas serwera.
 
+**Tworzenie i edycja karty:** `createPlaceRequestSchema` i `updatePlaceRequestSchema` przyjmują pełną treść bez `id`, `published`, `createdAt`, `updatedAt` i `locationVersion`. Backend nadaje ID i pola techniczne, publikuje nowy rekord oraz sprawdza `expectedUpdatedAt`, role administratora, App Check, Google Auth i unikalność bieżących oraz poprzednich slugów. Zmiana lokalizacji w pełnym zapisie zwiększa `locationVersion`. Edycja treści galerii i wzmianek nie przesyła plików.
+
 **Daty:** znacznik czasu ma postać `YYYY-MM-DDTHH:mm:ssZ` lub `YYYY-MM-DDTHH:mm:ss.sssZ`. Data historyczna to `null` albo `{ from, to, approximate }`: `from` jest datą `YYYY`, `YYYY-MM` lub `YYYY-MM-DD` (lata 1000–2999), `to` jest datą w tych samych formatach lub `null`, a `approximate` jest booleanem. `to: null` oznacza pojedynczą datę z precyzją źródła; zakres musi być chronologicznie poprawny. Udokumentowane daty miejsca wynikają ze zweryfikowanych wzmianek; nie ma osobnego pola zakresu istnienia ani założenia ciągłości między wzmiankami.
 
 ### Wzmianki i materiały w publicznym rekordzie
@@ -65,7 +67,7 @@ Każdy element `materials` zawiera wszystkie pola `imageSchema` oraz `materialId
 
 `provenance` zawiera wymagane pola: `title` (do 500 znaków), `sourcePageUrl`, `originalCollectionUrl`, `originalImageUrl` (HTTPS bez danych logowania, do 2000 znaków, albo `null`), `originalSha256` (suma SHA-256), `author` (do 500 znaków albo `null`), `dateNote` i `license` (do 500 znaków), `licenseUrl` (HTTPS albo `null`), `copyrighted` (boolean lub `null`, gdy nieustalone), `rightsCheckedAt` (pełna data `YYYY-MM-DD`) i `transformations` (do 2000 znaków). Wartości tekstowe inne niż `null` są niepuste. Prawo do udostępnienia potwierdza osoba przekazująca materiał; nieznane źródło i status praw zapisujemy zgodnie z prawdą, bez wymogu domeny publicznej.
 
-Materiał w galerii miejsca korzysta z tego samego `imageSchema` i zawiera `materialId`, dodatnie całkowite `width` i `height` obrazu oraz boolean `isPrimary`. Obie ścieżki muszą należeć do `public/materials/<materialId>/`. `credit` podaje tekst źródła, a `provenance.sourcePageUrl` może wskazywać jego stronę. Galeria miejsca nie wymaga daty wzmianki. Eksport warsztatu zachowuje galerię z katalogu bazowego; nie zapewnia jeszcze edycji ani uploadu tych materiałów.
+Materiał w galerii miejsca korzysta z tego samego `imageSchema` i zawiera `materialId`, dodatnie całkowite `width` i `height` obrazu oraz boolean `isPrimary`. Obie ścieżki muszą należeć do `public/materials/<materialId>/`. `credit` podaje tekst źródła, a `provenance.sourcePageUrl` może wskazywać jego stronę. Galeria miejsca nie wymaga daty wzmianki. Eksport warsztatu zachowuje galerię z katalogu bazowego; formularz karty pozwala edytować metadane galerii, bez uploadu plików.
 
 ### Przykład rekordu katalogowego
 

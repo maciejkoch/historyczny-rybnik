@@ -24,6 +24,37 @@ export class PublicPlaces {
   readonly status = signal<'loading' | 'ready' | 'error'>('loading');
   readonly detailStatus = signal<'ready' | 'missing' | 'error'>('ready');
 
+  upsert(place: Place): void {
+    const {
+      id,
+      name,
+      slug,
+      tags,
+      aliases,
+      addresses,
+      district,
+      location,
+      locationVersion,
+      updatedAt,
+    } = place;
+    const summary = publicSummarySchema.parse({
+      id,
+      name,
+      slug,
+      tags,
+      aliases,
+      addresses,
+      district,
+      location,
+      locationVersion,
+      updatedAt,
+    });
+    this.summaries.update((values) => [
+      ...values.filter((value) => value.id !== summary.id),
+      summary,
+    ]);
+  }
+
   async load(): Promise<void> {
     this.status.set('loading');
     try {

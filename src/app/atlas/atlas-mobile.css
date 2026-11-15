@@ -41,7 +41,7 @@
   }
   .sheet-open .details-inner {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
   .sheet-animating .map-region {
     transition: height 280ms ease;
@@ -54,9 +54,9 @@
       opacity 200ms ease,
       transform 280ms ease;
   }
-  .screen-search .map-region,
+  .screen-search:not(.has-details) .map-region,
   .atlas-shell:not(.screen-search) .search-panel,
-  .atlas-shell:not(.screen-place):not(.sheet-animating) .details-sidebar,
+  .atlas-shell:not(.has-details):not(.sheet-animating) .details-sidebar,
   .panel-toggle,
   .panel-separator,
   .details-header {

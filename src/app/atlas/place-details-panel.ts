@@ -11,7 +11,9 @@ import { FIREBASE_DEV } from '../places/runtime-config';
 })
 export class PlaceDetailsPanel implements OnDestroy {
   readonly place = input<Place | null>(null);
+  readonly canEdit = input(false);
   readonly imageOpened = output<{ url: string; alt: string }>();
+  readonly editRequested = output<void>();
   private lightbox: PhotoSwipeLightbox | null = null;
 
   primaryMaterial() {
