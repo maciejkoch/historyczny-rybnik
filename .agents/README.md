@@ -1,5 +1,7 @@
 # Skille projektu
 
+`rybnik-create-place` przygotowuje nowe miejsce lub aktualizację według aktualnego kontraktu aplikacji. Opracowanie wykonuje GPT-6.1 Sol; dodatkowe znalezione źródła i końcowe dane wymagają akceptacji właściciela. Skill sprawdza datowanie i domenę publiczną obrazów, uzupełnia uzasadnioną lokalizację (także przybliżoną), a po akceptacji importuje jeden rekord i obrazy do dev bez odbioru w aplikacji. Działa samodzielnie, bez starego warsztatu, jego rejestrów i synchronizacji; dokumentację źródeł i praw zachowuje przy lokalnym pakiecie. [Procedura](skills/rybnik-create-place/SKILL.md).
+
 `skills/` zawiera procedury tworzenia oraz rozpoczynania, wznawiania i kończenia zadań GitHub Projects. Pozostają w tej lokalizacji, aby Codex mógł je odkrywać. [Użycie i ograniczenia](../agent-context/github-projects/skille-github-projects.md). Obowiązujące zasady są w głównych dokumentach repozytorium.
 
 `rybnik-research-places` kontynuuje badania historyczne Rybnika w prywatnym warsztacie data/places, rozszerza sieć źródeł, rejestruje materiały i kandydatów oraz raportuje zmiany. Nie publikuje automatycznie wyników.

@@ -32,12 +32,14 @@ Szczegóły: [środowiska](agent-context/reference/mvp-1/srodowiska.md).
 
 # Prawa do materiałów źródłowych
 
+- Samodzielny skill `rybnik-create-place` sprawdza źródła i prawa bez korzystania ze starego warsztatu ani jego synchronizacji. Dowody i ocenę praw zapisuje przy lokalnym pakiecie importu według własnej procedury. Poniższe wymagania odczytu rejestru i zapisu w warsztacie dotyczą przepływu badań `rybnik-research-places`, nie tworzenia miejsca tym nowym skillem.
+
 - Przed weryfikacją materiału odczytaj rejestr praw w prywatnym warsztacie `data/places/materials/`; dla dawnych publikacji sprawdź także wejściowy `.local/source-rights.json`. Wykorzystuj wcześniejszą decyzję tylko w jej zapisanym zakresie (konkretne wydanie/obiekt), bez rozszerzania jej na bibliotekę, rocznik lub tytuł.
 - Nowe rozpoznane źródło lub wydanie dodaj do warsztatu z powiązaniami miejsc i materiałów. Zapisuj znane informacje o prawach, pochodzeniu i dacie; nieznanych danych nie wymyślaj.
 - Osoba dodająca materiał odpowiada za prawo do jego udostępnienia. Nie blokuj dodawania ani wyświetlania z powodu stanu praw, źródła lub braku potwierdzenia. Zachowuj sumy i dostępne pochodzenie. Produkcja wymaga osobnego zlecenia.
 
 # Warsztat badań miejsc
 
-- Nowe badania prowadź skillem `.agents/skills/rybnik-research-places/SKILL.md` i według `data/places/README.md`. Stały zakres: elastycznie 1918–1939.
+- Badania w prywatnym warsztacie prowadź skillem `.agents/skills/rybnik-research-places/SKILL.md` i według `data/places/README.md`. Stały zakres: elastycznie 1918–1939. Tworzenie i aktualizowanie miejsca z podanych źródeł skillem `rybnik-create-place`, także wyszukiwanie dodatkowych źródeł do akceptacji, jest odrębnym przepływem bez tego warsztatu.
 - Po migracji źródłem bieżących decyzji praw dla badań są materiały w prywatnym warsztacie; `.local/source-rights.json` zachowuje wcześniejsze decyzje jako wejście migracji, wyłącznie w ich zapisanym zakresie. Nie prowadź dwóch rejestrów tej samej nowej decyzji.
 - Lokalna przeglądarka i prywatny zbiór nigdy nie trafiają do publicznych artefaktów. Badanie i synchronizacja nie oznaczają zgody na import ani publikację.

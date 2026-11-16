@@ -16,6 +16,8 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 | [places/deploy-backend-dev.mjs](places/deploy-backend-dev.mjs) | Wdraża backend dev; opcjonalnie samą funkcję API ze sprawdzonym dotychczasowym rendererem SSR. |
 | [places/deploy-prod.mjs](places/deploy-prod.mjs) | Blokuje publikację produkcji do przygotowania konfiguracji fazy 5; obecnie nie wdraża niczego. |
 | [places/firestore.mjs](places/firestore.mjs) | Moduł połączenia do jawnie wybranej bazy dev lub emulatora; obsługuje ADC i impersonację przez logowanie Firebase CLI. |
+| [places/import-place.mjs](places/import-place.mjs) | Odczyt i walidowany import jednego zatwierdzonego miejsca do dev, z kontrolą konfliktów, kopią rekordu i uploadem obrazów. |
+| [places/import-place.test.mjs](places/import-place.test.mjs) | Testy kontraktu, konfliktów, ponowień, obrazów i ograniczenia celu nowego importera. |
 | [places/import.mjs](places/import.mjs) | Przestarzały importer dawnego katalogu; nie używać z obecnym schematem. |
 | [places/package-ssr.mjs](places/package-ssr.mjs) | Pakuje wygenerowany serwer Angulara do funkcji. |
 | [places/prepare-hosting.mjs](places/prepare-hosting.mjs) | Tworzy ignorowaną konfigurację Firebase Hosting z bezwzględną ścieżką artefaktów builda. |
@@ -97,3 +99,10 @@ Rzeczywiste dane miejsc są w Firestore. `places:snapshot` zapisuje `.local/plac
 `start`, `watch` i build nie wymagają danych miejsc ani przygotowania katalogu. `data/places.fixture.json` jest używany wyłącznie w testach i nie trafia do aplikacji. `prepare-hosting.mjs` tworzy `.local/firebase.dev.json` z bezwzględną ścieżką artefaktów i nie modyfikuje szablonów Firebase. `preview` używa tej konfiguracji; `deploy:dev-N` tworzy `.local/firebase.dev-N.json` dla właściwej witryny.
 
 - `npm run test:places-filter` — testuje filtrowanie miejsc po nazwie, głównym tagu i lokalizacji; jest częścią `npm test`.
+
+## Przygotowanie pojedynczego miejsca
+
+- `npm run places:import-one -- PAKIET.json`: lokalny podgląd aktualnego kontraktu; zapis wymaga `--apply --approved-sha256=SUMA` oraz jawnego projektu dev i uprawnień operatora.
+- `npm run test:place-import`: testy nowego importera, włączone do `npm test`.
+- Skill [rybnik-create-place](../.agents/skills/rybnik-create-place/SKILL.md) przygotowuje nowe miejsce lub aktualizację z podanych źródeł. Dodatkowe znalezione źródła wymagają osobnej akceptacji.
+- [Format pakietu i polecenia](../.agents/skills/rybnik-create-place/references/import.md): także odczyt bieżącego rekordu przez `--read=ID --output=PLIK`. Import obejmuje jeden dokument, bez deploymentu ani automatycznego odbioru w aplikacji. Stary `places:import` i eksport warsztatu nadal pozostają odłączone.

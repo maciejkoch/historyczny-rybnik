@@ -1,0 +1,4 @@
+interface:
+  display_name: "Miejsce Historycznego Rybnika"
+  short_description: "Przygotuj lub uzupełnij miejsce i importuj do dev"
+  default_prompt: "Użyj $rybnik-create-place, aby przygotować miejsce z podanej nazwy, linków i zdjęć do mojej akceptacji."
