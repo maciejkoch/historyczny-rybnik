@@ -1,3 +1,4 @@
+// Deprecated: uses the retired research catalogue workflow; do not use with the current place schema.
 import { readFileSync } from 'node:fs';
 import { preserveLiveFields } from './import-policy.mjs';
 import { validateCatalog } from '../../functions/src/validation.mjs';

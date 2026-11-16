@@ -12,7 +12,7 @@ Panel miejsc filtruje nazwę, główny tag i brak lokalizacji; wyniki na liście
 
 `app/about/` zawiera publiczną stronę „O nas” pod `/o-nas`, z treścią SSG i odnośnikiem w menu globalnym.
 
-Karta miejsca pokazuje płaskie tagi i adnotację, gdy period nie potwierdza istnienia w okresie międzywojennym. Prywatny warsztat i jego przeglądarka są poza src i publicznym buildem.
+Karta miejsca pokazuje tagi, zakres udokumentowany, wzmianki i galerię materiałów. Prywatny warsztat i jego przeglądarka są poza src i publicznym buildem.
 
 Karta pokazuje zdjęcie główne i galerię niezależną od wzmianek; PhotoSwipe jest ładowany po wyborze zdjęcia. Etykiety lokalizacji używają kolorów znaczników i tekstowych nazw stanów.
 

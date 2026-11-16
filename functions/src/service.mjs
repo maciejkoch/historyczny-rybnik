@@ -36,7 +36,6 @@ export function locationDto(snapshot) {
       precision: value.location.precision,
       explanation: value.location.explanation,
     },
-    locationVersion: value.locationVersion,
     updatedAt: value.updatedAt.toDate().toISOString(),
   });
 }
@@ -61,15 +60,11 @@ export async function updateLocation(db, request) {
     const snapshot = await tx.get(ref);
     if (!snapshot.exists || snapshot.data().published !== true)
       fail('not-found', 'Place unavailable');
-    const current = snapshot.data();
-    if (current.locationVersion !== data.expectedLocationVersion)
-      fail('aborted', 'Location changed. Read current version before saving.');
     tx.update(ref, {
       location: {
         ...data.location,
         coordinates: new GeoPoint(data.location.coordinates.lat, data.location.coordinates.lng),
       },
-      locationVersion: current.locationVersion + 1,
       updatedAt: FieldValue.serverTimestamp(),
     });
   });

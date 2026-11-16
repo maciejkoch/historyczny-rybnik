@@ -27,7 +27,7 @@ Dokument określa wymagania, a nie potwierdzenie ich wdrożenia. Aktualne mechan
 ## Walidacja i bezpieczne wyświetlanie
 
 - Traktuj dane klienta i źródeł zewnętrznych jako niezaufane. Backend waliduje typy, dozwolone pola, zakresy i rozmiary danych przed odczytem lub zapisem, korzystając ze wspólnych kontraktów projektu.
-- Ograniczaj koszt żądań i wielkość przetwarzanych danych. Zachowuj limity zasobów i kontrolę konfliktów równoległych zapisów; nie nadpisuj nowszych danych bez sprawdzenia wersji tam, gdzie wymaga tego mechanizm aplikacji.
+- Ograniczaj koszt żądań i wielkość przetwarzanych danych. Zachowuj limity zasobów. Edycja lokalizacji miejsca stosuje ostatni zapis bez kontroli konfliktów.
 - Korzystaj z bezpiecznego renderowania Angulara. Nie wprowadzaj niezaufanej treści do HTML, skryptów ani adresów bez odpowiedniej walidacji. Obejście sanitizacji wymaga wcześniejszego uzgodnienia i udokumentowanej analizy bezpieczeństwa; nie może służyć do ukrycia błędu.
 - Komunikaty błędów dla klienta nie ujawniają sekretów, danych innych użytkowników ani wewnętrznych szczegółów infrastruktury.
 

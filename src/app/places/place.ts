@@ -10,6 +10,11 @@ import type {
   writeRequestSchema,
 } from '../../../functions/src/contracts/places.mjs';
 
+export enum LocationPrecision {
+  Exact = 'exact',
+  Approximate = 'approximate',
+}
+
 type DeepReadonly<T> = T extends readonly unknown[]
   ? { readonly [K in keyof T]: DeepReadonly<T[K]> }
   : T extends object

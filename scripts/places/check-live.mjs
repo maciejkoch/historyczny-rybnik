@@ -36,16 +36,15 @@ assert.equal(before.status, 200);
 assert.equal(before.body.result.places.length, 1);
 const data = {
   placeId: 'place_sw_antoni',
-  expectedLocationVersion: before.body.result.places[0].locationVersion,
   location,
 };
 assert.equal((await invoke('placesDevUpdate', data, appHeaders)).status, 401);
 const headers = { ...appHeaders, Authorization: `Bearer ${idToken}` };
 const saved = await invoke('placesDevUpdate', data, headers);
 assert.equal(saved.status, 200);
-assert.equal((await invoke('placesDevUpdate', data, headers)).status, 409);
+assert.equal((await invoke('placesDevUpdate', data, headers)).status, 200);
 const after = await invoke('placesDevRead', read, appHeaders);
 assert.deepEqual(after.body.result.places[0].location, location);
 console.log(
-  'Live API: App Check enforcement, Google Auth, save, conflict and read passed. Verified coordinates retained.',
+  'Live API: App Check enforcement, Google Auth, repeated save and read passed. Verified coordinates retained.',
 );
