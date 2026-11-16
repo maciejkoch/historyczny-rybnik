@@ -14,21 +14,21 @@ const places = validateCatalog(JSON.parse(readFileSync(input, 'utf8')));
 const assets = places
   .filter((p) => p.published)
   .flatMap((p) =>
-    p.mentions.flatMap((ref) =>
-      ref.materials.flatMap((image) => [
-        { storagePath: image.storagePath, sha256: image.sha256, image },
-        { storagePath: image.thumbnailPath, sha256: image.thumbnailSha256, image },
-      ]),
-    ),
+    p.materials.flatMap((image) => [
+      { storagePath: image.storagePath, sha256: image.sha256, image },
+      { storagePath: image.thumbnailPath, sha256: image.thumbnailSha256, image },
+    ]),
   )
   .map((asset) => ({
     ...asset,
     file: resolve(directory, basename(asset.storagePath)),
-    contentType: 'image/jpeg',
+    contentType: asset.storagePath.endsWith('.jpg')
+      ? 'image/jpeg'
+      : asset.storagePath.endsWith('.png')
+        ? 'image/png'
+        : 'image/webp',
   }));
 for (const asset of assets) {
-  if (!asset.storagePath.endsWith('.jpg'))
-    throw new Error('This uploader supports reviewed JPEG images only');
   const bytes = readFileSync(asset.file);
   if (bytes.length > 3000000 || createHash('sha256').update(bytes).digest('hex') !== asset.sha256)
     throw new Error('Asset hash or size mismatch');
@@ -66,8 +66,7 @@ for (const asset of assets) {
     cacheControl: 'public, max-age=31536000, immutable',
     metadata: {
       sha256: asset.sha256,
-      rights: asset.image.rights,
-      source: asset.image.provenance.sourcePageUrl,
+      source: asset.image.sourceUrl || '',
     },
   };
   const body = Buffer.concat([

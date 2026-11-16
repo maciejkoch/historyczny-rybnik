@@ -205,7 +205,7 @@ export class GroupMarkers {
       else if (place) {
         const symbol = this.options.document.createElement('span');
         symbol.className = 'place-marker-symbol';
-        symbol.dataset['precision'] = place.location.precision;
+        symbol.dataset['precision'] = place.location.precision ?? '';
         symbol.setAttribute('aria-hidden', 'true');
         const icon = this.options.document.createElement('img');
         icon.src = markerIcon(markerCategory(place).icon);
@@ -219,7 +219,7 @@ export class GroupMarkers {
         'aria-label',
         count
           ? `Grupa ${count} miejsc — przybliż mapę`
-          : `${place!.name} — ${markerCategory(place!).name}, ${place!.location.precision === 'building' ? 'dokładna lokalizacja, wskazany budynek' : 'przybliżona lokalizacja'}`,
+          : `${place!.name} — ${markerCategory(place!).name}, ${place!.location.precision === 'exact' ? 'dokładna lokalizacja, wskazany budynek' : 'przybliżona lokalizacja'}`,
       );
       if (place) button.setAttribute('aria-pressed', String(this.selected()?.id === place.id));
       button.addEventListener('click', async (event) => {

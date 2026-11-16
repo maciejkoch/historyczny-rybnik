@@ -18,7 +18,6 @@ const request = (data, extra = {}) => ({ app: { appId: 'test' }, auth, data, ...
 await db.doc('places/public').set({
   published: true,
   location: { ...location, coordinates: new GeoPoint(50, 18) },
-  locationVersion: 0,
   updatedAt: Timestamp.now(),
   privateNote: 'never expose',
 });
@@ -29,13 +28,9 @@ await test('App Check and Google Auth mandatory', async () => {
     { auth: undefined },
     { auth: { uid: 'x', token: { admin: true, firebase: { sign_in_provider: 'password' } } } },
   ])
-    await assert.rejects(
-      updateLocation(
-        db,
-        request({ placeId: 'public', expectedLocationVersion: 0, location }, overrides),
-      ),
-      { code: 'unauthenticated' },
-    );
+    await assert.rejects(updateLocation(db, request({ placeId: 'public', location }, overrides)), {
+      code: 'unauthenticated',
+    });
   await assert.rejects(readLocations(db, request({ ids: ['public'] }, { app: undefined })), {
     code: 'unauthenticated',
   });
@@ -45,7 +40,7 @@ await test('regular Google user cannot write', async () => {
     updateLocation(
       db,
       request(
-        { placeId: 'public', expectedLocationVersion: 0, location },
+        { placeId: 'public', location },
         { auth: { uid: 'regular', token: { firebase: { sign_in_provider: 'google.com' } } } },
       ),
     ),
@@ -55,31 +50,23 @@ await test('regular Google user cannot write', async () => {
 await test('public projection excludes draft and private fields', async () => {
   const result = await readLocations(db, request({ ids: ['public', 'draft', 'missing'] }));
   assert.equal(result.places.length, 1);
-  assert.deepEqual(Object.keys(result.places[0]).sort(), [
-    'id',
-    'location',
-    'locationVersion',
-    'updatedAt',
-  ]);
+  assert.deepEqual(Object.keys(result.places[0]).sort(), ['id', 'location', 'updatedAt']);
 });
 await test('draft, missing, forbidden fields and removal rejected', async () => {
   for (const placeId of ['draft', 'missing'])
-    await assert.rejects(
-      updateLocation(db, request({ placeId, expectedLocationVersion: 0, location })),
-      { code: 'not-found' },
-    );
+    await assert.rejects(updateLocation(db, request({ placeId, location })), { code: 'not-found' });
   for (const data of [
-    { placeId: 'public', expectedLocationVersion: 0, location, published: true },
+    { placeId: 'public', location, published: true },
     {
       placeId: 'public',
       expectedLocationVersion: 0,
-      location: { coordinates: null, precision: 'unknown', explanation: 'remove' },
+      location: { coordinates: null, precision: null, explanation: 'remove' },
     },
   ])
     await assert.rejects(updateLocation(db, request(data)), { code: 'invalid-argument' });
 });
-await test('exactly one concurrent save commits; no history or author', async () => {
-  const data = { placeId: 'public', expectedLocationVersion: 0, location };
+await test('concurrent saves both commit; no history or author', async () => {
+  const data = { placeId: 'public', location };
   const results = await Promise.allSettled([
     updateLocation(db, request(data)),
     updateLocation(
@@ -87,21 +74,17 @@ await test('exactly one concurrent save commits; no history or author', async ()
       request({ ...data, location: { ...location, coordinates: { lat: 51, lng: 19 } } }),
     ),
   ]);
-  assert.equal(results.filter((r) => r.status === 'fulfilled').length, 1);
-  assert.equal(results.find((r) => r.status === 'rejected').reason.code, 'aborted');
+  assert.equal(results.filter((r) => r.status === 'fulfilled').length, 2);
   const value = (await db.doc('places/public').get()).data();
-  assert.equal(value.locationVersion, 1);
   assert.ok(value.updatedAt instanceof Timestamp);
   assert.equal(value.author, undefined);
   assert.deepEqual(await db.doc('places/public').listCollections(), []);
 });
 await test('optional comment replaces previous text and can be cleared', async () => {
-  const previous = (await db.doc('places/public').get()).data();
   const saved = await updateLocation(
     db,
     request({
       placeId: 'public',
-      expectedLocationVersion: previous.locationVersion,
       location: { ...location, explanation: '' },
     }),
   );

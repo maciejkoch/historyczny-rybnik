@@ -10,21 +10,21 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 | [maps/register_scans.py](maps/register_scans.py) | Wyznacza kandydatów punktów dopasowania na podstawie lokalnych obrazów odniesienia; narzędzie opcjonalne. |
 | [maps/cluster-visibility.test.mjs](maps/cluster-visibility.test.mjs) | Sprawdza usuwanie nakładających się grup kafelków różnych poziomów. |
 | [maps/test_georeference.py](maps/test_georeference.py) | Testuje georeferencję, transformację odwrotną i walidację punktów. |
-| [places/check-live.mjs](places/check-live.mjs) | Sprawdza działające API dev, App Check, Google Auth i konflikt wersji. Wykonuje rzeczywisty zapis lokalizacji testowego kościoła; wymaga tokenów w środowisku. |
+| [places/check-live.mjs](places/check-live.mjs) | Sprawdza działające API dev, App Check, Google Auth i ponowny zapis lokalizacji. Wykonuje rzeczywisty zapis lokalizacji testowego kościoła; wymaga tokenów w środowisku. |
 | [places/backfill-place-materials.mjs](places/backfill-place-materials.mjs) | Jednorazowo uzupełnia brakujące `materials: []` w dokumentach Firestore dev; domyślnie podgląd, zapis przez `--apply`. |
 | [places/deploy-dev.mjs](places/deploy-dev.mjs) | Buduje frontend i publikuje Hosting dev bez lokalnej kopii danych miejsc; wymaga uprawnień operatora. |
 | [places/deploy-backend-dev.mjs](places/deploy-backend-dev.mjs) | Wdraża backend dev; opcjonalnie samą funkcję API ze sprawdzonym dotychczasowym rendererem SSR. |
 | [places/deploy-prod.mjs](places/deploy-prod.mjs) | Blokuje publikację produkcji do przygotowania konfiguracji fazy 5; obecnie nie wdraża niczego. |
 | [places/firestore.mjs](places/firestore.mjs) | Moduł połączenia do jawnie wybranej bazy dev lub emulatora; obsługuje ADC i impersonację przez logowanie Firebase CLI. |
-| [places/import.mjs](places/import.mjs) | Waliduje i importuje katalog do dev, zachowując bieżącą pozycję; domyślnie podgląd, zapis przez `--apply`. |
+| [places/import.mjs](places/import.mjs) | Przestarzały importer dawnego katalogu; nie używać z obecnym schematem. |
 | [places/package-ssr.mjs](places/package-ssr.mjs) | Pakuje wygenerowany serwer Angulara do funkcji. |
 | [places/prepare-hosting.mjs](places/prepare-hosting.mjs) | Tworzy ignorowaną konfigurację Firebase Hosting z bezwzględną ścieżką artefaktów builda. |
 | [places/slot-ssr.mjs](places/slot-ssr.mjs) | Wybiera funkcję SSR slotu i przypina jej rewizję do Hostingu. |
 | [places/slot-ssr.test.mjs](places/slot-ssr.test.mjs) | Sprawdza izolację przekierowań SSR slotów. |
 | [places/snapshot.mjs](places/snapshot.mjs) | Pobiera opublikowane miejsca z Firestore do ignorowanego `.local/places.snapshot.json` jako punkt odniesienia warsztatu/operatora; build i wdrożenie aplikacji go nie używają. |
-| [places/upload-assets.mjs](places/upload-assets.mjs) | Sprawdza SHA-256 i rozmiary obrazów; z `--apply` publikuje nowe, niezmienne pliki w bucket dev. |
+| [places/upload-assets.mjs](places/upload-assets.mjs) | Sprawdza SHA-256 i rozmiary obrazów galerii; z `--apply` publikuje nowe, niezmienne pliki w bucket dev. |
 | [privacy/consent.test.mjs](privacy/consent.test.mjs) | Testuje zgody, przechowywanie ustawień i warunki ładowania usług Google. |
-| [test.mjs](test.mjs) | Uruchamia kolejno testy mapy, kontraktów, prywatności, backendu i warsztatu; zatrzymuje się po pierwszym błędzie. |
+| [test.mjs](test.mjs) | Uruchamia kolejno testy mapy, kontraktów, prywatności i backendu; zatrzymuje się po pierwszym błędzie. |
 | [verify-build.mjs](verify-build.mjs) | Sprawdza statyczne strony, obecność serwera SSR, 404, noindex i zasoby; nie wczytuje danych miejsc. |
 
 Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). `firestore.mjs` jest używany przez pozostałe skrypty i nie jest osobnym poleceniem operatora.
@@ -41,7 +41,7 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). `fires
 | `npm run emulate` | Lokalny emulator Hosting z konfiguracją dev. |
 | `npm run deploy:dev` | Build i publikacja Hosting dev; dane miejsc są pobierane przez API z bazy podczas działania aplikacji. |
 | `npm run deploy:prod` | Obecnie blokada publikacji produkcji. |
-| `npm run places:import` | Walidacja i opcjonalny import katalogu do bazy dev. |
+| `npm run places:import` | Przestarzały importer; nie obsługuje obecnego schematu. |
 | `npm run places:snapshot` | Pobranie punktu odniesienia do pracy warsztatu/operatora; nie jest wejściem builda ani wdrożenia. |
 | `npm test` | Testy mapy, kontraktów, prywatności, backendu i warsztatu. |
 | `npm run test:maps` | Testy grupowania i widoczności znaczników mapy. |
@@ -72,14 +72,16 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). `fires
 
 `npm run auth:admin -- show|grant|revoke UID [--apply] [--firebase-cli]` uruchamia `infra/admin-role.mjs`. Bez `--apply` grant/revoke to podgląd. Wymaga ADC lub lokalnego logowania Firebase CLI z uprawnieniem zarządzania Auth; zachowuje pozostałe custom claims. Auth i role są wspólne dla projektu. Zmiany ról wykonuje jeden operator naraz.
 
-`places:import` przyjmuje 1–400 miejsc z zachowaniem bazyliki i bieżących lokalizacji. Build nie używa fikcyjnych rekordów; fixture pozostaje wejściem testów kontraktów i emulatora.
+`places:import` jest przestarzały i nie obsługuje obecnego schematu. Build nie używa fikcyjnych rekordów; fixture pozostaje wejściem testów kontraktów i emulatora.
 
 ## Warsztat badań
+
+Warsztat jest odłączony od nowego schematu. Jego poniższe polecenia i testy wymagają późniejszego dostosowania; obecnie nie są zweryfikowane z nowym kontraktem.
 
 - `npm run research -- init|validate|export|assets|pull|push|restore|report`: `research/cli.mjs`; pełna procedura, flagi i odzyskiwanie w [warsztacie](../data/places/README.md). Operacje chmurowe i eksport domyślnie mają podgląd; zapis przez --apply.
 - `research export` zachowuje niezależne materiały galerii z katalogu bazowego.
 - `npm run research:view`: `research/viewer/server.mjs`, lokalny serwer tylko do odczytu 127.0.0.1:4319.
-- `npm run test:research`: testy modelu, publikacji, synchronizacji, odzyskania i serwera z `research/test/`; włączone do npm test.
+- `npm run test:research`: zachowane testy warsztatu; poza npm test i wymagają dostosowania warsztatu do nowego kontraktu.
 - `npm run test:slot-ssr`: sprawdza przypisanie funkcji SSR i zachowanie wspólnych przekierowań API dla każdego slotu; włączone do npm test.
 - Foldery `research/model/`, `workspace/`, `sync/`, `publication/`, `viewer/` i `test/`: pełny spis modułów oraz ich role opisuje [README narzędzi](research/README.md). `research/cli.mjs` pozostaje wspólnym wejściem.
 - `places/import-policy.mjs`: wspólna, testowana ochrona live location/version/timestamps przy imporcie. Snapshot i import akceptują wyłącznie bieżący kontrakt.

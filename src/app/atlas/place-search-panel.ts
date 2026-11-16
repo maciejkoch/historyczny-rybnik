@@ -31,7 +31,7 @@ export class PlaceSearchPanel {
   }
 
   historicalAddress(place: PlaceSummary): string | undefined {
-    return place.addresses.find((address) => address.type === 'historical')?.text;
+    return place.historicalAddress ?? undefined;
   }
 
   choose(event: MouseEvent, place: PlaceSummary): void {

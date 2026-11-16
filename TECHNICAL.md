@@ -36,9 +36,9 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 | `app/privacy/` | Serwis zgód, baner i polityka prywatności. Wycofanie zgody Google przeładowuje stronę, aby zatrzymać SDK i odświeżanie tokenów. |
 | `app/layout/` | Wspólny nagłówek, stopka, nawigacja mobilna i menu globalne. `PortalMenu` otacza wspólny układ aplikacji standardową strukturą Drawer daisyUI (`drawer-toggle`, `drawer-content`, `drawer-side`, `drawer-overlay`) i współdzieli listę odnośników z Dropdown daisyUI na Popover API oraz CSS Anchor Positioning. Stan nagłówka i menu łączy `PortalMenuState`. Wspólny nagłówek jest przyklejony do góry; na desktopie zajmuje pełną szerokość nad mapą i panelami. Dropdown otwiera się pod hamburgerem i pomija odnośnik Miejsca, ponieważ wyszukiwarka jest dostępna w panelu. Na telefonie menu zachowuje Mapa/Miejsca; tło jest nieaktywne dzięki `inert`, przewijanie strony jest blokowane, a fokus wraca do hamburgera. Przejścia otwierania i zamykania pochodzą z daisyUI. |
 
-Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje → SSR karty lub API lekkiego katalogu → mapa i wyszukiwarka. SSR przekazuje szczegóły przez TransferState do hydratacji. Na trasach wewnętrznych szczegóły pobiera przeglądarka; brak miejsca oznacza 404, dawny slug przekierowanie, a błąd serwera 503. Dynamiczne odpowiedzi używają no-store i dev noindex. Statyczne strony pozostają prerenderowane.
+Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje → SSR karty lub API lekkiego katalogu → mapa i wyszukiwarka. SSR przekazuje szczegóły przez TransferState do hydratacji. Na trasach wewnętrznych szczegóły pobiera przeglądarka; brak miejsca oznacza 404, a błąd serwera 503. Dynamiczne odpowiedzi używają no-store i dev noindex. Statyczne strony pozostają prerenderowane.
 
-`Locations` ładuje Firebase i App Check dopiero po zgodzie Google i pobiera bieżącą wersję przed edycją. Publiczne API i karty są dostępne niezależnie od zgody; publiczny odczyt nie zmienia chronionego API zapisu.
+`Locations` ładuje Firebase i App Check dopiero po zgodzie Google i pobiera bieżącą pozycję przed edycją. Publiczne API i karty są dostępne niezależnie od zgody; publiczny odczyt nie zmienia chronionego API zapisu.
 
 ## Architektura backendu
 
@@ -46,26 +46,25 @@ Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje �
 | --- | --- |
 | `functions/src/public-places.mjs`, `public-web.mjs` | Jawne, walidowane projekcje publiczne; dynamiczny katalog, karta, sitemap i SSR. |
 | `functions/src/index.mjs` | Inicjalizuje Admin SDK i bazę `places-dev`, eksportuje callable API `placesDevRead` i `placesDevUpdate` w regionie `europe-central2`. Konfiguruje App Check, CORS, konto usługi i limity zasobów. |
-| `functions/src/service.mjs` | Realizuje odczyt publicznych pozycji i transakcyjny zapis lokalizacji, autoryzację, konflikty wersji oraz mapowanie danych Firestore na odpowiedź API. |
+| `functions/src/service.mjs` | Realizuje odczyt publicznych pozycji i transakcyjny zapis lokalizacji, autoryzację oraz mapowanie danych Firestore na odpowiedź API. |
 | `functions/src/validation.mjs` | Udostępnia walidację wejścia i katalogu oraz wspólny format błędów walidacji. |
 | `functions/src/contracts/places.mjs` | Schematy Zod współdzielone przez backend, frontend i skrypty publikacji; obejmują katalog, żądania i odpowiedzi. |
 | `functions/test/` | Testy logiki, kontraktów i walidacji oraz testy API i reguł w emulatorach. |
 | `firestore.rules`, `storage.rules`, `firestore.indexes.json` | Kontrola bezpośredniego dostępu klientów i konfiguracja indeksów. Operacje serwerowe działają przez Admin SDK i uprawnienia IAM. |
 | `firebase.backend.dev.json`, `infra/iam.dev.json` | Docelowe zasoby backendu dev i uprawnienia kont usług. |
 
-`placesDevRead`: App Check → walidacja listy identyfikatorów → odczyt opublikowanych dokumentów `places` → odpowiedź z lokalizacją, wersją i czasem aktualizacji. Nie wymaga zalogowanego użytkownika.
+`placesDevRead`: App Check → walidacja listy identyfikatorów → odczyt opublikowanych dokumentów `places` → odpowiedź z lokalizacją i czasem aktualizacji. Nie wymaga zalogowanego użytkownika.
 
-`placesDevUpdate`: App Check i Google Auth → walidacja → transakcja porównująca `expectedLocationVersion` → zapis współrzędnych, zwiększenie wersji i czas serwera. Konflikt zwraca `aborted`; po zapisie API odczytuje bieżący stan dokumentu. Nie zapisuje historii pozycji. Account inicjalizuje Google Auth wyłącznie w przeglądarce po zgodzie na Google. Na desktopie nagłówek pokazuje nazwę użytkownika i rolę obok hamburgera. PortalMenu udostępnia na obu urządzeniach sekcje: konto i logowanie/wylogowanie, nawigacja, prywatność. Nagłówek pokazuje komunikaty błędów, Atlas podgląd punktu, dokładność, opcjonalny komentarz i zapis przez Locations.update. Zapis porównuje wersję z początku edycji; błąd wymaga sprawdzenia bieżącej pozycji i ponownego rozpoczęcia edycji. Bez dodatkowych kolekcji i blokad.
+`placesDevUpdate`: App Check, Google Auth i rola administratora → walidacja → zapis lokalizacji z czasem serwera. Równoległe zapisy stosują zasadę ostatniego zapisu. API nie przechowuje historii ani autora zmiany.
+
 
 ## Schemat miejsca
 
 Aktualny kontrakt katalogu, publicznej projekcji i prywatnego warsztatu oraz przykład rekordu opisuje [schemat miejsca](agent-context/reference/place-schema.md). Źródłem prawdy są schematy w kodzie.
 
-Publiczne miejsce może mieć niezależną galerię `materials`; pole jest wymagane, a wszystkie 200 dokumentów w bazie `places-dev` zostały uzupełnione przed zmianą kontraktu. Jedno zdjęcie główne jest wyświetlane bez kadrowania nad treścią; miniatury otwierają PhotoSwipe ładowany na żądanie. Materiały wzmianek nadal są wyświetlane przy wzmiankach. Eksport warsztatu zachowuje galerię z bazowego katalogu; upload i edycja galerii nie są częścią tej funkcji.
+Miejsce ma niezależną galerię `materials`; wzmianki odwołują się do niej przez `materialIds`. Galeria pokazuje wszystkie materiały; PhotoSwipe używa wymiarów obrazu. Pola praw nie blokują dodawania lub wyświetlania. Skill i prywatny warsztat nie są częścią nowego przepływu aplikacji; ich integracja wymaga późniejszych prac.
 
-API szczegółów i renderery SSR zwracają pełny publiczny rekord wraz z galerią. Wydanie SSR i Hostingu musi pochodzić z tego samego builda.
-
-Wspólne API i renderer SSR wdrażamy z tego samego builda. Nie utrzymujemy etapowej zgodności różnych wersji frontendu, API i renderera; po tej zmianie wszystkie środowiska wymagają wspólnego wydania.
+Wspólne API i renderer SSR wdrażamy z tego samego builda. Nie utrzymujemy zgodności ze starym kontraktem.
 
 ## Katalog lokalny `.local/`
 
@@ -117,7 +116,7 @@ Szczegóły: [środowiska dev i produkcja](agent-context/reference/mvp-1/srodowi
 
 ## Testy i utrzymanie
 
-`npm test` sprawdza mapę, kontrakty, prywatność, backend i warsztat. `npm run test:emulator` weryfikuje API i reguły w emulatorach Firestore/Storage. Przy zmianach georeferencji uruchamiamy testy opisane w [scripts/maps/README.md](scripts/maps/README.md).
+`npm test` sprawdza mapę, kontrakty, prywatność i backend; odłączony warsztat wymaga osobnego dostosowania. `npm run test:emulator` weryfikuje API i reguły w emulatorach Firestore/Storage. Przy zmianach georeferencji uruchamiamy testy opisane w [scripts/maps/README.md](scripts/maps/README.md).
 
 Szczegóły zgód i ich odbioru: [cookie-consent.md](agent-context/reference/mvp-1/cookie-consent.md). Aktualizujemy ten dokument razem ze zmianami technologii, mechanizmów, struktury i procedur. Sama dokumentacja nie wymaga deploymentu.
 
@@ -129,33 +128,9 @@ Rola administratora: custom claim `admin: true` w Firebase Auth. Rejestracja i p
 
 Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
 
-## Pełny katalog na dev
+## Dane dev i warsztat
 
-`.local/places.snapshot.json` jest wejściem eksportu warsztatu i narzędzi operatora, nie builda ani wdrożenia. Baza dev zawiera 200 miejsc (196 przeniesionych z MVP.0 i cztery punkty sprzedaży benzyny), ze stabilnymi ID i zachowanym rekordem `place_sw_antoni`. Publiczne API pobiera dane bezpośrednio z bazy, a odczyt lokalizacji przed edycją dotyczy wybranego miejsca. Import dev obsługuje do 400 miejsc w jednej transakcji, zachowuje istniejące lokalizacje, wersje i daty; odrzuca pominięcie istniejących dokumentów. Produkcja pozostaje oddzielnym zadaniem.
-
-Filtr „Bez lokalizacji” używa publicznego katalogu pobranego przy otwarciu i wybiera miejsca z `location.coordinates === null`. Łączy się z wyszukiwaniem tekstowym; zmienia listę wyników, a stan pozostaje w pamięci atlasu.
-
-Indeks .local/source-rights.json zapisuje decyzje praw na poziomie konkretnego wydania i odwołania materiałów. Publiczne dokumenty places zachowują pochodzenie, datę sprawdzenia oraz sumy wycinka i miniatury. originalSha256 nowych obrazów opisuje odziedziczony wycinek MVP.0 (jawnie w transformations), nie pełny PDF. Indeks nie jest dodatkową kolekcją ani manifestem plików.
-
-## Warsztat badań historycznych
-
-Skill `rybnik-research-places` zleca zbieranie źródeł i robocze wpisy jednemu subagentowi `gpt-6-luna` z reasoning `high`, bez dziedziczenia historii rozmowy. Model główny wykonuje pull, po zakończeniu badacza sprawdza dowody, datowanie, tożsamość i prawa, a następnie waliduje i synchronizuje wynik. Zapisy do warsztatu są sekwencyjne. Brak dostępnej Luny/delegacji jest zgłaszany bez automatycznego użycia droższego modelu. To instrukcja delegowania w skillu, bez globalnej zmiany konfiguracji Codex; [użycie](.agents/README.md).
-
-Prywatny `data/places/`, schemat 3: sources (kolekcje), documents (konkretne źródła i ich kopie), mentions (datowane fakty o jednym miejscu), materials (odrębne obrazy), places/out-of-period, candidates i research. Miejsce wskazuje mentionIds. Wzmianka ma documentedDate, verified/draft/conflicting, verifiedAt, evidence z documentId/locator oraz materialIds. Zweryfikowana wzmianka wymaga daty i czasu sprawdzenia. Daty miejsca są wyliczane ze zweryfikowanych wzmianek, bez interpolowania ciągłości pomiędzy latami.
-
-Obraz ma własne originalDate/depictedDate, źródłowe dokumenty, uzasadnienie datowania i klasyfikację historical/source-copy/unidentified/outside-period. Powiązanie z verified wzmianką wymaga historycznej klasyfikacji, zgodnego dokumentu i datowania mieszczącego się w jej okresie. Skany późniejszych opracowań pozostają kopiami źródeł; współczesne/nieustalone zdjęcia są poza galerią historyczną. Pliki współdzielimy po SHA-256. Archiwizacja prywatna nie zależy od praw publikacyjnych; zatwierdzenie konkretnego wariantu wymaga datowanego oświadczenia przekazującego o prawie do udostępnienia.
-
-Publiczna projekcja Firestore/SSG używa mentions zamiast references: documentedDate, verification, dane źródła i materials z własnym datowaniem. Kontrakt odrzuca materiał spoza dat wzmianki. Nowy eksport zawiera tylko verified wzmianki; jawna migracja dawnych rekordów zachowuje robocze wpisy oddzielnie. Import nadal chroni lokalizację, wersję i daty transakcyjnie. Nie ma automatycznego importu ani publikacji wyników badania.
-
-Kontrakty API i SSR wymagają aktualnego schematu. Migrator dawnych formatów warsztatu został usunięty; dane testowe zapisują bezpośrednio aktualny schemat.
-
-Sync zachowuje identyczne ścieżki/bajty, niezmienne rewizje, SHA-256, kontrolę konfliktów i atomowy head z warunkiem generacji. Prywatny prefix research-workspace/ w bucketcie dev nie ma publicznego dostępu. ADC/Firebase CLI bez nowych kluczy i tokenów pobierania.
-
-Lokalna przeglądarka HTML/CSS/JS działa tylko na 127.0.0.1:4319, tylko do odczytu, z kontrolą Host/Origin, bez symlinków i zewnętrznych zależności przy przeglądaniu. Pokazuje chronologię miejsca, wzmianki, galerię historyczną, dokumenty/kopie źródeł i obrazy do rozpoznania. Pozostaje poza Hosting i SSG. Instrukcje: data/places/README.md; testy: scripts/research/test.
-
-Narzędzia `scripts/research/` są pogrupowane w model, workspace, sync, publication, viewer i test. `cli.mjs` pozostaje wspólnym wejściem operatora. Spis modułów: scripts/research/README.md.
-
-Rzeczywiste dane miejsc i indeks dawnych praw pozostają poza Git. `data/places.fixture.json` zawiera fikcyjny rekord używany wyłącznie w testach. Build nie generuje kopii katalogu; przygotowuje tylko ignorowaną konfigurację `.local/firebase.dev.json` dla Hosting. Sitemapę i przekierowania obsługuje backend. Szablony Firebase pozostają stałe, a deploy dev i preview używają konfiguracji wygenerowanej przez build.
+Przed podmianą katalogu wykonuje się pełną kopię Firestore i powiązanych plików z manifestem w ignorowanym lokalnym folderze. Baza pozostaje źródłem danych SSR i API. Dotychczasowy importer jest przestarzały i nie obsługuje nowego schematu. Prywatny warsztat zachowano bez zmian, ale jego integracja z nowym kontraktem nie jest dostępna.
 
 ## Mapa
 

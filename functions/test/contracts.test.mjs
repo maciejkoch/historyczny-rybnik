@@ -17,7 +17,6 @@ const { published, createdAt, ...publicPlace } = places[0];
 const dto = {
   id: places[0].id,
   location: places[0].location,
-  locationVersion: 0,
   updatedAt: places[0].updatedAt,
 };
 
@@ -27,80 +26,39 @@ test('public and stored records have distinct strict contracts', () => {
   assert.equal(placeSchema.safeParse(publicPlace).success, false);
   for (const change of [
     { category: 'unknown' },
-    { locationVersion: Number.MAX_SAFE_INTEGER + 1 },
-    { location: { coordinates: null, precision: 'building', explanation: null } },
+    { locationVersion: 1 },
+    { location: { coordinates: null, precision: 'exact', explanation: null } },
     { location: { ...dto.location, explanation: 'x'.repeat(2001) } },
   ])
     assert.equal(placeSchema.safeParse({ ...places[0], ...change }).success, false);
 });
 
-test('place gallery requires materials and validates ownership, dimensions and primary photo', () => {
-  const missingMaterials = structuredClone(places[0]);
-  delete missingMaterials.materials;
-  assert.equal(placeSchema.safeParse(missingMaterials).success, false);
-  const image = structuredClone(places[0].mentions.find((m) => m.materials.length).materials[0]);
-  delete image.documentedDate;
-  const material = {
-    ...image,
-    materialId: 'gallery_item',
-    storagePath: 'public/materials/gallery_item/image.webp',
-    thumbnailPath: 'public/materials/gallery_item/thumb.webp',
-    width: 800,
-    height: 1200,
-    isPrimary: true,
-  };
-  assert.equal(placeSchema.safeParse({ ...places[0], materials: [material] }).success, true);
-  assert.equal(
-    placeSchema.safeParse({
-      ...places[0],
-      materials: [{ ...material, provenance: { ...material.provenance, copyrighted: null } }],
-    }).success,
-    true,
-  );
-  assert.equal(
-    placeSchema.safeParse({ ...places[0], materials: [{ ...material, width: 0 }] }).success,
-    false,
-  );
-  assert.equal(
-    placeSchema.safeParse({
-      ...places[0],
-      materials: [{ ...material, storagePath: 'public/materials/other/image.webp' }],
-    }).success,
-    false,
-  );
-  assert.equal(
-    placeSchema.safeParse({
-      ...places[0],
-      materials: [
-        material,
-        {
-          ...material,
-          materialId: 'other',
-          storagePath: 'public/materials/other/image.webp',
-          thumbnailPath: 'public/materials/other/thumb.webp',
-        },
-      ],
-    }).success,
-    false,
-  );
-});
-
-test('catalogue preserves byte limits, uniqueness and ownership of images', () => {
-  const oversized = structuredClone(places[0]);
-  oversized.mentions = Array.from({ length: 100 }, (_, i) => ({
-    ...oversized.mentions[0],
-    id: `ref_${i}`,
-    excerpt: 'ą'.repeat(10000),
-    materials: [],
-  }));
-  assert.equal(placeSchema.safeParse(oversized).success, false);
-  assert.equal(catalogSchema.safeParse([...places, places[0]]).success, false);
-  for (const key of ['storagePath', 'thumbnailPath']) {
-    const place = structuredClone(places[0]);
-    const image = place.mentions.find((r) => r.materials.length).materials[0];
-    image[key] = image[key].replace('public/materials/', 'public/materials/another/');
-    assert.equal(placeSchema.safeParse(place).success, false);
+test('gallery and mention references validate', () => {
+  const p = structuredClone(places[0]);
+  assert.equal(placeSchema.safeParse(p).success, true);
+  const changes = [
+    (x) => {
+      x.materials[0].width = 0;
+    },
+    (x) => {
+      x.materials[0].storagePath = 'public/materials/other/x.webp';
+    },
+    (x) => {
+      x.materials.push({ ...x.materials[0] });
+    },
+    (x) => {
+      x.mentions[0].materialIds = ['missing'];
+    },
+    (x) => {
+      x.materials = [];
+    },
+  ];
+  for (const change of changes) {
+    const v = structuredClone(p);
+    change(v);
+    assert.equal(placeSchema.safeParse(v).success, false);
   }
+  assert.equal(catalogSchema.safeParse([p, p]).success, false);
 });
 
 test('client accepts partial results but rejects the entire malformed response', () => {
@@ -123,25 +81,16 @@ test('client accepts partial results but rejects the entire malformed response',
     assert.throws(() => parseReadResponse(value, [dto.id]));
 });
 
-test('known/unknown location and optimistic version bounds do not coerce input', () => {
-  const request = {
-    placeId: dto.id,
-    expectedLocationVersion: Number.MAX_SAFE_INTEGER - 1,
-    location: dto.location,
-  };
+test('location requests reject invalid precision and unknown coordinates', () => {
+  const request = { placeId: dto.id, location: dto.location };
   assert.equal(writeRequestSchema.safeParse(request).success, true);
-  for (const expectedLocationVersion of ['', '0', -1, 0.1, Number.MAX_SAFE_INTEGER])
-    assert.equal(
-      writeRequestSchema.safeParse({ ...request, expectedLocationVersion }).success,
-      false,
-    );
-  assert.equal(
-    locationDtoSchema.safeParse({ ...dto, locationVersion: Number.MAX_SAFE_INTEGER }).success,
-    true,
-  );
-  const unknown = { coordinates: null, precision: 'unknown', explanation: null };
+  const unknown = { coordinates: null, precision: null, explanation: null };
   assert.equal(locationDtoSchema.safeParse({ ...dto, location: unknown }).success, true);
   assert.equal(writeRequestSchema.safeParse({ ...request, location: unknown }).success, false);
+  assert.equal(
+    writeRequestSchema.safeParse({ ...request, expectedLocationVersion: 0 }).success,
+    false,
+  );
 });
 
 test('invalid callable requests fail before database access and expose only field codes', async () => {
@@ -164,7 +113,7 @@ test('invalid callable requests fail before database access and expose only fiel
       {},
       {
         ...request,
-        data: { placeId: dto.id, expectedLocationVersion: '', location: dto.location },
+        data: { placeId: dto.id, unexpected: '', location: dto.location },
       },
     ),
     { code: 'invalid-argument' },
@@ -178,7 +127,6 @@ test('malformed persisted location returns a sanitized server error', async () =
     data: () => ({
       published: true,
       location: { ...dto.location, precision: 'broken' },
-      locationVersion: 0,
       updatedAt: { toDate: () => new Date(dto.updatedAt) },
     }),
   };
@@ -199,7 +147,6 @@ test('malformed persisted location returns a sanitized server error', async () =
 test('location comment can be empty and replaces the current comment', () => {
   const request = {
     placeId: dto.id,
-    expectedLocationVersion: 0,
     location: { ...dto.location, explanation: '' },
   };
   assert.equal(writeRequestSchema.parse(request).location.explanation, '');

@@ -8,7 +8,6 @@ const steps = [
   ['run', 'check:contracts'],
   ['run', 'test:privacy'],
   ['--prefix', 'functions', 'test'],
-  ['run', 'test:research'],
 ];
 
 for (const args of steps) {

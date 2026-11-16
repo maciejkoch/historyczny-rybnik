@@ -26,7 +26,6 @@ export function publicWeb(db, render) {
       const place = await readPublicPlace(db, decodeURIComponent(match[2]));
       if (!place) return res.status(404).end();
       if (match[1] === 'api/public-places') return res.json(place);
-      if (match[2] !== place.slug) return res.redirect(301, '/miejsca/' + place.slug);
       const request = new Request(origin + url.pathname + url.search, { method: req.method });
       const result = await render(request, { place });
       if (!result) return res.status(404).end();

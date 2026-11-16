@@ -9,15 +9,6 @@ const slugSchema = z
   .string()
   .max(100)
   .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-const versionSchema = z.number().int().min(0).max(Number.MAX_SAFE_INTEGER);
-const httpsUrl = text(2000).refine((value) => {
-  try {
-    const url = new URL(value);
-    return url.protocol === 'https:' && !url.username && !url.password;
-  } catch {
-    return false;
-  }
-}, 'HTTPS URL without credentials required');
 export const timestampSchema = z.string().refine((value) => {
   if (
     !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(value) ||
@@ -50,7 +41,6 @@ export const partialDateSchema = z
   .strictObject({
     from: historicalDateSchema,
     to: historicalDateSchema.nullable(),
-    approximate: z.boolean(),
   })
   .refine(
     (value) => {
@@ -68,53 +58,21 @@ const coordinatesSchema = z.strictObject({
 });
 export const knownLocationSchema = z.strictObject({
   coordinates: coordinatesSchema,
-  precision: z.enum(['building', 'approximate']),
-  explanation: z.string().max(2000),
+  precision: z.enum(['exact', 'approximate']),
+  explanation: z.string().max(2000).nullable(),
 });
 export const locationSchema = z.union([
   knownLocationSchema,
   z.strictObject({
     coordinates: z.null(),
-    precision: z.literal('unknown'),
+    precision: z.null(),
     explanation: text(2000).nullable(),
   }),
 ]);
 const sha256 = z.string().regex(/^[a-f0-9]{64}$/);
 const assetPath = text(500).regex(
-  /^public\/(?:places\/[a-zA-Z0-9_-]{1,100}\/[a-zA-Z0-9_-]{1,100}|materials\/[a-zA-Z0-9_-]{1,100})\/[a-zA-Z0-9_-]+\.(webp|png|jpg)$/,
+  /^public\/materials\/[a-zA-Z0-9_-]{1,100}\/[a-zA-Z0-9_-]+\.(webp|png|jpg)$/,
 );
-export const imageSchema = z.strictObject({
-  storagePath: assetPath,
-  thumbnailPath: assetPath,
-  alt: text(500),
-  credit: text(500),
-  rights: text(2000),
-  sha256,
-  thumbnailSha256: sha256,
-  provenance: z.strictObject({
-    title: text(500),
-    sourcePageUrl: httpsUrl.nullable(),
-    originalCollectionUrl: httpsUrl.nullable(),
-    originalImageUrl: httpsUrl.nullable(),
-    originalSha256: sha256,
-    author: text(500).nullable(),
-    dateNote: text(500),
-    license: text(500),
-    licenseUrl: httpsUrl.nullable(),
-    copyrighted: z.boolean().nullable(),
-    rightsCheckedAt: historicalDateSchema.refine(
-      (v) => /^\d{4}-\d{2}-\d{2}$/.test(v),
-      'Full date required',
-    ),
-    transformations: text(2000),
-  }),
-});
-export const placeMaterialSchema = imageSchema.extend({
-  materialId: idSchema,
-  width: z.number().int().positive().max(30000),
-  height: z.number().int().positive().max(30000),
-  isPrimary: z.boolean(),
-});
 const referenceUrl = text(2000).refine((value) => {
   try {
     const u = new URL(value);
@@ -123,46 +81,47 @@ const referenceUrl = text(2000).refine((value) => {
     return false;
   }
 }, 'HTTP(S) source URL without credentials required');
+export const placeMaterialSchema = z.strictObject({
+  materialId: idSchema,
+  date: historicalDateSchema.nullable(),
+  storagePath: assetPath,
+  thumbnailPath: assetPath,
+  width: z.number().int().positive().max(30000),
+  height: z.number().int().positive().max(30000),
+  alt: text(500),
+  source: text(500).nullable(),
+  sourceUrl: referenceUrl.nullable(),
+  sha256,
+  thumbnailSha256: sha256,
+  isPrimary: z.boolean(),
+});
 export const mentionSchema = z.strictObject({
   id: idSchema,
   title: text(500),
-  url: referenceUrl.nullable(),
-  page: text(2000).nullable(),
-  publicationDate: partialDateSchema,
+  description: text(10000),
+  publicationDate: historicalDateSchema.nullable(),
   documentedDate: partialDateSchema,
-  verification: z.enum(['verified', 'draft', 'conflicting']),
-  accessedAt: timestampSchema,
-  excerpt: text(10000),
-  excerptType: z.enum(['quote', 'transcription', 'summary']),
-  note: text(2000).nullable(),
-  materials: z
-    .array(imageSchema.extend({ materialId: idSchema, documentedDate: partialDateSchema.unwrap() }))
-    .max(10),
+  source: text(500).nullable(),
+  sourceUrl: referenceUrl.nullable(),
+  sourceNote: text(2000).nullable(),
+  materialIds: z.array(idSchema).max(100),
 });
 const placeFields = {
   id: idSchema,
   name: text(200),
   slug: slugSchema,
-  previousSlugs: z.array(slugSchema).max(30),
   description: text(20000),
   tags: z
     .array(z.strictObject({ id: idSchema, name: text(200) }))
     .min(1)
     .max(100)
-    .refine((tags) => new Set(tags.map((t) => t.id)).size === tags.length, 'Duplicate tags'),
-  period: z.strictObject({
-    status: z.enum(['confirmed', 'probable', 'unverified']),
-    explanation: text(2000),
-  }),
-  aliases: z.array(text(200)).max(30),
-  addresses: z
-    .array(z.strictObject({ type: z.enum(['historical', 'current']), text: text(500) }))
-    .max(30),
-  district: text(200).nullable(),
+    .refine((v) => new Set(v.map((t) => t.id)).size === v.length, 'Duplicate tags'),
+  documentedPeriod: partialDateSchema,
+  existsToday: z.boolean().nullable(),
+  historicalAddress: text(500).nullable(),
   location: locationSchema,
-  materials: z.array(placeMaterialSchema).max(100),
   mentions: z.array(mentionSchema).max(100),
-  locationVersion: versionSchema,
+  materials: z.array(placeMaterialSchema).max(100),
   updatedAt: timestampSchema,
 };
 const basePlaceSchema = z.strictObject(placeFields);
@@ -171,87 +130,39 @@ export const publicSummarySchema = basePlaceSchema.pick({
   name: true,
   slug: true,
   tags: true,
-  aliases: true,
-  addresses: true,
-  district: true,
+  historicalAddress: true,
   location: true,
-  locationVersion: true,
   updatedAt: true,
 });
-/** @param {{id: string, materials: {materialId:string,isPrimary:boolean,storagePath:string,thumbnailPath:string}[], mentions: {id: string, documentedDate: {from:string,to:string|null,approximate:boolean}|null, verification:string, materials: {storagePath:string,thumbnailPath:string,documentedDate:{from:string,to:string|null,approximate:boolean}}[]}[]}} place
- * @param {z.RefinementCtx} ctx */
+/** @param {{materials: {materialId:string,isPrimary:boolean,storagePath:string,thumbnailPath:string}[], mentions: {id:string,materialIds:string[]}[]}} place @param {z.RefinementCtx} ctx */
 function placeRelations(place, ctx) {
-  if (place.materials.filter((material) => material.isPrimary).length > 1)
-    ctx.addIssue({
-      code: 'custom',
-      message: 'Only one primary material is allowed',
-      path: ['materials'],
-    });
-  if (
-    new Set(place.materials.map((material) => material.materialId)).size !== place.materials.length
-  )
+  const ids = new Set(place.materials.map((m) => m.materialId));
+  if (ids.size !== place.materials.length)
     ctx.addIssue({ code: 'custom', message: 'Duplicate material', path: ['materials'] });
-  place.materials.forEach((material, index) => {
-    for (const key of /** @type {const} */ (['storagePath', 'thumbnailPath'])) {
-      if (!material[key].startsWith(`public/materials/${material.materialId}/`))
+  place.materials.forEach((m, i) => {
+    for (const path of [m.storagePath, m.thumbnailPath])
+      if (!path.startsWith(`public/materials/${m.materialId}/`))
         ctx.addIssue({
           code: 'custom',
           message: 'Asset belongs to another material',
-          path: ['materials', index, key],
+          path: ['materials', i],
         });
-    }
   });
-  const refs = new Set();
-  place.mentions.forEach((ref, index) => {
-    if (refs.has(ref.id))
+  if (place.materials.filter((m) => m.isPrimary).length > 1)
+    ctx.addIssue({ code: 'custom', message: 'Only one primary material', path: ['materials'] });
+  if (new Set(place.mentions.map((m) => m.id)).size !== place.mentions.length)
+    ctx.addIssue({ code: 'custom', message: 'Duplicate mention', path: ['mentions'] });
+  place.mentions.forEach((m, i) => {
+    if (
+      new Set(m.materialIds).size !== m.materialIds.length ||
+      m.materialIds.some((id) => !ids.has(id))
+    )
       ctx.addIssue({
         code: 'custom',
-        message: 'Duplicate reference',
-        path: ['mentions', index, 'id'],
+        message: 'Invalid material references',
+        path: ['mentions', i, 'materialIds'],
       });
-    refs.add(ref.id);
-    if (ref.verification === 'verified' && !ref.documentedDate)
-      ctx.addIssue({
-        code: 'custom',
-        message: 'Verified mention requires a documented date',
-        path: ['mentions', index, 'documentedDate'],
-      });
-    if (ref.verification !== 'verified' && ref.materials.length)
-      ctx.addIssue({
-        code: 'custom',
-        message: 'Draft mention cannot publish historical materials',
-        path: ['mentions', index, 'materials'],
-      });
-    ref.materials.forEach((image, imageIndex) => {
-      const mentionStart = ref.documentedDate && dateBounds(ref.documentedDate.from);
-      const mentionEnd =
-        ref.documentedDate && dateBounds(ref.documentedDate.to || ref.documentedDate.from);
-      const imageStart = dateBounds(image.documentedDate.from);
-      const imageEnd = dateBounds(image.documentedDate.to || image.documentedDate.from);
-      if (
-        !mentionStart ||
-        !mentionEnd ||
-        !imageStart ||
-        !imageEnd ||
-        imageStart[0] < mentionStart[0] ||
-        imageEnd[1] > mentionEnd[1]
-      )
-        ctx.addIssue({
-          code: 'custom',
-          message: 'Material outside mention period',
-          path: ['mentions', index, 'materials', imageIndex],
-        });
-      for (const key of /** @type {const} */ (['storagePath', 'thumbnailPath'])) {
-        if (!image[key].startsWith('public/materials/'))
-          ctx.addIssue({
-            code: 'custom',
-            message: 'Asset belongs to another place or reference',
-            path: ['mentions', index, 'materials', imageIndex, key],
-          });
-      }
-    });
   });
-  // Same UTF-8 limit in Node and browser; no Node Buffer in shared contracts.
   if (new TextEncoder().encode(JSON.stringify(place)).byteLength > 700000)
     ctx.addIssue({ code: 'custom', message: 'Document too large' });
 }
@@ -259,22 +170,11 @@ export const publicPlaceSchema = basePlaceSchema.superRefine(placeRelations);
 export const placeSchema = z
   .strictObject({ ...placeFields, published: z.boolean(), createdAt: timestampSchema })
   .superRefine(placeRelations);
-
-/** @param {{id: string, slug: string, previousSlugs: string[]}[]} places
- * @param {z.RefinementCtx} ctx */
+/** @param {any[]} places @param {z.RefinementCtx} ctx */
 function catalogRelations(places, ctx) {
-  const ids = new Set(),
-    slugs = new Set();
-  places.forEach((place, index) => {
-    if (ids.has(place.id))
-      ctx.addIssue({ code: 'custom', message: 'Duplicate place', path: [index, 'id'] });
-    ids.add(place.id);
-    for (const slug of [place.slug, ...place.previousSlugs]) {
-      if (slugs.has(slug))
-        ctx.addIssue({ code: 'custom', message: 'Slug collision', path: [index, 'slug'] });
-      slugs.add(slug);
-    }
-  });
+  for (const key of ['id', 'slug'])
+    if (new Set(places.map((p) => p[key])).size !== places.length)
+      ctx.addIssue({ code: 'custom', message: 'Duplicate ' + key });
 }
 export const catalogSchema = z.array(placeSchema).max(1000).superRefine(catalogRelations);
 export const publicCatalogSchema = z
@@ -290,13 +190,11 @@ export const readRequestSchema = z.strictObject({
 });
 export const writeRequestSchema = z.strictObject({
   placeId: idSchema,
-  expectedLocationVersion: versionSchema.max(Number.MAX_SAFE_INTEGER - 1),
   location: knownLocationSchema,
 });
 export const locationDtoSchema = z.strictObject({
   id: idSchema,
   location: locationSchema,
-  locationVersion: versionSchema,
   updatedAt: timestampSchema,
 });
 export const readResponseSchema = z.strictObject({

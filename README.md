@@ -14,7 +14,7 @@ Aplikacja do poznawania historii Rybnika przez mapę i miejsca.
 - Ustawienia prywatności: osobne zgody na zapamiętywanie ustawień oraz usługi Google do logowania i edycji. Aktualne opublikowane miejsca są dostępne także bez zgody.
 - Globalne menu we wspólnym górnym nagłówku: panel z prawej na telefonie i menu rozwijane na komputerze. Mapa i wyszukiwanie są oddzielone od polityki prywatności oraz ustawień cookies.
 
-Administratorzy zalogowani przez Google mogą poprawiać lokalizację: wskazać punkt, określić dokładność i opcjonalny komentarz oraz jawnie zapisać zmianę. Logowanie i wylogowanie są dostępne w sekcji konta u góry menu. Na komputerze nazwa użytkownika jest także widoczna obok hamburgera. Zapis sprawdza wersję pozycji, bez blokad edycji.
+Administratorzy zalogowani przez Google mogą poprawiać lokalizację: wskazać punkt, określić dokładność i opcjonalny komentarz oraz jawnie zapisać zmianę. Logowanie i wylogowanie są dostępne w sekcji konta u góry menu. Na komputerze nazwa użytkownika jest także widoczna obok hamburgera. Ostatni zapis lokalizacji wygrywa.
 
 ## Dokumentacja
 
@@ -31,7 +31,7 @@ Każdy może zalogować się przez Google. Edycja lokalizacji jest obecnie dost�
 
 Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
 
-Baza dev zawiera 200 opublikowanych miejsc: 196 przeniesionych z MVP.0 i cztery punkty sprzedaży benzyny potwierdzone w źródłach. Lokalizacje kandydackie pozostają nieustalone; kopie dawnych wycinków bez potwierdzonej podstawy publikacji są wyłączone, referencje zawierają odnośniki do źródeł.
+Baza dev zawiera Bazylikę św. Antoniego Padewskiego. Pozostałe miejsca są przygotowywane do ponownego wprowadzenia.
 
 Przy oddaleniu mapy pobliskie miejsca łączą się w grupy z liczbą punktów. Kliknięcie grupy przybliża mapę, a zmiana grupowania jest animowana; wybrane miejsce pozostaje widoczne osobno.
 
@@ -39,11 +39,9 @@ Panel „Miejsca” wyszukuje fragment nazwy i pozwala łączyć jeden główny 
 
 Materiały są podłączane do kart na dev wraz z dostępnym źródłem i informacją o prawach. Osoba przekazująca materiał odpowiada za prawo do jego udostępnienia.
 
-Warsztat badań ma projektowy skill, prywatne dane źródeł/materiałów/miejsc, synchronizację ze Storage i [lokalną przeglądarkę](data/places/README.md) (`npm run research:view`). Każde badanie kontynuuje wcześniejsze ustalenia; publikacja zatwierdzonych treści pozostaje osobnym etapem. Karty pokazują tagi i brak potwierdzenia istnienia w okresie międzywojennym.
+Prywatny warsztat badań i jego skill pozostają zachowane, ale ich integracja z nowym modelem aplikacji wymaga osobnego dostosowania. Dotychczasowe narzędzia warsztatu mogą nie działać z nowym kontraktem.
 
-Lokalny warsztat: widok Materiały pokazuje galerię skanów i wycinków z miejscami, źródłami oraz stanem praw. Prywatna archiwizacja jest niezależna od zgody na publikację.
-
-Miejsce ma opis redakcyjny, udokumentowane daty i zweryfikowane wzmianki z właściwymi materiałami historycznymi. Lokalny warsztat rozdziela historyczne obrazy, kopie źródeł oraz materiały do rozpoznania; współczesne zdjęcia nie ilustrują dawnych wzmianek.
+Miejsce ma krótki opis, ręcznie wpisany udokumentowany zakres, wzmianki i galerię materiałów.
 
 Karty miejsc są renderowane z aktualnych danych z bazy; mapa i wyszukiwarka pobierają listę przez publiczne API przy załadowaniu aplikacji. Otwarte strony nie odświeżają się automatycznie. Baza jest jedynym źródłem danych aplikacji; fikcyjne rekordy pozostają wyłącznie w testach i CI.
 

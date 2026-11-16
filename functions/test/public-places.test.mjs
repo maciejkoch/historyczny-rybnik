@@ -58,11 +58,11 @@ test('list reads only the public summary of published places', async () => {
   assert.equal('mentions' in result[0], false);
   assert.equal('published' in result[0], false);
 });
-test('detail resolves current and previous slugs but never unpublished records', async () => {
-  const place = { ...fixture, previousSlugs: ['old-address'] };
+test('detail resolves current slugs but never unpublished records', async () => {
+  const place = fixture;
   const db = database([place, { ...fixture, id: 'draft', slug: 'draft', published: false }]);
   assert.equal((await readPublicPlace(db, place.slug)).id, place.id);
-  assert.equal((await readPublicPlace(db, 'old-address')).slug, place.slug);
+  assert.equal(await readPublicPlace(db, 'old-address'), null);
   assert.equal(await readPublicPlace(db, 'draft'), null);
   assert.equal(await readPublicPlace(db, '../invalid'), null);
   await assert.rejects(
@@ -108,7 +108,7 @@ async function request(handler, path) {
   return response;
 }
 test('public requests reflect database edits, exclude drafts and handle redirects and errors', async () => {
-  const records = [{ ...fixture, previousSlugs: ['old-address'] }];
+  const records = [{ ...fixture }];
   const handler = publicWeb(
     database(records),
     async (_request, context) => new Response('<h1>' + context.place.description + '</h1>'),
@@ -118,7 +118,7 @@ test('public requests reflect database edits, exclude drafts and handle redirect
   assert.equal(first.headers['Cache-Control'], 'no-store');
   records[0] = { ...records[0], description: 'Nowy opis' };
   assert.match((await request(handler, '/miejsca/' + fixture.slug)).body, /Nowy opis/);
-  assert.equal((await request(handler, '/miejsca/old-address')).statusCode, 301);
+  assert.equal((await request(handler, '/miejsca/old-address')).statusCode, 404);
   assert.equal((await request(handler, '/miejsca/brak')).statusCode, 404);
   records[0] = { ...records[0], published: false };
   assert.equal((await request(handler, '/miejsca/' + fixture.slug)).statusCode, 404);
@@ -143,20 +143,7 @@ test('public requests reflect database edits, exclude drafts and handle redirect
 });
 
 test('gallery is included in API responses and SSR', async () => {
-  const image = structuredClone(
-    fixture.mentions.find((mention) => mention.materials.length).materials[0],
-  );
-  delete image.documentedDate;
-  const material = {
-    ...image,
-    materialId: 'gallery_item',
-    storagePath: 'public/materials/gallery_item/image.webp',
-    thumbnailPath: 'public/materials/gallery_item/thumb.webp',
-    width: 800,
-    height: 1200,
-    isPrimary: true,
-  };
-  const db = database([{ ...fixture, materials: [material] }]);
+  const db = database([fixture]);
   let rendered;
   const render = async (_request, context) => {
     rendered = context.place;

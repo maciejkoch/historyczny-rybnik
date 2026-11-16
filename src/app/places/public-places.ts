@@ -44,7 +44,7 @@ export class PublicPlaces {
   async detail(slug: string): Promise<Place | null> {
     this.detailStatus.set('ready');
     const key = makeStateKey<Place | null>('place:' + slug);
-    if (this.context?.place?.slug === slug || this.context?.place?.previousSlugs.includes(slug)) {
+    if (this.context?.place?.slug === slug) {
       const place = publicPlaceSchema.parse(this.context.place);
       this.transfer.set(key, place);
       return place;

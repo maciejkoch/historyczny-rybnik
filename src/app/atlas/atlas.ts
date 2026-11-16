@@ -54,12 +54,11 @@ export class Atlas {
   readonly markerIcon = markerIcon;
   readonly editing = signal(false);
   readonly draftPoint = signal<{ lat: number; lng: number } | null>(null);
-  readonly precision = signal<'building' | 'approximate'>('approximate');
+  readonly precision = signal<'exact' | 'approximate'>('approximate');
   readonly explanation = signal('');
   readonly saving = signal(false);
   readonly needsRestart = signal(false);
   readonly editMessage = signal('');
-  private editVersion = 0;
   private editId = '';
   async startEditing(): Promise<void> {
     if (!this.account.user()) {
@@ -70,16 +69,18 @@ export class Atlas {
     const selected = this.selected();
     if (selected) await this.locations.refresh([selected.id]);
     const place = this.selected();
-    if (!place || this.locations.status() !== 'ready' ||
-        !this.locations.current().some((current) => current.id === place.id)) {
+    if (
+      !place ||
+      this.locations.status() !== 'ready' ||
+      !this.locations.current().some((current) => current.id === place.id)
+    ) {
       this.editMessage.set('Nie można pobrać bieżącej pozycji. Spróbuj ponownie.');
       return;
     }
     this.needsRestart.set(false);
-    this.editVersion = place.locationVersion;
     this.editId = place.id;
     this.draftPoint.set(place.location.coordinates);
-    this.precision.set(place.location.precision === 'building' ? 'building' : 'approximate');
+    this.precision.set(place.location.precision === 'exact' ? 'exact' : 'approximate');
     this.explanation.set(place.location.explanation ?? '');
     this.editMessage.set('');
     this.editing.set(true);
@@ -108,7 +109,6 @@ export class Atlas {
     try {
       await this.locations.update({
         placeId: this.editId,
-        expectedLocationVersion: this.editVersion,
         location: {
           coordinates: point,
           precision: this.precision(),
@@ -117,13 +117,10 @@ export class Atlas {
       });
       this.cancelEditing();
       this.editMessage.set('Lokalizacja została zapisana.');
-    } catch (error) {
+    } catch {
       await this.locations.refresh([this.editId]);
-      const code = (error as { code?: string }).code;
       this.editMessage.set(
-        code === 'functions/aborted'
-          ? 'Lokalizacja została zmieniona. Anuluj edycję i spróbuj ponownie.'
-          : 'Nie udało się potwierdzić zapisu. Sprawdź bieżącą pozycję przed ponowieniem.',
+        'Nie udało się potwierdzić zapisu. Sprawdź bieżącą pozycję przed ponowieniem.',
       );
       this.needsRestart.set(true);
     } finally {

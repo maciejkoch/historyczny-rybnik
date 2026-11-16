@@ -10,8 +10,8 @@
         <img [src]="imageUrl(primary.storagePath)" [alt]="primary.alt" />
       </button>
       <figcaption>
-        {{ primary.credit }}
-        @if (primary.provenance.sourcePageUrl; as source) {
+        {{ primary.source }}
+        @if (primary.sourceUrl; as source) {
           · <a [href]="source" target="_blank" rel="noopener noreferrer">Źródło ↗</a>
         }
       </figcaption>
@@ -22,27 +22,26 @@
       <span class="badge badge-outline">{{ tag.name }}</span>
     }
   </div>
-  @if (place.period.status !== 'confirmed') {
-    <p class="alert alert-warning">
-      Brak potwierdzenia istnienia w okresie międzywojennym. {{ place.period.explanation }}
-    </p>
-  }
   <p class="intro">{{ place.description }}</p>
-  @for (address of place.addresses; track address.text) {
-    @if (address.type === 'historical') {
-      <p>Adres historyczny: {{ address.text }}</p>
-    }
+  @if (place.historicalAddress) {
+    <p>Adres historyczny: {{ place.historicalAddress }}</p>
+  }
+  @if (place.documentedPeriod) {
+    <p>Udokumentowany okres: {{ date(place.documentedPeriod) }}</p>
+  }
+  @if (place.existsToday !== null) {
+    <p>{{ place.existsToday ? 'Miejsce istnieje obecnie' : 'Miejsce już nie istnieje' }}</p>
   }
   <div class="location-row">
     <span
       class="badge location-badge"
-      [class.location-exact]="place.location.precision === 'building'"
+      [class.location-exact]="place.location.precision === 'exact'"
       [class.location-approximate]="place.location.precision === 'approximate'"
-      [class.location-unknown]="place.location.precision === 'unknown'"
+      [class.location-unknown]="place.location.precision === null"
     >
       {{
         place.location.coordinates
-          ? place.location.precision === 'building'
+          ? place.location.precision === 'exact'
             ? 'Dokładna lokalizacja'
             : 'Przybliżona lokalizacja'
           : 'Brak lokalizacji'
@@ -64,8 +63,8 @@
               <img loading="lazy" [src]="imageUrl(material.thumbnailPath)" [alt]="material.alt" />
             </button>
             <figcaption>
-              {{ material.credit }}
-              @if (material.provenance.sourcePageUrl; as source) {
+              {{ material.source }}
+              @if (material.sourceUrl; as source) {
                 · <a [href]="source" target="_blank" rel="noopener noreferrer">Źródło ↗</a>
               }
             </figcaption>
@@ -74,57 +73,34 @@
       </div>
     </section>
   }
-  <h2>Udokumentowane daty</h2>
-  <div class="flex flex-wrap gap-2 my-3">
-    @for (value of documentedDates(); track value.from + (value.to || '')) {
-      <span class="badge badge-outline">{{ date(value) }}</span>
-    } @empty {
-      <p>Brak zweryfikowanych dat.</p>
-    }
-  </div>
   <h2>Wzmianki</h2>
-  @for (ref of verifiedMentions(); track ref.id) {
+  @for (ref of place.mentions; track ref.id) {
     <article class="reference">
       <h3>{{ ref.title }}</h3>
       @if (ref.publicationDate) {
-        <p class="muted">Data źródła: {{ date(ref.publicationDate) }}</p>
+        <p class="muted">Data źródła: {{ ref.publicationDate }}</p>
       }
-      <p>{{ ref.excerpt }}</p>
-      @for (image of ref.materials; track image.storagePath) {
-        <figure class="reference-image">
+      @if (ref.documentedDate) {
+        <p>Data wzmianki: {{ date(ref.documentedDate) }}</p>
+      }
+      <p>{{ ref.description }}</p>
+      @for (material of place.materials; track material.materialId; let index = $index) {
+        @if (ref.materialIds.includes(material.materialId)) {
           <button
             type="button"
-            (click)="imageOpened.emit({ url: imageUrl(image.storagePath), alt: image.alt })"
-            [attr.aria-label]="'Powiększ: ' + image.alt"
+            (click)="openGallery(index)"
+            [attr.aria-label]="'Powiększ: ' + material.alt"
           >
-            <img loading="lazy" [src]="imageUrl(image.thumbnailPath)" [alt]="image.alt" />
-            <span aria-hidden="true">Powiększ obraz ↗</span>
+            <img loading="lazy" [src]="imageUrl(material.thumbnailPath)" [alt]="material.alt" />
           </button>
-          <figcaption>{{ image.credit }} · {{ image.rights }}</figcaption>
-        </figure>
+        }
       }
-      @if (ref.url) {
-        <a [href]="ref.url" target="_blank" rel="noopener noreferrer">Otwórz źródło ↗</a>
+      @if (ref.source || ref.sourceNote) {
+        <p>{{ ref.source }} {{ ref.sourceNote }}</p>
+      }
+      @if (ref.sourceUrl) {
+        <a [href]="ref.sourceUrl" target="_blank" rel="noopener noreferrer">Otwórz źródło ↗</a>
       }
     </article>
-  }
-  @if (draftMentions().length) {
-    <details class="collapse collapse-arrow bg-base-200 mt-4">
-      <summary class="collapse-title">Wzmianki robocze — wymagają weryfikacji</summary>
-      <div class="collapse-content">
-        @for (ref of draftMentions(); track ref.id) {
-          <article>
-            <h3>{{ ref.title }}</h3>
-            @if (ref.publicationDate) {
-              <p class="muted">Data źródła: {{ date(ref.publicationDate) }}</p>
-            }
-            <p>{{ ref.excerpt }}</p>
-            @if (ref.url) {
-              <a [href]="ref.url" target="_blank" rel="noopener noreferrer">Otwórz źródło ↗</a>
-            }
-          </article>
-        }
-      </div>
-    </details>
   }
 }
