@@ -134,7 +134,7 @@ Przed podmianą katalogu wykonuje się pełną kopię Firestore i powiązanych p
 
 `places:import-one` (`scripts/places/import-place.mjs`) obsługuje pojedynczy pełny rekord aktualnego kontraktu. Domyślny podgląd jest lokalny; zapis wymaga jawnego projektu dev, `--apply` i SHA-256 zatwierdzonego pakietu. Odczyt `--read=ID --output=PLIK` obejmuje również drafty. Impersonacja Firestore korzysta z istniejącego konta importera; upload z dotychczasowego mechanizmu operatora. Skrypt sprawdza kolizje slugów, konflikt `updatedAt`, zachowuje `createdAt`, nadaje czas zapisu, zapisuje lokalną kopię poprzedniego rekordu i publikuje tylko zatwierdzone warianty obrazów. Ponowienie identycznej treści niczego nie zmienia. Nie modyfikuje pozostałych miejsc. Storage i Firestore nie są wspólną transakcją; nieudany import może pozostawić niepodłączone pliki. Skrypt nie weryfikuje praw ani treści historycznej i nie dekoduje obrazów w celu sprawdzenia wymiarów — robi to skill przed akceptacją.
 
-Skill `rybnik-create-place` wymaga GPT-6.1 Sol do opracowania treści, oddzielnej akceptacji nowych znalezionych źródeł i końcowej akceptacji pakietu. Import do dev nie wymaga builda ani deploymentu. Właściciel sam sprawdza efekt w aplikacji. Szczegóły i ograniczenia: [procedura importu](.agents/skills/rybnik-create-place/references/import.md).
+Skill `rybnik-create-place` wymaga GPT-6 Luna do opracowania treści, oddzielnej akceptacji nowych znalezionych źródeł i końcowej akceptacji pakietu. Import do dev nie wymaga builda ani deploymentu. Właściciel sam sprawdza efekt w aplikacji. Szczegóły i ograniczenia: [procedura importu](.agents/skills/rybnik-create-place/references/import.md).
 
 ## Mapa
 

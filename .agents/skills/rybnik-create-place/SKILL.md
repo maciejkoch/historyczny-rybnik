@@ -11,7 +11,7 @@ To samodzielny przepływ: podane źródła i obrazy → opracowanie miejsca → 
 
 ## Model
 
-Opracowanie źródeł, opisów, datowania, praw i lokalizacji wykonuje **GPT-6.1 Sol (`gpt-6.1-sol`)**. Jeśli bieżący model nie jest potwierdzony jako Sol, zleć tę pracę jednemu subagentowi przez `spawn_agent(model="gpt-6.1-sol", fork_turns="none")`. Przekaż root, ten skill, wejście użytkownika, istniejący rekord i zakres plików roboczych. Nie zmieniaj globalnej konfiguracji. Subagent przygotowuje dane i raport, bez importu i delegowania dalej. Koordynator pokazuje wynik, czeka na potwierdzenie i wykonuje zatwierdzony import. Jeśli Sol lub delegacja są niedostępne, zgłoś ograniczenie, zamiast zastępować model. Metadane skilla same nie przełączają modelu.
+Opracowanie źródeł, opisów, datowania, praw i lokalizacji wykonuje **GPT-6 Luna (`gpt-6-luna`)**. Jeśli bieżący model nie jest potwierdzony jako Luna, zleć tę pracę jednemu subagentowi przez `spawn_agent(model="gpt-6-luna", fork_turns="none")`. Przekaż root, ten skill, wejście użytkownika, istniejący rekord i zakres plików roboczych. Nie zmieniaj globalnej konfiguracji. Subagent przygotowuje dane i raport, bez importu i delegowania dalej. Koordynator pokazuje wynik, czeka na potwierdzenie i wykonuje zatwierdzony import. Jeśli Luna lub delegacja są niedostępne, zgłoś ograniczenie, zamiast zastępować model. Metadane skilla same nie przełączają modelu.
 
 ## Rozpoznanie i źródła
 
