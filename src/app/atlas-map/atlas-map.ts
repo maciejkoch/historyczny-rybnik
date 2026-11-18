@@ -40,7 +40,7 @@ export class AtlasMap {
   readonly backgroundClicked = output<void>();
   readonly state = signal<'loading' | 'ready' | 'error'>('loading');
   readonly historyEnabled = signal(HISTORICAL_MAP.available);
-  readonly opacity = signal(60);
+  readonly opacity = signal(100);
   readonly layerControlsCollapsed = signal(true);
   readonly compactLayout = signal(true);
   readonly mobileLegendOpen = signal(false);

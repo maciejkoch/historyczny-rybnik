@@ -9,7 +9,7 @@ Operator może przygotować nowe miejsce lub uzupełnić istniejące skillem [ry
 
 - Strona „O nas” z opisem portalu, map i pracy na źródłach, dostępna z menu pod `/o-nas`.
 - Mapa współczesnego Rybnika z przesuwaniem i przybliżaniem; widok początkowy i przycisk powrotu centrują ją na Rynku.
-- Plan miasta z 1932 r., domyślnie włączony z kryciem 60%, z regulacją przezroczystości i oznaczeniem zasięgu. Zapisane preferencje użytkownika mają pierwszeństwo.
+- Plan miasta z 1932 r., domyślnie włączony z kryciem 100%, z regulacją przezroczystości i oznaczeniem zasięgu. Zapisane preferencje użytkownika mają pierwszeństwo.
 - Wyszukiwanie miejsc i karty miejsc z opisem, źródłami oraz osobnym adresem.
 - Karta może pokazać zdjęcie główne oraz galerię materiałów miejsca, otwieraną w PhotoSwipe; stan lokalizacji opisuje kolorowa etykieta. Skany mogą pokazywać pełną stronę z ramką wskazującą fragment dotyczący miejsca.
 - Przełączanie mapy, wyszukiwania i szczegółów miejsca na telefonie i komputerze; zwinięte panele na komputerze mają ikonę wyszukiwania i ikonę głównego tagu wybranego miejsca.
