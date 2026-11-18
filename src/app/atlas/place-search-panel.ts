@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { PlaceSummary } from '../places/place';
 import { markerCategory, markerIcon } from '../atlas-map/place-markers';
+import { PlaceTag } from './place-tag';
 
 @Component({
   selector: 'app-place-search-panel',
+  imports: [PlaceTag],
   templateUrl: './place-search-panel.html',
   styleUrl: './panel-content.css',
   host: { '[class.mobile-page]': 'mobilePage()' },

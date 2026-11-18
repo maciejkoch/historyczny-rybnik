@@ -84,10 +84,6 @@ h2 {
   border: 0;
   padding: 0;
 }
-.tag-filters .btn {
-  height: 32px;
-  min-height: 32px;
-}
 .tag-filters legend {
   font-weight: 600;
   margin-bottom: 0.6rem;

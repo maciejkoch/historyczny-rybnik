@@ -1,36 +1,40 @@
 @if (place(); as place) {
   <h1 id="place-title" tabindex="-1">{{ place.name }}</h1>
   @if (primaryMaterial(); as primary) {
+    @for (image of [primary]; track image.storagePath) {
     <figure class="primary-image">
       <button
         type="button"
+        [style.aspect-ratio]="primary.width + ' / ' + primary.height"
         (click)="openGallery(place.materials.indexOf(primary))"
         [attr.aria-label]="'Powiększ: ' + primary.alt"
       >
-        <img [src]="imageUrl(primary.storagePath)" [alt]="primary.alt" />
+        <img [src]="imageUrl(primary.storagePath)" [alt]="primary.alt" [attr.width]="primary.width" [attr.height]="primary.height" fetchpriority="high" />
       </button>
-      <figcaption>
-        {{ primary.source }}
-        @if (primary.sourceUrl; as source) {
-          · <a [href]="source" target="_blank" rel="noopener noreferrer">Źródło ↗</a>
-        }
-      </figcaption>
+      @if (primary.source || primary.sourceUrl) {
+        <figcaption>
+          Źródło:
+          @if (primary.sourceUrl; as sourceUrl) {
+            <a [href]="sourceUrl" target="_blank" rel="noopener noreferrer">{{ primary.source || sourceUrl }}</a>
+          } @else {
+            {{ primary.source }}
+          }
+        </figcaption>
+      }
     </figure>
+    }
   }
   <div class="flex flex-wrap gap-2 my-3">
     @for (tag of place.tags; track tag.id) {
-      <span class="badge badge-outline">{{ tag.name }}</span>
+      <app-place-tag [tag]="tag" />
     }
   </div>
-  <p class="intro">{{ place.description }}</p>
+  <p class="place-description">{{ place.description }}</p>
   @if (place.historicalAddress) {
-    <p>Adres historyczny: {{ place.historicalAddress }}</p>
+    <p><strong>Adres historyczny:</strong> {{ place.historicalAddress }}</p>
   }
   @if (place.documentedPeriod) {
-    <p>Udokumentowany okres: {{ date(place.documentedPeriod) }}</p>
-  }
-  @if (place.existsToday !== null) {
-    <p>{{ place.existsToday ? 'Miejsce istnieje obecnie' : 'Miejsce już nie istnieje' }}</p>
+    <p><strong>Udokumentowany okres:</strong> {{ date(place.documentedPeriod) }}</p>
   }
   <div class="location-row">
     <span
@@ -62,28 +66,32 @@
             >
               <img loading="lazy" [src]="imageUrl(material.thumbnailPath)" [alt]="material.alt" />
             </button>
-            <figcaption>
-              {{ material.source }}
-              @if (material.sourceUrl; as source) {
-                · <a [href]="source" target="_blank" rel="noopener noreferrer">Źródło ↗</a>
-              }
-            </figcaption>
+            @if (material.source || material.sourceUrl) {
+              <figcaption>
+                Źródło:
+                @if (material.sourceUrl; as sourceUrl) {
+                  <a [href]="sourceUrl" target="_blank" rel="noopener noreferrer">{{ material.source || sourceUrl }}</a>
+                } @else {
+                  {{ material.source }}
+                }
+              </figcaption>
+            }
           </figure>
         }
       </div>
     </section>
   }
   <h2>Wzmianki</h2>
-  @for (ref of place.mentions; track ref.id) {
+  @for (ref of place.mentions; track ref.id; let index = $index) {
     <article class="reference">
-      <h3>{{ ref.title }}</h3>
+      <h3>{{ index + 1 }}. {{ ref.title }}</h3>
       @if (ref.publicationDate) {
-        <p class="muted">Data źródła: {{ ref.publicationDate }}</p>
+        <p><strong>Data źródła:</strong> {{ ref.publicationDate }}</p>
       }
       @if (ref.documentedDate) {
-        <p>Data wzmianki: {{ date(ref.documentedDate) }}</p>
+        <p><strong>Data wzmianki:</strong> {{ date(ref.documentedDate) }}</p>
       }
-      <p>{{ ref.description }}</p>
+      <p class="place-description">{{ ref.description }}</p>
       @for (material of place.materials; track material.materialId; let index = $index) {
         @if (ref.materialIds.includes(material.materialId)) {
           <button
@@ -95,11 +103,13 @@
           </button>
         }
       }
-      @if (ref.source || ref.sourceNote) {
-        <p>{{ ref.source }} {{ ref.sourceNote }}</p>
+      @if (ref.sourceUrl; as sourceUrl) {
+        <p><strong>Źródło:</strong> <a [href]="sourceUrl" target="_blank" rel="noopener noreferrer">{{ ref.source || sourceUrl }}</a></p>
+      } @else if (ref.source) {
+        <p><strong>Źródło:</strong> {{ ref.source }}</p>
       }
-      @if (ref.sourceUrl) {
-        <a [href]="ref.sourceUrl" target="_blank" rel="noopener noreferrer">Otwórz źródło ↗</a>
+      @if (ref.sourceNote) {
+        <p class="source-note">{{ ref.sourceNote }}</p>
       }
     </article>
   }

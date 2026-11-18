@@ -259,14 +259,10 @@
         }
         <app-place-details-panel [place]="selected()" (imageOpened)="enlarged.set($event)">
           <div location-actions>
-            @if (selected()) {
-              @if (account.user() && !account.admin()) {
-                <p>Edycja lokalizacji jest obecnie dostępna tylko dla administratorów.</p>
-              } @else if (!editing()) {
+            @if (selected() && account.user() && account.admin()) {
+              @if (!editing()) {
                 <button class="btn btn-outline" type="button" (click)="startEditing()">
-                  {{
-                    account.user() ? 'Popraw lokalizację' : 'Zaloguj się, aby poprawić lokalizację'
-                  }}
+                  Popraw lokalizację
                 </button>
               } @else {
                 <fieldset [disabled]="saving()" class="location-editor">

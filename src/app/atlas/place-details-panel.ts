@@ -2,9 +2,11 @@ import { ChangeDetectionStrategy, Component, input, output, OnDestroy } from '@a
 import type PhotoSwipeLightbox from 'photoswipe/lightbox';
 import { PartialDate, Place } from '../places/place';
 import { FIREBASE_DEV } from '../places/runtime-config';
+import { PlaceTag } from './place-tag';
 
 @Component({
   selector: 'app-place-details-panel',
+  imports: [PlaceTag],
   templateUrl: './place-details-panel.html',
   styleUrls: ['./panel-content.css', './place-details-panel.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

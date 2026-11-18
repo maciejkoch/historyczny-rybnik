@@ -46,20 +46,12 @@
     <legend>Filtruj według tagu</legend>
     <div class="flex flex-wrap gap-2">
       @for (tag of tags(); track tag.id) {
-        <button
-          type="button"
-          class="btn btn-outline btn-xs rounded-full"
-          [class.btn-primary]="selectedTag() === tag.id"
-          [attr.aria-pressed]="selectedTag() === tag.id"
-          (click)="tagChanged.emit(selectedTag() === tag.id ? '' : tag.id)"
-        >
-          <span
-            class="tag-icon"
-            [style.mask-image]="'url(' + markerIcon(markerCategory({ tags: [tag] }).icon) + ')'"
-            aria-hidden="true"
-          ></span>
-          {{ tag.name }}
-        </button>
+        <app-place-tag
+          [tag]="tag"
+          [interactive]="true"
+          [selected]="selectedTag() === tag.id"
+          (chosen)="tagChanged.emit(selectedTag() === tag.id ? '' : tag.id)"
+        />
       }
     </div>
   </fieldset>
@@ -93,7 +85,7 @@
           ></span>
           <span class="place-copy"
             ><strong>{{ place.name }}</strong
-            ><small>{{ tagNames(place) }}</small>
+            ><small class="uppercase">{{ tagNames(place) }}</small>
             @if (historicalAddress(place); as address) {
               <small>{{ address }}</small>
             }</span
