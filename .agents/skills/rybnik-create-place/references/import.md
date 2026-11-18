@@ -15,7 +15,7 @@ Nowy pakiet `bundle.json` ma dokładnie cztery pola:
 
 `place` zastąp kompletnym rekordem `placeSchema`, nie częściową poprawką. Wszystkie pola kontraktu są wymagane. Dla nowego miejsca nadaj trwałe ID oraz `published: true`, `createdAt` i `updatedAt` w ISO UTC (czasy zapisu nada skrypt).
 
-W polach źródła trzymaj osobno nazwę (`source`), link (`sourceUrl`) i krótkie wskazanie miejsca w źródle (`sourceNote`, np. strona PDF; dla strony WWW zwykle `null`). Szczegółowe dowody i komentarze redakcyjne zachowaj w `review.md`, poza rekordem aplikacji. Materiały mają nazwę i link źródła, bez pola `sourceNote`.
+W polach źródła trzymaj osobno nazwę (`source`), link (`sourceUrl`) i krótkie wskazanie miejsca w źródle (`sourceNote`, np. strona PDF; dla strony WWW zwykle `null`). Szczegółowe dowody i komentarze redakcyjne zachowaj w `review.md`, poza rekordem aplikacji. Materiały mają nazwę i link źródła, bez pola `sourceNote`. Skan publikuj jako pełną stronę z mechanicznie wrysowaną ramką; miniaturę utwórz z tego samego gotowego obrazu. Nie dopisuj pól zaznaczenia do kontraktu. `sourceUrl` wskazuje oryginalny PDF z `#page=N` albo kartę obiektu, a `review.md` wiąże ID materiału z czystym oryginałem, numerem strony, współrzędnymi ramki i sumami. Publiczne `width`/`height` oraz SHA-256 dotyczą gotowej pełnej strony z ramką.
 
 Dla aktualizacji odczytaj bieżący rekord, także nieopublikowany:
 
