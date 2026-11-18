@@ -3,6 +3,7 @@ import { spawnSync } from 'node:child_process';
 // Keep the complete, fail-fast test sequence in one place.
 const steps = [
   ['run', 'test:maps'],
+  ['run', 'test:place-import'],
   ['run', 'test:places-filter'],
   ['run', 'test:slot-ssr'],
   ['run', 'check:contracts'],
