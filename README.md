@@ -37,7 +37,7 @@ Baza dev zawiera m.in. Bazylikę św. Antoniego Padewskiego, Kamienicę Noaha Le
 
 Przy oddaleniu mapy pobliskie miejsca łączą się w grupy z liczbą punktów. Kliknięcie grupy przybliża mapę, a zmiana grupowania jest animowana; wybrane miejsce pozostaje widoczne osobno.
 
-Panel „Miejsca” wyszukuje fragment nazwy i pozwala łączyć jeden główny tag z filtrem „Bez lokalizacji”. Wyniki pokazują tagi oraz dostępny adres historyczny; mapa pokazuje te same wyniki.
+Panel „Miejsca” wyszukuje fragment nazwy i pozwala łączyć jeden główny tag z filtrem „Bez lokalizacji”. Filtry dotyczą tylko listy miejsc; mapa nadal pokazuje wszystkie miejsca z lokalizacją i wyróżnia wybrane miejsce. Wyniki listy pokazują tagi oraz dostępny adres historyczny.
 
 Materiały są podłączane do kart na dev wraz z dostępnym źródłem i informacją o prawach. Osoba przekazująca materiał odpowiada za prawo do jego udostępnienia.
 
