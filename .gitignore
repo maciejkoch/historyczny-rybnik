@@ -56,6 +56,8 @@ __pycache__/
 
 # Local snapshots and credentials
 .local/
+# Agent-only local working materials (also covered by .local/ above)
+/agent-context/.local/
 functions/node_modules/
 *-debug.log
 

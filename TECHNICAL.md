@@ -18,7 +18,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 - Mapa i wyszukiwarka pobierają listę opublikowanych miejsc przez API przy otwarciu. Karta miejsca jest renderowana na serwerze z bieżących danych z Firestore; otwarte strony nie są automatycznie odświeżane. Logowanie i edycja nadal wymagają zgody Google.
 - Komponenty panelu i mapy są w `src/app/atlas/` i `src/app/atlas-map/`; `src/app/places/` obsługuje modele i API miejsc, `src/app/privacy/` zgody i politykę prywatności. Stan interfejsu korzysta z Signals.
 - `functions/` zawiera backend i jego testy; `functions/src/contracts/` współdzielone kontrakty. `data/` przechowuje dane do publikacji, a `infra/` konfigurację infrastruktury.
-- `public/` zawiera zasoby, `scripts/` narzędzia budowania i danych, `.github/` CI. `agent-context/` zawiera materiały robocze oraz zachowane plany, źródła i opisy szczegółowe w `reference/`.
+- `public/` zawiera zasoby, `scripts/` narzędzia budowania i danych, `.github/` CI. `agent-context/` zawiera współdzielone materiały pomocnicze i opisy szczegółowe w `reference/`, a ignorowany `agent-context/.local/` lokalne materiały robocze agenta.
 - Backend dev działa w projekcie `historyczny-rybnik`: baza `places-dev`, bucket `historyczny-rybnik-dev-files`, codebase Functions `places-dev` i osobne konta usług dev; Auth jest wspólne. [Konfiguracja](agent-context/reference/mvp-1/faza-3-infrastruktura.md).
 
 ## Architektura frontendu
@@ -68,7 +68,7 @@ Wspólne API i renderer SSR wdrażamy z tego samego builda. Nie utrzymujemy zgod
 
 ## Katalog lokalny `.local/`
 
-To generowany, ignorowany przez Git katalog danych roboczych. `places:snapshot` zapisuje tu punkt odniesienia dla eksportu warsztatu i narzędzi operatora; build i wdrożenie aplikacji z niego nie korzystają. `prepare-hosting.mjs` zapisuje lokalną konfigurację Hosting. Nowe notatki i skrypty agenta trafiają do `agent-context/`.
+To generowany, ignorowany przez Git katalog danych roboczych. `places:snapshot` zapisuje tu punkt odniesienia dla eksportu warsztatu i narzędzi operatora; build i wdrożenie aplikacji z niego nie korzystają. `prepare-hosting.mjs` zapisuje lokalną konfigurację Hosting. Lokalne notatki i skrypty agenta trafiają do osobnego `agent-context/.local/`.
 
 ## Uruchomienie, publikacja i weryfikacja
 
@@ -134,7 +134,7 @@ Przed podmianą katalogu wykonuje się pełną kopię Firestore i powiązanych p
 
 `places:import-one` (`scripts/places/import-place.mjs`) obsługuje pojedynczy pełny rekord aktualnego kontraktu. Domyślny podgląd jest lokalny; zapis wymaga jawnego projektu dev, `--apply` i SHA-256 zatwierdzonego pakietu. Odczyt `--read=ID --output=PLIK` obejmuje również drafty. Impersonacja Firestore korzysta z istniejącego konta importera; upload z dotychczasowego mechanizmu operatora. Skrypt sprawdza kolizje slugów, konflikt `updatedAt`, zachowuje `createdAt`, nadaje czas zapisu, zapisuje lokalną kopię poprzedniego rekordu i publikuje tylko zatwierdzone warianty obrazów. Ponowienie identycznej treści niczego nie zmienia. Nie modyfikuje pozostałych miejsc. Storage i Firestore nie są wspólną transakcją; nieudany import może pozostawić niepodłączone pliki. Skrypt nie weryfikuje praw ani treści historycznej i nie dekoduje obrazów w celu sprawdzenia wymiarów — robi to skill przed akceptacją.
 
-Skill `rybnik-create-place` wymaga GPT-6 Luna do opracowania treści, oddzielnej akceptacji nowych znalezionych źródeł i końcowej akceptacji pakietu. Import do dev nie wymaga builda ani deploymentu. Właściciel sam sprawdza efekt w aplikacji. Szczegóły i ograniczenia: [procedura importu](.agents/skills/rybnik-create-place/references/import.md).
+Skill `rybnik-create-place` używa bieżącego agenta bez wymogu konkretnego modelu ani delegacji; dodatkowe znalezione źródła i końcowy pakiet wymagają akceptacji właściciela. Import do dev nie wymaga builda ani deploymentu. Właściciel sam sprawdza efekt w aplikacji. Szczegóły i ograniczenia: [procedura importu](.agents/skills/rybnik-create-place/references/import.md).
 
 ## Mapa
 

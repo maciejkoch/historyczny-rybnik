@@ -33,7 +33,7 @@ Każdy może zalogować się przez Google. Edycja lokalizacji jest obecnie dost�
 
 Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
 
-Baza dev zawiera Bazylikę św. Antoniego Padewskiego oraz Kamienicę Noaha Leschczinera. Pozostałe miejsca są przygotowywane do ponownego wprowadzenia.
+Baza dev zawiera m.in. Bazylikę św. Antoniego Padewskiego, Kamienicę Noaha Leschczinera, Rybnicką Synagogę, Państwowe Gimnazjum Męskie w Rybniku, Stary cmentarz żydowski oraz cztery przedwojenne stacje benzynowe: Plintów (Standard Oil), Ożoga, E. Dardy i przy warsztacie Krajewskiego. Pozostałe miejsca są przygotowywane do ponownego wprowadzenia.
 
 Przy oddaleniu mapy pobliskie miejsca łączą się w grupy z liczbą punktów. Kliknięcie grupy przybliża mapę, a zmiana grupowania jest animowana; wybrane miejsce pozostaje widoczne osobno.
 
