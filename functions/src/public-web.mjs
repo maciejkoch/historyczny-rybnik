@@ -3,7 +3,9 @@ import { readPublicPlace, readPublicSummaries } from './public-places.mjs';
 const devOrigin = 'https://historyczny-rybnik-dev.web.app';
 
 export function publicWeb(db, render, { origin = devOrigin, indexable = false } = {}) {
-  if (!['https://historyczny-rybnik-dev.web.app', 'https://historyczny.rybnik.pl'].includes(origin)) {
+  if (
+    !['https://historyczny-rybnik-dev.web.app', 'https://historyczny.rybnik.pl'].includes(origin)
+  ) {
     throw new Error('Unsupported public origin');
   }
   if (indexable && origin !== 'https://historyczny.rybnik.pl') {
@@ -19,7 +21,13 @@ export function publicWeb(db, render, { origin = devOrigin, indexable = false } 
       if (url.pathname === '/api/public-places') return res.json(await readPublicSummaries(db));
       if (url.pathname === '/sitemap.xml') {
         const places = await readPublicSummaries(db);
-        const paths = ['/', '/o-nas', ...places.map((place) => '/miejsca/' + place.slug)];
+        const paths = [
+          '/',
+          '/szukaj',
+          '/o-nas',
+          '/prywatnosc',
+          ...places.map((place) => '/miejsca/' + place.slug),
+        ];
         return res
           .type('application/xml')
           .send(

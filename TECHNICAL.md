@@ -19,7 +19,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 - Komponenty panelu i mapy są w `src/app/atlas/` i `src/app/atlas-map/`; `src/app/places/` obsługuje modele i API miejsc, `src/app/privacy/` zgody i politykę prywatności. Stan interfejsu korzysta z Signals.
 - `functions/` zawiera backend i jego testy; `functions/src/contracts/` współdzielone kontrakty. `data/` przechowuje dane do publikacji, a `infra/` konfigurację infrastruktury.
 - `public/` zawiera zasoby, `scripts/` narzędzia budowania i danych, `.github/` CI. `agent-context/` zawiera współdzielone materiały pomocnicze i opisy szczegółowe w `reference/`, a ignorowany `agent-context/.local/` lokalne materiały robocze agenta.
-- Utworzono puste zasoby produkcyjne: Firestore `places-prod`, bucket `historyczny-rybnik-prod-files` oraz osobną aplikację web z App Check. Utworzono również osobne konta i role produkcyjne z warunkiem dostępu do `places-prod`. Reguły zasobów produkcyjnych nie są wdrożone, a rzeczywista izolacja IAM nie jest jeszcze odebrana; nie stanowią gotowego backendu produkcyjnego.
+- Utworzono zasoby produkcyjne: Firestore `places-prod`, bucket `historyczny-rybnik-prod-files` oraz osobną aplikację web z App Check. Utworzono również osobne konta i role produkcyjne z warunkiem dostępu do `places-prod`. Na produkcyjnej bazie i bucketcie wdrożono tymczasowe reguły blokujące bezpośredni dostęp. Kopia Firestore jest zaplanowana codziennie z retencją siedmiu dni; pierwsza kopia i test odtworzenia pozostają do sprawdzenia. Bucket ma siedmiodniowy okres soft delete. Domena `historyczny.rybnik.pl` jest dopuszczona we wspólnym Auth, obok domen dev. Pełny odbiór IAM, w tym zapis i odmowy pozostałych operacji, pozostaje otwarty; nie stanowią gotowego backendu produkcyjnego.
 - Backend dev działa w projekcie `historyczny-rybnik`: baza `places-dev`, bucket `historyczny-rybnik-dev-files`, codebase Functions `places-dev` i osobne konta usług dev; Auth jest wspólne. [Konfiguracja](agent-context/reference/mvp-1/faza-3-infrastruktura.md).
 
 ## Architektura frontendu
@@ -45,7 +45,7 @@ Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje �
 
 | Obszar | Odpowiedzialność |
 | --- | --- |
-| `functions/src/public-places.mjs`, `public-web.mjs` | Jawne, walidowane projekcje publiczne; dynamiczny katalog, karta, sitemap i SSR. |
+| `functions/src/public-places.mjs`, `public-web.mjs` | Jawne, walidowane projekcje publiczne; dynamiczny katalog, karta, sitemap (strona główna, wyszukiwarka, informacje i opublikowane miejsca) i SSR. |
 | `functions/src/index.mjs` | Inicjalizuje Admin SDK i bazę `places-dev`, eksportuje callable API `placesDevRead` i `placesDevUpdate` w regionie `europe-central2`. Konfiguruje App Check, CORS, konto usługi i limity zasobów. |
 | `functions/src/service.mjs` | Realizuje odczyt publicznych pozycji i transakcyjny zapis lokalizacji, autoryzację oraz mapowanie danych Firestore na odpowiedź API. |
 | `functions/src/validation.mjs` | Udostępnia walidację wejścia i katalogu oraz wspólny format błędów walidacji. |

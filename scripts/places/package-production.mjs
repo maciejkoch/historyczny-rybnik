@@ -1,4 +1,4 @@
-import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
 
@@ -13,6 +13,13 @@ cpSync('functions/package-lock.json', `${output}/package-lock.json`);
 const manifest = JSON.parse(readFileSync('functions/package.json', 'utf8'));
 manifest.main = 'src/index.prod.mjs';
 writeFileSync(`${output}/package.json`, JSON.stringify(manifest, null, 2) + '\n');
+
+const rootTargets = readFileSync('.firebaserc', 'utf8');
+const localTargets = '.local/.firebaserc';
+if (existsSync(localTargets) && readFileSync(localTargets, 'utf8') !== rootTargets) {
+  throw new Error('Local Firebase targets differ from the reviewed project configuration');
+}
+if (!existsSync(localTargets)) writeFileSync(localTargets, rootTargets, { flag: 'wx' });
 
 const backend = JSON.parse(readFileSync('firebase.backend.prod.json', 'utf8'));
 const functions = [

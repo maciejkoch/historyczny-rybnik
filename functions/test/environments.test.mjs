@@ -65,3 +65,31 @@ test('production functions use only production identities and Warsaw region', as
     );
   }
 });
+
+test('production material importer is limited to its bucket and cannot delete objects', () => {
+  const { storage } = json('infra/iam.prod.json');
+  assert.equal(storage.bucket, 'historyczny-rybnik-prod-files');
+  assert.equal(
+    storage.serviceAccount,
+    'places-prod-import@historyczny-rybnik.iam.gserviceaccount.com',
+  );
+  assert.deepEqual([...storage.includedPermissions].sort(), [
+    'storage.objects.create',
+    'storage.objects.get',
+    'storage.objects.list',
+  ]);
+});
+
+test('shared Auth configuration retains the production and all dev domains', () => {
+  const redirects = json('firebase.backend.dev.json').auth.providers.googleSignIn
+    .authorizedRedirectUris;
+  for (const domain of [
+    'historyczny.rybnik.pl',
+    'historyczny-rybnik-dev.web.app',
+    'historyczny-rybnik-dev-1.web.app',
+    'historyczny-rybnik-dev-2.web.app',
+    'historyczny-rybnik-dev-3.web.app',
+  ]) {
+    assert.ok(redirects.includes(`https://${domain}/__/auth/handler`));
+  }
+});

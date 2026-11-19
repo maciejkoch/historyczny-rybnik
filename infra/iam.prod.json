@@ -28,5 +28,11 @@
       "serviceAccount": "places-prod-build@historyczny-rybnik.iam.gserviceaccount.com",
       "includedPermissions": ["datastore.entities.get", "datastore.entities.list"]
     }
+  },
+  "storage": {
+    "bucket": "historyczny-rybnik-prod-files",
+    "role": "placesProdStorageImport",
+    "serviceAccount": "places-prod-import@historyczny-rybnik.iam.gserviceaccount.com",
+    "includedPermissions": ["storage.objects.create", "storage.objects.get", "storage.objects.list"]
   }
 }

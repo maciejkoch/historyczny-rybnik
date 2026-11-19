@@ -123,7 +123,8 @@ test('public requests reflect database edits, exclude drafts and handle redirect
   records[0] = { ...records[0], published: false };
   assert.equal((await request(handler, '/miejsca/' + fixture.slug)).statusCode, 404);
   assert.deepEqual((await request(handler, '/api/public-places')).body, []);
-  assert.match((await request(handler, '/sitemap.xml')).body, /\/o-nas/);
+  const sitemap = (await request(handler, '/sitemap.xml')).body;
+  for (const route of ['/szukaj', '/o-nas', '/prywatnosc']) assert.ok(sitemap.includes(route));
   assert.equal(
     (
       await request(
@@ -157,7 +158,6 @@ test('gallery is included in API responses and SSR', async () => {
   await request(handler, '/miejsca/' + fixture.slug);
   assert.equal(rendered.materials.length, 1);
 });
-
 
 test('indexing and sitemap origin are limited to the explicit production configuration', async () => {
   const db = database([fixture]);
