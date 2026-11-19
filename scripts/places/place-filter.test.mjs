@@ -17,11 +17,12 @@ test('filtruje fragment wyłącznie nazwy z normalizacją', () => {
   assert.deepEqual(filterPlaces(places, 'LODZ', '', false), [places[0]]);
   assert.deepEqual(filterPlaces(places, 'sakralny', '', false), []);
 });
-test('łączy główny tag, nazwę i brak lokalizacji; pusty filtr resetuje wyniki', () => {
+test('łączy dowolny tag, nazwę i brak lokalizacji; pusty filtr resetuje wyniki', () => {
   assert.deepEqual(filterPlaces(places, '', 'handel', false), [places[0]]);
   assert.deepEqual(filterPlaces(places, 'hand', 'handel', true), [places[0]]);
   assert.deepEqual(filterPlaces(places, '', 'sakralny', true), []);
-  assert.deepEqual(filterPlaces(places, '', 'inne', false), []);
+  assert.deepEqual(filterPlaces(places, '', 'inne', false), [places[0]]);
+  assert.deepEqual(filterPlaces(places, 'hand', 'inne', true), [places[0]]);
   assert.deepEqual(filterPlaces(places, '', '', true), [places[0], places[2]]);
   assert.deepEqual(filterPlaces(places, '', '', false), places);
 });
