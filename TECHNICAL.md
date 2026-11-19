@@ -19,6 +19,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 - Komponenty panelu i mapy są w `src/app/atlas/` i `src/app/atlas-map/`; `src/app/places/` obsługuje modele i API miejsc, `src/app/privacy/` zgody i politykę prywatności. Stan interfejsu korzysta z Signals.
 - `functions/` zawiera backend i jego testy; `functions/src/contracts/` współdzielone kontrakty. `data/` przechowuje dane do publikacji, a `infra/` konfigurację infrastruktury.
 - `public/` zawiera zasoby, `scripts/` narzędzia budowania i danych, `.github/` CI. `agent-context/` zawiera współdzielone materiały pomocnicze i opisy szczegółowe w `reference/`, a ignorowany `agent-context/.local/` lokalne materiały robocze agenta.
+- Utworzono puste zasoby produkcyjne: Firestore `places-prod`, bucket `historyczny-rybnik-prod-files` oraz osobną aplikację web z App Check. Utworzono również osobne konta i role produkcyjne z warunkiem dostępu do `places-prod`. Reguły zasobów produkcyjnych nie są wdrożone, a rzeczywista izolacja IAM nie jest jeszcze odebrana; nie stanowią gotowego backendu produkcyjnego.
 - Backend dev działa w projekcie `historyczny-rybnik`: baza `places-dev`, bucket `historyczny-rybnik-dev-files`, codebase Functions `places-dev` i osobne konta usług dev; Auth jest wspólne. [Konfiguracja](agent-context/reference/mvp-1/faza-3-infrastruktura.md).
 
 ## Architektura frontendu
@@ -51,7 +52,7 @@ Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje �
 | `functions/src/contracts/places.mjs` | Schematy Zod współdzielone przez backend, frontend i skrypty publikacji; obejmują katalog, żądania i odpowiedzi. |
 | `functions/test/` | Testy logiki, kontraktów i walidacji oraz testy API i reguł w emulatorach. |
 | `firestore.rules`, `storage.rules`, `firestore.indexes.json` | Kontrola bezpośredniego dostępu klientów i konfiguracja indeksów. Operacje serwerowe działają przez Admin SDK i uprawnienia IAM. |
-| `firebase.backend.dev.json`, `infra/iam.dev.json` | Docelowe zasoby backendu dev i uprawnienia kont usług. |
+| `firebase.backend.dev.json`, `infra/iam.dev.json` | Docelowe zasoby backendu dev i uprawnienia kont usług. `firebase.backend.prod.json` przygotowuje wyłącznie wskazania bazy i bucketa produkcji; nie wdraża funkcji ani Hostingu. |
 
 `placesDevRead`: App Check → walidacja listy identyfikatorów → odczyt opublikowanych dokumentów `places` → odpowiedź z lokalizacją i czasem aktualizacji. Nie wymaga zalogowanego użytkownika.
 
@@ -64,7 +65,7 @@ Aktualny kontrakt katalogu, publicznej projekcji i prywatnego warsztatu oraz prz
 
 Miejsce ma niezależną galerię `materials`; wzmianki odwołują się do niej przez `materialIds`. Galeria pokazuje wszystkie materiały; PhotoSwipe używa wymiarów obrazu. Pola praw nie blokują dodawania lub wyświetlania. Prywatny warsztat i dawny skill badawczy nie są częścią nowego przepływu aplikacji; ich integracja wymaga późniejszych prac. Nowy skill `rybnik-create-place` przygotowuje samodzielnie pakiet aktualnego kontraktu. Dokumentację źródeł, datowania i praw zachowuje w `review.md` przy lokalnym pakiecie `.local/place-drafts/ID/`; nie korzysta z warsztatu, jego rejestrów ani synchronizacji. Skany przygotowuje jako pełne strony z mechanicznie wrysowanymi ramkami fragmentów, również w miniaturach. Czysty oryginał, współrzędne i sumy zachowuje prywatnie; publiczny `sourceUrl` wskazuje źródło i stronę PDF. To zwykłe obrazy aktualnego kontraktu, bez osobnej warstwy w galerii.
 
-Wspólne API i renderer SSR wdrażamy z tego samego builda. Nie utrzymujemy zgodności ze starym kontraktem.
+Wariant produkcyjny jest przygotowywany lokalnie poleceniem `npm run prepare:prod`: oddzielna konfiguracja klienta, funkcji i artefaktów z produkcyjną domeną, bazą i bucketem. Artefakty pozostają w `.local/`; żadne funkcje produkcyjne nie zostały wdrożone. Wspólne API i renderer SSR wdrażamy z tego samego builda. Nie utrzymujemy zgodności ze starym kontraktem.
 
 ## Katalog lokalny `.local/`
 

@@ -1,7 +1,7 @@
 import { afterNextRender, effect, inject, Injectable, Injector, signal } from '@angular/core';
 import type { User } from 'firebase/auth';
 import { Consent } from '../privacy/consent';
-import { FIREBASE_DEV } from './runtime-config';
+import { FIREBASE_CONFIG } from './runtime-config';
 
 @Injectable({ providedIn: 'root' })
 export class Account {
@@ -31,7 +31,7 @@ export class Account {
         import('firebase/app'),
         import('firebase/auth'),
       ]);
-      const auth = getAuth(getApps()[0] ?? initializeApp(FIREBASE_DEV.firebase));
+      const auth = getAuth(getApps()[0] ?? initializeApp(FIREBASE_CONFIG.firebase));
       auth.languageCode = 'pl';
       onIdTokenChanged(auth, async (user) => {
         this.admin.set(false);

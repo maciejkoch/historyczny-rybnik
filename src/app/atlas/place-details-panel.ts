@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input, output, OnDestroy } from '@angular/core';
 import type PhotoSwipeLightbox from 'photoswipe/lightbox';
 import { PartialDate, Place } from '../places/place';
-import { FIREBASE_DEV } from '../places/runtime-config';
+import { FIREBASE_CONFIG } from '../places/runtime-config';
 import { PlaceTag } from './place-tag';
 
 @Component({
@@ -54,8 +54,8 @@ export class PlaceDetailsPanel implements OnDestroy {
   }
 
   imageUrl(path: string): string {
-    return FIREBASE_DEV
-      ? `https://firebasestorage.googleapis.com/v0/b/${FIREBASE_DEV.storageBucket}/o/${encodeURIComponent(path)}?alt=media`
+    return FIREBASE_CONFIG
+      ? `https://firebasestorage.googleapis.com/v0/b/${FIREBASE_CONFIG.storageBucket}/o/${encodeURIComponent(path)}?alt=media`
       : '';
   }
 }

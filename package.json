@@ -30,7 +30,9 @@
     "research:view": "node scripts/research/viewer/server.mjs",
     "test:research": "node --test scripts/research/test/*.test.mjs",
     "places:import-one": "node scripts/places/import-place.mjs",
-    "test:place-import": "node --test scripts/places/import-place.test.mjs"
+    "test:place-import": "node --test scripts/places/import-place.test.mjs",
+    "build:prod:check": "ng build --configuration=production,release && node scripts/verify-production-build.mjs",
+    "prepare:prod": "npm run build:prod:check && node scripts/places/package-production.mjs"
   },
   "private": true,
   "packageManager": "npm@12.0.2",

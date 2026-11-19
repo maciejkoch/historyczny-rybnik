@@ -1,7 +1,7 @@
 import { Consent } from '../privacy/consent';
 import { inject, Injectable, signal } from '@angular/core';
 import { LocationDto } from './place';
-import { FIREBASE_DEV } from './runtime-config';
+import { FIREBASE_CONFIG } from './runtime-config';
 @Injectable({ providedIn: 'root' })
 export class Locations {
   private readonly consent = inject(Consent);
@@ -20,14 +20,14 @@ export class Locations {
       import('firebase/functions'),
       import('../../../functions/src/contracts/places.mjs'),
     ]);
-    const app = getApps()[0] ?? initializeApp(FIREBASE_DEV.firebase);
+    const app = getApps()[0] ?? initializeApp(FIREBASE_CONFIG.firebase);
     initializeAppCheck(app, {
-      provider: new ReCaptchaEnterpriseProvider(FIREBASE_DEV.appCheckSiteKey),
+      provider: new ReCaptchaEnterpriseProvider(FIREBASE_CONFIG.appCheckSiteKey),
       isTokenAutoRefreshEnabled: true,
     });
     const read = httpsCallable<{ ids: string[] }, unknown>(
       getFunctions(app, 'europe-central2'),
-      'placesDevRead',
+      FIREBASE_CONFIG.functions.read,
     );
     return async (ids) => {
       const places: LocationDto[] = [];
@@ -50,7 +50,7 @@ export class Locations {
       ]);
     const result = await httpsCallable(
       getFunctions(getApp(), 'europe-central2'),
-      'placesDevUpdate',
+      FIREBASE_CONFIG.functions.update,
     )(writeRequestSchema.parse(request));
     const saved = locationDtoSchema.parse(result.data);
     this.current.update((values) => [...values.filter((value) => value.id !== saved.id), saved]);

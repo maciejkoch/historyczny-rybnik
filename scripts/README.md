@@ -27,6 +27,8 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 | [places/upload-assets.mjs](places/upload-assets.mjs) | Sprawdza SHA-256 i rozmiary obrazów galerii; z `--apply` publikuje nowe, niezmienne pliki w bucket dev. |
 | [privacy/consent.test.mjs](privacy/consent.test.mjs) | Testuje zgody, przechowywanie ustawień i warunki ładowania usług Google. |
 | [test.mjs](test.mjs) | Uruchamia kolejno testy mapy, kontraktów, prywatności i backendu; zatrzymuje się po pierwszym błędzie. |
+| [places/package-production.mjs](places/package-production.mjs) | Przygotowuje lokalny pakiet Functions i konfiguracje produkcyjne po sprawdzonym buildzie; niczego nie wdraża. |
+| [verify-production-build.mjs](verify-production-build.mjs) | Sprawdza izolację konfiguracji, indeksowanie i SSR produkcyjnego builda na danych fikcyjnych. |
 | [verify-build.mjs](verify-build.mjs) | Sprawdza statyczne strony, obecność serwera SSR, 404, noindex i zasoby; nie wczytuje danych miejsc. |
 
 Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). `firestore.mjs` jest używany przez pozostałe skrypty i nie jest osobnym poleceniem operatora.
@@ -37,6 +39,8 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). `fires
 | --- | --- |
 | `npm run ng` | Angular CLI. |
 | `npm start` | Lokalny serwer Angular. |
+| `npm run build:prod:check` | Lokalny build produkcyjny z kontrolą konfiguracji, SEO i SSR na fikcyjnych danych; bez deploymentu. |
+| `npm run prepare:prod` | Sprawdza build produkcyjny i przygotowuje artefakty w `.local/`; bez deploymentu. |
 | `npm run build` | Build Angulara i SSR, konfiguracja Hosting oraz weryfikacja artefaktów; bez połączenia z bazą. |
 | `npm run watch` | Build deweloperski w trybie obserwacji. |
 | `npm run preview` | Build i publikacja 30-dniowego kanału Hosting `faza-1`. |

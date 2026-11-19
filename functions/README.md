@@ -7,3 +7,5 @@ Backend Firebase Functions. `src/` zawiera API, obsługę usług i walidację; `
 Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
 
 Publiczny kontrakt miejsca używa udokumentowanego zakresu, wzmianek oraz odrębnej galerii materiałów. Wzmianki wskazują materiały przez ID. Zapis pozycji nie ma wersji; ostatni zapis wygrywa. Szczegóły: `agent-context/reference/place-schema.md`.
+
+`src/index.prod.mjs` przygotowuje osobne funkcje produkcyjne z App Check, kontami usług i bazą `places-prod`; nie zostały one jeszcze wdrożone. Pakiet lokalny generuje `npm run prepare:prod`.
