@@ -1,10 +1,17 @@
 import { readPublicPlace, readPublicSummaries } from './public-places.mjs';
 
-const origin = 'https://historyczny-rybnik-dev.web.app';
-export function publicWeb(db, render) {
+const devOrigin = 'https://historyczny-rybnik-dev.web.app';
+
+export function publicWeb(db, render, { origin = devOrigin, indexable = false } = {}) {
+  if (!['https://historyczny-rybnik-dev.web.app', 'https://historyczny.rybnik.pl'].includes(origin)) {
+    throw new Error('Unsupported public origin');
+  }
+  if (indexable && origin !== 'https://historyczny.rybnik.pl') {
+    throw new Error('Only production may be indexable');
+  }
   return async (req, res) => {
     res.set('Cache-Control', 'no-store');
-    res.set('X-Robots-Tag', 'noindex, nofollow');
+    if (!indexable) res.set('X-Robots-Tag', 'noindex, nofollow');
     res.set('X-Content-Type-Options', 'nosniff');
     if (req.method !== 'GET' && req.method !== 'HEAD') return res.status(405).end();
     const url = new URL(req.originalUrl, origin);

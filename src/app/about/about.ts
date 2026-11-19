@@ -1,4 +1,5 @@
 import { DOCUMENT } from '@angular/common';
+import { PUBLIC_ORIGIN } from '../places/runtime-config';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
@@ -20,7 +21,7 @@ export class About {
     const title = 'O nas — Historyczny Rybnik';
     const description =
       'Poznaj ideę Historycznego Rybnika: miejsca międzywojennego miasta, plan z 1932 roku i historie odczytywane ze źródeł.';
-    const url = 'https://historyczny-rybnik-dev.web.app/o-nas';
+    const url = PUBLIC_ORIGIN + '/o-nas';
     meta.updateTag({ name: 'description', content: description });
     for (const [property, content] of Object.entries({
       'og:title': title,

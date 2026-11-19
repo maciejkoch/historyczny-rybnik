@@ -1,3 +1,4 @@
+import { PUBLIC_ORIGIN } from '../places/runtime-config';
 import { Account } from '../places/account';
 import {
   afterNextRender,
@@ -187,7 +188,7 @@ export class Atlas {
         place?.description ??
         'Odkrywaj miejsca Rybnika, ich historię i źródła na mapie współczesnej oraz planie z 1932 roku.';
       const url =
-        'https://historyczny-rybnik-dev.web.app' +
+        PUBLIC_ORIGIN +
         (place ? '/miejsca/' + place.slug : data['screen'] === 'search' ? '/szukaj' : '/');
       this.title.setTitle(title);
       this.meta.updateTag({ name: 'description', content: description });

@@ -1,4 +1,5 @@
 // Public web configuration. Debug tokens and service credentials never belong here.
+export const PUBLIC_ORIGIN = 'https://historyczny-rybnik-dev.web.app';
 export const FIREBASE_DEV = {
   firebase: {
     apiKey: 'AIzaSyAIODAPngO09P6CkqVCYQqMs1pFFP8hqpM',

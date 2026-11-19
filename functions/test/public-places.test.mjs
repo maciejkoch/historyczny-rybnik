@@ -157,3 +157,20 @@ test('gallery is included in API responses and SSR', async () => {
   await request(handler, '/miejsca/' + fixture.slug);
   assert.equal(rendered.materials.length, 1);
 });
+
+
+test('indexing and sitemap origin are limited to the explicit production configuration', async () => {
+  const db = database([fixture]);
+  const preview = await request(publicWeb(db, null), '/sitemap.xml');
+  assert.equal(preview.headers['X-Robots-Tag'], 'noindex, nofollow');
+  assert.match(preview.body, /https:\/\/historyczny-rybnik-dev\.web\.app/);
+  const production = await request(
+    publicWeb(db, null, { origin: 'https://historyczny.rybnik.pl', indexable: true }),
+    '/sitemap.xml',
+  );
+  assert.equal(production.headers['X-Robots-Tag'], undefined);
+  assert.match(production.body, /https:\/\/historyczny\.rybnik\.pl/);
+  assert.doesNotMatch(production.body, /historyczny-rybnik-dev/);
+  assert.throws(() => publicWeb(db, null, { indexable: true }));
+  assert.throws(() => publicWeb(db, null, { origin: 'https://example.com' }));
+});
