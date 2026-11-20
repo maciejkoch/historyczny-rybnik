@@ -174,3 +174,26 @@ test('indexing and sitemap origin are limited to the explicit production configu
   assert.throws(() => publicWeb(db, null, { indexable: true }));
   assert.throws(() => publicWeb(db, null, { origin: 'https://example.com' }));
 });
+
+test('public failure logs no underlying diagnostics', async () => {
+  const original = console.error;
+  const logs = [];
+  try {
+    console.error = (...values) => logs.push(values.join(' '));
+    const handler = publicWeb(
+      {
+        collection() {
+          throw new Error('sensitive diagnostic');
+        },
+      },
+      null,
+    );
+    const result = await request(handler, '/api/public-places');
+    assert.equal(result.statusCode, 503);
+    assert.equal(logs.length, 1);
+    assert.doesNotMatch(logs[0], /sensitive diagnostic/);
+    assert.doesNotMatch(result.body, /sensitive diagnostic/);
+  } finally {
+    console.error = original;
+  }
+});

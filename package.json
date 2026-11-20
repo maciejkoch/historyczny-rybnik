@@ -32,7 +32,8 @@
     "places:import-one": "node scripts/places/import-place.mjs",
     "test:place-import": "node --test scripts/places/import-place.test.mjs",
     "build:prod:check": "ng build --configuration=production,release && node scripts/verify-production-build.mjs",
-    "prepare:prod": "ng build --configuration=production,release && node scripts/places/package-production.mjs"
+    "prepare:prod": "ng build --configuration=production,release && node scripts/places/package-production.mjs",
+    "test:prod:emulator": "npm run prepare:prod && npm ci --prefix .local/functions-prod --omit=dev --no-audit --no-fund && firebase emulators:exec --config .local/firebase.backend.prod.json --project demo-historyczny-rybnik --only functions,firestore \"node scripts/places/test-production-emulator.mjs\""
   },
   "private": true,
   "packageManager": "npm@12.0.2",

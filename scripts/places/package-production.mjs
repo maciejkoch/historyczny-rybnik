@@ -22,9 +22,14 @@ if (existsSync(localTargets) && readFileSync(localTargets, 'utf8') !== rootTarge
 if (!existsSync(localTargets)) writeFileSync(localTargets, rootTargets, { flag: 'wx' });
 
 const backend = JSON.parse(readFileSync('firebase.backend.prod.json', 'utf8'));
+for (const database of backend.firestore) {
+  database.rules = resolve(database.rules);
+  database.indexes = resolve(database.indexes);
+}
+for (const bucket of backend.storage) bucket.rules = resolve(bucket.rules);
 const functions = [
   {
-    source: resolve(output),
+    source: 'functions-prod',
     codebase: 'places-prod',
     runtime: 'nodejs22',
     ignore: ['node_modules', 'test', '*.log'],

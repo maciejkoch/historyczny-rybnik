@@ -50,6 +50,7 @@ export function publicWeb(db, render, { origin = devOrigin, indexable = false } 
       }
       return res.send(await result.text());
     } catch {
+      console.error('Public place service unavailable');
       return res.status(503).type('text/plain').send('Dane miejsc są chwilowo niedostępne.');
     }
   };

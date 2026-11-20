@@ -10,6 +10,7 @@ Materiały przeniesione z dawnego `docs/`, zachowane jako kontekst do pracy: szc
 - `mvp-1/ux-ui.md` oraz materiały marki — kierunek interfejsu i identyfikacji.
 - `mvp-1/mapy-zrodla.md` — pochodzenie map, prawa i odtwarzanie kafelków.
 - `mvp-1/srodowiska.md`, `domena-konfiguracja.md` — środowiska i domena.
+- `mvp-1/production-release.md` — stan przygotowań produkcji, weryfikacja, odtwarzanie i rollback.
 - `mvp-1/odbior-fazy-*.md` — zapisy weryfikacji zakończonych etapów.
 
 Materiały operacyjne agenta są w [agent-context/](../README.md). Dokumenty historyczne i plany czytamy z uwzględnieniem ich daty i statusu.

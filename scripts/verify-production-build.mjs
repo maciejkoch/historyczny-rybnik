@@ -35,6 +35,9 @@ for (const expected of ['historyczny-rybnik-prod-files', 'placesProdRead', 'plac
 }
 const about = await read('o-nas/index.html');
 assert.match(about, /rel="canonical" href="https:\/\/historyczny\.rybnik\.pl\/o-nas"/);
+const privacy = await read('prywatnosc/index.html');
+assert.match(privacy, /rel="canonical" href="https:\/\/historyczny\.rybnik\.pl\/prywatnosc"/);
+assert.match(privacy, /name="description" content="Informacje o prywatności/);
 const home = await read('index.html');
 assert.match(home, /rel="canonical" href="https:\/\/historyczny\.rybnik\.pl\//);
 console.log('Verified production origin, indexing, robots and isolation of browser configuration.');

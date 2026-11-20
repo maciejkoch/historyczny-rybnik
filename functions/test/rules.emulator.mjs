@@ -89,3 +89,31 @@ await test('named places-dev database also denies every direct client operation'
 });
 
 after(() => env.cleanup());
+
+await test('staging production storage rules deny direct client access', async () => {
+  const locked = await initializeTestEnvironment({
+    projectId: 'demo-historyczny-rybnik',
+    storage: {
+      rules: readFileSync(new URL('../../storage.prod.locked.rules', import.meta.url), 'utf8'),
+    },
+  });
+  try {
+    await locked.withSecurityRulesDisabled(async (context) => {
+      await uploadBytes(
+        ref(context.storage(), 'public/materials/test/test.webp'),
+        new Uint8Array([1]),
+      );
+    });
+    for (const context of [
+      locked.unauthenticatedContext(),
+      locked.authenticatedContext('admin', { admin: true }),
+    ]) {
+      await assertFails(getBytes(ref(context.storage(), 'public/materials/test/test.webp')));
+      await assertFails(
+        uploadBytes(ref(context.storage(), 'public/materials/test/new.webp'), new Uint8Array([1])),
+      );
+    }
+  } finally {
+    await locked.cleanup();
+  }
+});

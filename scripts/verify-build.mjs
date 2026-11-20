@@ -70,6 +70,11 @@ const privacy = readFileSync(`${root}/prywatnosc/index.html`, 'utf8');
 assert.match(privacy, /Prywatność i pliki cookie/);
 assert.match(privacy, /180 dni/);
 assert.match(privacy, /noindex/);
+assert.match(
+  privacy,
+  /rel="canonical" href="https:\/\/historyczny-rybnik-dev\.web\.app\/prywatnosc"/,
+);
+assert.match(privacy, /name="description" content="Informacje o prywatności/);
 assert.doesNotMatch(home, /<script[^>]+src=[\"'][^\"']*(google|recaptcha)/);
 console.log('Verified static privacy page and no embedded Google scripts.');
 

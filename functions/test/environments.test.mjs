@@ -93,3 +93,19 @@ test('shared Auth configuration retains the production and all dev domains', () 
     assert.ok(redirects.includes(`https://${domain}/__/auth/handler`));
   }
 });
+
+test('locked production configuration targets only production data resources', () => {
+  const locked = json('firebase.backend.prod.locked.json');
+  assert.deepEqual(
+    locked.firestore.map((db) => db.database),
+    ['places-prod'],
+  );
+  assert.deepEqual(
+    locked.storage.map((bucket) => bucket.target),
+    ['places-prod'],
+  );
+  assert.equal(locked.storage[0].rules, 'storage.prod.locked.rules');
+  assert.equal(locked.functions, undefined);
+  assert.equal(locked.hosting, undefined);
+  assert.equal(locked.auth, undefined);
+});

@@ -1,0 +1,15 @@
+{
+  "firestore": [
+    {
+      "database": "places-prod",
+      "rules": "firestore.rules",
+      "indexes": "firestore.indexes.json"
+    }
+  ],
+  "storage": [
+    {
+      "target": "places-prod",
+      "rules": "storage.prod.locked.rules"
+    }
+  ]
+}
