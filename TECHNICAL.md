@@ -40,7 +40,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 
 Strona prywatności ma własny opis, metadane Open Graph oraz canonical zgodny ze środowiskiem.
 
-Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje → SSR karty lub API lekkiego katalogu → mapa i wyszukiwarka. SSR przekazuje szczegóły przez TransferState do hydratacji. Na trasach wewnętrznych szczegóły pobiera przeglądarka; brak miejsca oznacza 404, a błąd serwera 503. Dynamiczne odpowiedzi używają no-store i dev noindex. Błąd obsługi publicznego API/SSR zwraca 503 i zapisuje ogólny komunikat bez treści wyjątku ani danych żądania. Publiczny origin metadanych i dozwolony host SSR pochodzą ze wspólnej konfiguracji frontendu. Funkcja public-web domyślnie blokuje indeksowanie i dopuszcza jawne włączenie tylko dla domeny produkcyjnej; produkcyjny build i backend nie są jeszcze skonfigurowane. Statyczne strony pozostają prerenderowane.
+Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje → SSR karty lub API lekkiego katalogu → mapa i wyszukiwarka. SSR przekazuje szczegóły przez TransferState do hydratacji. Na trasach wewnętrznych szczegóły pobiera przeglądarka; brak miejsca oznacza 404, a błąd serwera 503. Dynamiczne odpowiedzi używają no-store i dev noindex. Błąd obsługi publicznego API/SSR zwraca 503 i zapisuje ogólny komunikat bez treści wyjątku ani danych żądania. Publiczny origin metadanych i dozwolony host SSR pochodzą ze wspólnej konfiguracji frontendu. Funkcja public-web domyślnie blokuje indeksowanie i dopuszcza jawne włączenie tylko dla domeny produkcyjnej; produkcyjny build i backend są przygotowane do wydania. Statyczne strony pozostają prerenderowane.
 
 `Locations` ładuje Firebase i App Check dopiero po zgodzie Google i pobiera bieżącą pozycję przed edycją. Publiczne API i karty są dostępne niezależnie od zgody; publiczny odczyt nie zmienia chronionego API zapisu.
 
@@ -93,13 +93,13 @@ Build generuje statyczne strony informacyjne w `dist/historyczny-rybnik/browser`
 | Środowisko | Adres | Witryna Hosting | Polecenie |
 | --- | --- | --- | --- |
 | Dev — integracja | https://historyczny-rybnik-dev.web.app/ | `historyczny-rybnik-dev` | `npm run deploy:dev` |
-| Produkcja — wydania | https://historyczny.rybnik.pl/ | `historyczny-rybnik` | `npm run deploy:prod` (obecnie blokowane) |
+| Produkcja — wydania | https://historyczny.rybnik.pl/ | `historyczny-rybnik` | `npm run deploy:prod` |
 
 Dev jest osobną witryną Hosting ze swoim kanałem live, dlatego nie wygasa i ma stały adres. Konfiguracja `firebase.dev.json` wskazuje dev, a `firebase.json` produkcję. `deploy:dev` buduje aplikację bez pobierania danych miejsc; SSR i API czytają bieżące rekordy z Firestore w runtime. Backend dev: `npm run deploy:backend:dev`. Nie konfigurujemy automatycznych deploymentów CI ani poświadczeń w repo.
 
 Skrypt wdrożenia wiąże Hosting ze zbudowaną funkcją SSR przy użyciu pinTag: integracyjny dev używa `placesDevWeb`, sloty `placesDevWeb1`, `placesDevWeb2`, `placesDevWeb3`. Publiczne API i sitemapę obsługuje wspólna funkcja `placesDevWeb`. Każda funkcja korzysta z tej samej bazy dev. Stan faktycznych migracji slotów opisuje dokument środowisk.
 
-Ustalenie z 5 listopada 2026: bieżące prace publikujemy na dev. Skrypt `deploy:prod` obecnie przerywa pracę bez publikacji, dopóki faza 5 nie przygotuje backendu, domeny i indeksowania produkcji. Produkcję publikujemy na wyraźne zlecenie wydania; dodanie polecenia nie oznacza publikacji obecnego szkieletu. Indeksowanie produkcji włączamy w fazie 5; obecny build ma noindex. Logowanie CLI: `npx firebase login`.
+Ustalenie z 5 listopada 2026: bieżące prace publikujemy na dev. Skrypt `deploy:prod` wymaga czystego checkoutu, przygotowuje build i wdraża reguły, funkcje oraz Hosting produkcji w tej kolejności. Produkcję publikujemy na wyraźne zlecenie wydania; dodanie polecenia nie oznacza publikacji obecnego szkieletu. Build produkcyjny dopuszcza indeksowanie, dev pozostaje noindex. Logowanie CLI: `npx firebase login`.
 
 Obie witryny należą do `historyczny-rybnik`. Właściciel wybrał wspólne Auth i billing oraz oddzielną bazę, bucket, funkcje i konta usług dev. Szczegóły izolacji i poleceń: [faza 3](agent-context/reference/mvp-1/faza-3-infrastruktura.md).
 

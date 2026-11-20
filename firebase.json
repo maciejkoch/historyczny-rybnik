@@ -6,15 +6,72 @@
     "cleanUrls": true,
     "trailingSlash": false,
     "headers": [
-      { "source": "**", "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-      ] },
-      { "source": "**/*.@(woff2|svg)", "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600" }
-      ] }
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-store"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(woff2|svg)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      }
+    ],
+    "redirects": [],
+    "rewrites": [
+      {
+        "source": "/miejsca/**",
+        "function": {
+          "functionId": "placesProdWeb",
+          "region": "europe-central2",
+          "pinTag": true
+        }
+      },
+      {
+        "source": "/api/public-places",
+        "function": {
+          "functionId": "placesProdWeb",
+          "region": "europe-central2",
+          "pinTag": true
+        }
+      },
+      {
+        "source": "/api/public-places/**",
+        "function": {
+          "functionId": "placesProdWeb",
+          "region": "europe-central2",
+          "pinTag": true
+        }
+      },
+      {
+        "source": "/sitemap.xml",
+        "function": {
+          "functionId": "placesProdWeb",
+          "region": "europe-central2",
+          "pinTag": true
+        }
+      }
     ]
   },
-  "emulators": { "hosting": { "port": 5000 } }
+  "emulators": {
+    "hosting": {
+      "port": 5000
+    }
+  }
 }

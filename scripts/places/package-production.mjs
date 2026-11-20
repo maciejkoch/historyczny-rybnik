@@ -2,7 +2,7 @@ import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } fr
 import { resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
 
-// This prepares local artifacts only; production publishing remains blocked.
+// This prepares local artifacts only; publication is a separate command.
 execFileSync(process.execPath, ['scripts/verify-production-build.mjs'], { stdio: 'inherit' });
 const output = '.local/functions-prod';
 rmSync(output, { recursive: true, force: true });
@@ -36,17 +36,17 @@ const functions = [
   },
 ];
 backend.functions = functions;
-const hosting = JSON.parse(readFileSync('firebase.dev.json', 'utf8')).hosting;
-hosting.site = 'historyczny-rybnik';
+const hosting = JSON.parse(readFileSync('firebase.json', 'utf8')).hosting;
+if (hosting.site !== 'historyczny-rybnik') throw new Error('Unexpected production hosting site');
 hosting.public = resolve('dist/historyczny-rybnik/browser');
-hosting.headers = hosting.headers.map((entry) => ({
-  ...entry,
-  headers: entry.headers.filter((header) => header.key !== 'X-Robots-Tag'),
-}));
+if (
+  hosting.headers.some((entry) => entry.headers.some((header) => header.key === 'X-Robots-Tag'))
+) {
+  throw new Error('Unexpected production robots header');
+}
 for (const rewrite of hosting.rewrites) {
-  if (rewrite.function?.functionId !== 'placesDevWeb') throw new Error('Unexpected dev rewrite');
-  rewrite.function.functionId = 'placesProdWeb';
-  rewrite.function.pinTag = true;
+  if (rewrite.function?.functionId !== 'placesProdWeb' || rewrite.function.pinTag !== true)
+    throw new Error('Unexpected production rewrite');
 }
 const web = { functions, hosting };
 for (const [path, config] of [

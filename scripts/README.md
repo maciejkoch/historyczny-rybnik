@@ -14,7 +14,7 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 | [places/backfill-place-materials.mjs](places/backfill-place-materials.mjs) | Jednorazowo uzupełnia brakujące `materials: []` w dokumentach Firestore dev; domyślnie podgląd, zapis przez `--apply`. |
 | [places/deploy-dev.mjs](places/deploy-dev.mjs) | Buduje frontend i publikuje Hosting dev bez lokalnej kopii danych miejsc; wymaga uprawnień operatora. |
 | [places/deploy-backend-dev.mjs](places/deploy-backend-dev.mjs) | Wdraża backend dev; opcjonalnie samą funkcję API ze sprawdzonym dotychczasowym rendererem SSR. |
-| [places/deploy-prod.mjs](places/deploy-prod.mjs) | Blokuje publikację produkcji do przygotowania konfiguracji fazy 5; obecnie nie wdraża niczego. |
+| [places/deploy-prod.mjs](places/deploy-prod.mjs) | Z czystego checkoutu buduje i publikuje reguły, funkcje i Hosting produkcji; wymaga osobnego zlecenia wydania. |
 | [places/firestore.mjs](places/firestore.mjs) | Moduł połączenia do jawnie wybranej bazy dev lub emulatora; obsługuje ADC i impersonację przez logowanie Firebase CLI. |
 | [places/import-place.mjs](places/import-place.mjs) | Odczyt i walidowany import jednego zatwierdzonego miejsca do dev, z kontrolą konfliktów, kopią rekordu i uploadem obrazów. |
 | [places/import-place.test.mjs](places/import-place.test.mjs) | Testy kontraktu, konfliktów, ponowień, obrazów i ograniczenia celu nowego importera. |
@@ -48,7 +48,7 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). `fires
 | `npm run preview` | Build i publikacja 30-dniowego kanału Hosting `faza-1`. |
 | `npm run emulate` | Lokalny emulator Hosting z konfiguracją dev. |
 | `npm run deploy:dev` | Build i publikacja Hosting dev; dane miejsc są pobierane przez API z bazy podczas działania aplikacji. |
-| `npm run deploy:prod` | Obecnie blokada publikacji produkcji. |
+| `npm run deploy:prod` | Buduje i publikuje produkcję z czystego checkoutu po osobnym zleceniu wydania. |
 | `npm run places:import` | Przestarzały importer; nie obsługuje obecnego schematu. |
 | `npm run places:snapshot` | Pobranie punktu odniesienia do pracy warsztatu/operatora; nie jest wejściem builda ani wdrożenia. |
 | `npm test` | Testy mapy, kontraktów, prywatności, backendu i warsztatu. |
