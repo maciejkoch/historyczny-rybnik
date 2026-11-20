@@ -15,6 +15,7 @@ if (run('git', ['status', '--porcelain'], { capture: true })) {
 const revision = run('git', ['rev-parse', 'HEAD'], { capture: true });
 const branch = run('git', ['branch', '--show-current'], { capture: true });
 run('npm', ['run', 'prepare:prod']);
+run('npm', ['ci', '--prefix', '.local/functions-prod', '--omit=dev', '--no-audit', '--no-fund']);
 writeFileSync(
   'dist/historyczny-rybnik/browser/deployment.json',
   JSON.stringify({
