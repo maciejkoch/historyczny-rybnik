@@ -38,6 +38,8 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 
 Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje → SSR karty lub API lekkiego katalogu → mapa i wyszukiwarka. SSR przekazuje szczegóły przez TransferState do hydratacji. Na trasach wewnętrznych szczegóły pobiera przeglądarka; brak miejsca oznacza 404, a błąd serwera 503. Dynamiczne odpowiedzi używają no-store i dev noindex. Statyczne strony pozostają prerenderowane.
 
+Atlas przekazuje mapie pełny katalog miejsc, a panelowi wyszukiwania wynik filtrowania nazwy, dowolnego tagu i braku lokalizacji. Opcje filtra obejmują wszystkie tagi katalogu, także dodatkowe. Mapa tworzy znaczniki dla miejsc ze współrzędnymi i wyróżnia wybrane miejsce niezależnie od filtrów listy.
+
 `Locations` ładuje Firebase i App Check dopiero po zgodzie Google i pobiera bieżącą pozycję przed edycją. Publiczne API i karty są dostępne niezależnie od zgody; publiczny odczyt nie zmienia chronionego API zapisu.
 
 ## Architektura backendu

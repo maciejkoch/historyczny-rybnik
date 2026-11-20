@@ -10,7 +10,7 @@ export function filterPlaces(
   return places.filter(
     (place) =>
       (!withoutLocation || place.location.coordinates === null) &&
-      (!tag || place.tags[0]?.id === tag) &&
+      (!tag || place.tags.some((value) => value.id === tag)) &&
       normalizeSearch(place.name).includes(term),
   );
 }

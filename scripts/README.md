@@ -98,7 +98,7 @@ Rzeczywiste dane miejsc są w Firestore. `places:snapshot` zapisuje `.local/plac
 
 `start`, `watch` i build nie wymagają danych miejsc ani przygotowania katalogu. `data/places.fixture.json` jest używany wyłącznie w testach i nie trafia do aplikacji. `prepare-hosting.mjs` tworzy `.local/firebase.dev.json` z bezwzględną ścieżką artefaktów i nie modyfikuje szablonów Firebase. `preview` używa tej konfiguracji; `deploy:dev-N` tworzy `.local/firebase.dev-N.json` dla właściwej witryny.
 
-- `npm run test:places-filter` — testuje filtrowanie miejsc po nazwie, głównym tagu i lokalizacji; jest częścią `npm test`.
+- `npm run test:places-filter` — testuje filtrowanie miejsc po nazwie, dowolnym tagu i lokalizacji; jest częścią `npm test`.
 
 ## Przygotowanie pojedynczego miejsca
 
