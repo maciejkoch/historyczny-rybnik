@@ -8,7 +8,7 @@ Projekt `historyczny-rybnik` ma osobne Firestore `places-prod`, bucket `historyc
 
 Jednorazowy snapshot dev z 19 listopada, 17:34:32 UTC, zawierał 42 rekordy i 171 powiązanych plików. Kopię zweryfikowano przez porównanie pól i SHA-256 plików. Nie ma automatycznej synchronizacji z dev; przed wydaniem porównaj ponownie aktualność wszystkich danych i materiałów oraz uzgodnij ewentualne różnice. Prywatny warsztat i niepowiązane obiekty nie są częścią kopii.
 
-Dzienny backup Firestore ma retencję 7 dni; kopia z 19 listopada 20:27 UTC ma stan READY. Storage ma 7 dni soft delete. **Odtwarzania nie testowano**, a soft delete nie jest niezależną kopią plików. Przed wydaniem uzgodnij i sprawdź sposób ochrony oraz odtworzenia plików i wykonaj próbę odtworzenia Firestore na danych testowych. Nie używaj produkcyjnych danych w testach bez osobnego uzgodnienia.
+Dzienny backup Firestore ma retencję 7 dni; kopia z 19 listopada 20:27 UTC ma stan READY. Storage ma 7 dni soft delete oraz niezależny prywatny bucket `historyczny-rybnik-prod-backups`. Codzienny transfer (02:00 UTC) kopiuje materiały bez nadpisywania i bez usuwania; pierwszy transfer 171 plików porównano po rozmiarze i CRC32C. Wycofane materiały nie są automatycznie usuwane z kopii, więc zużycie może rosnąć. **Odtwarzania nie testowano**. Przed wydaniem sprawdź sposób odtworzenia plików i wykonaj próbę odtworzenia Firestore na danych testowych. Nie używaj produkcyjnych danych w testach bez osobnego uzgodnienia.
 
 ## Lokalne sprawdzenia
 

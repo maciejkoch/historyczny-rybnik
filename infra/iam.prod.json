@@ -34,5 +34,19 @@
     "role": "placesProdStorageImport",
     "serviceAccount": "places-prod-import@historyczny-rybnik.iam.gserviceaccount.com",
     "includedPermissions": ["storage.objects.create", "storage.objects.get", "storage.objects.list"]
+  },
+  "storageBackup": {
+    "sourceBucket": "historyczny-rybnik-prod-files",
+    "destinationBucket": "historyczny-rybnik-prod-backups",
+    "serviceAccount": "project-301143182490@storage-transfer-service.iam.gserviceaccount.com",
+    "sourceRole": "placesProdBackupSource",
+    "sourcePermissions": ["storage.buckets.get", "storage.objects.get", "storage.objects.list"],
+    "destinationRole": "placesProdBackupDestination",
+    "destinationPermissions": [
+      "storage.buckets.get",
+      "storage.objects.create",
+      "storage.objects.get",
+      "storage.objects.list"
+    ]
   }
 }

@@ -1,0 +1,20 @@
+{
+  "projectId": "historyczny-rybnik",
+  "description": "Daily production materials backup",
+  "status": "ENABLED",
+  "schedule": {
+    "scheduleStartDate": { "year": 2026, "month": 11, "day": 20 },
+    "startTimeOfDay": { "hours": 2 },
+    "repeatInterval": "86400s"
+  },
+  "transferSpec": {
+    "gcsDataSource": { "bucketName": "historyczny-rybnik-prod-files" },
+    "gcsDataSink": { "bucketName": "historyczny-rybnik-prod-backups" },
+    "objectConditions": { "includePrefixes": ["public/materials/"] },
+    "transferOptions": {
+      "overwriteWhen": "NEVER",
+      "deleteObjectsUniqueInSink": false,
+      "deleteObjectsFromSourceAfterTransfer": false
+    }
+  }
+}

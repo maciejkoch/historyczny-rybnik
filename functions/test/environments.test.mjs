@@ -109,3 +109,18 @@ test('locked production configuration targets only production data resources', (
   assert.equal(locked.hosting, undefined);
   assert.equal(locked.auth, undefined);
 });
+
+test('material backup is private, scoped and cannot delete or overwrite files', () => {
+  const job = json('infra/storage-transfer.prod.json');
+  const iam = json('infra/iam.prod.json').storageBackup;
+  assert.equal(job.projectId, 'historyczny-rybnik');
+  assert.equal(job.transferSpec.gcsDataSource.bucketName, iam.sourceBucket);
+  assert.equal(job.transferSpec.gcsDataSink.bucketName, iam.destinationBucket);
+  assert.deepEqual(job.transferSpec.objectConditions.includePrefixes, ['public/materials/']);
+  assert.equal(job.transferSpec.transferOptions.overwriteWhen, 'NEVER');
+  assert.equal(job.transferSpec.transferOptions.deleteObjectsFromSourceAfterTransfer, false);
+  assert.equal(job.transferSpec.transferOptions.deleteObjectsUniqueInSink, false);
+  assert.equal(iam.sourcePermissions.includes('storage.objects.delete'), false);
+  assert.equal(iam.destinationPermissions.includes('storage.objects.delete'), false);
+  assert.equal(job.schedule.repeatInterval, '86400s');
+});
