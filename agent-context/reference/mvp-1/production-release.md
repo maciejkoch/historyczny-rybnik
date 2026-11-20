@@ -36,3 +36,7 @@ Poprzednie wydanie **Hosting live** można przywrócić w historii wydań właś
 Budżet projektu wynosi 10 PLN miesięcznie, z alertami przy 50%, 90% i 100%; jest wspólny dla dev i produkcji i nie jest limitem wydatków. Stan 19 listopada: stawka katalogowa dla Warszawy 0,039 USD/GiB-mies. backupu Firestore, 0,26 USD/GiB odtworzenia i 0,023 USD/GiB-mies. Standard Storage. Stawki i rozliczenie konta należy sprawdzić ponownie. Pierwsza kopia nie zwróciła jeszcze statystyk rozmiaru, więc kosztu bazy nie potwierdzono.
 
 Przed publikacją sprawdź zmiany, konfigurację, uprawnienia oraz aktualność danych. Po wydaniu sprawdź dostarczenie alertu. Właściciel zdecydował o wykonaniu prób odtworzenia i ręcznym odbiorze logowania po wydaniu. Nie uznawaj samego `prepare:prod` ani stanu READY backupu za zgodę na publikację lub dowód testu odzyskiwania.
+
+## Kolejne wydanie — 20 listopada 2026
+
+Wdrożono `5ed2a7c381bf5b2e5ce05118311c2c7d286bf87b`, zawierający zmiany z main dotyczące mapy i filtrów oraz osobną zgodę i podstawowy pomiar Analytics. Search Console zweryfikowało własność plikiem HTML i przetworzyło `/sitemap.xml`, wykrywając 37 stron. Bez zgody na statystyki skrypt Analytics nie jest ładowany. Odbiór zdarzeń w GA4 pozostaje do potwierdzenia.
