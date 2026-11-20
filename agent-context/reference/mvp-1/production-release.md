@@ -23,6 +23,8 @@ Przed wydaniem sprawdź zgodność aktualnego main i PR, testy CI, konfigurację
 
 Firestore zaplanowany backup odtwarza się do **nowej** bazy w tym samym regionie, nie bezpośrednio do `places-prod`. [Instrukcja Google](https://firebase.google.com/docs/firestore/backups). Najpierw ustal odpowiedni backup, utwórz odizolowaną bazę docelową, zweryfikuj jej reguły i IAM oraz porównaj dane. Przełączenie aplikacji lub selektywne przeniesienie danych wymaga osobnego planu i ostrożności: przywracanie może nadpisać nowsze poprawki. Nie usuwaj istniejącej bazy dla odzyskania jej nazwy.
 
+Odzyskanie materiału: porównaj ścieżkę i sumę oczekiwaną w zatwierdzonym rekordzie z obiektem w prywatnym bucketcie kopii. W konsoli Cloud Storage skopiuj wyłącznie wskazany obiekt do `historyczny-rybnik-prod-files`, zachowując tę samą ścieżkę i typ zawartości; jeśli obiekt docelowy istnieje, nie nadpisuj go bez osobnego rozstrzygnięcia. Porównaj SHA-256 odzyskanego pliku i sprawdź jego dostępność zgodnie z aktualnymi regułami. Dostęp i zapis operatora do obu bucketów wymagają odpowiednich uprawnień IAM. Zmiany produkcji i próba odzyskiwania wymagają właściwego zlecenia. Nie przełączaj produkcyjnej ścieżki Storage na bucket kopii.
+
 Poprzednie wydanie **Hosting live** można przywrócić w historii wydań właściwej witryny w konsoli Firebase. [Instrukcja Google](https://firebase.google.com/docs/hosting/manage-hosting-resources). Rewizje przypięte przez `pinTag` wracają z wydaniem Hosting; to nie cofa danych w Firestore, zmian IAM, reguł Storage ani niezależnych callable Functions. Dopasuj wersję API i dane do przywracanego frontendu, sprawdź publiczne odpowiedzi, App Check i uprawnienia. Nie wykonano jeszcze produkcyjnego testu rollbacku.
 
 ## Koszty i dalsze warunki
