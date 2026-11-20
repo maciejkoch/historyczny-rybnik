@@ -48,3 +48,5 @@ Miejsce ma krótki opis, ręcznie wpisany udokumentowany zakres, wzmianki i gale
 Karty miejsc są renderowane z aktualnych danych z bazy; mapa i wyszukiwarka pobierają listę przez publiczne API przy załadowaniu aplikacji. Otwarte strony nie odświeżają się automatycznie. Baza jest jedynym źródłem danych aplikacji; fikcyjne rekordy pozostają wyłącznie w testach i CI.
 
 Znaczniki mapy pokazują ikonę pierwszego (głównego) tagu miejsca. Zielony oznacza dokładną lokalizację (wskazany budynek), bursztynowy z przerywanym obrysem — przybliżoną. „Mapa i legenda” ma zakładki „Warstwy” i „Legenda” z ustawieniami planu oraz objaśnieniami ikon, kolorów i grup. Na telefonie są osobne przyciski: mapa rozwija mały panel planu, pozwalając obserwować zmianę krycia, a legenda otwiera osobny modal ze stale widocznym zamknięciem i przewijaną treścią. Na komputerze zakładki są w panelu, domyślnie otwartym; jego zwinięcie można zapamiętać po zgodzie na preferencje.
+
+Produkcja: [historyczny.rybnik.pl](https://historyczny.rybnik.pl/).

@@ -1,14 +1,14 @@
 # Przygotowanie wydania produkcyjnego
 
-Stan: 20 listopada 2026. Dokument opisuje przygotowanie fazy 5; **nie potwierdza gotowości ani wdrożenia aplikacji produkcyjnej**. Publikacja wymaga osobnego, wyraźnego zlecenia właściciela. Obowiązujące zasady pozostają w `AGENTS.md` i `SECURITY.md`.
+Stan: 20 listopada 2026. Wydanie `5f1f9476fda0674cddb5d3ee8fb0fa7f9e23c9e8` opublikowano 20 listopada 2026 pod `https://historyczny.rybnik.pl/`; ręczny odbiór logowania i próby odtworzenia pozostają otwarte. Publikacja wymaga osobnego, wyraźnego zlecenia właściciela. Obowiązujące zasady pozostają w `AGENTS.md` i `SECURITY.md`.
 
 ## Monitoring dostępności
 
-Google Cloud Monitoring sprawdza HTTPS `https://historyczny.rybnik.pl/` co 5 minut, z weryfikacją certyfikatu i kodu 2xx. Kanał e-mail właściciela jest skonfigurowany; reguła `Historyczny Rybnik — niedostępność produkcji` pozostaje wyłączona, ponieważ witryna nie została jeszcze wydana. Po osobnym zleceniu wydania, sprawdzeniu poprawnej odpowiedzi witryny i gotowości kanału należy włączyć regułę, a następnie sprawdzić dostarczenie powiadomienia bez zakłócania produkcji. Alert wymaga niepowodzeń z co najmniej dwóch punktów kontroli przez 5 minut. Sama konfiguracja nie potwierdza skutecznego dostarczenia e-maila.
+Google Cloud Monitoring sprawdza HTTPS `https://historyczny.rybnik.pl/` co 5 minut, z weryfikacją certyfikatu i kodu 2xx. Kanał e-mail właściciela jest skonfigurowany; reguła `Historyczny Rybnik — niedostępność produkcji` jest włączona. Należy sprawdzić dostarczenie powiadomienia bez zakłócania produkcji. Alert wymaga niepowodzeń z co najmniej dwóch punktów kontroli przez 5 minut. Sama konfiguracja nie potwierdza skutecznego dostarczenia e-maila.
 
 ## Zasoby i kopia
 
-Projekt `historyczny-rybnik` ma osobne Firestore `places-prod`, bucket `historyczny-rybnik-prod-files`, aplikację web Firebase, App Check oraz konta usług produkcji. Auth i billing są współdzielone z dev. Reguły Firestore i tymczasowe reguły Storage odmawiają bezpośredniego dostępu klientom. Docelowe reguły Storage w repozytorium dopuszczają publiczny odczyt materiałów i nie zostały jeszcze wdrożone.
+Projekt `historyczny-rybnik` ma osobne Firestore `places-prod`, bucket `historyczny-rybnik-prod-files`, aplikację web Firebase, App Check oraz konta usług produkcji. Auth i billing są współdzielone z dev. Reguły Firestore odmawiają bezpośredniego dostępu klientom; wdrożone reguły Storage dopuszczają publiczny odczyt materiałów i blokują zapisy klientów.
 
 Jednorazowy snapshot dev z 19 listopada, 17:34:32 UTC, zawierał 42 rekordy i 171 powiązanych plików. Kopię zweryfikowano przez porównanie pól i SHA-256 plików. Nie ma automatycznej synchronizacji z dev; przed wydaniem porównaj ponownie aktualność wszystkich danych i materiałów oraz uzgodnij ewentualne różnice. Prywatny warsztat i niepowiązane obiekty nie są częścią kopii.
 
@@ -35,4 +35,4 @@ Poprzednie wydanie **Hosting live** można przywrócić w historii wydań właś
 
 Budżet projektu wynosi 10 PLN miesięcznie, z alertami przy 50%, 90% i 100%; jest wspólny dla dev i produkcji i nie jest limitem wydatków. Stan 19 listopada: stawka katalogowa dla Warszawy 0,039 USD/GiB-mies. backupu Firestore, 0,26 USD/GiB odtworzenia i 0,023 USD/GiB-mies. Standard Storage. Stawki i rozliczenie konta należy sprawdzić ponownie. Pierwsza kopia nie zwróciła jeszcze statystyk rozmiaru, więc kosztu bazy nie potwierdzono.
 
-Przed publikacją sprawdź zmiany, konfigurację, uprawnienia oraz aktualność danych. Po wydaniu włącz i odbierz alerty. Właściciel zdecydował o wykonaniu prób odtworzenia i ręcznym odbiorze logowania po wydaniu. Nie uznawaj samego `prepare:prod` ani stanu READY backupu za zgodę na publikację lub dowód testu odzyskiwania.
+Przed publikacją sprawdź zmiany, konfigurację, uprawnienia oraz aktualność danych. Po wydaniu sprawdź dostarczenie alertu. Właściciel zdecydował o wykonaniu prób odtworzenia i ręcznym odbiorze logowania po wydaniu. Nie uznawaj samego `prepare:prod` ani stanu READY backupu za zgodę na publikację lub dowód testu odzyskiwania.
