@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ConsentBanner } from './privacy/consent-banner/consent-banner';
+import { VisitAnalytics } from './privacy/analytics';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { PortalMenu } from './layout/portal-menu/portal-menu';
 
@@ -20,6 +21,7 @@ export class App {
   private readonly path = signal<string | null>(null);
 
   constructor() {
+    inject(VisitAnalytics);
     inject(Router)
       .events.pipe(takeUntilDestroyed())
       .subscribe((event) => {

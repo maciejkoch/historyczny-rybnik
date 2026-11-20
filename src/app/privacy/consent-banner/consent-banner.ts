@@ -21,6 +21,7 @@ export class ConsentBanner {
   readonly consent = inject(Consent);
   readonly preferences = signal(false);
   readonly google = signal(false);
+  readonly analytics = signal(false);
   private readonly dialog = viewChild.required<ElementRef<HTMLDialogElement>>('settings');
   private handledRequest = 0;
   constructor() {
@@ -35,10 +36,11 @@ export class ConsentBanner {
   open(): void {
     this.preferences.set(this.consent.preferences());
     this.google.set(this.consent.google());
+    this.analytics.set(this.consent.analytics());
     this.dialog().nativeElement.showModal();
   }
-  save(preferences: boolean, google: boolean): void {
+  save(preferences: boolean, google: boolean, analytics: boolean): void {
     this.dialog().nativeElement.close();
-    this.consent.save(preferences, google);
+    this.consent.save(preferences, google, analytics);
   }
 }

@@ -70,3 +70,7 @@ Nagłówek otrzymał hamburger zamiast oznaczenia wersji. Ustawienia cookies są
 Odbiór lokalny: telefon 390×844 i 320×320, desktop 1280×720, wejście na prywatność, przejście do wyszukiwania, ustawienia cookies, Escape, zamknięcie tłem, obieg Tab/Shift+Tab i powrót fokusu. Sekcja prywatności pozostaje na dole panelu; przy małej wysokości wszystkie pozycje są dostępne przez przewijanie.
 
 Dopracowanie desktopu po odbiorze właściciela: nagłówek zajmuje całą szerokość nad mapą i panelami, niezależnie od zwinięcia wyszukiwarki. Dropdown otwiera się pod hamburgerem po prawej i pomija Szukaj. Mobilny Drawer i jego pozycje pozostają bez zmian. Sprawdzono brak pionowego przewijania całego atlasu na desktopie 1280×720, zwijanie panelu, kartę miejsca oraz stały nagłówek na przewijanej stronie prywatności.
+
+## Podstawowy pomiar odwiedzin — 20 listopada 2026
+
+Przygotowano osobną kategorię zgody dla Google Analytics. Stara zgoda na logowanie nie włącza analityki; brak pola oznacza odmowę. Pomiar uruchamia się wyłącznie na domenie produkcyjnej po zgodzie; wycofanie przeładowuje dokument i blokuje kolejne wywołania. Wyświetlenia stron są wysyłane bez query i fragmentów URL. Pomiar zaawansowany w usłudze GA4 wyłączono. Testy jednostkowe sprawdzają odmowę, wycofanie, izolację dev i usuwanie parametrów; odbiór rzeczywistego przepływu i danych w GA4 pozostaje do wykonania po wydaniu.

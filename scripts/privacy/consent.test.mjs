@@ -150,3 +150,92 @@ test('other tabs reload on consent change; SSR does not access browser storage',
   assert.equal(navigation[0], 'reload');
   assert.equal(setup({ browser: false, saved: decision(true, true) }).consent.decided(), false);
 });
+
+test('analytics requires its own consent and withdrawal survives unavailable storage', () => {
+  const previous = decision(true, true);
+  const existing = setup({ saved: previous });
+  assert.equal(existing.consent.google(), true);
+  assert.equal(existing.consent.analytics(), false);
+  existing.consent.save(true, true, true);
+  assert.equal(existing.consent.analytics(), true);
+  const persisted = existing.storage.get(key);
+  const next = setup({ saved: persisted });
+  next.consent.save(true, true, false);
+  assert.match(next.navigation[0], /privacy=analytics-off/);
+  const afterWithdrawal = setup({ saved: persisted, url: next.navigation[0] });
+  assert.equal(afterWithdrawal.consent.analytics(), false);
+  assert.equal(afterWithdrawal.consent.google(), true);
+});
+
+test('analytics loads only on production with explicit consent and strips query parameters', () => {
+  const compiledAnalytics = ts.transpileModule(
+    readFileSync('src/app/privacy/analytics.ts', 'utf8'),
+    {
+      compilerOptions: {
+        module: ts.ModuleKind.CommonJS,
+        target: ts.ScriptTarget.ES2022,
+        experimentalDecorators: true,
+      },
+    },
+  ).outputText;
+  class NavigationEnd {
+    constructor(url) {
+      this.urlAfterRedirects = url;
+    }
+  }
+  const routerToken = class Router {};
+  const consentToken = class Consent {};
+  const documentToken = Symbol();
+  function scenario(origin, accepted) {
+    let effect, listener;
+    const scripts = [];
+    const window = { location: { origin }, dataLayer: [] };
+    const doc = {
+      defaultView: window,
+      createElement: () => ({}),
+      head: { appendChild: (s) => scripts.push(s) },
+    };
+    const core = {
+      ...angular,
+      Injectable: () => (x) => x,
+      PLATFORM_ID: 'platform',
+      inject: (token) =>
+        token === consentToken
+          ? { analytics: () => accepted }
+          : token === documentToken
+            ? doc
+            : token === 'platform'
+              ? 'browser'
+              : token === routerToken
+                ? { events: { pipe: () => ({ subscribe: (fn) => (listener = fn) }) } }
+                : undefined,
+      afterRenderEffect: (fn) => (effect = fn),
+    };
+    const context = {
+      exports: {},
+      Date,
+      require: (name) =>
+        name === '@angular/core'
+          ? core
+          : name === '@angular/common'
+            ? { DOCUMENT: documentToken, isPlatformBrowser: () => true }
+            : name === '@angular/core/rxjs-interop'
+              ? { takeUntilDestroyed: () => null }
+              : name === '@angular/router'
+                ? { Router: routerToken, NavigationEnd }
+                : { Consent: consentToken },
+    };
+    vm.runInNewContext(compiledAnalytics, context);
+    new context.exports.VisitAnalytics();
+    listener(new NavigationEnd('/szukaj?q=sekret#fragment'));
+    effect();
+    return { scripts, window };
+  }
+  assert.equal(scenario('https://historyczny.rybnik.pl', false).scripts.length, 0);
+  assert.equal(scenario('https://historyczny-rybnik-dev-1.web.app', true).scripts.length, 0);
+  const prod = scenario('https://historyczny.rybnik.pl', true);
+  assert.equal(prod.scripts.length, 1);
+  assert.match(prod.scripts[0].src, /gtag\/js\?id=G-7W7VH2ME8W/);
+  assert.equal(JSON.stringify(prod.window.dataLayer).includes('sekret'), false);
+  assert.match(JSON.stringify(prod.window.dataLayer), /historyczny.rybnik.pl\/szukaj/);
+});

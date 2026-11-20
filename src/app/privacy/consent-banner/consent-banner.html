@@ -5,16 +5,16 @@
       <h2 id="consent-title">Ty wybierasz, co zapamiętujemy</h2>
       <p>
         Za Twoją zgodą zapamiętujemy ustawienia serwisu i korzystamy z usług Google do logowania
-        oraz ochrony przed nadużyciami podczas edycji. Możesz odmówić i nadal korzystać z
-        portalu. Nie używamy analityki ani reklam.
+        oraz ochrony przed nadużyciami podczas edycji. Możesz odmówić i nadal korzystać z portalu.
+        Osobna zgoda umożliwia pomiar odwiedzin za pomocą Google Analytics.
       </p>
       <a routerLink="/prywatnosc">Prywatność i pliki cookie</a>
     </div>
     <div class="actions">
-      <button type="button" class="btn btn-outline" (click)="save(false, false)">
+      <button type="button" class="btn btn-outline" (click)="save(false, false, false)">
         Odrzuć opcjonalne
       </button>
-      <button type="button" class="btn btn-outline" (click)="save(true, true)">
+      <button type="button" class="btn btn-outline" (click)="save(true, true, true)">
         Akceptuj wszystkie
       </button>
       <button type="button" class="btn btn-ghost" (click)="open()">Ustawienia</button>
@@ -59,8 +59,8 @@
     <span
       ><strong>Logowanie i edycja — usługi Google</strong
       ><span
-        >Logowanie i ochrona przed nadużyciami podczas edycji. Google otrzymuje dane
-        urządzenia i przeglądarki oraz może zapisywać pliki cookie.</span
+        >Logowanie i ochrona przed nadużyciami podczas edycji. Google otrzymuje dane urządzenia i
+        przeglądarki oraz może zapisywać pliki cookie.</span
       ></span
     >
     <input
@@ -70,15 +70,34 @@
       (change)="google.set($event.target.checked)"
     />
   </label>
+  <label class="category">
+    <span
+      ><strong>Statystyki odwiedzin — Google Analytics</strong
+      ><span
+        >Pomiar liczby odwiedzin i wyświetleń stron. Google może zapisywać pliki cookie i otrzymuje
+        dane urządzenia i przeglądarki.</span
+      ></span
+    >
+    <input
+      type="checkbox"
+      class="checkbox"
+      [checked]="analytics()"
+      (change)="analytics.set($event.target.checked)"
+    />
+  </label>
   <a routerLink="/prywatnosc" (click)="settings.close()">Prywatność i pliki cookie</a>
   <div class="actions">
-    <button type="button" class="btn btn-outline" (click)="save(false, false)">
+    <button type="button" class="btn btn-outline" (click)="save(false, false, false)">
       Odrzuć opcjonalne
     </button>
-    <button type="button" class="btn btn-outline" (click)="save(true, true)">
+    <button type="button" class="btn btn-outline" (click)="save(true, true, true)">
       Akceptuj wszystkie
     </button>
-    <button type="button" class="btn btn-primary" (click)="save(preferences(), google())">
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="save(preferences(), google(), analytics())"
+    >
       Zapisz wybór
     </button>
     <button type="button" class="btn btn-ghost" (click)="settings.close()">

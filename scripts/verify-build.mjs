@@ -30,7 +30,10 @@ assert.match(home, /lang="pl"/);
 assert.match(readFileSync(`${root}/404.html`, 'utf8'), /Nie ma takiej strony/);
 assert.ok(existsSync(`${root}/brand/ryba-na-mapie.svg`));
 const hosting = JSON.parse(readFileSync('firebase.json', 'utf8')).hosting;
-assert.ok(!hosting.rewrites?.length, 'Static hosting must preserve real HTTP 404');
+assert.ok(
+  !hosting.rewrites?.some((rewrite) => ['**', '/**'].includes(rewrite.source)),
+  'Hosting must preserve real HTTP 404',
+);
 console.log('Verified prerendered home, custom 404, brand and preview indexing policy.');
 
 const style = JSON.parse(readFileSync(`${root}/maps/rybnik-style.json`, 'utf8'));

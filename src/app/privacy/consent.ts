@@ -20,6 +20,7 @@ interface Decision {
   version: 1;
   preferences: boolean;
   google: boolean;
+  analytics: boolean;
   savedAt: number;
 }
 
@@ -33,6 +34,7 @@ export class Consent {
   readonly decided = computed(() => this.decision() !== null);
   readonly preferences = computed(() => this.decision()?.preferences === true);
   readonly google = computed(() => this.decision()?.google === true);
+  readonly analytics = computed(() => this.decision()?.analytics === true);
   readonly storageFailed = signal(false);
   readonly settingsRequested = signal(0);
 
@@ -41,11 +43,16 @@ export class Consent {
     // A URL override also stops Google if persistent storage becomes unavailable at withdrawal.
     if (this.window) {
       const url = new URL(this.window.location.href);
-      if (url.searchParams.get('privacy') === 'google-off') {
+      if (
+        ['google-off', 'analytics-off', 'all-off'].includes(url.searchParams.get('privacy') ?? '')
+      ) {
+        const override = url.searchParams.get('privacy');
         const decision: Decision = {
           version: 1,
           preferences: this.preferences(),
-          google: false,
+          google: override === 'google-off' || override === 'all-off' ? false : this.google(),
+          analytics:
+            override === 'analytics-off' || override === 'all-off' ? false : this.analytics(),
           savedAt: Date.now(),
         };
         this.decision.set(decision);
@@ -71,9 +78,10 @@ export class Consent {
     this.settingsRequested.update((value) => value + 1);
   }
 
-  save(preferences: boolean, google: boolean): void {
+  save(preferences: boolean, google: boolean, analytics = false): void {
     const withdrawGoogle = this.google() && !google;
-    const decision: Decision = { version: 1, preferences, google, savedAt: Date.now() };
+    const withdrawAnalytics = this.analytics() && !analytics;
+    const decision: Decision = { version: 1, preferences, google, analytics, savedAt: Date.now() };
     this.decision.set(decision);
     this.storageFailed.set(false);
     try {
@@ -83,9 +91,16 @@ export class Consent {
     }
     if (!preferences) this.clearPreferences();
     // Unload reCAPTCHA and Firebase's token refresh, including in-flight initialization.
-    if (withdrawGoogle && this.window) {
+    if ((withdrawGoogle || withdrawAnalytics) && this.window) {
       const url = new URL(this.window.location.href);
-      url.searchParams.set('privacy', 'google-off');
+      url.searchParams.set(
+        'privacy',
+        withdrawGoogle && withdrawAnalytics
+          ? 'all-off'
+          : withdrawGoogle
+            ? 'google-off'
+            : 'analytics-off',
+      );
       this.window.location.replace(url.href);
     }
   }
@@ -129,7 +144,7 @@ export class Consent {
         value.savedAt <= Date.now() &&
         Date.now() - value.savedAt < MAX_AGE
       )
-        return value;
+        return { ...value, analytics: value.analytics === true };
     } catch {
       /* Invalid, expired or inaccessible storage means no optional consent. */
     }

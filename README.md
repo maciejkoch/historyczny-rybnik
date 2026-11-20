@@ -13,7 +13,7 @@ Operator może przygotować nowe miejsce lub uzupełnić istniejące skillem [ry
 - Wyszukiwanie miejsc i karty miejsc z opisem, źródłami oraz osobnym adresem.
 - Karta może pokazać zdjęcie główne oraz galerię materiałów miejsca, otwieraną w PhotoSwipe; stan lokalizacji opisuje kolorowa etykieta. Skany mogą pokazywać pełną stronę z ramką wskazującą fragment dotyczący miejsca.
 - Przełączanie mapy, wyszukiwania i szczegółów miejsca na telefonie i komputerze; zwinięte panele na komputerze mają ikonę wyszukiwania i ikonę głównego tagu wybranego miejsca.
-- Ustawienia prywatności: osobne zgody na zapamiętywanie ustawień oraz usługi Google do logowania i edycji. Aktualne opublikowane miejsca są dostępne także bez zgody.
+- Ustawienia prywatności: osobne zgody na zapamiętywanie ustawień, usługi Google do logowania i edycji oraz statystyki odwiedzin. Aktualne opublikowane miejsca są dostępne także bez zgody.
 - Globalne menu we wspólnym górnym nagłówku: panel z prawej na telefonie i menu rozwijane na komputerze. Mapa i wyszukiwanie są oddzielone od polityki prywatności oraz ustawień cookies.
 
 Administratorzy zalogowani przez Google mogą poprawiać lokalizację: wskazać punkt, określić dokładność i opcjonalny komentarz oraz jawnie zapisać zmianę. Logowanie i wylogowanie są dostępne w sekcji konta u góry menu. Na komputerze nazwa użytkownika jest także widoczna obok hamburgera. Ostatni zapis lokalizacji wygrywa.
