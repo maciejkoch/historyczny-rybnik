@@ -120,7 +120,7 @@
     (transitionend)="finishSheetTransition($event)"
   >
     <app-atlas-map
-      [places]="results()"
+      [places]="places()"
       [editing]="editing()"
       [draftPoint]="draftPoint()"
       (pointPicked)="pickPoint($event)"

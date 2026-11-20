@@ -154,8 +154,7 @@ export class Atlas {
   readonly tags = computed(() => {
     const tags = new Map<string, { id: string; name: string }>();
     for (const place of this.places()) {
-      const tag = place.tags[0];
-      if (tag) tags.set(tag.id, tag);
+      for (const tag of place.tags) tags.set(tag.id, tag);
     }
     return [...tags.values()].sort((a, b) => a.name.localeCompare(b.name, 'pl'));
   });
