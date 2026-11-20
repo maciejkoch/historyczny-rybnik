@@ -11,3 +11,5 @@ Utworzono bazę `places-prod` i bucket `historyczny-rybnik-prod-files`. Wdrożon
 Początkowa kopia z dev z 19 listopada 2026 obejmuje 42 dokumenty i 171 powiązanych plików; po zapisie porównano dokumenty oraz sumy SHA-256 plików. Reguły blokują bezpośredni dostęp do czasu wydania. Kopia jest jednorazowa i nie synchronizuje późniejszych zmian dev.
 
 Niezależna kopia materiałów: prywatny bucket `historyczny-rybnik-prod-backups`, public access prevention enforced. Storage Transfer Service kopiuje codziennie `public/materials/` bez nadpisywania i usuwania; `storage-transfer.prod.json` opisuje zadanie, a `iam.prod.json` jego minimalne role. Pierwszy transfer 171 plików porównano po rozmiarze i CRC32C. Kopia nie usuwa automatycznie wycofanych plików; odtworzenia nie testowano.
+
+Monitoring produkcji: kontrola HTTPS co 5 minut i kanał e-mail właściciela są skonfigurowane w Google Cloud Monitoring. Polityka alarmowa jest wyłączona do wydania; procedura uruchomienia i odbioru znajduje się w `agent-context/reference/mvp-1/production-release.md`.

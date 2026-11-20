@@ -2,6 +2,10 @@
 
 Stan: 20 listopada 2026. Dokument opisuje przygotowanie fazy 5; **nie potwierdza gotowości ani wdrożenia aplikacji produkcyjnej**. Publikacja wymaga osobnego, wyraźnego zlecenia właściciela. Obowiązujące zasady pozostają w `AGENTS.md` i `SECURITY.md`.
 
+## Monitoring dostępności
+
+Google Cloud Monitoring sprawdza HTTPS `https://historyczny.rybnik.pl/` co 5 minut, z weryfikacją certyfikatu i kodu 2xx. Kanał e-mail właściciela jest skonfigurowany; reguła `Historyczny Rybnik — niedostępność produkcji` pozostaje wyłączona, ponieważ witryna nie została jeszcze wydana. Po osobnym zleceniu wydania, sprawdzeniu poprawnej odpowiedzi witryny i gotowości kanału należy włączyć regułę, a następnie sprawdzić dostarczenie powiadomienia bez zakłócania produkcji. Alert wymaga niepowodzeń z co najmniej dwóch punktów kontroli przez 5 minut. Sama konfiguracja nie potwierdza skutecznego dostarczenia e-maila.
+
 ## Zasoby i kopia
 
 Projekt `historyczny-rybnik` ma osobne Firestore `places-prod`, bucket `historyczny-rybnik-prod-files`, aplikację web Firebase, App Check oraz konta usług produkcji. Auth i billing są współdzielone z dev. Reguły Firestore i tymczasowe reguły Storage odmawiają bezpośredniego dostępu klientom. Docelowe reguły Storage w repozytorium dopuszczają publiczny odczyt materiałów i nie zostały jeszcze wdrożone.
@@ -31,4 +35,4 @@ Poprzednie wydanie **Hosting live** można przywrócić w historii wydań właś
 
 Budżet projektu wynosi 10 PLN miesięcznie, z alertami przy 50%, 90% i 100%; jest wspólny dla dev i produkcji i nie jest limitem wydatków. Stan 19 listopada: stawka katalogowa dla Warszawy 0,039 USD/GiB-mies. backupu Firestore, 0,26 USD/GiB odtworzenia i 0,023 USD/GiB-mies. Standard Storage. Stawki i rozliczenie konta należy sprawdzić ponownie. Pierwsza kopia nie zwróciła jeszcze statystyk rozmiaru, więc kosztu bazy nie potwierdzono.
 
-Przed osobnym zleceniem publikacji pozostają: przegląd zmian i CI, weryfikacja polityk i kont, monitoring/alerty, przetestowane odtwarzanie, pełny odbiór desktop/mobile oraz logowania i uprawnień, przygotowanie i weryfikacja właściwej procedury backendu i Hostingu oraz decyzja o dokładnej zawartości wydania. Nie uznawaj samego `prepare:prod` ani stanu READY backupu za zgodę na publikację lub dowód testu odzyskiwania.
+Przed osobnym zleceniem publikacji pozostają: przegląd zmian i CI, weryfikacja polityk i kont, włączenie i odbiór alertów po wydaniu, przetestowane odtwarzanie, pełny odbiór desktop/mobile oraz logowania i uprawnień, przygotowanie i weryfikacja właściwej procedury backendu i Hostingu oraz decyzja o dokładnej zawartości wydania. Nie uznawaj samego `prepare:prod` ani stanu READY backupu za zgodę na publikację lub dowód testu odzyskiwania.
