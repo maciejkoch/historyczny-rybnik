@@ -45,7 +45,10 @@ if (
   throw new Error('Unexpected production robots header');
 }
 for (const rewrite of hosting.rewrites) {
-  if (rewrite.function?.functionId !== 'placesProdWeb' || rewrite.function.pinTag !== true)
+  if (
+    rewrite.function?.functionId !== 'placesProdWeb' ||
+    (rewrite.source === '/miejsca/**') !== (rewrite.function.pinTag === true)
+  )
     throw new Error('Unexpected production rewrite');
 }
 const web = { functions, hosting };

@@ -47,24 +47,21 @@
         "source": "/api/public-places",
         "function": {
           "functionId": "placesProdWeb",
-          "region": "europe-central2",
-          "pinTag": true
+          "region": "europe-central2"
         }
       },
       {
         "source": "/api/public-places/**",
         "function": {
           "functionId": "placesProdWeb",
-          "region": "europe-central2",
-          "pinTag": true
+          "region": "europe-central2"
         }
       },
       {
         "source": "/sitemap.xml",
         "function": {
           "functionId": "placesProdWeb",
-          "region": "europe-central2",
-          "pinTag": true
+          "region": "europe-central2"
         }
       }
     ]
