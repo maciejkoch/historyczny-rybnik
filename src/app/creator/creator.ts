@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { z } from 'zod';
 import { creatorListResponseSchema, draftResponseSchema } from '../../../functions/src/contracts/creator.mjs';
 import { FIREBASE_DEV } from '../places/runtime-config';
+import { isLocalCreator } from './creator-local';
 
 export type CreatorItem = z.infer<typeof creatorListResponseSchema>['places'][number];
 export type CreatorDraft = z.infer<typeof draftResponseSchema>;
 @Injectable({ providedIn: 'root' })
 export class Creator {
-  readonly local = typeof window !== 'undefined' && window.location.hostname === 'localhost' && ['4200', '4300'].includes(window.location.port);
+  readonly local = isLocalCreator();
   private async call(name: string, data: object): Promise<unknown> {
     if (this.local) {
       const response = await fetch(`http://127.0.0.1:5002/historyczny-rybnik/europe-central2/${name}`, {

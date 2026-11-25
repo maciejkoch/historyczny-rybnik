@@ -23,7 +23,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 
 ## Architektura frontendu
 
-Kreator (`/kreator`, `/kreator/:id`) działa jako SPA w przeglądarce; Hosting dev kieruje jego trasy do szkieletu CSR. Lista i szkice są dostępne administratorowi, a lokalnie także bez logowania zgodnie z wyjątkiem SECURITY. Lista korzysta z kontenera o tej samej szerokości co „O nas”; edytor zajmuje pełną szerokość. Trzy panele szkicu używają mechanizmu przeciągania i klawiatury współdzielonego z mapą, z osobnymi preferencjami. Usuwanie szkicu korzysta ze współdzielonego potwierdzenia `ConfirmDialog` na natywnym dialogu i komponencie modal daisyUI. Formularz, podgląd i AI pozostają w kolejnych fazach.
+Kreator (`/kreator`, `/kreator/:id`) działa jako SPA w przeglądarce; Hosting dev kieruje jego trasy do szkieletu CSR. Guard routingu oczekuje odczytu logowania Google i roli administratora oraz kieruje osoby bez dostępu na stronę główną; przy wylogowaniu lub utracie roli otwarty kreator jest opuszczany. Lokalny wyjątek od logowania opisuje SECURITY. Backend niezależnie sprawdza uprawnienia każdej operacji. Lista korzysta z kontenera o tej samej szerokości co „O nas”; edytor zajmuje pełną szerokość. Trzy panele szkicu używają mechanizmu przeciągania i klawiatury współdzielonego z mapą, z osobnymi preferencjami. Usuwanie szkicu korzysta ze współdzielonego potwierdzenia `ConfirmDialog` na natywnym dialogu i komponencie modal daisyUI. Formularz, podgląd i AI pozostają w kolejnych fazach.
 
 | Obszar | Odpowiedzialność |
 | --- | --- |

@@ -1,4 +1,5 @@
 import { Account } from '../../places/account';
+import { isLocalCreator } from '../../creator/creator-local';
 import { DOCUMENT, NgTemplateOutlet } from '@angular/common';
 import {
   afterRenderEffect,
@@ -32,7 +33,7 @@ export class PortalMenu {
   private readonly closeButton = viewChild.required<ElementRef<HTMLButtonElement>>('closeButton');
   private readonly dropdown = viewChild.required<ElementRef<HTMLElement>>('dropdown');
   readonly account = inject(Account);
-  readonly creatorLocal = typeof window !== 'undefined' && window.location.hostname === 'localhost' && ['4200', '4300'].includes(window.location.port);
+  readonly creatorLocal = isLocalCreator();
   async toggleAccount(): Promise<void> {
     this.menu.close();
     await this.account.toggle();

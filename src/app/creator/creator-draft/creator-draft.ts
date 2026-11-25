@@ -1,15 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  effect,
-  inject,
-  signal,
-  untracked,
-} from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { PanelLayout } from '../../atlas/panel-layout';
-import { Account } from '../../places/account';
 import { PortalHeader } from '../../layout/portal-header/portal-header';
 import { Creator, CreatorDraft as Draft } from '../creator';
 @Component({
@@ -49,9 +40,7 @@ import { Creator, CreatorDraft as Draft } from '../creator';
         <a routerLink="/kreator" class="link">← Lista miejsc</a>
         <h1 class="text-2xl font-semibold">{{ draft()?.data?.name || 'Nowy szkic' }}</h1>
       </div>
-      @if (!allowed()) {
-        <p class="mt-5">Kreator jest dostępny dla zalogowanych administratorów.</p>
-      } @else if (error()) {
+      @if (error()) {
         <p role="alert" class="alert alert-error mt-5">
           Nie udało się otworzyć szkicu. <button class="btn btn-sm" (click)="load()">Ponów</button>
         </p>
@@ -144,16 +133,11 @@ import { Creator, CreatorDraft as Draft } from '../creator';
 })
 export class CreatorDraft {
   readonly creator = inject(Creator);
-  readonly account = inject(Account);
   private readonly route = inject(ActivatedRoute);
-  readonly allowed = computed(() => this.creator.local || this.account.admin());
   readonly draft = signal<Draft | null>(null);
   readonly error = signal(false);
   constructor() {
-    effect(() => {
-      if (this.allowed()) untracked(() => void this.load());
-      else this.draft.set(null);
-    });
+    afterNextRender(() => void this.load());
   }
   async load(): Promise<void> {
     this.error.set(false);
