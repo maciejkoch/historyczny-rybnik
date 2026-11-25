@@ -46,7 +46,7 @@ Atlas przekazuje mapie pełny katalog miejsc, a panelowi wyszukiwania wynik filt
 
 ## Architektura backendu
 
-Kreator przechowuje wspólne szkice w `placeDrafts` w `places-dev`, oddzielnie od publicznych `places`. Funkcje callable wymagają App Check, Google Auth i roli administratora. Lokalny serwer `creator:local` nasłuchuje wyłącznie na 127.0.0.1:5002, przyjmuje tylko pochodzenie `http://localhost:4200` i korzysta z rzeczywistej bazy dev bez Auth i App Check, zgodnie z wyjątkiem SECURITY. Lista łączy rekordy po identyfikatorze, a usunięcie szkicu transakcyjnie wyklucza istniejące miejsce. Ostatni zapis wygrywa. Wdrożone konto API nie ma jeszcze przyznanych uprawnień potrzebnych nowym operacjom; przed wdrożeniem wymagane jest osobne sprawdzenie IAM.
+Kreator przechowuje wspólne szkice w `placeDrafts` w `places-dev`, oddzielnie od publicznych `places`. Funkcje callable wymagają App Check, Google Auth i roli administratora. Lokalny serwer `creator:local` nasłuchuje wyłącznie na 127.0.0.1:5002, przyjmuje tylko pochodzenie `http://localhost:4200` lub `http://localhost:4300` i korzysta z rzeczywistej bazy dev bez Auth i App Check, zgodnie z wyjątkiem SECURITY. Lista łączy rekordy po identyfikatorze, a usunięcie szkicu transakcyjnie wyklucza istniejące miejsce. Ostatni zapis wygrywa. Wdrożone konto API nie ma jeszcze przyznanych uprawnień potrzebnych nowym operacjom; przed wdrożeniem wymagane jest osobne sprawdzenie IAM.
 
 | Obszar | Odpowiedzialność |
 | --- | --- |
@@ -89,6 +89,8 @@ npm run emulate
 ```
 
 Lokalny kreator: w jednym terminalu `npm run creator:local -- --firebase-cli`, w drugim `npm start` i otwarcie `http://localhost:4200/kreator`. Wymagane jest wcześniejsze logowanie Firebase CLI i uprawnienia operatora do odczytu i zapisu bazy `places-dev`. Alternatywnie uruchomienie bez `--firebase-cli` używa ADC. Zapis zmienia rzeczywiste współdzielone dane dev; lokalny serwer nie służy do udostępniania w sieci.
+
+Na porcie 4300 frontend uruchamiamy przez `npm start -- --host localhost --port 4300`; kreator jest wtedy pod `http://localhost:4300/kreator`.
 
 Lokalny serwer Angulara przekazuje żądania `/api/public-places` i `/api/public-places/**` do publicznego API integracyjnego dev przez `proxy.conf.json`. Dzięki temu mapa i karty korzystają z aktualnych opublikowanych miejsc; po zmianie konfiguracji proxy należy ponownie uruchomić `npm start`.
 

@@ -24,7 +24,7 @@ const app = express();
 const localAccess = () => {};
 app.use((req, res, next) => {
   const origin = req.get('origin');
-  if (req.get('host') !== '127.0.0.1:5002' || origin !== 'http://localhost:4200') return res.status(403).end();
+  if (req.get('host') !== '127.0.0.1:5002' || !['http://localhost:4200', 'http://localhost:4300'].includes(origin)) return res.status(403).end();
   res.set('Access-Control-Allow-Origin', origin);
   res.set('Access-Control-Allow-Headers', 'Content-Type, X-Firebase-AppCheck, Authorization, Firebase-Instance-ID-Token');
   res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');

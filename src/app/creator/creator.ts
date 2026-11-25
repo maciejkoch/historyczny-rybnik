@@ -7,7 +7,7 @@ export type CreatorItem = z.infer<typeof creatorListResponseSchema>['places'][nu
 export type CreatorDraft = z.infer<typeof draftResponseSchema>;
 @Injectable({ providedIn: 'root' })
 export class Creator {
-  readonly local = typeof window !== 'undefined' && window.location.hostname === 'localhost' && window.location.port === '4200';
+  readonly local = typeof window !== 'undefined' && window.location.hostname === 'localhost' && ['4200', '4300'].includes(window.location.port);
   private async call(name: string, data: object): Promise<unknown> {
     if (this.local) {
       const response = await fetch(`http://127.0.0.1:5002/historyczny-rybnik/europe-central2/${name}`, {
