@@ -23,7 +23,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 
 ## Architektura frontendu
 
-Kreator (`/kreator`, `/kreator/:id`) działa jako SPA w przeglądarce; Hosting dev kieruje jego trasy do szkieletu CSR. Guard routingu oczekuje odczytu logowania Google i roli administratora oraz kieruje osoby bez dostępu na stronę główną; przy wylogowaniu lub utracie roli otwarty kreator jest opuszczany. Lokalny wyjątek od logowania opisuje SECURITY. Backend niezależnie sprawdza uprawnienia każdej operacji. Lista korzysta z kontenera o tej samej szerokości co „O nas”; edytor zajmuje pełną szerokość. Trzy panele szkicu używają mechanizmu przeciągania i klawiatury współdzielonego z mapą, z osobnymi preferencjami. Usuwanie szkicu korzysta ze współdzielonego potwierdzenia `ConfirmDialog` na natywnym dialogu i komponencie modal daisyUI. Formularz, podgląd i AI pozostają w kolejnych fazach.
+Kreator (`/kreator`, `/kreator/:id`) działa jako SPA w przeglądarce; Hosting dev kieruje jego trasy do szkieletu CSR. Guard routingu oczekuje odczytu logowania Google i roli administratora oraz kieruje osoby bez dostępu na stronę główną; przy wylogowaniu lub utracie roli otwarty kreator jest opuszczany. Te same wymagania logowania obowiązują lokalnie; wyjątek od App Check opisuje SECURITY. Backend niezależnie sprawdza uprawnienia każdej operacji. Lista korzysta z kontenera o tej samej szerokości co „O nas”; edytor zajmuje pełną szerokość. Trzy panele szkicu używają mechanizmu przeciągania i klawiatury współdzielonego z mapą, z osobnymi preferencjami. Usuwanie szkicu korzysta ze współdzielonego potwierdzenia `ConfirmDialog` na natywnym dialogu i komponencie modal daisyUI. Formularz, podgląd i AI pozostają w kolejnych fazach.
 
 | Obszar | Odpowiedzialność |
 | --- | --- |
@@ -46,7 +46,7 @@ Atlas przekazuje mapie pełny katalog miejsc, a panelowi wyszukiwania wynik filt
 
 ## Architektura backendu
 
-Kreator przechowuje wspólne szkice w `placeDrafts` w `places-dev`, oddzielnie od publicznych `places`. Funkcje callable wymagają App Check, Google Auth i roli administratora. Lokalny serwer `creator:local` nasłuchuje wyłącznie na 127.0.0.1:5002, przyjmuje tylko pochodzenie `http://localhost:4200` lub `http://localhost:4300` i korzysta z rzeczywistej bazy dev bez Auth i App Check, zgodnie z wyjątkiem SECURITY. Lista łączy rekordy po identyfikatorze, a usunięcie szkicu transakcyjnie wyklucza istniejące miejsce. Ostatni zapis wygrywa. Wdrożone konto API nie ma jeszcze przyznanych uprawnień potrzebnych nowym operacjom; przed wdrożeniem wymagane jest osobne sprawdzenie IAM.
+Kreator przechowuje wspólne szkice w `placeDrafts` w `places-dev`, oddzielnie od publicznych `places`. Funkcje callable wymagają App Check, Google Auth i roli administratora. Lokalny serwer `creator:local` nasłuchuje wyłącznie na 127.0.0.1:5002, przyjmuje tylko pochodzenie `http://localhost:4200` lub `http://localhost:4300` i weryfikuje token Firebase Auth i rolę administratora oraz korzysta z rzeczywistej bazy dev bez App Check, zgodnie z wyjątkiem SECURITY. Lista łączy rekordy po identyfikatorze, a usunięcie szkicu transakcyjnie wyklucza istniejące miejsce. Ostatni zapis wygrywa. Wdrożone konto API nie ma jeszcze przyznanych uprawnień potrzebnych nowym operacjom; przed wdrożeniem wymagane jest osobne sprawdzenie IAM.
 
 Pola merytoryczne szkicu są opcjonalnymi odpowiednikami pól miejsca, w tym wewnątrz wzmianek i materiałów. Odczyt dopuszcza niekompletne dane i sprawdza wyłącznie strukturę, typy oraz limity zasobów; pełna walidacja miejsca należy do przyszłej publikacji. [Schemat i limity szkicu](agent-context/reference/place-schema.md#szkic-kreatora).
 
@@ -90,7 +90,7 @@ npm run build
 npm run emulate
 ```
 
-Lokalny kreator: w jednym terminalu `npm run creator:local -- --firebase-cli`, w drugim `npm start` i otwarcie `http://localhost:4200/kreator`. Wymagane jest wcześniejsze logowanie Firebase CLI i uprawnienia operatora do odczytu i zapisu bazy `places-dev`. Alternatywnie uruchomienie bez `--firebase-cli` używa ADC. Zapis zmienia rzeczywiste współdzielone dane dev; lokalny serwer nie służy do udostępniania w sieci.
+Lokalny kreator: w jednym terminalu `npm run creator:local -- --firebase-cli`, w drugim `npm start` i otwarcie `http://localhost:4200/kreator`. Wymagane jest logowanie Google z rolą administratora w przeglądarce oraz wcześniejsze logowanie Firebase CLI i uprawnienia operatora do odczytu i zapisu bazy `places-dev`. Alternatywnie uruchomienie bez `--firebase-cli` używa ADC. Zapis zmienia rzeczywiste współdzielone dane dev; lokalny serwer nie służy do udostępniania w sieci.
 
 Na porcie 4300 frontend uruchamiamy przez `npm start -- --host localhost --port 4300`; kreator jest wtedy pod `http://localhost:4300/kreator`.
 

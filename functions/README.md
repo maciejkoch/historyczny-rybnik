@@ -2,7 +2,7 @@
 
 Backend Firebase Functions. `src/` zawiera API, obsługę usług i walidację; `test/` testy kontraktów, publicznych projekcji danych, walidacji, API i reguł. Własne zależności instalujemy przez `npm ci --prefix functions`. Konfigurację dev opisuje `agent-context/reference/mvp-1/faza-3-infrastruktura.md`.
 
-`src/creator.mjs` obsługuje prywatne szkice przez callable API; `src/creator-local.mjs` jest osobnym serwerem wyłącznie lokalnym na loopback, z wyjątkiem Auth/App Check opisanym w SECURITY. Łączy się z rzeczywistą bazą dev. Uruchomienie: `npm run creator:local -- --firebase-cli`.
+`src/creator.mjs` obsługuje prywatne szkice przez callable API; `src/creator-local.mjs` jest osobnym serwerem wyłącznie lokalnym na loopback, z wyjątkiem od App Check opisanym w SECURITY; token Firebase Auth i rola administratora są weryfikowane. Łączy się z rzeczywistą bazą dev. Uruchomienie: `npm run creator:local -- --firebase-cli`.
 
 Kontrakt szkicu dopuszcza pominięcie wszystkich pól merytorycznych, także zagnieżdżonych, a ogranicza ich typy, rozmiar i dozwolone pola. Pełny kontrakt miejsca pozostaje wymaganiem publikacji. Szczegóły limitów: `agent-context/reference/place-schema.md`.
 

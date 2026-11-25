@@ -15,13 +15,13 @@ Status: plan, nie opis wdrożonej funkcji. Bazą pracy jest gałąź `codex/crea
 - Szkice zapisujemy w kolekcji `placeDrafts` w rzeczywistej bazie Firebase `places-dev`, oddzielnie od opublikowanych rekordów w `places`. Szkic istniejącego miejsca ma ten sam identyfikator; nowy otrzymuje identyfikator używany później przy publikacji.
 - Szkic zawiera pola merytoryczne aktualnego miejsca, lecz dopuszcza puste wymagane pola; pełna walidacja kontraktu obowiązuje przed publikacją. Czas utworzenia i zmiany nadaje serwer. Lista rozróżnia szkic identyczny z opublikowanym miejscem od faktycznych zmian, pomijając daty techniczne.
 - Wspólny szkic istniejącego miejsca tworzymy transakcyjnie. Przy równoczesnych zapisach szkicu ostatni zapis wygrywa; nie wersjonujemy szkiców ani nie wykrywamy konfliktów edycji. Sprawdzenie, czy usuwany szkic nie dotyczy opublikowanego miejsca, jest transakcyjne.
-- Operacje przechodzą przez backend z walidacją. Wdrożone API wymaga App Check, Google Auth i roli administratora; lokalny backend na localhost korzysta z wyjątku opisanego w SECURITY. Bezpośredni dostęp przeglądarki do Firestore pozostaje zablokowany. Rekordy publiczne nie zmieniają się wskutek zapisu szkicu.
+- Operacje przechodzą przez backend z walidacją. Wdrożone API wymaga App Check, Google Auth i roli administratora; lokalny backend także weryfikuje Google Auth i rolę, a korzysta jedynie z wyjątku od App Check opisanego w SECURITY. Bezpośredni dostęp przeglądarki do Firestore pozostaje zablokowany. Rekordy publiczne nie zmieniają się wskutek zapisu szkicu.
 - Osobne operacje callable listują miejsca i szkice, tworzą nowy szkic, otwierają lub tworzą wspólny szkic istniejącego miejsca oraz usuwają wyłącznie nowy szkic. Odpowiedzi i żądania mają współdzielone kontrakty; lista zwraca tylko dane potrzebne do jej wyświetlenia.
 
 ## Lokalne uruchomienie i odbiór
 
 - Aplikacja i backend działają lokalnie i łączą się z rzeczywistą bazą Firebase `places-dev`. Do lokalnego odbioru nie używamy mocków, fikcyjnych danych ani emulatora Firestore. Zapisy są widoczne we współdzielonym dev.
-- Lokalny backend działa wyłącznie na loopback, bez Auth i App Check, zgodnie z wyjątkiem w SECURITY. Dostęp do Firebase korzysta z uprawnionej lokalnej tożsamości, bez kluczy kont usług w repozytorium; wdrożone API zachowuje wszystkie zabezpieczenia.
+- Lokalny backend działa wyłącznie na loopback, wymaga Google Auth i roli administratora a App Check pomija zgodnie z wyjątkiem w SECURITY. Dostęp do Firebase korzysta z uprawnionej lokalnej tożsamości, bez kluczy kont usług w repozytorium; wdrożone API zachowuje wszystkie zabezpieczenia.
 - Przed późniejszym wdrożeniem Functions dobrać i zweryfikować minimalne IAM. Sam lokalny odbiór nie obejmuje deploymentu ani zmiany konfiguracji chmury.
 
 ## Weryfikacja i dokumentacja

@@ -2,7 +2,7 @@
 
 Kod Angulara, konfiguracja i style. `app/atlas/` zawiera panele, `app/atlas-map/` mapę, `app/places/` modele i klienty API, `app/privacy/` zgody i politykę prywatności. `app/layout/` udostępnia wspólny nagłówek, stopkę, mobilny toolbar oraz globalne menu z nawigacją i oddzielną sekcją prywatności. Współdzielone kontrakty danych są w `functions/src/contracts/`. Punkty wejścia obsługują przeglądarkę, strony prerenderowane i SSR kart miejsc.
 
-`app/creator/` zawiera listę miejsc i stronę szkicu SPA z trzema panelami regulowanymi przeciąganiem. Guard routingu sprawdza dostęp administratora przed otwarciem i opuszcza kreator po wylogowaniu lub utracie roli; lokalnie obowiązuje wyjątek opisany w SECURITY. Formularz, podgląd i AI nie są jeszcze zaimplementowane.
+`app/creator/` zawiera listę miejsc i stronę szkicu SPA z trzema panelami regulowanymi przeciąganiem. Guard routingu sprawdza dostęp administratora przed otwarciem i opuszcza kreator po wylogowaniu lub utracie roli; te same wymagania logowania obowiązują lokalnie. Formularz, podgląd i AI nie są jeszcze zaimplementowane.
 
 `app/shared/confirm-dialog/` udostępnia konfigurowalny dialog potwierdzenia na natywnym `<dialog>` i klasach daisyUI. Używa go usuwanie nowego szkicu.
 

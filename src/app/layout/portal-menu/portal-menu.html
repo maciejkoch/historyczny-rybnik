@@ -97,7 +97,11 @@
           >
         </li>
       }
-      @if (!mobile && (account.admin() || creatorLocal)) { <li><a routerLink="/kreator" routerLinkActive="menu-active" (click)="menu.close()">Kreator</a></li> }
+      @if (!mobile && account.admin()) {
+        <li>
+          <a routerLink="/kreator" routerLinkActive="menu-active" (click)="menu.close()">Kreator</a>
+        </li>
+      }
       <li>
         <a
           routerLink="/o-nas"

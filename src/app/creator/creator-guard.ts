@@ -1,7 +1,6 @@
 import { effect, inject, Injectable } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { Account } from '../places/account';
-import { isLocalCreator } from './creator-local';
 
 @Injectable({ providedIn: 'root' })
 export class CreatorAccess {
@@ -11,7 +10,6 @@ export class CreatorAccess {
   constructor() {
     effect(() => {
       if (
-        !isLocalCreator() &&
         this.account.authorizationReady() &&
         !this.account.admin() &&
         /^\/kreator(?:\/|\?|#|$)/.test(this.router.url)
@@ -21,7 +19,7 @@ export class CreatorAccess {
   }
 
   async allowed(): Promise<boolean> {
-    return isLocalCreator() || this.account.isAdministrator();
+    return this.account.isAdministrator();
   }
 }
 
