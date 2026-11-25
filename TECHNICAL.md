@@ -48,6 +48,8 @@ Atlas przekazuje mapie pełny katalog miejsc, a panelowi wyszukiwania wynik filt
 
 Kreator przechowuje wspólne szkice w `placeDrafts` w `places-dev`, oddzielnie od publicznych `places`. Funkcje callable wymagają App Check, Google Auth i roli administratora. Lokalny serwer `creator:local` nasłuchuje wyłącznie na 127.0.0.1:5002, przyjmuje tylko pochodzenie `http://localhost:4200` lub `http://localhost:4300` i korzysta z rzeczywistej bazy dev bez Auth i App Check, zgodnie z wyjątkiem SECURITY. Lista łączy rekordy po identyfikatorze, a usunięcie szkicu transakcyjnie wyklucza istniejące miejsce. Ostatni zapis wygrywa. Wdrożone konto API nie ma jeszcze przyznanych uprawnień potrzebnych nowym operacjom; przed wdrożeniem wymagane jest osobne sprawdzenie IAM.
 
+Pola merytoryczne szkicu są opcjonalnymi odpowiednikami pól miejsca, w tym wewnątrz wzmianek i materiałów. Odczyt dopuszcza niekompletne dane i sprawdza wyłącznie strukturę, typy oraz limity zasobów; pełna walidacja miejsca należy do przyszłej publikacji. [Schemat i limity szkicu](agent-context/reference/place-schema.md#szkic-kreatora).
+
 | Obszar | Odpowiedzialność |
 | --- | --- |
 | `functions/src/public-places.mjs`, `public-web.mjs` | Jawne, walidowane projekcje publiczne; dynamiczny katalog, karta, sitemap i SSR. |

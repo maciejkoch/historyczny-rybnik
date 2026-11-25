@@ -6,6 +6,12 @@
 
 `id`, `name`, `slug`, `description` (krótki opis), `tags` (pierwszy określa ikonę), `documentedPeriod`, `existsToday`, `historicalAddress`, `location`, `mentions`, `materials`, `published`, `createdAt`, `updatedAt`.
 
+## Szkic kreatora
+
+`placeDrafts/{placeId}` używa tych samych pól merytorycznych co miejsce, ale każde z nich, także pole zagnieżdżonej wzmianki, materiału, tagu, daty i lokalizacji, może być pominięte lub mieć wartość `null`. Nowy szkic zawiera początkowo tylko techniczne czasy zapisu; starsze szkice z pustymi wartościami nadal są poprawne. Szkic może zawierać niekompletny adres URL, datę, slug lub powiązanie; pełny kontrakt miejsca obowiązuje przed publikacją.
+
+Kontrakt szkicu sprawdza tylko dozwolone pola, typy i limity zasobów. Maksymalny rozmiar danych szkicu wynosi 700 000 bajtów JSON w UTF-8; listy tagów, wzmianek, materiałów i powiązań materiałów mają po najwyżej 100 elementów. Teksty mają limity: nazwa tagu i miejsca 200 znaków, slug i identyfikatory 100, opis miejsca 20 000, opis wzmianki 10 000, jej tytuł oraz źródła i tekst alternatywny materiału 500, linki, wskazanie fragmentu i wyjaśnienie lokalizacji 2000, ścieżki materiału 500, daty i precyzja 32, sumy SHA-256 64. Limity nie oznaczają sprawdzenia formatu lub poprawności historycznej. Czasy techniczne i identyfikator szkicu nadaje backend.
+
 `documentedPeriod` wpisujemy ręcznie: `{from, to}` lub `null`; `to: null` oznacza nieznany koniec. `existsToday: null` oznacza brak wiedzy. Daty historyczne mają postać `YYYY`, `YYYY-MM` albo `YYYY-MM-DD`.
 
 Lokalizacja to `{coordinates, precision, explanation}`. Współrzędne `{lat, lng}` mają precyzję `exact` lub `approximate`; nieznana lokalizacja ma współrzędne i precyzję `null`. Opcjonalne wyjaśnienie to tekst lub `null`. Zapis ma semantykę ostatniego zapisu bez wersji.

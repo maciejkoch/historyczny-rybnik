@@ -25,6 +25,8 @@ await test('concurrent open yields one shared copy and cannot remove published p
 });
 await test('create, list, reopen and delete a new draft', async () => {
   const draft = await createCreatorDraft(db, req());
+  assert.deepEqual(draft.data, {});
+  await db.doc(`placeDrafts/${draft.id}`).update({ mentions: [{}, { title: '', sourceUrl: 'niedokończony link' }], materials: [{}], location: { coordinates: { lat: 1234 } } });
   assert.equal((await openCreatorDraft(db, req({ id: draft.id }))).id, draft.id);
   assert.equal((await listCreatorPlaces(db, req())).places.find((item) => item.id === draft.id).status, 'draft');
   await deleteCreatorDraft(db, req({ id: draft.id }));

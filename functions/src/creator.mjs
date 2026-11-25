@@ -5,7 +5,6 @@ import { requireApp } from './service.mjs';
 import { creatorEmptyRequestSchema, creatorIdRequestSchema, creatorListResponseSchema, draftDataSchema, draftResponseSchema } from './contracts/creator.mjs';
 
 const fields = ['name', 'slug', 'description', 'tags', 'documentedPeriod', 'existsToday', 'historicalAddress', 'location', 'mentions', 'materials'];
-const empty = { name: '', slug: '', description: '', tags: [], documentedPeriod: null, existsToday: null, historicalAddress: null, location: { coordinates: null, precision: null, explanation: null }, mentions: [], materials: [] };
 function authorize(request) {
   requireApp(request);
   if (!request.auth || request.auth.token.firebase?.sign_in_provider !== 'google.com') throw new HttpsError('unauthenticated', 'Google authentication required');
@@ -17,9 +16,10 @@ function validate(schema, value) {
   return parsed.data;
 }
 function data(value) {
-  const result = Object.fromEntries(fields.map((field) => [field, value[field]]));
-  const point = result.location.coordinates;
-  if (point) result.location = { ...result.location, coordinates: { lat: point.latitude ?? point.lat, lng: point.longitude ?? point.lng } };
+  const result = Object.fromEntries(fields.filter((field) => value[field] !== undefined).map((field) => [field, value[field]]));
+  const point = result.location?.coordinates;
+  if (point && typeof point.latitude === 'number' && typeof point.longitude === 'number')
+    result.location = { ...result.location, coordinates: { lat: point.latitude, lng: point.longitude } };
   return draftDataSchema.parse(result);
 }
 function draftDto(snapshot) {
@@ -37,14 +37,14 @@ export async function listCreatorPlaces(db, request, checkAccess = authorize) {
     const edited = draft && data(draft.data());
     return { id: place.id, name: edited?.name || published.name, status: edited && !isDeepStrictEqual(edited, published) ? 'modified' : 'published' };
   });
-  for (const doc of index.values()) items.push({ id: doc.id, name: data(doc.data()).name, status: 'draft' });
+  for (const doc of index.values()) items.push({ id: doc.id, name: data(doc.data()).name ?? '', status: 'draft' });
   items.sort((a, b) => a.name.localeCompare(b.name, 'pl') || a.id.localeCompare(b.id));
   return creatorListResponseSchema.parse({ places: items });
 }
 export async function createCreatorDraft(db, request, checkAccess = authorize) {
   checkAccess(request); validate(creatorEmptyRequestSchema, request.data);
   const ref = db.collection('placeDrafts').doc();
-  await ref.create({ ...empty, createdAt: FieldValue.serverTimestamp(), updatedAt: FieldValue.serverTimestamp() });
+  await ref.create({ createdAt: FieldValue.serverTimestamp(), updatedAt: FieldValue.serverTimestamp() });
   return draftDto(await ref.get());
 }
 export async function openCreatorDraft(db, request, checkAccess = authorize) {
