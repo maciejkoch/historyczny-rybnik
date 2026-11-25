@@ -18,7 +18,7 @@ Proponowany przepływ: Angular wywołuje funkcję Firebase; agent korzysta z nar
 
 Streaming callable functions pozwala wysyłać wiele zdarzeń w odpowiedzi na żądanie klienta; po zakończeniu pracy połączenie się zamyka. Akceptacja i kolejna wiadomość wymagają kolejnego żądania. To nie jest automatyczny nasłuch zmian pochodzących od innego administratora. Do sprawdzenia pozostaje `onCallGenkit` kontra zwykłe `onCall` i dopasowanie protokołu do Genkit. [Firebase — streaming callable](https://firebase.google.com/docs/functions/callable), [Genkit w Functions](https://firebase.google.com/docs/functions/oncallgenkit).
 
-Przed pracą AI interfejs kończy zapis ręcznych zmian. Potrzebne są wersjonowanie szkicu i powiązanie akceptacji z konkretną propozycją oraz wersją. Zmiana szkicu przez innego administratora powoduje kontrolowany konflikt. Otwarte: przechowywanie propozycji, obsługa przerwanego połączenia, synchronizacja drugiej przeglądarki i obsługa niepewnego wyniku zapisu. Nie należy zakładać, że stan procesu Functions przetrwa kolejne żądanie.
+Przed pracą AI interfejs kończy zapis ręcznych zmian. Akceptacja dotyczy konkretnej przedstawionej propozycji. Decyzja właściciela: ostatni zapis wspólnego szkicu wygrywa, bez wersjonowania szkicu i wykrywania konfliktów edycji, również przy akceptacji propozycji. Otwarte: przechowywanie propozycji, obsługa przerwanego połączenia, synchronizacja drugiej przeglądarki i obsługa niepewnego wyniku zapisu. Nie należy zakładać, że stan procesu Functions przetrwa kolejne żądanie.
 
 ## Dokumenty, linki i materiały
 
@@ -40,7 +40,7 @@ Odczyty wykonano dla projektu `historyczny-rybnik`, bazy `places-dev` oraz bucke
 - W Firebase działały funkcje wcześniejszego kreatora, w tym funkcje szkiców i publikacji, choć nie ma ich na obecnym `main`. Współdzielony backend dev wymaga oceny wpływu nowych wdrożeń; sama obecność tych funkcji nie oznacza decyzji o wykorzystaniu wcześniejszej implementacji.
 - Istniały konta wcześniejszego kreatora oraz role dotyczące modelu, szkiców i ograniczonych ścieżek Storage. Rola modelu zawierała `aiplatform.endpoints.predict`; rola szkiców miała odczyt, listowanie, tworzenie i aktualizację, bez usuwania. Ich istnienie nie potwierdza kompletności IAM dla nowego rozwiązania.
 - Odczyt konfiguracji wskazał, że wcześniejsza funkcja generowania szkicu miała limit 120 sekund i jedną instancję. To fakt o tej funkcji, nie uzgodniony limit nowego agenta.
-- Obecny frontend nie zawierał znalezionej konfiguracji debug providera App Check ani podłączenia Functions do emulatora. Lokalny odbiór wymaga zaprojektowania bezpiecznej ścieżki z zachowaniem App Check i autoryzacji, np. emulatorów lub prywatnego debug providera. [Firebase — App Check lokalnie](https://firebase.google.com/docs/app-check/web/debug-provider).
+- Obecny frontend nie zawierał znalezionej konfiguracji debug providera App Check ani podłączenia Functions do emulatora. Uzgodniony odbiór używa lokalnej aplikacji i Functions oraz rzeczywistej bazy dev, z zachowaniem App Check i autoryzacji; szczegóły zawiera [plan fazy 1](plan-fazy-1.md). [Firebase — App Check lokalnie](https://firebase.google.com/docs/app-check/web/debug-provider).
 
 Firestore ma limit rozmiaru pojedynczego dokumentu; PDF-ów, obrazów i nieograniczonej historii nie należy umieszczać w jednym rekordzie szkicu. [Limity Firestore](https://cloud.google.com/firestore/quotas).
 
@@ -65,7 +65,7 @@ Gemini 2.5 Flash nie jest kandydatem startowym w Google Cloud: karta modelu wska
 1. Potwierdzić wywołanie wybranego modelu z docelowej tożsamości funkcji oraz obsługę Genkit, strumieniowania i akceptacji w lokalnym prototypie.
 2. Sprawdzić wieloetapową pracę, polskie źródła i ramki na rzeczywistych reprezentatywnych skanach; zmierzyć czas i koszt. Benchmark innych modeli pozostaje późniejszy.
 3. Zaprojektować bezpieczne pobieranie linków, obsługę niezaufanej treści, limity plików i przetwarzania oraz prywatne materiały tymczasowe.
-4. Rozstrzygnąć zapis i wersjonowanie wspólnych szkiców, propozycji, dokumentów i instrukcji administratora; retry, konflikty, usuwanie i publikację między Firestore a Storage.
+4. Doprecyzować zapis propozycji, dokumentów i instrukcji administratora oraz ponowienia, usuwanie i publikację między Firestore a Storage. Szkice stosują zasadę ostatniego zapisu.
 5. Dobrać IAM oraz ścieżkę lokalnego odbioru zgodną z SECURITY i uwzględnić współdzielone zasoby dev. Nie zakładać uprawnień tylko na podstawie istniejących nazw kont.
 6. Ustalić monitoring kosztu, limity i powiadamianie; sprawdzić rzeczywiste limity i dostępność wybranych usług w projekcie.
 7. Przed wdrożeniem aktualizować właściwe dokumenty, w tym politykę prywatności, zgodnie z rzeczywiście używanymi usługami i retencją.

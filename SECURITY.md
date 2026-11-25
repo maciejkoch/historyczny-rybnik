@@ -19,10 +19,10 @@ Dokument określa wymagania, a nie potwierdzenie ich wdrożenia. Aktualne mechan
 ## Tożsamość, uprawnienia i API
 
 - Przyznawaj minimalne niezbędne uprawnienia. Dostęp jest domyślnie zabroniony, a publiczne operacje i dane muszą być jawnie określone.
-- Każda chroniona operacja sprawdza tożsamość oraz wymagane uprawnienia po stronie backendu. Nie ufaj rolom, UID ani informacjom o właścicielu przesłanym jako dane żądania; korzystaj ze zweryfikowanej tożsamości i zaufanych danych.
+- Każda chroniona operacja sprawdza tożsamość oraz wymagane uprawnienia po stronie backendu, z wyjątkiem lokalnego kreatora opisanego poniżej. Nie ufaj rolom, UID ani informacjom o właścicielu przesłanym jako dane żądania; korzystaj ze zweryfikowanej tożsamości i zaufanych danych.
 - Firebase Auth, autoryzacja i App Check pełnią odrębne role. App Check nie zastępuje sprawdzenia użytkownika i uprawnień; samo zalogowanie nie daje prawa do dowolnego zapisu. Zachowuj egzekwowanie App Check w API, które go wymaga.
 - Ukrycie przycisku, blokada trasy, CORS i noindex nie zastępują autoryzacji. Zabezpieczenia muszą działać również przy bezpośrednim wywołaniu API.
-- Nie wyłączaj kontroli tokenów, App Check, autoryzacji ani weryfikacji TLS dla uruchomienia funkcji, testu, builda lub deploymentu. Mechanizmy emulatorów i testowe poświadczenia pozostają w środowisku testowym.
+- Wdrożone API zawsze zachowuje kontrolę tokenów, App Check i autoryzację. Wyjątek właściciela: lokalny backend uruchomiony wyłącznie na interfejsie loopback może obsługiwać kreator bez Auth i App Check, korzystając tylko z bazy `places-dev` i lokalnej tożsamości operatora. Wyjątek nie dotyczy wdrożonych funkcji, innych baz ani publicznie dostępnego serwera. Nie wyłączaj weryfikacji TLS. Mechanizmy emulatorów i testowe poświadczenia pozostają w środowisku testowym.
 
 ## Walidacja i bezpieczne wyświetlanie
 
@@ -35,7 +35,7 @@ Dokument określa wymagania, a nie potwierdzenie ich wdrożenia. Aktualne mechan
 
 - Reguły Firestore i Storage dopuszczają wyłącznie zamierzony dostęp. Nie otwieraj ogólnego odczytu lub zapisu, również tymczasowo w celu uruchomienia funkcji.
 - Zapisy biznesowe realizuj przez uzgodnioną ścieżkę backendu. Dostęp do dokumentów, pól i plików musi odpowiadać uprawnieniom operacji; sam identyfikator zasobu nie upoważnia do dostępu.
-- Admin SDK omija reguły klienckie: operacje serwerowe wymagają własnej kontroli dostępu i minimalnych uprawnień IAM. Nie traktuj testów reguł jako potwierdzenia bezpieczeństwa Admin SDK.
+- Admin SDK omija reguły klienckie: operacje serwerowe wymagają własnej kontroli dostępu i minimalnych uprawnień IAM, z wyjątkiem lokalnego kreatora na loopback określonym powyżej. Nie traktuj testów reguł jako potwierdzenia bezpieczeństwa Admin SDK.
 - Dane publikowane w HTML, katalogu, snapshotach i zasobach statycznych muszą być przeznaczone do publicznego udostępnienia. Nie kopiuj do nich danych prywatnych ani poświadczeń.
 
 ## Prywatność, logi i środowiska

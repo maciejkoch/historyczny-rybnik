@@ -2,19 +2,19 @@
 
 > Plan prac, nie opis wdrożonej funkcji. Szczegóły zachowania i kryteria całości określają [wymagania](wymagania.md); [wstępna architektura](architektura-wstepna.md) opisuje kierunek techniczny i wyniki wcześniejszych prób.
 
-Zadania 1–5 tworzą kompletny ręczny przepływ pracy z miejscem. Zadania 6–10 dodają AI i odbiór całego MVP. W każdym zadaniu należy uwzględnić odpowiednie zabezpieczenia, walidację i testy, także odmowę dostępu i obsługę błędów. Odbiór implementacji jest lokalny; wdrożenie wymaga osobnego zlecenia.
+Zadania 1–5 tworzą kompletny ręczny przepływ pracy z miejscem. Zadania 6–10 dodają AI i odbiór całego MVP. W każdym zadaniu należy uwzględnić odpowiednie zabezpieczenia, walidację i testy, także odmowę dostępu i obsługę błędów. Odbiór implementacji jest lokalny, na rzeczywistej bazie Firebase `places-dev`; wdrożenie wymaga osobnego zlecenia. Dla wspólnych szkiców ostatni zapis wygrywa, bez wersjonowania i wykrywania konfliktów edycji.
 
 ## 1. Lista miejsc i podstawy szkiców
 
-Wejście do kreatora, wyszukiwanie, statusy, tworzenie i otwieranie wspólnych szkiców oraz usuwanie nowych nieopublikowanych szkiców. Dostęp tylko dla administratora, podstawy wersjonowania i lokalne emulatory Firebase.
+Wejście do kreatora, wyszukiwanie, statusy, tworzenie i otwieranie wspólnych szkiców oraz usuwanie nowych nieopublikowanych szkiców. Dostęp tylko dla administratora. Strona szkicu ma trzy panele o regulowanej szerokości. Szczegóły zawiera [plan fazy 1](plan-fazy-1.md).
 
 **Odbiór:** administrator tworzy szkic, znajduje go po ponownym wejściu i może go usunąć; nie może usunąć opublikowanego miejsca.
 
 ## 2. Formularz miejsca, wzmianki i mapa
 
-Edycja danych miejsca, tagów, wzmianek i lokalizacji. Automatyczny zapis, stan zapisu, ponawianie po błędzie, wykrywanie konfliktów i ponowne otwieranie szkicu.
+Edycja danych miejsca, tagów, wzmianek i lokalizacji. Automatyczny zapis, stan zapisu, ponawianie po błędzie i ponowne otwieranie szkicu.
 
-**Odbiór:** dane, wzmianki i lokalizacja pozostają w szkicu po zamknięciu i ponownym otwarciu. Błąd zapisu i konflikt są widoczne.
+**Odbiór:** dane, wzmianki i lokalizacja pozostają w szkicu po zamknięciu i ponownym otwarciu. Błąd zapisu jest widoczny.
 
 ## 3. Materiały i powiązania ze wzmiankami
 
@@ -30,13 +30,13 @@ Panel obok formularza, pokazujący zapisany szkic na podstawie istniejącej kart
 
 ## 5. Publikacja i przywracanie
 
-Walidacja pełnego szkicu, publikacja nowego miejsca lub zmian istniejącego wraz z materiałami oraz przywrócenie wersji opublikowanej. Obsługa konfliktów i ponowień.
+Walidacja pełnego szkicu, publikacja nowego miejsca lub zmian istniejącego wraz z materiałami oraz przywrócenie wersji opublikowanej. Obsługa błędów i ponowień.
 
-**Odbiór:** administrator tworzy miejsce ręcznie, publikuje je w emulatorze, zmienia szkic i przywraca wersję opublikowaną. Ręczny proces pracy z miejscem jest kompletny.
+**Odbiór:** administrator tworzy miejsce ręcznie, publikuje je w bazie dev, zmienia szkic i przywraca wersję opublikowaną. Ręczny proces pracy z miejscem jest kompletny.
 
 ## 6. Agent i propozycje zmian na żywo
 
-Agent Genkit zna model miejsca, aktualny szkic i kontekst bieżącej rozmowy. Obejmuje pętlę narzędzi, rzeczywisty postęp pracy, strumieniowanie propozycji do formularza i podglądu, czytelne porównanie zmian, kolejny prompt, akceptację i odrzucenie. Ręczne zmiany są zapisywane przed uruchomieniem agenta; podczas jego pracy formularz jest tylko do odczytu. Akceptacja uwzględnia wersję szkicu.
+Agent Genkit zna model miejsca, aktualny szkic i kontekst bieżącej rozmowy. Obejmuje pętlę narzędzi, rzeczywisty postęp pracy, strumieniowanie propozycji do formularza i podglądu, czytelne porównanie zmian, kolejny prompt, akceptację i odrzucenie. Ręczne zmiany są zapisywane przed uruchomieniem agenta; podczas jego pracy formularz jest tylko do odczytu. Akceptacja dotyczy przedstawionej propozycji; ostatni zapis szkicu wygrywa.
 
 **Odbiór:** administrator prosi o zmianę opisu i dodanie wzmianki, widzi proponowane wartości, może poprosić o poprawkę i zatwierdzić albo odrzucić wynik. Propozycja nie zmienia szkicu przed zatwierdzeniem.
 
@@ -60,9 +60,9 @@ Edycja, zapis i przywracanie dodatkowych wskazówek administratora na stronie li
 
 ## 10. Koszty, limity i odbiór całości
 
-Szacowany koszt oraz stan limitu zadania, z konfigurowalnym domyślnym limitem **1 USD na zadanie**. Pełny scenariusz z rzeczywistym Gemini i reprezentatywnym skanem; sprawdzenie błędów, konfliktów, utraty połączenia i ponownego otwarcia. Weryfikacja całości oraz aktualizacja właściwej dokumentacji.
+Szacowany koszt oraz stan limitu zadania, z konfigurowalnym domyślnym limitem **1 USD na zadanie**. Pełny scenariusz z rzeczywistym Gemini i reprezentatywnym skanem; sprawdzenie błędów, utraty połączenia i ponownego otwarcia. Weryfikacja całości oraz aktualizacja właściwej dokumentacji.
 
-**Odbiór:** przechodzi lokalny scenariusz od utworzenia szkicu przez źródła, propozycję i akceptację po publikację w emulatorze. Osobno sprawdzono odrzucenie, edycję istniejącego miejsca, przywrócenie oraz usuwanie szkicu.
+**Odbiór:** przechodzi lokalny scenariusz od utworzenia szkicu przez źródła, propozycję i akceptację po publikację w bazie dev. Osobno sprawdzono odrzucenie, edycję istniejącego miejsca, przywrócenie oraz usuwanie szkicu.
 
 ## Kolejność i zależności
 

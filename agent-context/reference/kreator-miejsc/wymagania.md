@@ -54,7 +54,7 @@ Dla **nowego i istniejącego miejsca** AI na bieżąco przygotowuje tymczasową 
 
 Po zakończeniu pracy administrator może wybrać **„OK”**, **„Odrzuć”** albo wysłać kolejne polecenie, aby agent kontynuował i poprawił tę samą propozycję w kontekście rozmowy. „OK” zatwierdza przedstawiony wynik i powoduje jego walidację oraz zapis do szkicu; „Odrzuć” usuwa propozycję z widoku i przywraca widok zapisanego szkicu. Obie akcje dotyczą tak samo nowych, jak i istniejących miejsc. Publikacja pozostaje osobną decyzją.
 
-Przed uruchomieniem agenta aplikacja kończy trwający automatyczny zapis ręcznych zmian. Jeśli zapis się nie uda, informuje o tym i nie uruchamia agenta na nieaktualnym szkicu. Zatwierdzenie odnosi się do konkretnej przedstawionej propozycji i wersji szkicu: jeśli w międzyczasie inny administrator zmienił szkic, aplikacja zgłasza konflikt zamiast nadpisać zmiany. Przy błędzie zapisu lub zerwanym połączeniu nie przedstawia propozycji jako zapisanej; sposób odzyskania stanu i tymczasowych materiałów zostanie określony w architekturze.
+Przed uruchomieniem agenta aplikacja kończy trwający automatyczny zapis ręcznych zmian. Jeśli zapis się nie uda, informuje o tym i nie uruchamia agenta na nieaktualnym szkicu. Zatwierdzenie odnosi się do konkretnej przedstawionej propozycji. Ostatni zapis szkicu wygrywa, także jeśli inny administrator zmienił go podczas pracy AI; nie wykrywamy konfliktów edycji. Przy błędzie zapisu lub zerwanym połączeniu nie przedstawia propozycji jako zapisanej; sposób odzyskania stanu i tymczasowych materiałów zostanie określony w architekturze.
 
 Propozycja musi być zrozumiała przed akceptacją. Pokazuje, jakiego pola, wzmianki lub materiału dotyczy; przy zmianie tekstu pokazuje dotychczasową i pełną proponowaną treść. Nową wzmiankę przedstawia z jej treścią, nowy skan jako podgląd, a usunięcie jednoznacznie wskazuje usuwany element. Jeśli AI powołuje się na źródło, pokazuje je wraz z dostępnym wskazaniem, np. stroną dokumentu. Przy kilku zmianach każdą przedstawia w sposób pozwalający ją ocenić. Szczegółowy sposób zatwierdzania części zestawu wymaga dopracowania.
 
@@ -124,7 +124,7 @@ Przycisk „Publikuj” publikuje zapisany szkic: tworzy publiczną kartę noweg
 - AI może przygotować skan z ramką bez ręcznego rysowania jej w formularzu.
 - Zarówno dla nowego, jak i istniejącego miejsca formularz i karta pokazują na bieżąco wyraźnie oznaczone propozycje AI. Formularz jest tylko do odczytu podczas pracy AI.
 - Administrator może poprawić propozycję kolejnym poleceniem, zatwierdzić ją albo odrzucić. Dopiero zatwierdzona i poprawnie zapisana propozycja zmienia szkic; odrzucenie pozostawia go bez zmian.
-- Przed pracą AI ręczne zmiany są zapisane; konflikt wersji szkicu lub błąd zapisu jest zgłaszany i nie powoduje cichego nadpisania.
+- Przed pracą AI ręczne zmiany są zapisane; błąd zapisu jest zgłaszany. Ostatni zapis wspólnego szkicu wygrywa.
 - Poza trybem propozycji podgląd pokazuje zapisany szkic; w trybie propozycji pokazuje także oznaczone niezatwierdzone zmiany. Publikacja jest osobną akcją, a wersję opublikowaną można przywrócić.
 - Błędy odczytu, pracy AI, zapisu i publikacji są czytelne i nie są przedstawiane jako powodzenie.
 
@@ -134,4 +134,4 @@ Wstępnie przyjmujemy Genkit jako framework agenta oraz **Gemini 3.5 Flash-Lite*
 
 ## Otwarte decyzje techniczne
 
-W kolejnym etapie należy określić: sposób przechowywania, kontroli dostępu i wersjonowania edytowalnych wskazówek oraz ich łączenia ze stałymi instrukcjami; sposób uruchomienia Genkit i przekazywania kolejnych zmian do interfejsu, obsługę przerwanej sesji i rzeczywisty zakres informacji o postępie; utrzymanie kontekstu i jego ograniczenia; bezpieczny odczyt linków i PDF-ów; mechanizm skanów z ramką; cykl życia plików; strukturę wspólnych szkiców i zachowanie przy równoczesnej pracy administratorów; publikację i przywracanie oraz wymagane zmiany Firebase, zabezpieczeń i dokumentacji. Ustalenia te nie są jeszcze deklaracją wdrożenia ani wyboru dostawcy.
+W kolejnym etapie należy określić: sposób przechowywania, kontroli dostępu i wersjonowania edytowalnych wskazówek oraz ich łączenia ze stałymi instrukcjami; sposób uruchomienia Genkit i przekazywania kolejnych zmian do interfejsu, obsługę przerwanej sesji i rzeczywisty zakres informacji o postępie; utrzymanie kontekstu i jego ograniczenia; bezpieczny odczyt linków i PDF-ów; mechanizm skanów z ramką; cykl życia plików; szczegóły struktury wspólnych szkiców, publikacji i przywracania oraz wymagane zmiany Firebase, zabezpieczeń i dokumentacji. Ustalenia te nie są jeszcze deklaracją wdrożenia ani wyboru dostawcy.

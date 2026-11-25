@@ -32,6 +32,7 @@ export class PortalMenu {
   private readonly closeButton = viewChild.required<ElementRef<HTMLButtonElement>>('closeButton');
   private readonly dropdown = viewChild.required<ElementRef<HTMLElement>>('dropdown');
   readonly account = inject(Account);
+  readonly creatorLocal = typeof window !== 'undefined' && window.location.hostname === 'localhost' && window.location.port === '4200';
   async toggleAccount(): Promise<void> {
     this.menu.close();
     await this.account.toggle();

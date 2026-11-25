@@ -7,6 +7,7 @@ Plan funkcji, nie opis aktualnie dostępnej aplikacji. Wymagania są punktem odn
 - [Wstępna architektura](architektura-wstepna.md) — ustalenia techniczne, stan Firebase, próby modelu i otwarte kwestie.
 - [Wymagania funkcjonalne](wymagania.md) — zakres MVP, scenariusze i kryteria odbioru.
 - [Podział prac](podzial-zadan.md) — kolejność, zakres i kryteria odbioru dziesięciu zadań.
+- [Plan fazy 1](plan-fazy-1.md) — lista miejsc, szkice i układ edytora oraz lokalny odbiór na bazie dev.
 - [Projekt edytora](mocki/projekt-edytora.html) — nowszy podgląd desktopowego edytora z pełnym modelem miejsca.
 - [Układ roboczy](mocki/uklad-roboczy.html) — wcześniejszy szkic listy i edytora; zawiera nieaktualny przycisk ręcznego zaznaczania wycinka. Uzgodnione wymagania przewidują zaznaczanie przez AI.
 

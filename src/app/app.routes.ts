@@ -3,6 +3,8 @@ import { Routes } from '@angular/router';
 import { NotFound } from './not-found/not-found';
 import { PrivacyPolicy } from './privacy/privacy-policy/privacy-policy';
 export const routes: Routes = [
+  { path: 'kreator', loadComponent: () => import('./creator/creator-list/creator-list').then((m) => m.CreatorList), title: 'Kreator miejsc — Historyczny Rybnik' },
+  { path: 'kreator/:id', loadComponent: () => import('./creator/creator-draft/creator-draft').then((m) => m.CreatorDraft), title: 'Szkic miejsca — Historyczny Rybnik' },
   { path: 'o-nas', component: About, title: 'O nas — Historyczny Rybnik' },
   {
     path: 'prywatnosc',

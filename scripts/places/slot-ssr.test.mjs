@@ -10,6 +10,11 @@ test('only place rendering is redirected to the slot function', () => {
     assert.equal(configureSlotSsr(config, `dev-${slot}`), `placesDevWeb${slot}`);
     assert.equal(config.hosting.site, `historyczny-rybnik-dev-${slot}`);
     for (const route of config.hosting.rewrites) {
+      if (route.destination) {
+        assert.equal(route.destination, '/index.csr.html');
+        assert.ok(['/kreator', '/kreator/**'].includes(route.source));
+        continue;
+      }
       assert.equal(
         route.function.functionId,
         route.source === '/miejsca/**' ? `placesDevWeb${slot}` : 'placesDevWeb',

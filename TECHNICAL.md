@@ -23,6 +23,8 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 
 ## Architektura frontendu
 
+Kreator (`/kreator`, `/kreator/:id`) działa jako SPA w przeglądarce; Hosting dev kieruje jego trasy do szkieletu CSR. Lista i szkice są dostępne administratorowi, a lokalnie także bez logowania zgodnie z wyjątkiem SECURITY. Lista korzysta z kontenera o tej samej szerokości co „O nas”; edytor zajmuje pełną szerokość. Trzy panele szkicu używają mechanizmu przeciągania i klawiatury współdzielonego z mapą, z osobnymi preferencjami. Usuwanie szkicu korzysta ze współdzielonego potwierdzenia `ConfirmDialog` na natywnym dialogu i komponencie modal daisyUI. Formularz, podgląd i AI pozostają w kolejnych fazach.
+
 | Obszar | Odpowiedzialność |
 | --- | --- |
 | `src/main.ts`, `main.server.ts`, `app.config*.ts` | Start przeglądarki, SSG i SSR, konfiguracja Angulara, routera i hydratacji. |
@@ -43,6 +45,8 @@ Atlas przekazuje mapie pełny katalog miejsc, a panelowi wyszukiwania wynik filt
 `Locations` ładuje Firebase i App Check dopiero po zgodzie Google i pobiera bieżącą pozycję przed edycją. Publiczne API i karty są dostępne niezależnie od zgody; publiczny odczyt nie zmienia chronionego API zapisu.
 
 ## Architektura backendu
+
+Kreator przechowuje wspólne szkice w `placeDrafts` w `places-dev`, oddzielnie od publicznych `places`. Funkcje callable wymagają App Check, Google Auth i roli administratora. Lokalny serwer `creator:local` nasłuchuje wyłącznie na 127.0.0.1:5002, przyjmuje tylko pochodzenie `http://localhost:4200` i korzysta z rzeczywistej bazy dev bez Auth i App Check, zgodnie z wyjątkiem SECURITY. Lista łączy rekordy po identyfikatorze, a usunięcie szkicu transakcyjnie wyklucza istniejące miejsce. Ostatni zapis wygrywa. Wdrożone konto API nie ma jeszcze przyznanych uprawnień potrzebnych nowym operacjom; przed wdrożeniem wymagane jest osobne sprawdzenie IAM.
 
 | Obszar | Odpowiedzialność |
 | --- | --- |
@@ -83,6 +87,10 @@ npm start
 npm run build
 npm run emulate
 ```
+
+Lokalny kreator: w jednym terminalu `npm run creator:local -- --firebase-cli`, w drugim `npm start` i otwarcie `http://localhost:4200/kreator`. Wymagane jest wcześniejsze logowanie Firebase CLI i uprawnienia operatora do odczytu i zapisu bazy `places-dev`. Alternatywnie uruchomienie bez `--firebase-cli` używa ADC. Zapis zmienia rzeczywiste współdzielone dane dev; lokalny serwer nie służy do udostępniania w sieci.
+
+Lokalny serwer Angulara przekazuje żądania `/api/public-places` i `/api/public-places/**` do publicznego API integracyjnego dev przez `proxy.conf.json`. Dzięki temu mapa i karty korzystają z aktualnych opublikowanych miejsc; po zmianie konfiguracji proxy należy ponownie uruchomić `npm start`.
 
 Build generuje statyczne strony informacyjne w `dist/historyczny-rybnik/browser` i serwer Angulara w `functions/ssr`. Nie wymaga kopii danych miejsc ani połączenia z Firestore; rekordy aplikacji pochodzą z publicznego API w runtime, a SSR karty pobiera aktualną projekcję z bazy. Build sprawdza obecność serwera SSR, ale nie renderuje fikcyjnej karty. `data/places.fixture.json` jest używany tylko w testach. `npm run build` sprawdza też prerender strony głównej, 404 i blokadę indeksowania preview. Fonty Lora i Source Sans 3 (również latin-ext z polskimi znakami) są bundlowane lokalnie z pakietów Fontsource; ich licencje znajdują się w `public/fonts`.
 

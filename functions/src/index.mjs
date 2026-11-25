@@ -37,3 +37,9 @@ export const placesDevWeb = onRequest(webOptions, publicWeb(db, render));
 export const placesDevWeb1 = onRequest(webOptions, publicWeb(db, render));
 export const placesDevWeb2 = onRequest(webOptions, publicWeb(db, render));
 export const placesDevWeb3 = onRequest(webOptions, publicWeb(db, render));
+
+import { listCreatorPlaces, createCreatorDraft, openCreatorDraft, deleteCreatorDraft } from './creator.mjs';
+export const placesDevCreatorList = onCall(options, (request) => listCreatorPlaces(db, request));
+export const placesDevCreatorCreate = onCall(options, (request) => createCreatorDraft(db, request));
+export const placesDevCreatorOpen = onCall(options, (request) => openCreatorDraft(db, request));
+export const placesDevCreatorDelete = onCall(options, (request) => deleteCreatorDraft(db, request));
