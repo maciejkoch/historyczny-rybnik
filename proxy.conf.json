@@ -1,0 +1,10 @@
+{
+  "/api/public-places": {
+    "target": "https://historyczny-rybnik-dev.web.app",
+    "changeOrigin": true
+  },
+  "/api/public-places/**": {
+    "target": "https://historyczny-rybnik-dev.web.app",
+    "changeOrigin": true
+  }
+}

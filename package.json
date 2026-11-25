@@ -30,7 +30,8 @@
     "research:view": "node scripts/research/viewer/server.mjs",
     "test:research": "node --test scripts/research/test/*.test.mjs",
     "places:import-one": "node scripts/places/import-place.mjs",
-    "test:place-import": "node --test scripts/places/import-place.test.mjs"
+    "test:place-import": "node --test scripts/places/import-place.test.mjs",
+    "creator:local": "node functions/src/creator-local.mjs"
   },
   "private": true,
   "packageManager": "npm@12.0.2",

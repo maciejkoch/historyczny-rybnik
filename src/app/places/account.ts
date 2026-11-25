@@ -8,6 +8,7 @@ export class Account {
   readonly consent = inject(Consent);
   readonly user = signal<User | null>(null);
   readonly admin = signal(false);
+  readonly authorizationReady = signal(false);
   readonly busy = signal(false);
   readonly message = signal('');
   private client?: Promise<import('firebase/auth').Auth>;
@@ -33,17 +34,24 @@ export class Account {
       ]);
       const auth = getAuth(getApps()[0] ?? initializeApp(FIREBASE_DEV.firebase));
       auth.languageCode = 'pl';
+      let revision = 0;
       onIdTokenChanged(auth, async (user) => {
+        const currentRevision = ++revision;
+        this.authorizationReady.set(false);
         this.admin.set(false);
         this.user.set(user);
         if (user) {
           try {
             const token = await user.getIdTokenResult();
-            if (auth.currentUser === user) this.admin.set(token.claims['admin'] === true);
+            if (revision === currentRevision && auth.currentUser === user)
+              this.admin.set(
+                token.signInProvider === 'google.com' && token.claims['admin'] === true,
+              );
           } catch {
-            this.admin.set(false);
+            if (revision === currentRevision) this.admin.set(false);
           }
         }
+        if (revision === currentRevision) this.authorizationReady.set(true);
       });
       await auth.authStateReady();
       return auth;
@@ -51,6 +59,23 @@ export class Account {
       this.client = undefined;
       throw error;
     }));
+  }
+  async isAdministrator(): Promise<boolean> {
+    if (!this.consent.google()) return false;
+    try {
+      const auth = await this.initialize();
+      const user = auth.currentUser;
+      if (!user) return false;
+      const token = await user.getIdTokenResult();
+      return (
+        this.consent.google() &&
+        auth.currentUser === user &&
+        token.signInProvider === 'google.com' &&
+        token.claims['admin'] === true
+      );
+    } catch {
+      return false;
+    }
   }
   async toggle(): Promise<void> {
     if (this.busy()) return;

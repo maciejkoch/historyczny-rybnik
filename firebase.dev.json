@@ -44,6 +44,14 @@
     "redirects": [],
     "rewrites": [
       {
+        "source": "/kreator",
+        "destination": "/index.csr.html"
+      },
+      {
+        "source": "/kreator/**",
+        "destination": "/index.csr.html"
+      },
+      {
         "source": "/miejsca/**",
         "function": {
           "functionId": "placesDevWeb",

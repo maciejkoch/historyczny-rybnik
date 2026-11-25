@@ -28,6 +28,7 @@ const STORAGE_KEY = 'historyczny-rybnik.panel.v1';
 export class PanelLayout {
   readonly side = input<'left' | 'right'>('left');
   readonly split = input(false);
+  readonly preferenceKey = input<string>();
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly destroyRef = inject(DestroyRef);
   private readonly consent = inject(Consent);
@@ -206,6 +207,6 @@ export class PanelLayout {
   }
 
   private storageKey(): string {
-    return this.side() === 'right' ? 'historyczny-rybnik.details-panel.v1' : STORAGE_KEY;
+    return this.preferenceKey() ?? (this.side() === 'right' ? 'historyczny-rybnik.details-panel.v1' : STORAGE_KEY);
   }
 }

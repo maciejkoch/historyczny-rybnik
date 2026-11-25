@@ -36,7 +36,8 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). `fires
 | Polecenie | Co uruchamia |
 | --- | --- |
 | `npm run ng` | Angular CLI. |
-| `npm start` | Lokalny serwer Angular. |
+| `npm start` | Lokalny serwer Angular; katalog i szczegóły miejsc przekazuje do publicznego API dev przez `proxy.conf.json`. |
+| `npm run creator:local -- --firebase-cli` | Lokalny backend kreatora na loopback, z rzeczywistą bazą dev i logowaniem operatora Firebase CLI; bez flagi używa ADC. |
 | `npm run build` | Build Angulara i SSR, konfiguracja Hosting oraz weryfikacja artefaktów; bez połączenia z bazą. |
 | `npm run watch` | Build deweloperski w trybie obserwacji. |
 | `npm run preview` | Build i publikacja 30-dniowego kanału Hosting `faza-1`. |
@@ -58,6 +59,7 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). `fires
 | Plik / polecenie | Rola |
 | --- | --- |
 | [functions/test/contracts.test.mjs](../functions/test/contracts.test.mjs) | Zgodność i współdzielenie kontraktów danych. |
+| [functions/test/creator.test.mjs](../functions/test/creator.test.mjs), [creator.emulator.mjs](../functions/test/creator.emulator.mjs) | Autoryzacja i walidacja kreatora, wspólne szkice i ochrona opublikowanych miejsc. |
 | [functions/test/public-places.test.mjs](../functions/test/public-places.test.mjs) | Projekcja opublikowanych rekordów, publiczne API, SSR i galerie. |
 | [functions/test/validation.test.mjs](../functions/test/validation.test.mjs) | Walidacja danych wejściowych. |
 | [functions/test/api.emulator.mjs](../functions/test/api.emulator.mjs) | Odczyt, zapis i konflikty API w emulatorze. |
