@@ -183,7 +183,7 @@ export class CreatorDraft {
   private captureChanges(): void {
     const form = this.form();
     const draft = this.draft();
-    if (!form || !draft || !form.initialized()) return;
+    if (!form || !draft || !form.ready()) return;
     const value = form.value(draft.data);
     const serialized = JSON.stringify(value);
     if (this.baseline === null) {
@@ -199,7 +199,7 @@ export class CreatorDraft {
   }
   private hasInvalidDates(): boolean {
     const form = this.form();
-    return !!form && (form.fields.from().invalid() || form.fields.to().invalid());
+    return !!form && form.invalidDates();
   }
   async flush(): Promise<void> {
     clearTimeout(this.timer);
