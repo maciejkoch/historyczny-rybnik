@@ -6,6 +6,7 @@ import {
   creatorEmptyRequestSchema,
   creatorIdRequestSchema,
   creatorListResponseSchema,
+  creatorSaveRequestSchema,
   draftDataSchema,
   draftResponseSchema,
 } from './contracts/creator.mjs';
@@ -126,6 +127,22 @@ export async function deleteCreatorDraft(db, request, checkAccess = authorize) {
     if (!draft.exists) throw new HttpsError('not-found', 'Draft unavailable');
     if (published.exists) throw new HttpsError('failed-precondition', 'Place cannot be deleted');
     tx.delete(ref);
+  });
+  return { ok: true };
+}
+
+export async function saveCreatorDraft(db, request, checkAccess = authorize) {
+  checkAccess(request);
+  const { id, data: content } = validate(creatorSaveRequestSchema, request.data);
+  const ref = db.collection('placeDrafts').doc(id);
+  await db.runTransaction(async (tx) => {
+    const current = await tx.get(ref);
+    if (!current.exists) throw new HttpsError('not-found', 'Draft unavailable');
+    tx.set(ref, {
+      ...content,
+      createdAt: current.data().createdAt,
+      updatedAt: FieldValue.serverTimestamp(),
+    });
   });
   return { ok: true };
 }

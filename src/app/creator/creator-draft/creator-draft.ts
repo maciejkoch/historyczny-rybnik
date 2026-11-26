@@ -1,12 +1,24 @@
-import { afterNextRender, ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  effect,
+  inject,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { PanelLayout } from '../../atlas/panel-layout';
 import { PortalHeader } from '../../layout/portal-header/portal-header';
 import { Creator, CreatorDraft as Draft } from '../creator';
+import { DraftForm } from './draft-form';
+import { ConfirmDialog } from '../../shared/confirm-dialog/confirm-dialog';
+import { Account } from '../../places/account';
 @Component({
   selector: 'app-creator-draft',
   host: { class: 'flex h-dvh flex-col' },
-  imports: [RouterLink, PanelLayout, PortalHeader],
+  imports: [RouterLink, PanelLayout, PortalHeader, DraftForm, ConfirmDialog],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
     .creator-separator {
@@ -39,7 +51,19 @@ import { Creator, CreatorDraft as Draft } from '../creator';
       <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
         <a routerLink="/kreator" class="link">← Lista miejsc</a>
         <h1 class="text-2xl font-semibold">{{ draft()?.data?.name || 'Nowy szkic' }}</h1>
+        <span role="status" class="text-sm">{{ statusText() }}</span>
+        @if (saveState() === 'error') {
+          <button class="btn btn-sm" (click)="retry()">Ponów zapis</button>
+        }
       </div>
+      <app-confirm-dialog
+        title="Niezapisane zmiany"
+        message="Zmiany nie zostały zapisane. Czy chcesz opuścić edytor?"
+        confirmLabel="Opuść"
+        cancelLabel="Zostań"
+        [destructive]="true"
+        (closed)="confirmLeave($event)"
+      />
       @if (error()) {
         <p role="alert" class="alert alert-error mt-5">
           Nie udało się otworzyć szkicu. <button class="btn btn-sm" (click)="load()">Ponów</button>
@@ -89,8 +113,7 @@ import { Creator, CreatorDraft as Draft } from '../creator';
           <section
             class="min-w-[280px] flex-1 overflow-y-auto rounded-box border border-base-300 bg-base-100 p-5"
           >
-            <h2 class="text-xl font-semibold">Edycja ręczna</h2>
-            <p class="mt-3">Formularz miejsca pojawi się w kolejnym etapie.</p>
+            <app-draft-form [initial]="draft()!.data" />
           </section>
           <div
             class="creator-separator"
@@ -136,8 +159,93 @@ export class CreatorDraft {
   private readonly route = inject(ActivatedRoute);
   readonly draft = signal<Draft | null>(null);
   readonly error = signal(false);
+  readonly saveState = signal<'saved' | 'dirty' | 'saving' | 'error'>('saved');
+  readonly statusText = () =>
+    ({
+      saved: 'Szkic zapisany',
+      dirty: 'Niezapisane zmiany',
+      saving: 'Zapisywanie…',
+      error: 'Nie udało się zapisać',
+    })[this.saveState()];
+  private readonly form = viewChild(DraftForm);
+  private readonly dialog = viewChild.required(ConfirmDialog);
+  private readonly account = inject(Account);
+  private baseline: string | null = null;
+  private latest: Draft['data'] | null = null;
+  private timer: ReturnType<typeof setTimeout> | undefined;
+  private pending: Promise<void> | null = null;
+  private resolveLeave: ((allow: boolean) => void) | null = null;
   constructor() {
+    inject(DestroyRef).onDestroy(() => clearTimeout(this.timer));
     afterNextRender(() => void this.load());
+    effect(() => this.captureChanges());
+  }
+  private captureChanges(): void {
+    const form = this.form();
+    const draft = this.draft();
+    if (!form || !draft || !form.ready()) return;
+    const value = form.value(draft.data);
+    const serialized = JSON.stringify(value);
+    if (this.baseline === null) {
+      this.baseline = serialized;
+      return;
+    }
+    if (serialized === this.baseline) return;
+    this.baseline = serialized;
+    this.latest = value;
+    this.saveState.set('dirty');
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => void this.flush(), 500);
+  }
+  private hasInvalidDates(): boolean {
+    const form = this.form();
+    return !!form && form.invalidDates();
+  }
+  async flush(): Promise<void> {
+    clearTimeout(this.timer);
+    if (this.pending) {
+      await this.pending;
+      if (this.saveState() === 'error') return;
+    }
+    if (!this.latest) return;
+    if (this.hasInvalidDates()) {
+      this.saveState.set('dirty');
+      return;
+    }
+    const data = this.latest;
+    this.latest = null;
+    this.saveState.set('saving');
+    this.pending = this.creator
+      .save(this.draft()!.id, data)
+      .then(() => {
+        this.saveState.set(this.latest ? 'dirty' : 'saved');
+      })
+      .catch(() => {
+        this.latest ??= data;
+        this.saveState.set('error');
+      })
+      .finally(() => {
+        this.pending = null;
+      });
+    await this.pending;
+    if (this.latest && this.saveState() !== 'error') await this.flush();
+  }
+  retry(): void {
+    void this.flush();
+  }
+  async canLeave(): Promise<boolean> {
+    if (this.account.authorizationReady() && !this.account.admin()) return true;
+    this.captureChanges();
+    await this.flush();
+    if (this.saveState() === 'saved') return true;
+    return new Promise((resolve) => {
+      this.resolveLeave = resolve;
+      this.dialog().open();
+    });
+  }
+  confirmLeave(confirmed: boolean): void {
+    this.resolveLeave?.(confirmed);
+    this.resolveLeave = null;
   }
   async load(): Promise<void> {
     this.error.set(false);

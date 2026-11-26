@@ -2,7 +2,7 @@ import { About } from './about/about';
 import { Routes } from '@angular/router';
 import { NotFound } from './not-found/not-found';
 import { PrivacyPolicy } from './privacy/privacy-policy/privacy-policy';
-import { creatorGuard } from './creator/creator-guard';
+import { creatorGuard, unsavedCreatorGuard } from './creator/creator-guard';
 export const routes: Routes = [
   {
     path: 'kreator',
@@ -13,6 +13,8 @@ export const routes: Routes = [
   {
     path: 'kreator/:id',
     canActivate: [creatorGuard],
+    canDeactivate: [unsavedCreatorGuard],
+    runGuardsAndResolvers: 'paramsChange',
     loadComponent: () =>
       import('./creator/creator-draft/creator-draft').then((m) => m.CreatorDraft),
     title: 'Szkic miejsca — Historyczny Rybnik',
