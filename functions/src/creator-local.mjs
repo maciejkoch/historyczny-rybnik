@@ -3,6 +3,8 @@ import express from 'express';
 import { createRequire } from 'node:module';
 import { Firestore } from '@google-cloud/firestore';
 import { GoogleAuth, OAuth2Client } from 'google-auth-library';
+import { Storage } from '@google-cloud/storage';
+import { uploadCreatorMaterial } from './creator-material.mjs';
 import { initializeApp } from 'firebase-admin/app';
 import { getAuth } from 'firebase-admin/auth';
 import {
@@ -26,6 +28,7 @@ if (
 }
 const projectId = 'historyczny-rybnik';
 const options = { projectId, databaseId: 'places-dev' };
+let storageAuthClient;
 if (process.argv.includes('--firebase-cli')) {
   const requireRoot = createRequire(new URL('../../package.json', import.meta.url));
   const { getGlobalDefaultAccount } = requireRoot('firebase-tools/lib/auth');
@@ -34,9 +37,15 @@ if (process.argv.includes('--firebase-cli')) {
   if (!account) throw new Error('Sign in with firebase login first');
   const authClient = new OAuth2Client({ clientId: clientId(), clientSecret: clientSecret() });
   authClient.setCredentials({ refresh_token: account.tokens.refresh_token });
+  storageAuthClient = authClient;
   options.auth = new GoogleAuth({ authClient, projectId });
 }
 const db = new Firestore(options);
+const storage = new Storage({
+  projectId,
+  ...(storageAuthClient ? { authClient: storageAuthClient } : {}),
+});
+const bucket = storage.bucket('historyczny-rybnik-dev-files');
 const auth = getAuth(initializeApp({ projectId }));
 const app = express();
 app.use((req, res, next) => {
@@ -56,13 +65,14 @@ app.use((req, res, next) => {
   if (req.method === 'OPTIONS') return res.status(204).end();
   next();
 });
-app.use(express.json({ limit: '1mb' }));
+app.use(express.json({ limit: '12mb' }));
 const handlers = {
   placesDevCreatorList: listCreatorPlaces,
   placesDevCreatorCreate: createCreatorDraft,
   placesDevCreatorOpen: openCreatorDraft,
   placesDevCreatorDelete: deleteCreatorDraft,
   placesDevCreatorSave: saveCreatorDraft,
+  placesDevCreatorUpload: (db, request) => uploadCreatorMaterial(db, bucket, request, true),
 };
 for (const [name, handler] of Object.entries(handlers)) {
   app.post('/historyczny-rybnik/europe-central2/' + name, async (req, res) => {

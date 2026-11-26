@@ -155,3 +155,7 @@ Skill `rybnik-create-place` używa bieżącego agenta bez wymogu konkretnego mod
 Aplikacja używa MapLibre GL JS 6.16.0: źródeł i warstw wektorowych, rastrowych oraz GeoJSON, znaczników HTML, kamery, kontrolek i zdarzeń mapy. Grupowanie wykorzystuje klastrowanie GeoJSON MapLibre; własna obsługa znaczników i animacji grup znajduje się w `src/app/atlas-map/group-markers.ts`, a rozstrzyganie nakładających się grup w `src/app/atlas-map/cluster-visibility.ts`.
 
 Domyślna kamera i przycisk powrotu mapy używają wspólnego punktu na Rynku. Kontrolka atrybucji MapLibre zachowuje dane źródeł i domyślny responsywny tryb: na wąskiej mapie po przesunięciu zwija się do przycisku informacji. Działania edycji lokalizacji są wyświetlane w sekcji lokalizacji karty.
+
+### Materiały kreatora
+
+Administrator przesyła JPEG, PNG lub WebP o rozmiarze do 8 MiB. Backend weryfikuje obraz, ogranicza liczbę pikseli, tworzy pełny WebP i miniaturę oraz zapisuje je w publicznej ścieżce bucketa dev; adres jest dostępny publicznie od uploadu. Metadane i powiązania są zapisywane w szkicu, a usunięcie materiału z formularza odłącza go od wzmianek bez usuwania plików. Sprzątanie nieużywanych obiektów wymaga osobnego zadania. Upload może pozostawić niepodłączone pliki po błędzie. Lokalny operator potrzebuje uprawnień do zapisu w buckecie; wdrożone konto API wymaga osobnej weryfikacji minimalnego IAM przed wdrożeniem.

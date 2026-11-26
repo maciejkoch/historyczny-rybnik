@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, effect, input, output, signal } from '@angular/core';
 import { form, FormField, maxLength, validate } from '@angular/forms/signals';
 import type { CreatorDraft } from '../creator';
+import { FIREBASE_DEV } from '../../places/runtime-config';
 import { displayMentionDate, storeMentionDate, validMentionDate } from './mention-date';
 type Mention = NonNullable<CreatorDraft['data']['mentions']>[number];
 @Component({
@@ -11,15 +12,15 @@ type Mention = NonNullable<CreatorDraft['data']['mentions']>[number];
     <summary class="collapse-title font-semibold">{{ model().title || 'Nowa wzmianka' }}</summary>
     <div class="collapse-content">
       <label class="fieldset"
-        ><span class="text-sm font-semibold">Tytuł</span
+        ><span class="fieldset-legend text-sm">Tytuł</span
         ><input class="input w-full" [formField]="fields.title"
       /></label>
       <label class="fieldset"
-        ><span class="text-sm font-semibold">Opis</span
+        ><span class="fieldset-legend text-sm">Opis</span
         ><textarea class="textarea w-full" rows="3" [formField]="fields.description"></textarea>
       </label>
       <label class="fieldset"
-        ><span class="text-sm font-semibold">Data publikacji źródła</span
+        ><span class="fieldset-legend text-sm">Data publikacji źródła</span
         ><input
           class="input w-full"
           [formField]="fields.publicationDate"
@@ -34,7 +35,7 @@ type Mention = NonNullable<CreatorDraft['data']['mentions']>[number];
       <fieldset class="fieldset">
         <legend class="fieldset-legend text-sm">Okres, którego dotyczy wzmianka</legend>
         <div class="flex gap-2">
-          <label class="grow text-sm"
+          <label class="grow text-sm font-semibold"
             >Od<input
               class="input w-full"
               [formField]="fields.from"
@@ -44,7 +45,7 @@ type Mention = NonNullable<CreatorDraft['data']['mentions']>[number];
               <span class="text-error-content" role="alert">Wpisz poprawną datę.</span>
             }
           </label>
-          <label class="grow text-sm"
+          <label class="grow text-sm font-semibold"
             >Do<input class="input w-full" [formField]="fields.to" placeholder="Opcjonalnie" />
             @if (fields.to().touched() && fields.to().invalid()) {
               <span class="text-error-content" role="alert">Wpisz poprawną datę.</span>
@@ -54,18 +55,116 @@ type Mention = NonNullable<CreatorDraft['data']['mentions']>[number];
         <p class="text-sm text-base-content/70">Puste „Do” oznacza pojedynczą datę.</p>
       </fieldset>
       <label class="fieldset"
-        ><span class="text-sm font-semibold">Nazwa źródła</span
+        ><span class="fieldset-legend text-sm">Nazwa źródła</span
         ><input class="input w-full" [formField]="fields.source"
       /></label>
       <label class="fieldset"
-        ><span class="text-sm font-semibold">Link do źródła</span
+        ><span class="fieldset-legend text-sm">Link do źródła</span
         ><input class="input w-full" [formField]="fields.sourceUrl"
       /></label>
       <label class="fieldset"
-        ><span class="text-sm font-semibold">Wskazanie fragmentu źródła</span
+        ><span class="fieldset-legend text-sm">Wskazanie fragmentu źródła</span
         ><input class="input w-full" [formField]="fields.sourceNote" placeholder="Np. strona 4"
       /></label>
-      <button type="button" class="btn btn-outline btn-sm mt-3" (click)="removeRequested.emit()">
+      <div class="mt-4">
+        <p class="font-semibold">Powiązane materiały</p>
+        <div class="mt-2 flex flex-wrap gap-2">
+          @for (material of materials(); track $index) {
+            @if (isSelected(material.materialId)) {
+              <button
+                type="button"
+                class="btn h-auto p-1"
+                (click)="openPicker(materialPicker)"
+                [attr.aria-label]="'Edytuj powiązane materiały: ' + (material.alt || 'obraz')"
+              >
+                <img
+                  class="h-24 w-24 object-cover"
+                  [src]="imageUrl(material.thumbnailPath)"
+                  [alt]="material.alt || 'Materiał'"
+                />
+              </button>
+            }
+          }
+        </div>
+        <button type="button" class="btn btn-outline mt-2" (click)="openPicker(materialPicker)">
+          Dodaj materiał
+        </button>
+        <dialog
+          #materialPicker
+          class="modal"
+          aria-label="Wybierz materiały"
+          (close)="pickerClosed()"
+        >
+          <div class="modal-box">
+            <h3 class="text-lg font-semibold">Wybierz materiały</h3>
+            <div class="mt-2 flex flex-wrap gap-2">
+              @for (material of materials(); track $index) {
+                @if (material.materialId) {
+                  <button
+                    type="button"
+                    class="btn h-auto p-1"
+                    [class.btn-primary]="pendingIds().includes(material.materialId)"
+                    [attr.aria-pressed]="pendingIds().includes(material.materialId)"
+                    (click)="togglePending(material.materialId)"
+                  >
+                    <img
+                      class="h-24 w-24 object-cover"
+                      [src]="imageUrl(material.thumbnailPath)"
+                      [alt]="material.alt || 'Materiał'"
+                    />
+                  </button>
+                }
+              } @empty {
+                <p>Nie dodano jeszcze materiałów.</p>
+              }
+            </div>
+            <input
+              #mentionFile
+              hidden
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              (change)="uploadFile($any($event.target).files?.[0]); $any($event.target).value = ''"
+            />
+            @if (uploading()) {
+              <p role="status">Przesyłanie materiału…</p>
+            }
+            @if (uploadError()) {
+              <p role="alert" class="alert alert-error">
+                {{ uploadError() }} Wybierz plik ponownie.
+              </p>
+            }
+            <div class="modal-action flex flex-wrap items-center justify-between gap-2">
+              <button
+                type="button"
+                class="btn btn-outline"
+                [disabled]="uploading()"
+                (click)="mentionFile.click()"
+              >
+                Dodaj nowy materiał
+              </button>
+              <div class="flex gap-2">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  [disabled]="uploading()"
+                  (click)="acceptPicker(materialPicker)"
+                >
+                  OK
+                </button>
+                <button type="button" class="btn" (click)="materialPicker.close()">Anuluj</button>
+              </div>
+            </div>
+          </div>
+          <form method="dialog" class="modal-backdrop">
+            <button aria-label="Zamknij okno">Zamknij</button>
+          </form>
+        </dialog>
+      </div>
+      <button
+        type="button"
+        class="btn btn-outline border-error-content text-error-content mt-3"
+        (click)="removeRequested.emit()"
+      >
         Usuń wzmiankę
       </button>
     </div>
@@ -74,6 +173,48 @@ type Mention = NonNullable<CreatorDraft['data']['mentions']>[number];
 export class MentionEditor {
   readonly initial = input.required<Mention>();
   readonly removeRequested = output<void>();
+  readonly materials = input<NonNullable<CreatorDraft['data']['materials']>>([]);
+  readonly uploading = input(false);
+  readonly uploadError = input('');
+  readonly selectionAccepted = output<string[]>();
+  readonly uploadRequested = output<{ file: File; onUploaded: (id: string) => void }>();
+  readonly pendingIds = signal<string[]>([]);
+  private pickerSession = 0;
+  openPicker(dialog: HTMLDialogElement): void {
+    this.pickerSession++;
+    this.pendingIds.set([...(this.initial().materialIds ?? [])]);
+    dialog.showModal();
+  }
+  pickerClosed(): void {
+    this.pickerSession++;
+  }
+  togglePending(id: string): void {
+    this.pendingIds.update((ids) =>
+      ids.includes(id) ? ids.filter((item) => item !== id) : [...ids, id],
+    );
+  }
+  acceptPicker(dialog: HTMLDialogElement): void {
+    this.selectionAccepted.emit(this.pendingIds());
+    dialog.close();
+  }
+  uploadFile(file: File | undefined): void {
+    if (!file) return;
+    const session = this.pickerSession;
+    this.uploadRequested.emit({
+      file,
+      onUploaded: (id) => {
+        if (session === this.pickerSession) this.pendingIds.update((ids) => [...ids, id]);
+      },
+    });
+  }
+  isSelected(id: string | null | undefined): boolean {
+    return !!id && (this.initial().materialIds ?? []).includes(id);
+  }
+  imageUrl(path: string | null | undefined): string {
+    return path
+      ? `https://firebasestorage.googleapis.com/v0/b/${FIREBASE_DEV.storageBucket}/o/${encodeURIComponent(path)}?alt=media`
+      : '';
+  }
   readonly initialized = signal(false);
   readonly model = signal({
     title: '',

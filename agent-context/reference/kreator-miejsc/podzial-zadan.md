@@ -18,9 +18,9 @@ Edycja danych miejsca, tagów, wzmianek i lokalizacji. Automatyczny zapis, stan 
 
 ## 3. Materiały i powiązania ze wzmiankami
 
-Dodawanie, edycja i usuwanie zdjęć oraz skanów, wybór grafiki głównej i powiązanie materiałów ze wzmiankami. Prywatne przechowywanie przed publikacją, walidacja plików oraz obsługa ponowień i częściowych błędów.
+Dodawanie, edycja i usuwanie zdjęć oraz skanów, wybór grafiki głównej i powiązanie materiałów ze wzmiankami. Publiczny odczyt plików od przesłania, walidacja plików oraz obsługa ponowień i częściowych błędów. Sprzątanie nieużywanych plików jest osobnym zadaniem.
 
-**Odbiór:** administrator dodaje materiał, wiąże go ze wzmianką i po ponownym otwarciu widzi plik i powiązanie. Materiał szkicu nie jest publicznie dostępny.
+**Odbiór:** administrator dodaje materiał, wiąże go ze wzmianką i po ponownym otwarciu widzi plik i powiązanie. Pliki szkicu są dostępne publicznie od przesłania, lecz nie pojawiają się na karcie przed publikacją miejsca.
 
 ## 4. Podgląd karty miejsca
 
