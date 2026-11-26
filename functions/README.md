@@ -11,3 +11,5 @@ API zapisuje cały szkic po walidacji, zachowując czas utworzenia i nadając cz
 Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
 
 Publiczny kontrakt miejsca używa udokumentowanego zakresu, wzmianek oraz odrębnej galerii materiałów. Wzmianki wskazują materiały przez ID. Zapis pozycji nie ma wersji; ostatni zapis wygrywa. Szczegóły: `agent-context/reference/place-schema.md`.
+
+Upload materiału wymaga administratora oraz App Check we wdrożonej funkcji; lokalny backend zachowuje wyjątek SECURITY. Backend przyjmuje JPEG, PNG lub WebP do 8 MiB, dekoduje obraz, tworzy WebP i miniaturę, oblicza sumy i zapisuje obie wersje do publicznej ścieżki Storage. Pliki nie są usuwane przy odłączaniu od szkicu; sprzątanie pozostałości jest osobnym zadaniem. Lokalna tożsamość operatora wymaga zapisu do bucketa dev.

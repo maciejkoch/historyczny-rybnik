@@ -113,7 +113,7 @@ import { Account } from '../../places/account';
           <section
             class="min-w-[280px] flex-1 overflow-y-auto rounded-box border border-base-300 bg-base-100 p-5"
           >
-            <app-draft-form [initial]="draft()!.data" />
+            <app-draft-form [initial]="draft()!.data" [draftId]="draft()!.id" />
           </section>
           <div
             class="creator-separator"
@@ -235,6 +235,7 @@ export class CreatorDraft {
   }
   async canLeave(): Promise<boolean> {
     if (this.account.authorizationReady() && !this.account.admin()) return true;
+    if (this.form()?.uploading()) return false;
     this.captureChanges();
     await this.flush();
     if (this.saveState() === 'saved') return true;

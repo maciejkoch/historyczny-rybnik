@@ -1,5 +1,7 @@
 import { initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
+import { getStorage } from 'firebase-admin/storage';
+import { uploadCreatorMaterial } from './creator-material.mjs';
 import { onCall, onRequest } from 'firebase-functions/v2/https';
 import { readLocations, updateLocation } from './service.mjs';
 import { publicWeb } from './public-web.mjs';
@@ -51,3 +53,8 @@ export const placesDevCreatorOpen = onCall(options, (request) => openCreatorDraf
 export const placesDevCreatorDelete = onCall(options, (request) => deleteCreatorDraft(db, request));
 
 export const placesDevCreatorSave = onCall(options, (request) => saveCreatorDraft(db, request));
+export const placesDevCreatorUpload = onCall(
+  { ...options, memory: '512MiB', timeoutSeconds: 60 },
+  (request) =>
+    uploadCreatorMaterial(db, getStorage().bucket('historyczny-rybnik-dev-files'), request),
+);

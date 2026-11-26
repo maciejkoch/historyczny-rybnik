@@ -26,13 +26,14 @@ type Point = { lat: number; lng: number };
       border: 0;
     }
   `,
-  template: `<details class="collapse collapse-arrow mt-3 rounded-none border-t border-base-300" open>
-    <summary class="collapse-title min-h-0 px-0 py-3 text-lg font-semibold">
-      Lokalizacja
-    </summary>
+  template: `<details
+    class="collapse collapse-arrow mt-3 rounded-none border-t border-base-300"
+    open
+  >
+    <summary class="collapse-title min-h-0 px-0 py-3 text-lg font-semibold">Lokalizacja</summary>
     <div class="collapse-content rounded-box border border-base-300 bg-base-100">
       <div class="mt-3 flex items-center gap-3">
-        <label class="flex items-center gap-2 text-sm"
+        <label class="flex items-center gap-2 text-sm font-semibold"
           ><input
             type="checkbox"
             class="toggle toggle-primary toggle-sm"
@@ -42,7 +43,7 @@ type Point = { lat: number; lng: number };
           Plan z 1932 r.</label
         >
       </div>
-      <label class="mt-2 block text-sm"
+      <label class="mt-2 block text-sm font-semibold"
         >Krycie planu: {{ opacity() }}%<input
           type="range"
           class="range range-primary range-sm w-full"
@@ -75,7 +76,7 @@ type Point = { lat: number; lng: number };
         {{ point() ? 'Punkt wskazany na mapie' : 'Lokalizacja nieustalona' }}
       </p>
       <label class="fieldset"
-        ><span class="text-sm font-semibold">Dokładność</span
+        ><span class="fieldset-legend text-sm">Dokładność</span
         ><select class="select w-full" [formField]="fields.precision">
           <option value="">Nieustalona</option>
           <option value="exact">Dokładna</option>
@@ -83,7 +84,7 @@ type Point = { lat: number; lng: number };
         </select></label
       >
       <label class="fieldset"
-        ><span class="text-sm font-semibold">Wyjaśnienie lokalizacji</span
+        ><span class="fieldset-legend text-sm">Wyjaśnienie lokalizacji</span
         ><textarea class="textarea w-full" [formField]="fields.explanation" rows="2"></textarea>
       </label>
     </div>

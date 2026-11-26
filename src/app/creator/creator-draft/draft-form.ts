@@ -2,12 +2,14 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  DestroyRef,
   effect,
   input,
   output,
   signal,
   viewChild,
   viewChildren,
+  inject,
 } from '@angular/core';
 import { form, FormField, maxLength, validate } from '@angular/forms/signals';
 import { MARKER_CATEGORIES } from '../../atlas-map/place-markers';
@@ -15,7 +17,9 @@ import { PlaceTag } from '../../atlas/place-tag';
 import { MentionEditor } from './mention-editor';
 import { LocationEditor } from './location-editor';
 import { ConfirmDialog } from '../../shared/confirm-dialog/confirm-dialog';
-import type { CreatorDraft } from '../creator';
+import { Creator, type CreatorDraft } from '../creator';
+import { FIREBASE_DEV } from '../../places/runtime-config';
+import type PhotoSwipeLightbox from 'photoswipe/lightbox';
 
 type Data = CreatorDraft['data'];
 
@@ -32,11 +36,17 @@ function storePeriod(value: string): string | null {
   selector: 'app-draft-form',
   imports: [FormField, PlaceTag, MentionEditor, LocationEditor, ConfirmDialog],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styles: `details:not([open]) > .collapse-content { border: 0; }`,
+  styles: `
+    details:not([open]) > .collapse-content {
+      border: 0;
+    }
+  `,
   template: `
     <h2 class="text-xl font-semibold">Edycja ręczna</h2>
     <details class="collapse collapse-arrow mt-2" open>
-      <summary class="collapse-title min-h-0 px-0 py-3 text-lg font-semibold">Informacje główne</summary>
+      <summary class="collapse-title min-h-0 px-0 py-3 text-lg font-semibold">
+        Informacje główne
+      </summary>
       <div class="collapse-content rounded-box border border-base-300 bg-base-100">
         <fieldset class="fieldset">
           <legend class="fieldset-legend text-sm">Nazwa</legend>
@@ -86,7 +96,7 @@ function storePeriod(value: string): string | null {
               </button>
               <button
                 type="button"
-                class="btn btn-xs"
+                class="btn btn-outline border-error-content text-error-content"
                 (click)="remove(i)"
                 [attr.aria-label]="'Usuń tag: ' + tag.name"
               >
@@ -94,7 +104,7 @@ function storePeriod(value: string): string | null {
               </button>
             </div>
           }
-          <label class="text-sm" for="creator-tag">Dodaj tag z listy</label
+          <label class="fieldset-legend text-sm" for="creator-tag">Dodaj tag z listy</label
           ><select
             id="creator-tag"
             class="select w-full"
@@ -110,7 +120,7 @@ function storePeriod(value: string): string | null {
         <fieldset class="fieldset">
           <legend class="fieldset-legend text-sm">Udokumentowany okres</legend>
           <div class="flex gap-2">
-            <label class="grow text-sm"
+            <label class="grow text-sm font-semibold"
               >Od
               <input
                 class="input w-full"
@@ -123,7 +133,7 @@ function storePeriod(value: string): string | null {
                 >
               }
             </label>
-            <label class="grow text-sm"
+            <label class="grow text-sm font-semibold"
               >Do
               <input class="input w-full" [formField]="fields.to" placeholder="RRRR lub MM-RRRR" />
               @if (fields.to().touched() && fields.to().invalid()) {
@@ -148,7 +158,7 @@ function storePeriod(value: string): string | null {
         <h3 class="text-lg font-semibold">Wzmianki</h3>
         <button
           type="button"
-          class="btn btn-sm"
+          class="btn btn-outline"
           [disabled]="mentions().length >= 100"
           (click)="addMention()"
         >
@@ -159,6 +169,11 @@ function storePeriod(value: string): string | null {
         @for (entry of mentions(); track entry.key) {
           <app-mention-editor
             [initial]="entry.data"
+            [materials]="materials()"
+            [uploading]="uploading()"
+            [uploadError]="uploadError()"
+            (selectionAccepted)="setMaterialSelection(entry.key, $event)"
+            (uploadRequested)="upload($event.file, $event.onUploaded)"
             (removeRequested)="confirmMention(entry.key)"
           />
         } @empty {
@@ -166,7 +181,110 @@ function storePeriod(value: string): string | null {
         }
       </div>
     </section>
+    <section class="mt-3 border-t border-base-300 pt-3">
+      <h3 class="text-lg font-semibold">Materiały</h3>
+      <button
+        type="button"
+        class="btn btn-outline mt-2"
+        [disabled]="uploading()"
+        (click)="materialFile.click()"
+      >
+        Dodaj materiał
+      </button>
+      <input
+        #materialFile
+        hidden
+        type="file"
+        accept="image/jpeg,image/png,image/webp"
+        (change)="upload($any($event.target).files?.[0]); $any($event.target).value = ''"
+      />
+      @if (uploading()) {
+        <p role="status">Przesyłanie materiału…</p>
+      }
+      @if (uploadError()) {
+        <p role="alert" class="alert alert-error">{{ uploadError() }} Wybierz plik ponownie.</p>
+      }
+      <div class="mt-3 grid gap-3">
+        @for (material of materials(); track $index; let i = $index) {
+          <div class="rounded-box border border-base-300 p-3">
+            <button
+              type="button"
+              class="block w-full cursor-zoom-in"
+              (click)="openGallery(i)"
+              [disabled]="!material.storagePath || !material.width || !material.height"
+              [attr.aria-label]="'Powiększ: ' + (material.alt || 'materiał')"
+            >
+              <img
+                class="max-h-96 w-full object-contain"
+                [src]="imageUrl(material.storagePath)"
+                [alt]="material.alt || 'Materiał'"
+              />
+            </button>
+            <label class="fieldset"
+              ><span>Tekst alternatywny</span
+              ><input
+                class="input w-full"
+                maxlength="500"
+                [value]="material.alt || ''"
+                (input)="updateMaterial(i, 'alt', $any($event.target).value)"
+            /></label>
+            <label class="fieldset"
+              ><span>Data (RRRR, RRRR-MM lub RRRR-MM-DD)</span
+              ><input
+                class="input w-full"
+                maxlength="32"
+                [value]="material.date || ''"
+                (input)="updateMaterial(i, 'date', $any($event.target).value || null)"
+            /></label>
+            <label class="fieldset"
+              ><span>Źródło</span
+              ><input
+                class="input w-full"
+                maxlength="500"
+                [value]="material.source || ''"
+                (input)="updateMaterial(i, 'source', $any($event.target).value || null)"
+            /></label>
+            <label class="fieldset"
+              ><span>Link do źródła</span
+              ><input
+                class="input w-full"
+                maxlength="2000"
+                [value]="material.sourceUrl || ''"
+                (input)="updateMaterial(i, 'sourceUrl', $any($event.target).value || null)"
+            /></label>
+            <label class="label flex w-fit text-sm font-semibold"
+              ><input
+                type="checkbox"
+                class="checkbox"
+                [checked]="material.isPrimary"
+                (change)="setPrimary(i, $any($event.target).checked)"
+              />
+              Materiał główny</label
+            >
+            <button
+              type="button"
+              class="btn btn-outline border-error-content text-error-content mt-3"
+              (click)="confirmMaterial(i)"
+            >
+              Usuń materiał
+            </button>
+          </div>
+        } @empty {
+          <p>Brak materiałów.</p>
+        }
+      </div>
+    </section>
     <app-confirm-dialog
+      #materialDialog
+      title="Usuń materiał"
+      [message]="materialRemovalMessage()"
+      confirmLabel="Usuń"
+      cancelLabel="Anuluj"
+      [destructive]="true"
+      (closed)="removeMaterial($event)"
+    />
+    <app-confirm-dialog
+      #mentionDialog
       title="Usuń wzmiankę"
       message="Czy na pewno chcesz usunąć tę wzmiankę ze szkicu?"
       confirmLabel="Usuń"
@@ -179,6 +297,15 @@ function storePeriod(value: string): string | null {
 })
 export class DraftForm {
   readonly initial = input.required<Data>();
+  readonly draftId = input.required<string>();
+  private readonly creator = inject(Creator);
+  private lightbox: PhotoSwipeLightbox | null = null;
+  readonly materials = signal<NonNullable<Data['materials']>>([]);
+  readonly uploading = signal(false);
+  readonly uploadError = signal('');
+  readonly materialRemovalMessage = signal('');
+  private materialToRemove: number | null = null;
+  private readonly materialDialog = viewChild.required<ConfirmDialog>('materialDialog');
   readonly changed = output<Data>();
   readonly model = signal({
     name: '',
@@ -209,9 +336,10 @@ export class DraftForm {
   );
   private readonly mentionEditors = viewChildren(MentionEditor);
   private readonly locationEditor = viewChild(LocationEditor);
-  private readonly confirmDialog = viewChild.required(ConfirmDialog);
+  private readonly confirmDialog = viewChild.required<ConfirmDialog>('mentionDialog');
   private selectedMention: string | null = null;
   constructor() {
+    inject(DestroyRef).onDestroy(() => this.lightbox?.destroy());
     effect(() => {
       const data = this.initial();
       if (this.initialized()) return;
@@ -226,6 +354,7 @@ export class DraftForm {
         historicalAddress: data.historicalAddress ?? '',
       });
       this.tags.set(data.tags ?? []);
+      this.materials.set(data.materials ?? []);
       this.mentions.set((data.mentions ?? []).map((m) => ({ key: crypto.randomUUID(), data: m })));
       this.initialized.set(true);
     });
@@ -270,6 +399,8 @@ export class DraftForm {
       };
     if (JSON.stringify(this.tags()) !== JSON.stringify(initial.tags ?? []))
       result.tags = this.tags();
+    if (JSON.stringify(this.materials()) !== JSON.stringify(initial.materials ?? []))
+      result.materials = this.materials();
     const entries = this.mentions();
     const editors = this.mentionEditors();
     if (editors.length === entries.length && editors.every((e) => e.initialized())) {
@@ -306,6 +437,108 @@ export class DraftForm {
       ...v,
       { key: crypto.randomUUID(), data: { id: crypto.randomUUID() } },
     ]);
+  }
+  imageUrl(path: string | null | undefined): string {
+    return path
+      ? `https://firebasestorage.googleapis.com/v0/b/${FIREBASE_DEV.storageBucket}/o/${encodeURIComponent(path)}?alt=media`
+      : '';
+  }
+  async openGallery(index: number): Promise<void> {
+    const selected = this.materials()[index];
+    const materials = this.materials().filter(
+      (material) =>
+        material.storagePath &&
+        material.width &&
+        material.height &&
+        material.width > 0 &&
+        material.height > 0,
+    );
+    const selectedIndex = materials.indexOf(selected);
+    if (selectedIndex < 0) return;
+    this.lightbox?.destroy();
+    const { default: Lightbox } = await import('photoswipe/lightbox');
+    const lightbox = new Lightbox({
+      dataSource: materials.map((material) => ({
+        src: this.imageUrl(material.storagePath),
+        msrc: this.imageUrl(material.thumbnailPath),
+        width: material.width!,
+        height: material.height!,
+        alt: material.alt || 'Materiał',
+      })),
+      pswpModule: () => import('photoswipe'),
+      closeTitle: 'Zamknij',
+      zoomTitle: 'Powiększ',
+      arrowPrevTitle: 'Poprzednie zdjęcie',
+      arrowNextTitle: 'Następne zdjęcie',
+      errorMsg: 'Nie udało się wczytać zdjęcia.',
+    });
+    this.lightbox = lightbox;
+    lightbox.init();
+    lightbox.loadAndOpen(selectedIndex);
+  }
+  async upload(file: File | undefined, onUploaded?: (id: string) => void): Promise<void> {
+    if (!file || this.uploading()) return;
+    if (this.materials().length >= 100) {
+      this.uploadError.set('Osiągnięto limit materiałów.');
+      return;
+    }
+    this.uploadError.set('');
+    this.uploading.set(true);
+    try {
+      const material = await this.creator.upload(this.draftId(), file);
+      this.materials.update((items) => [...items, material]);
+      if (material.materialId) onUploaded?.(material.materialId);
+    } catch {
+      this.uploadError.set('Nie udało się przesłać obrazu (JPEG, PNG lub WebP, maks. 8 MB).');
+    } finally {
+      this.uploading.set(false);
+    }
+  }
+  setMaterialSelection(key: string, ids: string[]): void {
+    this.mentions.update((entries) =>
+      entries.map((entry) =>
+        entry.key === key ? { ...entry, data: { ...entry.data, materialIds: ids } } : entry,
+      ),
+    );
+  }
+  updateMaterial(
+    i: number,
+    key: 'alt' | 'date' | 'source' | 'sourceUrl',
+    value: string | null,
+  ): void {
+    this.materials.update((items) =>
+      items.map((item, index) => (index === i ? { ...item, [key]: value } : item)),
+    );
+  }
+  setPrimary(i: number, checked: boolean): void {
+    this.materials.update((items) =>
+      items.map((item, index) => ({ ...item, isPrimary: index === i && checked })),
+    );
+  }
+  confirmMaterial(i: number): void {
+    this.materialToRemove = i;
+    const id = this.materials()[i]?.materialId;
+    const count = this.mentions().filter(
+      (entry) => id && entry.data.materialIds?.includes(id),
+    ).length;
+    this.materialRemovalMessage.set(
+      `Usunąć materiał ze szkicu? Powiązania ze wzmiankami: ${count}. Plik pozostanie w Storage.`,
+    );
+    this.materialDialog().open();
+  }
+  removeMaterial(confirmed: boolean): void {
+    const i = this.materialToRemove;
+    this.materialToRemove = null;
+    if (!confirmed || i === null) return;
+    const id = this.materials()[i]?.materialId;
+    this.materials.update((items) => items.filter((_, index) => index !== i));
+    if (id)
+      this.mentions.update((entries) =>
+        entries.map((entry) => ({
+          ...entry,
+          data: { ...entry.data, materialIds: entry.data.materialIds?.filter((x) => x !== id) },
+        })),
+      );
   }
   confirmMention(key: string): void {
     this.selectedMention = key;
