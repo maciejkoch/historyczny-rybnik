@@ -10,6 +10,7 @@ import {
   createCreatorDraft,
   openCreatorDraft,
   deleteCreatorDraft,
+  saveCreatorDraft,
   requireCreatorIdentity,
 } from './creator.mjs';
 import { authenticateLocal } from './creator-local-auth.mjs';
@@ -61,6 +62,7 @@ const handlers = {
   placesDevCreatorCreate: createCreatorDraft,
   placesDevCreatorOpen: openCreatorDraft,
   placesDevCreatorDelete: deleteCreatorDraft,
+  placesDevCreatorSave: saveCreatorDraft,
 };
 for (const [name, handler] of Object.entries(handlers)) {
   app.post('/historyczny-rybnik/europe-central2/' + name, async (req, res) => {
@@ -81,14 +83,12 @@ for (const [name, handler] of Object.entries(handlers)) {
         'resource-exhausted': [429, 'RESOURCE_EXHAUSTED'],
       };
       const [status, code] = codes[error.code] ?? [500, 'INTERNAL'];
-      res
-        .status(status)
-        .json({
-          error: {
-            status: code,
-            message: status === 500 ? 'Operacja nie powiodła się.' : error.message,
-          },
-        });
+      res.status(status).json({
+        error: {
+          status: code,
+          message: status === 500 ? 'Operacja nie powiodła się.' : error.message,
+        },
+      });
     }
   });
 }

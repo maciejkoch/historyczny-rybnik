@@ -1,5 +1,5 @@
 import { effect, inject, Injectable } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
+import { CanActivateFn, CanDeactivateFn, Router } from '@angular/router';
 import { Account } from '../places/account';
 
 @Injectable({ providedIn: 'root' })
@@ -28,3 +28,6 @@ export const creatorGuard: CanActivateFn = async () => {
   const router = inject(Router);
   return (await access.allowed()) ? true : router.parseUrl('/');
 };
+
+export const unsavedCreatorGuard: CanDeactivateFn<{ canLeave(): Promise<boolean> }> = (component) =>
+  component.canLeave();

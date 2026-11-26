@@ -59,6 +59,11 @@ export class Creator {
   async open(id: string): Promise<CreatorDraft> {
     return draftResponseSchema.parse(await this.call('placesDevCreatorOpen', { id }));
   }
+  async save(id: string, data: CreatorDraft['data']): Promise<void> {
+    z.strictObject({ ok: z.literal(true) }).parse(
+      await this.call('placesDevCreatorSave', { id, data }),
+    );
+  }
   async remove(id: string): Promise<void> {
     z.strictObject({ ok: z.literal(true) }).parse(
       await this.call('placesDevCreatorDelete', { id }),
