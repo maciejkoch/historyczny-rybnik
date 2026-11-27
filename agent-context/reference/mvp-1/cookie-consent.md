@@ -3,6 +3,8 @@
 Stan implementacji: 6 listopada 2026. Zadanie Projects:
 https://github.com/users/maciejkoch/projects/1?pane=issue&itemId=PVTI_lAHOAP5vmM4BqYSzzhGetnA.
 
+Aktualizacja 27 listopada 2026: szerokości paneli kreatora są zapisywane jako `historyczny-rybnik.creator-ai.v1` i `historyczny-rybnik.creator-preview.v1` tylko po zgodzie na preferencje; cofnięcie zgody usuwa oba klucze.
+
 ## Audyt obecnej aplikacji
 
 - Brak Analytics, reklam, pikseli i zewnętrznych fontów. MapLibre oraz jego worker są bundlowane lokalnie.

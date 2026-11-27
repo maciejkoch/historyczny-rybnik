@@ -2,6 +2,7 @@ import {
   afterNextRender,
   ChangeDetectionStrategy,
   Component,
+  computed,
   DestroyRef,
   effect,
   inject,
@@ -15,10 +16,12 @@ import { Creator, CreatorDraft as Draft } from '../creator';
 import { DraftForm } from './draft-form';
 import { ConfirmDialog } from '../../shared/confirm-dialog/confirm-dialog';
 import { Account } from '../../places/account';
+import { PlaceDetailsPanel } from '../../atlas/place-details-panel';
+import { draftPreview } from './draft-preview';
 @Component({
   selector: 'app-creator-draft',
   host: { class: 'flex h-dvh flex-col' },
-  imports: [RouterLink, PanelLayout, PortalHeader, DraftForm, ConfirmDialog],
+  imports: [RouterLink, PanelLayout, PortalHeader, DraftForm, ConfirmDialog, PlaceDetailsPanel],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
     .creator-separator {
@@ -81,6 +84,7 @@ import { Account } from '../../places/account';
             appPanelLayout
             #aiLayout="panelLayout"
             [split]="true"
+            [equalThirds]="true"
             preferenceKey="historyczny-rybnik.creator-ai.v1"
             class="min-w-0 shrink-0 overflow-y-auto rounded-box border border-base-300 bg-base-100 p-5"
             style="width: var(--panel-width)"
@@ -143,12 +147,16 @@ import { Account } from '../../places/account';
             #previewLayout="panelLayout"
             side="right"
             [split]="true"
+            [equalThirds]="true"
             preferenceKey="historyczny-rybnik.creator-preview.v1"
             class="min-w-0 shrink-0 overflow-y-auto rounded-box border border-base-300 bg-base-100 p-5"
             style="width: var(--panel-width)"
           >
-            <h2 class="text-xl font-semibold">Podgląd</h2>
-            <p class="mt-3">Podgląd szkicu pojawi się w kolejnym etapie.</p>
+            <div class="flex flex-wrap items-center gap-3">
+              <h2 class="text-xl font-semibold">Podgląd</h2>
+              <span class="badge badge-warning">Szkic — ostatnia zapisana wersja</span>
+            </div>
+            <app-place-details-panel [place]="preview()" />
           </section>
         </div>
       }
@@ -158,6 +166,11 @@ export class CreatorDraft {
   readonly creator = inject(Creator);
   private readonly route = inject(ActivatedRoute);
   readonly draft = signal<Draft | null>(null);
+  readonly savedData = signal<Draft['data'] | null>(null);
+  readonly preview = computed(() => {
+    const data = this.savedData();
+    return data ? draftPreview(data) : null;
+  });
   readonly error = signal(false);
   readonly saveState = signal<'saved' | 'dirty' | 'saving' | 'error'>('saved');
   readonly statusText = () =>
@@ -218,6 +231,7 @@ export class CreatorDraft {
     this.pending = this.creator
       .save(this.draft()!.id, data)
       .then(() => {
+        this.savedData.set(data);
         this.saveState.set(this.latest ? 'dirty' : 'saved');
       })
       .catch(() => {
@@ -251,7 +265,9 @@ export class CreatorDraft {
   async load(): Promise<void> {
     this.error.set(false);
     try {
-      this.draft.set(await this.creator.open(this.route.snapshot.paramMap.get('id') ?? ''));
+      const draft = await this.creator.open(this.route.snapshot.paramMap.get('id') ?? '');
+      this.savedData.set(draft.data);
+      this.draft.set(draft);
     } catch {
       this.error.set(true);
     }

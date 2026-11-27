@@ -53,6 +53,9 @@
     </span>
     <ng-content select="[location-actions]" />
   </div>
+  @if (place.location.explanation) {
+    <p>{{ place.location.explanation }}</p>
+  }
   @if (place.materials.length) {
     <section aria-labelledby="gallery-title">
       <h2 id="gallery-title">Galeria</h2>
@@ -92,16 +95,20 @@
         <p><strong>Data wzmianki:</strong> {{ date(ref.documentedDate) }}</p>
       }
       <p class="place-description">{{ ref.description }}</p>
-      @for (material of place.materials; track material.materialId; let index = $index) {
-        @if (ref.materialIds.includes(material.materialId)) {
-          <button
-            type="button"
-            (click)="openGallery(index)"
-            [attr.aria-label]="'Powiększ: ' + material.alt"
-          >
-            <img loading="lazy" [src]="imageUrl(material.thumbnailPath)" [alt]="material.alt" />
-          </button>
-        }
+      @if (ref.materialIds.length) {
+        <div class="gallery-grid">
+          @for (material of place.materials; track material.materialId; let index = $index) {
+            @if (ref.materialIds.includes(material.materialId)) {
+              <button
+                type="button"
+                (click)="openGallery(index)"
+                [attr.aria-label]="'Powiększ: ' + material.alt"
+              >
+                <img loading="lazy" [src]="imageUrl(material.thumbnailPath)" [alt]="material.alt" />
+              </button>
+            }
+          }
+        </div>
       }
       @if (ref.sourceUrl; as sourceUrl) {
         <p><strong>Źródło:</strong> <a [href]="sourceUrl" target="_blank" rel="noopener noreferrer">{{ ref.source || sourceUrl }}</a></p>
