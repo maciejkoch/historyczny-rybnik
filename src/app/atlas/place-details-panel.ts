@@ -4,6 +4,18 @@ import { PartialDate, Place } from '../places/place';
 import { FIREBASE_DEV } from '../places/runtime-config';
 import { PlaceTag } from './place-tag';
 
+export type PlaceCard = Pick<
+  Place,
+  | 'name'
+  | 'tags'
+  | 'description'
+  | 'historicalAddress'
+  | 'documentedPeriod'
+  | 'location'
+  | 'materials'
+  | 'mentions'
+>;
+
 @Component({
   selector: 'app-place-details-panel',
   imports: [PlaceTag],
@@ -12,7 +24,7 @@ import { PlaceTag } from './place-tag';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlaceDetailsPanel implements OnDestroy {
-  readonly place = input<Place | null>(null);
+  readonly place = input<PlaceCard | null>(null);
   readonly imageOpened = output<{ url: string; alt: string }>();
   private lightbox: PhotoSwipeLightbox | null = null;
 

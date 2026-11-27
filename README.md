@@ -7,7 +7,7 @@ Operator może przygotować nowe miejsce lub uzupełnić istniejące skillem [ry
 
 ## Dostępne funkcje
 
-- Lokalny kreator udostępnia listę miejsc i wspólne szkice oraz trzy panele o szerokości zmienianej przeciąganiem. Dane miejsca, wzmianki i lokalizację można edytować w formularzu z automatycznym zapisem szkicu. Mapa lokalizacji udostępnia plan z 1932 r. i regulację jego krycia. Materiały można przesyłać i wiązać ze wzmiankami; obrazy są publicznie dostępne od przesłania. Podgląd i AI będą rozwijane w kolejnych etapach.
+- Lokalny kreator udostępnia listę miejsc i wspólne szkice oraz trzy panele o szerokości zmienianej przeciąganiem. Dane miejsca, wzmianki i lokalizację można edytować w formularzu z automatycznym zapisem szkicu. Mapa lokalizacji udostępnia plan z 1932 r. i regulację jego krycia. Materiały można przesyłać i wiązać ze wzmiankami; obrazy są publicznie dostępne od przesłania. Podgląd pokazuje ostatnią zapisaną wersję szkicu. AI będzie rozwijane w kolejnych etapach.
 - Strona „O nas” z opisem portalu, map i pracy na źródłach, dostępna z menu pod `/o-nas`.
 - Mapa współczesnego Rybnika z przesuwaniem i przybliżaniem; widok początkowy i przycisk powrotu centrują ją na Rynku.
 - Plan miasta z 1932 r., domyślnie włączony z kryciem 100%, z regulacją przezroczystości i oznaczeniem zasięgu. Zapisane preferencje użytkownika mają pierwszeństwo.

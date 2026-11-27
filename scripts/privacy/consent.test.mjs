@@ -16,6 +16,7 @@ const compiled = ts.transpileModule(readFileSync('src/app/privacy/consent.ts', '
 }).outputText;
 const key = 'historyczny-rybnik.consent.v1';
 const panel = 'historyczny-rybnik.panel.v1';
+const creatorPanels = ['historyczny-rybnik.creator-ai.v1', 'historyczny-rybnik.creator-preview.v1'];
 const decision = (preferences, google, savedAt = Date.now()) =>
   JSON.stringify({ version: 1, preferences, google, savedAt });
 function setup({
@@ -114,6 +115,24 @@ test('acceptance, independent categories, persistence and withdrawal', () => {
   assert.equal(revisit.decided(), true);
   assert.equal(revisit.preferences(), false);
   assert.equal(revisit.google(), false);
+});
+
+test('creator panel preferences require consent and are removed on withdrawal', () => {
+  const { consent, storage } = setup();
+  for (const key of creatorPanels) {
+    consent.writePreference(key, 'width');
+    assert.equal(storage.has(key), false);
+  }
+  consent.save(true, false);
+  for (const key of creatorPanels) {
+    consent.writePreference(key, 'width');
+    assert.equal(consent.readPreference(key), 'width');
+  }
+  consent.save(false, false);
+  for (const key of creatorPanels) {
+    assert.equal(storage.has(key), false);
+    assert.equal(consent.readPreference(key), null);
+  }
 });
 
 test('corrupt, expired, future and wrong-version decisions fail closed', () => {
