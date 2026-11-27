@@ -1,0 +1,167 @@
+import { test, after } from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { initializeApp, deleteApp } from 'firebase-admin/app';
+import { getFirestore, Timestamp, GeoPoint } from 'firebase-admin/firestore';
+import {
+  listCreatorPlaces,
+  createCreatorDraft,
+  openCreatorDraft,
+  deleteCreatorDraft,
+  saveCreatorDraft,
+  publishCreatorDraft,
+  validateCreatorPublication,
+  restoreCreatorDraft,
+  unpublishCreatorPlace,
+} from '../src/creator.mjs';
+
+const app = initializeApp({ projectId: 'demo-historyczny-rybnik' }, 'creator-test');
+const db = getFirestore(app, 'creator-test');
+const auth = { uid: 'admin', token: { admin: true, firebase: { sign_in_provider: 'google.com' } } };
+const req = (data = {}) => ({ data, auth, app: { appId: 'test' } });
+const fixture = JSON.parse(
+  readFileSync(new URL('../../data/places.fixture.json', import.meta.url), 'utf8'),
+);
+const source = Array.isArray(fixture) ? fixture[0] : fixture.places[0];
+const { id, createdAt, updatedAt, ...place } = source;
+const point = place.location.coordinates;
+await db.doc('places/creator-public').set({
+  ...place,
+  published: true,
+  location: { ...place.location, coordinates: point ? new GeoPoint(point.lat, point.lng) : null },
+  createdAt: Timestamp.now(),
+  updatedAt: Timestamp.now(),
+});
+await test('concurrent open yields one shared copy and cannot remove published place', async () => {
+  const [first, second] = await Promise.all([
+    openCreatorDraft(db, req({ id: 'creator-public' })),
+    openCreatorDraft(db, req({ id: 'creator-public' })),
+  ]);
+  assert.equal(first.id, second.id);
+  assert.deepEqual(first.data, second.data);
+  const list = await listCreatorPlaces(db, req());
+  assert.equal(list.places.find((item) => item.id === 'creator-public').status, 'published');
+  assert.equal(list.places.find((item) => item.id === 'creator-public').tagId, place.tags[0].id);
+  await assert.rejects(deleteCreatorDraft(db, req({ id: 'creator-public' })), {
+    code: 'failed-precondition',
+  });
+  assert.equal((await db.doc('places/creator-public').get()).exists, true);
+});
+await test('create, list, reopen and delete a new draft', async () => {
+  const draft = await createCreatorDraft(db, req());
+  assert.deepEqual(draft.data, {});
+  assert.equal(
+    (await listCreatorPlaces(db, req())).places.find((item) => item.id === draft.id).tagId,
+    null,
+  );
+  await db.doc(`placeDrafts/${draft.id}`).update({
+    mentions: [{}, { title: '', sourceUrl: 'niedokończony link' }],
+    materials: [{}],
+    location: { coordinates: { lat: 1234 } },
+  });
+  assert.equal((await openCreatorDraft(db, req({ id: draft.id }))).id, draft.id);
+  assert.equal(
+    (await listCreatorPlaces(db, req())).places.find((item) => item.id === draft.id).status,
+    'draft',
+  );
+  await deleteCreatorDraft(db, req({ id: draft.id }));
+  assert.equal((await db.doc(`placeDrafts/${draft.id}`).get()).exists, false);
+});
+await test('whole draft save validates access and data, preserves unrelated fields and public place', async () => {
+  const draft = await createCreatorDraft(db, req());
+  const data = {
+    name: 'Próba',
+    existsToday: true,
+    mentions: [{ title: 'Źródło' }],
+    materials: [{}],
+    location: { explanation: 'test' },
+  };
+  await assert.rejects(
+    saveCreatorDraft(db, { data: { id: draft.id, data }, auth: null, app: { appId: 'test' } }),
+    { code: 'unauthenticated' },
+  );
+  await assert.rejects(
+    saveCreatorDraft(db, {
+      data: { id: draft.id, data },
+      auth: { ...auth, token: { ...auth.token, admin: false } },
+      app: { appId: 'test' },
+    }),
+    { code: 'permission-denied' },
+  );
+  await assert.rejects(saveCreatorDraft(db, { data: { id: draft.id, data }, auth }), {
+    code: 'unauthenticated',
+  });
+  await assert.rejects(
+    saveCreatorDraft(db, req({ id: draft.id, data: { ...data, extra: true } })),
+    { code: 'invalid-argument' },
+  );
+  await saveCreatorDraft(db, req({ id: draft.id, data }));
+  assert.deepEqual((await openCreatorDraft(db, req({ id: draft.id }))).data, data);
+  assert.equal((await db.doc(`places/${draft.id}`).get()).exists, false);
+  await deleteCreatorDraft(db, req({ id: draft.id }));
+  await assert.rejects(saveCreatorDraft(db, req({ id: draft.id, data })), { code: 'not-found' });
+});
+await test('publish, restore, unpublish and republish preserve drafts', async () => {
+  const draft = await createCreatorDraft(db, req());
+  const { published, ...content } = place;
+  const candidate = { ...content, slug: `test-${draft.id.toLowerCase()}` };
+  await saveCreatorDraft(db, req({ id: draft.id, data: candidate }));
+  const invalid = await publishCreatorDraft(
+    db,
+    req({ id: draft.id, data: { ...candidate, name: '' } }),
+  ).catch((error) => error);
+  assert.equal(invalid.code, 'failed-precondition');
+  assert.equal(
+    (await validateCreatorPublication(db, req({ id: draft.id, data: candidate }))).ok,
+    true,
+  );
+  assert.equal((await publishCreatorDraft(db, req({ id: draft.id, data: candidate }))).ok, true);
+  assert.equal((await db.doc(`places/${draft.id}`).get()).data().published, true);
+  assert.equal(
+    (await listCreatorPlaces(db, req())).places.find((item) => item.id === draft.id).status,
+    'published',
+  );
+  const changed = { ...candidate, description: 'Nowa treść szkicu' };
+  await saveCreatorDraft(db, req({ id: draft.id, data: changed }));
+  assert.equal(
+    (await listCreatorPlaces(db, req())).places.find((item) => item.id === draft.id).status,
+    'modified',
+  );
+  await unpublishCreatorPlace(db, req({ id: draft.id }));
+  assert.equal(
+    (await listCreatorPlaces(db, req())).places.find((item) => item.id === draft.id).status,
+    'draft',
+  );
+  assert.equal((await db.doc(`places/${draft.id}`).get()).data().published, false);
+  assert.equal(
+    (await openCreatorDraft(db, req({ id: draft.id }))).data.description,
+    changed.description,
+  );
+  assert.equal((await publishCreatorDraft(db, req({ id: draft.id, data: changed }))).ok, true);
+  await saveCreatorDraft(db, req({ id: draft.id, data: candidate }));
+  await restoreCreatorDraft(db, req({ id: draft.id }));
+  assert.equal(
+    (await openCreatorDraft(db, req({ id: draft.id }))).data.description,
+    changed.description,
+  );
+  await db.doc(`places/${draft.id}`).delete();
+  await db.doc(`placeDrafts/${draft.id}`).delete();
+});
+await test('publication rejects incomplete and duplicate slugs without publishing', async () => {
+  const draft = await createCreatorDraft(db, req());
+  const { published, ...content } = place;
+  const invalid = { ...content, name: '' };
+  await saveCreatorDraft(db, req({ id: draft.id, data: invalid }));
+  assert.equal((await publishCreatorDraft(db, req({ id: draft.id, data: invalid }))).ok, false);
+  const duplicate = { ...content, slug: place.slug };
+  await saveCreatorDraft(db, req({ id: draft.id, data: duplicate }));
+  assert.equal(
+    (await validateCreatorPublication(db, req({ id: draft.id, data: duplicate }))).issues[0].code,
+    'slug_taken',
+  );
+  const result = await publishCreatorDraft(db, req({ id: draft.id, data: duplicate }));
+  assert.equal(result.issues[0].code, 'slug_taken');
+  assert.equal((await db.doc(`places/${draft.id}`).get()).exists, false);
+  await db.doc(`placeDrafts/${draft.id}`).delete();
+});
+after(() => deleteApp(app));

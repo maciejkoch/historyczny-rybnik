@@ -13,6 +13,8 @@ const KEY = 'historyczny-rybnik.consent.v1';
 const PREFERENCES = [
   'historyczny-rybnik.panel.v1',
   'historyczny-rybnik.details-panel.v1',
+  'historyczny-rybnik.creator-ai.v1',
+  'historyczny-rybnik.creator-preview.v1',
   'historyczny-rybnik.layers.v1',
 ];
 const MAX_AGE = 180 * 24 * 60 * 60 * 1000;

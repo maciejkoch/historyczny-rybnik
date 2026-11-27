@@ -1,7 +1,9 @@
 import { initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
+import { getStorage } from 'firebase-admin/storage';
+import { uploadCreatorMaterial } from './creator-material.mjs';
 import { onCall, onRequest } from 'firebase-functions/v2/https';
-import { readLocations, updateLocation } from './service.mjs';
+import { readLocations } from './service.mjs';
 import { publicWeb } from './public-web.mjs';
 initializeApp();
 const db = getFirestore('places-dev');
@@ -20,7 +22,6 @@ const options = {
   ],
 };
 export const placesDevRead = onCall(options, (request) => readLocations(db, request));
-export const placesDevUpdate = onCall(options, (request) => updateLocation(db, request));
 const webOptions = {
   region: 'europe-central2',
   serviceAccount: 'places-dev-build@historyczny-rybnik.iam.gserviceaccount.com',
@@ -37,3 +38,39 @@ export const placesDevWeb = onRequest(webOptions, publicWeb(db, render));
 export const placesDevWeb1 = onRequest(webOptions, publicWeb(db, render));
 export const placesDevWeb2 = onRequest(webOptions, publicWeb(db, render));
 export const placesDevWeb3 = onRequest(webOptions, publicWeb(db, render));
+
+import {
+  listCreatorPlaces,
+  createCreatorDraft,
+  openCreatorDraft,
+  deleteCreatorDraft,
+  saveCreatorDraft,
+  publishCreatorDraft,
+  validateCreatorPublication,
+  restoreCreatorDraft,
+  unpublishCreatorPlace,
+} from './creator.mjs';
+export const placesDevCreatorList = onCall(options, (request) => listCreatorPlaces(db, request));
+export const placesDevCreatorCreate = onCall(options, (request) => createCreatorDraft(db, request));
+export const placesDevCreatorOpen = onCall(options, (request) => openCreatorDraft(db, request));
+export const placesDevCreatorDelete = onCall(options, (request) => deleteCreatorDraft(db, request));
+
+export const placesDevCreatorSave = onCall(options, (request) => saveCreatorDraft(db, request));
+export const placesDevCreatorUpload = onCall(
+  { ...options, memory: '512MiB', timeoutSeconds: 60 },
+  (request) =>
+    uploadCreatorMaterial(db, getStorage().bucket('historyczny-rybnik-dev-files'), request),
+);
+
+export const placesDevCreatorPublish = onCall(options, (request) =>
+  publishCreatorDraft(db, request),
+);
+export const placesDevCreatorRestore = onCall(options, (request) =>
+  restoreCreatorDraft(db, request),
+);
+export const placesDevCreatorUnpublish = onCall(options, (request) =>
+  unpublishCreatorPlace(db, request),
+);
+export const placesDevCreatorValidate = onCall(options, (request) =>
+  validateCreatorPublication(db, request),
+);

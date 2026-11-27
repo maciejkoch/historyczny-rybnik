@@ -1,5 +1,7 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
 export const serverRoutes: ServerRoute[] = [
+  { path: 'kreator', renderMode: RenderMode.Client },
+  { path: 'kreator/:id', renderMode: RenderMode.Client },
   { path: 'o-nas', renderMode: RenderMode.Prerender },
   { path: 'prywatnosc', renderMode: RenderMode.Prerender },
   { path: '', renderMode: RenderMode.Prerender },

@@ -7,6 +7,7 @@ Operator może przygotować nowe miejsce lub uzupełnić istniejące skillem [ry
 
 ## Dostępne funkcje
 
+- Lokalny kreator udostępnia listę miejsc z ikonami głównych tagów i wspólne szkice oraz trzy panele o szerokości zmienianej przeciąganiem. Listę można filtrować po stanie publikacji, a jej wiersz otwiera edytor; nieopublikowany szkic można usunąć z jego menu. Dane miejsca, wzmianki i lokalizację można edytować w formularzu z automatycznym zapisem szkicu. Mapa lokalizacji udostępnia plan z 1932 r. i regulację jego krycia. Materiały można przesyłać i wiązać ze wzmiankami; obrazy są publicznie dostępne od przesłania. Podgląd pozwala przełączać ostatnią zapisaną wersję szkicu i zapamiętaną w edytorze wersję opublikowaną. Administrator może opublikować miejsce, przywrócić jego publiczną wersję lub wycofać je z publikacji; te operacje działają lokalnie na bazie dev. AI będzie rozwijane w kolejnych etapach.
 - Strona „O nas” z opisem portalu, map i pracy na źródłach, dostępna z menu pod `/o-nas`.
 - Mapa współczesnego Rybnika z przesuwaniem i przybliżaniem; widok początkowy i przycisk powrotu centrują ją na Rynku.
 - Plan miasta z 1932 r., domyślnie włączony z kryciem 100%, z regulacją przezroczystości i oznaczeniem zasięgu. Zapisane preferencje użytkownika mają pierwszeństwo.
@@ -16,7 +17,7 @@ Operator może przygotować nowe miejsce lub uzupełnić istniejące skillem [ry
 - Ustawienia prywatności: osobne zgody na zapamiętywanie ustawień oraz usługi Google do logowania i edycji. Aktualne opublikowane miejsca są dostępne także bez zgody.
 - Globalne menu we wspólnym górnym nagłówku: panel z prawej na telefonie i menu rozwijane na komputerze. Mapa i wyszukiwanie są oddzielone od polityki prywatności oraz ustawień cookies.
 
-Administratorzy zalogowani przez Google mogą poprawiać lokalizację: wskazać punkt, określić dokładność i opcjonalny komentarz oraz jawnie zapisać zmianę. Logowanie i wylogowanie są dostępne w sekcji konta u góry menu. Na komputerze nazwa użytkownika jest także widoczna obok hamburgera. Ostatni zapis lokalizacji wygrywa.
+Logowanie i wylogowanie są dostępne w sekcji konta u góry menu. Na komputerze nazwa użytkownika jest także widoczna obok hamburgera. Edycja danych miejsca i lokalizacji odbywa się w kreatorze.
 
 ## Dokumentacja
 
@@ -29,9 +30,7 @@ Administratorzy zalogowani przez Google mogą poprawiać lokalizację: wskazać 
 
 Opis funkcji aktualizujemy w tej samej zmianie, która zmienia zachowanie aplikacji.
 
-Każdy może zalogować się przez Google. Edycja lokalizacji jest obecnie dostępna tylko dla administratorów; rolami zarządza operator.
-
-Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
+Każdy może zalogować się przez Google. Kreator jest dostępny tylko dla administratorów; rolami zarządza operator.
 
 Baza dev zawiera m.in. Bazylikę św. Antoniego Padewskiego, Kamienicę Noaha Leschczinera, Rybnicką Synagogę, Państwowe Gimnazjum Męskie w Rybniku, Stary cmentarz żydowski oraz cztery przedwojenne stacje benzynowe: Plintów (Standard Oil), Ożoga, E. Dardy i przy warsztacie Krajewskiego. Pozostałe miejsca są przygotowywane do ponownego wprowadzenia.
 

@@ -188,10 +188,6 @@ export const readRequestSchema = z.strictObject({
     .max(100)
     .refine((ids) => new Set(ids).size === ids.length, 'Duplicate IDs'),
 });
-export const writeRequestSchema = z.strictObject({
-  placeId: idSchema,
-  location: knownLocationSchema,
-});
 export const locationDtoSchema = z.strictObject({
   id: idSchema,
   location: locationSchema,

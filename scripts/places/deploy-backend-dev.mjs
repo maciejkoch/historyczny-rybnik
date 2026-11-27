@@ -13,5 +13,5 @@ run('npx', [
   '--project',
   'historyczny-rybnik',
   '--only',
-  'functions:places-dev:placesDevRead,functions:places-dev:placesDevUpdate,functions:places-dev:placesDevWeb,firestore:places-dev,storage:places-dev,auth',
+  'functions:places-dev:placesDevRead,functions:places-dev:placesDevWeb,firestore:places-dev,storage:places-dev,auth',
 ]);

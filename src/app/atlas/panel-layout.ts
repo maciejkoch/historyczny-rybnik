@@ -28,13 +28,16 @@ const STORAGE_KEY = 'historyczny-rybnik.panel.v1';
 export class PanelLayout {
   readonly side = input<'left' | 'right'>('left');
   readonly split = input(false);
+  readonly equalThirds = input(false);
+  readonly preferenceKey = input<string>();
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly destroyRef = inject(DestroyRef);
   private readonly consent = inject(Consent);
-  private readonly preferredWidth = signal(DEFAULT_WIDTH);
+  private readonly preferredWidth = signal<number | null>(null);
   private readonly collapsed = signal(false);
   private readonly desktop = signal(false);
   private readonly viewportWidth = signal(1280);
+  private readonly containerWidth = signal(1224);
   readonly resizing = signal(false);
   readonly toggled = output<boolean>();
   readonly minWidth = MIN_WIDTH;
@@ -47,7 +50,12 @@ export class PanelLayout {
       ),
     ),
   );
-  readonly expandedWidth = computed(() => this.clamp(this.preferredWidth()));
+  readonly expandedWidth = computed(() =>
+    this.clamp(
+      this.preferredWidth() ??
+        (this.equalThirds() ? (this.containerWidth() - 16) / 3 : DEFAULT_WIDTH),
+    ),
+  );
   readonly isCollapsed = computed(() => this.desktop() && this.collapsed());
   readonly panelWidth = computed(() => (this.isCollapsed() ? 56 : this.expandedWidth()));
   private drag?: {
@@ -65,6 +73,9 @@ export class PanelLayout {
         if (this.drag) this.finishResize(true);
         this.viewportWidth.set(
           this.host.nativeElement.closest('.atlas-shell')?.clientWidth ?? window.innerWidth,
+        );
+        this.containerWidth.set(
+          this.host.nativeElement.parentElement?.clientWidth ?? window.innerWidth,
         );
         this.desktop.set(media.matches);
       };
@@ -120,7 +131,7 @@ export class PanelLayout {
       pointerId: event.pointerId,
       startX: event.clientX,
       startWidth: this.expandedWidth(),
-      previousWidth: this.preferredWidth(),
+      previousWidth: this.expandedWidth(),
       handle,
     };
     this.resizing.set(true);
@@ -175,7 +186,7 @@ export class PanelLayout {
   }
 
   resetWidth(): void {
-    this.preferredWidth.set(this.clamp(DEFAULT_WIDTH));
+    this.preferredWidth.set(null);
     this.save();
   }
 
@@ -198,7 +209,7 @@ export class PanelLayout {
     try {
       this.consent.writePreference(
         this.storageKey(),
-        JSON.stringify({ width: this.preferredWidth(), collapsed: this.collapsed() }),
+        JSON.stringify({ width: this.expandedWidth(), collapsed: this.collapsed() }),
       );
     } catch {
       /* The controls remain usable when persistent storage is unavailable. */
@@ -206,6 +217,9 @@ export class PanelLayout {
   }
 
   private storageKey(): string {
-    return this.side() === 'right' ? 'historyczny-rybnik.details-panel.v1' : STORAGE_KEY;
+    return (
+      this.preferenceKey() ??
+      (this.side() === 'right' ? 'historyczny-rybnik.details-panel.v1' : STORAGE_KEY)
+    );
   }
 }

@@ -19,10 +19,10 @@ Dokument określa wymagania, a nie potwierdzenie ich wdrożenia. Aktualne mechan
 ## Tożsamość, uprawnienia i API
 
 - Przyznawaj minimalne niezbędne uprawnienia. Dostęp jest domyślnie zabroniony, a publiczne operacje i dane muszą być jawnie określone.
-- Każda chroniona operacja sprawdza tożsamość oraz wymagane uprawnienia po stronie backendu. Nie ufaj rolom, UID ani informacjom o właścicielu przesłanym jako dane żądania; korzystaj ze zweryfikowanej tożsamości i zaufanych danych.
+- Każda chroniona operacja sprawdza tożsamość oraz wymagane uprawnienia po stronie backendu, także w lokalnym kreatorze. Nie ufaj rolom, UID ani informacjom o właścicielu przesłanym jako dane żądania; korzystaj ze zweryfikowanej tożsamości i zaufanych danych.
 - Firebase Auth, autoryzacja i App Check pełnią odrębne role. App Check nie zastępuje sprawdzenia użytkownika i uprawnień; samo zalogowanie nie daje prawa do dowolnego zapisu. Zachowuj egzekwowanie App Check w API, które go wymaga.
 - Ukrycie przycisku, blokada trasy, CORS i noindex nie zastępują autoryzacji. Zabezpieczenia muszą działać również przy bezpośrednim wywołaniu API.
-- Nie wyłączaj kontroli tokenów, App Check, autoryzacji ani weryfikacji TLS dla uruchomienia funkcji, testu, builda lub deploymentu. Mechanizmy emulatorów i testowe poświadczenia pozostają w środowisku testowym.
+- Wdrożone API zawsze zachowuje kontrolę tokenów, App Check i autoryzację. Wyjątek właściciela: lokalny backend uruchomiony wyłącznie na interfejsie loopback może obsługiwać kreator bez App Check, ale musi weryfikować Firebase Auth i rolę administratora; korzysta tylko z bazy `places-dev` i lokalnej tożsamości operatora. Wyjątek nie dotyczy wdrożonych funkcji, innych baz ani publicznie dostępnego serwera. Nie wyłączaj weryfikacji TLS. Mechanizmy emulatorów i testowe poświadczenia pozostają w środowisku testowym.
 
 ## Walidacja i bezpieczne wyświetlanie
 
