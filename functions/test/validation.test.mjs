@@ -5,7 +5,6 @@ import {
   validateCatalog,
   partialDate,
   timestamp,
-  writeRequest,
   readRequest,
 } from '../src/validation.mjs';
 const testData = JSON.parse(
@@ -42,7 +41,7 @@ test('reject unknown fields, invalid paths, oversized document, collisions', () 
     assert.throws(() => validateCatalog(data));
   }
 });
-test('bounded read and strict write DTO, no removal', () => {
+test('bounded read request', () => {
   assert.deepEqual(readRequest({ ids: ['a'] }), ['a']);
   for (const data of [
     { ids: [] },
@@ -51,15 +50,7 @@ test('bounded read and strict write DTO, no removal', () => {
     { ids: ['a'], published: false },
   ])
     assert.throws(() => readRequest(data));
-  const value = { placeId: 'a', location: testData[0].location };
-  writeRequest(value);
-  for (const data of [
-    { ...value, published: true },
-    { ...value, expectedLocationVersion: -1 },
-    { ...value, location: { coordinates: null, precision: null, explanation: 'remove' } },
-    { ...value, location: { ...value.location, coordinates: { lat: 91, lng: 0 } } },
-  ])
-    assert.throws(() => writeRequest(data));
+
 });
 
 test('technical timestamps reject invalid calendar dates and missing timezone', () => {

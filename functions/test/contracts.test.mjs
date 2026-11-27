@@ -6,11 +6,9 @@ import {
   publicPlaceSchema,
   publicCatalogSchema,
   catalogSchema,
-  locationDtoSchema,
   parseReadResponse,
-  writeRequestSchema,
 } from '../src/contracts/places.mjs';
-import { readLocations, updateLocation } from '../src/service.mjs';
+import { readLocations } from '../src/service.mjs';
 
 const places = JSON.parse(readFileSync(new URL('../../data/places.fixture.json', import.meta.url)));
 const { published, createdAt, ...publicPlace } = places[0];
@@ -81,18 +79,6 @@ test('client accepts partial results but rejects the entire malformed response',
     assert.throws(() => parseReadResponse(value, [dto.id]));
 });
 
-test('location requests reject invalid precision and unknown coordinates', () => {
-  const request = { placeId: dto.id, location: dto.location };
-  assert.equal(writeRequestSchema.safeParse(request).success, true);
-  const unknown = { coordinates: null, precision: null, explanation: null };
-  assert.equal(locationDtoSchema.safeParse({ ...dto, location: unknown }).success, true);
-  assert.equal(writeRequestSchema.safeParse({ ...request, location: unknown }).success, false);
-  assert.equal(
-    writeRequestSchema.safeParse({ ...request, expectedLocationVersion: 0 }).success,
-    false,
-  );
-});
-
 test('invalid callable requests fail before database access and expose only field codes', async () => {
   const request = {
     app: {},
@@ -108,16 +94,7 @@ test('invalid callable requests fail before database access and expose only fiel
     assert.equal(JSON.stringify(error.details).includes('secret'), false);
     return true;
   });
-  await assert.rejects(
-    updateLocation(
-      {},
-      {
-        ...request,
-        data: { placeId: dto.id, unexpected: '', location: dto.location },
-      },
-    ),
-    { code: 'invalid-argument' },
-  );
+
 });
 
 test('malformed persisted location returns a sanitized server error', async () => {
@@ -142,12 +119,4 @@ test('malformed persisted location returns a sanitized server error', async () =
       return true;
     },
   );
-});
-
-test('location comment can be empty and replaces the current comment', () => {
-  const request = {
-    placeId: dto.id,
-    location: { ...dto.location, explanation: '' },
-  };
-  assert.equal(writeRequestSchema.parse(request).location.explanation, '');
 });

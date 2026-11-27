@@ -70,6 +70,32 @@ export class Creator {
       await this.call('placesDevCreatorDelete', { id }),
     );
   }
+  async validatePublication(id: string, data: CreatorDraft['data']) {
+    return z
+      .strictObject({
+        ok: z.boolean(),
+        issues: z.array(z.strictObject({ path: z.array(z.string()), code: z.string() })),
+      })
+      .parse(await this.call('placesDevCreatorValidate', { id, data }));
+  }
+  async publish(id: string, data: CreatorDraft['data']) {
+    return z
+      .strictObject({
+        ok: z.boolean(),
+        issues: z.array(z.strictObject({ path: z.array(z.string()), code: z.string() })),
+      })
+      .parse(await this.call('placesDevCreatorPublish', { id, data }));
+  }
+  async restore(id: string): Promise<void> {
+    z.strictObject({ ok: z.literal(true) }).parse(
+      await this.call('placesDevCreatorRestore', { id }),
+    );
+  }
+  async unpublish(id: string): Promise<void> {
+    z.strictObject({ ok: z.literal(true) }).parse(
+      await this.call('placesDevCreatorUnpublish', { id }),
+    );
+  }
   async upload(id: string, file: File): Promise<z.infer<typeof draftMaterialSchema>> {
     if (file.size > 8 * 1024 * 1024) throw new Error('Plik jest za duży');
     const bytes = new Uint8Array(await file.arrayBuffer());

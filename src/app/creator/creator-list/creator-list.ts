@@ -1,25 +1,23 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
-  Injector,
   afterNextRender,
   computed,
   inject,
   signal,
-  viewChild,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { PortalHeader } from '../../layout/portal-header/portal-header';
 import { normalizeSearch } from '../../places/place';
 import { Creator, CreatorItem } from '../creator';
-import { ConfirmDialog } from '../../shared/confirm-dialog/confirm-dialog';
+import { MARKER_CATEGORIES, markerIcon } from '../../atlas-map/place-markers';
 
 @Component({
   selector: 'app-creator-list',
-  imports: [PortalHeader, ConfirmDialog],
+  imports: [PortalHeader, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: ` <header appPortalHeader></header>
+  template: `
+    <header appPortalHeader></header>
     <main class="mx-auto max-w-3xl px-[1.4rem] py-10">
       <h1 class="text-3xl font-semibold">Kreator miejsc</h1>
       <div class="mt-6 flex flex-wrap gap-4">
@@ -30,9 +28,22 @@ import { ConfirmDialog } from '../../shared/confirm-dialog/confirm-dialog';
             placeholder="Szukaj miejsca"
             [value]="query()"
             (input)="query.set($any($event.target).value)" /></label
-        ><button #addButton class="btn btn-primary" [disabled]="busy()" (click)="create()">
+        ><button class="btn btn-primary" [disabled]="busy()" (click)="create()">
           Dodaj nowe miejsce
         </button>
+      </div>
+      <div class="join mt-4" role="group" aria-label="Filtr stanu publikacji">
+        @for (option of filters; track option.value) {
+          <button
+            type="button"
+            class="btn btn-sm join-item"
+            [class.btn-primary]="statusFilter() === option.value"
+            [attr.aria-pressed]="statusFilter() === option.value"
+            (click)="statusFilter.set(option.value)"
+          >
+            {{ option.label }}
+          </button>
+        }
       </div>
       @if (error()) {
         <div role="alert" class="alert alert-error mt-4">
@@ -45,23 +56,22 @@ import { ConfirmDialog } from '../../shared/confirm-dialog/confirm-dialog';
       } @else {
         <ul class="mt-6 divide-y divide-base-300">
           @for (item of filtered(); track item.id) {
-            <li class="flex items-center gap-4 py-4">
-              <div class="min-w-0 flex-1">
-                <strong>{{ item.name || 'Nowy szkic' }}</strong>
-                <p class="text-sm">{{ label(item.status) }}</p>
-              </div>
-              <button class="btn btn-outline btn-sm" [disabled]="busy()" (click)="open(item.id)">
-                Otwórz
-              </button>
-              @if (item.status === 'draft') {
-                <button
-                  class="btn btn-ghost btn-sm"
-                  [disabled]="busy()"
-                  (click)="confirmRemove(item)"
+            <li>
+              <a
+                class="flex items-center gap-4 rounded-box px-2 py-4 hover:bg-base-200 focus-visible:outline-2 focus-visible:outline-primary"
+                [routerLink]="['/kreator', item.id]"
+              >
+                <img
+                  class="h-6 w-6 shrink-0 brightness-0"
+                  [src]="icon(item.tagId)"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="min-w-0 flex-1"
+                  ><strong>{{ item.name || 'Nowy szkic' }}</strong
+                  ><span class="block text-sm">{{ label(item.status) }}</span></span
                 >
-                  Usuń
-                </button>
-              }
+              </a>
             </li>
           } @empty {
             <li class="py-5">Brak miejsc do wyświetlenia.</li>
@@ -69,26 +79,31 @@ import { ConfirmDialog } from '../../shared/confirm-dialog/confirm-dialog';
         </ul>
       }
     </main>
-    <app-confirm-dialog
-      title="Usuń szkic"
-      [message]="'Czy na pewno chcesz usunąć szkic „' + (selected()?.name || 'Nowy szkic') + '”?'"
-      confirmLabel="Usuń szkic"
-      [destructive]="true"
-      (closed)="onConfirmation($event)"
-    />`,
+  `,
 })
 export class CreatorList {
   readonly creator = inject(Creator);
   private readonly router = inject(Router);
-  private readonly injector = inject(Injector);
   readonly query = signal('');
+  readonly statusFilter = signal<'all' | 'drafts' | 'published'>('all');
+  readonly filters = [
+    { value: 'all', label: 'Wszystko' },
+    { value: 'drafts', label: 'Szkice' },
+    { value: 'published', label: 'Opublikowane' },
+  ] as const;
   readonly items = signal<CreatorItem[]>([]);
   readonly loading = signal(false);
   readonly busy = signal(false);
   readonly error = signal('');
   readonly filtered = computed(() => {
     const q = normalizeSearch(this.query());
-    return this.items().filter((item) => normalizeSearch(item.name).includes(q));
+    const status = this.statusFilter();
+    return this.items().filter(
+      (item) =>
+        normalizeSearch(item.name).includes(q) &&
+        (status === 'all' ||
+          (status === 'drafts' ? item.status !== 'published' : item.status !== 'draft')),
+    );
   });
   constructor() {
     afterNextRender(() => void this.load());
@@ -121,39 +136,10 @@ export class CreatorList {
       this.busy.set(false);
     }
   }
-  async open(id: string): Promise<void> {
-    this.busy.set(true);
-    this.error.set('');
-    try {
-      const draft = await this.creator.open(id);
-      await this.router.navigate(['/kreator', draft.id]);
-    } catch {
-      this.error.set('Nie udało się otworzyć szkicu.');
-    } finally {
-      this.busy.set(false);
-    }
-  }
-  readonly selected = signal<CreatorItem | null>(null);
-  private readonly confirmation = viewChild.required(ConfirmDialog);
-  private readonly addButton = viewChild<ElementRef<HTMLButtonElement>>('addButton');
-  confirmRemove(item: CreatorItem): void {
-    this.selected.set(item);
-    this.confirmation().open();
-  }
-  async onConfirmation(confirmed: boolean): Promise<void> {
-    const item = this.selected();
-    this.selected.set(null);
-    if (!confirmed || !item) return;
-    this.busy.set(true);
-    this.error.set('');
-    try {
-      await this.creator.remove(item.id);
-      await this.load();
-    } catch {
-      this.error.set('Nie udało się usunąć szkicu.');
-    } finally {
-      this.busy.set(false);
-      afterNextRender(() => this.addButton()?.nativeElement.focus(), { injector: this.injector });
-    }
+  icon(tagId: string | null): string {
+    const category =
+      MARKER_CATEGORIES.find((item) => item.id === tagId) ??
+      MARKER_CATEGORIES[MARKER_CATEGORIES.length - 1];
+    return markerIcon(category.icon);
   }
 }
