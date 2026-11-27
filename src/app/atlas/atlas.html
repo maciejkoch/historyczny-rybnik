@@ -121,9 +121,6 @@
   >
     <app-atlas-map
       [places]="places()"
-      [editing]="editing()"
-      [draftPoint]="draftPoint()"
-      (pointPicked)="pickPoint($event)"
       [selected]="selected()"
       [focusSelected]="hasDetails()"
       [layoutAnimating]="sheetAnimating()"
@@ -257,58 +254,7 @@
         } @else if (!selected() && publicPlaces.detailStatus() === 'error') {
           <p role="alert">Nie udało się pobrać miejsca. Odśwież stronę, aby spróbować ponownie.</p>
         }
-        <app-place-details-panel [place]="selected()" (imageOpened)="enlarged.set($event)">
-          <div location-actions>
-            @if (selected() && account.user() && account.admin()) {
-              @if (!editing()) {
-                <button class="btn btn-outline" type="button" (click)="startEditing()">
-                  Popraw lokalizację
-                </button>
-              } @else {
-                <fieldset [disabled]="saving()" class="location-editor">
-                  <legend>Popraw lokalizację</legend>
-                  <p>Kliknij punkt na mapie. Podgląd nie jest jeszcze zapisany.</p>
-                  @if (draftPoint(); as point) {
-                    <p class="text-xs text-muted">
-                      Współrzędne: {{ point.lat.toFixed(6) }}, {{ point.lng.toFixed(6) }}
-                    </p>
-                  }
-                  <label
-                    >Dokładność
-                    <select
-                      [value]="precision()"
-                      (change)="precision.set($any($event.target).value)"
-                    >
-                      <option value="approximate">Przybliżona</option>
-                      <option value="exact">Wskazany budynek</option>
-                    </select></label
-                  >
-                  <label
-                    >Komentarz (opcjonalnie)
-                    <textarea
-                      maxlength="2000"
-                      [value]="explanation()"
-                      (input)="explanation.set($any($event.target).value)"
-                    ></textarea>
-                  </label>
-                  <p>Zapis od razu opublikuje nową lokalizację.</p>
-                  <button
-                    class="btn btn-primary"
-                    type="button"
-                    [disabled]="needsRestart() || !draftPoint()"
-                    (click)="saveLocation()"
-                  >
-                    {{ saving() ? 'Zapisywanie…' : 'Zapisz lokalizację' }}
-                  </button>
-                  <button class="btn" type="button" (click)="cancelEditing()">Anuluj</button>
-                </fieldset>
-              }
-              @if (editMessage()) {
-                <p role="status">{{ editMessage() }}</p>
-              }
-            }
-          </div>
-        </app-place-details-panel>
+        <app-place-details-panel [place]="selected()" (imageOpened)="enlarged.set($event)" />
       </section>
     </div>
   </aside>

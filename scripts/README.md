@@ -10,7 +10,6 @@ Pełny spis utrzymywanych skryptów repozytorium. Polecenia uruchamiamy z root, 
 | [maps/register_scans.py](maps/register_scans.py) | Wyznacza kandydatów punktów dopasowania na podstawie lokalnych obrazów odniesienia; narzędzie opcjonalne. |
 | [maps/cluster-visibility.test.mjs](maps/cluster-visibility.test.mjs) | Sprawdza usuwanie nakładających się grup kafelków różnych poziomów. |
 | [maps/test_georeference.py](maps/test_georeference.py) | Testuje georeferencję, transformację odwrotną i walidację punktów. |
-| [places/check-live.mjs](places/check-live.mjs) | Sprawdza działające API dev, App Check, Google Auth i ponowny zapis lokalizacji. Wykonuje rzeczywisty zapis lokalizacji testowego kościoła; wymaga tokenów w środowisku. |
 | [places/backfill-place-materials.mjs](places/backfill-place-materials.mjs) | Jednorazowo uzupełnia brakujące `materials: []` w dokumentach Firestore dev; domyślnie podgląd, zapis przez `--apply`. |
 | [places/deploy-dev.mjs](places/deploy-dev.mjs) | Buduje frontend i publikuje Hosting dev bez lokalnej kopii danych miejsc; wymaga uprawnień operatora. |
 | [places/deploy-backend-dev.mjs](places/deploy-backend-dev.mjs) | Wdraża backend dev; opcjonalnie samą funkcję API ze sprawdzonym dotychczasowym rendererem SSR. |
@@ -62,7 +61,7 @@ Przygotowanie mapy i wymagania Pythona: [maps/README.md](maps/README.md). `fires
 | [functions/test/creator.test.mjs](../functions/test/creator.test.mjs), [creator.emulator.mjs](../functions/test/creator.emulator.mjs) | Autoryzacja i walidacja kreatora, wspólne szkice i ochrona opublikowanych miejsc. |
 | [functions/test/public-places.test.mjs](../functions/test/public-places.test.mjs) | Projekcja opublikowanych rekordów, publiczne API, SSR i galerie. |
 | [functions/test/validation.test.mjs](../functions/test/validation.test.mjs) | Walidacja danych wejściowych. |
-| [functions/test/api.emulator.mjs](../functions/test/api.emulator.mjs) | Odczyt, zapis i konflikty API w emulatorze. |
+| [functions/test/api.emulator.mjs](../functions/test/api.emulator.mjs) | Odczyt API w emulatorze. |
 | [functions/test/rules.emulator.mjs](../functions/test/rules.emulator.mjs) | Reguły dostępu Firestore i Storage w emulatorach. |
 | `npm --prefix functions test` | `node --test test/*.test.mjs` |
 | `npm --prefix functions run test:emulator` | `node --test test/*.emulator.mjs` |
@@ -96,7 +95,7 @@ Warsztat jest odłączony od nowego schematu. Jego poniższe polecenia i testy w
 
 `research/model/chronology.mjs` wylicza udokumentowane daty bez interpolacji lat oraz sprawdza zgodność źródła/datowania obrazu ze wzmianką. `capture --collection=documents|materials` wybiera rekord docelowy.
 
-Rzeczywiste dane miejsc są w Firestore. `places:snapshot` zapisuje `.local/places.snapshot.json` wyłącznie jako punkt odniesienia dla eksportu warsztatu i narzędzi operatora; build, SSR i deploy go nie odczytują. Eksport warsztatu zapisuje `.local/research.catalog.json`. Import i uploader domyślnie używają tego eksportu; `check-live.mjs` wymaga snapshotu z lokalizacją sprawdzanego miejsca. `research export --baseline=plik.json` nadpisuje domyślną bazę warsztatu.
+Rzeczywiste dane miejsc są w Firestore. `places:snapshot` zapisuje `.local/places.snapshot.json` wyłącznie jako punkt odniesienia dla eksportu warsztatu i narzędzi operatora; build, SSR i deploy go nie odczytują. Eksport warsztatu zapisuje `.local/research.catalog.json`. Import i uploader domyślnie używają tego eksportu; `research export --baseline=plik.json` nadpisuje domyślną bazę warsztatu.
 
 `start`, `watch` i build nie wymagają danych miejsc ani przygotowania katalogu. `data/places.fixture.json` jest używany wyłącznie w testach i nie trafia do aplikacji. `prepare-hosting.mjs` tworzy `.local/firebase.dev.json` z bezwzględną ścieżką artefaktów i nie modyfikuje szablonów Firebase. `preview` używa tej konfiguracji; `deploy:dev-N` tworzy `.local/firebase.dev-N.json` dla właściwej witryny.
 

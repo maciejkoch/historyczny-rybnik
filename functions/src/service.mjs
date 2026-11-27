@@ -1,7 +1,6 @@
 import { HttpsError } from 'firebase-functions/v2/https';
-import { FieldValue, GeoPoint } from 'firebase-admin/firestore';
 import { locationDtoSchema, readResponseSchema } from './contracts/places.mjs';
-import { readRequest, writeRequest, ValidationError } from './validation.mjs';
+import { readRequest, ValidationError } from './validation.mjs';
 const fail = (code, message) => {
   throw new HttpsError(code, message);
 };
@@ -48,27 +47,4 @@ export async function readLocations(db, request) {
       places: docs.filter((doc) => doc.exists && doc.data().published === true).map(locationDto),
     }),
   );
-}
-export async function updateLocation(db, request) {
-  requireApp(request);
-  if (!request.auth || request.auth.token.firebase?.sign_in_provider !== 'google.com')
-    fail('unauthenticated', 'Google authentication required');
-  if (request.auth.token.admin !== true) fail('permission-denied', 'Administrator role required');
-  const data = validate(writeRequest, request.data);
-  const ref = db.collection('places').doc(data.placeId);
-  await db.runTransaction(async (tx) => {
-    const snapshot = await tx.get(ref);
-    if (!snapshot.exists || snapshot.data().published !== true)
-      fail('not-found', 'Place unavailable');
-    tx.update(ref, {
-      location: {
-        ...data.location,
-        coordinates: new GeoPoint(data.location.coordinates.lat, data.location.coordinates.lng),
-      },
-      updatedAt: FieldValue.serverTimestamp(),
-    });
-  });
-  // A later concurrent edit may already be visible: this is current state, not a request receipt.
-  const saved = await ref.get();
-  return serverResponse(() => locationDto(saved));
 }

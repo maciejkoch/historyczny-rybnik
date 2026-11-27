@@ -13,16 +13,28 @@ type Mention = NonNullable<CreatorDraft['data']['mentions']>[number];
     <div class="collapse-content">
       <label class="fieldset"
         ><span class="fieldset-legend text-sm">Tytuł</span
-        ><input class="input w-full" [formField]="fields.title"
-      /></label>
+        ><input class="input w-full" data-field="title" [formField]="fields.title" />
+        @for (message of fieldIssues('title'); track $index) {
+          <span class="text-error-content text-sm">{{ message }}</span>
+        }
+      </label>
       <label class="fieldset"
         ><span class="fieldset-legend text-sm">Opis</span
-        ><textarea class="textarea w-full" rows="3" [formField]="fields.description"></textarea>
+        ><textarea
+          class="textarea w-full"
+          rows="3"
+          data-field="description"
+          [formField]="fields.description"
+        ></textarea>
+        @for (message of fieldIssues('description'); track $index) {
+          <span class="text-error-content text-sm">{{ message }}</span>
+        }
       </label>
       <label class="fieldset"
         ><span class="fieldset-legend text-sm">Data publikacji źródła</span
         ><input
           class="input w-full"
+          data-field="publicationDate"
           [formField]="fields.publicationDate"
           placeholder="RRRR, MM-RRRR lub DD-MM-RRRR"
         />
@@ -30,6 +42,9 @@ type Mention = NonNullable<CreatorDraft['data']['mentions']>[number];
           <span class="text-error-content text-sm" role="alert"
             >Wpisz poprawną datę: RRRR, MM-RRRR lub DD-MM-RRRR.</span
           >
+        }
+        @for (message of fieldIssues('publicationDate'); track $index) {
+          <span class="text-error-content text-sm">{{ message }}</span>
         }
       </label>
       <fieldset class="fieldset">
@@ -60,8 +75,11 @@ type Mention = NonNullable<CreatorDraft['data']['mentions']>[number];
       /></label>
       <label class="fieldset"
         ><span class="fieldset-legend text-sm">Link do źródła</span
-        ><input class="input w-full" [formField]="fields.sourceUrl"
-      /></label>
+        ><input class="input w-full" data-field="sourceUrl" [formField]="fields.sourceUrl" />
+        @for (message of fieldIssues('sourceUrl'); track $index) {
+          <span class="text-error-content text-sm">{{ message }}</span>
+        }
+      </label>
       <label class="fieldset"
         ><span class="fieldset-legend text-sm">Wskazanie fragmentu źródła</span
         ><input class="input w-full" [formField]="fields.sourceNote" placeholder="Np. strona 4"
@@ -171,6 +189,12 @@ type Mention = NonNullable<CreatorDraft['data']['mentions']>[number];
   </details>`,
 })
 export class MentionEditor {
+  readonly publicationIssues = input<Array<{ path: string[]; message: string }>>([]);
+  fieldIssues(field: string): string[] {
+    return this.publicationIssues()
+      .filter((issue) => issue.path[2] === field)
+      .map((issue) => issue.message);
+  }
   readonly initial = input.required<Mention>();
   readonly removeRequested = output<void>();
   readonly materials = input<NonNullable<CreatorDraft['data']['materials']>>([]);

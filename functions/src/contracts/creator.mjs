@@ -99,6 +99,7 @@ export const creatorListResponseSchema = z.strictObject({
       z.strictObject({
         id: idSchema,
         name: z.string().max(200),
+        tagId: z.string().max(100).nullable(),
         status: z.enum(['published', 'modified', 'draft']),
       }),
     )

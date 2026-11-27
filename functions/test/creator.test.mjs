@@ -5,6 +5,10 @@ import {
   createCreatorDraft,
   openCreatorDraft,
   deleteCreatorDraft,
+  publishCreatorDraft,
+  validateCreatorPublication,
+  restoreCreatorDraft,
+  unpublishCreatorPlace,
 } from '../src/creator.mjs';
 import {
   draftDataSchema,
@@ -14,7 +18,16 @@ import {
 import { mentionSchema, placeMaterialSchema, placeSchema } from '../src/contracts/places.mjs';
 import { authenticateLocal } from '../src/creator-local-auth.mjs';
 
-const handlers = [listCreatorPlaces, createCreatorDraft, openCreatorDraft, deleteCreatorDraft];
+const handlers = [
+  listCreatorPlaces,
+  createCreatorDraft,
+  openCreatorDraft,
+  deleteCreatorDraft,
+  publishCreatorDraft,
+  validateCreatorPublication,
+  restoreCreatorDraft,
+  unpublishCreatorPlace,
+];
 test('all creator operations enforce App Check, Google authentication and administrator role', async () => {
   for (const handler of handlers) {
     await assert.rejects(handler(null, { data: {} }), { code: 'unauthenticated' });

@@ -1,11 +1,9 @@
-import { Account } from '../places/account';
 import {
   afterNextRender,
   afterRenderEffect,
   ChangeDetectionStrategy,
   Component,
   computed,
-  effect,
   DestroyRef,
   ElementRef,
   inject,
@@ -20,7 +18,6 @@ import { PanelLayout } from './panel-layout';
 import { AtlasMap } from '../atlas-map/atlas-map';
 import { markerCategory, markerIcon } from '../atlas-map/place-markers';
 import { PublicPlaces } from '../places/public-places';
-import { Locations } from '../places/locations';
 import { Place, PlaceSummary } from '../places/place';
 import { filterPlaces } from '../places/place-filter';
 import { PlaceSearchPanel } from './place-search-panel';
@@ -49,85 +46,8 @@ export class Atlas {
   private readonly destroyRef = inject(DestroyRef);
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
-  readonly account = inject(Account);
   readonly markerCategory = markerCategory;
   readonly markerIcon = markerIcon;
-  readonly editing = signal(false);
-  readonly draftPoint = signal<{ lat: number; lng: number } | null>(null);
-  readonly precision = signal<'exact' | 'approximate'>('approximate');
-  readonly explanation = signal('');
-  readonly saving = signal(false);
-  readonly needsRestart = signal(false);
-  readonly editMessage = signal('');
-  private editId = '';
-  async startEditing(): Promise<void> {
-    if (!this.account.user()) {
-      await this.account.toggle();
-      return;
-    }
-    if (!this.account.admin()) return;
-    const selected = this.selected();
-    if (selected) await this.locations.refresh([selected.id]);
-    const place = this.selected();
-    if (
-      !place ||
-      this.locations.status() !== 'ready' ||
-      !this.locations.current().some((current) => current.id === place.id)
-    ) {
-      this.editMessage.set('Nie można pobrać bieżącej pozycji. Spróbuj ponownie.');
-      return;
-    }
-    this.needsRestart.set(false);
-    this.editId = place.id;
-    this.draftPoint.set(place.location.coordinates);
-    this.precision.set(place.location.precision === 'exact' ? 'exact' : 'approximate');
-    this.explanation.set(place.location.explanation ?? '');
-    this.editMessage.set('');
-    this.editing.set(true);
-  }
-  cancelEditing(): void {
-    this.editing.set(false);
-    this.draftPoint.set(null);
-  }
-  pickPoint(point: { lat: number; lng: number }): void {
-    if (this.editing() && !this.saving()) this.draftPoint.set(point);
-  }
-  async saveLocation(): Promise<void> {
-    const point = this.draftPoint();
-    if (
-      this.needsRestart() ||
-      this.saving() ||
-      !point ||
-      !Number.isFinite(point.lat) ||
-      !Number.isFinite(point.lng) ||
-      Math.abs(point.lat) > 90 ||
-      Math.abs(point.lng) > 180 ||
-      !this.account.admin()
-    )
-      return;
-    this.saving.set(true);
-    try {
-      await this.locations.update({
-        placeId: this.editId,
-        location: {
-          coordinates: point,
-          precision: this.precision(),
-          explanation: this.explanation().trim(),
-        },
-      });
-      this.cancelEditing();
-      this.editMessage.set('Lokalizacja została zapisana.');
-    } catch {
-      await this.locations.refresh([this.editId]);
-      this.editMessage.set(
-        'Nie udało się potwierdzić zapisu. Sprawdź bieżącą pozycję przed ponowieniem.',
-      );
-      this.needsRestart.set(true);
-    } finally {
-      this.saving.set(false);
-    }
-  }
-  readonly locations = inject(Locations);
   readonly publicPlaces = inject(PublicPlaces);
   readonly withoutLocation = signal(false);
   readonly selectedTag = signal('');
@@ -138,18 +58,8 @@ export class Atlas {
   readonly sheetOpen = signal(this.route.snapshot.data['screen'] === 'place');
   readonly sheetAnimating = signal(false);
   readonly headerHeight = signal(74);
-  readonly places = computed<readonly PlaceSummary[]>(() =>
-    this.publicPlaces.summaries().map((place) => {
-      const current = this.locations.current().find((value) => value.id === place.id);
-      return current ? { ...place, ...current } : place;
-    }),
-  );
-  readonly selected = computed<Place | null>(() => {
-    const place = this.params()['place'] as Place | null | undefined;
-    if (!place) return null;
-    const current = this.locations.current().find((value) => value.id === place.id);
-    return current ? { ...place, ...current } : place;
-  });
+  readonly places = computed<readonly PlaceSummary[]>(() => this.publicPlaces.summaries());
+  readonly selected = computed<Place | null>(() => (this.params()['place'] as Place | null | undefined) ?? null);
   readonly tags = computed(() => {
     const tags = new Map<string, { id: string; name: string }>();
     for (const place of this.places()) {
@@ -226,13 +136,9 @@ export class Atlas {
         reducedMotion.removeEventListener('change', settle);
       });
     });
-    effect(() => {
-      if (!this.account.admin()) this.cancelEditing();
-    });
     this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
       if (typeof window === 'undefined') return;
       if (event instanceof NavigationStart) {
-        this.cancelEditing();
         const target = event.url.split(/[?#]/)[0];
         this.animateNextNavigation =
           !this.isDesktop() &&
@@ -302,7 +208,6 @@ export class Atlas {
   }
 
   closeFromMap(): void {
-    if (this.editing()) return;
     if (!this.isDesktop() && this.hasDetails()) void this.router.navigate(['/']);
   }
 
@@ -313,8 +218,6 @@ export class Atlas {
   }
 
   select(place: PlaceSummary): void {
-    if (this.saving() || this.editing()) return;
-    this.cancelEditing();
     if (this.screen() !== 'place') this.returnToSearch = this.screen() === 'search';
     const path = '/miejsca/' + place.slug;
     if (this.currentPath === path) {

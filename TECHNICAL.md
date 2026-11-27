@@ -23,7 +23,7 @@ Aktualny stan kodu i konfiguracji. [CONTRIBUTING.md](CONTRIBUTING.md) określa p
 
 ## Architektura frontendu
 
-Kreator (`/kreator`, `/kreator/:id`) działa jako SPA w przeglądarce; Hosting dev kieruje jego trasy do szkieletu CSR. Guard routingu oczekuje odczytu logowania Google i roli administratora oraz kieruje osoby bez dostępu na stronę główną; przy wylogowaniu lub utracie roli otwarty kreator jest opuszczany. Te same wymagania logowania obowiązują lokalnie; wyjątek od App Check opisuje SECURITY. Backend niezależnie sprawdza uprawnienia każdej operacji. Lista korzysta z kontenera o tej samej szerokości co „O nas”; edytor zajmuje pełną szerokość. Trzy panele szkicu domyślnie dzielą dostępną szerokość po równo i używają mechanizmu przeciągania i klawiatury współdzielonego z mapą; ich osobne preferencje szerokości są zapisywane po zgodzie na preferencje. Usuwanie szkicu korzysta ze współdzielonego potwierdzenia `ConfirmDialog` na natywnym dialogu i komponencie modal daisyUI. Formularz podstawowych danych korzysta z Signal Forms, zapisuje cały szkic automatycznie, wstrzymuje zapis przy niepoprawnym formacie daty okresu i pokazuje stan zapisu; nawigację przy niezapisanych zmianach obsługuje CanDeactivate. Formularz umożliwia edycję wzmianek i lokalizacji na osobnej mapie z planem historycznym i suwakiem krycia. Materiały można przesyłać, edytować i wiązać ze wzmiankami. Podgląd korzysta ze wspólnej karty miejsca i osobnego stanu ostatnio zapisanego szkicu; aktualizuje się po potwierdzeniu zapisu, także gdy kolejne zmiany nadal oczekują. AI pozostaje w kolejnej fazie.
+Kreator (`/kreator`, `/kreator/:id`) działa jako SPA w przeglądarce; Hosting dev kieruje jego trasy do szkieletu CSR. Guard routingu oczekuje odczytu logowania Google i roli administratora oraz kieruje osoby bez dostępu na stronę główną; przy wylogowaniu lub utracie roli otwarty kreator jest opuszczany. Te same wymagania logowania obowiązują lokalnie; wyjątek od App Check opisuje SECURITY. Backend niezależnie sprawdza uprawnienia każdej operacji. Lista korzysta z kontenera o tej samej szerokości co „O nas”; filtruje nazwę i stan publikacji (miejsce z nieopublikowanymi zmianami należy do szkiców i opublikowanych), a każdy wiersz z ikoną głównego tagu otwiera edytor, który zajmuje pełną szerokość. Usuwanie nieopublikowanego szkicu jest w menu edytora i po potwierdzeniu wraca do listy. Trzy panele szkicu domyślnie dzielą dostępną szerokość po równo i używają mechanizmu przeciągania i klawiatury współdzielonego z mapą; ich osobne preferencje szerokości są zapisywane po zgodzie na preferencje. Usuwanie szkicu korzysta ze współdzielonego potwierdzenia `ConfirmDialog` na natywnym dialogu i komponencie modal daisyUI. Formularz podstawowych danych korzysta z Signal Forms, zapisuje cały szkic automatycznie, wstrzymuje zapis przy niepoprawnym formacie daty okresu i pokazuje stan zapisu; nawigację przy niezapisanych zmianach obsługuje CanDeactivate. Formularz umożliwia edycję wzmianek i lokalizacji na osobnej mapie z planem historycznym i suwakiem krycia. Materiały można przesyłać, edytować i wiązać ze wzmiankami. Podgląd korzysta ze wspólnej karty miejsca i osobnego stanu ostatnio zapisanego szkicu; aktualizuje się po potwierdzeniu zapisu, także gdy kolejne zmiany nadal oczekują. Przełącznik pobiera wersję opublikowaną przez publiczne API, rozpoznając miejsce po ID, i zachowuje ją w pamięci edytora; publikacja i przywracanie odświeżają podgląd, a wycofanie go usuwa. Nieopublikowane miejsca nie mają tej opcji. Nagłówek pokazuje stan publikacji na podstawie porównania zapisanego szkicu z wersją publiczną; po zapisaniu stan jest ponownie pobierany, a błąd jego odczytu blokuje publikację do ponowienia. Publikacja, przywracanie i wycofywanie wymagają potwierdzenia; walidacja publikacji używa wspólnego kontraktu miejsca, a błędy są pokazywane w formularzu. AI pozostaje w kolejnej fazie.
 
 | Obszar | Odpowiedzialność |
 | --- | --- |
@@ -42,7 +42,7 @@ Przepływ danych: Firestore `places-dev` → zweryfikowane publiczne projekcje �
 
 Atlas przekazuje mapie pełny katalog miejsc, a panelowi wyszukiwania wynik filtrowania nazwy, dowolnego tagu i braku lokalizacji. Opcje filtra obejmują wszystkie tagi katalogu, także dodatkowe. Mapa tworzy znaczniki dla miejsc ze współrzędnymi i wyróżnia wybrane miejsce niezależnie od filtrów listy.
 
-`Locations` ładuje Firebase i App Check dopiero po zgodzie Google i pobiera bieżącą pozycję przed edycją. Publiczne API i karty są dostępne niezależnie od zgody; publiczny odczyt nie zmienia chronionego API zapisu.
+Publiczne API i karty są dostępne niezależnie od zgody Google.
 
 ## Architektura backendu
 
@@ -53,8 +53,8 @@ Pola merytoryczne szkicu są opcjonalnymi odpowiednikami pól miejsca, w tym wew
 | Obszar | Odpowiedzialność |
 | --- | --- |
 | `functions/src/public-places.mjs`, `public-web.mjs` | Jawne, walidowane projekcje publiczne; dynamiczny katalog, karta, sitemap i SSR. |
-| `functions/src/index.mjs` | Inicjalizuje Admin SDK i bazę `places-dev`, eksportuje callable API `placesDevRead` i `placesDevUpdate` w regionie `europe-central2`. Konfiguruje App Check, CORS, konto usługi i limity zasobów. |
-| `functions/src/service.mjs` | Realizuje odczyt publicznych pozycji i transakcyjny zapis lokalizacji, autoryzację oraz mapowanie danych Firestore na odpowiedź API. |
+| `functions/src/index.mjs` | Inicjalizuje Admin SDK i bazę `places-dev`, eksportuje callable API `placesDevRead` w regionie `europe-central2`. Konfiguruje App Check, CORS, konto usługi i limity zasobów. |
+| `functions/src/service.mjs` | Realizuje odczyt publicznych pozycji i mapowanie danych Firestore na odpowiedź API. |
 | `functions/src/validation.mjs` | Udostępnia walidację wejścia i katalogu oraz wspólny format błędów walidacji. |
 | `functions/src/contracts/places.mjs` | Schematy Zod współdzielone przez backend, frontend i skrypty publikacji; obejmują katalog, żądania i odpowiedzi. |
 | `functions/test/` | Testy logiki, kontraktów i walidacji oraz testy API i reguł w emulatorach. |
@@ -63,7 +63,7 @@ Pola merytoryczne szkicu są opcjonalnymi odpowiednikami pól miejsca, w tym wew
 
 `placesDevRead`: App Check → walidacja listy identyfikatorów → odczyt opublikowanych dokumentów `places` → odpowiedź z lokalizacją i czasem aktualizacji. Nie wymaga zalogowanego użytkownika.
 
-`placesDevUpdate`: App Check, Google Auth i rola administratora → walidacja → zapis lokalizacji z czasem serwera. Równoległe zapisy stosują zasadę ostatniego zapisu. API nie przechowuje historii ani autora zmiany.
+Kreator publikuje zapisany, zwalidowany szkic, przywraca opublikowane dane i wycofuje miejsce przez zmianę flagi publikacji. Transakcje sprawdzają stan oraz kolizję sluga; publikacja wymaga zgodności z przedstawionym szkicem. Wycofanie zachowuje szkic i publiczne pliki. Lokalny odbiór używa bazy dev; wdrożony backend wymaga osobnej aktualizacji IAM i wdrożenia.
 
 
 ## Schemat miejsca
@@ -138,9 +138,7 @@ Szczegóły zgód i ich odbioru: [cookie-consent.md](agent-context/reference/mvp
 
 Trzy witryny `historyczny-rybnik-dev-1`, `-2`, `-3` mają osobne konfiguracje `firebase.dev-N.json` i polecenia `deploy:dev-N`. Współdzielą istniejący backend dev; domeny dopuszczono w CORS, Auth i App Check. Atomowe blokady `env-lock/dev-N` oraz pole Środowisko w Projects określają rezerwacje. Pełny proces: [środowiska](agent-context/reference/mvp-1/srodowiska.md). Stały dev służy integracji.
 
-Rola administratora: custom claim `admin: true` w Firebase Auth. Rejestracja i przeglądanie są publiczne; zapis lokalizacji wymaga Google Auth, App Check i roli admina. Rola dociera do klienta przy wydaniu nowego tokenu, np. po ponownym logowaniu. Odebranie roli nie unieważnia już wydanego tokenu (ważnego do około godziny).
-
-Podczas edycji lokalizacji wybór innych miejsc jest wyłączony, współrzędne są tylko informacją. Komentarz jest opcjonalny: edytor wczytuje bieżący tekst i zastępuje go przy zapisie (pusty tekst usuwa komentarz), bez historii komentarzy.
+Rola administratora: custom claim `admin: true` w Firebase Auth. Rejestracja i przeglądanie są publiczne; kreator wymaga Google Auth i roli admina, a wdrożone API także App Check. Rola dociera do klienta przy wydaniu nowego tokenu, np. po ponownym logowaniu. Odebranie roli nie unieważnia już wydanego tokenu (ważnego do około godziny).
 
 ## Dane dev i warsztat
 
@@ -154,7 +152,7 @@ Skill `rybnik-create-place` używa bieżącego agenta bez wymogu konkretnego mod
 
 Aplikacja używa MapLibre GL JS 6.16.0: źródeł i warstw wektorowych, rastrowych oraz GeoJSON, znaczników HTML, kamery, kontrolek i zdarzeń mapy. Grupowanie wykorzystuje klastrowanie GeoJSON MapLibre; własna obsługa znaczników i animacji grup znajduje się w `src/app/atlas-map/group-markers.ts`, a rozstrzyganie nakładających się grup w `src/app/atlas-map/cluster-visibility.ts`.
 
-Domyślna kamera i przycisk powrotu mapy używają wspólnego punktu na Rynku. Kontrolka atrybucji MapLibre zachowuje dane źródeł i domyślny responsywny tryb: na wąskiej mapie po przesunięciu zwija się do przycisku informacji. Działania edycji lokalizacji są wyświetlane w sekcji lokalizacji karty.
+Domyślna kamera i przycisk powrotu mapy używają wspólnego punktu na Rynku. Kontrolka atrybucji MapLibre zachowuje dane źródeł i domyślny responsywny tryb: na wąskiej mapie po przesunięciu zwija się do przycisku informacji.
 
 ### Materiały kreatora
 

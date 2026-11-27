@@ -13,6 +13,10 @@ import {
   openCreatorDraft,
   deleteCreatorDraft,
   saveCreatorDraft,
+  publishCreatorDraft,
+  validateCreatorPublication,
+  restoreCreatorDraft,
+  unpublishCreatorPlace,
   requireCreatorIdentity,
 } from './creator.mjs';
 import { authenticateLocal } from './creator-local-auth.mjs';
@@ -72,6 +76,10 @@ const handlers = {
   placesDevCreatorOpen: openCreatorDraft,
   placesDevCreatorDelete: deleteCreatorDraft,
   placesDevCreatorSave: saveCreatorDraft,
+  placesDevCreatorPublish: publishCreatorDraft,
+  placesDevCreatorValidate: validateCreatorPublication,
+  placesDevCreatorRestore: restoreCreatorDraft,
+  placesDevCreatorUnpublish: unpublishCreatorPlace,
   placesDevCreatorUpload: (db, request) => uploadCreatorMaterial(db, bucket, request, true),
 };
 for (const [name, handler] of Object.entries(handlers)) {

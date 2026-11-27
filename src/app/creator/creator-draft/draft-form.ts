@@ -52,20 +52,48 @@ function storePeriod(value: string): string | null {
           <legend class="fieldset-legend text-sm">Nazwa</legend>
           <input
             class="input w-full"
+            data-validation="name"
+            [attr.aria-invalid]="fieldIssues('name').length ? true : null"
             [formField]="fields.name"
             (input)="nameChanged($any($event.target).value)"
           />
+          @for (message of fieldIssues('name'); track $index) {
+            <p class="text-error-content text-sm">{{ message }}</p>
+          }
         </fieldset>
         <fieldset class="fieldset">
           <legend class="fieldset-legend text-sm">Slug</legend>
-          <input class="input w-full" [formField]="fields.slug" (input)="slugEdited = true" />
+          <input
+            class="input w-full"
+            data-validation="slug"
+            [attr.aria-invalid]="fieldIssues('slug').length ? true : null"
+            [formField]="fields.slug"
+            (input)="slugEdited = true"
+          />
+          @for (message of fieldIssues('slug'); track $index) {
+            <p class="text-error-content text-sm">{{ message }}</p>
+          }
         </fieldset>
         <fieldset class="fieldset">
           <legend class="fieldset-legend text-sm">Opis</legend>
-          <textarea class="textarea w-full" rows="4" [formField]="fields.description"></textarea>
+          <textarea
+            class="textarea w-full"
+            rows="4"
+            data-validation="description"
+            [attr.aria-invalid]="fieldIssues('description').length ? true : null"
+            [formField]="fields.description"
+          ></textarea>
+          @for (message of fieldIssues('description'); track $index) {
+            <p class="text-error-content text-sm">{{ message }}</p>
+          }
         </fieldset>
         <fieldset class="fieldset">
           <legend class="fieldset-legend text-sm">Tagi</legend>
+          <div data-validation="tags" tabindex="-1">
+            @for (message of fieldIssues('tags'); track $index) {
+              <p class="text-error-content text-sm">{{ message }}</p>
+            }
+          </div>
           @for (tag of tags(); track $index; let i = $index) {
             <div class="flex items-center gap-2">
               <span class="flex grow items-center gap-2">
@@ -119,6 +147,11 @@ function storePeriod(value: string): string | null {
         </fieldset>
         <fieldset class="fieldset">
           <legend class="fieldset-legend text-sm">Udokumentowany okres</legend>
+          <div data-validation="documentedPeriod" tabindex="-1">
+            @for (message of fieldIssues('documentedPeriod'); track $index) {
+              <p class="text-error-content text-sm">{{ message }}</p>
+            }
+          </div>
           <div class="flex gap-2">
             <label class="grow text-sm font-semibold"
               >Od
@@ -155,7 +188,7 @@ function storePeriod(value: string): string | null {
     </details>
     <section class="mt-3 border-t border-base-300 pt-3">
       <div class="flex items-center justify-between gap-2">
-        <h3 class="text-lg font-semibold">Wzmianki</h3>
+        <h3 data-validation="mentions" tabindex="-1" class="text-lg font-semibold">Wzmianki</h3>
         <button
           type="button"
           class="btn btn-outline"
@@ -166,8 +199,10 @@ function storePeriod(value: string): string | null {
         </button>
       </div>
       <div class="mt-3 grid gap-3">
-        @for (entry of mentions(); track entry.key) {
+        @for (entry of mentions(); track entry.key; let i = $index) {
           <app-mention-editor
+            [attr.data-entry]="'mentions-' + i"
+            [publicationIssues]="entryIssues('mentions', i)"
             [initial]="entry.data"
             [materials]="materials()"
             [uploading]="uploading()"
@@ -182,7 +217,7 @@ function storePeriod(value: string): string | null {
       </div>
     </section>
     <section class="mt-3 border-t border-base-300 pt-3">
-      <h3 class="text-lg font-semibold">Materiały</h3>
+      <h3 data-validation="materials" tabindex="-1" class="text-lg font-semibold">Materiały</h3>
       <button
         type="button"
         class="btn btn-outline mt-2"
@@ -206,7 +241,10 @@ function storePeriod(value: string): string | null {
       }
       <div class="mt-3 grid gap-3">
         @for (material of materials(); track $index; let i = $index) {
-          <div class="rounded-box border border-base-300 p-3">
+          <div class="rounded-box border border-base-300 p-3" [attr.data-entry]="'materials-' + i">
+            @for (issue of entryIssues('materials', i); track $index) {
+              <p class="text-error-content text-sm">{{ issue.message }}</p>
+            }
             <button
               type="button"
               class="block w-full cursor-zoom-in"
@@ -225,17 +263,37 @@ function storePeriod(value: string): string | null {
               ><input
                 class="input w-full"
                 maxlength="500"
+                data-field="alt"
+                [attr.aria-invalid]="
+                  entryIssues('materials', i).some(issueField('alt')) ? true : null
+                "
                 [value]="material.alt || ''"
                 (input)="updateMaterial(i, 'alt', $any($event.target).value)"
-            /></label>
+              />
+              @for (issue of entryIssues('materials', i); track $index) {
+                @if (issue.path[2] === 'alt') {
+                  <span class="text-error-content text-sm">{{ issue.message }}</span>
+                }
+              }
+            </label>
             <label class="fieldset"
               ><span>Data (RRRR, RRRR-MM lub RRRR-MM-DD)</span
               ><input
                 class="input w-full"
                 maxlength="32"
+                data-field="date"
+                [attr.aria-invalid]="
+                  entryIssues('materials', i).some(issueField('date')) ? true : null
+                "
                 [value]="material.date || ''"
                 (input)="updateMaterial(i, 'date', $any($event.target).value || null)"
-            /></label>
+              />
+              @for (issue of entryIssues('materials', i); track $index) {
+                @if (issue.path[2] === 'date') {
+                  <span class="text-error-content text-sm">{{ issue.message }}</span>
+                }
+              }
+            </label>
             <label class="fieldset"
               ><span>Źródło</span
               ><input
@@ -249,9 +307,19 @@ function storePeriod(value: string): string | null {
               ><input
                 class="input w-full"
                 maxlength="2000"
+                data-field="sourceUrl"
+                [attr.aria-invalid]="
+                  entryIssues('materials', i).some(issueField('sourceUrl')) ? true : null
+                "
                 [value]="material.sourceUrl || ''"
                 (input)="updateMaterial(i, 'sourceUrl', $any($event.target).value || null)"
-            /></label>
+              />
+              @for (issue of entryIssues('materials', i); track $index) {
+                @if (issue.path[2] === 'sourceUrl') {
+                  <span class="text-error-content text-sm">{{ issue.message }}</span>
+                }
+              }
+            </label>
             <label class="label flex w-fit text-sm font-semibold"
               ><input
                 type="checkbox"
@@ -307,6 +375,20 @@ export class DraftForm {
   private materialToRemove: number | null = null;
   private readonly materialDialog = viewChild.required<ConfirmDialog>('materialDialog');
   readonly changed = output<Data>();
+  readonly publicationIssues = input<Array<{ path: string[]; message: string }>>([]);
+  issueField(field: string) {
+    return (issue: { path: string[] }) => issue.path[2] === field;
+  }
+  entryIssues(field: string, index: number): Array<{ path: string[]; message: string }> {
+    return this.publicationIssues().filter(
+      (issue) => issue.path[0] === field && issue.path[1] === String(index),
+    );
+  }
+  fieldIssues(field: string): string[] {
+    return this.publicationIssues()
+      .filter((issue) => issue.path[0] === field)
+      .map((issue) => issue.message);
+  }
   readonly model = signal({
     name: '',
     slug: '',
